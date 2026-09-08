@@ -55,6 +55,7 @@ Hooks.once("init", () => {
 
   registerSheets();
   registerHandlebarsHelpers();
+  registerPartials();
 
   // Exposed so macros and companion modules can reach the system without
   // reaching into module internals.
@@ -125,6 +126,16 @@ function registerSheets() {
     makeDefault: true,
     label: "MODERN20.SheetLabel.Item"
   });
+}
+
+/**
+ * Templates used with {{> ...}} have to be loaded before they can be resolved
+ * as partials; HandlebarsApplicationMixin only loads an application's own PARTS.
+ */
+function registerPartials() {
+  foundry.applications.handlebars.loadTemplates([
+    "systems/modern20/templates/creator/skills-table.hbs"
+  ]);
 }
 
 function registerHandlebarsHelpers() {

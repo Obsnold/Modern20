@@ -5,6 +5,9 @@
     <input class="m20-name" type="text" name="name" value="{{document.name}}" placeholder="{{localize 'MODERN20.Placeholder.Name'}}">
     <div class="m20-header__classes">
       <span class="m20-tag m20-tag--level">{{localize "MODERN20.CharacterLevel"}} {{system.details.level}}</span>
+      {{#unless isGM}}<span class="m20-tag" title="{{localize 'MODERN20.Locked'}}">
+        <i class="fa-solid fa-lock"></i>
+      </span>{{/unless}}
       {{#each system.details.classLevels}}
         <span class="m20-tag">{{this.name}} {{this.levels}}</span>
       {{else}}

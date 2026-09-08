@@ -920,7 +920,8 @@
         "abilities": "Abilities",
         "heroclass": "Class",
         "occupation": "Occupation",
-        "review": "Review"
+        "review": "Review",
+        "skills": "Skills"
       },
       "Title": "Create a character",
       "WealthBonus": "Wealth bonus"
@@ -1397,6 +1398,7 @@
       "Maximum": "maximum",
       "NoTalents": "No talents remain for {name}; the compendium may not be installed."
     },
+    "Locked": "Locked. Use the creator or the level-up screen; ask the GM for anything else.",
     "Maneuver": "Maneuver",
     "Massive": "Massive",
     "MaxRanks": "Max ranks",
@@ -1496,6 +1498,14 @@
     },
     "SkillPointsRemaining": "remaining",
     "SkillPointsSpent": "Skill points spent",
+    "Skills": {
+      "Add": "Add",
+      "Allocate": "Skill points",
+      "Have": "Have",
+      "Hint": "A rank in a class skill costs one point; a cross-class rank costs two. Caps are level + 3, or half that cross-class.",
+      "NeedClass": "Choose a class first — it decides which skills are class skills and how many points you get.",
+      "TrainedNote": "* Trained only: unusable without at least one rank."
+    },
     "Source": "Source",
     "SpecialQualities": "Special Qualities",
     "SpecialtySkill": "Choose a subject",

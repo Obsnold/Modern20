@@ -1,5 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { talentChoices, featChoices, grant, grantNamedFeature } from "./level-up.mjs";
+import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 const { Roll } = foundry.dice;
@@ -46,7 +47,8 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       classFeatUuid: "",
       generalFeatUuid: "",
       ability: "str",
-      hitPoints: null
+      hitPoints: null,
+      ranks: {}
     };
   }
 
@@ -127,6 +129,24 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       { label: "MODERN20.Reputation", before: actor.system.reputation.value, delta: delta("reputation") }
     ].map((row) => ({ ...row, after: row.before + row.delta }));
 
+    // Skill points for this level, spendable here rather than on the sheet.
+    const granted = new Set();
+    for (const item of actor.items) {
+      if (item.type === "class") for (const key of item.system.classSkills ?? []) granted.add(key);
+      if (item.type === "occupation") for (const key of item.system.skillsChosen ?? []) granted.add(key);
+    }
+    context.skillRows = skillRows(actor, {
+      grantedSkills: granted,
+      pending: plan.ranks,
+      characterLevel: plan.characterLevel
+    });
+    context.spent = spendOf(context.skillRows);
+    context.budget = pointsForLevel(
+      classItem.system.skillPointsPerLevel,
+      actor.system.abilities.int.mod
+    );
+    context.overBudget = context.spent > context.budget;
+
     context.pastTable = plan.to > classItem.system.maxProgressionLevel
       && classItem.system.maxProgressionLevel > 0;
 
@@ -138,6 +158,13 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     const plan = this.#plan;
     for (const key of ["talentUuid", "classFeatUuid", "generalFeatUuid", "ability"]) {
       if (data[key] !== undefined) plan[key] = data[key];
+    }
+    for (const [key, value] of Object.entries(data)) {
+      if (!key.startsWith("rank.")) continue;
+      const skill = key.slice("rank.".length);
+      const ranks = Math.max(0, Number(value) || 0);
+      if (ranks) plan.ranks[skill] = ranks;
+      else delete plan.ranks[skill];
     }
     this.render();
   }
@@ -184,6 +211,9 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       const current = actor.system.abilities[plan.ability].value;
       await actor.update({ [`system.abilities.${plan.ability}.value`]: current + 1 });
     }
+
+    const ranks = rankUpdates(actor, plan.ranks);
+    if (Object.keys(ranks).length) await actor.update(ranks);
 
     // Action points are granted afresh at each level rather than accumulated.
     if (actor.system.actionPoints) {

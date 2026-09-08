@@ -236,7 +236,18 @@ grants it. The Wealth increase is applied when the occupation is added.
 
 No part of character creation or levelling uses a dialog. Every choice is made
 on a screen that shows the surrounding context, and nothing is written until
-the screen is confirmed. All nineteen parse cleanly; the awkward cases were Academic, which
+the screen is confirmed.
+
+**Skill points are spent in those screens too** — the creator's Skills step for
+a starting character's (points + Int) x 4, and the level-up screen for each
+level's allocation. Both use the same costing: one point per rank in a class
+skill, two cross-class, capped at level + 3 or half that cross-class.
+
+**Sheets are read-only for players.** Building happens in the creator and the
+level-up screen, which apply the rules; editing the same values directly on the
+sheet bypasses them. Players keep everything that reads or rolls, plus the
+level-up control. The GM edits freely, and a lock icon in the header says which
+mode the viewer is in. All nineteen parse cleanly; the awkward cases were Academic, which
 hides two more skills in a trailing clause, and the occupations that write
 "either A or B" with no comma to split on.
 

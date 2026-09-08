@@ -103,7 +103,11 @@ export function installStubs() {
         },
       },
       ux: { TextEditor: { implementation: { enrichHTML: async (html) => html } } },
-      handlebars: { renderTemplate: async () => "" },
+      handlebars: {
+        renderTemplate: async () => "",
+        loadTemplates: async () => [],
+        getTemplate: async () => (() => ""),
+      },
     },
     utils: { mergeObject: (a, b) => ({ ...a, ...b }) },
   };

@@ -1,6 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { talentChoices, featChoices, grant, grantNamedFeature } from "./level-up.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./occupation.mjs";
+import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 const { Roll } = foundry.dice;
@@ -41,7 +42,8 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       occupationSkills: [],
       occupationFeat: "",
       classId: "",
-      talentUuid: ""
+      talentUuid: "",
+      ranks: {}
     };
   }
 
@@ -74,6 +76,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     abilities: { template: "systems/modern20/templates/creator/abilities.hbs", scrollable: [""] },
     occupation: { template: "systems/modern20/templates/creator/occupation.hbs", scrollable: [""] },
     heroclass: { template: "systems/modern20/templates/creator/class.hbs", scrollable: [""] },
+    skills: { template: "systems/modern20/templates/creator/skills.hbs", scrollable: [""] },
     review: { template: "systems/modern20/templates/creator/review.hbs", scrollable: [""] }
   };
 
@@ -83,6 +86,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
         { id: "abilities", icon: "fa-solid fa-dice-d6" },
         { id: "occupation", icon: "fa-solid fa-briefcase" },
         { id: "heroclass", icon: "fa-solid fa-user-shield" },
+        { id: "skills", icon: "fa-solid fa-list-check" },
         { id: "review", icon: "fa-solid fa-clipboard-check" }
       ],
       initial: "abilities",
@@ -144,6 +148,29 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       context.classTalents = document ? await talentChoices(this.actor, document) : [];
       context.classFeatures = document?.system.progression?.find((r) => r.level === 1)?.features ?? [];
     }
+    const granted = new Set(state.occupationSkills);
+    if (context.chosenClass) {
+      const pack = game.packs.get("modern20.classes");
+      const document = await pack?.getDocument(state.classId);
+      for (const key of document?.system.classSkills ?? []) granted.add(key);
+      context.skillBudget = pointsForLevel(
+        document?.system.skillPointsPerLevel ?? 0,
+        Math.floor((state.abilities.int - 10) / 2),
+        { firstLevelEver: true }
+      );
+    } else {
+      context.skillBudget = 0;
+    }
+
+    context.skillRows = skillRows(this.actor, {
+      grantedSkills: granted,
+      pending: state.ranks,
+      characterLevel: 1
+    });
+    context.spent = spendOf(context.skillRows);
+    context.budget = context.skillBudget;
+    context.overBudget = context.spent > context.budget;
+
     context.startingFeats = STARTING_FEATS;
     context.ready = Boolean(state.classId);
 
@@ -196,6 +223,14 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     }
     if (data.occupationFeat !== undefined) state.occupationFeat = data.occupationFeat;
     if (data.talentUuid !== undefined) state.talentUuid = data.talentUuid;
+    for (const [key, value] of Object.entries(data)) {
+      if (key.startsWith("rank.")) {
+        const skill = key.slice("rank.".length);
+        const ranks = Math.max(0, Number(value) || 0);
+        if (ranks) state.ranks[skill] = ranks;
+        else delete state.ranks[skill];
+      }
+    }
     if (data.occupationSkill !== undefined) {
       const picked = Array.isArray(data.occupationSkill) ? data.occupationSkill : [data.occupationSkill];
       state.occupationSkills = picked.filter(Boolean);
@@ -282,6 +317,9 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       const item = await grantNamedFeature(actor, created, feature, 1);
       if (item) granted.push(item.name);
     }
+
+    const ranks = rankUpdates(actor, state.ranks);
+    if (Object.keys(ranks).length) await actor.update(ranks);
 
     if (actor.system.actionPoints) {
       await actor.update({ "system.actionPoints.value": actor.system.actionPoints.max });
