@@ -11,22 +11,78 @@
     "hitDie": "1d10",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "bluff",
-      "demolitions",
-      "drive",
-      "escapeArtist",
-      "gamble",
-      "intimidate",
-      "knowledge",
-      "moveSilently",
-      "profession",
-      "readWriteLanguage",
-      "ride",
-      "sleightOfHand",
-      "speakLanguage",
-      "spot",
-      "survival",
-      "tumble"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become a Gunslinger, a character must fulfill the following criteria."

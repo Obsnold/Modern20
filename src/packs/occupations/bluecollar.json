@@ -12,37 +12,41 @@
       {
         "skill": "craft",
         "label": "Craft (electronic, mechanical, or structural)",
-        "specialty": "electronic, mechanical, or structural"
+        "specialties": [
+          "Electronic",
+          "Mechanical",
+          "Or Structural"
+        ]
       },
       {
         "skill": "climb",
         "label": "Climb",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "drive",
         "label": "Drive",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "handleAnimal",
         "label": "Handle Animal",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "intimidate",
         "label": "Intimidate",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "repair",
         "label": "Repair",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "ride",
         "label": "Ride",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

@@ -12,32 +12,37 @@
       {
         "skill": "diplomacy",
         "label": "Diplomacy",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "drive",
         "label": "Drive",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "gatherInformation",
         "label": "Gather Information",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "intimidate",
         "label": "Intimidate",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (civics, earth and life sciences, streetwise, or tactics)",
-        "specialty": "civics, earth and life sciences, streetwise, or tactics"
+        "specialties": [
+          "Civics",
+          "Earth And Life Sciences",
+          "Streetwise",
+          "Or Tactics"
+        ]
       },
       {
         "skill": "listen",
         "label": "Listen",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

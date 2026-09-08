@@ -23,7 +23,15 @@ export class Modern20Class extends Modern20ItemBase {
       keyAbility: new fields.StringField({ initial: "" }),
       hitDie: new fields.StringField({ initial: "d8" }),
       skillPointsPerLevel: int(3, { min: 0 }),
-      classSkills: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+      // A grant names a skill and, where the SRD gives one, the subject:
+      // "Craft (structural)" makes that one Craft a class skill, not all of them.
+      classSkills: new fields.ArrayField(
+        new fields.SchemaField({
+          skill: new fields.StringField({ required: true, blank: false }),
+          specialty: new fields.StringField({ initial: "" })
+        }),
+        { initial: [] }
+      ),
       prerequisites: prerequisiteField(),
       // One entry per class level, in order.
       progression: new fields.ArrayField(
@@ -40,6 +48,19 @@ export class Modern20Class extends Modern20ItemBase {
         { initial: [] }
       )
     };
+  }
+
+  /**
+   * Class skills were a plain list of skill ids before subjects were parsed
+   * out of the SRD's sentence. Convert rather than lose them.
+   */
+  static migrateData(source) {
+    const skills = source.classSkills;
+    if (Array.isArray(skills) && skills.some((entry) => typeof entry === "string")) {
+      source.classSkills = skills.map((entry) =>
+        typeof entry === "string" ? { skill: entry, specialty: "" } : entry);
+    }
+    return super.migrateData(source);
   }
 
   /**
@@ -80,7 +101,8 @@ export class Modern20Occupation extends Modern20ItemBase {
         new fields.SchemaField({
           skill: new fields.StringField({ required: true, blank: false }),
           label: new fields.StringField({ initial: "" }),
-          specialty: new fields.StringField({ initial: "" })
+          // Subjects the occupation allows for this skill, where it names any.
+          specialties: new fields.ArrayField(new fields.StringField(), { initial: [] })
         }),
         { initial: [] }
       ),

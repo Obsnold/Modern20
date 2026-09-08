@@ -12,27 +12,29 @@
       {
         "skill": "gamble",
         "label": "Gamble",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "intimidate",
         "label": "Intimidate",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (current events or popular culture)",
-        "specialty": "current events or popular culture"
+        "specialties": [
+          "Current Events Or Popular Culture"
+        ]
       },
       {
         "skill": "ride",
         "label": "Ride",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "speakLanguage",
         "label": "Speak Language",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

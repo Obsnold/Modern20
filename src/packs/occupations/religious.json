@@ -12,22 +12,29 @@
       {
         "skill": "decipherScript",
         "label": "Decipher Script",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy)",
-        "specialty": "arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy"
+        "specialties": [
+          "Arcane Lore",
+          "Art",
+          "Behavioral Sciences",
+          "History",
+          "Streetwise",
+          "Or Theology And Philosophy"
+        ]
       },
       {
         "skill": "listen",
         "label": "Listen",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "senseMotive",
         "label": "Sense Motive",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

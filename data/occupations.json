@@ -13,42 +13,58 @@
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "craft",
           "label": "Craft (writing)",
-          "specialty": "writing"
+          "specialties": [
+            "Writing"
+          ]
         },
         {
           "skill": "decipherScript",
           "label": "Decipher Script",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "gatherInformation",
           "label": "Gather Information",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy)",
-          "specialty": "arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy"
+          "specialties": [
+            "Arcane Lore",
+            "Art",
+            "Behavioral Sciences",
+            "Business",
+            "Civics",
+            "Current Events",
+            "Earth And Life Sciences",
+            "History",
+            "Physical Sciences",
+            "Popular Culture",
+            "Tactics",
+            "Technology",
+            "Or Theology And Philosophy"
+          ]
         },
         {
           "skill": "research",
           "label": "Research",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "readWriteLanguage",
           "label": "Read/Write Language",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "speakLanguage",
           "label": "Speak Language",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -72,82 +88,87 @@
         {
           "skill": "bluff",
           "label": "Bluff",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "climb",
           "label": "Climb",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "demolitions",
           "label": "Demolitions",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "disableDevice",
           "label": "Disable Device",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "drive",
           "label": "Drive",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "escapeArtist",
           "label": "Escape Artist",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "intimidate",
           "label": "Intimidate",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "jump",
           "label": "Jump",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (arcane lore, streetwise, tactics, or technology)",
-          "specialty": "arcane lore, streetwise, tactics, or technology"
+          "specialties": [
+            "Arcane Lore",
+            "Streetwise",
+            "Tactics",
+            "Or Technology"
+          ]
         },
         {
           "skill": "moveSilently",
           "label": "Move Silently",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "pilot",
           "label": "Pilot",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "ride",
           "label": "Ride",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "spot",
           "label": "Spot",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "survival",
           "label": "Survival",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "swim",
           "label": "Swim",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "treatInjury",
           "label": "Treat Injury",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -175,37 +196,37 @@
         {
           "skill": "balance",
           "label": "Balance",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "climb",
           "label": "Climb",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "drive",
           "label": "Drive",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "jump",
           "label": "Jump",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "ride",
           "label": "Ride",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "swim",
           "label": "Swim",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "tumble",
           "label": "Tumble",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -232,37 +253,41 @@
         {
           "skill": "craft",
           "label": "Craft (electronic, mechanical, or structural)",
-          "specialty": "electronic, mechanical, or structural"
+          "specialties": [
+            "Electronic",
+            "Mechanical",
+            "Or Structural"
+          ]
         },
         {
           "skill": "climb",
           "label": "Climb",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "drive",
           "label": "Drive",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "handleAnimal",
           "label": "Handle Animal",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "intimidate",
           "label": "Intimidate",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "repair",
           "label": "Repair",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "ride",
           "label": "Ride",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -286,27 +311,38 @@
         {
           "skill": "bluff",
           "label": "Bluff",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "craft",
           "label": "Craft (visual art or writing)",
-          "specialty": "visual art or writing"
+          "specialties": [
+            "Visual Art Or Writing"
+          ]
         },
         {
           "skill": "diplomacy",
           "label": "Diplomacy",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "disguise",
           "label": "Disguise",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "perform",
           "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
-          "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+          "specialties": [
+            "Act",
+            "Dance",
+            "Keyboards",
+            "Percussion Instruments",
+            "Sing",
+            "Stand-Up",
+            "Stringed Instruments",
+            "Or Wind Instruments"
+          ]
         }
       ]
     },
@@ -330,42 +366,55 @@
         {
           "skill": "bluff",
           "label": "Bluff",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "craft",
           "label": "Craft (visual art or writing)",
-          "specialty": "visual art or writing"
+          "specialties": [
+            "Visual Art Or Writing"
+          ]
         },
         {
           "skill": "disguise",
           "label": "Disguise",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "forgery",
           "label": "Forgery",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (arcane lore or art)",
-          "specialty": "arcane lore or art"
+          "specialties": [
+            "Arcane Lore Or Art"
+          ]
         },
         {
           "skill": "perform",
           "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
-          "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+          "specialties": [
+            "Act",
+            "Dance",
+            "Keyboards",
+            "Percussion Instruments",
+            "Sing",
+            "Stand-Up",
+            "Stringed Instruments",
+            "Or Wind Instruments"
+          ]
         },
         {
           "skill": "spot",
           "label": "Spot",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -389,42 +438,44 @@
         {
           "skill": "disableDevice",
           "label": "Disable Device",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "disguise",
           "label": "Disguise",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "forgery",
           "label": "Forgery",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "gamble",
           "label": "Gamble",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "hide",
           "label": "Hide",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (streetwise)",
-          "specialty": "streetwise"
+          "specialties": [
+            "Streetwise"
+          ]
         },
         {
           "skill": "moveSilently",
           "label": "Move Silently",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "sleightOfHand",
           "label": "Sleight of Hand",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -451,27 +502,29 @@
         {
           "skill": "gamble",
           "label": "Gamble",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "intimidate",
           "label": "Intimidate",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (current events or popular culture)",
-          "specialty": "current events or popular culture"
+          "specialties": [
+            "Current Events Or Popular Culture"
+          ]
         },
         {
           "skill": "ride",
           "label": "Ride",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "speakLanguage",
           "label": "Speak Language",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -495,27 +548,33 @@
         {
           "skill": "craft",
           "label": "Craft (pharmaceutical)",
-          "specialty": "pharmaceutical"
+          "specialties": [
+            "Pharmaceutical"
+          ]
         },
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
-          "specialty": "behavioral sciences, earth and life sciences, or technology"
+          "specialties": [
+            "Behavioral Sciences",
+            "Earth And Life Sciences",
+            "Or Technology"
+          ]
         },
         {
           "skill": "search",
           "label": "Search",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "treatInjury",
           "label": "Treat Injury",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -539,47 +598,51 @@
         {
           "skill": "balance",
           "label": "Balance",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "climb",
           "label": "Climb",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "drive",
           "label": "Drive",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "jump",
           "label": "Jump",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
-          "specialty": "behavioral sciences, earth and life sciences, or technology"
+          "specialties": [
+            "Behavioral Sciences",
+            "Earth And Life Sciences",
+            "Or Technology"
+          ]
         },
         {
           "skill": "search",
           "label": "Search",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "treatInjury",
           "label": "Treat Injury",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "swim",
           "label": "Swim",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -603,22 +666,26 @@
         {
           "skill": "bluff",
           "label": "Bluff",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "diplomacy",
           "label": "Diplomacy",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "gamble",
           "label": "Gamble",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (business, current events, or technology)",
-          "specialty": "business, current events, or technology"
+          "specialties": [
+            "Business",
+            "Current Events",
+            "Or Technology"
+          ]
         }
       ]
     },
@@ -642,52 +709,59 @@
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "craft",
           "label": "Craft (visual art or writing)",
-          "specialty": "visual art or writing"
+          "specialties": [
+            "Visual Art Or Writing"
+          ]
         },
         {
           "skill": "decipherScript",
           "label": "Decipher Script",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "forgery",
           "label": "Forgery",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "gatherInformation",
           "label": "Gather Information",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "investigate",
           "label": "Investigate",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (behavioral sciences, civics, earth and life sciences, or streetwise)",
-          "specialty": "behavioral sciences, civics, earth and life sciences, or streetwise"
+          "specialties": [
+            "Behavioral Sciences",
+            "Civics",
+            "Earth And Life Sciences",
+            "Or Streetwise"
+          ]
         },
         {
           "skill": "research",
           "label": "Research",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "search",
           "label": "Search",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "senseMotive",
           "label": "Sense Motive",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -714,32 +788,37 @@
         {
           "skill": "diplomacy",
           "label": "Diplomacy",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "drive",
           "label": "Drive",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "gatherInformation",
           "label": "Gather Information",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "intimidate",
           "label": "Intimidate",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (civics, earth and life sciences, streetwise, or tactics)",
-          "specialty": "civics, earth and life sciences, streetwise, or tactics"
+          "specialties": [
+            "Civics",
+            "Earth And Life Sciences",
+            "Streetwise",
+            "Or Tactics"
+          ]
         },
         {
           "skill": "listen",
           "label": "Listen",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -767,52 +846,54 @@
         {
           "skill": "climb",
           "label": "Climb",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "demolitions",
           "label": "Demolitions",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "drive",
           "label": "Drive",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "hide",
           "label": "Hide",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (tactics)",
-          "specialty": "tactics"
+          "specialties": [
+            "Tactics"
+          ]
         },
         {
           "skill": "moveSilently",
           "label": "Move Silently",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "navigate",
           "label": "Navigate",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "pilot",
           "label": "Pilot",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "survival",
           "label": "Survival",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "swim",
           "label": "Swim",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -841,22 +922,29 @@
         {
           "skill": "decipherScript",
           "label": "Decipher Script",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy)",
-          "specialty": "arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy"
+          "specialties": [
+            "Arcane Lore",
+            "Art",
+            "Behavioral Sciences",
+            "History",
+            "Streetwise",
+            "Or Theology And Philosophy"
+          ]
         },
         {
           "skill": "listen",
           "label": "Listen",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "senseMotive",
           "label": "Sense Motive",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -880,42 +968,42 @@
         {
           "skill": "balance",
           "label": "Balance",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "climb",
           "label": "Climb",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "drive",
           "label": "Drive",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "handleAnimal",
           "label": "Handle Animal",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "repair",
           "label": "Repair",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "ride",
           "label": "Ride",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "survival",
           "label": "Survival",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "swim",
           "label": "Swim",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -942,22 +1030,44 @@
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, technology, or theology and philosophy)",
-          "specialty": "arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, technology, or theology and philosophy"
+          "specialties": [
+            "Arcane Lore",
+            "Art",
+            "Behavioral Sciences",
+            "Business",
+            "Civics",
+            "Current Events",
+            "Earth And Life Sciences",
+            "History",
+            "Physical Sciences",
+            "Popular Culture",
+            "Technology",
+            "Or Theology And Philosophy"
+          ]
         },
         {
           "skill": "perform",
           "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
-          "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+          "specialties": [
+            "Act",
+            "Dance",
+            "Keyboards",
+            "Percussion Instruments",
+            "Sing",
+            "Stand-Up",
+            "Stringed Instruments",
+            "Or Wind Instruments"
+          ]
         },
         {
           "skill": "research",
           "label": "Research",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -981,27 +1091,37 @@
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "craft",
           "label": "Craft (chemical, electronic, mechanical, or structural)",
-          "specialty": "chemical, electronic, mechanical, or structural"
+          "specialties": [
+            "Chemical",
+            "Electronic",
+            "Mechanical",
+            "Or Structural"
+          ]
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (business, earth and life sciences, physical sciences, or technology)",
-          "specialty": "business, earth and life sciences, physical sciences, or technology"
+          "specialties": [
+            "Business",
+            "Earth And Life Sciences",
+            "Physical Sciences",
+            "Or Technology"
+          ]
         },
         {
           "skill": "repair",
           "label": "Repair",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "research",
           "label": "Research",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },
@@ -1025,22 +1145,30 @@
         {
           "skill": "computerUse",
           "label": "Computer Use",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "diplomacy",
           "label": "Diplomacy",
-          "specialty": ""
+          "specialties": []
         },
         {
           "skill": "knowledge",
           "label": "Knowledge (art, business, civics, earth and life sciences, history, physical sciences, or technology)",
-          "specialty": "art, business, civics, earth and life sciences, history, physical sciences, or technology"
+          "specialties": [
+            "Art",
+            "Business",
+            "Civics",
+            "Earth And Life Sciences",
+            "History",
+            "Physical Sciences",
+            "Or Technology"
+          ]
         },
         {
           "skill": "research",
           "label": "Research",
-          "specialty": ""
+          "specialties": []
         }
       ]
     },

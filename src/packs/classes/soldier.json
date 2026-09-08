@@ -11,19 +11,70 @@
     "hitDie": "1d10",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "demolitions",
-      "drive",
-      "intimidate",
-      "jump",
-      "knowledge",
-      "listen",
-      "navigate",
-      "profession",
-      "readWriteLanguage",
-      "speakLanguage",
-      "spot",
-      "survival",
-      "swim"
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become a Soldier, a character must fulfill the following criteria."

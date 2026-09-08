@@ -11,20 +11,70 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 5,
     "classSkills": [
-      "balance",
-      "craft",
-      "drive",
-      "escapeArtist",
-      "hide",
-      "knowledge",
-      "moveSilently",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "ride",
-      "sleightOfHand",
-      "speakLanguage",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "prerequisites": [],
     "progression": [

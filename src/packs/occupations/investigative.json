@@ -12,52 +12,59 @@
       {
         "skill": "computerUse",
         "label": "Computer Use",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "craft",
         "label": "Craft (visual art or writing)",
-        "specialty": "visual art or writing"
+        "specialties": [
+          "Visual Art Or Writing"
+        ]
       },
       {
         "skill": "decipherScript",
         "label": "Decipher Script",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "forgery",
         "label": "Forgery",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "gatherInformation",
         "label": "Gather Information",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "investigate",
         "label": "Investigate",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (behavioral sciences, civics, earth and life sciences, or streetwise)",
-        "specialty": "behavioral sciences, civics, earth and life sciences, or streetwise"
+        "specialties": [
+          "Behavioral Sciences",
+          "Civics",
+          "Earth And Life Sciences",
+          "Or Streetwise"
+        ]
       },
       {
         "skill": "research",
         "label": "Research",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "search",
         "label": "Search",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "senseMotive",
         "label": "Sense Motive",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

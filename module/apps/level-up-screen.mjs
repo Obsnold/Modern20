@@ -134,8 +134,14 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     // Skill points for this level, spendable here rather than on the sheet.
     const granted = new Set();
     for (const item of actor.items) {
-      if (item.type === "class") for (const key of item.system.classSkills ?? []) granted.add(key);
-      if (item.type === "occupation") for (const key of item.system.skillsChosen ?? []) granted.add(key);
+      if (item.type === "class") {
+        for (const g of item.system.classSkills ?? []) {
+          granted.add(g.specialty ? `${g.skill}:${g.specialty}` : g.skill);
+        }
+      }
+      if (item.type === "occupation") {
+        for (const entry of item.system.skillsChosen ?? []) granted.add(entry);
+      }
     }
     context.skillRows = skillRows(actor, {
       grantedSkills: granted,

@@ -12,27 +12,37 @@
       {
         "skill": "computerUse",
         "label": "Computer Use",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "craft",
         "label": "Craft (chemical, electronic, mechanical, or structural)",
-        "specialty": "chemical, electronic, mechanical, or structural"
+        "specialties": [
+          "Chemical",
+          "Electronic",
+          "Mechanical",
+          "Or Structural"
+        ]
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (business, earth and life sciences, physical sciences, or technology)",
-        "specialty": "business, earth and life sciences, physical sciences, or technology"
+        "specialties": [
+          "Business",
+          "Earth And Life Sciences",
+          "Physical Sciences",
+          "Or Technology"
+        ]
       },
       {
         "skill": "repair",
         "label": "Repair",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "research",
         "label": "Research",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

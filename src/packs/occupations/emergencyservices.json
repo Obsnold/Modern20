@@ -12,47 +12,51 @@
       {
         "skill": "balance",
         "label": "Balance",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "climb",
         "label": "Climb",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "computerUse",
         "label": "Computer Use",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "drive",
         "label": "Drive",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "jump",
         "label": "Jump",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
-        "specialty": "behavioral sciences, earth and life sciences, or technology"
+        "specialties": [
+          "Behavioral Sciences",
+          "Earth And Life Sciences",
+          "Or Technology"
+        ]
       },
       {
         "skill": "search",
         "label": "Search",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "treatInjury",
         "label": "Treat Injury",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "swim",
         "label": "Swim",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

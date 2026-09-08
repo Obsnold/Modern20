@@ -12,22 +12,44 @@
       {
         "skill": "computerUse",
         "label": "Computer Use",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, technology, or theology and philosophy)",
-        "specialty": "arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, technology, or theology and philosophy"
+        "specialties": [
+          "Arcane Lore",
+          "Art",
+          "Behavioral Sciences",
+          "Business",
+          "Civics",
+          "Current Events",
+          "Earth And Life Sciences",
+          "History",
+          "Physical Sciences",
+          "Popular Culture",
+          "Technology",
+          "Or Theology And Philosophy"
+        ]
       },
       {
         "skill": "perform",
         "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
-        "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+        "specialties": [
+          "Act",
+          "Dance",
+          "Keyboards",
+          "Percussion Instruments",
+          "Sing",
+          "Stand-Up",
+          "Stringed Instruments",
+          "Or Wind Instruments"
+        ]
       },
       {
         "skill": "research",
         "label": "Research",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],
