@@ -8,35 +8,141 @@
     "verified": "14"
   },
   "authors": [
-    { "name": "Terry" }
+    {
+      "name": "Terry"
+    }
   ],
-  "esmodules": ["module/modern20.mjs"],
-  "styles": ["css/modern20.css"],
+  "esmodules": [
+    "module/modern20.mjs"
+  ],
+  "styles": [
+    "css/modern20.css"
+  ],
   "languages": [
-    { "lang": "en", "name": "English", "path": "lang/en.json" }
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
   ],
   "documentTypes": {
     "Actor": {
-      "hero": { "htmlFields": ["biography"] },
-      "ordinary": { "htmlFields": ["biography"] },
-      "creature": { "htmlFields": ["biography"] },
-      "vehicle": { "htmlFields": ["description"] }
+      "hero": {
+        "htmlFields": [
+          "biography"
+        ]
+      },
+      "ordinary": {
+        "htmlFields": [
+          "biography"
+        ]
+      },
+      "creature": {
+        "htmlFields": [
+          "biography"
+        ]
+      },
+      "vehicle": {
+        "htmlFields": [
+          "description"
+        ]
+      }
     },
     "Item": {
-      "class": { "htmlFields": ["description"] },
-      "occupation": { "htmlFields": ["description"] },
-      "talent": { "htmlFields": ["description"] },
-      "feat": { "htmlFields": ["description", "benefit", "normal", "special"] },
-      "weapon": { "htmlFields": ["description"] },
-      "armor": { "htmlFields": ["description"] },
-      "gear": { "htmlFields": ["description"] },
-      "vehicleMod": { "htmlFields": ["description"] },
-      "spell": { "htmlFields": ["description"] },
-      "psiPower": { "htmlFields": ["description"] }
+      "class": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "occupation": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "talent": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "feat": {
+        "htmlFields": [
+          "description",
+          "benefit",
+          "normal",
+          "special"
+        ]
+      },
+      "weapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "armor": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "gear": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "vehicleMod": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "spell": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "psiPower": {
+        "htmlFields": [
+          "description"
+        ]
+      }
     }
   },
-  "packs": [],
-  "grid": { "distance": 5, "units": "ft" },
+  "packs": [
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "armor",
+      "label": "Armor",
+      "path": "packs/armor",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "gear",
+      "label": "Equipment",
+      "path": "packs/gear",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
   "primaryTokenAttribute": "hp",
   "url": "https://github.com/YOURNAME/modern20",
   "manifest": "https://raw.githubusercontent.com/YOURNAME/modern20/main/system.json",
