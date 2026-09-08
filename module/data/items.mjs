@@ -42,10 +42,25 @@ export class Modern20Class extends Modern20ItemBase {
     };
   }
 
-  /** Cumulative bonuses at the number of levels the character actually has. */
+  /**
+   * Cumulative bonuses at the number of levels the character actually has.
+   *
+   * Uses the highest row at or below the class level rather than an exact
+   * match: SRD progression tables stop at 10, and requiring equality meant a
+   * class taken past the end of its table silently contributed nothing.
+   */
   get bonusesAtLevel() {
-    const row = this.progression.find((r) => r.level === this.levels);
-    return row ?? { baseAttack: 0, fort: 0, ref: 0, will: 0, defense: 0, reputation: 0 };
+    const empty = { baseAttack: 0, fort: 0, ref: 0, will: 0, defense: 0, reputation: 0 };
+    if (this.levels < 1 || !this.progression.length) return empty;
+
+    const rows = [...this.progression].sort((a, b) => a.level - b.level);
+    const row = rows.reduce((best, r) => (r.level <= this.levels ? r : best), null);
+    return row ?? empty;
+  }
+
+  /** The highest level this class's progression table defines. */
+  get maxProgressionLevel() {
+    return this.progression.reduce((max, r) => Math.max(max, r.level), 0);
   }
 }
 

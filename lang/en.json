@@ -868,6 +868,7 @@
     "BuyHint": "Buy with a Wealth check. Shift-click to use the black market.",
     "CR": "CR",
     "Cargo": "Cargo",
+    "CharacterLevel": "Level",
     "Chat": {
       "ActionPoint": "Spends an action point",
       "Attack": "Attack with {weapon}",
@@ -1328,6 +1329,8 @@
       "Size": "Size"
     },
     "Level": "Level",
+    "LevelDown": "Remove a level from this class",
+    "LevelUp": "Gain a level in this class",
     "Maneuver": "Maneuver",
     "Massive": "Massive",
     "MaxRanks": "Max ranks",
@@ -1447,6 +1450,7 @@
       "NoBuyer": "Select a character with a Wealth bonus to make the purchase.",
       "NoWealth": "This actor has no Wealth bonus.",
       "NotPurchasable": "This item has no purchase DC.",
+      "PastProgression": "{name} has no progression beyond level {max}; bonuses stay at that level.",
       "TrainedOnly": "{skill} is trained only and this character has no ranks in it.",
       "TrainedOnlyShort": "Trained only: no ranks."
     },

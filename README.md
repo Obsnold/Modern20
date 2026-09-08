@@ -36,6 +36,13 @@ fighting it forever, so this is a standalone game system.
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
 GMs override them constantly and a hard block just makes the sheet unusable.
+The same applies to class levels: taking a class past the end of its SRD
+progression table warns and holds the bonuses at the last defined level.
+
+**Levelling up:** the Character tab has `-` / `+` controls on each class. Adding
+a level recomputes attack, saves, Defense, Reputation, action points and the
+skill rank cap from that class's progression table. Multiclassing is just a
+second class item — character level is the sum.
 
 ## Layout
 
