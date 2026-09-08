@@ -26,7 +26,7 @@
         <input type="text" name="system.allegiances.{{index}}.name" value="{{allegiance.name}}">
         <select name="system.allegiances.{{index}}.strength">
           {{#each ../config.allegianceStrength as |label key|}}
-            <option value="{{key}}" {{#if (eq key ../allegiance.strength)}}selected{{/if}}>{{localize label}}</option>
+            <option value="{{key}}" {{#if (eq key allegiance.strength)}}selected{{/if}}>{{localize label}}</option>
           {{/each}}
         </select>
       </div>
