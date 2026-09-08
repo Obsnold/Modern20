@@ -7,7 +7,53 @@
       "Age 23+."
     ],
     "skills": "Choose three of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Computer Use, Craft (writing), Decipher Script, Gather Information, Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy), Research, or add a new Read/Write Language or a new Speak Language.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (writing)",
+          "specialty": "writing"
+        },
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script",
+          "specialty": ""
+        },
+        {
+          "skill": "gatherInformation",
+          "label": "Gather Information",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy)",
+          "specialty": "arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy"
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialty": ""
+        },
+        {
+          "skill": "readWriteLanguage",
+          "label": "Read/Write Language",
+          "specialty": ""
+        },
+        {
+          "skill": "speakLanguage",
+          "label": "Speak Language",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 3,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -20,7 +66,97 @@
       "Age 15+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Bluff, Climb, Demolitions, Disable Device, Drive, Escape Artist, Intimidate, Jump, Knowledge (arcane lore, streetwise, tactics, or technology), Move Silently, Pilot, Ride, Spot, Survival, Swim, Treat Injury.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "bluff",
+          "label": "Bluff",
+          "specialty": ""
+        },
+        {
+          "skill": "climb",
+          "label": "Climb",
+          "specialty": ""
+        },
+        {
+          "skill": "demolitions",
+          "label": "Demolitions",
+          "specialty": ""
+        },
+        {
+          "skill": "disableDevice",
+          "label": "Disable Device",
+          "specialty": ""
+        },
+        {
+          "skill": "drive",
+          "label": "Drive",
+          "specialty": ""
+        },
+        {
+          "skill": "escapeArtist",
+          "label": "Escape Artist",
+          "specialty": ""
+        },
+        {
+          "skill": "intimidate",
+          "label": "Intimidate",
+          "specialty": ""
+        },
+        {
+          "skill": "jump",
+          "label": "Jump",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, streetwise, tactics, or technology)",
+          "specialty": "arcane lore, streetwise, tactics, or technology"
+        },
+        {
+          "skill": "moveSilently",
+          "label": "Move Silently",
+          "specialty": ""
+        },
+        {
+          "skill": "pilot",
+          "label": "Pilot",
+          "specialty": ""
+        },
+        {
+          "skill": "ride",
+          "label": "Ride",
+          "specialty": ""
+        },
+        {
+          "skill": "spot",
+          "label": "Spot",
+          "specialty": ""
+        },
+        {
+          "skill": "survival",
+          "label": "Survival",
+          "specialty": ""
+        },
+        {
+          "skill": "swim",
+          "label": "Swim",
+          "specialty": ""
+        },
+        {
+          "skill": "treatInjury",
+          "label": "Treat Injury",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "Select one of the following: Archaic Weapons Proficiency, Brawl, or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Archaic Weapons Proficiency",
+      "Brawl",
+      "Personal Firearms Proficiency"
+    ],
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -33,7 +169,51 @@
       "Strength 13 or Dexterity 13."
     ],
     "skills": "Choose three of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Balance, Climb, Drive, Jump, Ride, Swim, Tumble.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "balance",
+          "label": "Balance",
+          "specialty": ""
+        },
+        {
+          "skill": "climb",
+          "label": "Climb",
+          "specialty": ""
+        },
+        {
+          "skill": "drive",
+          "label": "Drive",
+          "specialty": ""
+        },
+        {
+          "skill": "jump",
+          "label": "Jump",
+          "specialty": ""
+        },
+        {
+          "skill": "ride",
+          "label": "Ride",
+          "specialty": ""
+        },
+        {
+          "skill": "swim",
+          "label": "Swim",
+          "specialty": ""
+        },
+        {
+          "skill": "tumble",
+          "label": "Tumble",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "Select either Archaic Weapons Proficiency or Brawl.",
+    "bonusFeatOptions": [
+      "Archaic Weapons Proficiency",
+      "Brawl"
+    ],
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -46,7 +226,48 @@
       "Age 18+."
     ],
     "skills": "Choose three of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Craft (electronic, mechanical, or structural), Climb, Drive, Handle Animal, Intimidate, Repair, Ride.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "craft",
+          "label": "Craft (electronic, mechanical, or structural)",
+          "specialty": "electronic, mechanical, or structural"
+        },
+        {
+          "skill": "climb",
+          "label": "Climb",
+          "specialty": ""
+        },
+        {
+          "skill": "drive",
+          "label": "Drive",
+          "specialty": ""
+        },
+        {
+          "skill": "handleAnimal",
+          "label": "Handle Animal",
+          "specialty": ""
+        },
+        {
+          "skill": "intimidate",
+          "label": "Intimidate",
+          "specialty": ""
+        },
+        {
+          "skill": "repair",
+          "label": "Repair",
+          "specialty": ""
+        },
+        {
+          "skill": "ride",
+          "label": "Ride",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 2,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -59,7 +280,38 @@
       "Age 15+."
     ],
     "skills": "Choose one of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Bluff, Craft (visual art or writing), Diplomacy, Disguise, Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments).",
+    "skillChoices": {
+      "count": 1,
+      "options": [
+        {
+          "skill": "bluff",
+          "label": "Bluff",
+          "specialty": ""
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (visual art or writing)",
+          "specialty": "visual art or writing"
+        },
+        {
+          "skill": "diplomacy",
+          "label": "Diplomacy",
+          "specialty": ""
+        },
+        {
+          "skill": "disguise",
+          "label": "Disguise",
+          "specialty": ""
+        },
+        {
+          "skill": "perform",
+          "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
+          "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 4,
     "reputationBonus": 1,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -72,7 +324,53 @@
       "Age 15+."
     ],
     "skills": "Choose three of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Bluff, Computer Use, Craft (visual art or writing), Disguise, Forgery, Knowledge (arcane lore or art), Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments), Spot.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "bluff",
+          "label": "Bluff",
+          "specialty": ""
+        },
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (visual art or writing)",
+          "specialty": "visual art or writing"
+        },
+        {
+          "skill": "disguise",
+          "label": "Disguise",
+          "specialty": ""
+        },
+        {
+          "skill": "forgery",
+          "label": "Forgery",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore or art)",
+          "specialty": "arcane lore or art"
+        },
+        {
+          "skill": "perform",
+          "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
+          "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+        },
+        {
+          "skill": "spot",
+          "label": "Spot",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 2,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -85,7 +383,56 @@
       "Age 15+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Disable Device, Disguise, Forgery, Gamble, Hide, Knowledge (streetwise), Move Silently, Sleight of Hand.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "disableDevice",
+          "label": "Disable Device",
+          "specialty": ""
+        },
+        {
+          "skill": "disguise",
+          "label": "Disguise",
+          "specialty": ""
+        },
+        {
+          "skill": "forgery",
+          "label": "Forgery",
+          "specialty": ""
+        },
+        {
+          "skill": "gamble",
+          "label": "Gamble",
+          "specialty": ""
+        },
+        {
+          "skill": "hide",
+          "label": "Hide",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (streetwise)",
+          "specialty": "streetwise"
+        },
+        {
+          "skill": "moveSilently",
+          "label": "Move Silently",
+          "specialty": ""
+        },
+        {
+          "skill": "sleightOfHand",
+          "label": "Sleight of Hand",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "Select either Brawl or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Brawl",
+      "Personal Firearms Proficiency"
+    ],
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -98,7 +445,38 @@
       "Age 18+."
     ],
     "skills": "Choose one of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Gamble, Intimidate, Knowledge (current events or popular culture), Ride, or add a new Speak Language.",
+    "skillChoices": {
+      "count": 1,
+      "options": [
+        {
+          "skill": "gamble",
+          "label": "Gamble",
+          "specialty": ""
+        },
+        {
+          "skill": "intimidate",
+          "label": "Intimidate",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (current events or popular culture)",
+          "specialty": "current events or popular culture"
+        },
+        {
+          "skill": "ride",
+          "label": "Ride",
+          "specialty": ""
+        },
+        {
+          "skill": "speakLanguage",
+          "label": "Speak Language",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 6,
     "reputationBonus": 1,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -111,7 +489,38 @@
       "Age 25+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Craft (pharmaceutical), Computer Use, Knowledge (behavioral sciences, earth and life sciences, or technology), Search, Treat Injury.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "craft",
+          "label": "Craft (pharmaceutical)",
+          "specialty": "pharmaceutical"
+        },
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
+          "specialty": "behavioral sciences, earth and life sciences, or technology"
+        },
+        {
+          "skill": "search",
+          "label": "Search",
+          "specialty": ""
+        },
+        {
+          "skill": "treatInjury",
+          "label": "Treat Injury",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 4,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -124,7 +533,58 @@
       "Age 18+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Balance, Climb, Computer Use, Drive, Jump, Knowledge (behavioral sciences, earth and life sciences, or technology), Search, Treat Injury, Swim.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "balance",
+          "label": "Balance",
+          "specialty": ""
+        },
+        {
+          "skill": "climb",
+          "label": "Climb",
+          "specialty": ""
+        },
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "drive",
+          "label": "Drive",
+          "specialty": ""
+        },
+        {
+          "skill": "jump",
+          "label": "Jump",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
+          "specialty": "behavioral sciences, earth and life sciences, or technology"
+        },
+        {
+          "skill": "search",
+          "label": "Search",
+          "specialty": ""
+        },
+        {
+          "skill": "treatInjury",
+          "label": "Treat Injury",
+          "specialty": ""
+        },
+        {
+          "skill": "swim",
+          "label": "Swim",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 2,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -137,7 +597,33 @@
       "Age 18+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Bluff, Diplomacy, Gamble, Knowledge (business, current events, or technology).",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "bluff",
+          "label": "Bluff",
+          "specialty": ""
+        },
+        {
+          "skill": "diplomacy",
+          "label": "Diplomacy",
+          "specialty": ""
+        },
+        {
+          "skill": "gamble",
+          "label": "Gamble",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (business, current events, or technology)",
+          "specialty": "business, current events, or technology"
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 4,
     "reputationBonus": 1,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -150,7 +636,66 @@
       "Age 23+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Computer Use, Craft (visual art or writing), Decipher Script, Forgery, Gather Information, Investigate, Knowledge (behavioral sciences, civics, earth and life sciences, or streetwise), Research, Search, Sense Motive.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (visual art or writing)",
+          "specialty": "visual art or writing"
+        },
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script",
+          "specialty": ""
+        },
+        {
+          "skill": "forgery",
+          "label": "Forgery",
+          "specialty": ""
+        },
+        {
+          "skill": "gatherInformation",
+          "label": "Gather Information",
+          "specialty": ""
+        },
+        {
+          "skill": "investigate",
+          "label": "Investigate",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (behavioral sciences, civics, earth and life sciences, or streetwise)",
+          "specialty": "behavioral sciences, civics, earth and life sciences, or streetwise"
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialty": ""
+        },
+        {
+          "skill": "search",
+          "label": "Search",
+          "specialty": ""
+        },
+        {
+          "skill": "senseMotive",
+          "label": "Sense Motive",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "Select either Brawl or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Brawl",
+      "Personal Firearms Proficiency"
+    ],
     "wealthBonus": 2,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -163,7 +708,47 @@
       "Age 20+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Diplomacy, Drive, Gather Information, Intimidate, Knowledge (civics, earth and life sciences, streetwise, or tactics), Listen.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "diplomacy",
+          "label": "Diplomacy",
+          "specialty": ""
+        },
+        {
+          "skill": "drive",
+          "label": "Drive",
+          "specialty": ""
+        },
+        {
+          "skill": "gatherInformation",
+          "label": "Gather Information",
+          "specialty": ""
+        },
+        {
+          "skill": "intimidate",
+          "label": "Intimidate",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (civics, earth and life sciences, streetwise, or tactics)",
+          "specialty": "civics, earth and life sciences, streetwise, or tactics"
+        },
+        {
+          "skill": "listen",
+          "label": "Listen",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "Select one of the following: Combat Martial Arts, Armor Proficiency (light), or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Combat Martial Arts",
+      "Armor Proficiency (light)",
+      "Personal Firearms Proficiency"
+    ],
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -176,7 +761,68 @@
       "Age 18+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Climb, Demolitions, Drive, Hide, Knowledge (tactics), Move Silently, Navigate, Pilot, Survival, Swim.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "climb",
+          "label": "Climb",
+          "specialty": ""
+        },
+        {
+          "skill": "demolitions",
+          "label": "Demolitions",
+          "specialty": ""
+        },
+        {
+          "skill": "drive",
+          "label": "Drive",
+          "specialty": ""
+        },
+        {
+          "skill": "hide",
+          "label": "Hide",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (tactics)",
+          "specialty": "tactics"
+        },
+        {
+          "skill": "moveSilently",
+          "label": "Move Silently",
+          "specialty": ""
+        },
+        {
+          "skill": "navigate",
+          "label": "Navigate",
+          "specialty": ""
+        },
+        {
+          "skill": "pilot",
+          "label": "Pilot",
+          "specialty": ""
+        },
+        {
+          "skill": "survival",
+          "label": "Survival",
+          "specialty": ""
+        },
+        {
+          "skill": "swim",
+          "label": "Swim",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "Select one of the following: Brawl, Combat Martial Arts, Armor Proficiency (light), or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Brawl",
+      "Combat Martial Arts",
+      "Armor Proficiency (light)",
+      "Personal Firearms Proficiency"
+    ],
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -189,7 +835,33 @@
       "Age 23+."
     ],
     "skills": "Choose three of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Decipher Script, Knowledge (arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy), Listen, Sense Motive.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy)",
+          "specialty": "arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy"
+        },
+        {
+          "skill": "listen",
+          "label": "Listen",
+          "specialty": ""
+        },
+        {
+          "skill": "senseMotive",
+          "label": "Sense Motive",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 2,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -202,7 +874,56 @@
       "Age 15+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Balance, Climb, Drive, Handle Animal, Repair, Ride, Survival, Swim.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "balance",
+          "label": "Balance",
+          "specialty": ""
+        },
+        {
+          "skill": "climb",
+          "label": "Climb",
+          "specialty": ""
+        },
+        {
+          "skill": "drive",
+          "label": "Drive",
+          "specialty": ""
+        },
+        {
+          "skill": "handleAnimal",
+          "label": "Handle Animal",
+          "specialty": ""
+        },
+        {
+          "skill": "repair",
+          "label": "Repair",
+          "specialty": ""
+        },
+        {
+          "skill": "ride",
+          "label": "Ride",
+          "specialty": ""
+        },
+        {
+          "skill": "survival",
+          "label": "Survival",
+          "specialty": ""
+        },
+        {
+          "skill": "swim",
+          "label": "Swim",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "Select either Brawl or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Brawl",
+      "Personal Firearms Proficiency"
+    ],
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -215,7 +936,33 @@
       "Age 15+."
     ],
     "skills": "Choose three of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Computer Use, Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, technology, or theology and philosophy), Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments), Research.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, technology, or theology and philosophy)",
+          "specialty": "arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, technology, or theology and philosophy"
+        },
+        {
+          "skill": "perform",
+          "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
+          "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -228,7 +975,38 @@
       "Age 23+."
     ],
     "skills": "Choose three of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Computer Use, Craft (chemical, electronic, mechanical, or structural), Knowledge (business, earth and life sciences, physical sciences, or technology), Repair, Research.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (chemical, electronic, mechanical, or structural)",
+          "specialty": "chemical, electronic, mechanical, or structural"
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (business, earth and life sciences, physical sciences, or technology)",
+          "specialty": "business, earth and life sciences, physical sciences, or technology"
+        },
+        {
+          "skill": "repair",
+          "label": "Repair",
+          "specialty": ""
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 3,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
@@ -241,7 +1019,33 @@
       "Age 23+."
     ],
     "skills": "Choose two of the following skills as permanent class skills. If a skill the character selects is already a class skill, he or she receives a +1 competence bonus on checks using that skill. Computer Use, Diplomacy, Knowledge (art, business, civics, earth and life sciences, history, physical sciences, or technology), Research.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "computerUse",
+          "label": "Computer Use",
+          "specialty": ""
+        },
+        {
+          "skill": "diplomacy",
+          "label": "Diplomacy",
+          "specialty": ""
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (art, business, civics, earth and life sciences, history, physical sciences, or technology)",
+          "specialty": "art, business, civics, earth and life sciences, history, physical sciences, or technology"
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialty": ""
+        }
+      ]
+    },
     "bonusFeat": "",
+    "bonusFeatOptions": [],
     "wealthBonus": 3,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"

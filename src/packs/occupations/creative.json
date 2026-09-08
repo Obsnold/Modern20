@@ -7,7 +7,49 @@
     "description": "The creative starting occupation covers artists of all types who fan their creative spark into a career. Illustrators, copywriters, cartoonists, graphic artists, novelists, magazine columnists, actors, sculptors, game designers, musicians, screenwriters, photographers, and web designers all fall under this occupation.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "bluff",
+        "label": "Bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "label": "Computer Use",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (visual art or writing)",
+        "specialty": "visual art or writing"
+      },
+      {
+        "skill": "disguise",
+        "label": "Disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "label": "Forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore or art)",
+        "specialty": "arcane lore or art"
+      },
+      {
+        "skill": "perform",
+        "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
+        "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+      },
+      {
+        "skill": "spot",
+        "label": "Spot",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

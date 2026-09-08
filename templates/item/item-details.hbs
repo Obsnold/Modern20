@@ -12,7 +12,23 @@
   {{#if (eq document.type "occupation")}}
     {{formField fields.wealthBonus value=system.wealthBonus}}
     {{formField fields.reputationBonus value=system.reputationBonus}}
+    {{formField fields.skillChoiceCount value=system.skillChoiceCount}}
     {{formField fields.bonusFeatChosen value=system.bonusFeatChosen}}
+
+    <fieldset>
+      <legend>{{localize "MODERN20.Occupation.Chosen"}}</legend>
+      <div class="m20-choices">
+        {{#each system.skillOptions as |option|}}
+          <label class="m20-choice">
+            <input type="checkbox" name="system.skillsChosen" value="{{option.skill}}"
+                   {{#if (includes ../system.skillsChosen option.skill)}}checked{{/if}}>
+            <span>{{option.label}}</span>
+          </label>
+        {{else}}
+          <p class="m20-hint">{{localize "MODERN20.Occupation.NoOptions"}}</p>
+        {{/each}}
+      </div>
+    </fieldset>
   {{/if}}
 
   {{#if (eq document.type "talent")}}

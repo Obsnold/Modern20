@@ -72,8 +72,18 @@ export class Modern20Occupation extends Modern20ItemBase {
     return {
       ...super.defineSchema(),
       prerequisites: prerequisiteField(),
-      // Occupations grant a choice from a list, so store both the options and the pick.
-      skillOptions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+      // An occupation offers a choice from a list, so both the options and the
+      // pick are stored. `skillsChosen` holds skill ids and is what the actor
+      // reads when deciding which skills are class skills.
+      skillChoiceCount: int(0, { min: 0 }),
+      skillOptions: new fields.ArrayField(
+        new fields.SchemaField({
+          skill: new fields.StringField({ required: true, blank: false }),
+          label: new fields.StringField({ initial: "" }),
+          specialty: new fields.StringField({ initial: "" })
+        }),
+        { initial: [] }
+      ),
       skillsChosen: new fields.ArrayField(new fields.StringField(), { initial: [] }),
       bonusFeatOptions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
       bonusFeatChosen: new fields.StringField({ initial: "" }),

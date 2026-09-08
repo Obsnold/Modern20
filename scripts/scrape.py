@@ -288,8 +288,9 @@ def scrape_feats() -> list[dict]:
     return [feats[k] for k in sorted(feats)]
 
 
-def scrape_occupations() -> list[dict]:
+def scrape_occupations(skills: list[dict]) -> list[dict]:
     """Starting occupations: skill choices, a bonus feat and a Wealth bump."""
+    skill_names = sorted(((s["name"], s["id"]) for s in skills), key=lambda p: -len(p[0]))
     lines = text_lines(srd.fetch(srd.PAGES["occupations"]))
     starts = entry_starts(lines, OCCUPATION_LABELS, lookahead=3)
 
@@ -310,7 +311,9 @@ def scrape_occupations() -> list[dict]:
             "description": lines[start + 1] if start + 1 < len(lines) and not is_label(lines[start + 1], OCCUPATION_LABELS) else "",
             "prerequisites": [p.strip() for p in prereq.split(",") if p.strip()],
             "skills": fields.get("skills", ""),
+            "skillChoices": parse_skill_choices(fields.get("skills", ""), skill_names),
             "bonusFeat": fields.get("bonus feat", ""),
+            "bonusFeatOptions": parse_feat_choices(fields.get("bonus feat", "")),
             "wealthBonus": srd.to_int(fields.get("wealth bonus increase", "")),
             "reputationBonus": srd.to_int(fields.get("reputation bonus increase", "")),
             "srdUrl": srd.page_url(srd.PAGES["occupations"]),
@@ -681,6 +684,101 @@ def scrape_vehicles() -> list[dict]:
     return [vehicles[k] for k in sorted(vehicles)]
 
 
+NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5}
+
+# The boilerplate that sits between the instruction and the actual list.
+SKILL_LIST_SPLIT = re.compile(r"using that skill\.\s*", re.I)
+
+
+def split_outside_parens(text: str) -> list[str]:
+    """Split on commas that are not inside parentheses.
+
+    Skill entries carry their specialties in brackets - "Knowledge (arcane
+    lore, streetwise)" is one entry containing two commas - so a plain split
+    would shred them.
+    """
+    parts, depth, current = [], 0, []
+    for char in text:
+        if char == "(":
+            depth += 1
+        elif char == ")":
+            depth = max(0, depth - 1)
+        if char == "," and depth == 0:
+            parts.append("".join(current))
+            current = []
+            continue
+        current.append(char)
+    parts.append("".join(current))
+    return [p.strip(" .;") for p in parts if p.strip(" .;")]
+
+
+def parse_skill_choices(text: str, skill_names: list[tuple[str, str]]) -> dict:
+    """Turn "Choose three of the following skills ... A, B, C." into options."""
+    if not text:
+        return {"count": 0, "options": []}
+
+    match = re.search(r"choose (\w+) of the following", text, re.I)
+    count = NUMBER_WORDS.get(match.group(1).lower(), 0) if match else 0
+
+    tail = SKILL_LIST_SPLIT.split(text, maxsplit=1)
+    listing = tail[1] if len(tail) > 1 else text
+
+    options = []
+    seen = set()
+    for entry in split_outside_parens(listing):
+        entry = re.sub(r"^(and|or)\s+", "", entry, flags=re.I).strip()
+        if not entry:
+            continue
+
+        # Longest name first so "Read/Write Language" wins over "Language".
+        prefix = next((sid for name, sid in skill_names if entry.lower().startswith(name.lower())), None)
+        if prefix:
+            matches = [(prefix, entry)]
+        else:
+            # Some lists end in a clause rather than a name, e.g. Academic's
+            # "or add a new Read/Write Language or a new Speak Language".
+            # Take every skill named inside it.
+            matches = [(sid, name) for name, sid in skill_names if name.lower() in entry.lower()]
+            # Drop a match wholly contained in a longer one already taken.
+            taken = []
+            for sid, label in matches:
+                if not any(label.lower() in other.lower() and label != other for _, other in matches):
+                    taken.append((sid, label))
+            matches = taken
+
+        for sid, label in matches:
+            if sid in seen:
+                continue
+            seen.add(sid)
+            bracket = re.search(r"\(([^)]*)\)", label)
+            options.append({
+                "skill": sid,
+                "label": label,
+                "specialty": bracket.group(1).strip() if bracket else ""
+            })
+
+    return {"count": count, "options": options}
+
+
+def parse_feat_choices(text: str) -> list[str]:
+    """Turn "Select one of the following: A, B, or C." into a list of names."""
+    if not text:
+        return []
+    listing = re.sub(r"^.*?(?::|either)\s*", "", text, count=1, flags=re.I | re.S)
+    names = []
+    for entry in split_outside_parens(listing):
+        # "either A or B" carries no comma, so split those too - but only
+        # where there is no bracket, since a feat's parenthetical can contain
+        # its own "or".
+        pieces = re.split(r"\s+or\s+", entry) if "(" not in entry else [entry]
+        for piece in pieces:
+            piece = re.sub(r"^(and|or)\s+", "", piece, flags=re.I).strip(" .")
+            # Anything sentence-length is prose, not a feat name.
+            if piece and len(piece.split()) <= 6 and piece not in names:
+                names.append(piece)
+    return names
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -762,7 +860,7 @@ def main() -> int:
     write("classes.json", classes)
     feats = scrape_feats()
     write("feats.json", feats)
-    occupations = scrape_occupations()
+    occupations = scrape_occupations(skills)
     write("occupations.json", occupations)
     talents = scrape_talents()
     write("talents.json", talents)

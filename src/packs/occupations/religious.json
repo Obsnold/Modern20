@@ -7,7 +7,29 @@
     "description": "Ordained clergy of all persuasions, as well as theological scholars and experts on religious studies fall within the scope of this starting occupation.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy)",
+        "specialty": "arcane lore, art, behavioral sciences, history, streetwise, or theology and philosophy"
+      },
+      {
+        "skill": "listen",
+        "label": "Listen",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "label": "Sense Motive",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

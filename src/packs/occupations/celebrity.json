@@ -7,7 +7,34 @@
     "description": "A celebrity is anyone who, for whatever reason, has been thrust into the spotlight of the public eye. Actors, entertainers of all types, newscasters, radio and television personalities, and more fall under this starting occupation.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 1,
+    "skillOptions": [
+      {
+        "skill": "bluff",
+        "label": "Bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (visual art or writing)",
+        "specialty": "visual art or writing"
+      },
+      {
+        "skill": "diplomacy",
+        "label": "Diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "label": "Disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "perform",
+        "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
+        "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

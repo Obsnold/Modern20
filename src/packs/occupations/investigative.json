@@ -7,10 +7,65 @@
     "description": "There are a number of jobs that fit within this occupation, including investigative reporters, photojournalists, private investigators, police detectives, criminologists, criminal profilers, espionage agents, and others who use their skills to gather evidence and analyze clues.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "computerUse",
+        "label": "Computer Use",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (visual art or writing)",
+        "specialty": "visual art or writing"
+      },
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "label": "Forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "label": "Gather Information",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "label": "Investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (behavioral sciences, civics, earth and life sciences, or streetwise)",
+        "specialty": "behavioral sciences, civics, earth and life sciences, or streetwise"
+      },
+      {
+        "skill": "research",
+        "label": "Research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "label": "Search",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "label": "Sense Motive",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
-    "bonusFeatOptions": [],
-    "bonusFeatChosen": "Select either Brawl or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Brawl",
+      "Personal Firearms Proficiency"
+    ],
+    "bonusFeatChosen": "",
     "wealthBonus": 2,
     "reputationBonus": 0,
     "prerequisites": [

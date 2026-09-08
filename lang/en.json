@@ -1360,6 +1360,17 @@
     "NoClasses": "No class",
     "NoWealthLost": "The purchase does not reduce your Wealth bonus.",
     "NoneYet": "None yet.",
+    "Occupation": {
+      "Chosen": "Class skills chosen",
+      "Confirm": "Confirm",
+      "FeatHint": "This occupation grants one of the following feats.",
+      "FeatMissing": "No feat named \"{name}\" is in the compendium; add it by hand.",
+      "FeatTitle": "{name}: choose a bonus feat",
+      "NoOptions": "This occupation offers no skill choices.",
+      "SkillHint": "Choose {count}. These become permanent class skills.",
+      "SkillTitle": "{name}: choose your class skills",
+      "WrongCount": "You picked {picked} of {count}. The occupation is saved as chosen; edit it to adjust."
+    },
     "Passengers": "Passengers",
     "Placeholder": {
       "Name": "Character name"
