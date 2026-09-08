@@ -233,6 +233,9 @@
 .modern20 .m20-skills__grouphead { color: var(--m20-muted); font-size: 0.7rem; font-style: italic; }
 .modern20 .m20-skills__summary { font-size: 0.74rem; color: var(--m20-muted); padding: 0.3rem 0; }
 
+/* Overspending is flagged, never blocked. */
+.modern20 .m20-over { color: var(--m20-warn); font-weight: 600; }
+
 /* --- Item lists -------------------------------------------------------- */
 
 .modern20 .m20-itemlist { margin-bottom: 0.8rem; }

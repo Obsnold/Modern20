@@ -1,6 +1,11 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="m20-skills__summary">
-    {{localize "MODERN20.SkillPointsSpent"}}: {{system.skillPoints.spent}} &middot;
+    {{localize "MODERN20.SkillPointsSpent"}}: {{system.skillPoints.spent}} /
+    {{system.skillPoints.available}}
+    <span class="{{#if (lt system.skillPoints.remaining 0)}}m20-over{{/if}}">
+      ({{localize "MODERN20.SkillPointsRemaining"}} {{system.skillPoints.remaining}})
+    </span>
+    &middot;
     {{localize "MODERN20.MaxRanks"}}: {{system.skillPoints.maxRanks}}
     ({{localize "MODERN20.CrossClass"}} {{system.skillPoints.maxCrossClassRanks}})
   </div>

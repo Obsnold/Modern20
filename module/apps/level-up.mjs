@@ -1,4 +1,14 @@
+import { MODERN20 } from "../config.mjs";
+
 const { DialogV2 } = foundry.applications.api;
+const { Roll } = foundry.dice;
+const { ChatMessage } = foundry.documents;
+
+// SRD character-level milestones, independent of individual class level:
+// "A multiclass character receives a new feat every three character levels"
+// and "increases one ability score by +1 every four character levels".
+const FEAT_EVERY = 3;
+const ABILITY_INCREASE_EVERY = 4;
 
 /**
  * Level-up choices.
@@ -176,4 +186,103 @@ export async function promptLevelUpChoices(actor, classItem, level) {
     }));
   }
   return granted;
+}
+
+
+/**
+ * Hit points for a new class level.
+ *
+ * The SRD: "When picking up a new class, a hero doesn't receive maximum hit
+ * points but should roll the new Hit Die." Only a character's very first level
+ * takes the maximum. A level never yields less than one hit point.
+ */
+async function gainHitPoints(actor, classItem, isFirstLevelEver) {
+  const die = classItem.system.hitDie || "1d8";
+  const faces = Number(String(die).match(/d(\d+)/i)?.[1]) || 8;
+  const conMod = actor.system.abilities.con.mod;
+
+  let rolled = faces;
+  let roll = null;
+  if (!isFirstLevelEver) {
+    roll = await new Roll(`1d${faces}`).evaluate();
+    rolled = roll.total;
+  }
+
+  const gained = Math.max(1, rolled + conMod);
+  const hp = actor.system.hp;
+  await actor.update({
+    "system.hp.max": hp.max + gained,
+    "system.hp.value": hp.value + gained
+  });
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    flavor: game.i18n.format("MODERN20.LevelUp.HitPointsFlavor", {
+      name: classItem.name, die
+    }),
+    content: `<p>${game.i18n.format("MODERN20.LevelUp.HitPointsGained", {
+      gained, rolled: isFirstLevelEver ? game.i18n.localize("MODERN20.LevelUp.Maximum") : rolled,
+      con: conMod >= 0 ? `+${conMod}` : conMod
+    })}</p>`,
+    rolls: roll ? [roll] : []
+  });
+
+  return gained;
+}
+
+/** +1 to an ability of the player's choosing, every fourth character level. */
+async function chooseAbilityIncrease(actor, characterLevel) {
+  const options = Object.entries(MODERN20.abilities)
+    .map(([key, label]) => {
+      const score = actor.system.abilities[key];
+      const name = game.i18n.localize(label);
+      return `<option value="${key}">${name} ${score.value} &rarr; ${score.value + 1}</option>`;
+    })
+    .join("");
+
+  const chosen = await DialogV2.prompt({
+    window: { title: game.i18n.format("MODERN20.LevelUp.AbilityTitle", { level: characterLevel }) },
+    content: `<p>${game.i18n.localize("MODERN20.LevelUp.AbilityHint")}</p>
+              <div class="m20-levelup"><select name="choice">${options}</select></div>`,
+    ok: {
+      label: game.i18n.localize("MODERN20.LevelUp.Add"),
+      callback: (event, button, dialog) =>
+        dialog.element.querySelector("select[name=choice]")?.value ?? null
+    },
+    rejectClose: false
+  });
+
+  if (!chosen) return null;
+  const current = actor.system.abilities[chosen].value;
+  await actor.update({ [`system.abilities.${chosen}.value`]: current + 1 });
+  return chosen;
+}
+
+/**
+ * Everything a level grants beyond the class's own progression row: hit
+ * points, and the character-level milestones for feats and ability scores.
+ */
+export async function applyLevelGains(actor, classItem, classLevel, { isFirstLevelEver }) {
+  await gainHitPoints(actor, classItem, isFirstLevelEver);
+  await promptLevelUpChoices(actor, classItem, classLevel);
+
+  const characterLevel = actor.system.details.level;
+
+  if (characterLevel % FEAT_EVERY === 0) {
+    const entries = await featChoices(actor);
+    const uuid = await chooseOne({
+      title: game.i18n.format("MODERN20.LevelUp.GeneralFeatTitle", { level: characterLevel }),
+      hint: game.i18n.localize("MODERN20.LevelUp.GeneralFeatHint"),
+      entries
+    });
+    await grant(actor, uuid);
+  }
+
+  if (characterLevel % ABILITY_INCREASE_EVERY === 0) {
+    await chooseAbilityIncrease(actor, characterLevel);
+  }
+
+  // Action points are granted afresh at each new level rather than accumulated.
+  const ap = actor.system.actionPoints;
+  if (ap) await actor.update({ "system.actionPoints.value": ap.max });
 }
