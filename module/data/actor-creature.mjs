@@ -1,4 +1,4 @@
-import { Modern20ActorBase, int } from "./actor-base.mjs";
+import { Modern20ActorBase, attributeFields, int } from "./actor-base.mjs";
 
 const fields = foundry.data.fields;
 
@@ -17,8 +17,9 @@ export class Modern20Creature extends Modern20ActorBase {
         organization: new fields.StringField({ initial: "" }),
         treasure: new fields.StringField({ initial: "" })
       }),
+      // Fresh field instances: a DataField cannot be shared between schemas.
       attributes: new fields.SchemaField({
-        ...base.attributes.fields,
+        ...attributeFields(),
         reach: int(5),
         space: int(5)
       }),
