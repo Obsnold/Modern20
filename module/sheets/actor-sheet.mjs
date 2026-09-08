@@ -30,11 +30,11 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   static PARTS = {
     header: { template: "systems/modern20/templates/actor/hero-header.hbs" },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
-    main: { template: "systems/modern20/templates/actor/hero-main.hbs" },
-    skills: { template: "systems/modern20/templates/actor/hero-skills.hbs" },
-    talents: { template: "systems/modern20/templates/actor/hero-talents.hbs" },
-    gear: { template: "systems/modern20/templates/actor/hero-gear.hbs" },
-    biography: { template: "systems/modern20/templates/actor/hero-biography.hbs" }
+    main: { template: "systems/modern20/templates/actor/hero-main.hbs", scrollable: [""] },
+    skills: { template: "systems/modern20/templates/actor/hero-skills.hbs", scrollable: [""] },
+    talents: { template: "systems/modern20/templates/actor/hero-talents.hbs", scrollable: [""] },
+    gear: { template: "systems/modern20/templates/actor/hero-gear.hbs", scrollable: [""] },
+    biography: { template: "systems/modern20/templates/actor/hero-biography.hbs", scrollable: [""] }
   };
 
   static TABS = {
