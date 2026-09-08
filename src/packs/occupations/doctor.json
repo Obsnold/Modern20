@@ -7,7 +7,34 @@
     "description": "A doctor can be a physician (general practitioner or specialist), a surgeon, or a psychiatrist.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "craft",
+        "label": "Craft (pharmaceutical)",
+        "specialty": "pharmaceutical"
+      },
+      {
+        "skill": "computerUse",
+        "label": "Computer Use",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
+        "specialty": "behavioral sciences, earth and life sciences, or technology"
+      },
+      {
+        "skill": "search",
+        "label": "Search",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "label": "Treat Injury",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

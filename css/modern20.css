@@ -284,6 +284,24 @@
   margin-top: 0.4rem;
 }
 
+/* Occupation skill choices: a checkbox list rather than a multi-select, which
+   is unusable on a trackpad. */
+.m20-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.15rem 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.m20-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+}
+
+.m20-choice input { flex: 0 0 auto; }
+
 /* --- Prerequisites ----------------------------------------------------- */
 
 .modern20 .m20-prereqs legend { display: flex; align-items: center; gap: 0.4rem; }

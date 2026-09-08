@@ -7,7 +7,44 @@
     "description": "Blue collar occupations include factory work, food service jobs, construction, service industry jobs, taxi drivers, postal workers, and other jobs that are usually not considered to be desk jobs.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "craft",
+        "label": "Craft (electronic, mechanical, or structural)",
+        "specialty": "electronic, mechanical, or structural"
+      },
+      {
+        "skill": "climb",
+        "label": "Climb",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "label": "Drive",
+        "specialty": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "label": "Handle Animal",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "label": "Intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "label": "Repair",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "label": "Ride",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

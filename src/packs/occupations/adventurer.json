@@ -7,10 +7,96 @@
     "description": "Adventurers include professional daredevils, big-game hunters, relic hunters, explorers, extreme sports enthusiasts, field scientists, thrill-seekers, and others called to face danger for a variety of reasons.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "bluff",
+        "label": "Bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "label": "Climb",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "label": "Demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "label": "Disable Device",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "label": "Drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "label": "Escape Artist",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "label": "Intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "label": "Jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore, streetwise, tactics, or technology)",
+        "specialty": "arcane lore, streetwise, tactics, or technology"
+      },
+      {
+        "skill": "moveSilently",
+        "label": "Move Silently",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "label": "Pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "label": "Ride",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "label": "Spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "label": "Survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "label": "Swim",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "label": "Treat Injury",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
-    "bonusFeatOptions": [],
-    "bonusFeatChosen": "Select one of the following: Archaic Weapons Proficiency, Brawl, or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Archaic Weapons Proficiency",
+      "Brawl",
+      "Personal Firearms Proficiency"
+    ],
+    "bonusFeatChosen": "",
     "wealthBonus": 1,
     "reputationBonus": 0,
     "prerequisites": [

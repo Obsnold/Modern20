@@ -7,10 +7,50 @@
     "description": "Athletes include amateur athletes of Olympic quality and professional athletes of all types, including gymnasts, weight trainers, wrestlers, boxers, martial artists, swimmers, skaters, and those who engage in any type of competitive sport.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "balance",
+        "label": "Balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "label": "Climb",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "label": "Drive",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "label": "Jump",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "label": "Ride",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "label": "Swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "label": "Tumble",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
-    "bonusFeatOptions": [],
-    "bonusFeatChosen": "Select either Archaic Weapons Proficiency or Brawl.",
+    "bonusFeatOptions": [
+      "Archaic Weapons Proficiency",
+      "Brawl"
+    ],
+    "bonusFeatChosen": "",
     "wealthBonus": 1,
     "reputationBonus": 0,
     "prerequisites": [

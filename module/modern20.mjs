@@ -18,6 +18,7 @@ import {
 } from "./sheets/npc-sheets.mjs";
 import { Modern20ItemSheet } from "./sheets/item-sheet.mjs";
 import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
+import { applyOccupation } from "./apps/occupation.mjs";
 
 const SYSTEM_ID = "modern20";
 
@@ -67,24 +68,19 @@ Hooks.once("init", () => {
 });
 
 /**
- * An occupation's Wealth Bonus Increase is a one-time increase to starting
- * Wealth, not an ongoing modifier: Wealth erodes as the character buys things,
- * so re-deriving it every preparation pass would silently refund purchases.
- * Applied once, when the occupation is added to a character.
+ * A starting occupation offers a choice of class skills and sometimes a bonus
+ * feat, and grants a one-time Wealth increase. Run when it is added, by
+ * whoever owns the character, so it does not fire once per connected client.
  */
 Hooks.on("createItem", async (item) => {
   if (item.type !== "occupation") return;
   const actor = item.parent;
-  if (!actor || actor.system.wealth === undefined) return;
-  if (!game.user.isGM && game.user.id !== game.users.find((u) => u.character?.id === actor.id)?.id) return;
+  if (!actor) return;
+  if (!actor.isOwner) return;
+  // Only one client should run the prompts and the update.
+  if (game.users.activeGM?.id !== game.user.id && !actor.testUserPermission(game.user, "OWNER")) return;
 
-  const bonus = item.system.wealthBonus ?? 0;
-  if (!bonus) return;
-
-  await actor.update({ "system.wealth.bonus": actor.system.wealth.bonus + bonus });
-  ui.notifications.info(game.i18n.format("MODERN20.Info.OccupationWealth", {
-    name: item.name, bonus
-  }));
+  await applyOccupation(actor, item);
 });
 
 Hooks.once("ready", () => {
@@ -126,4 +122,9 @@ function registerHandlebarsHelpers() {
   });
 
   Handlebars.registerHelper("modern20Concat", (...args) => args.slice(0, -1).join(""));
+
+  // Core ships eq/lt/gt but nothing for array membership, which the
+  // occupation sheet needs to tick the skills already chosen.
+  Handlebars.registerHelper("includes", (list, value) =>
+    Array.isArray(list) && list.includes(value));
 }

@@ -7,7 +7,49 @@
     "description": "Academics include librarians, archaeologists, scholars, professors, teachers, and other education professionals.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "computerUse",
+        "label": "Computer Use",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (writing)",
+        "specialty": "writing"
+      },
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "label": "Gather Information",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy)",
+        "specialty": "arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy"
+      },
+      {
+        "skill": "research",
+        "label": "Research",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "label": "Read/Write Language",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "label": "Speak Language",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

@@ -7,10 +7,46 @@
     "description": "Law enforcement personnel include uniformed police, state troopers, federal police, federal agents, SWAT team members, and military police.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "diplomacy",
+        "label": "Diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "label": "Drive",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "label": "Gather Information",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "label": "Intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (civics, earth and life sciences, streetwise, or tactics)",
+        "specialty": "civics, earth and life sciences, streetwise, or tactics"
+      },
+      {
+        "skill": "listen",
+        "label": "Listen",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
-    "bonusFeatOptions": [],
-    "bonusFeatChosen": "Select one of the following: Combat Martial Arts, Armor Proficiency (light), or Personal Firearms Proficiency.",
+    "bonusFeatOptions": [
+      "Combat Martial Arts",
+      "Armor Proficiency (light)",
+      "Personal Firearms Proficiency"
+    ],
+    "bonusFeatChosen": "",
     "wealthBonus": 1,
     "reputationBonus": 0,
     "prerequisites": [

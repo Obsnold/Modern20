@@ -387,13 +387,12 @@ def build_talents() -> list[dict]:
 
 def build_occupations() -> list[dict]:
     return simple_pack("occupations", "occupation", "occupations", "icons/svg/village.svg", lambda e: {
-        # The SRD states skills and bonus feats as a sentence offering a
-        # choice, so they are kept as prose for the player to pick from
-        # rather than guessed at here.
-        "skillOptions": [],
+        "skillChoiceCount": e.get("skillChoices", {}).get("count", 0),
+        "skillOptions": e.get("skillChoices", {}).get("options", []),
+        # Filled in when the player picks, on adding the occupation.
         "skillsChosen": [],
-        "bonusFeatOptions": [],
-        "bonusFeatChosen": e.get("bonusFeat", ""),
+        "bonusFeatOptions": e.get("bonusFeatOptions", []),
+        "bonusFeatChosen": "",
         "wealthBonus": e.get("wealthBonus", 0),
         "reputationBonus": e.get("reputationBonus", 0),
         "prerequisites": e.get("prerequisites", []),

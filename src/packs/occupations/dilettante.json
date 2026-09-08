@@ -7,7 +7,34 @@
     "description": "Dilettantes usually get their wealth from family holdings and trust funds. The typical dilettante has no job, few responsibilities, and at least one driving passion that occupies his or her day. That passion might be a charity or philanthropic foundation, an ideal or cause worth fighting for, or a lust for living a fun and carefree existence.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 1,
+    "skillOptions": [
+      {
+        "skill": "gamble",
+        "label": "Gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "label": "Intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (current events or popular culture)",
+        "specialty": "current events or popular culture"
+      },
+      {
+        "skill": "ride",
+        "label": "Ride",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "label": "Speak Language",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

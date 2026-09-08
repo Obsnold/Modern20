@@ -7,7 +7,54 @@
     "description": "Rescue workers, firefighters, paramedics, hazardous material handlers, and emergency medical technicians fall under this category.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "balance",
+        "label": "Balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "label": "Climb",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "label": "Computer Use",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "label": "Drive",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "label": "Jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
+        "specialty": "behavioral sciences, earth and life sciences, or technology"
+      },
+      {
+        "skill": "search",
+        "label": "Search",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "label": "Treat Injury",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "label": "Swim",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",

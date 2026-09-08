@@ -185,7 +185,8 @@ Roughly in the order worth doing it:
 1. **Load it in Foundry and fix what breaks.** Nothing here has run in a live world.
 2. **Psionic powers and vehicles.** Messy; budget for a `data/overrides/` layer that
    merges hand corrections over scraped output.
-3. **Occupation choices as pickable lists** rather than the SRD's prose.
+3. **XP thresholds**, so the sheet knows when a character may level rather than
+   leaving it to the player to decide and click.
 4. **The rest of d20 Future and Urban Arcana** — progress levels, cybernetics,
    mecha, robots, xenoforms.
 
@@ -199,10 +200,13 @@ Wealth bonus is applied once when the occupation is added: Wealth erodes as the
 character buys things, so re-deriving it every preparation pass would silently
 refund purchases.
 
-Occupations still store their skill and bonus-feat *choices* as SRD prose
-rather than structured options, because the SRD states them as a sentence
-offering a choice. `skillOptions` and `bonusFeatOptions` are the placeholders
-for that, and are the only two schema fields nothing yet reads.
+An occupation's choices are parsed from the SRD's own sentence — *"Choose three
+of the following skills as permanent class skills"* — into a count and a list
+of options. Adding an occupation to a character prompts for the picks, grants
+the bonus feat from the compendium when it offers one, and applies the Wealth
+increase. All nineteen parse cleanly; the awkward cases were Academic, which
+hides two more skills in a trailing clause, and the occupations that write
+"either A or B" with no comma to split on.
 
 ## Known rough edges
 

@@ -7,7 +7,34 @@
     "description": "Scientists and engineers of all types fit within the scope of this starting occupation.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
-    "skillOptions": [],
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "computerUse",
+        "label": "Computer Use",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (chemical, electronic, mechanical, or structural)",
+        "specialty": "chemical, electronic, mechanical, or structural"
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (business, earth and life sciences, physical sciences, or technology)",
+        "specialty": "business, earth and life sciences, physical sciences, or technology"
+      },
+      {
+        "skill": "repair",
+        "label": "Repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "label": "Research",
+        "specialty": ""
+      }
+    ],
     "skillsChosen": [],
     "bonusFeatOptions": [],
     "bonusFeatChosen": "",
