@@ -1,0 +1,28 @@
+{
+  "_id": "0e3EaN8yV6pkc6RS",
+  "name": "Faerie Fire",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 1,
+    "school": "Evocation",
+    "subschool": "Light",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "Creatures and objects within a 5-ft.-radius burst",
+    "target": "",
+    "duration": "1 minute/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!0e3EaN8yV6pkc6RS"
+}

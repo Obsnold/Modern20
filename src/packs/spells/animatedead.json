@@ -1,0 +1,28 @@
+{
+  "_id": "1wTlUTYr0QjUJ12l",
+  "name": "Animate Dead",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 3,
+    "school": "Necromancy",
+    "subschool": "Evil",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "One or more corpses touched",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!1wTlUTYr0QjUJ12l"
+}

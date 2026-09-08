@@ -1,0 +1,28 @@
+{
+  "_id": "N8zks3Qqqp2B3XuI",
+  "name": "Neutralize Poison",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 4,
+    "school": "Conjuration (Healing)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature or object of up to 1 cu. ft./level touched",
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "prepared": 0
+  },
+  "_key": "!items!N8zks3Qqqp2B3XuI"
+}

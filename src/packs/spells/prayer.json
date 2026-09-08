@@ -1,0 +1,28 @@
+{
+  "_id": "KjeUp0pXezayugxi",
+  "name": "Prayer",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 3,
+    "school": "Conjuration (Creation)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "30 ft.",
+    "area": "All allies and foes within a 30-ft.-radius burst centered on you",
+    "target": "",
+    "duration": "1 round/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!KjeUp0pXezayugxi"
+}

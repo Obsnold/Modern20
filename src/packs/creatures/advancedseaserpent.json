@@ -1,0 +1,99 @@
+{
+  "_id": "uCswoXJdr5nJv0i1",
+  "name": "Advanced Sea Serpent",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 42,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 25,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 237,
+      "max": 237,
+      "temp": 0,
+      "formula": "19d10+133"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 13,
+      "misc": -8
+    },
+    "saves": {
+      "fort": {
+        "base": 11,
+        "misc": 0
+      },
+      "ref": {
+        "base": 11,
+        "misc": 0
+      },
+      "will": {
+        "base": 6,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 19,
+      "size": "colossal",
+      "speed": 60,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 25,
+      "reach": 30,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "magical beast",
+      "subtype": "",
+      "challengeRating": "10",
+      "hitDice": "19d10+133",
+      "advancement": "20-40 HD (Colossal)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft., hazy outline, improved grab, low-light vision, swallow whole",
+    "specialQualities": "Darkvision 60 ft., hazy outline, improved grab, low-light vision, swallow whole",
+    "biography": "<p><strong>Attack:</strong> +27 melee (4d6+16, tail slap)</p><p><strong>Full Attack:</strong> +27 melee (4d6+16, bite or tail slap)</p><p><strong>Skills:</strong> Hide -8 (+2 in water), Listen +7, Spot +7</p><p><strong>Feats:</strong> Cleave, Great Cleave, Improved Initiative, Power Attack</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!uCswoXJdr5nJv0i1"
+}

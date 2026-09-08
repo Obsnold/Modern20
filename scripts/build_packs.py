@@ -271,16 +271,22 @@ def load_dataset(name: str) -> list[dict]:
     return out
 
 
-def simple_pack(dataset: str, item_type: str, pack: str, img: str, mapper) -> list[dict]:
-    """Build one pack from a scraped dataset."""
+def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extra=None):
+    """Build one pack from a scraped dataset.
+
+    `document_class` selects the LevelDB key prefix: Foundry stores actors
+    under !actors! and items under !items!, and a pack compiled with the wrong
+    prefix imports as an empty compendium.
+    """
+    collection = "actors" if document_class == "Actor" else "items"
     documents = []
     for entry in load_dataset(dataset):
         slug = srd.slugify(entry.get("id") or entry["name"])
         doc_id = document_id(pack, slug)
-        documents.append({
+        document = {
             "_id": doc_id,
             "name": entry["name"],
-            "type": item_type,
+            "type": subtype,
             "img": img,
             "system": {
                 "description": entry.get("description", ""),
@@ -288,10 +294,76 @@ def simple_pack(dataset: str, item_type: str, pack: str, img: str, mapper) -> li
                 "srdUrl": entry.get("srdUrl", ""),
                 **mapper(entry),
             },
-            "_key": f"!items!{doc_id}",
+            "_key": f"!{collection}!{doc_id}",
             "_slug": slug,
-        })
+        }
+        if extra:
+            document.update(extra(entry))
+        documents.append(document)
     return documents
+
+
+def build_creatures() -> list[dict]:
+    """Creature actors. Derived values are stored as the offset that
+    reproduces the printed total, so the sheet shows what the SRD prints."""
+    def system(e):
+        return {
+            "abilities": {k: {"value": v, "tempMod": 0, "damage": 0}
+                          for k, v in e["abilities"].items()},
+            "hp": {"value": e["hp"], "max": e["hp"], "temp": 0, "formula": e["hitDice"]},
+            "defense": {"classBonus": 0, "naturalArmor": e["naturalArmor"],
+                        "misc": e["defenseMisc"]},
+            "saves": {k: {"base": v, "misc": 0} for k, v in e["saves"].items()},
+            "attributes": {
+                "baseAttack": e["baseAttack"],
+                "size": e["size"],
+                "speed": e["speed"],
+                "initiative": {"misc": e["initiativeMisc"]},
+                "damageReduction": 0,
+                "massiveDamageThreshold": e["massiveDamageThreshold"],
+                "reach": srd.to_int(e["reach"], 5) or 5,
+                "space": 5,
+            },
+            "details": {
+                "creatureType": e["creatureType"],
+                "subtype": "",
+                "challengeRating": e["challengeRating"],
+                "hitDice": e["hitDice"],
+                "advancement": e["advancement"],
+                "organization": "",
+                "treasure": e["possessions"],
+            },
+            "allegiances": [{"name": a, "strength": "none"} for a in e["allegiances"]],
+            "senses": e["specialQualities"],
+            "specialQualities": e["specialQualities"],
+            # The SRD prints skills and feats as prose with situational notes;
+            # kept verbatim rather than guessed into structured fields.
+            "biography": "<p><strong>Attack:</strong> {atk}</p><p><strong>Full Attack:</strong> {full}</p>"
+                         "<p><strong>Skills:</strong> {skills}</p><p><strong>Feats:</strong> {feats}</p>"
+                         "<p><strong>Talents:</strong> {talents}</p>".format(
+                             atk=e["attack"], full=e["fullAttack"], skills=e["skills"],
+                             feats=e["feats"], talents=e["talents"]),
+        }
+
+    return simple_pack("creatures", "creature", "creatures", "icons/svg/mystery-man.svg",
+                       system, document_class="Actor")
+
+
+def build_spells() -> list[dict]:
+    return simple_pack("spells", "spell", "spells", "icons/svg/book.svg", lambda e: {
+        "level": e["level"],
+        "school": e["school"],
+        "subschool": e["subschool"],
+        "components": e["components"],
+        "castingTime": e["castingTime"],
+        "range": e["range"],
+        "area": e["area"],
+        "target": e["target"],
+        "duration": e["duration"],
+        "savingThrow": e["savingThrow"],
+        "spellResistance": e["spellResistance"],
+        "prepared": 0,
+    })
 
 
 def build_feats() -> list[dict]:
@@ -392,6 +464,8 @@ def build() -> dict[str, list[dict]]:
         ("feats", build_feats),
         ("talents", build_talents),
         ("occupations", build_occupations),
+        ("spells", build_spells),
+        ("creatures", build_creatures),
     ):
         documents = builder()
         if documents:
@@ -435,14 +509,14 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
     labels = {
         "weapons": "Weapons", "armor": "Armor", "gear": "Equipment",
         "classes": "Classes", "feats": "Feats", "talents": "Talents",
-        "occupations": "Occupations",
+        "occupations": "Occupations", "spells": "Spells", "creatures": "Creatures",
     }
     entries = [
         {
             "name": pack,
             "label": labels.get(pack, pack.title()),
             "path": f"packs/{pack}",
-            "type": "Item",
+            "type": "Actor" if pack == "creatures" else "Item",
             "system": "modern20",
             "ownership": {"PLAYER": "OBSERVER", "ASSISTANT": "OWNER"},
         }

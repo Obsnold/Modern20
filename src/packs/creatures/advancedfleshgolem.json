@@ -1,0 +1,99 @@
+{
+  "_id": "efFpFkpGEc9kbsZQ",
+  "name": "Advanced Flesh Golem",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+    "abilities": {
+      "str": {
+        "value": 29,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 7,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 150,
+      "max": 150,
+      "temp": 0,
+      "formula": "20d10+40"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 13,
+      "misc": -2
+    },
+    "saves": {
+      "fort": {
+        "base": 6,
+        "misc": 0
+      },
+      "ref": {
+        "base": 6,
+        "misc": 0
+      },
+      "will": {
+        "base": 6,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 15,
+      "size": "huge",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": null,
+      "reach": 15,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "construct",
+      "subtype": "",
+      "challengeRating": "13",
+      "hitDice": "20d10+40",
+      "advancement": "23-27 HD (Huge)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "None or owner",
+        "strength": "none"
+      }
+    ],
+    "senses": "Construct, berserk, magic immunity, damage reduction 15/+1",
+    "specialQualities": "Construct, berserk, magic immunity, damage reduction 15/+1",
+    "biography": "<p><strong>Attack:</strong> +22 melee (4d6+9, slam)</p><p><strong>Full Attack:</strong> +22 melee (4d6+9, 2 slams), or +11 ranged</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!efFpFkpGEc9kbsZQ"
+}

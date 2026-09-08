@@ -1,0 +1,28 @@
+{
+  "_id": "1glvvWazp3qR5tCF",
+  "name": "Read Magic",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 0,
+    "school": "Universal",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "Attack action",
+    "range": "Personal",
+    "area": "",
+    "target": "You",
+    "duration": "10 minutes/level",
+    "savingThrow": "",
+    "spellResistance": "",
+    "prepared": 0
+  },
+  "_key": "!items!1glvvWazp3qR5tCF"
+}

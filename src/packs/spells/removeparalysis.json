@@ -1,0 +1,27 @@
+{
+  "_id": "o4tQ3rk923IEbOtL",
+  "name": "Remove Paralysis",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 2,
+    "school": "Conjuration (Healing)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "",
+    "target": "Up to four creatures, no two of which can be more than 30 ft. apart",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!o4tQ3rk923IEbOtL"
+}

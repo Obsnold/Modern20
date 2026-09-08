@@ -1,0 +1,27 @@
+{
+  "_id": "DxSmFvI8Q3WhMK7Q",
+  "name": "Mage Hand",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 0,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "",
+    "target": "Nonmagical, unattended object weighing up to 5 lb.",
+    "duration": "Concentration",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!DxSmFvI8Q3WhMK7Q"
+}

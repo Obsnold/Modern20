@@ -1,0 +1,29 @@
+{
+  "_id": "5z3olyMe2LkW0One",
+  "name": "Scrying",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 4,
+    "school": "Divination",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M/DF",
+      "F"
+    ],
+    "castingTime": "1 hour",
+    "range": "See text",
+    "area": "Magical sensor",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!5z3olyMe2LkW0One"
+}

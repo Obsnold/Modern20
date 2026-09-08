@@ -30,8 +30,9 @@ fighting it forever, so this is a standalone game system.
 | Wealth checks, purchase DCs, restriction ratings, black market surcharge | Working |
 | Action points, massive damage threshold and Fortitude save | Working |
 | Class progression folding into attack, saves, Defense and Reputation | Working |
-| Compendia: classes, occupations, talents, feats, weapons, armor, gear | Built from the SRD — 394 documents |
-| Compendia: creatures, spells, psionic powers, vehicles | **Not yet** — see below |
+| Compendia: classes, occupations, talents, feats, spells, weapons, armor, gear | Built from the SRD — 568 items |
+| Compendium: creatures | 138 actors, built from the SRD |
+| Compendia: psionic powers, vehicles | **Not yet** — see below |
 | Vehicles, FX/psionics | Data models only, no sheets |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
@@ -136,7 +137,7 @@ is still honest.
 Roughly in the order worth doing it:
 
 1. **Load it in Foundry and fix what breaks.** Nothing here has run in a live world.
-2. **Creature stat blocks.** Messy; budget for a `data/overrides/` layer that
+2. **Psionic powers and vehicles.** Messy; budget for a `data/overrides/` layer that
    merges hand corrections over scraped output.
 3. **Combat.** Conditions as ActiveEffects, attack/damage automation.
 4. **Ordinary, creature and vehicle sheets.** They currently share the hero sheet,

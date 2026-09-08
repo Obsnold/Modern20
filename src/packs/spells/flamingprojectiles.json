@@ -1,0 +1,28 @@
+{
+  "_id": "GWtuhCM1PYj3jWkr",
+  "name": "Flaming Projectiles",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 3,
+    "school": "Transmutation",
+    "subschool": "Fire",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "",
+    "target": "50 projectiles, all of which must be in contact with each other at the time of casting",
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!GWtuhCM1PYj3jWkr"
+}

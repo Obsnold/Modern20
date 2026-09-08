@@ -1,0 +1,28 @@
+{
+  "_id": "9CGluNNKZM1PZaww",
+  "name": "Shatter",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 2,
+    "school": "Evocation",
+    "subschool": "Sonic",
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "5-ft. radius spread, or one solid object or crystalline creature",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (object) or Fortitude half (see text)",
+    "spellResistance": "Yes (object)",
+    "prepared": 0
+  },
+  "_key": "!items!9CGluNNKZM1PZaww"
+}

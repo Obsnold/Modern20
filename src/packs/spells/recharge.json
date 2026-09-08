@@ -1,0 +1,28 @@
+{
+  "_id": "05gVJfBrlOlcRDnw",
+  "name": "Recharge",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 3,
+    "school": "Conjuration (Healing)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature touched",
+    "duration": "Instantaneous and special (see text)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!05gVJfBrlOlcRDnw"
+}

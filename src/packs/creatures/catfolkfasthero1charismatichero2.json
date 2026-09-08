@@ -1,0 +1,99 @@
+{
+  "_id": "epWlB2p9WaVVMYxb",
+  "name": "Cat Folk Fast Hero 1/Charismatic Hero 2",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 15,
+      "max": 15,
+      "temp": 0,
+      "formula": "2d8-2 plus 1d6-2 plus 2d6-2"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 1,
+      "misc": 5
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 7,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 9,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "monstrous humanoid",
+      "subtype": "",
+      "challengeRating": "5",
+      "hitDice": "2d8-2 plus 1d6-2 plus 2d6-2",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": "Glock 17 (9mm autoloader), 50 rounds of ammunition, formal outfit, concealed carry holster, cell phone."
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "alternate form, claws, feline aversion (DC 15), mesmerizing gaze (DC 15), scent",
+    "specialQualities": "alternate form, claws, feline aversion (DC 15), mesmerizing gaze (DC 15), scent",
+    "biography": "<p><strong>Attack:</strong> +3 melee (1d4+1, claws)</p><p><strong>Full Attack:</strong> +3 melee (1d4+1, claws) or +7 ranged (2d6, Glock 17)</p><p><strong>Skills:</strong> Balance +10, Bluff +6, Disguise +8, Gather Information +7, Hide +11, Knowledge (behavioral science) +5, Knowledge (streetwise) +5, Listen +10, Read/ Write English, Read/Write Cat Folk, Speak English, Speak Cat Folk, Spot +10, Tumble +8.</p><p><strong>Feats:</strong> Alertness, Dodge, Improved Initiative, Personal Firearms Proficiency, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!epWlB2p9WaVVMYxb"
+}

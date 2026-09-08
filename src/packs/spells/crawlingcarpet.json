@@ -1,0 +1,28 @@
+{
+  "_id": "LpoM2lMkZZvsqAnZ",
+  "name": "Crawling Carpet",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 4,
+    "school": "Conjuration (Summoning)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Fullround action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "Carpet of monstrous spiders, scarab beetles, or centipedes filling a 10-ft.-radius spread",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!LpoM2lMkZZvsqAnZ"
+}

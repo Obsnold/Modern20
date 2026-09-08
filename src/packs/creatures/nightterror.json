@@ -1,0 +1,99 @@
+{
+  "_id": "lCBp0bNJxFVXXcXm",
+  "name": "Night Terror",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 10,
+      "max": 10,
+      "temp": 0,
+      "formula": "3d6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 1,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 1,
+        "misc": 0
+      },
+      "ref": {
+        "base": 1,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 10,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "fey",
+      "subtype": "",
+      "challengeRating": "2",
+      "hitDice": "3d6",
+      "advancement": "By character class.",
+      "organization": "",
+      "treasure": "Cleaver, collection of beheaded dolls."
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Chosen victim, fear aura (DC 14), immune to fear, low-light vision, selective invisibility, terrify (DC 14), vulnerability (any one)",
+    "specialQualities": "Chosen victim, fear aura (DC 14), immune to fear, low-light vision, selective invisibility, terrify (DC 14), vulnerability (any one)",
+    "biography": "<p><strong>Attack:</strong> +2 melee (1d4+1, claw) or +2 melee (1d6+1/19-20, cleaver)</p><p><strong>Full Attack:</strong> +2 melee (1d4+1, 2 claws) or +2 melee (1d6+1/19-20, cleaver) or +2 ranged</p><p><strong>Skills:</strong> Bluff +6, Climb +3, Disguise +5, Escape Artist +2, Hide +4, Intimidate +13, Knowledge (behavioral science) +6, Listen +6, Move Silently +5, Search +3, Sense Motive +13, Spot +6.</p><p><strong>Feats:</strong> Improved Initiative, Renown, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> N/A</p>"
+  },
+  "_key": "!actors!lCBp0bNJxFVXXcXm"
+}

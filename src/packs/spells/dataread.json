@@ -1,0 +1,28 @@
+{
+  "_id": "sqHKZNRWDAlUrFC7",
+  "name": "Dataread",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 2,
+    "school": "Divination",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "F/DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "Read machinereadable data",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!sqHKZNRWDAlUrFC7"
+}

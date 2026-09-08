@@ -1,0 +1,27 @@
+{
+  "_id": "hLlRW9JVs7Qsx6aj",
+  "name": "Darkness",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 2,
+    "school": "Evocation",
+    "subschool": "Darkness",
+    "components": [
+      "V",
+      "DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Object touched",
+    "duration": "10 minutes/level (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!hLlRW9JVs7Qsx6aj"
+}

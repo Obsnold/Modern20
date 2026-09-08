@@ -1,0 +1,28 @@
+{
+  "_id": "8dQGdrwjtZe2e8Vv",
+  "name": "Magic ID",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 0,
+    "school": "Illusion",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "Illusory identification card",
+    "target": "",
+    "duration": "See description",
+    "savingThrow": "Will disbelief (if interacted with)",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!8dQGdrwjtZe2e8Vv"
+}

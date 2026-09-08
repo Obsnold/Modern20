@@ -1,0 +1,28 @@
+{
+  "_id": "Mo7pbz5vG9aOBsKj",
+  "name": "Cone of Cold",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 5,
+    "school": "Evocation",
+    "subschool": "Cold",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "Cone",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!Mo7pbz5vG9aOBsKj"
+}

@@ -242,6 +242,248 @@
     ]
   },
   {
+    "page": "futurecombat.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurecombat.html",
+    "header": [
+      "Crew Quality",
+      "Skill Check Modifier 1",
+      "Pilot’s Class Bonus to Defense",
+      "Pilot’s Dexterity Modifier",
+      "Gunner’s Modifier to Attack Bonus",
+      "Starship’s Base Purchase DC"
+    ],
+    "rows": [
+      [
+        "Untrained",
+        "+0",
+        "+1",
+        "+0",
+        "-4",
+        "-4"
+      ],
+      [
+        "Trained",
+        "+4",
+        "+3",
+        "+2",
+        "+2",
+        "0"
+      ],
+      [
+        "Expert",
+        "+12",
+        "+7",
+        "+6",
+        "+8/+3",
+        "+8"
+      ],
+      [
+        "Ace",
+        "+12",
+        "+7",
+        "+6",
+        "+8/+3",
+        "+8"
+      ],
+      [
+        "1 This includes Pilot checks."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futuredefense.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuredefense.html",
+    "header": [
+      "Ship Type",
+      "Hit Points Restored",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Ultralight",
+        "1d10",
+        "18"
+      ],
+      [
+        "Light",
+        "2d10",
+        "22"
+      ],
+      [
+        "Mediumweight",
+        "3d10",
+        "27"
+      ],
+      [
+        "Heavy",
+        "4d10",
+        "33"
+      ],
+      [
+        "Superheavy",
+        "5d10",
+        "40"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futuredefense.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuredefense.html",
+    "header": [
+      "Starship Type",
+      "Point-Defense Damage",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Ultralight",
+        "1d12×10",
+        "31"
+      ],
+      [
+        "Light",
+        "2d12×10",
+        "34"
+      ],
+      [
+        "Mediumweight",
+        "3d12×10",
+        "36"
+      ],
+      [
+        "Heavy",
+        "4d12×10",
+        "38"
+      ],
+      [
+        "Superheavy",
+        "5d12×10",
+        "40"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futuredefense.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuredefense.html",
+    "header": [
+      "Starship Type",
+      "Collateral Damage",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Ultralight",
+        "1d6×10",
+        "26"
+      ],
+      [
+        "Light",
+        "2d6×10",
+        "32"
+      ],
+      [
+        "Mediumweight",
+        "3d6×10",
+        "38"
+      ],
+      [
+        "Heavy",
+        "4d6×10",
+        "44"
+      ],
+      [
+        "Superheavy",
+        "5d6×10",
+        "50"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurefantastic.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurefantastic.html",
+    "header": [
+      "Transport Booth’s Purchase DC",
+      "Communication System Modifier"
+    ],
+    "rows": [
+      [
+        "Progress Level 5: Information Age"
+      ],
+      [
+        "Radio Transceiver",
+        "+0"
+      ],
+      [
+        "Progress Level 6: Fusion Age"
+      ],
+      [
+        "Laser Transceiver",
+        "+3"
+      ],
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "Mass Transceiver",
+        "+5"
+      ],
+      [
+        "Progress Level 8: Energy Age"
+      ],
+      [
+        "Drive Transceiver",
+        "+8"
+      ],
+      [
+        "Progress Level 9: Matter Age"
+      ],
+      [
+        "Ansible",
+        "+13"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "category",
+      "item",
+      "category",
+      "item",
+      "category",
+      "item",
+      "category",
+      "item"
+    ]
+  },
+  {
     "page": "futuremech.html",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuremech.html",
     "header": [
@@ -316,6 +558,2522 @@
       "item",
       "item",
       "item"
+    ]
+  },
+  {
+    "page": "futuremech1.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuremech1.html",
+    "header": [
+      "Superstructure Material",
+      "-- Modified Base Purchase DC --"
+    ],
+    "rows": [
+      [
+        "Hardness",
+        "Large",
+        "Huge",
+        "Gargantuan",
+        "Colossal"
+      ],
+      [
+        "Alumisteel (PL 5)",
+        "10",
+        "36",
+        "40",
+        "44",
+        "56"
+      ],
+      [
+        "Duralloy (PL 6)",
+        "15",
+        "40",
+        "44",
+        "48",
+        "60"
+      ],
+      [
+        "Vanadium (PL 6)",
+        "20",
+        "44",
+        "48",
+        "52",
+        "64"
+      ],
+      [
+        "Neovulcanium (PL 7)",
+        "20",
+        "40",
+        "44",
+        "48",
+        "60"
+      ],
+      [
+        "Neutronite (PL 7)",
+        "25",
+        "44",
+        "48",
+        "52",
+        "64"
+      ],
+      [
+        "Megatanium (PL 8)",
+        "30",
+        "40",
+        "44",
+        "48",
+        "60"
+      ]
+    ],
+    "kinds": [
+      "header",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl5.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl5.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magezine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Falcon .45",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S, A",
+        "20 box",
+        "Medium",
+        "2.5 lb.",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "OICW assault rifle",
+        "2d8",
+        "20",
+        "Ballistic",
+        "70 ft.",
+        "S",
+        "30 box",
+        "Large",
+        "18 lb.",
+        "26",
+        "Mil (+3)"
+      ],
+      [
+        "TacMil sniper rifle",
+        "2d10",
+        "20",
+        "Ballistic",
+        "120 ft.",
+        "S",
+        "15 box",
+        "Large",
+        "14 lb.",
+        "21",
+        "Res (+2)"
+      ],
+      [
+        "Twin thunder machine gun",
+        "2d10",
+        "20",
+        "Ballistic",
+        "100 ft.",
+        "A",
+        "Linked",
+        "Huge",
+        "42 lb.",
+        "22",
+        "Mil (+3)"
+      ],
+      [
+        "1 All weapons listed in this table require the Personal Firearms Proficiency feat."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl5.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl5.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Blast Radius",
+      "Reflex Save",
+      "Range Increment",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Grenade, shrapnel",
+        "5d6",
+        "-",
+        "Slashing",
+        "20 ft.",
+        "15",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "18",
+        "Mil (+3)"
+      ],
+      [
+        "Grenade, sonic pulse",
+        "3d6 nonlethal plus special 1",
+        "-",
+        "Sonic",
+        "15 ft.",
+        "12",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "15",
+        "Res (+2)"
+      ],
+      [
+        "1 See the weapon description for details."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl5.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl5.html",
+    "header": [
+      "Armor",
+      "Type",
+      "Equipment Bonus",
+      "Nonprof. Bonus",
+      "Maximum Dex Bonus",
+      "Armor Penalty",
+      "Speed (30 ft./20 ft.)",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Light Armor"
+      ],
+      [
+        "Flight Suit and helmet",
+        "Tactical",
+        "+2",
+        "+1",
+        "+6",
+        "-0",
+        "30 ft./20 ft.",
+        "2 lb.",
+        "10",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Heavy Armor"
+      ],
+      [
+        "Land warrior armor",
+        "Tactical",
+        "+6",
+        "+3",
+        "+3",
+        "-3",
+        "20 ft./15 ft.",
+        "10 lb.",
+        "20",
+        "Lic (+1)"
+      ],
+      [
+        "Space suit",
+        "Tactical",
+        "+7",
+        "+3",
+        "+0",
+        "-10",
+        "15 ft./10 ft.",
+        "50 lb.",
+        "26",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl5.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl5.html",
+    "header": [
+      "Name",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Computer Equipment"
+      ],
+      [
+        "Display Glasses",
+        "Tiny",
+        "1 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Hackcard",
+        "Diminutive",
+        "-",
+        "14",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Miscellaneous Equipment"
+      ],
+      [
+        "Duracable",
+        "Medium",
+        "3 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Grappler tag",
+        "Tiny",
+        "1 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Explorer outfit",
+        "Medium",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Heads-up display",
+        "Tiny",
+        "1 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Laser tripwire",
+        "Diminutive",
+        "-",
+        "5",
+        "-"
+      ],
+      [
+        "Nanobeacon",
+        "Fine",
+        "-",
+        "8",
+        "-"
+      ],
+      [
+        "Shepherd chip",
+        "Fine",
+        "-",
+        "12",
+        "-"
+      ],
+      [
+        "Spray LCD",
+        "Tiny",
+        "0.5 lb.",
+        "8",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Survival Equipment"
+      ],
+      [
+        "Portable environment generator",
+        "Medium",
+        "5 lb.",
+        "14",
+        "-"
+      ],
+      [
+        "Portable glow lamp",
+        "Tiny",
+        "0.5 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Puritizer",
+        "Small",
+        "2 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Soother pulse",
+        "Diminutive",
+        "-",
+        "14",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl6.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magezine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Laser pistol",
+        "2d8",
+        "20",
+        "Fire",
+        "40 ft.",
+        "S",
+        "50 box",
+        "Medium",
+        "3 lb.",
+        "17",
+        "Lic (+1)"
+      ],
+      [
+        "Laser rifle",
+        "3d8",
+        "20",
+        "Fire",
+        "80 ft.",
+        "S, A",
+        "50 box",
+        "Large",
+        "8 lb.",
+        "19",
+        "Res (+2)"
+      ],
+      [
+        "Laser sniper rifle",
+        "3d8",
+        "20",
+        "Fire",
+        "120 ft.",
+        "S",
+        "50 box",
+        "Large",
+        "14 lb.",
+        "21",
+        "Res (+2)"
+      ],
+      [
+        "Mini-grenade launcher",
+        "Varies 2",
+        "20",
+        "Varies 2",
+        "70 ft.",
+        "Single",
+        "1 int.",
+        "Medium",
+        "4 lb.",
+        "20",
+        "Mil (+3)"
+      ],
+      [
+        "Mini-rocket launcher",
+        "Varies 2",
+        "20",
+        "Varies 2",
+        "150 ft.",
+        "Single",
+        "1 int.",
+        "Medium",
+        "5 lb.",
+        "23",
+        "Mil (+3)"
+      ],
+      [
+        "Tangler gun",
+        "Special",
+        "-",
+        "-",
+        "20 ft.",
+        "S, A",
+        "20 box",
+        "Large",
+        "8 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        "1 All weapons listed in this table require the Personal Firearms Proficiency feat."
+      ],
+      [
+        "2 Damage and damage type varies depending on the ammunition."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl6.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "High frequency sword",
+        "2d6",
+        "19-20",
+        "Slashing",
+        "-",
+        "Large",
+        "2 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Stun baton",
+        "1d6 + special",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Medium",
+        "1 lb.",
+        "16",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl6.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "header": [
+      "Ammunition (Quantity)",
+      "Damage Type",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Bio-agent (20)",
+        "Ballistic",
+        "14",
+        "Mil (+3)"
+      ],
+      [
+        "Power pack (50)",
+        "Special 1",
+        "8",
+        "-"
+      ],
+      [
+        "1 A power pack powers any ranged weapon that deals energy damage (such as a laser pistol). A power pack does not change the weapon’s damage type."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl6.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Blast Radius",
+      "Reflex Save",
+      "Range Increment",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Grenade, concussion",
+        "4d6 nonlethal",
+        "-",
+        "Concussion",
+        "15 ft.",
+        "15",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "15",
+        "Mil (+3)"
+      ],
+      [
+        "Grenade, EMP",
+        "Special 1",
+        "-",
+        "Electricity",
+        "20 ft.",
+        "15",
+        "10 ft.",
+        "Small",
+        "2 lb.",
+        "16",
+        "Mil (+3)"
+      ],
+      [
+        "Grenade, fireflush",
+        "3d6",
+        "-",
+        "Fire",
+        "10 ft.",
+        "15",
+        "10 ft.",
+        "Small",
+        "2 lb.",
+        "18",
+        "Res (+2)"
+      ],
+      [
+        "Grenade, tangler",
+        "Special 1",
+        "-",
+        "-",
+        "5 ft.",
+        "12",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "14",
+        "Lic (+1)"
+      ],
+      [
+        "1 See the weapon description for details."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl6.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "header": [
+      "Armor",
+      "Type",
+      "Equipment Bonus",
+      "Nonprof. Bonus",
+      "Maximum Dex Bonus",
+      "Armor Penalty",
+      "Speed (30 ft./20 ft.)",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Light Armor"
+      ],
+      [
+        "Light combat armor",
+        "Tactical",
+        "+3",
+        "+1",
+        "+5",
+        "-2",
+        "30 ft./20 ft.",
+        "6 lb.",
+        "12",
+        "Lic (+1)"
+      ],
+      [
+        "Scout armor",
+        "Tactical",
+        "+2",
+        "+1",
+        "+7",
+        "-0",
+        "30 ft./20 ft.",
+        "4 lb.",
+        "11",
+        "Lic (+1)"
+      ],
+      [
+        "Survival suit",
+        "Concealable",
+        "+1",
+        "+1",
+        "+7",
+        "-0",
+        "30 ft./20 ft.",
+        "3 lb.",
+        "16",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl6.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "header": [
+      "Name",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Chemical and Medical Equipment"
+      ],
+      [
+        "Chemical, antitox",
+        "Diminutive",
+        "-",
+        "6",
+        "-"
+      ],
+      [
+        "Chemical, boost",
+        "Diminutive",
+        "-",
+        "6",
+        "Illegal (+4)"
+      ],
+      [
+        "Chemical, neutrad",
+        "Diminutive",
+        "-",
+        "6",
+        "-"
+      ],
+      [
+        "Chemical, solvaway",
+        "Diminutive",
+        "-",
+        "5",
+        "-"
+      ],
+      [
+        "Chemical, sporekill",
+        "Diminutive",
+        "-",
+        "6",
+        "-"
+      ],
+      [
+        "Medkit, advanced",
+        "Small",
+        "3 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Medkit, fast use",
+        "Small",
+        "3 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Plastic surgery kit, personal",
+        "Tiny",
+        "1 lb.",
+        "11",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Computer Equipment"
+      ],
+      [
+        "Computer, card",
+        "Diminutive",
+        "-",
+        "22",
+        "-"
+      ],
+      [
+        "Display contacts",
+        "Fine",
+        "-",
+        "16",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Miscellaneous Equipment"
+      ],
+      [
+        "Disguise kit, morphic",
+        "Tiny",
+        "1 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Flash-seal",
+        "Tiny",
+        "1 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Fusion torch",
+        "Medium",
+        "3 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Intellipicks",
+        "Small",
+        "1 lb.",
+        "13",
+        "Lic (+1)"
+      ],
+      [
+        "Jetpack",
+        "Large",
+        "22 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        "Neural scrambler",
+        "Small",
+        "1 lb.",
+        "10",
+        "Res (+2)"
+      ],
+      [
+        "Universal communicator",
+        "Tiny",
+        "0.5 lb.",
+        "6",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Sensor Equipment"
+      ],
+      [
+        "Sensor, chemicomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Sensor, geocomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Sensor, motion",
+        "Tiny",
+        "0.5 lb.",
+        "14",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Survival Equipment"
+      ],
+      [
+        "Aquaconverter",
+        "Medium",
+        "4 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Violet rations",
+        "Fine",
+        "-",
+        "5",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant"
+    ]
+  },
+  {
+    "page": "futurepl7.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magezine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Concussion rifle",
+        "2d10 + special",
+        "20",
+        "Concussion",
+        "20 ft.",
+        "S",
+        "-",
+        "Large",
+        "6 lb.",
+        "22",
+        "Lic (+1)"
+      ],
+      [
+        "Gravity snare",
+        "Special",
+        "-",
+        "-",
+        "30 ft.",
+        "S",
+        "-",
+        "Large",
+        "7 lb.",
+        "17",
+        "Lic (+1)"
+      ],
+      [
+        "Plasma pistol",
+        "2d10",
+        "20",
+        "Fire",
+        "40 ft.",
+        "S",
+        "50 box",
+        "Medium",
+        "3 lb.",
+        "17",
+        "Lic (+1)"
+      ],
+      [
+        "Plasma rifle",
+        "3d10",
+        "20",
+        "Fire",
+        "80 ft.",
+        "S, A",
+        "50 Box",
+        "Large",
+        "8 lb.",
+        "19",
+        "Res (+2)"
+      ],
+      [
+        "Rail gun",
+        "3d12",
+        "20",
+        "Ballistic",
+        "100 ft.",
+        "S",
+        "20 box",
+        "Large",
+        "18 lb.",
+        "24",
+        "Mil (+3)"
+      ],
+      [
+        "1 All weapons listed in this table require the Personal Firearms Proficiency feat."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl7.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "header": [
+      "Ammunition (Quantity)",
+      "Damage Type",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Deflecting (20)",
+        "Ballistic",
+        "12",
+        "Lic (+1)"
+      ],
+      [
+        "Plasma-coated (20)",
+        "Ballistic/Fire",
+        "13",
+        "Res (+2)"
+      ],
+      [
+        "Rail gun shards (20)",
+        "Ballistic",
+        "10",
+        "-"
+      ],
+      [
+        "Seeker (20)",
+        "Ballistic",
+        "15",
+        "Res (+2)"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl7.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Blast Radius",
+      "Reflex Save",
+      "Range Increment",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Grenade, dissolver",
+        "2d6",
+        "-",
+        "Acid",
+        "5 ft.",
+        "15",
+        "10 ft.",
+        "Small",
+        "2 lb.",
+        "14",
+        "Res (+2)"
+      ],
+      [
+        "Grenade, gravitic",
+        "6d6",
+        "-",
+        "Bludgeoning",
+        "10 ft.",
+        "15",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "20",
+        "Mil (+3)"
+      ],
+      [
+        "Grenade, stun",
+        "Special 1",
+        "-",
+        "-",
+        "10 ft.",
+        "18",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "17",
+        "Mil (+3)"
+      ],
+      [
+        "1 See the weapon description for details."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl7.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "header": [
+      "Armor",
+      "Type",
+      "Equipment Bonus",
+      "Nonprof. Bonus",
+      "Maximum Dex Bonus",
+      "Armor Penalty",
+      "Speed (30 ft./20 ft.)",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Medium Armor"
+      ],
+      [
+        "Medium combat armor",
+        "Tactical",
+        "+4",
+        "+2",
+        "+4",
+        "-2",
+        "20 ft./15 ft.",
+        "8 lb.",
+        "14",
+        "Lic (+1)"
+      ],
+      [
+        "Silent suit",
+        "Concealable",
+        "+1",
+        "+1",
+        "+8",
+        "-0",
+        "30 ft./20 ft.",
+        "1 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Powered Armor"
+      ],
+      [
+        "Space combat suit",
+        "Tactical",
+        "+9",
+        "+3",
+        "+1",
+        "-7",
+        "15 ft./10 ft.",
+        "40 lb.",
+        "17",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "category",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl7.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "header": [
+      "Name",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Chemical and Medical Equipment"
+      ],
+      [
+        "Chemical, biocort",
+        "Diminutive",
+        "-",
+        "6",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Miscellaneous Equipment"
+      ],
+      [
+        "GalPos device",
+        "Small",
+        "3 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Grappling tether",
+        "Small",
+        "2 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Piercing visor",
+        "Small",
+        "1 lb.",
+        "15",
+        "Mil (+3)"
+      ],
+      [
+        "Power backpack",
+        "Medium",
+        "3 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Projectile deflector",
+        "Small",
+        "0.5 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Sensor Equipment"
+      ],
+      [
+        "Sensor, armacomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Sensor, democomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "Sensor, electricomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Sensor, mechanicomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Sensor, medicomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant"
+    ]
+  },
+  {
+    "page": "futurepl8.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magezine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Cryonic rifle",
+        "3d6",
+        "20",
+        "Cold",
+        "20 ft.",
+        "S",
+        "10 box",
+        "Large",
+        "8 lb.",
+        "21",
+        "Lic (+1)"
+      ],
+      [
+        "Disintegrator",
+        "3d8",
+        "20",
+        "Energy 2",
+        "30 ft.",
+        "S",
+        "10 box",
+        "Large",
+        "6 lb.",
+        "23",
+        "Mil (+3)"
+      ],
+      [
+        "Lightning gun",
+        "3d6",
+        "20",
+        "Electricity",
+        "50 ft.",
+        "S, A",
+        "30 box",
+        "Huge",
+        "30 lb.",
+        "24",
+        "Mil (+3)"
+      ],
+      [
+        "Pulse rifle",
+        "3d10",
+        "20",
+        "Fire",
+        "80 ft.",
+        "S, A",
+        "50 Box",
+        "Large",
+        "11 lb.",
+        "21",
+        "Res (+2)"
+      ],
+      [
+        "Sonic beam",
+        "2d6 + special",
+        "20",
+        "Sonic",
+        "40 ft.",
+        "S",
+        "50 box",
+        "Medium",
+        "3 lb.",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "1 All weapons listed in this table require the Personal Firearms Proficiency feat."
+      ],
+      [
+        "2 This weapon deals damage of a nonspecific energy type that is not subject to energy resistance."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl8.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Blast Radius",
+      "Reflex Save",
+      "Range Increment",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Grenade, cryonic",
+        "8d6",
+        "-",
+        "Cold",
+        "10 ft.",
+        "15",
+        "10 ft.",
+        "Small",
+        "2 lb.",
+        "19",
+        "Res (+2)"
+      ],
+      [
+        "Grenade, psionic",
+        "Special 1",
+        "-",
+        "-",
+        "10 ft.",
+        "18",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "22",
+        "Res (+2)"
+      ],
+      [
+        "Grenade, singularity",
+        "15d6",
+        "-",
+        "Energy 2",
+        "5 ft.",
+        "15",
+        "10 ft.",
+        "Small",
+        "2 lb.",
+        "26",
+        "Mil (+3)"
+      ],
+      [
+        "1 See the weapon description for details."
+      ],
+      [
+        "2 This weapon deals damage of a nonspecific energy type that is not subject to energy resistance."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "category",
+      "category"
+    ]
+  },
+  {
+    "page": "futurepl8.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "header": [
+      "Armor",
+      "Type",
+      "Equipment Bonus",
+      "Nonprof. Bonus",
+      "Maximum Dex Bonus",
+      "Armor Penalty",
+      "Speed (30 ft./20 ft.)",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Heavy Armor"
+      ],
+      [
+        "Unisoldiercombat armor",
+        "Tactical",
+        "+10",
+        "+3",
+        "+1",
+        "-6",
+        "20 ft./15 ft.",
+        "30 lb.",
+        "19",
+        "Lic (+1)"
+      ],
+      [
+        "Powered Armor"
+      ],
+      [
+        "Boost Armor",
+        "Tactical",
+        "+7",
+        "+2",
+        "+4",
+        "-3",
+        "20 ft./15 ft.",
+        "20 lb.",
+        "18",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "category",
+      "item"
+    ]
+  },
+  {
+    "page": "futurepl8.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "header": [
+      "Name",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Chemical and Medical Equipment"
+      ],
+      [
+        "Chemical, plastiflesh",
+        "Tiny",
+        "0.5 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Chemical, truthtell",
+        "Diminutive",
+        "-",
+        "8",
+        "Lic (+1)"
+      ],
+      [
+        "Regen wand",
+        "Small",
+        "1 lb.",
+        "18",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Computer Equipment"
+      ],
+      [
+        "Neural computer link",
+        "Fine",
+        "-",
+        "25",
+        "-"
+      ],
+      [
+        "Neural network jack, wireless",
+        "Fine",
+        "-",
+        "12",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Miscellaneous Equipment"
+      ],
+      [
+        "Energy shield",
+        "Tiny",
+        "0.5 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Force field, personal (DR 5/-)",
+        "Tiny",
+        "0.5 lb.",
+        "18",
+        "Mil (+3)"
+      ],
+      [
+        "Force field, personal (DR 10/-)",
+        "Tiny",
+        "0.5 lb.",
+        "22",
+        "Mil (+3)"
+      ],
+      [
+        "Hologram player",
+        "Small",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Hologram recorder",
+        "Diminutive",
+        "-",
+        "9",
+        "-"
+      ],
+      [
+        "Hologuise",
+        "Small",
+        "1 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Matter shield",
+        "Tiny",
+        "0.5 lb.",
+        "20",
+        "Mil (+3)"
+      ],
+      [
+        "Micro-aural communicator",
+        "Fine",
+        "-",
+        "6",
+        "-"
+      ],
+      [
+        "Neural recorder",
+        "Small",
+        "1 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        "Photon shield",
+        "Small",
+        "2 lb.",
+        "24",
+        "Mil (+3)"
+      ],
+      [
+        "Polyvox",
+        "Tiny",
+        "0.5 lb.",
+        "10",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Sensor Equipment"
+      ],
+      [
+        "Sensor, robocomp",
+        "Small",
+        "1 lb.",
+        "18",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "variant"
+    ]
+  },
+  {
+    "page": "futurerobot1.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurerobot1.html",
+    "header": [
+      "Robot Size",
+      "Base Purchase DC",
+      "Base Hit Dice",
+      "Extra Hit Points",
+      "--- Base Ability Scores ---",
+      "",
+      "Maximum Hit Dice/ Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "Str",
+        "Dex",
+        "Con",
+        "Int",
+        "Wis",
+        "Cha"
+      ],
+      [
+        "Colossal",
+        "44",
+        "32d10",
+        "120",
+        "47",
+        "6",
+        "-",
+        "-",
+        "10",
+        "1",
+        "",
+        "64d10/+3 per HD"
+      ],
+      [
+        "Gargantuan",
+        "36",
+        "16d10",
+        "80",
+        "39",
+        "6",
+        "-",
+        "-",
+        "10",
+        "1",
+        "",
+        "31d10/+3 per HD"
+      ],
+      [
+        "Huge",
+        "32",
+        "8d10",
+        "40",
+        "30",
+        "6",
+        "-",
+        "-",
+        "10",
+        "1",
+        "",
+        "15d10/+2 per HD"
+      ],
+      [
+        "Large",
+        "28",
+        "2d10",
+        "20",
+        "22",
+        "8",
+        "-",
+        "-",
+        "10",
+        "1",
+        "",
+        "7d10/+1 per HD"
+      ],
+      [
+        "Medium-size",
+        "24",
+        "1d10",
+        "10",
+        "14",
+        "10",
+        "-",
+        "-",
+        "10",
+        "1",
+        "",
+        "-"
+      ],
+      [
+        "Small",
+        "20",
+        "1/2d10",
+        "5",
+        "10",
+        "12",
+        "-",
+        "-",
+        "10",
+        "1",
+        "",
+        "-"
+      ],
+      [
+        "Tiny",
+        "16",
+        "1/4d10",
+        "-",
+        "6",
+        "14",
+        "-",
+        "-",
+        "10",
+        "-",
+        "",
+        "-"
+      ],
+      [
+        "Diminutive",
+        "12",
+        "1/8d10",
+        "-",
+        "4",
+        "16",
+        "-",
+        "-",
+        "10",
+        "1",
+        "",
+        "-"
+      ],
+      [
+        "Fine",
+        "8",
+        "1/16d10",
+        "-",
+        "1",
+        "18",
+        "-",
+        "-",
+        "10",
+        "-",
+        "",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "header",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurerobot1.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurerobot1.html",
+    "header": [
+      "Robot Size",
+      "Base Purchase DC",
+      "Base Hit Dice",
+      "Extra Hit Points",
+      "--- Base Ability Scores ---",
+      "",
+      "Maximum Hit Dice/ Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "Str",
+        "Dex",
+        "Con",
+        "Int",
+        "Wis",
+        "Cha"
+      ],
+      [
+        "Colossal",
+        "48",
+        "32d10",
+        "120",
+        "44",
+        "7",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "45d10/+4 per HD"
+      ],
+      [
+        "Gargantuan",
+        "40",
+        "16d10",
+        "80",
+        "36",
+        "7",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "31d10/+3 per HD"
+      ],
+      [
+        "Huge",
+        "32",
+        "8d10",
+        "40",
+        "28",
+        "7",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "15d10/+2 per HD"
+      ],
+      [
+        "Large",
+        "28",
+        "2d10",
+        "20",
+        "20",
+        "9",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "7d10/+1 per HD"
+      ],
+      [
+        "Medium-size",
+        "24",
+        "1d10",
+        "10",
+        "12",
+        "11",
+        "-",
+        "10",
+        "10",
+        "5",
+        "-",
+        "-"
+      ],
+      [
+        "Small",
+        "20",
+        "1/2d10",
+        "5",
+        "8",
+        "13",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "-"
+      ],
+      [
+        "Tiny",
+        "16",
+        "1/4d10",
+        "-",
+        "4",
+        "15",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "-"
+      ],
+      [
+        "Diminutive",
+        "12",
+        "1/8d10",
+        "-",
+        "2",
+        "17",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "-"
+      ],
+      [
+        "Fine",
+        "8",
+        "1/16d10",
+        "-",
+        "1",
+        "19",
+        "-",
+        "10",
+        "10",
+        "5",
+        "",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "header",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurerobot1.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurerobot1.html",
+    "header": [
+      "Robot Size",
+      "Base Purchase DC",
+      "Base Hit Dice",
+      "Extra Hit Points",
+      "--- Base Ability Scores ---",
+      "",
+      "Maximum Hit Dice/ Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "Str",
+        "Dex",
+        "Con",
+        "Int",
+        "Wis",
+        "Cha"
+      ],
+      [
+        "Colossal",
+        "52",
+        "32d10",
+        "120",
+        "44",
+        "7",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "45d10/+4 per HD"
+      ],
+      [
+        "Gargantuan",
+        "44",
+        "16d10",
+        "80",
+        "36",
+        "7",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "31d10/+3 per HD"
+      ],
+      [
+        "Huge",
+        "36",
+        "8d10",
+        "40",
+        "28",
+        "7",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "15d10/+2 per HD"
+      ],
+      [
+        "Large",
+        "32",
+        "2d10",
+        "20",
+        "20",
+        "9",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "7d10/+1 per HD"
+      ],
+      [
+        "Medium-size",
+        "28",
+        "1d10",
+        "10",
+        "12",
+        "11",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "-"
+      ],
+      [
+        "Small",
+        "24",
+        "1/2d10",
+        "5",
+        "8",
+        "13",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "-"
+      ],
+      [
+        "Tiny",
+        "20",
+        "1/4d10",
+        "-",
+        "4",
+        "15",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "-"
+      ],
+      [
+        "Diminutive",
+        "16",
+        "1/8d10",
+        "-",
+        "2",
+        "17",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "-"
+      ],
+      [
+        "Fine",
+        "12",
+        "1/16d10",
+        "-",
+        "1",
+        "19",
+        "-",
+        "10",
+        "10",
+        "10",
+        "",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "header",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurerobot1.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurerobot1.html",
+    "header": [
+      "Robot Size",
+      "Base Purchase DC",
+      "Base Hit Dice",
+      "Extra Hit Points",
+      "--- Base Ability Scores ---",
+      "",
+      "Maximum Hit Dice/ Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "Str",
+        "Dex",
+        "Con",
+        "Int",
+        "Wis",
+        "Cha"
+      ],
+      [
+        "Colossal",
+        "56",
+        "32d10",
+        "120",
+        "45",
+        "8",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "40d10/+3 per HD"
+      ],
+      [
+        "Gargantuan",
+        "48",
+        "16d10",
+        "80",
+        "37",
+        "8",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "32d10/+2 per HD"
+      ],
+      [
+        "Huge",
+        "40",
+        "8d10",
+        "40",
+        "29",
+        "8",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "24d10/+2 per HD"
+      ],
+      [
+        "Large",
+        "36",
+        "4d10",
+        "20",
+        "23",
+        "10",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "16d10/+2 per HD"
+      ],
+      [
+        "Medium-size",
+        "32",
+        "2d10",
+        "10",
+        "13",
+        "12",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "8d10/+1 per HD"
+      ],
+      [
+        "Small",
+        "28",
+        "1d10",
+        "5",
+        "9",
+        "14",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "-"
+      ],
+      [
+        "Tiny",
+        "24",
+        "1/2d10",
+        "-",
+        "5",
+        "16",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "-"
+      ],
+      [
+        "Diminutive",
+        "20",
+        "1/4d10",
+        "-",
+        "3",
+        "18",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "-"
+      ],
+      [
+        "Fine",
+        "16",
+        "1/8d10",
+        "-",
+        "1",
+        "20",
+        "-",
+        "10",
+        "11",
+        "10",
+        "",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "header",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehiclegear.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehiclegear.html",
+    "header": [
+      "Driver Autocomp",
+      "Drive or Pilot Check Modifier",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Roadlord AI-DA",
+        "+0",
+        "12"
+      ],
+      [
+        "Pegasus AI-200",
+        "+2",
+        "15"
+      ],
+      [
+        "Dervish AI-400",
+        "+4",
+        "18"
+      ],
+      [
+        "Twister AI-800",
+        "+8",
+        "21"
+      ],
+      [
+        "Zephyr AI-1200",
+        "+12",
+        "24"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehiclegear.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehiclegear.html",
+    "header": [
+      "Gunner Autocomp",
+      "Attack Bonus",
+      "Purchase DC 1"
+    ],
+    "rows": [
+      [
+        "Marksman AI-GA",
+        "-2",
+        "15"
+      ],
+      [
+        "Rattlesnake AI-GX",
+        "+0",
+        "18"
+      ],
+      [
+        "Adder AI-G2",
+        "+2",
+        "21"
+      ],
+      [
+        "Deadeye AI-G4",
+        "+4",
+        "24"
+      ],
+      [
+        "Hotshot AI-G8",
+        "+8/+3",
+        "27"
+      ],
+      [
+        "Hotshot AI-G8"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
     ]
   },
   {
@@ -1014,6 +3772,583 @@
       "item",
       "blank",
       "category",
+      "item"
+    ]
+  },
+  {
+    "page": "futureweapons.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureweapons.html",
+    "header": [
+      "Weapon Name",
+      "Weapon Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Minimum Ship Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 6: Fusion Age"
+      ],
+      [
+        "Fusion beam",
+        "10d8 (45)",
+        "20",
+        "Energy",
+        "3,000 ft.",
+        "Single",
+        "Gargantuan",
+        "33",
+        "Res (+2)"
+      ],
+      [
+        "Gauss gun",
+        "8d12 (52)",
+        "20",
+        "Ballistic",
+        "4,000 ft.",
+        "Single 1",
+        "Gargantuan",
+        "33",
+        "Res (+2)"
+      ],
+      [
+        "Laser",
+        "6d8 (27)",
+        "20",
+        "Fire",
+        "3,000 ft.",
+        "Single 1",
+        "Huge",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        "Laser, heavy",
+        "8d8 (36)",
+        "20",
+        "Fire",
+        "4,000 ft.",
+        "Single",
+        "Colossal",
+        "31",
+        "Res (+2)"
+      ],
+      [
+        "Mine, fusion",
+        "5d100 (275)",
+        "-",
+        "Energy",
+        "-",
+        "-",
+        "Colossal",
+        "33",
+        "Mil (+3)"
+      ],
+      [
+        "Missile, CHE",
+        "6d12 (39)",
+        "19-20",
+        "Ballistic",
+        "-",
+        "Single",
+        "Gargantuan",
+        "25 2",
+        "Mil (+3)"
+      ],
+      [
+        "Missile, KE submunition",
+        "4d12 (26)",
+        "19-20",
+        "Ballistic",
+        "-",
+        "Single",
+        "Gargantuan",
+        "22 2",
+        "Lic (+1)"
+      ],
+      [
+        "Missile, nuclear",
+        "16d8 (72)",
+        "19-20",
+        "Energy",
+        "-",
+        "Single",
+        "Gargantuan",
+        "45 2",
+        "Mil(+3)"
+      ],
+      [
+        "Needle driver",
+        "8d12 (52)",
+        "20",
+        "Ballistic",
+        "4,000 ft.",
+        "A",
+        "Gargantuan",
+        "36",
+        "Lic (+1)"
+      ],
+      [
+        "Neutron gun",
+        "6d8 (27)",
+        "20",
+        "Energy",
+        "5,000 ft.",
+        "Single",
+        "Colossal",
+        "31",
+        "Mil (+3)"
+      ],
+      [
+        "Neutron gun, heavy",
+        "10d8 (45)",
+        "20",
+        "Energy",
+        "6,000 ft.",
+        "Single",
+        "Colossal",
+        "35",
+        "Mil (+3)"
+      ],
+      [
+        "Rail cannon",
+        "6d12 (39)",
+        "20",
+        "Ballistic",
+        "3,000 ft.",
+        "Single 1",
+        "Gargantuan",
+        "30",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "Antimatter gun",
+        "10d8 (45)",
+        "20",
+        "Energy",
+        "5,000 ft.",
+        "Single",
+        "Colossal",
+        "38",
+        "Mil (+3)"
+      ],
+      [
+        "Mass cannon",
+        "8d12 (52)",
+        "20",
+        "Ballistic",
+        "5,000 ft.",
+        "Single",
+        "Gargantuan",
+        "37",
+        "Lic (+1)"
+      ],
+      [
+        "Mass cannon, heavy",
+        "10d12 (65)",
+        "20",
+        "Ballistic",
+        "6,000 ft.",
+        "Single",
+        "Colossal",
+        "40",
+        "Res (+2)"
+      ],
+      [
+        "Mine, gravitic",
+        "10d100 (550)",
+        "-",
+        "Energy",
+        "-",
+        "-",
+        "Colossal",
+        "43",
+        "Mil (+3)"
+      ],
+      [
+        "Missile, mass reaction",
+        "20d8 (90)",
+        "19-20",
+        "Energy",
+        "-",
+        "Single",
+        "Colossal",
+        "50 2",
+        "Mil (+3)"
+      ],
+      [
+        "Missile, plasma",
+        "18d8 (81)",
+        "19-20",
+        "Fire",
+        "-",
+        "Single",
+        "Gargantuan",
+        "46 2",
+        "Res (+2)"
+      ],
+      [
+        "Particle beam",
+        "12d8 (54)",
+        "20",
+        "Energy",
+        "4,000 ft.",
+        "Single",
+        "Gargantuan",
+        "36",
+        "Res (+2)"
+      ],
+      [
+        "Particle beam, heavy",
+        "16d8 (72)",
+        "20",
+        "Energy",
+        "5,000 ft.",
+        "Single",
+        "Colossal",
+        "39",
+        "Res (+2)"
+      ],
+      [
+        "Plasma cannon",
+        "14d8 (63)",
+        "20",
+        "Fire",
+        "3,000 ft.",
+        "Single 1",
+        "Gargantuan",
+        "36",
+        "Lic (+1)"
+      ],
+      [
+        "Plasma cannon, heavy",
+        "18d8 (81)",
+        "20",
+        "Fire",
+        "4,000 ft.",
+        "Single 1",
+        "Colossal",
+        "39",
+        "Res (+2)"
+      ],
+      [
+        "Quantum cannon",
+        "16d8 (72)",
+        "Energy",
+        "20",
+        "6,000 ft.",
+        "Single",
+        "Gargantuan",
+        "41",
+        "Res (+2)"
+      ],
+      [
+        "Automaser",
+        "12d8 (54)",
+        "20",
+        "Energy",
+        "6,000 ft.",
+        "A",
+        "Colossal",
+        "40",
+        "Res (+2)"
+      ],
+      [
+        "EMP cannon",
+        "8d8 (36) 3",
+        "20",
+        "Electricity",
+        "4,000 ft.",
+        "Single",
+        "Gargantuan",
+        "41",
+        "Res (+2)"
+      ],
+      [
+        "Kinetic lance",
+        "10d12 (65)",
+        "20",
+        "Concussion",
+        "3,000 ft.",
+        "Single 1",
+        "Colossal",
+        "42",
+        "Res (+2)"
+      ],
+      [
+        "Maser cannon",
+        "12d8 (54)",
+        "20",
+        "Energy",
+        "6,000 ft.",
+        "Single 1",
+        "Gargantuan",
+        "40",
+        "Lic (+1)"
+      ],
+      [
+        "Maser cannon, heavy",
+        "16d8 (72)",
+        "20",
+        "Energy",
+        "8,000 ft.",
+        "Single 1",
+        "Colossal",
+        "44",
+        "Res (+2)"
+      ],
+      [
+        "Mine, zero point",
+        "15d100 (825)",
+        "-",
+        "Energy",
+        "-",
+        "-",
+        "Colossal",
+        "48",
+        "Mil (+3)"
+      ],
+      [
+        "Missile, nova burst",
+        "12d8 (54)",
+        "19-20",
+        "Ballistic/ Energy",
+        "-",
+        "Single",
+        "Gargantuan",
+        "45 2",
+        "Mil (+3)"
+      ],
+      [
+        "Missile, starload",
+        "20d8 (90)",
+        "19-20",
+        "Energy",
+        "-",
+        "Single",
+        "Huge",
+        "45 2",
+        "Mil (+3)"
+      ],
+      [
+        "Neutronium driver",
+        "12d12 (78)",
+        "20",
+        "Ballistic",
+        "5,000 ft.",
+        "Single",
+        "Colossal",
+        "42",
+        "Mil (+3)"
+      ],
+      [
+        "Sliver gun",
+        "8d12 (52)",
+        "20",
+        "Ballistic",
+        "3,000 ft.",
+        "S, A",
+        "Gargantuan",
+        "39",
+        "Res (+2)"
+      ],
+      [
+        "Zero bore",
+        "16d8 (72)",
+        "20",
+        "Energy",
+        "6,000 ft.",
+        "Single",
+        "Colossal",
+        "52",
+        "Mil (+3)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 9: Matter Age"
+      ],
+      [
+        "Blacklaser",
+        "16d8 (72)",
+        "20",
+        "Energy",
+        "8,000 ft.",
+        "S, A",
+        "Huge",
+        "50",
+        "Mil (+3)"
+      ],
+      [
+        "Mine, null 4",
+        "10d100 (550)",
+        "-",
+        "Energy",
+        "-",
+        "-",
+        "Colossal",
+        "53",
+        "Mil (+3)"
+      ],
+      [
+        "Singularity cannon",
+        "20d8 (90)",
+        "20",
+        "Energy",
+        "5,000 ft.",
+        "Single",
+        "Colossal",
+        "53",
+        "Mil (+3)"
+      ],
+      [
+        "String projector",
+        "12d12 (78)",
+        "20",
+        "Energy",
+        "6,000 ft.",
+        "Single",
+        "Colossal",
+        "54",
+        "Mil (+3)"
+      ],
+      [
+        "Tachyon gun",
+        "14d8 (63)",
+        "20",
+        "Energy",
+        "10,000 ft.",
+        "Single",
+        "Gargantuan",
+        "52",
+        "Mil (+3)"
+      ],
+      [
+        "1 With a successful Repair check (DC 30) and 1 hour of work, this weapon can be modified for semiautomatic or automatic fire mode. Resetting the weapon to its original configuration requires another check and another hour of labor."
+      ],
+      [
+        "2 The purchase DC includes a basic launch system (missile rack or missile tube) and eight missiles with warheads. The purchase DC is 2 lower without the launch system."
+      ],
+      [
+        "3 In addition to taking damage, the ship is dazed for 1 round (see Starship Condition Summary)."
+      ],
+      [
+        "4 This weapon’s damage ignores a ship’s hardness."
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category",
+      "category",
+      "category",
+      "category"
+    ]
+  },
+  {
+    "page": "fxarmor.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxarmor.html",
+    "header": [
+      "Enhancement Bonus",
+      "Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "+1",
+        "+8"
+      ],
+      [
+        "+2",
+        "+13"
+      ],
+      [
+        "+3",
+        "+18"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "fxarmor.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxarmor.html",
+    "header": [
+      "Enhancement Bonus",
+      "Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "+1",
+        "+10"
+      ],
+      [
+        "+2",
+        "+15"
+      ],
+      [
+        "+3",
+        "+20"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
       "item"
     ]
   },
@@ -2425,6 +5760,28 @@
     ]
   },
   {
+    "page": "menacecreat3.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "header": [
+      "Size",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Small",
+        "21"
+      ],
+      [
+        "Medium-size",
+        "24"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item"
+    ]
+  },
+  {
     "page": "techie.html",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/techie.html",
     "header": [
@@ -2442,6 +5799,2198 @@
       ]
     ],
     "kinds": [
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "urbanarmor.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanarmor.html",
+    "header": [
+      "Armor",
+      "Type",
+      "Equipment Bonus",
+      "Nonprof. Bonus",
+      "Maximum Dex Bonus",
+      "Armor Penalty",
+      "Arcane Spell Failure",
+      "Speed (30 ft.)",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Light Armor"
+      ],
+      [
+        "Padded",
+        "Impromptu",
+        "+1",
+        "+1",
+        "+8",
+        "-3",
+        "5%",
+        "30",
+        "10 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Studded leather",
+        "Archaic",
+        "+3",
+        "+1",
+        "+5",
+        "-1",
+        "15%",
+        "30",
+        "20 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "NBC suit",
+        "Tactical",
+        "-",
+        "-",
+        "+5",
+        "-4",
+        "40%",
+        "30",
+        "10 lb.",
+        "15",
+        "Res (+2)"
+      ],
+      [
+        "Fire resistant suit",
+        "Tactical",
+        "-",
+        "-",
+        "+5",
+        "-4",
+        "40%",
+        "30",
+        "10 lb.",
+        "13",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Medium Armor"
+      ],
+      [
+        "Hide",
+        "Impromptu",
+        "+3",
+        "+2",
+        "+4",
+        "-3",
+        "20%",
+        "20",
+        "25 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Lamellar",
+        "Archaic",
+        "+5",
+        "+2",
+        "+3",
+        "-4",
+        "30%",
+        "20",
+        "35 lb.",
+        "20",
+        "-"
+      ],
+      [
+        "Scale mail",
+        "Archaic",
+        "+4",
+        "+2",
+        "+3",
+        "-4",
+        "25%",
+        "20",
+        "30 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Breastplate",
+        "Archaic",
+        "+5",
+        "+2",
+        "+3",
+        "-4",
+        "25%",
+        "20",
+        "30 lb.",
+        "18",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Heavy Armor"
+      ],
+      [
+        "Splint mail",
+        "Archaic",
+        "+6",
+        "+3",
+        "+0",
+        "-7",
+        "40%",
+        "20",
+        "45 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Banded mail",
+        "Archaic",
+        "+6",
+        "+3",
+        "+1",
+        "-6",
+        "35%",
+        "20",
+        "35 lb.",
+        "19",
+        "-"
+      ],
+      [
+        "Half-plate",
+        "Archaic",
+        "+7",
+        "+3",
+        "+0",
+        "-7",
+        "35%",
+        "20",
+        "50 lb.",
+        "21",
+        "-"
+      ],
+      [
+        "O-yoroi",
+        "Archaic",
+        "+7",
+        "+3",
+        "+2",
+        "-5",
+        "40%",
+        "20",
+        "45 lb.",
+        "28",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Shield"
+      ],
+      [
+        "Buckler",
+        "Shield",
+        "+1",
+        "+0",
+        "-",
+        "-1",
+        "5%",
+        "-",
+        "5 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Shield, impromptu",
+        "Shield",
+        "+1",
+        "+0",
+        "-",
+        "-2",
+        "5%",
+        "-",
+        "varies",
+        "-",
+        "-"
+      ],
+      [
+        "Shield, small",
+        "Shield",
+        "+1",
+        "+0",
+        "-",
+        "-1",
+        "5%",
+        "-",
+        "6 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Shield, large",
+        "Shield",
+        "+2",
+        "+1",
+        "-",
+        "-2",
+        "15%",
+        "-",
+        "15 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Shield, riot",
+        "Shield",
+        "+3",
+        "+1",
+        "-",
+        "-1",
+        "30%",
+        "-",
+        "6 lb.",
+        "10",
+        "Res (+2)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "urbanfxarmor.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfxarmor.html",
+    "header": [
+      "Damage Reduction",
+      "Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "5/+1",
+        "+1"
+      ],
+      [
+        "10/+1",
+        "+2"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "urbanfxarmor.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfxarmor.html",
+    "header": [
+      "Fortification Type",
+      "Chance for Normal Damage",
+      "Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "Light",
+        "25%",
+        "+1"
+      ],
+      [
+        "Moderate",
+        "75%",
+        "+2"
+      ],
+      [
+        "Heavy",
+        "100%",
+        "+3"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "urbanfxarmor.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfxarmor.html",
+    "header": [
+      "Spell Resistance",
+      "Purchase DC Modifier"
+    ],
+    "rows": [
+      [
+        "15",
+        "+1"
+      ],
+      [
+        "19",
+        "+2"
+      ],
+      [
+        "23",
+        "+3"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "urbanfxitem.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfxitem.html",
+    "header": [
+      "Pack Type",
+      "Weight",
+      "Weight Limit of Contents",
+      "Volume Limit of Contents",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Light backpack",
+        "2 lb.",
+        "250 lb.",
+        "30 cu. ft.",
+        "34"
+      ],
+      [
+        "Medium backpack",
+        "5 lb.",
+        "500 lb.",
+        "70 cu. ft.",
+        "36"
+      ],
+      [
+        "Heavy backpack",
+        "8 lb.",
+        "1000 lb.",
+        "150 cu. ft.",
+        "38"
+      ],
+      [
+        "Jumbo backpack",
+        "20 lb.",
+        "1500 lb.",
+        "250 cu. ft.",
+        "41"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "urbangeneral.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbangeneral.html",
+    "header": [
+      "Item",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Clothing"
+      ],
+      [
+        "Clothing Outfit",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Business",
+        "3 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Double-sided",
+        "*",
+        "+1*",
+        "-"
+      ],
+      [
+        "Stealth",
+        "2 lb.",
+        "9",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Surveillance Gear"
+      ],
+      [
+        "Bug sweeper",
+        "4.5 lb.",
+        "21",
+        "-"
+      ],
+      [
+        "Fiber optic camera",
+        "",
+        "",
+        ""
+      ],
+      [
+        "3-foot cable w/monitor",
+        "3.5 lb.",
+        "17",
+        "-"
+      ],
+      [
+        "6-foot cable w/monitor",
+        "4.5 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "9-foot cable w/monitor",
+        "5.5 lb.",
+        "19",
+        "-"
+      ],
+      [
+        "Microphone",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Contact",
+        "1 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Laser",
+        "3.5 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Parabolic",
+        "4.5 lb.",
+        "14",
+        "-"
+      ],
+      [
+        "Pick-up",
+        ".5 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Shotgun",
+        "3.5 lb.",
+        "14",
+        "-"
+      ],
+      [
+        "Microtransmitter",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Average quality",
+        "-",
+        "11",
+        "-"
+      ],
+      [
+        "Good quality",
+        "-",
+        "12",
+        "-"
+      ],
+      [
+        "Amazing quality",
+        "-",
+        "14",
+        "-"
+      ],
+      [
+        "Police scanner",
+        "2 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Video shades",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Black and white",
+        "-",
+        "23",
+        "-"
+      ],
+      [
+        "Color",
+        "-",
+        "24",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Professional Equipment"
+      ],
+      [
+        "Breaking and entering kit",
+        "50 lb.",
+        "20",
+        "Ill (+4)"
+      ],
+      [
+        "Capture kit",
+        "57 lb.",
+        "21",
+        "Res (+2)"
+      ],
+      [
+        "Chemistry kit",
+        "15 lb.",
+        "13",
+        "Lic (+1)"
+      ],
+      [
+        "Concertina wire (20 ft.)",
+        "-",
+        "11",
+        "-"
+      ],
+      [
+        "Fiend hunter’s kit",
+        "40 lb.",
+        "21",
+        "Res (+2)"
+      ],
+      [
+        "Forced entry kit",
+        "135 lb.",
+        "21",
+        "Res (+2)"
+      ],
+      [
+        "Generator, portable",
+        "125 lb.",
+        "19",
+        "-"
+      ],
+      [
+        "Glasscutter, circular",
+        "5 lb.",
+        "13",
+        "Res (+2)"
+      ],
+      [
+        "Headset, microphone",
+        "-",
+        "13",
+        "-"
+      ],
+      [
+        "Headset w/light",
+        "-",
+        "14",
+        "-"
+      ],
+      [
+        "Headset w/camera",
+        "1 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Hydraulic compressor",
+        "50 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Holy water (flask)",
+        "1 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Jaws of life",
+        "40 lb.",
+        "18",
+        "Res (+2)"
+      ],
+      [
+        "Liquid metal embrittlement sprayer",
+        "50 lb.",
+        "18",
+        "Res (+2)"
+      ],
+      [
+        "Marbles, bag of",
+        "5 lb.",
+        "3",
+        "Res (+2)"
+      ],
+      [
+        "Ram, portable",
+        "35 lb.",
+        "12",
+        "Res (+2)"
+      ],
+      [
+        "Road flare (3)",
+        "1.5 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Vampire slayer’s kit",
+        "20 lb.",
+        "16",
+        "Res (+2)"
+      ],
+      [
+        "Winch, portable",
+        "15 lb.",
+        "16",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Sports Equipment"
+      ],
+      [
+        "In-line skates",
+        "5 lb.",
+        "11",
+        ""
+      ],
+      [
+        "Skateboard",
+        "3 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Skis and poles",
+        "10 lb.",
+        "19",
+        "-"
+      ],
+      [
+        "Snowboard",
+        "8 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "* See item description for more information."
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "urbanspelldesc.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "header": [
+      "Repair Task (Example)",
+      "Relevant Skill",
+      "Purchase DC",
+      "Repair DC",
+      "Time"
+    ],
+    "rows": [
+      [
+        "Simple processors (cars, elevator controls)",
+        "Repair",
+        "7",
+        "15",
+        "10 min."
+      ],
+      [
+        "Complex processors (computers, home theaters)",
+        "Repair",
+        "10",
+        "20",
+        "1 hr."
+      ],
+      [
+        "Data recovery (scrambled hard drive)",
+        "Computer Use",
+        "4",
+        "25",
+        "2 hr."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "urbanvehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "General Purpose Aircraft"
+      ],
+      [
+        "Ultralight",
+        "1",
+        "1",
+        "50 lb.",
+        "-4",
+        "-4",
+        "28 (2)",
+        "9",
+        "3",
+        "10",
+        "L",
+        "21",
+        "Lic (+1)"
+      ],
+      [
+        "Maulle M-7-260C (seaplane)",
+        "2",
+        "3",
+        "900 lb.",
+        "-4",
+        "-4",
+        "175 (17)",
+        "6",
+        "5",
+        "55",
+        "G",
+        "37",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "General Purpose Bicycles"
+      ],
+      [
+        "Diamondback X-20 (mountain)",
+        "1",
+        "0",
+        "0 lb.",
+        "-1",
+        "+4",
+        "40 (4)",
+        "11",
+        "5",
+        "6",
+        "S",
+        "14",
+        "-"
+      ],
+      [
+        "LeMond Victoire (racing bike)",
+        "1",
+        "0",
+        "0 lb.",
+        "-1",
+        "+4",
+        "50 (5)",
+        "11",
+        "5",
+        "5",
+        "S",
+        "21",
+        "-"
+      ],
+      [
+        "Mongoose Fuzz Pro (BMX bike)",
+        "1",
+        "00",
+        "0 lb.",
+        "-1",
+        "+4",
+        "30 (3)",
+        "11",
+        "5",
+        "5",
+        "S",
+        "13",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Civilian Cars"
+      ],
+      [
+        "1967 Chevrolet Camaro (sports coupe)",
+        "1",
+        "4",
+        "250 lb.",
+        "-2",
+        "-1",
+        "200 (20)",
+        "8",
+        "5",
+        "36",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        "Police cruiser",
+        "1",
+        "4",
+        "425 lb.",
+        "-2",
+        "0",
+        "190 (19)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "30",
+        "Res (+2)"
+      ],
+      [
+        "Dodge Intrepid police interceptor (sports coupe)",
+        "1",
+        "1",
+        "200 lb.",
+        "-2",
+        "+1",
+        "200 (20)",
+        "9",
+        "5",
+        "34",
+        "L",
+        "31",
+        "Res (+2)"
+      ],
+      [
+        ""
+      ],
+      [
+        "General Purpose Motorcycles"
+      ],
+      [
+        "Police motorcycle (street bike)",
+        "1",
+        "0",
+        "10 lb.",
+        "+1",
+        "+1",
+        "290 (29)",
+        "9",
+        "5",
+        "22",
+        "L",
+        "27",
+        "Res (+2)"
+      ],
+      [
+        "Vespa ET4 (scooter)",
+        "1",
+        "1",
+        "0 lb.",
+        "-2",
+        "+3",
+        "22 (2)",
+        "10",
+        "5",
+        "10",
+        "M",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "Harley Davidson V-Rod (street bike)",
+        "1",
+        "1",
+        "0 lb.",
+        "+1",
+        "+1",
+        "300 (30)",
+        "9",
+        "5",
+        "22",
+        "L",
+        "27",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "General Purpose Trucks"
+      ],
+      [
+        "Jeep Wrangler (SUV)",
+        "1",
+        "3",
+        "800 lb.",
+        "-2",
+        "-2",
+        "140 (14)",
+        "8",
+        "5",
+        "32",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        "Ford Econoline 150 (van)",
+        "1",
+        "8",
+        "4800 lb.",
+        "-2",
+        "-2",
+        "195 (19)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "29",
+        "Lic (+1)"
+      ],
+      [
+        "Peterbilt Model 379 (tractor trailer)",
+        "1",
+        "1",
+        "80,000 lb.",
+        "-4",
+        "-4",
+        "130 (13)",
+        "6",
+        "5",
+        "85",
+        "G",
+        "33",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "General Purpose Water Vehicles"
+      ],
+      [
+        "Tug boat",
+        "5",
+        "5",
+        "4000 tons",
+        "-4",
+        "-4",
+        "30 (3)",
+        "6",
+        "5",
+        "150",
+        "G",
+        "38",
+        "Lic (+1)"
+      ],
+      [
+        "Fishing trawler",
+        "9",
+        "2",
+        "100 tons",
+        "-4",
+        "-4",
+        "30 (3)",
+        "6",
+        "5",
+        "175",
+        "G",
+        "43",
+        "Lic (+1)"
+      ],
+      [
+        "Avanti 39 (cigarette boat)",
+        "1",
+        "8",
+        "300 lb.",
+        "+1",
+        "-2",
+        "100 (10)",
+        "8",
+        "5",
+        "50",
+        "H",
+        "35",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Other General Purpose Vehicles"
+      ],
+      [
+        "Emergency aid vehicle",
+        "2",
+        "2",
+        "1000 lb.",
+        "-2",
+        "-2",
+        "160 (16)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "30",
+        "Res (+2)"
+      ],
+      [
+        "Fire truck",
+        "4",
+        "2",
+        "2500 lb.",
+        "-4",
+        "-4",
+        "105 (10)",
+        "6",
+        "5",
+        "80",
+        "G",
+        "35",
+        "Res (+2)"
+      ],
+      [
+        "Police peacekeeper",
+        "3",
+        "10",
+        "250 lb.",
+        "-2",
+        "-2",
+        "95 (10)",
+        "8",
+        "10",
+        "48",
+        "H",
+        "40",
+        "Res (+2)"
+      ],
+      [
+        "Tow truck",
+        "1",
+        "1",
+        "50,000 lb.*",
+        "-2",
+        "-4",
+        "130 (13)",
+        "6",
+        "5",
+        "39",
+        "G",
+        "31",
+        "Lic (+1)"
+      ],
+      [
+        "* Towing and/or hauling capacity"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "urbanweapons.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "header": [
+      "Weapon",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magezine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Nonfirearms (feat needed listed in parentheses)"
+      ],
+      [
+        "Air pistol (simple)*",
+        "1d2",
+        "20",
+        "Piercing",
+        "30 ft.",
+        "1",
+        "1 int.",
+        "Small",
+        "2 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Air rifle (simple)*",
+        "1d2",
+        "20",
+        "Piercing",
+        "50 ft.",
+        "1",
+        "1 Int.",
+        "Large",
+        "2 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Blowgun (simple)*",
+        "1",
+        "20",
+        "Piercing",
+        "10 ft.",
+        "1",
+        "1 Int.",
+        "Small",
+        "2 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Bolas (archaic)*",
+        "*",
+        "-",
+        "*",
+        "10 ft.",
+        "1",
+        "-",
+        "Small",
+        "2 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Crossbow, grapple-firing (archaic)*",
+        "1d3",
+        "*",
+        "Piercing",
+        "120 ft.",
+        "1",
+        "1 Int.",
+        "Med.",
+        "2 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Crossbow, hand (archaic)",
+        "1d4",
+        "19-20",
+        "Piercing",
+        "30 ft.",
+        "1",
+        "1 Int.",
+        "Tiny",
+        "2 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Crossbow, repeating (exotic)",
+        "1d8",
+        "19-20",
+        "Piercing",
+        "80 ft.",
+        "1",
+        "5 Int.",
+        "Med.",
+        "2 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Flare gun (simple)*",
+        "1d8",
+        "20",
+        "Fire",
+        "30 ft.",
+        "1",
+        "1 Int.",
+        "Small",
+        "2 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Net (archaic)*",
+        "*",
+        "-",
+        "*",
+        "10 ft.*",
+        "1",
+        "-",
+        "Med.",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Net launcher (grenade launcher)",
+        "*",
+        "-",
+        "-",
+        "10 ft.",
+        "1",
+        "1 Int.",
+        "Large",
+        "2 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Paint ball gun (simple)",
+        "-",
+        "20*",
+        "*",
+        "30 ft.",
+        "Semi",
+        "40 Int.",
+        "Small",
+        "2 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Sling (archaic)",
+        "1d4",
+        "20",
+        "Ballistic",
+        "50 ft.",
+        "1",
+        "-",
+        "Small",
+        "2 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Slingshot (simple)",
+        "1d3",
+        "20",
+        "Ballistic",
+        "50 ft.",
+        "1",
+        "-",
+        "Tiny",
+        "2 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Speargun (simple)*",
+        "2d6",
+        "20",
+        "Piercing",
+        "10 ft.",
+        "1",
+        "1 Int.",
+        "Large",
+        "2 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Super watergun (no feat required)*",
+        "*",
+        "*",
+        "*",
+        "10 ft.",
+        "1",
+        "5 Int.",
+        "Med.",
+        "2 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Water cannon (simple)*",
+        "*",
+        "-",
+        "*",
+        "10 ft.",
+        "1",
+        "20 Int.",
+        "Huge",
+        "2 lb.",
+        "19",
+        "Lic (+1)"
+      ],
+      [
+        "* See weapon description for more information."
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "urbanweapons.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "header": [
+      "Ammunition Type",
+      "Purchase DC Modifier",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Armor Piercing",
+        "+3",
+        "Res (+2)"
+      ],
+      [
+        "Beanbag",
+        "+2",
+        "Res (+2)"
+      ],
+      [
+        "Birdshot",
+        "-1",
+        "Lic (+1)"
+      ],
+      [
+        "Flechette",
+        "+4",
+        "Mil (+3)"
+      ],
+      [
+        "Frangible",
+        "+2",
+        "Res (+2)"
+      ],
+      [
+        "High Explosive",
+        "+5",
+        "Mil (+3)"
+      ],
+      [
+        "Rubber Round",
+        "+1",
+        "Res (+2)"
+      ],
+      [
+        "Silver",
+        "+6",
+        "-"
+      ],
+      [
+        "Subsonic",
+        "+4",
+        "Mil (+3)"
+      ],
+      [
+        "Tracer",
+        "+1",
+        "Mil (+3)"
+      ],
+      [
+        "Tranquilizer",
+        "7*",
+        "Res (+2)"
+      ],
+      [
+        "White Phosphorous (WP)",
+        "+5",
+        "Mil (+3)"
+      ],
+      [
+        "*This is the regular purchase DC, not modifier."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "urbanweapons.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "header": [
+      "Weapon",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Simple Weapons"
+      ],
+      [
+        "Club, spiked",
+        "1d8",
+        "20",
+        "Bludgeoning, Piercing",
+        "-",
+        "Med.",
+        "8 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Dagger, punching",
+        "1d4",
+        "20/x3",
+        "Piercing",
+        "-",
+        "Tiny",
+        "2 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Gauntlet",
+        "*",
+        "*",
+        "Bludgeoning",
+        "-",
+        "*",
+        "2 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Gauntlet, spiked",
+        "1d4",
+        "20",
+        "Piercing",
+        "-",
+        "Tiny",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Ketch-all pole*",
+        "1d4*",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "8 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Mace, heavy",
+        "1d8",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Med.",
+        "8 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Mace, light",
+        "1d6",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Small",
+        "6 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Quarterstaff*‡",
+        "1d6/1d6",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "4 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Shortspear",
+        "1d8",
+        "20/x3",
+        "Piercing",
+        "20 ft.",
+        "Large",
+        "5 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Sickle",
+        "1d6",
+        "20",
+        "Slashing",
+        "-",
+        "Small",
+        "3 lb.",
+        "3",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Battleaxe",
+        "1d8",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Med.",
+        "7 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Cutlass*",
+        "1d6",
+        "19-20",
+        "Piercing, Slashing",
+        "-",
+        "Small",
+        "3 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Falchion",
+        "2d4",
+        "18-20",
+        "Slashing",
+        "-",
+        "Large",
+        "16 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Flail, heavy*",
+        "1d10",
+        "19-20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "20 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Flail, light*",
+        "1d8",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Med.",
+        "5 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Glaive†",
+        "1d10",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Large",
+        "15 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Greataxe",
+        "1d12",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Large",
+        "20 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Greatclub",
+        "1d10",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "10 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Greatsword",
+        "2d6",
+        "19-20",
+        "Slashing",
+        "-",
+        "Large",
+        "15 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Guisarme*†",
+        "2d4",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Large",
+        "15 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Halberd*†",
+        "1d10",
+        "20/x3",
+        "Piercing, Slashing",
+        "-",
+        "Large",
+        "15 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Lance, heavy",
+        "1d8",
+        "20/x3",
+        "Piercing",
+        "-",
+        "Med.",
+        "10 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Lance, light",
+        "1d6",
+        "20/x3",
+        "Piercing",
+        "-",
+        "Small",
+        "5 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Maul",
+        "1d10",
+        "20/x3",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "20 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Naginata†",
+        "1d10",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Large",
+        "15 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Pick",
+        "1d4",
+        "20/x4",
+        "Piercing",
+        "-",
+        "Small",
+        "4 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Pickaxe",
+        "1d6",
+        "20/x4",
+        "Piercing",
+        "-",
+        "Med.",
+        "6 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Ranseur†",
+        "2d4",
+        "20/x3",
+        "Piercing",
+        "-",
+        "Large",
+        "15 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Saber*",
+        "1d8",
+        "19-20",
+        "Piercing, Slashing",
+        "-",
+        "Med.",
+        "4 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Scimitar",
+        "1d6",
+        "18-20",
+        "Slashing",
+        "-",
+        "Med.",
+        "4 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Scythe",
+        "2d4",
+        "20/x4",
+        "Piercing, Slashing",
+        "-",
+        "Large",
+        "12 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Sword, short",
+        "1d6",
+        "19-20",
+        "Piercing",
+        "-",
+        "Small",
+        "3 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Trident",
+        "1d8",
+        "20",
+        "Piercing",
+        "10 ft.",
+        "Med.",
+        "5 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Wakizashi",
+        "1d6",
+        "19-20",
+        "Slashing",
+        "-",
+        "Small",
+        "3 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Warhammer",
+        "1d8",
+        "20/x3",
+        "Bludgeoning",
+        "-",
+        "Med.",
+        "8 lb.",
+        "9",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Axe, orc double*‡",
+        "1d8/1d8",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Large",
+        "25 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Flail, dire*‡",
+        "1d8/1d8",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "20 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Hammer, gnome hooked*‡",
+        "1d6/1d4",
+        "x3/x4*",
+        "Bludgeoning, Piercing",
+        "-",
+        "Med.",
+        "6 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Khopesh*",
+        "1d8",
+        "19-20",
+        "Slashing",
+        "-",
+        "Med.",
+        "12 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Nekode*",
+        "1d4",
+        "20",
+        "Piercing",
+        "-",
+        "Tiny",
+        "2 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Ninja-to*",
+        "1d6",
+        "19-20",
+        "Slashing",
+        "-",
+        "Small",
+        "3 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Scourge*",
+        "1d8",
+        "20",
+        "Slashing",
+        "-",
+        "Med.",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Shikomi-zue",
+        "1d8",
+        "20/x3",
+        "Piercing",
+        "-",
+        "Large",
+        "5 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Sword, bastard*",
+        "1d10",
+        "19-20",
+        "Slashing",
+        "-",
+        "Med.",
+        "10 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Sword, two-bladed*‡",
+        "1d8/1d8",
+        "19-20",
+        "Slashing",
+        "-",
+        "Large",
+        "15 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Urgosh, dwarven*‡",
+        "1d8/1d6",
+        "20/x3",
+        "Slashing, Piercing",
+        "-",
+        "Large",
+        "15 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Waraxe, dwarven*",
+        "1d10",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Med.",
+        "15 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "War fan*",
+        "1d6",
+        "20/x3",
+        "Slashing",
+        "-",
+        "Small",
+        "3 lb.",
+        "12",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
       "item",
       "item"
     ]

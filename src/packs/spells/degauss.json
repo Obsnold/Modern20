@@ -1,0 +1,27 @@
+{
+  "_id": "PCu7PStcUZ9tV5wG",
+  "name": "Degauss",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 1,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "Stored data is erased",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!PCu7PStcUZ9tV5wG"
+}

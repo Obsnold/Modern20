@@ -1,0 +1,28 @@
+{
+  "_id": "d9AYbPCvY7lS8ds7",
+  "name": "Daze",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 0,
+    "school": "Enchantment",
+    "subschool": "Mind-Affecting",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "",
+    "target": "One person",
+    "duration": "1 round",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!d9AYbPCvY7lS8ds7"
+}

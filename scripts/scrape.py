@@ -230,15 +230,34 @@ def collect_labels(lines: list[str], start: int, end: int, labels: set[str]) -> 
     return found
 
 
-def entry_starts(lines: list[str], labels: set[str], lookahead: int = 3) -> list[int]:
-    """Indices of lines that name an entry: a plain line shortly followed by a label."""
-    starts = []
+def entry_starts(lines: list[str], labels: set[str], lookahead: int = 3,
+                 min_gap: int = 3) -> list[int]:
+    """Indices of lines that name an entry: a plain line shortly followed by a label.
+
+    Consecutive hits are collapsed to the first. A spell is written as a name,
+    then its school, then the labels - and both the name and the school sit
+    within the lookahead of a label, so without this the school line wins and
+    every spell ends up called "Enchantment [Mind-Affecting]". Real entries are
+    always separated by at least a label and its value.
+    """
+    candidates = []
     for i, line in enumerate(lines):
         if is_value(line) or is_label(line, labels) or len(line) > 70:
             continue
+        # SRD entry headings are noun phrases: they never end in sentence
+        # punctuation, which is what distinguishes a heading from a trailing
+        # line of the previous entry's description.
+        if line.endswith((".", ",", ";", ":", "?", "!")):
+            continue
         window = lines[i + 1: i + 1 + lookahead]
         if any(is_label(w, labels) for w in window):
-            starts.append(i)
+            candidates.append(i)
+
+    starts = []
+    for index in candidates:
+        if starts and index - starts[-1] < min_gap:
+            continue
+        starts.append(index)
     return starts
 
 
@@ -347,6 +366,196 @@ def scrape_talents() -> list[dict]:
     return talents
 
 
+SIZES = ("fine", "diminutive", "tiny", "small", "medium", "large",
+         "huge", "gargantuan", "colossal")
+
+SPELL_SCHOOLS = {
+    "Abjuration", "Conjuration", "Divination", "Enchantment",
+    "Evocation", "Illusion", "Necromancy", "Transmutation", "Universal",
+}
+
+SPELL_LABELS = {
+    "level", "components", "casting time", "range", "area", "effect",
+    "target", "targets", "duration", "saving throw", "spell resistance",
+}
+
+
+def parse_size_and_type(text: str) -> tuple[str, str]:
+    """'Medium-size humanoid' -> ('medium', 'humanoid')."""
+    lowered = text.lower()
+    size = next((s for s in SIZES if lowered.startswith(s)), "medium")
+    remainder = re.sub(r"^" + size + r"(-size)?\s*", "", lowered).strip()
+    return size, remainder
+
+
+def ability_mod(score: int) -> int:
+    return (score - 10) // 2
+
+
+def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: str) -> dict:
+    """One column of a stat block into the fields the creature model stores.
+
+    Printed Defense, saves and initiative are totals. The data model derives
+    those from ability scores plus components, so the difference is put into
+    the misc slots - the sheet then shows the number the SRD prints.
+    """
+    abilities = {}
+    for key in ("str", "dex", "con", "int", "wis", "cha"):
+        match = re.search(key + r":\s*(\d+)", rows.get("ability scores", ""), re.I)
+        abilities[key] = int(match.group(1)) if match else 10
+
+    size, creature_type = parse_size_and_type(size_type)
+
+    hit_dice = rows.get("hd", "")
+    hp_match = re.search(r"hp\s+(\d+)", hit_dice)
+    hp = int(hp_match.group(1)) if hp_match else 0
+
+    defense_text = rows.get("defense", "")
+    defense_total = srd.to_int(defense_text)
+    natural = 0
+    natural_match = re.search(r"([-+]?\d+)\s+natural", defense_text)
+    if natural_match:
+        natural = int(natural_match.group(1))
+
+    saves = {}
+    for label, key in (("Fort", "fort"), ("Ref", "ref"), ("Will", "will")):
+        match = re.search(label + r":?\s*([-+]?\d+)", rows.get("sv", ""))
+        saves[key] = int(match.group(1)) if match else 0
+
+    bab = srd.to_int(rows.get("bab/grap", "").split("/")[0])
+    initiative = srd.to_int(rows.get("init", ""))
+    speed = srd.to_int(rows.get("spd", ""), 30)
+
+    mass = rows.get("mas", "")
+    massive = int(mass) if mass.strip().isdigit() else None
+
+    return {
+        "id": camel(name),
+        "name": name,
+        "size": size,
+        "creatureType": creature_type,
+        "challengeRating": rows.get("cr", ""),
+        "hitDice": hit_dice.split(";")[0].strip(),
+        "hp": hp,
+        "massiveDamageThreshold": massive,
+        "abilities": abilities,
+        "baseAttack": bab,
+        "speed": speed,
+        # Everything the model derives is stored as the offset that reproduces
+        # the printed total, so nothing is silently wrong on the sheet.
+        "initiativeMisc": initiative - ability_mod(abilities["dex"]),
+        "naturalArmor": natural,
+        "defenseMisc": defense_total - 10 - natural - ability_mod(abilities["dex"]),
+        "defenseTotal": defense_total,
+        "saves": {k: v - ability_mod(abilities[a]) for (k, a), v in
+                  zip((("fort", "con"), ("ref", "dex"), ("will", "wis")), saves.values())},
+        "attack": rows.get("atk", ""),
+        "fullAttack": rows.get("full atk", ""),
+        "reach": rows.get("fs/reach", ""),
+        "specialQualities": rows.get("sq", ""),
+        "allegiances": [a.strip() for a in rows.get("al", "").split(",") if a.strip()],
+        "skills": rows.get("skills", ""),
+        "feats": rows.get("feats", ""),
+        "talents": rows.get("talents", ""),
+        "possessions": rows.get("possessions", ""),
+        "advancement": rows.get("advancement", ""),
+        "srdUrl": url,
+    }
+
+
+def scrape_creatures(pages: list[str]) -> list[dict]:
+    """Creature stat blocks, which the SRD lays out as label/value tables.
+
+    Each table carries a base creature and an advanced variant side by side,
+    so one table yields one creature per populated column.
+    """
+    creatures = {}
+    for page in pages:
+        try:
+            page_html = srd.fetch(page)
+        except Exception:
+            continue
+
+        for table in srd.annotated_tables(page_html):
+            labels = [r[0].rstrip(":").strip().lower() for r in table["rows"] if r]
+            if "cr" not in labels or "ability scores" not in labels:
+                continue
+
+            names = table["header"]
+            size_types = table["rows"][0] if table["rows"] else []
+
+            for column in range(1, len(names)):
+                name = names[column].strip()
+                if not name:
+                    continue
+
+                rows = {}
+                for raw in table["rows"]:
+                    if not raw or not raw[0].strip():
+                        continue
+                    key = raw[0].rstrip(":").strip().lower()
+                    rows[key] = raw[column].strip() if column < len(raw) else ""
+
+                size_type = size_types[column] if column < len(size_types) else "Medium-size"
+                entry = parse_creature_column(rows, name, size_type, srd.page_url(page))
+                # Later pages repeat a few creatures; first definition wins.
+                creatures.setdefault(entry["id"], entry)
+
+    return [creatures[k] for k in sorted(creatures)]
+
+
+def scrape_spells(pages: list[str]) -> list[dict]:
+    """Spells: a name, a school line, then label/value pairs."""
+    spells = {}
+    for page in pages:
+        try:
+            lines = text_lines(srd.fetch(page))
+        except Exception:
+            continue
+
+        starts = entry_starts(lines, SPELL_LABELS, lookahead=3)
+        for position, start in enumerate(starts):
+            end = starts[position + 1] if position + 1 < len(starts) else len(lines)
+            name = lines[start]
+            fields = collect_labels(lines, start + 1, end, SPELL_LABELS)
+            if "level" not in fields:
+                continue
+            # A bare school word means the real name was not captured; skip
+            # rather than create a spell called "Abjuration".
+            if name.split("[")[0].split("(")[0].strip() in SPELL_SCHOOLS:
+                continue
+
+            # The line directly after the name is the school, e.g.
+            # "Enchantment [Mind-Affecting]".
+            school_line = lines[start + 1] if start + 1 < len(lines) else ""
+            if is_label(school_line, SPELL_LABELS) or is_value(school_line):
+                school_line = ""
+
+            level_text = fields.get("level", "")
+            level_match = re.search(r"(\d+)", level_text)
+
+            spells.setdefault(name, {
+                "id": camel(name),
+                "name": name,
+                "school": school_line.split("[")[0].strip(),
+                "subschool": (re.search(r"\[([^\]]+)\]", school_line).group(1)
+                              if "[" in school_line else ""),
+                "level": int(level_match.group(1)) if level_match else 0,
+                "levelText": level_text,
+                "components": [c.strip() for c in fields.get("components", "").split(",") if c.strip()],
+                "castingTime": fields.get("casting time", ""),
+                "range": fields.get("range", ""),
+                "area": fields.get("area", "") or fields.get("effect", ""),
+                "target": fields.get("target", "") or fields.get("targets", ""),
+                "duration": fields.get("duration", ""),
+                "savingThrow": fields.get("saving throw", ""),
+                "spellResistance": fields.get("spell resistance", ""),
+                "srdUrl": srd.page_url(page),
+            })
+
+    return [spells[k] for k in sorted(spells)]
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -408,7 +617,7 @@ def main() -> int:
     args = parser.parse_args()
 
     print("Discovering SRD pages...")
-    pages = srd.crawl(refresh=args.refresh)
+    pages = srd.crawl(depth=3, refresh=args.refresh)
     print(f"  {len(pages)} pages reachable from the index")
 
     print("Parsing tables...")
@@ -432,12 +641,17 @@ def main() -> int:
     write("occupations.json", occupations)
     talents = scrape_talents()
     write("talents.json", talents)
+    creatures = scrape_creatures(pages)
+    write("creatures.json", creatures)
+    spells = scrape_spells([p for p in pages if "spelldesc" in p or "spells" in p])
+    write("spells.json", spells)
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 
     levels = sum(len(c["progression"]) for c in classes)
     print(f"\n{len(skills)} skills, {len(classes)} classes ({levels} levels), "
           f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
+          f"{len(creatures)} creatures, {len(spells)} spells, "
           f"{sum(len(v) for v in tables.values())} tables")
     return 0
 

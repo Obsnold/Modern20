@@ -1,0 +1,28 @@
+{
+  "_id": "5K7zC9apb1Jdag29",
+  "name": "Delay Poison",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 2,
+    "school": "Conjuration (Healing)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature touched",
+    "duration": "1 hour/level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!5K7zC9apb1Jdag29"
+}

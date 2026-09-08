@@ -1,0 +1,28 @@
+{
+  "_id": "MMnGnErngFEG0rZm",
+  "name": "Resist Energy",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 2,
+    "school": "Abjuration",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature touched",
+    "duration": "10 minutes/level",
+    "savingThrow": "Fortitude negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!MMnGnErngFEG0rZm"
+}

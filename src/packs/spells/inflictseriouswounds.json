@@ -1,0 +1,27 @@
+{
+  "_id": "gLMJ2dbcUWGzAW7U",
+  "name": "Inflict Serious Wounds",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 3,
+    "school": "Necromancy",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature touched",
+    "duration": "Instantaneous",
+    "savingThrow": "Will half",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!gLMJ2dbcUWGzAW7U"
+}

@@ -1,0 +1,103 @@
+{
+  "_id": "Fc8PZpRycqVoq6cY",
+  "name": "Jumping Jack Fast Hero 9",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+    "abilities": {
+      "str": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 65,
+      "max": 65,
+      "temp": 0,
+      "formula": "1d8+2 plus 9d8+18"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 3,
+      "misc": 7
+    },
+    "saves": {
+      "fort": {
+        "base": 5,
+        "misc": 0
+      },
+      "ref": {
+        "base": 6,
+        "misc": 0
+      },
+      "will": {
+        "base": 5,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 7,
+      "size": "medium",
+      "speed": 35,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 14,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "outsider",
+      "subtype": "",
+      "challengeRating": "11",
+      "hitDice": "1d8+2 plus 9d8+18",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": "Colt Python (fully loaded)"
+    },
+    "allegiances": [
+      {
+        "name": "Chaos",
+        "strength": "none"
+      },
+      {
+        "name": "evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Breath weapon (DC 17), damage reduction 10/silver, darkvision 60 ft., immunities, prodigious leap;",
+    "specialQualities": "Breath weapon (DC 17), damage reduction 10/silver, darkvision 60 ft., immunities, prodigious leap;",
+    "biography": "<p><strong>Attack:</strong> +9 melee (1d4+2, claw)</p><p><strong>Full Attack:</strong> +9 melee (1d4+2, 2 claws) or +13 ranged (2d6, Colt Python)</p><p><strong>Skills:</strong> Hide +14, Intimidate +13, Jump +17, Read/Write English, Speak English, Tumble +17.</p><p><strong>Feats:</strong> Acrobatic, Archaic Weapons Proficiency, Defensive Martial Arts, Dodge, Elusive Target, Heroic Surge, Improved Initiative, Mobility, Simple Weapons Proficiency, Spring Attack.</p><p><strong>Talents:</strong> Evasion, defensive roll, increased speed, uncanny dodge 1, uncanny dodge 2</p>"
+  },
+  "_key": "!actors!Fc8PZpRycqVoq6cY"
+}

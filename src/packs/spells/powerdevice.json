@@ -1,0 +1,27 @@
+{
+  "_id": "CARFj4ROSeCcA9lj",
+  "name": "Power Device",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 1,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "Powers one electrical or mechanical device",
+    "target": "",
+    "duration": "10 minutes/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!CARFj4ROSeCcA9lj"
+}

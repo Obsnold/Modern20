@@ -1,0 +1,28 @@
+{
+  "_id": "6W2e2cWYt6qjYuAp",
+  "name": "Instant Connectivity",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 5,
+    "school": "Conjuration (Teleporting)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch (see text)",
+    "area": "",
+    "target": "Creature touched, or up to eight willing creatures joining hands",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!6W2e2cWYt6qjYuAp"
+}

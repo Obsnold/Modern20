@@ -1,0 +1,99 @@
+{
+  "_id": "EkJ6KyFnrFAjPRKD",
+  "name": "Advanced Sewer Sludge",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 83,
+      "max": 83,
+      "temp": 0,
+      "formula": "8d10+39"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 2,
+      "misc": -1
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 2,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 6,
+      "size": "large",
+      "speed": 20,
+      "initiative": {
+        "misc": 1
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": null,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "ooze",
+      "subtype": "",
+      "challengeRating": "7",
+      "hitDice": "8d10+39",
+      "advancement": "9-12 HD (Huge)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 30 ft., disease, camouflage, constrict 1d6+1, immunities, improved grab, ooze, stench (DC 17)",
+    "specialQualities": "Blindsight 30 ft., disease, camouflage, constrict 1d6+1, immunities, improved grab, ooze, stench (DC 17)",
+    "biography": "<p><strong>Attack:</strong> +10 melee (1d8+7 plus disease, slam)</p><p><strong>Full Attack:</strong> +10/+5 melee (1d8+7 plus disease, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!EkJ6KyFnrFAjPRKD"
+}

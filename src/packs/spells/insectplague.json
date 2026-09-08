@@ -1,0 +1,28 @@
+{
+  "_id": "rMei3jnLP98nHdhu",
+  "name": "Insect Plague",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 5,
+    "school": "Conjuration (Summoning)",
+    "subschool": "see text",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Full-round action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "Cloud of insects 180 ft. in diameter",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!rMei3jnLP98nHdhu"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "M3iw7arWlmlHdDz9",
+  "name": "Mage Armor",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 1,
+    "school": "Conjuration (Creation)",
+    "subschool": "Force",
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature touched",
+    "duration": "1 hour/level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!M3iw7arWlmlHdDz9"
+}
