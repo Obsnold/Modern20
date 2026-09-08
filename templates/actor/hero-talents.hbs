@@ -21,6 +21,11 @@
           <img src="{{item.img}}" alt="{{item.name}}">
           <span class="m20-itemrow__name">{{item.name}}</span>
           {{#if item.system.tree}}<span class="m20-tag">{{item.system.tree}}</span>{{/if}}
+          {{#if item.grantSource}}
+            <span class="m20-tag m20-tag--source" data-tooltip="{{item.grantSource}}">
+              <i class="fa-solid fa-link"></i> {{item.grantSource}}
+            </span>
+          {{/if}}
           {{#if (eq item.type "class")}}
             <span class="m20-levelctl">
               <button type="button" class="m20-icon" data-action="adjustClassLevel" data-delta="-1"
@@ -41,4 +46,25 @@
       {{/each}}
     </div>
   {{/each}}
+
+  {{#if advancement.length}}
+    <div class="m20-itemlist">
+      <h3>{{localize "MODERN20.Source.LogTitle"}}</h3>
+      {{#each advancement as |entry|}}
+        <div class="m20-logentry">
+          <span class="m20-tag m20-tag--level">
+            {{localize "MODERN20.CharacterLevel"}} {{entry.characterLevel}}
+          </span>
+          <span class="m20-logentry__body">
+            <strong>{{entry.className}} {{entry.classLevel}}</strong>
+            &middot; +{{entry.hitPoints}} {{localize "MODERN20.HitPoints"}}
+            {{#if entry.gained.length}}
+              <br><span class="m20-hint">{{#each entry.gained}}{{this}}{{#unless @last}} &middot; {{/unless}}{{/each}}</span>
+            {{/if}}
+            {{#if entry.note}}<br><span class="m20-hint">{{entry.note}}</span>{{/if}}
+          </span>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
 </section>

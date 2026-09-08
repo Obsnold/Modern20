@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { talentChoices, featChoices, grant, grantNamedFeature } from "./level-up.mjs";
+import { talentChoices, featChoices, grant, grantNamedFeature, sourceStamp } from "./level-up.mjs";
 import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
@@ -195,8 +195,15 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     });
 
     const granted = [];
-    for (const uuid of [plan.talentUuid, plan.classFeatUuid, plan.generalFeatUuid]) {
-      const item = await grant(actor, uuid);
+    const stamps = [
+      [plan.talentUuid, "MODERN20.Source.ClassLevel", { name: classItem.name, level: plan.to }],
+      [plan.classFeatUuid, "MODERN20.Source.ClassLevel", { name: classItem.name, level: plan.to }],
+      [plan.generalFeatUuid, "MODERN20.Source.Milestone", { level: plan.characterLevel }]
+    ];
+    for (const [uuid, key, args] of stamps) {
+      const item = await grant(actor, uuid, sourceStamp({
+        origin: "level", label: game.i18n.format(key, args), characterLevel: plan.characterLevel
+      }));
       if (item) granted.push(item.name);
     }
 
@@ -210,10 +217,30 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     if (plan.characterLevel % ABILITY_INCREASE_EVERY === 0 && plan.ability) {
       const current = actor.system.abilities[plan.ability].value;
       await actor.update({ [`system.abilities.${plan.ability}.value`]: current + 1 });
+      granted.push(game.i18n.format("MODERN20.Source.AbilityRaised", {
+        ability: game.i18n.localize(MODERN20.abilities[plan.ability]), value: current + 1
+      }));
     }
 
     const ranks = rankUpdates(actor, plan.ranks);
     if (Object.keys(ranks).length) await actor.update(ranks);
+
+    const spentRanks = Object.entries(plan.ranks)
+      .filter(([, added]) => added)
+      .map(([key, added]) => `${game.i18n.localize(MODERN20.skills[key].label)} +${added}`);
+
+    // Append rather than replace: the log is the character's history.
+    await actor.update({
+      "system.advancement": [...actor.system.advancement, {
+        characterLevel: plan.characterLevel,
+        className: classItem.name,
+        classLevel: plan.to,
+        hitPoints: gained,
+        gained: [...granted, ...spentRanks],
+        note: "",
+        at: new Date().toISOString()
+      }]
+    });
 
     // Action points are granted afresh at each level rather than accumulated.
     if (actor.system.actionPoints) {

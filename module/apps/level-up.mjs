@@ -23,13 +23,29 @@ export async function packDocuments(packId) {
   return pack.getDocuments();
 }
 
-/** Add a compendium document to the actor by uuid. */
-export async function grant(actor, uuid) {
+/**
+ * Add a compendium document to the actor, stamped with where it came from.
+ *
+ * The stamp is what lets a sheet answer "why does this character have this" —
+ * a talent from a level, a feat from an occupation, a class feature granted
+ * automatically. Without it a granted item is indistinguishable from one
+ * dragged on by hand.
+ */
+export async function grant(actor, uuid, source = null) {
   if (!uuid) return null;
   const document = await fromUuid(uuid);
   if (!document) return null;
-  const [created] = await actor.createEmbeddedDocuments("Item", [document.toObject()]);
+
+  const data = document.toObject();
+  if (source) foundry.utils.setProperty(data, "flags.modern20.source", source);
+
+  const [created] = await actor.createEmbeddedDocuments("Item", [data]);
   return created;
+}
+
+/** A provenance stamp: what granted this, and at what point. */
+export function sourceStamp({ origin, label, characterLevel = null }) {
+  return { origin, label, characterLevel, at: new Date().toISOString() };
 }
 
 /** Talents the character does not already have, from this class's trees. */
@@ -60,14 +76,20 @@ export async function featChoices(actor) {
  * record the feature as a talent so it is at least visible on the sheet.
  */
 export async function grantNamedFeature(actor, classItem, feature, level) {
+  const source = sourceStamp({
+    origin: "class",
+    label: game.i18n.format("MODERN20.Source.ClassLevel", { name: classItem.name, level })
+  });
+
   const feats = await packDocuments(FEAT_PACK);
   const match = feats.find((f) => f.name.toLowerCase() === feature.toLowerCase());
-  if (match) return grant(actor, match.uuid);
+  if (match) return grant(actor, match.uuid, source);
 
   const [created] = await actor.createEmbeddedDocuments("Item", [{
     name: feature,
     type: "talent",
     img: "icons/svg/statue.svg",
+    flags: { modern20: { source } },
     system: {
       tree: game.i18n.localize("MODERN20.LevelUp.ClassFeature"),
       sourceClass: classItem.name,

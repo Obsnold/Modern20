@@ -243,6 +243,15 @@ a starting character's (points + Int) x 4, and the level-up screen for each
 level's allocation. Both use the same costing: one point per rank in a class
 skill, two cross-class, capped at level + 3 or half that cross-class.
 
+**Provenance is recorded.** Each class skill knows which class or occupation
+made it one, shown on hover rather than as a bare checkmark. Items granted
+during creation or levelling carry a `flags.modern20.source` stamp naming what
+granted them and at what character level, shown as a dashed tag on the sheet,
+so a granted talent is distinguishable from one dragged on by hand. And the
+hero carries an append-only `system.advancement` log — one entry per level with
+the hit points rolled, what was gained and which skill ranks were bought —
+displayed newest-first on the Character tab.
+
 **Sheets are read-only for players.** Building happens in the creator and the
 level-up screen, which apply the rules; editing the same values directly on the
 sheet bypasses them. Players keep everything that reads or rolls, plus the
