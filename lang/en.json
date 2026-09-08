@@ -29,6 +29,7 @@
     },
     "Acquisition": "Acquisition",
     "ActionPoints": "Action Points",
+    "Advancement": "Advancement",
     "Allegiance": {
       "Major": "Major Allegiance",
       "Minor": "Minor Allegiance",
@@ -46,6 +47,8 @@
     "Benefit": "Benefit",
     "BlackMarket": "Black market surcharge",
     "BuyHint": "Buy with a Wealth check. Shift-click to use the black market.",
+    "CR": "CR",
+    "Cargo": "Cargo",
     "Chat": {
       "ActionPoint": "Spends an action point",
       "Attack": "Attack with {weapon}",
@@ -69,9 +72,13 @@
       "Prestige": "Prestige Class"
     },
     "Combat": "Combat",
+    "CreatureDetails": "Creature Details",
+    "CreatureType": "Type",
+    "Crew": "Crew",
     "CrossClass": "cross-class",
     "Def": "Def",
     "Defense": "Defense",
+    "Durability": "Durability",
     "FailedNoCost": "A failed Wealth check costs nothing.",
     "Failure": "Failure",
     "FeatType": {
@@ -81,6 +88,8 @@
     },
     "FlatFooted": "Flat-Footed",
     "Grapple": "Grapple",
+    "Handling": "Handling",
+    "Hardness": "Hardness",
     "Header": {
       "Skill": "Skill"
     },
@@ -88,6 +97,7 @@
       "ClassProgression": "Per-level attack, save, Defense and Reputation bonuses live in this class's progression table. Import them from a compendium class rather than editing them by hand.",
       "PrerequisitesAdvisory": "Prerequisites are advisory only. Nothing here is enforced."
     },
+    "HitDice": "Hit Dice",
     "HitPoints": "Hit Points",
     "Initiative": "Initiative",
     "ItemType": {
@@ -106,6 +116,7 @@
       "Size": "Size"
     },
     "Level": "Level",
+    "Maneuver": "Maneuver",
     "Massive": "Massive",
     "MaxRanks": "Max ranks",
     "Misc": "Misc",
@@ -113,6 +124,7 @@
     "NoClasses": "No class",
     "NoWealthLost": "The purchase does not reduce your Wealth bonus.",
     "NoneYet": "None yet.",
+    "Passengers": "Passengers",
     "Placeholder": {
       "Name": "Character name"
     },
@@ -135,8 +147,11 @@
     },
     "SavingThrows": "Saving Throws",
     "SheetLabel": {
+      "Creature": "Modern20 Creature Sheet",
       "Hero": "Modern20 Actor Sheet",
-      "Item": "Modern20 Item Sheet"
+      "Item": "Modern20 Item Sheet",
+      "Ordinary": "Modern20 Ordinary Sheet",
+      "Vehicle": "Modern20 Vehicle Sheet"
     },
     "Size": {
       "Colossal": "Colossal",
@@ -194,6 +209,7 @@
     },
     "SkillPointsSpent": "Skill points spent",
     "Source": "Source",
+    "SpecialQualities": "Special Qualities",
     "SpecialtySkill": "Choose a subject",
     "Speed": "Speed",
     "Spend": "Spend",
@@ -205,15 +221,18 @@
       "gear": "Gear",
       "main": "Main",
       "skills": "Skills",
+      "stats": "Stats",
       "talents": "Character"
     },
     "ToChat": "Post to chat",
+    "TopSpeed": "Top Speed",
     "Total": "Total",
     "Touch": "Touch",
     "ViewSRD": "View in the SRD",
     "Warning": {
       "NoActionPoints": "This actor does not use action points.",
       "NoActionPointsLeft": "No action points remaining.",
+      "NoBuyer": "Select a character with a Wealth bonus to make the purchase.",
       "NoWealth": "This actor has no Wealth bonus.",
       "NotPurchasable": "This item has no purchase DC.",
       "TrainedOnly": "{skill} is trained only and this character has no ranks in it.",

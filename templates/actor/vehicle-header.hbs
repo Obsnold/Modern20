@@ -1,0 +1,13 @@
+<header class="m20-header m20-header--item">
+  <img class="m20-portrait" src="{{document.img}}" data-edit="img" alt="{{document.name}}">
+  <div class="m20-header__identity">
+    <input class="m20-name" type="text" name="name" value="{{document.name}}">
+    <div class="m20-header__classes">
+      <span class="m20-tag">{{localize (lookup config.sizes system.size).label}}</span>
+      <span class="m20-tag m20-tag--dc">{{localize "MODERN20.PurchaseDCShort"}} {{system.purchaseDC}}</span>
+      <span class="m20-tag">{{localize (lookup config.restrictions system.restriction).label}}</span>
+      <button type="button" class="m20-button m20-button--small" data-action="purchaseVehicle"
+              title="{{localize 'MODERN20.BuyHint'}}">{{localize "MODERN20.Purchase"}}</button>
+    </div>
+  </div>
+</header>

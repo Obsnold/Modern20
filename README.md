@@ -32,7 +32,7 @@ fighting it forever, so this is a standalone game system.
 | Class progression folding into attack, saves, Defense and Reputation | Working |
 | Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 653 items, built from the SRD |
 | Compendia: creatures, vehicles | 202 actors, built from the SRD |
-| Vehicles, FX/psionics | Data models only, no sheets |
+| Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
 GMs override them constantly and a hard block just makes the sheet unusable.
@@ -138,9 +138,8 @@ Roughly in the order worth doing it:
 1. **Load it in Foundry and fix what breaks.** Nothing here has run in a live world.
 2. **Psionic powers and vehicles.** Messy; budget for a `data/overrides/` layer that
    merges hand corrections over scraped output.
-3. **Combat.** Conditions as ActiveEffects, attack/damage automation.
-4. **Occupation choices as pickable lists** rather than the SRD's prose.
-5. **The rest of d20 Future and Urban Arcana** — progress levels, cybernetics,
+3. **Occupation choices as pickable lists** rather than the SRD's prose.
+4. **The rest of d20 Future and Urban Arcana** — progress levels, cybernetics,
    mecha, robots, xenoforms.
 
 Occupations store their skill and bonus-feat choices as SRD prose rather than

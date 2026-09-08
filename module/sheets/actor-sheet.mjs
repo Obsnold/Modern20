@@ -5,49 +5,30 @@ const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
 /**
- * Hero sheet. ActorSheetV2 already handles drag/drop of items and effects,
- * permission checks and item sorting, so this only adds Modern-specific rolls.
+ * Everything the four actor sheets share: rolling, item management and the
+ * skill table. ActorSheetV2 already handles drag/drop, permissions and item
+ * sorting, so this only adds what d20 Modern needs.
+ *
+ * ApplicationV2 merges DEFAULT_OPTIONS up the prototype chain, so a subclass
+ * inherits these actions and only declares its own PARTS and TABS. Arrays are
+ * replaced rather than merged, so each subclass restates `classes`.
  */
-export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorSheetV2) {
   static DEFAULT_OPTIONS = {
-    classes: ["modern20", "sheet", "actor", "hero"],
+    classes: ["modern20", "sheet", "actor"],
     position: { width: 820, height: 760 },
     window: { resizable: true },
     form: { submitOnChange: true },
     actions: {
-      rollAbility: Modern20HeroSheet.#onRollAbility,
-      rollSave: Modern20HeroSheet.#onRollSave,
-      rollSkill: Modern20HeroSheet.#onRollSkill,
-      rollItem: Modern20HeroSheet.#onRollItem,
-      purchaseItem: Modern20HeroSheet.#onPurchaseItem,
-      spendActionPoint: Modern20HeroSheet.#onSpendActionPoint,
-      createItem: Modern20HeroSheet.#onCreateItem,
-      editItem: Modern20HeroSheet.#onEditItem,
-      deleteItem: Modern20HeroSheet.#onDeleteItem
-    }
-  };
-
-  static PARTS = {
-    header: { template: "systems/modern20/templates/actor/hero-header.hbs" },
-    tabs: { template: "templates/generic/tab-navigation.hbs" },
-    main: { template: "systems/modern20/templates/actor/hero-main.hbs", scrollable: [""] },
-    skills: { template: "systems/modern20/templates/actor/hero-skills.hbs", scrollable: [""] },
-    talents: { template: "systems/modern20/templates/actor/hero-talents.hbs", scrollable: [""] },
-    gear: { template: "systems/modern20/templates/actor/hero-gear.hbs", scrollable: [""] },
-    biography: { template: "systems/modern20/templates/actor/hero-biography.hbs", scrollable: [""] }
-  };
-
-  static TABS = {
-    primary: {
-      tabs: [
-        { id: "main", icon: "fa-solid fa-user" },
-        { id: "skills", icon: "fa-solid fa-list-check" },
-        { id: "talents", icon: "fa-solid fa-star" },
-        { id: "gear", icon: "fa-solid fa-box-open" },
-        { id: "biography", icon: "fa-solid fa-book" }
-      ],
-      initial: "main",
-      labelPrefix: "MODERN20.Tab"
+      rollAbility: Modern20ActorSheetBase.#onRollAbility,
+      rollSave: Modern20ActorSheetBase.#onRollSave,
+      rollSkill: Modern20ActorSheetBase.#onRollSkill,
+      rollItem: Modern20ActorSheetBase.#onRollItem,
+      purchaseItem: Modern20ActorSheetBase.#onPurchaseItem,
+      spendActionPoint: Modern20ActorSheetBase.#onSpendActionPoint,
+      createItem: Modern20ActorSheetBase.#onCreateItem,
+      editItem: Modern20ActorSheetBase.#onEditItem,
+      deleteItem: Modern20ActorSheetBase.#onDeleteItem
     }
   };
 
@@ -82,20 +63,20 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     // Schema fields drive the {{formField}} helper for rich-text editing.
     context.fields = actor.system.schema.fields;
 
-    const grouped = this.#sortItemsByType(actor.items);
+    const grouped = this._sortItemsByType(actor.items);
     context.items = grouped;
     // Named sections keep the item-type ordering in code rather than in the
     // templates, which have no way to express an ordered list of types.
     context.sections = {
-      character: this.#section(grouped, ["class", "occupation", "talent", "feat"]),
-      gear: this.#section(grouped, ["weapon", "armor", "gear"])
+      character: this._section(grouped, ["class", "occupation", "talent", "feat"]),
+      gear: this._section(grouped, ["weapon", "armor", "gear"])
     };
-    context.skills = this.#prepareSkillRows(actor.system.skills);
+    context.skills = this._prepareSkillRows(actor.system.skills);
 
     return context;
   }
 
-  #section(grouped, types) {
+  _section(grouped, types) {
     return types.map((type) => ({
       type,
       label: game.i18n.localize(`MODERN20.ItemType.${type}`),
@@ -104,7 +85,7 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   }
 
   /** Group owned items so each tab can render its own list. */
-  #sortItemsByType(items) {
+  _sortItemsByType(items) {
     const groups = {
       class: [], occupation: [], talent: [], feat: [],
       weapon: [], armor: [], gear: [], spell: [], psiPower: [], vehicleMod: []
@@ -118,7 +99,7 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
    * Flatten skills and their specialties into one display list, so
    * Knowledge (streetwise) renders as its own row under Knowledge.
    */
-  #prepareSkillRows(skills) {
+  _prepareSkillRows(skills) {
     const rows = [];
     for (const [key, cfg] of Object.entries(MODERN20.skills)) {
       const skill = skills[key];
@@ -144,7 +125,7 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   }
 
   /** Walk up from the clicked control to the item row that owns it. */
-  #itemFromEvent(target) {
+  _itemFromEvent(target) {
     const id = target.closest("[data-item-id]")?.dataset.itemId;
     return id ? this.document.items.get(id) : null;
   }
@@ -163,12 +144,12 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   }
 
   static async #onRollItem(event, target) {
-    await this.#itemFromEvent(target)?.roll();
+    await this._itemFromEvent(target)?.roll();
   }
 
   static async #onPurchaseItem(event, target) {
     // Shift-click buys on the black market, at the restriction surcharge.
-    await this.#itemFromEvent(target)?.purchase({ blackMarket: event.shiftKey });
+    await this._itemFromEvent(target)?.purchase({ blackMarket: event.shiftKey });
   }
 
   static async #onSpendActionPoint() {
@@ -184,10 +165,42 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   }
 
   static async #onEditItem(event, target) {
-    this.#itemFromEvent(target)?.sheet.render(true);
+    this._itemFromEvent(target)?.sheet.render(true);
   }
 
   static async #onDeleteItem(event, target) {
-    await this.#itemFromEvent(target)?.deleteDialog();
+    await this._itemFromEvent(target)?.deleteDialog();
   }
+}
+
+
+/** The player character sheet: talents, action points, Wealth and Reputation. */
+export class Modern20HeroSheet extends Modern20ActorSheetBase {
+  static DEFAULT_OPTIONS = {
+    classes: ["modern20", "sheet", "actor", "hero"]
+  };
+
+  static PARTS = {
+    header: { template: "systems/modern20/templates/actor/hero-header.hbs" },
+    tabs: { template: "templates/generic/tab-navigation.hbs" },
+    main: { template: "systems/modern20/templates/actor/hero-main.hbs", scrollable: [""] },
+    skills: { template: "systems/modern20/templates/actor/hero-skills.hbs", scrollable: [""] },
+    talents: { template: "systems/modern20/templates/actor/hero-talents.hbs", scrollable: [""] },
+    gear: { template: "systems/modern20/templates/actor/hero-gear.hbs", scrollable: [""] },
+    biography: { template: "systems/modern20/templates/actor/hero-biography.hbs", scrollable: [""] }
+  };
+
+  static TABS = {
+    primary: {
+      tabs: [
+        { id: "main", icon: "fa-solid fa-user" },
+        { id: "skills", icon: "fa-solid fa-list-check" },
+        { id: "talents", icon: "fa-solid fa-star" },
+        { id: "gear", icon: "fa-solid fa-box-open" },
+        { id: "biography", icon: "fa-solid fa-book" }
+      ],
+      initial: "main",
+      labelPrefix: "MODERN20.Tab"
+    }
+  };
 }

@@ -1,0 +1,39 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.CreatureDetails"}}</h3>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.CreatureType"}}</label>
+      <input type="text" name="system.details.creatureType" value="{{system.details.creatureType}}">
+    </div>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.HitDice"}}</label>
+      <input type="text" name="system.details.hitDice" value="{{system.details.hitDice}}">
+    </div>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Advancement"}}</label>
+      <input type="text" name="system.details.advancement" value="{{system.details.advancement}}">
+    </div>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.SpecialQualities"}}</label>
+      <input type="text" name="system.specialQualities" value="{{system.specialQualities}}">
+    </div>
+  </div>
+
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Allegiances"}}</h3>
+    {{#each system.allegiances as |allegiance index|}}
+      <div class="m20-row">
+        <input type="text" name="system.allegiances.{{index}}.name" value="{{allegiance.name}}">
+        <select name="system.allegiances.{{index}}.strength">
+          {{#each ../config.allegianceStrength as |label key|}}
+            <option value="{{key}}" {{#if (eq key ../allegiance.strength)}}selected{{/if}}>{{localize label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{else}}
+      <p class="m20-hint">{{localize "MODERN20.NoAllegiances"}}</p>
+    {{/each}}
+  </div>
+
+  {{formField fields.biography value=system.biography enriched=enrichedBiography toggled=true}}
+</section>

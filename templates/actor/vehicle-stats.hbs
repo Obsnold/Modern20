@@ -1,0 +1,72 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-columns">
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.Crew"}}</h3>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Crew"}}</label>
+        <input type="number" name="system.crew" value="{{system.crew}}">
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Passengers"}}</label>
+        <input type="number" name="system.passengers" value="{{system.passengers}}">
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Cargo"}}</label>
+        <input type="text" name="system.cargo" value="{{system.cargo}}">
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Label.Size"}}</label>
+        <select name="system.size">
+          {{#each config.sizes as |size key|}}
+            <option value="{{key}}" {{#if (eq key ../system.size)}}selected{{/if}}>{{localize size.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.Handling"}}</h3>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Initiative"}}</label>
+        <input type="number" name="system.initiative" value="{{system.initiative}}">
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Maneuver"}}</label>
+        <input type="number" name="system.maneuver" value="{{system.maneuver}}">
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.TopSpeed"}}</label>
+        <input type="text" name="system.topSpeed" value="{{system.topSpeed}}">
+      </div>
+    </div>
+  </div>
+
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Durability"}}</h3>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Defense"}}</label>
+      <input type="number" name="system.defense" value="{{system.defense}}">
+      <label>{{localize "MODERN20.Hardness"}}</label>
+      <input type="number" name="system.hardness" value="{{system.hardness}}">
+    </div>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.HitPoints"}}</label>
+      <input type="number" name="system.hp.value" value="{{system.hp.value}}">
+      <span class="m20-mod">/ {{system.hp.max}}</span>
+      <input type="number" name="system.hp.max" value="{{system.hp.max}}">
+    </div>
+  </div>
+
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Acquisition"}}</h3>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.PurchaseDCShort"}}</label>
+      <input type="number" name="system.purchaseDC" value="{{system.purchaseDC}}">
+      <select name="system.restriction">
+        {{#each config.restrictions as |restriction key|}}
+          <option value="{{key}}" {{#if (eq key ../system.restriction)}}selected{{/if}}>{{localize restriction.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+</section>
