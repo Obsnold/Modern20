@@ -1,0 +1,7 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#if chosenClass}}
+    {{> "systems/modern20/templates/creator/skills-table.hbs"}}
+  {{else}}
+    <p class="m20-hint">{{localize "MODERN20.Skills.NeedClass"}}</p>
+  {{/if}}
+</section>

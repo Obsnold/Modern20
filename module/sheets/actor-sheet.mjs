@@ -3,6 +3,10 @@ import { Modern20LevelUpScreen } from "../apps/level-up-screen.mjs";
 import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
 
 const { Item } = foundry.documents;
+
+// Actions that change the character outside the creator and level-up screen.
+// Rolling, buying and levelling stay available to the player who owns it.
+const GM_ONLY_ACTIONS = new Set(["createItem", "deleteItem"]);
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
@@ -44,6 +48,31 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * partId. Without this every section renders with no data-tab and no active
    * class, so the bar appears and all the panels stay hidden.
    */
+  /**
+   * Lock the sheet for players.
+   *
+   * Character building happens in the creator and the level-up screen, which
+   * apply the rules; editing the same values directly on the sheet bypasses
+   * them. Players keep every control that only reads or rolls, and anything
+   * marked data-player-allowed. The GM edits freely.
+   */
+  _onRender(context, options) {
+    super._onRender(context, options);
+    if (game.user.isGM) return;
+
+    const form = this.element;
+    for (const field of form.querySelectorAll("input, select, textarea, prose-mirror")) {
+      if (field.closest("[data-player-allowed]")) continue;
+      field.disabled = true;
+      field.readOnly = true;
+    }
+    // Buttons that create, edit or delete embedded items are building too.
+    for (const control of form.querySelectorAll("[data-action]")) {
+      const action = control.dataset.action;
+      if (GM_ONLY_ACTIONS.has(action)) control.disabled = true;
+    }
+  }
+
   async _preparePartContext(partId, context, options) {
     context = await super._preparePartContext(partId, context, options);
     if (context.tabs && partId in context.tabs) context.tab = context.tabs[partId];
@@ -57,6 +86,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     context.system = actor.system;
     context.config = MODERN20;
     context.editable = this.isEditable;
+    // Drives the lock indicator; the actual locking happens in _onRender.
+    context.isGM = game.user.isGM;
 
     context.enrichedBiography =
       await foundry.applications.ux.TextEditor.implementation.enrichHTML(

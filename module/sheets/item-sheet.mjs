@@ -46,6 +46,24 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
    * partId. Without this every section renders with no data-tab and no active
    * class, so the bar appears and all the panels stay hidden.
    */
+  /**
+   * An item on a character is part of that character's build, so it is locked
+   * for players for the same reason the actor sheet is. An item in a
+   * compendium or the sidebar is not owned, and stays editable.
+   */
+  _onRender(context, options) {
+    super._onRender(context, options);
+    if (game.user.isGM || !this.document.parent) return;
+
+    for (const field of this.element.querySelectorAll("input, select, textarea, prose-mirror")) {
+      field.disabled = true;
+      field.readOnly = true;
+    }
+    for (const control of this.element.querySelectorAll("[data-action]")) {
+      control.disabled = true;
+    }
+  }
+
   async _preparePartContext(partId, context, options) {
     context = await super._preparePartContext(partId, context, options);
     if (context.tabs && partId in context.tabs) context.tab = context.tabs[partId];

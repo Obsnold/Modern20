@@ -1,0 +1,31 @@
+<div class="m20-panel">
+  <h3>
+    {{localize "MODERN20.Skills.Allocate"}}
+    <span class="{{#if overBudget}}m20-over{{/if}}">{{spent}} / {{budget}}</span>
+  </h3>
+  <p class="m20-hint">{{localize "MODERN20.Skills.Hint"}}</p>
+
+  <table class="m20-skills">
+    <thead>
+      <tr>
+        <th>{{localize "MODERN20.Header.Skill"}}</th>
+        <th>{{localize "MODERN20.ClassSkill"}}</th>
+        <th>{{localize "MODERN20.Skills.Have"}}</th>
+        <th>{{localize "MODERN20.Skills.Add"}}</th>
+        <th>{{localize "MODERN20.Total"}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each skillRows as |row|}}
+        <tr class="{{#if row.overCap}}m20-skill--overspent{{/if}}">
+          <td>{{row.label}}{{#if row.trainedOnly}} <span class="m20-hint">*</span>{{/if}}</td>
+          <td>{{#if row.classSkill}}<i class="fa-solid fa-check m20-granted"></i>{{/if}}</td>
+          <td>{{row.existing}}</td>
+          <td><input type="number" name="rank.{{row.key}}" value="{{row.added}}" min="0" max="{{row.cap}}"></td>
+          <td class="m20-mod">{{row.total}} / {{row.cap}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <p class="m20-hint">{{localize "MODERN20.Skills.TrainedNote"}}</p>
+</div>
