@@ -1,0 +1,28 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#each sections.gear as |section|}}
+    <div class="m20-itemlist">
+      <h3>
+        {{section.label}}
+        <button type="button" class="m20-button m20-button--small"
+                data-action="createItem" data-type="{{section.type}}">+</button>
+      </h3>
+      {{#each section.items as |item|}}
+        <div class="m20-itemrow" data-item-id="{{item.id}}">
+          <img src="{{item.img}}" alt="{{item.name}}">
+          <span class="m20-itemrow__name">{{item.name}}</span>
+          {{#if item.system.damage}}<span class="m20-tag">{{item.system.damage}}</span>{{/if}}
+          {{#if item.system.equipmentBonus}}<span class="m20-tag">+{{item.system.equipmentBonus}} {{localize "MODERN20.Def"}}</span>{{/if}}
+          <span class="m20-tag m20-tag--dc">{{localize "MODERN20.PurchaseDCShort"}} {{item.system.purchaseDC}}</span>
+          <button type="button" class="m20-icon" data-action="purchaseItem" title="{{localize 'MODERN20.BuyHint'}}">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          <button type="button" class="m20-icon" data-action="rollItem"><i class="fa-solid fa-dice-d20"></i></button>
+          <button type="button" class="m20-icon" data-action="editItem"><i class="fa-solid fa-pen"></i></button>
+          <button type="button" class="m20-icon" data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      {{else}}
+        <p class="m20-hint">{{localize "MODERN20.NoneYet"}}</p>
+      {{/each}}
+    </div>
+  {{/each}}
+</section>

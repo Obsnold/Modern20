@@ -1,0 +1,233 @@
+/* Modern20 — sheet styling.
+   Scoped under .modern20 so nothing here leaks into core or other systems. */
+
+.modern20 {
+  --m20-ink: #1c1a17;
+  --m20-muted: #6b645c;
+  --m20-rule: #cfc7bb;
+  --m20-panel: #f6f2ea;
+  --m20-accent: #8c2f1e;
+  --m20-success: #2f6b3a;
+  --m20-failure: #8c2f1e;
+  --m20-warn: #a8700f;
+}
+
+.modern20 .window-content {
+  background: var(--m20-panel);
+  color: var(--m20-ink);
+  font-family: "Signika", sans-serif;
+}
+
+/* --- Header ------------------------------------------------------------ */
+
+.modern20 .m20-header {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--m20-rule);
+}
+
+.modern20 .m20-header--item { grid-template-columns: 56px 1fr; }
+
+.modern20 .m20-portrait {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border: 1px solid var(--m20-rule);
+  border-radius: 3px;
+}
+
+.modern20 .m20-portrait--item { width: 56px; height: 56px; }
+
+.modern20 .m20-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+.modern20 .m20-header__classes { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+.modern20 .m20-header__stats {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.modern20 .m20-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 76px;
+  padding: 0.3rem 0.4rem;
+  background: #fff;
+  border: 1px solid var(--m20-rule);
+  border-radius: 4px;
+}
+
+.modern20 .m20-stat label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--m20-muted);
+}
+
+.modern20 .m20-stat__value { font-size: 1.3rem; font-weight: 700; line-height: 1.1; }
+.modern20 .m20-stat__value input { width: 2.6rem; text-align: center; font-size: 1.1rem; }
+.modern20 .m20-stat__sub { font-size: 0.62rem; color: var(--m20-muted); }
+
+/* --- Panels and rows --------------------------------------------------- */
+
+.modern20 .m20-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.modern20 .m20-panel {
+  background: #fff;
+  border: 1px solid var(--m20-rule);
+  border-radius: 4px;
+  padding: 0.6rem 0.7rem;
+}
+
+.modern20 .m20-panel h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--m20-muted);
+  border-bottom: 1px solid var(--m20-rule);
+}
+
+.modern20 .m20-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0;
+}
+
+.modern20 .m20-row > :first-child { flex: 1; text-align: left; }
+.modern20 .m20-row input[type="number"] { width: 3rem; text-align: center; }
+.modern20 .m20-mod { min-width: 2.4rem; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.modern20 .m20-hint { font-size: 0.72rem; color: var(--m20-muted); font-style: italic; }
+
+/* --- Buttons ----------------------------------------------------------- */
+
+.modern20 .m20-roll {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--m20-ink);
+  width: auto;
+}
+
+.modern20 .m20-roll:hover { color: var(--m20-accent); text-shadow: none; }
+
+.modern20 .m20-button {
+  border: 1px solid var(--m20-rule);
+  background: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.modern20 .m20-button--small { font-size: 0.7rem; padding: 0 0.4rem; line-height: 1.4; width: auto; }
+
+.modern20 .m20-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--m20-muted);
+  width: 1.6rem;
+  flex: 0 0 auto;
+}
+
+.modern20 .m20-icon:hover { color: var(--m20-accent); }
+
+/* --- Tags -------------------------------------------------------------- */
+
+.modern20 .m20-tag {
+  display: inline-block;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.68rem;
+  background: #ece5d8;
+  border: 1px solid var(--m20-rule);
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.modern20 .m20-tag--empty { color: var(--m20-muted); font-style: italic; }
+.modern20 .m20-tag--dc { background: #e3ecdf; font-variant-numeric: tabular-nums; }
+
+/* --- Skills ------------------------------------------------------------ */
+
+.modern20 .m20-skills { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.modern20 .m20-skills th {
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--m20-muted);
+  text-align: center;
+  border-bottom: 1px solid var(--m20-rule);
+}
+.modern20 .m20-skills th:first-child { text-align: left; }
+.modern20 .m20-skills td { padding: 0.1rem 0.2rem; text-align: center; }
+.modern20 .m20-skills td:first-child { text-align: left; }
+.modern20 .m20-skills tr:nth-child(even) { background: rgba(0, 0, 0, 0.025); }
+.modern20 .m20-skills input[type="number"] { width: 2.6rem; }
+
+/* A trained-only skill with no ranks cannot be rolled at all. */
+.modern20 .m20-skill--untrained td:first-child { color: var(--m20-muted); font-style: italic; }
+/* Ranks above the level cap are flagged, never blocked. */
+.modern20 .m20-skill--overspent { outline: 1px solid var(--m20-warn); }
+
+.modern20 .m20-skills__grouphead { color: var(--m20-muted); font-size: 0.7rem; font-style: italic; }
+.modern20 .m20-skills__summary { font-size: 0.74rem; color: var(--m20-muted); padding: 0.3rem 0; }
+
+/* --- Item lists -------------------------------------------------------- */
+
+.modern20 .m20-itemlist { margin-bottom: 0.8rem; }
+
+.modern20 .m20-itemlist h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--m20-muted);
+  border-bottom: 1px solid var(--m20-rule);
+}
+
+.modern20 .m20-itemrow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.modern20 .m20-itemrow img { width: 24px; height: 24px; object-fit: cover; border: none; }
+.modern20 .m20-itemrow__name { flex: 1; }
+
+/* --- Chat cards -------------------------------------------------------- */
+
+.m20-chat { font-size: 0.85rem; }
+.m20-chat__header { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem; }
+.m20-chat__header img { width: 28px; height: 28px; border: none; }
+.m20-chat__title { font-weight: 600; flex: 1; }
+.m20-chat__result { font-size: 1rem; font-weight: 600; margin: 0.3rem 0; }
+.m20-chat__result--success { color: #2f6b3a; }
+.m20-chat__result--failure { color: #8c2f1e; }
+.m20-chat__body { font-size: 0.82rem; }
+
+/* --- Prerequisites ----------------------------------------------------- */
+
+.modern20 .m20-prereqs legend { display: flex; align-items: center; gap: 0.4rem; }

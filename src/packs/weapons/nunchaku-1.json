@@ -1,0 +1,26 @@
+{
+  "_id": "urcD6PJ694VfqSvP",
+  "name": "Nunchaku 1",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "archaic",
+    "damage": "1d6",
+    "damageType": "bludgeoning",
+    "critical": "20",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": false,
+    "weight": 2.0,
+    "purchaseDC": 3,
+    "restriction": "none",
+    "source": "Archaic Weapons (require the Archaic Weapons Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!urcD6PJ694VfqSvP"
+}

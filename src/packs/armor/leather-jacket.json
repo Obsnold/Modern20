@@ -1,0 +1,23 @@
+{
+  "_id": "T7XEzAHsksu3mnVu",
+  "name": "Leather jacket",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 1,
+    "maxDex": 8,
+    "armorPenalty": 0,
+    "speedPenalty": "30",
+    "proficiency": "light",
+    "weight": 4.0,
+    "purchaseDC": 10,
+    "restriction": "none",
+    "source": "Light Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!T7XEzAHsksu3mnVu"
+}

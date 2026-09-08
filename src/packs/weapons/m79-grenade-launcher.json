@@ -1,0 +1,26 @@
+{
+  "_id": "MCKKVsCmrfxeMMr4",
+  "name": "M79 (grenade launcher)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "heavy",
+    "damage": "Varies 2",
+    "damageType": "-",
+    "critical": "-",
+    "rangeIncrement": 70,
+    "rateOfFire": "1",
+    "magazine": "1 int.",
+    "size": "large",
+    "ranged": true,
+    "weight": 7.0,
+    "purchaseDC": 14,
+    "restriction": "mil",
+    "source": "Heavy Weapons (each requires a specific Exotic Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!MCKKVsCmrfxeMMr4"
+}

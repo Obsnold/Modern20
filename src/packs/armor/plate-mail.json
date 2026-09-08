@@ -1,0 +1,23 @@
+{
+  "_id": "FxpGRkel6LuTAPPf",
+  "name": "Plate Mail",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "heavy",
+    "equipmentBonus": 8,
+    "maxDex": 1,
+    "armorPenalty": -6,
+    "speedPenalty": "20",
+    "proficiency": "heavy",
+    "weight": 50.0,
+    "purchaseDC": 23,
+    "restriction": "none",
+    "source": "Heavy Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!FxpGRkel6LuTAPPf"
+}

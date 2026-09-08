@@ -1,0 +1,4373 @@
+[
+  {
+    "page": "armor.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html",
+    "header": [
+      "Armor",
+      "Type",
+      "Equipment Bonus",
+      "Nonprof. Bonus",
+      "Maximum Dex Bonus",
+      "Armor Penalty",
+      "Speed (30 ft.)",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Light Armor"
+      ],
+      [
+        "Leather jacket",
+        "Impromptu",
+        "+1",
+        "+1",
+        "+8",
+        "-0",
+        "30",
+        "4 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Leather armor",
+        "Archaic",
+        "+2",
+        "+1",
+        "+6",
+        "-0",
+        "30",
+        "15 lb.",
+        "12",
+        "Lic (+1)"
+      ],
+      [
+        "Light undercover shirt",
+        "Concealable",
+        "+2",
+        "+1",
+        "+7",
+        "-0",
+        "30",
+        "2 lb.",
+        "13",
+        "Lic (+1)"
+      ],
+      [
+        "Pull-up pouch vest",
+        "Concealable",
+        "+2",
+        "+1",
+        "+5",
+        "-2",
+        "30",
+        "2 lb.",
+        "13",
+        "Lic (+1)"
+      ],
+      [
+        "Undercover vest",
+        "Concealable",
+        "+3",
+        "+1",
+        "+5",
+        "-2",
+        "30",
+        "3 lb.",
+        "14",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Medium Armor"
+      ],
+      [
+        "Concealable vest",
+        "Concealable",
+        "+4",
+        "+2",
+        "+4",
+        "-3",
+        "25",
+        "4 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        "Chainmail shirt",
+        "Archaic",
+        "+5",
+        "+2",
+        "+2",
+        "-5",
+        "20",
+        "40 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Light-duty vest",
+        "Tactical",
+        "+5",
+        "+2",
+        "+3",
+        "-4",
+        "25",
+        "8 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        "Tactical vest",
+        "Tactical",
+        "+6",
+        "+2",
+        "+2",
+        "-5",
+        "25",
+        "10 lb.",
+        "17",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Heavy Armor"
+      ],
+      [
+        "Special response vest",
+        "Tactical",
+        "+7",
+        "+3",
+        "+1",
+        "-6",
+        "20",
+        "15 lb.",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "Plate Mail",
+        "Archaic",
+        "+8",
+        "+3",
+        "+1",
+        "-6",
+        "20",
+        "50 lb.",
+        "23",
+        "-"
+      ],
+      [
+        "Forced entry unit",
+        "Tactical",
+        "+9",
+        "+3",
+        "+0",
+        "-8",
+        "20",
+        "20 lb.",
+        "19",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "equipment.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/equipment.html",
+    "header": [
+      "Registration Rating",
+      "License or Fee Purchase DC",
+      "Black Market Purchase DC 1",
+      "Time Required"
+    ],
+    "rows": [
+      [
+        "Licensed",
+        "10",
+        "+1",
+        "1 day"
+      ],
+      [
+        "Restricted",
+        "15",
+        "+2",
+        "2 days"
+      ],
+      [
+        "Military",
+        "10",
+        "+3",
+        "3 days"
+      ],
+      [
+        "Illegal",
+        "25",
+        "+4",
+        "4 days"
+      ],
+      [
+        "1 Add to the object’s purchase DC if the character tries to buy it on the black market without first obtaining a license; see The Black Market, below."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futuremech.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuremech.html",
+    "header": [
+      "Size",
+      "Size Modifier",
+      "Equipment Slots",
+      "Hit Points",
+      "Base Speed",
+      "Height",
+      "Weight",
+      "Fighting Space",
+      "Reach",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Colossal",
+        "-8",
+        "25",
+        "800",
+        "60 ft.",
+        "64-128 ft.",
+        "250,000 lb. or more",
+        "30 ft. by 30 ft.",
+        "15 ft.",
+        "60",
+        "Mil (+3)"
+      ],
+      [
+        "Gargantuan",
+        "-4",
+        "17",
+        "400",
+        "50 ft.",
+        "32-64 ft.",
+        "32,000-250,000 lb.",
+        "20 ft. by 20 ft.",
+        "15 ft.",
+        "48",
+        "Mil (+3)"
+      ],
+      [
+        "Huge",
+        "-2",
+        "11",
+        "200",
+        "40 ft.",
+        "16-32 ft.",
+        "4,000-32,000 lb.",
+        "15 ft. by 15 ft.",
+        "10 ft.",
+        "44",
+        "Mil (+3)"
+      ],
+      [
+        "Large",
+        "-1",
+        "7",
+        "100",
+        "30 ft.",
+        "8-16 ft.",
+        "500-4,000 lb.",
+        "10 ft. by 10 ft.",
+        "10 ft.",
+        "40",
+        "Res (+2)"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "AD-Bright police cruiser",
+        "1",
+        "4",
+        "L",
+        "-2",
+        "+0",
+        "245 (24)",
+        "8",
+        "5",
+        "32",
+        "H",
+        "38",
+        "Res (+2)"
+      ],
+      [
+        "AutoDyn hoverbike",
+        "1",
+        "1",
+        "D",
+        "+1",
+        "+2",
+        "410 (41)",
+        "10",
+        "5",
+        "15",
+        "M",
+        "37",
+        "Lic (+1)"
+      ],
+      [
+        "AutoDyn hoverbus",
+        "1",
+        "38",
+        "H",
+        "-4",
+        "-4",
+        "160 (16)",
+        "6",
+        "5",
+        "45",
+        "G",
+        "45",
+        "Lic (+1)"
+      ],
+      [
+        "AutoDyn hovercar",
+        "1",
+        "4",
+        "L",
+        "-1",
+        "+0",
+        "250 (25)",
+        "9",
+        "5",
+        "28",
+        "L",
+        "36",
+        "Lic (+1)"
+      ],
+      [
+        "AutoDyn hovertruck",
+        "1",
+        "1",
+        "H",
+        "-3",
+        "-4",
+        "180 (18)",
+        "6",
+        "8",
+        "35",
+        "G",
+        "42",
+        "Lic (+1)"
+      ],
+      [
+        "HydroDyn SeaHawk",
+        "1",
+        "3",
+        "S",
+        "-2",
+        "+0",
+        "160 (16)",
+        "9",
+        "5",
+        "30",
+        "L",
+        "36",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 6: Fusion Age"
+      ],
+      [
+        "AutoMac taxi",
+        "0",
+        "6",
+        "L",
+        "-3",
+        "-2",
+        "175 (17)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "31",
+        "Lic (+1)"
+      ],
+      [
+        "Kirsch Sunflower",
+        "1",
+        "2",
+        "S",
+        "-4",
+        "-2",
+        "160 (16)",
+        "9",
+        "5",
+        "25",
+        "L",
+        "27",
+        "Lic (+1)"
+      ],
+      [
+        "Nakazawa Delta-9",
+        "1",
+        "4",
+        "L",
+        "-2",
+        "-1",
+        "245 (24)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "31",
+        "Lic (+1)"
+      ],
+      [
+        "SKG Lamplighter",
+        "1",
+        "4",
+        "M",
+        "-1",
+        "-1",
+        "210 (21)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "31",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "Bendel Motors Spirit",
+        "1",
+        "4",
+        "M",
+        "-2",
+        "+0",
+        "290 (29)",
+        "8",
+        "5",
+        "36",
+        "H",
+        "29",
+        "Lic (+1)"
+      ],
+      [
+        "Stradtler Hlidskjalf",
+        "1",
+        "4",
+        "M",
+        "-2",
+        "-2",
+        "255 (25)",
+        "8",
+        "5",
+        "35",
+        "H",
+        "36",
+        "Lic (+1)"
+      ],
+      [
+        "TM Willow",
+        "1",
+        "4",
+        "L",
+        "-1",
+        "+1",
+        "205 (20)",
+        "8",
+        "5",
+        "35",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 8: Energy Age"
+      ],
+      [
+        "SKG Metropolitan",
+        "1",
+        "7",
+        "L",
+        "-2",
+        "-2",
+        "215 (21)",
+        "6",
+        "6",
+        "41",
+        "G",
+        "42",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 6: Fusion Age"
+      ],
+      [
+        "Harris-Musselman dirt bike",
+        "1",
+        "0",
+        "F",
+        "+0",
+        "+1",
+        "180 (18)",
+        "10",
+        "5",
+        "19",
+        "M",
+        "24",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "Stradtler Valkyrie",
+        "1",
+        "1",
+        "F",
+        "-2",
+        "+1",
+        "295 (29)",
+        "9",
+        "5",
+        "24",
+        "L",
+        "28",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "blank",
+      "category",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 6: Fusion Age"
+      ],
+      [
+        "Cretan Motors “Hecaton”",
+        "1",
+        "4",
+        "H",
+        "-1",
+        "-1",
+        "190 (19)",
+        "6",
+        "5",
+        "39",
+        "G",
+        "31",
+        "Lic (+1)"
+      ],
+      [
+        "Cretan Motors Kentaur",
+        "1",
+        "5",
+        "H",
+        "-1",
+        "-1",
+        "210 (21)",
+        "8",
+        "5",
+        "36",
+        "H",
+        "30",
+        "Lic (+1)"
+      ],
+      [
+        "Gaia Motor Company Virgo",
+        "1",
+        "6",
+        "M",
+        "-2",
+        "-2",
+        "215 (21)",
+        "8",
+        "5",
+        "35",
+        "H",
+        "29",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "Zhang Motors XRL (SUV)",
+        "1",
+        "3",
+        "L",
+        "-2",
+        "-1",
+        "245 (24)",
+        "8",
+        "5",
+        "40",
+        "H",
+        "32",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "AutoDyn hoverboard",
+        "1",
+        "0",
+        "F",
+        "+2",
+        "+4",
+        "50 (5)",
+        "14",
+        "2",
+        "8",
+        "D",
+        "17",
+        "Lic (+1)"
+      ],
+      [
+        "WGM Wyoming",
+        "1",
+        "0",
+        "D",
+        "+1",
+        "+2",
+        "120 (12)",
+        "9",
+        "5",
+        "25",
+        "L",
+        "26",
+        "Lic (+1)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "futurevehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 6: Fusion Age"
+      ],
+      [
+        "Appel-Siems Gyrocopter",
+        "1",
+        "0",
+        "F",
+        "-3",
+        "-2",
+        "360 (36)",
+        "8",
+        "5",
+        "23",
+        "L",
+        "38",
+        "Mil (+3)"
+      ],
+      [
+        "EU2A1 Mendez APC",
+        "3",
+        "8",
+        "M",
+        "-1",
+        "-1",
+        "95 (9)",
+        "6",
+        "15",
+        "56",
+        "G",
+        "42 1",
+        "Mil (+3)"
+      ],
+      [
+        "UN-500 Turtledove",
+        "3",
+        "12",
+        "L",
+        "-3",
+        "-2",
+        "360 (36)",
+        "6",
+        "10",
+        "46",
+        "G",
+        "48",
+        "Mil (+3)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "IS-2000 Ifrit APC",
+        "4",
+        "11",
+        "L",
+        "-3",
+        "-3",
+        "100 (10)",
+        "6",
+        "15",
+        "58",
+        "G",
+        "46 1",
+        "Mil (+3)"
+      ],
+      [
+        "M-300 Hovertank",
+        "4",
+        "0",
+        "M",
+        "-4",
+        "-3",
+        "120 (12)",
+        "6",
+        "20",
+        "62",
+        "G",
+        "50 1",
+        "Mil (+3)"
+      ],
+      [
+        "1 The vehicle’s purchase DC does not include its mounted weapons."
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "futurevehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "header": [
+      "Weapon 1",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magezine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Progress Level 6: Fusion Age"
+      ],
+      [
+        "T-95 Cavalcade chain gun",
+        "7d6",
+        "20",
+        "Ballistic",
+        "60 ft.",
+        "S, A",
+        "Linked",
+        "Huge",
+        "185 lb.",
+        "21",
+        "Mil (+3)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Progress Level 7: Gravity Age"
+      ],
+      [
+        "M-300 Rhino mass cannon",
+        "8d12",
+        "20",
+        "Ballistic",
+        "100 ft.",
+        "S",
+        "-",
+        "Huge",
+        "450 lb.",
+        "29",
+        "Mil (+3)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "blank",
+      "category",
+      "item"
+    ]
+  },
+  {
+    "page": "general.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+    "header": [
+      "Object",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Bags and Boxes"
+      ],
+      [
+        "Aluminum travel case"
+      ],
+      [
+        "10 lb. Capacity",
+        "Med",
+        "5 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "40 lb. Capacity",
+        "Large",
+        "10 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "75 lb. capacity",
+        "Large",
+        "15 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Briefcase",
+        "Med",
+        "2 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Contractor's field bag",
+        "Med",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Day pack",
+        "Small",
+        "2 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Handbag",
+        "Small",
+        "1 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Range Pack"
+      ],
+      [
+        "Standard",
+        "Small",
+        "2 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Oversized",
+        "Med",
+        "3 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Patrol box",
+        "Med",
+        "4 lb.",
+        "9",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Clothing"
+      ],
+      [
+        "Clothing outfit"
+      ],
+      [
+        "Business",
+        "Med",
+        "3 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Casual",
+        "Med",
+        "2 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Formal",
+        "Med",
+        "3 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Fatigues",
+        "Med",
+        "3 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Uniform",
+        "Med",
+        "2 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Ghillie suit",
+        "Med",
+        "5 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Outerwear"
+      ],
+      [
+        "Coat",
+        "Med",
+        "2 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Fatigue jacket",
+        "Med",
+        "2 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Overcoat",
+        "Med",
+        "3 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Parka",
+        "Med",
+        "3 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Photojournalist’s vest",
+        "Med",
+        "1 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Windbreaker",
+        "Med",
+        "1 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Tool belt",
+        "Small",
+        "2 lb.",
+        "9",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Computers and Consumer Electronics"
+      ],
+      [
+        "Camera"
+      ],
+      [
+        "35 mm",
+        "Small",
+        "2 lb.",
+        "17",
+        "-"
+      ],
+      [
+        "Digital",
+        "Tiny",
+        "0.5 lb.",
+        "14",
+        "-"
+      ],
+      [
+        "Disposable",
+        "Tiny",
+        "0.5 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Film",
+        "Dim",
+        "-",
+        "3",
+        "-"
+      ],
+      [
+        "Film developing(roll)",
+        "-",
+        "-",
+        "3",
+        "-"
+      ],
+      [
+        "Cell phone",
+        "Dim",
+        "-",
+        "9",
+        "-"
+      ],
+      [
+        "Computer"
+      ],
+      [
+        "Desktop",
+        "Large",
+        "10 lb.",
+        "22",
+        "-"
+      ],
+      [
+        "Notebook",
+        "Med",
+        "5 lb.",
+        "23",
+        "-"
+      ],
+      [
+        "Upgrade",
+        "-",
+        "-",
+        "See text",
+        "-"
+      ],
+      [
+        "Digital audio recorder",
+        "Tiny",
+        "1 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Modem"
+      ],
+      [
+        "Broadband",
+        "Tiny",
+        "1 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Cellular",
+        "Tiny",
+        "1 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "PDA",
+        "Tiny",
+        "0.5 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Portable satellite phone",
+        "Small",
+        "2 lb.",
+        "17",
+        "-"
+      ],
+      [
+        "Portable video camera",
+        "Small",
+        "2 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Printer",
+        "Med",
+        "3 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Scanner",
+        "Med",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Walkie-Talkie"
+      ],
+      [
+        "Basic",
+        "Tiny",
+        "1 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Professional",
+        "Tiny",
+        "1 lb.",
+        "15",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Surveillance Gear"
+      ],
+      [
+        "Black Box",
+        "Tiny",
+        "0.5 lb.",
+        "4",
+        "Illegal (+4)"
+      ],
+      [
+        "Caller ID defeater",
+        "Tiny",
+        "1 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Cellular interceptor",
+        "Tiny",
+        "1 lb.",
+        "23",
+        "-"
+      ],
+      [
+        "Lineman's buttset",
+        "Tiny",
+        "1 lb.",
+        "13",
+        "Lic (+1)"
+      ],
+      [
+        "Metal Detector",
+        "Small",
+        "2 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Night vision goggles",
+        "Smalls",
+        "3 lb.",
+        "17",
+        "-"
+      ],
+      [
+        "Tap detector",
+        "Tiny",
+        "1 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Telephone tap"
+      ],
+      [
+        "Line tap",
+        "Tiny",
+        "0.5 lb.",
+        "13",
+        "Lic (+1)"
+      ],
+      [
+        "Receiver tap",
+        "Tiny",
+        "0.5 lb.",
+        "3",
+        "Res (+2)"
+      ],
+      [
+        "Telephone line tracer",
+        "Med",
+        "5 lb.",
+        "23",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Professional Equipment"
+      ],
+      [
+        "Bolt cutter",
+        "Med",
+        "5 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Caltrops (25)",
+        "Small",
+        "2 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Chemical kit",
+        "Med",
+        "6 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Demolitions kit",
+        "Med",
+        "5 lb.",
+        "13",
+        "Lic (+1)"
+      ],
+      [
+        "Disguise kit",
+        "Med",
+        "5 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Duct tape",
+        "Tiny",
+        "1 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Electrical tool kit"
+      ],
+      [
+        "Basic",
+        "Large",
+        "12 lb.",
+        "14",
+        "-"
+      ],
+      [
+        "Deluxe",
+        "Huge",
+        "33 lb.",
+        "21",
+        "-"
+      ],
+      [
+        "Evidence kit"
+      ],
+      [
+        "Basic",
+        "Med",
+        "6 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Deluxe",
+        "Med",
+        "8 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Fake ID",
+        "Fine",
+        "-",
+        "See text",
+        "Illegal (+4)"
+      ],
+      [
+        "First aid kit",
+        "Small",
+        "3 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Forgery kit",
+        "Small",
+        "3 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Handcuffs"
+      ],
+      [
+        "Steel",
+        "Tiny",
+        "1 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Zip-tie (25)",
+        "Dim",
+        "0.5 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Instrument, keyboard",
+        "Large",
+        "12 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Instrument, percussion",
+        "Huge",
+        "50 lb.",
+        "14",
+        "-"
+      ],
+      [
+        "Instrument, stringed",
+        "Large",
+        "7 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Instrument, wind",
+        "Tiny",
+        "1 lb.",
+        "-",
+        ""
+      ],
+      [
+        "Lockpicks"
+      ],
+      [
+        "Car opening kit",
+        "Tiny",
+        "1 lb.",
+        "6",
+        "Lic (+1)"
+      ],
+      [
+        "Lockpick set",
+        "Tiny",
+        "1 lb.",
+        "9",
+        "Lic (+1)"
+      ],
+      [
+        "Lock release gun",
+        "Tiny",
+        "0.5 lb.",
+        "12",
+        "Res (+2)"
+      ],
+      [
+        "Mechanical tool kit"
+      ],
+      [
+        "Basic",
+        "Large",
+        "22 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Deluxe",
+        "Huge",
+        "45 lb.",
+        "20",
+        "-"
+      ],
+      [
+        "Medical kit",
+        "Med",
+        "5 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Multipurpose tool",
+        "Tiny",
+        "0.5 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Phamacist kit",
+        "Med",
+        "6 lb.",
+        "17",
+        "Res (+2)"
+      ],
+      [
+        "Search-and-rescue kit",
+        "Med",
+        "7 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Spike strip",
+        "Huge",
+        "22 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Surgery kit",
+        "Med",
+        "5 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Survival Gear"
+      ],
+      [
+        "Backpack",
+        "Med",
+        "3 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Binoculars"
+      ],
+      [
+        "Standard",
+        "Small",
+        "2 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Rangefinding",
+        "Small",
+        "3 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Electro-optical",
+        "Small",
+        "4 lb.",
+        "16",
+        "-"
+      ],
+      [
+        "Chemical light sticks (5)",
+        "Tiny",
+        "1 lb.",
+        "2",
+        "-"
+      ],
+      [
+        "Climbing gear",
+        "Large",
+        "10 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Compass",
+        "Dim",
+        "0.5 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Fire extinguisher",
+        "Med",
+        "3 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Flash goggles",
+        "Tiny",
+        "2 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Flashlight"
+      ],
+      [
+        "Penlight",
+        "Dim",
+        "0.5 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Standard",
+        "Tiny",
+        "1 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Battery flood",
+        "Small",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Gas mask",
+        "Small",
+        "5 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "GPS receiver",
+        "Tiny",
+        "1 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Map"
+      ],
+      [
+        "Road atlas",
+        "Tiny",
+        "1 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Tactical map",
+        "Tiny",
+        "0.5 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Mesh vest",
+        "Med",
+        "7 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Portable stove",
+        "Tiny",
+        "1 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Rope (150 ft.)",
+        "Large",
+        "12 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Sleeping bag",
+        "Med",
+        "4 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Tent"
+      ],
+      [
+        "2-person dome",
+        "Med",
+        "4 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "4-person dome",
+        "Med",
+        "7 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "8-person dome",
+        "Large",
+        "10 lb.",
+        "13",
+        "-"
+      ],
+      [
+        "Trail rations (12)",
+        "Tiny",
+        "1 lb.",
+        "5",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Weapon Accessories"
+      ],
+      [
+        "Box magazine",
+        "Tiny",
+        "0.5 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Detonator"
+      ],
+      [
+        "Blasting cap",
+        "Tiny",
+        "0.5 lb.",
+        "4",
+        "Lic (+1)"
+      ],
+      [
+        "Radio controlled",
+        "Tiny",
+        "0.5 lb.",
+        "10",
+        "Lic (+1)"
+      ],
+      [
+        "Timed",
+        "Tiny",
+        "0.5 lb.",
+        "7",
+        "Lic (+1)"
+      ],
+      [
+        "Wired",
+        "Tiny",
+        "1 lb.",
+        "6",
+        "Lic (+1)"
+      ],
+      [
+        "Holster"
+      ],
+      [
+        "Hip",
+        "Tiny",
+        "1 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Concealed Carry",
+        "Tiny",
+        "0.5 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Illuminator",
+        "Tiny",
+        "0.5 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Laser sight",
+        "Tiny",
+        "0.5 lb.",
+        "15",
+        "-"
+      ],
+      [
+        "Scope"
+      ],
+      [
+        "Standard",
+        "Tiny",
+        "0.5 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Electro-optical",
+        "Small",
+        "3 lb.",
+        "18",
+        "-"
+      ],
+      [
+        "Speed loader",
+        "Tiny",
+        "0.5 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Suppressor"
+      ],
+      [
+        "Pistol",
+        "Tiny",
+        "1 lb.",
+        "12",
+        "Mil (+3)"
+      ],
+      [
+        "Rifle",
+        "Small",
+        "4 lb.",
+        "14",
+        "Mil (+3)"
+      ],
+      [
+        ""
+      ]
+    ],
+    "kinds": [
+      "category",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "parent",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "parent",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "category",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "parent",
+      "variant",
+      "variant",
+      "item",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "item",
+      "parent",
+      "variant",
+      "item",
+      "blank"
+    ]
+  },
+  {
+    "page": "lifestyle.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/lifestyle.html",
+    "header": [
+      "Housing",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Small Condo",
+        "28"
+      ],
+      [
+        "Large Condo",
+        "30"
+      ],
+      [
+        "Small House",
+        "30"
+      ],
+      [
+        "Medium House",
+        "32"
+      ],
+      [
+        "Large house",
+        "34"
+      ],
+      [
+        "Mansion",
+        "34"
+      ],
+      [
+        ""
+      ],
+      [
+        "Entertainment",
+        "Purchase DC"
+      ],
+      [
+        "Movie Ticket",
+        "3"
+      ],
+      [
+        "Theatre ticket",
+        "7"
+      ],
+      [
+        "Sporting event ticket",
+        "7"
+      ],
+      [
+        ""
+      ],
+      [
+        "Meals",
+        "Purchase DC"
+      ],
+      [
+        "Fast food",
+        "2"
+      ],
+      [
+        "Family restaurant",
+        "4"
+      ],
+      [
+        "Upscale restaurant",
+        "7"
+      ],
+      [
+        "Fancy restaurant",
+        "9"
+      ],
+      [
+        ""
+      ],
+      [
+        "Transportation",
+        "Purchase DC"
+      ],
+      [
+        "Airfare"
+      ],
+      [
+        "Domestic, coach",
+        "14"
+      ],
+      [
+        "Domestic, first class",
+        "17"
+      ],
+      [
+        "International, coach",
+        "18"
+      ],
+      [
+        "International, first class",
+        "22"
+      ],
+      [
+        "Car rental"
+      ],
+      [
+        "Economy car",
+        "6"
+      ],
+      [
+        "Mid-size or truck",
+        "8"
+      ],
+      [
+        "Luxury",
+        "10"
+      ],
+      [
+        ""
+      ],
+      [
+        "Lodging",
+        "Purchase DC"
+      ],
+      [
+        "Budget motel",
+        "7"
+      ],
+      [
+        "Average hotel",
+        "9"
+      ],
+      [
+        "Upscale hotel",
+        "11"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "header",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "header",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "header",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "blank",
+      "header",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "lifestyle.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/lifestyle.html",
+    "header": [
+      "Item",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Auto repair"
+      ],
+      [
+        "1 to 10 hp damage",
+        "15"
+      ],
+      [
+        "11 to 20 hp damage",
+        "18"
+      ],
+      [
+        "21 to 30 hp damage",
+        "21"
+      ],
+      [
+        "31+ hp damage",
+        "34"
+      ],
+      [
+        "Towing",
+        "8"
+      ],
+      [
+        "Bail bonds"
+      ],
+      [
+        "Property crime",
+        "13"
+      ],
+      [
+        "Assault crime",
+        "16"
+      ],
+      [
+        "Death crime",
+        "22"
+      ],
+      [
+        "Bribery"
+      ],
+      [
+        "Bouncer",
+        "6"
+      ],
+      [
+        "Bureaucrat",
+        "10"
+      ],
+      [
+        "Informant",
+        "7"
+      ],
+      [
+        "Police officer",
+        "10"
+      ],
+      [
+        "Legal services",
+        "10 + lawyer's Knowledge(civics) ranks"
+      ],
+      [
+        "Medical Services"
+      ],
+      [
+        "Long-term care",
+        "10"
+      ],
+      [
+        "Restore hit points",
+        "12"
+      ],
+      [
+        "Surgery",
+        "15"
+      ],
+      [
+        "Treat poison/disease",
+        "10"
+      ],
+      [
+        ""
+      ]
+    ],
+    "kinds": [
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "item",
+      "parent",
+      "variant",
+      "variant",
+      "variant",
+      "variant",
+      "blank"
+    ]
+  },
+  {
+    "page": "techie.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/techie.html",
+    "header": [
+      "Size",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "Diminutive",
+        "18"
+      ],
+      [
+        "Tiny",
+        "15"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "vehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "header": [
+      "Name",
+      "Crew",
+      "Pass",
+      "Cargo",
+      "Init",
+      "Maneuver",
+      "Top Speed",
+      "Defense",
+      "Hardness",
+      "Hit Points",
+      "Size",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Civilian Aircraft"
+      ],
+      [
+        "Bell Jet Ranger (helicopter)",
+        "1",
+        "4",
+        "250 lb.",
+        "-4",
+        "-4",
+        "245 (25)",
+        "6",
+        "5",
+        "28",
+        "G",
+        "39",
+        "Lic (+1)"
+      ],
+      [
+        "Bell Model 212 (helicopter)",
+        "2",
+        "13",
+        "5,000 lb.",
+        "-4",
+        "-4",
+        "200 (20)",
+        "6",
+        "5",
+        "36",
+        "G",
+        "45",
+        "Res (+2)"
+      ],
+      [
+        "Cessna 172 Skyhawk (prop plane)",
+        "1",
+        "3",
+        "120 lb.",
+        "-4",
+        "-4",
+        "210 (21)",
+        "6",
+        "5",
+        "30",
+        "G",
+        "36",
+        "Lic (+1)"
+      ],
+      [
+        "Learjet Model 45 (corporate jet)",
+        "2",
+        "10",
+        "500 lb.",
+        "-4",
+        "-4",
+        "1,100 (110)",
+        "6",
+        "5",
+        "44",
+        "G",
+        "40",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Acura 3.2 TL (mid-size sedan)",
+        "1",
+        "4",
+        "300 lb.",
+        "-2",
+        "-1",
+        "265 (36)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "29",
+        "Lic (+1)"
+      ],
+      [
+        "Aston-Martin Vanquish (sports coupe)",
+        "1",
+        "1",
+        "175 lb.",
+        "-2",
+        "+0",
+        "335 (53)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "36",
+        "Lic (+1)"
+      ],
+      [
+        "BMW M3 (sports coupe)",
+        "1",
+        "4",
+        "200 lb.",
+        "-2",
+        "+1",
+        "275 (27)",
+        "8",
+        "5",
+        "32",
+        "H",
+        "30",
+        "Lic (+1)"
+      ],
+      [
+        "Chevrolet Cavalier (economy coupe)",
+        "1",
+        "4",
+        "275 lb.",
+        "-1",
+        "-1",
+        "185 (18)",
+        "9",
+        "5",
+        "30",
+        "L",
+        "26",
+        "Lic (+1)"
+      ],
+      [
+        "Chevrolet Corvette (sports coupe)",
+        "1",
+        "1",
+        "250 lb.",
+        "-2",
+        "+0",
+        "310 (31)",
+        "8",
+        "5",
+        "32",
+        "H",
+        "30",
+        "Lic (+1)"
+      ],
+      [
+        "Dodge Neon (economy sedan)",
+        "1",
+        "4",
+        "275 lb.",
+        "-1",
+        "-1",
+        "220 (22)",
+        "9",
+        "5",
+        "30",
+        "L",
+        "26",
+        "Lic (+1)"
+      ],
+      [
+        "Ford Crown Victoria (mid-size sedan)",
+        "1",
+        "5",
+        "425 lb.",
+        "-2",
+        "-1",
+        "185 (18)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        "Jaguar XJS (luxury sedan)",
+        "1",
+        "4",
+        "275 lb.",
+        "-2",
+        "-1",
+        "230 (23)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "32",
+        "Lic (+1)"
+      ],
+      [
+        "Lamborghini Diablo (sports coupe)",
+        "1",
+        "1",
+        "100 lb.",
+        "-2",
+        "+1",
+        "360 (36)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "37",
+        "Lic (+1)"
+      ],
+      [
+        "Mercedes E55 AMG (luxury sedan)",
+        "1",
+        "4",
+        "325 lb.",
+        "-2",
+        "+0",
+        "280 (28)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "32",
+        "Lic (+1)"
+      ],
+      [
+        "Volkswagen Jetta (mid-size wagon)",
+        "1",
+        "4",
+        "275 lb.",
+        "-2",
+        "+0",
+        "230 (23)",
+        "8",
+        "5",
+        "32",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Civilian Motorcycles"
+      ],
+      [
+        "Ducati 998R (racing bike)",
+        "1",
+        "0",
+        "0 lb.",
+        "+0",
+        "+3",
+        "370 (37)",
+        "10",
+        "5",
+        "18",
+        "M",
+        "27",
+        "Lic (+1)"
+      ],
+      [
+        "Harley Davidson FLSTF (street bike)",
+        "1",
+        "1",
+        "0 lb.",
+        "-1",
+        "+1",
+        "275 (27)",
+        "9",
+        "5",
+        "22",
+        "L",
+        "26",
+        "Lic (+1)"
+      ],
+      [
+        "Yamaha YZ250F (dirt bike)",
+        "1",
+        "1",
+        "0 lb.",
+        "+0",
+        "+2",
+        "165 (16)",
+        "10",
+        "5",
+        "18",
+        "M",
+        "23",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Name",
+        "Crew",
+        "Pass",
+        "Cargo",
+        "Init",
+        "Maneuver",
+        "Top Speed",
+        "Defense",
+        "Hardness",
+        "Hit Points",
+        "Size",
+        "Purchase DC",
+        "Restriction"
+      ],
+      [
+        ""
+      ],
+      [
+        "Civilian Trucks"
+      ],
+      [
+        "AM General Hummer (SUV)",
+        "1",
+        "3",
+        "1,000 lb.",
+        "-2",
+        "-2",
+        "140 (14)",
+        "8",
+        "5",
+        "38",
+        "H",
+        "34",
+        "Lic (+1)"
+      ],
+      [
+        "Chevrolet Suburban (SUV)",
+        "1",
+        "8",
+        "500 lb.",
+        "-2",
+        "-2",
+        "175 (17)",
+        "8",
+        "5",
+        "38",
+        "H",
+        "30",
+        "Lic (+1)"
+      ],
+      [
+        "Dodge Caravan (minivan)",
+        "1",
+        "8",
+        "325 lb.",
+        "-2",
+        "-2",
+        "195 (19)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        "Ford Escape XLT (SUV)",
+        "1",
+        "4",
+        "300 lb.",
+        "-2",
+        "-2",
+        "200 (20)",
+        "8",
+        "5",
+        "32",
+        "H",
+        "29",
+        "Lic (+1)"
+      ],
+      [
+        "Ford F-150 XL (pickup)",
+        "1",
+        "2",
+        "1,700 lb.",
+        "-2",
+        "-2",
+        "175 (17)",
+        "8",
+        "5",
+        "36",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        "Toyota Tacoma Xtracab (pickup)",
+        "1",
+        "3",
+        "1,600 lb.",
+        "-2",
+        "-2",
+        "185 (18)",
+        "8",
+        "5",
+        "34",
+        "H",
+        "27",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Civilian Water Vehicles"
+      ],
+      [
+        "Bayliner 1802 Capri (runabout)",
+        "1",
+        "5",
+        "2,100 lb.",
+        "-2",
+        "-2",
+        "55 (5)",
+        "8",
+        "5",
+        "28",
+        "H",
+        "28",
+        "Lic (+1)"
+      ],
+      [
+        "Fairline Targa 30 (cabin cruiser)",
+        "1",
+        "3",
+        "2,100 lb.",
+        "-4",
+        "-4",
+        "80 (8)",
+        "6",
+        "5",
+        "40",
+        "G",
+        "32",
+        "Lic (+1)"
+      ],
+      [
+        "Sea-Doo XP (personal watercraft)",
+        "1",
+        "1",
+        "60 lb.",
+        "-1",
+        "+1",
+        "105 (10)",
+        "9",
+        "5",
+        "22",
+        "L",
+        "24",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Other Civilian Vehicles"
+      ],
+      [
+        "Armored truck",
+        "2",
+        "0",
+        "3,600 lb.",
+        "-2",
+        "-2",
+        "175 (17)",
+        "8",
+        "10",
+        "36",
+        "H",
+        "34",
+        "Res (+2)"
+      ],
+      [
+        "Honda TRX400FW (4-wheel ATV)",
+        "1",
+        "0",
+        "675 lb.",
+        "-1",
+        "+1",
+        "95 (9)",
+        "9",
+        "5",
+        "22",
+        "L",
+        "23",
+        "Lic (+1)"
+      ],
+      [
+        "Limousine",
+        "1",
+        "7",
+        "425 lb.",
+        "-4",
+        "-4",
+        "195 (19)",
+        "6",
+        "5",
+        "38",
+        "G",
+        "36",
+        "Lic (+1)"
+      ],
+      [
+        "Moving truck",
+        "1",
+        "2",
+        "33,000 lb.",
+        "-4",
+        "-4",
+        "165 (16)",
+        "6",
+        "5",
+        "44",
+        "G",
+        "34",
+        "Lic (+1)"
+      ],
+      [
+        "NABI Model 40LFW (city bus)",
+        "1",
+        "39",
+        "0 lb.",
+        "-4",
+        "-4",
+        "120 (12)",
+        "6",
+        "5",
+        "48",
+        "G",
+        "38",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Military Vehicles"
+      ],
+      [
+        "BMP-2 (tracked APC)",
+        "3",
+        "7",
+        "250 lb.",
+        "-2",
+        "-2",
+        "70 (7)",
+        "8",
+        "10",
+        "52",
+        "H",
+        "40",
+        "Mil (+3)"
+      ],
+      [
+        "M1A2 Abrams (tracked tank)",
+        "4",
+        "0",
+        "425 lb.",
+        "-4",
+        "-4",
+        "80 (8)",
+        "6",
+        "20",
+        "64",
+        "G",
+        "47",
+        "Mil (+3)"
+      ],
+      [
+        "M2A2 Bradley (tracked APC)",
+        "3",
+        "7",
+        "425 lb.",
+        "-4",
+        "-4",
+        "70 (7)",
+        "6",
+        "15",
+        "58",
+        "G",
+        "45",
+        "Mil (+3)"
+      ],
+      [
+        "M113A1 Gavin (tracked APC)",
+        "2",
+        "11",
+        "200 lb.",
+        "-2",
+        "-2",
+        "62 (6)",
+        "8",
+        "10",
+        "48",
+        "H",
+        "39",
+        "Mil (+3)"
+      ],
+      [
+        "UH-60 Black Hawk (helicopter)",
+        "2",
+        "14",
+        "9,000 lb.",
+        "-4",
+        "-4",
+        "325 (32)",
+        "6",
+        "5",
+        "46",
+        "G",
+        "47",
+        "Mil (+3)"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "header",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "vehicles.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "header": [
+      "Weapon",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magazine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Cannons (require the Exotic Firearms Proficiency [cannons] feat)"
+      ],
+      [
+        "BMP-2 30mm cannon",
+        "4d12",
+        "20",
+        "Ballistic",
+        "300 ft.",
+        "A",
+        "Linked",
+        "Huge",
+        "*",
+        "*",
+        "*"
+      ],
+      [
+        "M1A2 Abrams tank cannon",
+        "10d12",
+        "20",
+        "Ballistic",
+        "400 ft.",
+        "Single",
+        "1",
+        "Huge",
+        "*",
+        "*",
+        "*"
+      ],
+      [
+        "M2A2 Bradley 25mm cannon",
+        "4d12",
+        "20",
+        "Ballistic",
+        "350 ft.",
+        "A",
+        "Linked",
+        "Huge",
+        "*",
+        "*",
+        "*"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "wealth.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/wealth.html",
+    "header": [
+      "Object or Service Purchase DC",
+      "Wealth Bonus Decrease"
+    ],
+    "rows": [
+      [
+        "15 or higher",
+        "+1 point 1"
+      ],
+      [
+        "1-10 points higher than current Wealth bonus",
+        "1 point"
+      ],
+      [
+        "11-15 points higher than current Wealth bonus",
+        "1d6 points"
+      ],
+      [
+        "16 or more points higher than current Wealth Bonus.",
+        "2d6 points"
+      ],
+      [
+        "1 This stacks with the loss from a Purchase DC above the character’s current wealth bonus."
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "category"
+    ]
+  },
+  {
+    "page": "weapons.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "header": [
+      "Weapon",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Rate of Fire",
+      "Magezine",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Hanguns (requires the Personal Firearms Proficiency feat)"
+      ],
+      [
+        "Beretta 92F (9mm autoloader)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S",
+        "15 box",
+        "Small",
+        "3 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        "Beretta 93R (9mm machine pistol)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S,A",
+        "20 box",
+        "Med",
+        "3 lb.",
+        "18",
+        "Res (+2)"
+      ],
+      [
+        "Colt Double Eagle (10mm autoloader)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "9 box",
+        "Small",
+        "3 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        "Colt M1911 (.45 autoloader)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "7 box",
+        "Small",
+        "3 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        "Colt Python 1 (.357 revolver)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S",
+        "6 cyl.",
+        "Med",
+        "3 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        "Derringer (.45)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "10 ft.",
+        "Single",
+        "2 int.",
+        "Tiny",
+        "1 lb.",
+        "14",
+        "Lic (+1)"
+      ],
+      [
+        "Desert Eagle (.50AE autoloader)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S",
+        "8 box",
+        "Med",
+        "4 lb.",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "Glock 17 1 (9mm autoloader)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "17 box",
+        "Small",
+        "2 lb.",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "Glock 20 1 (10mm autoloader)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S",
+        "15 box",
+        "Small",
+        "3 lb.",
+        "18",
+        "Lic (+1)"
+      ],
+      [
+        "MAC Ingram M10 (.45 machine pistol)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S,A",
+        "30 box",
+        "Med",
+        "6 lb.",
+        "15",
+        "Res (+2)"
+      ],
+      [
+        "Pathfinder (.22 revolver)",
+        "2d4",
+        "20",
+        "Ballistic",
+        "20 ft.",
+        "S",
+        "6 cyl.",
+        "Tiny",
+        "1 lb.",
+        "14",
+        "Lic (+1)"
+      ],
+      [
+        "Ruger Service-Six (.38S revolver)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "6 cyl.",
+        "Small",
+        "2 lb.",
+        "14",
+        "Lic (+1)"
+      ],
+      [
+        "S&W M29 (.44 magnum revolver)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "6 cyl.",
+        "Med",
+        "3 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        "SITES M9 (9mm autoloader)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "8 box",
+        "Tiny",
+        "2 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        "Skorpion (.32 machine pistol)",
+        "2d4",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S,A",
+        "20 box",
+        "Med",
+        "4 lb.",
+        "17",
+        "Res (+2)"
+      ],
+      [
+        "TEC-9 (9mm machine pistol)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S or A",
+        "32 box",
+        "Med",
+        "4 lb.",
+        "14",
+        "Res (+2)"
+      ],
+      [
+        "Walther PPK (.32 autoloader)",
+        "2d4",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "7 box",
+        "Small",
+        "1 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Longarms (requires the Personal Firearms Proficiency feat)"
+      ],
+      [
+        "AKM/AK-47 (7.62mmR assault rifle)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "70 ft.",
+        "S,A",
+        "30 box",
+        "Large",
+        "10 lb.",
+        "15",
+        "Res (+2)"
+      ],
+      [
+        "Barrett Light Fifty (.50 sniper rifle)",
+        "2d12",
+        "20",
+        "Ballistic",
+        "120 ft.",
+        "S",
+        "11 box",
+        "Huge",
+        "35 lb.",
+        "22",
+        "Lic (+1)"
+      ],
+      [
+        "Benelli 121 M1 (12-gague shotgun)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S",
+        "7 int",
+        "Large",
+        "8 lb.",
+        "17",
+        "Lic (+1)"
+      ],
+      [
+        "Beretta M3P (12-gauge shotgun)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "S",
+        "5 box",
+        "Large",
+        "9 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        "Browning BPS (10-gauge shotgun)",
+        "2d10",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "Single",
+        "5 int.",
+        "Large",
+        "11 lb.",
+        "16",
+        "Lic (+1)"
+      ],
+      [
+        "HK G3 (7.62mm assault rifle)",
+        "2d10",
+        "20",
+        "Ballistic",
+        "90 ft.",
+        "S,A",
+        "20 box",
+        "Large",
+        "11 lb.",
+        "19",
+        "Res (+2)"
+      ],
+      [
+        "HK MP5 1 (9mm submachine gun)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "50 ft.",
+        "S,A",
+        "30 box",
+        "Large",
+        "7 lb.",
+        "20",
+        "Res (+2)"
+      ],
+      [
+        "HK MP5K (9mm submachine gun)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S,A",
+        "15 box",
+        "Med",
+        "5 lb.",
+        "19",
+        "Res (+2)"
+      ],
+      [
+        "HK PSG1 1 (7.62mm sniper rifle)",
+        "2d10",
+        "20",
+        "Ballistic",
+        "90 ft.",
+        "S",
+        "5 box",
+        "Large",
+        "16 lb.",
+        "22",
+        "Lic (+1)"
+      ],
+      [
+        "M16A2 (5.56mm assault rifle)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "80 ft.",
+        "S,A",
+        "30 box",
+        "Large",
+        "8 lb.",
+        "16",
+        "Res (+2)"
+      ],
+      [
+        "M4 Carbine (5.56mm assault rifle)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "60 ft.",
+        "S,A",
+        "30 box",
+        "Large",
+        "7 lb.",
+        "16",
+        "Res (+2)"
+      ],
+      [
+        "M-60 (medium machine gun)",
+        "2d10",
+        "20",
+        "Ballistic",
+        "100 ft.",
+        "A",
+        "Linked",
+        "Huge",
+        "22 lb.",
+        "21",
+        "Mil (+3)"
+      ],
+      [
+        "Mossberg (12-gauge shotgun)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "30 ft.",
+        "Single",
+        "6 int.",
+        "Large",
+        "7 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        "Remington 700 (7.62mm hunting rifle)",
+        "2d10",
+        "20",
+        "Ballistic",
+        "80 ft.",
+        "Single",
+        "5 int.",
+        "Large",
+        "8 lb.",
+        "17",
+        "Lic (+1)"
+      ],
+      [
+        "Sawed-off shotgun (12-ga shotgun)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "10 ft.",
+        "S",
+        "2 int.",
+        "Med",
+        "4 lb.",
+        "15",
+        "Illegal (+4)"
+      ],
+      [
+        "Steyr AUG (5.56mm assault rifle)",
+        "2d8",
+        "20",
+        "Ballistic",
+        "80 ft.",
+        "S,A",
+        "30 box",
+        "Large",
+        "9 lb.",
+        "19",
+        "Res (+2)"
+      ],
+      [
+        "Uzi (9mm submachine gun)",
+        "2d6",
+        "20",
+        "Ballistic",
+        "40 ft.",
+        "S,A",
+        "20 box",
+        "Large",
+        "8 lb.",
+        "18",
+        "Res (+2)"
+      ],
+      [
+        "Winchester 94 (.444 hunting rifle)",
+        "2d10",
+        "20",
+        "Ballistic",
+        "90 ft.",
+        "S",
+        "6 int.",
+        "Large",
+        "7 lb.",
+        "15",
+        "Lic (+1)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Heavy Weapons (each requires a specific Exotic Firearms Proficiency feat)"
+      ],
+      [
+        "M2HB (heavy machine gun)",
+        "2d12",
+        "20",
+        "Ballistic",
+        "110 ft.",
+        "A",
+        "Linked",
+        "Huge",
+        "75 lb.",
+        "22",
+        "Mil (+3)"
+      ],
+      [
+        "M72A3 LAW (rocket launcher)",
+        "10d6 2",
+        "-",
+        "-",
+        "150 ft.",
+        "1",
+        "1 int.",
+        "Large",
+        "5 lb.",
+        "15",
+        "Mil (+3)"
+      ],
+      [
+        "M79 (grenade launcher)",
+        "Varies 2",
+        "-",
+        "-",
+        "70 ft.",
+        "1",
+        "1 int.",
+        "Large",
+        "7 lb.",
+        "14",
+        "Mil (+3)"
+      ],
+      [
+        ""
+      ],
+      [
+        "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)"
+      ],
+      [
+        "Compound bow (Archaic) 2",
+        "1d8",
+        "20",
+        "Piercing",
+        "40 ft.",
+        "1",
+        "-",
+        "Large",
+        "3 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Crossbow (Simple)",
+        "1d10",
+        "19-20",
+        "Piercing",
+        "40 ft.",
+        "1",
+        "1 int.",
+        "Med",
+        "7 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Flamethrower (no feat needed) 3",
+        "3d6",
+        "-",
+        "Fire",
+        "-",
+        "1",
+        "10 int.",
+        "Large",
+        "50 lb.",
+        "17",
+        "Mil (+3)"
+      ],
+      [
+        "Javelin (Simple)",
+        "1d6",
+        "20",
+        "Piercing",
+        "30 ft.",
+        "1",
+        "-",
+        "Med",
+        "2 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Pepper spray (Simple)",
+        "Special 2",
+        "-",
+        "Special 2",
+        "5 ft.",
+        "1",
+        "1 int.",
+        "Tiny",
+        "0.5 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Shuriken (Archaic)",
+        "1",
+        "20",
+        "Piercing",
+        "10 ft.",
+        "1",
+        "-",
+        "Tiny",
+        "0.5 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Taser (Simple)",
+        "1d4 2",
+        "-",
+        "Electricity",
+        "5 ft.",
+        "1",
+        "1 int.",
+        "Small",
+        "2 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Whip (Simple)",
+        "1d2",
+        "20",
+        "Slashing",
+        "15 ft. 3",
+        "1",
+        "-",
+        "Small",
+        "2 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "1 This mastercraft weapon grants a +1 bonus on attack rolls"
+      ],
+      [
+        "2 This weapon does special damage. See the weapon description."
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "category",
+      "category"
+    ]
+  },
+  {
+    "page": "weapons.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "header": [
+      "Ammunitino Type (Quantity)",
+      "Purchase DC"
+    ],
+    "rows": [
+      [
+        "5.56mm (20)",
+        "4"
+      ],
+      [
+        "7.62mm (20)",
+        "4"
+      ],
+      [
+        "7.62mmR (20)",
+        "4"
+      ],
+      [
+        ".444 caliber (20)",
+        "6"
+      ],
+      [
+        ".50 caliber (20)",
+        "6"
+      ],
+      [
+        "9mm (50)",
+        "5"
+      ],
+      [
+        "10mm (50)",
+        "5"
+      ],
+      [
+        ".22 caliber (50)",
+        "4"
+      ],
+      [
+        ".32 caliber (50)",
+        "5"
+      ],
+      [
+        ".38 special (50)",
+        "5"
+      ],
+      [
+        ".357 caliber (50)",
+        "5"
+      ],
+      [
+        ".44 caliber (50)",
+        "5"
+      ],
+      [
+        ".45 caliber (50)",
+        "5"
+      ],
+      [
+        ".50AE caliber (50)",
+        "6"
+      ],
+      [
+        "10-gauge buckshot (10)",
+        "5"
+      ],
+      [
+        "12-gauge buckshot (10)",
+        "4"
+      ],
+      [
+        "Arrow (12)",
+        "8"
+      ],
+      [
+        "Crossbow bolt (12)",
+        "7"
+      ]
+    ],
+    "kinds": [
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  },
+  {
+    "page": "weapons.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "header": [
+      "Weapon",
+      "Damage",
+      "Critical",
+      "Damage Type",
+      "Range Increment",
+      "Size",
+      "Weight",
+      "Purchase DC",
+      "Restriction"
+    ],
+    "rows": [
+      [
+        "Simple Weapons (require the Simple Weapons Proficiency feat)"
+      ],
+      [
+        "Brass knuckles",
+        "1",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Tiny",
+        "1 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Cleaver",
+        "1d6",
+        "19-20",
+        "Slashing",
+        "-",
+        "Small",
+        "2 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Club",
+        "1d6",
+        "20",
+        "Bludgeoning",
+        "10 ft.",
+        "Med",
+        "3 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Knife",
+        "1d4",
+        "19-20",
+        "Piercing",
+        "10 ft.",
+        "Tiny",
+        "1 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Metal baton",
+        "1d6",
+        "19-20",
+        "Bludgeoning",
+        "-",
+        "Med",
+        "2 lb.",
+        "8",
+        "-"
+      ],
+      [
+        "Pistol whip",
+        "1d4",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Small",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "Rifle butt",
+        "1d6",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "Sap",
+        "1d6 1",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Small",
+        "3 lb.",
+        "2",
+        "-"
+      ],
+      [
+        "Stun gun 1",
+        "1d3",
+        "20",
+        "Electricity",
+        "-",
+        "Tiny",
+        "1 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Tonfa 1",
+        "1d4",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Med",
+        "2 lb.",
+        "6",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Archaic Weapons (require the Archaic Weapons Proficiency feat)"
+      ],
+      [
+        "Bayonet (fixed) 1",
+        "1d4/1d6",
+        "20",
+        "Piercing",
+        "-",
+        "Large",
+        "1 lb.",
+        "7",
+        "-"
+      ],
+      [
+        "Hatchet",
+        "1d6",
+        "20",
+        "Slashing",
+        "10 ft.",
+        "Small",
+        "4 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Longsword",
+        "1d8",
+        "19-20",
+        "Slashing",
+        "-",
+        "Med",
+        "4 lb.",
+        "11",
+        "-"
+      ],
+      [
+        "Machete",
+        "1d6",
+        "19-20",
+        "Slashing",
+        "-",
+        "Small",
+        "2 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Rapier",
+        "1d6",
+        "18-20",
+        "Piercing",
+        "-",
+        "Med",
+        "3 lb.",
+        "10",
+        "-"
+      ],
+      [
+        "Spear",
+        "1d8",
+        "20",
+        "Piercing",
+        "-",
+        "Large",
+        "9 lb.",
+        "6",
+        "-"
+      ],
+      [
+        "Straight razor",
+        "1d4",
+        "19-20",
+        "Slashing",
+        "-",
+        "Tiny",
+        "0.5 lb.",
+        "4",
+        "-"
+      ],
+      [
+        "Sword cane 1",
+        "1d6",
+        "18-20",
+        "Piercing",
+        "-",
+        "Med",
+        "3 lb.",
+        "9",
+        "-"
+      ],
+      [
+        ""
+      ],
+      [
+        "Chain 1",
+        "1d6/1d6",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "5 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Chain saw",
+        "3d6",
+        "20",
+        "Slashing",
+        "-",
+        "Large",
+        "10 lb.",
+        "9",
+        "-"
+      ],
+      [
+        "Kama",
+        "1d6",
+        "20",
+        "Slashing",
+        "-",
+        "Small",
+        "2 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Katana",
+        "2d6",
+        "19-20",
+        "Slashing",
+        "-",
+        "Large",
+        "6 lb.",
+        "12",
+        "-"
+      ],
+      [
+        "Kukri",
+        "1d4",
+        "18-20",
+        "Slashing",
+        "-",
+        "Small",
+        "1 lb.",
+        "5",
+        "-"
+      ],
+      [
+        "Nunchaku 1",
+        "1d6",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Small",
+        "2 lb.",
+        "3",
+        "-"
+      ],
+      [
+        "Three-section staff 1",
+        "1d10/1d10",
+        "20",
+        "Bludgeoning",
+        "-",
+        "Large",
+        "3 lb.",
+        "4",
+        "-"
+      ]
+    ],
+    "kinds": [
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "category",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "blank",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item",
+      "item"
+    ]
+  }
+]

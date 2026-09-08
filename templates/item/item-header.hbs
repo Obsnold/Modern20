@@ -1,0 +1,10 @@
+<header class="m20-header m20-header--item">
+  <img class="m20-portrait m20-portrait--item" src="{{document.img}}" data-edit="img" alt="{{document.name}}">
+  <div class="m20-header__identity">
+    <input class="m20-name" type="text" name="name" value="{{document.name}}">
+    <span class="m20-tag">{{localize (modern20Concat "MODERN20.ItemType." document.type)}}</span>
+    {{#if system.srdUrl}}
+      <a class="m20-hint" href="{{system.srdUrl}}" target="_blank" rel="noopener">{{localize "MODERN20.ViewSRD"}}</a>
+    {{/if}}
+  </div>
+</header>

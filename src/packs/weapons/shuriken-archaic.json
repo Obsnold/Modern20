@@ -1,0 +1,26 @@
+{
+  "_id": "ppAz3mhBNGcs7iA6",
+  "name": "Shuriken (Archaic)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1",
+    "damageType": "piercing",
+    "critical": "20",
+    "rangeIncrement": 10,
+    "rateOfFire": "1",
+    "magazine": "-",
+    "size": "tiny",
+    "ranged": true,
+    "weight": 0.5,
+    "purchaseDC": 3,
+    "restriction": "none",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!ppAz3mhBNGcs7iA6"
+}

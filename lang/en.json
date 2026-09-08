@@ -1,0 +1,255 @@
+{
+  "MODERN20": {
+    "Abilities": "Abilities",
+    "Ability": {
+      "Cha": {
+        "abbr": "CHA",
+        "long": "Charisma"
+      },
+      "Con": {
+        "abbr": "CON",
+        "long": "Constitution"
+      },
+      "Dex": {
+        "abbr": "DEX",
+        "long": "Dexterity"
+      },
+      "Int": {
+        "abbr": "INT",
+        "long": "Intelligence"
+      },
+      "Str": {
+        "abbr": "STR",
+        "long": "Strength"
+      },
+      "Wis": {
+        "abbr": "WIS",
+        "long": "Wisdom"
+      }
+    },
+    "Acquisition": "Acquisition",
+    "ActionPoints": "Action Points",
+    "Allegiance": {
+      "Major": "Major Allegiance",
+      "Minor": "Minor Allegiance",
+      "None": "No Allegiance"
+    },
+    "Allegiances": "Allegiances",
+    "ArmorType": {
+      "Heavy": "Heavy Armor",
+      "Light": "Light Armor",
+      "Medium": "Medium Armor",
+      "Shield": "Shield"
+    },
+    "AutoSuccess": "Automatic success",
+    "BaseAttack": "Base Attack",
+    "Benefit": "Benefit",
+    "BlackMarket": "Black market surcharge",
+    "BuyHint": "Buy with a Wealth check. Shift-click to use the black market.",
+    "Chat": {
+      "ActionPoint": "Spends an action point",
+      "Attack": "Attack with {weapon}",
+      "CriticalDamage": "Critical damage from {weapon}",
+      "Damage": "Damage from {weapon}",
+      "MassiveDamage": "Massive damage! Fortitude DC {dc}",
+      "WealthCheck": "Wealth check for {item} (DC {dc})"
+    },
+    "Class": {
+      "Charismatic": "Charismatic Hero",
+      "Dedicated": "Dedicated Hero",
+      "Fast": "Fast Hero",
+      "Smart": "Smart Hero",
+      "Strong": "Strong Hero",
+      "Tough": "Tough Hero"
+    },
+    "ClassSkill": "Class",
+    "ClassTier": {
+      "Advanced": "Advanced Class",
+      "Basic": "Basic Class",
+      "Prestige": "Prestige Class"
+    },
+    "Combat": "Combat",
+    "CrossClass": "cross-class",
+    "Def": "Def",
+    "Defense": "Defense",
+    "FailedNoCost": "A failed Wealth check costs nothing.",
+    "Failure": "Failure",
+    "FeatType": {
+      "Bonus": "Bonus Feat",
+      "Class": "Class Feat",
+      "General": "General Feat"
+    },
+    "FlatFooted": "Flat-Footed",
+    "Grapple": "Grapple",
+    "Header": {
+      "Skill": "Skill"
+    },
+    "Hint": {
+      "ClassProgression": "Per-level attack, save, Defense and Reputation bonuses live in this class's progression table. Import them from a compendium class rather than editing them by hand.",
+      "PrerequisitesAdvisory": "Prerequisites are advisory only. Nothing here is enforced."
+    },
+    "HitPoints": "Hit Points",
+    "Initiative": "Initiative",
+    "ItemType": {
+      "armor": "Armor",
+      "class": "Classes",
+      "feat": "Feats",
+      "gear": "Gear",
+      "occupation": "Occupation",
+      "psiPower": "Psionic Powers",
+      "spell": "Spells",
+      "talent": "Talents",
+      "vehicleMod": "Vehicle Modifications",
+      "weapon": "Weapons"
+    },
+    "Label": {
+      "Size": "Size"
+    },
+    "Level": "Level",
+    "Massive": "Massive",
+    "MaxRanks": "Max ranks",
+    "Misc": "Misc",
+    "NoAllegiances": "No allegiances declared.",
+    "NoClasses": "No class",
+    "NoWealthLost": "The purchase does not reduce your Wealth bonus.",
+    "NoneYet": "None yet.",
+    "Placeholder": {
+      "Name": "Character name"
+    },
+    "Prerequisites": "Prerequisites",
+    "Purchase": "Purchase",
+    "PurchaseDCShort": "DC",
+    "Ranks": "Ranks",
+    "Reputation": "Reputation",
+    "Restriction": {
+      "Illegal": "Illegal (+4)",
+      "Licensed": "Licensed (+1)",
+      "Military": "Military (+3)",
+      "None": "Unrestricted",
+      "Restricted": "Restricted (+2)"
+    },
+    "Save": {
+      "Fort": "Fortitude",
+      "Ref": "Reflex",
+      "Will": "Will"
+    },
+    "SavingThrows": "Saving Throws",
+    "SheetLabel": {
+      "Hero": "Modern20 Actor Sheet",
+      "Item": "Modern20 Item Sheet"
+    },
+    "Size": {
+      "Colossal": "Colossal",
+      "Diminutive": "Diminutive",
+      "Fine": "Fine",
+      "Gargantuan": "Gargantuan",
+      "Huge": "Huge",
+      "Large": "Large",
+      "Medium": "Medium",
+      "Small": "Small",
+      "Tiny": "Tiny"
+    },
+    "Skill": {
+      "Balance": "Balance",
+      "Bluff": "Bluff",
+      "Climb": "Climb",
+      "ComputerUse": "Computer Use",
+      "Concentration": "Concentration",
+      "Craft": "Craft",
+      "DecipherScript": "Decipher Script",
+      "Demolitions": "Demolitions",
+      "Diplomacy": "Diplomacy",
+      "DisableDevice": "Disable Device",
+      "Disguise": "Disguise",
+      "Drive": "Drive",
+      "EscapeArtist": "Escape Artist",
+      "Forgery": "Forgery",
+      "Gamble": "Gamble",
+      "GatherInformation": "Gather Information",
+      "HandleAnimal": "Handle Animal",
+      "Hide": "Hide",
+      "Intimidate": "Intimidate",
+      "Investigate": "Investigate",
+      "Jump": "Jump",
+      "Knowledge": "Knowledge",
+      "Listen": "Listen",
+      "MoveSilently": "Move Silently",
+      "Navigate": "Navigate",
+      "Perform": "Perform",
+      "Pilot": "Pilot",
+      "Profession": "Profession",
+      "ReadWriteLanguage": "Read/Write Language",
+      "Repair": "Repair",
+      "Research": "Research",
+      "Ride": "Ride",
+      "Search": "Search",
+      "SenseMotive": "Sense Motive",
+      "SleightOfHand": "Sleight of Hand",
+      "SpeakLanguage": "Speak Language",
+      "Spot": "Spot",
+      "Survival": "Survival",
+      "Swim": "Swim",
+      "TreatInjury": "Treat Injury",
+      "Tumble": "Tumble"
+    },
+    "SkillPointsSpent": "Skill points spent",
+    "Source": "Source",
+    "SpecialtySkill": "Choose a subject",
+    "Speed": "Speed",
+    "Spend": "Spend",
+    "Success": "Success",
+    "Tab": {
+      "biography": "Biography",
+      "description": "Description",
+      "details": "Details",
+      "gear": "Gear",
+      "main": "Main",
+      "skills": "Skills",
+      "talents": "Character"
+    },
+    "ToChat": "Post to chat",
+    "Total": "Total",
+    "Touch": "Touch",
+    "ViewSRD": "View in the SRD",
+    "Warning": {
+      "NoActionPoints": "This actor does not use action points.",
+      "NoActionPointsLeft": "No action points remaining.",
+      "NoWealth": "This actor has no Wealth bonus.",
+      "NotPurchasable": "This item has no purchase DC.",
+      "TrainedOnly": "{skill} is trained only and this character has no ranks in it.",
+      "TrainedOnlyShort": "Trained only: no ranks."
+    },
+    "Wealth": "Wealth",
+    "WealthLost": "Wealth bonus lost",
+    "WeaponCategory": {
+      "Archaic": "Archaic Weapon",
+      "Exotic": "Exotic Weapon",
+      "Explosive": "Explosive",
+      "Handgun": "Handgun",
+      "Heavy": "Heavy Weapon",
+      "Longarm": "Longarm",
+      "Simple": "Simple Weapon",
+      "Unarmed": "Unarmed"
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "creature": "Creature",
+      "hero": "Hero",
+      "ordinary": "Ordinary",
+      "vehicle": "Vehicle"
+    },
+    "Item": {
+      "armor": "Armor",
+      "class": "Class",
+      "feat": "Feat",
+      "gear": "Gear",
+      "occupation": "Occupation",
+      "psiPower": "Psionic Power",
+      "spell": "Spell",
+      "talent": "Talent",
+      "vehicleMod": "Vehicle Modification",
+      "weapon": "Weapon"
+    }
+  }
+}

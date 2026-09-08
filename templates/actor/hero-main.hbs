@@ -1,0 +1,57 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-columns">
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.Abilities"}}</h3>
+      {{#each system.abilities as |ability key|}}
+        <div class="m20-row">
+          <button type="button" class="m20-roll" data-action="rollAbility" data-ability="{{key}}">
+            {{localize (lookup ../config.abilities key)}}
+          </button>
+          <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}">
+          <span class="m20-mod">{{modern20Signed ability.mod}}</span>
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.SavingThrows"}}</h3>
+      {{#each system.saves as |save key|}}
+        <div class="m20-row">
+          <button type="button" class="m20-roll" data-action="rollSave" data-save="{{key}}">
+            {{localize (lookup (lookup ../config.saves key) "label")}}
+          </button>
+          <input type="number" name="system.saves.{{key}}.base" value="{{save.base}}">
+          <span class="m20-mod">{{modern20Signed save.value}}</span>
+        </div>
+      {{/each}}
+
+      <h3>{{localize "MODERN20.Combat"}}</h3>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.BaseAttack"}}</label>
+        <span class="m20-mod">{{modern20Signed system.attributes.baseAttack}}</span>
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Initiative"}}</label>
+        <span class="m20-mod">{{modern20Signed system.attributes.initiative.value}}</span>
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Grapple"}}</label>
+        <span class="m20-mod">{{modern20Signed system.attributes.grapple}}</span>
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Speed"}}</label>
+        <input type="number" name="system.attributes.speed" value="{{system.attributes.speed}}">
+      </div>
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Label.Size"}}</label>
+        <select name="system.attributes.size">
+          {{#each config.sizes as |size key|}}
+            <option value="{{key}}" {{#if (eq key ../system.attributes.size)}}selected{{/if}}>
+              {{localize size.label}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+{
+  "_id": "IxM4aNVNrRRQVwfY",
+  "name": "Chain saw",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "archaic",
+    "damage": "3d6",
+    "damageType": "slashing",
+    "critical": "20",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "large",
+    "ranged": false,
+    "weight": 10.0,
+    "purchaseDC": 9,
+    "restriction": "none",
+    "source": "Archaic Weapons (require the Archaic Weapons Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!IxM4aNVNrRRQVwfY"
+}

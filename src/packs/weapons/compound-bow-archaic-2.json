@@ -1,0 +1,26 @@
+{
+  "_id": "KAI2Y5hc5kDam3Zn",
+  "name": "Compound bow (Archaic) 2",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "critical": "20",
+    "rangeIncrement": 40,
+    "rateOfFire": "1",
+    "magazine": "-",
+    "size": "large",
+    "ranged": true,
+    "weight": 3.0,
+    "purchaseDC": 10,
+    "restriction": "none",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!KAI2Y5hc5kDam3Zn"
+}

@@ -1,0 +1,31 @@
+<div class="m20-chat m20-chat--wealth">
+  <header class="m20-chat__header">
+    <span class="m20-chat__title">{{#if label}}{{label}}{{else}}{{localize "MODERN20.Purchase"}}{{/if}}</span>
+    <span class="m20-tag m20-tag--dc">{{localize "MODERN20.PurchaseDCShort"}} {{dc}}</span>
+  </header>
+
+  {{#if surcharge}}
+    <p class="m20-hint">{{localize "MODERN20.BlackMarket"}} +{{surcharge}}</p>
+  {{/if}}
+
+  {{#if automatic}}
+    <p class="m20-chat__result m20-chat__result--success">
+      {{localize "MODERN20.AutoSuccess"}} ({{localize "MODERN20.Wealth"}} {{wealthBonus}})
+    </p>
+  {{else}}
+    <p class="m20-chat__result {{#if success}}m20-chat__result--success{{else}}m20-chat__result--failure{{/if}}">
+      {{roll.total}} {{#if success}}&ge;{{else}}&lt;{{/if}} {{dc}} &mdash;
+      {{#if success}}{{localize "MODERN20.Success"}}{{else}}{{localize "MODERN20.Failure"}}{{/if}}
+    </p>
+  {{/if}}
+
+  {{#if success}}
+    {{#if lost}}
+      <p>{{localize "MODERN20.WealthLost"}}: <strong>{{lost}}</strong> &rarr; {{localize "MODERN20.Wealth"}} {{remaining}}</p>
+    {{else}}
+      <p class="m20-hint">{{localize "MODERN20.NoWealthLost"}}</p>
+    {{/if}}
+  {{else}}
+    <p class="m20-hint">{{localize "MODERN20.FailedNoCost"}}</p>
+  {{/if}}
+</div>

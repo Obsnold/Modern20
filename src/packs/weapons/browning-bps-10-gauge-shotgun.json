@@ -1,0 +1,26 @@
+{
+  "_id": "LpId8RdayRB6oV1W",
+  "name": "Browning BPS (10-gauge shotgun)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "2d10",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 30,
+    "rateOfFire": "Single",
+    "magazine": "5 int.",
+    "size": "large",
+    "ranged": true,
+    "weight": 11.0,
+    "purchaseDC": 16,
+    "restriction": "lic",
+    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!LpId8RdayRB6oV1W"
+}

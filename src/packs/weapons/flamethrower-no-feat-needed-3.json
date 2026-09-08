@@ -1,0 +1,26 @@
+{
+  "_id": "zNpzrJPpQgZRWBhN",
+  "name": "Flamethrower (no feat needed) 3",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "3d6",
+    "damageType": "fire",
+    "critical": "-",
+    "rangeIncrement": 0,
+    "rateOfFire": "1",
+    "magazine": "10 int.",
+    "size": "large",
+    "ranged": true,
+    "weight": 50.0,
+    "purchaseDC": 17,
+    "restriction": "mil",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!zNpzrJPpQgZRWBhN"
+}

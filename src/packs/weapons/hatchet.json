@@ -1,0 +1,26 @@
+{
+  "_id": "F31tgViqnQpXVM5l",
+  "name": "Hatchet",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "archaic",
+    "damage": "1d6",
+    "damageType": "slashing",
+    "critical": "20",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": true,
+    "weight": 4.0,
+    "purchaseDC": 4,
+    "restriction": "none",
+    "source": "Archaic Weapons (require the Archaic Weapons Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!F31tgViqnQpXVM5l"
+}

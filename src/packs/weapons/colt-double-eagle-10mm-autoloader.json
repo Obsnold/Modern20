@@ -1,0 +1,26 @@
+{
+  "_id": "n3Wd1F4ATnBfA72V",
+  "name": "Colt Double Eagle (10mm autoloader)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d6",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 30,
+    "rateOfFire": "S",
+    "magazine": "9 box",
+    "size": "small",
+    "ranged": true,
+    "weight": 3.0,
+    "purchaseDC": 16,
+    "restriction": "lic",
+    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!n3Wd1F4ATnBfA72V"
+}

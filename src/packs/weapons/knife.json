@@ -1,0 +1,26 @@
+{
+  "_id": "5q1pQcIDmPfmBSa9",
+  "name": "Knife",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d4",
+    "damageType": "piercing",
+    "critical": "19-20",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "tiny",
+    "ranged": true,
+    "weight": 1.0,
+    "purchaseDC": 7,
+    "restriction": "none",
+    "source": "Simple Weapons (require the Simple Weapons Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!5q1pQcIDmPfmBSa9"
+}

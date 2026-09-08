@@ -1,0 +1,26 @@
+{
+  "_id": "M8zE5PnAk7melLnT",
+  "name": "Crossbow (Simple)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d10",
+    "damageType": "piercing",
+    "critical": "19-20",
+    "rangeIncrement": 40,
+    "rateOfFire": "1",
+    "magazine": "1 int.",
+    "size": "med",
+    "ranged": true,
+    "weight": 7.0,
+    "purchaseDC": 9,
+    "restriction": "none",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!M8zE5PnAk7melLnT"
+}

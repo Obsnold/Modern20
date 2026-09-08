@@ -1,0 +1,26 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#each sections.character as |section|}}
+    <div class="m20-itemlist">
+      <h3>
+        {{section.label}}
+        <button type="button" class="m20-button m20-button--small"
+                data-action="createItem" data-type="{{section.type}}">+</button>
+      </h3>
+      {{#each section.items as |item|}}
+        <div class="m20-itemrow" data-item-id="{{item.id}}">
+          <img src="{{item.img}}" alt="{{item.name}}">
+          <span class="m20-itemrow__name">{{item.name}}</span>
+          {{#if item.system.tree}}<span class="m20-tag">{{item.system.tree}}</span>{{/if}}
+          {{#if item.system.levels}}<span class="m20-tag">{{localize "MODERN20.Level"}} {{item.system.levels}}</span>{{/if}}
+          <button type="button" class="m20-icon" data-action="rollItem" title="{{localize 'MODERN20.ToChat'}}">
+            <i class="fa-solid fa-comment"></i>
+          </button>
+          <button type="button" class="m20-icon" data-action="editItem"><i class="fa-solid fa-pen"></i></button>
+          <button type="button" class="m20-icon" data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      {{else}}
+        <p class="m20-hint">{{localize "MODERN20.NoneYet"}}</p>
+      {{/each}}
+    </div>
+  {{/each}}
+</section>

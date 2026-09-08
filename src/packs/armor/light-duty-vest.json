@@ -1,0 +1,23 @@
+{
+  "_id": "horHV42Bk3PPVvnk",
+  "name": "Light-duty vest",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "medium",
+    "equipmentBonus": 5,
+    "maxDex": 3,
+    "armorPenalty": -4,
+    "speedPenalty": "25",
+    "proficiency": "medium",
+    "weight": 8.0,
+    "purchaseDC": 16,
+    "restriction": "lic",
+    "source": "Medium Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!horHV42Bk3PPVvnk"
+}

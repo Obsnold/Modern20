@@ -1,0 +1,23 @@
+{
+  "_id": "JsKUudE324xjEDFv",
+  "name": "Special response vest",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "heavy",
+    "equipmentBonus": 7,
+    "maxDex": 1,
+    "armorPenalty": -6,
+    "speedPenalty": "20",
+    "proficiency": "heavy",
+    "weight": 15.0,
+    "purchaseDC": 18,
+    "restriction": "lic",
+    "source": "Heavy Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!JsKUudE324xjEDFv"
+}

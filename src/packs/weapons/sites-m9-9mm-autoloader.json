@@ -1,0 +1,26 @@
+{
+  "_id": "yeRlCdKOr7atwDrg",
+  "name": "SITES M9 (9mm autoloader)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d6",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 30,
+    "rateOfFire": "S",
+    "magazine": "8 box",
+    "size": "tiny",
+    "ranged": true,
+    "weight": 2.0,
+    "purchaseDC": 15,
+    "restriction": "lic",
+    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!yeRlCdKOr7atwDrg"
+}

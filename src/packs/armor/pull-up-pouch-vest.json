@@ -1,0 +1,23 @@
+{
+  "_id": "2sZMlWTVPpnSu3qW",
+  "name": "Pull-up pouch vest",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 2,
+    "maxDex": 5,
+    "armorPenalty": -2,
+    "speedPenalty": "30",
+    "proficiency": "light",
+    "weight": 2.0,
+    "purchaseDC": 13,
+    "restriction": "lic",
+    "source": "Light Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!2sZMlWTVPpnSu3qW"
+}

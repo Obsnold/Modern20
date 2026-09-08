@@ -1,0 +1,26 @@
+{
+  "_id": "3vqH9geikkw6gNML",
+  "name": "Sawed-off shotgun (12-ga shotgun)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "2d8",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 10,
+    "rateOfFire": "S",
+    "magazine": "2 int.",
+    "size": "med",
+    "ranged": true,
+    "weight": 4.0,
+    "purchaseDC": 15,
+    "restriction": "none",
+    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!3vqH9geikkw6gNML"
+}

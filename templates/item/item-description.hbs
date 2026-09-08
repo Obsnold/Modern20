@@ -1,0 +1,6 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{formField fields.description value=system.description enriched=enrichedDescription toggled=true}}
+  {{#if system.source}}
+    <p class="m20-hint">{{localize "MODERN20.Source"}}: {{system.source}}</p>
+  {{/if}}
+</section>
