@@ -1,0 +1,27 @@
+{
+  "_id": "Zo1htP42AXPjxNzM",
+  "name": "Ford Crown Victoria (mid-size sedan)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 5,
+    "cargo": "425 lb.",
+    "initiative": -2,
+    "maneuver": -1,
+    "topSpeed": "185 (18)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 28,
+    "restriction": "lic"
+  },
+  "_key": "!actors!Zo1htP42AXPjxNzM"
+}

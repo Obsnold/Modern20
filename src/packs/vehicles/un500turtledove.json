@@ -1,0 +1,27 @@
+{
+  "_id": "EjVvtubwwfzkrITR",
+  "name": "UN-500 Turtledove",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 3,
+    "passengers": 12,
+    "cargo": "L",
+    "initiative": -3,
+    "maneuver": -2,
+    "topSpeed": "360 (36)",
+    "defense": 6,
+    "hardness": 10,
+    "hp": {
+      "value": 46,
+      "max": 46
+    },
+    "size": "gargantuan",
+    "purchaseDC": 48,
+    "restriction": "mil"
+  },
+  "_key": "!actors!EjVvtubwwfzkrITR"
+}

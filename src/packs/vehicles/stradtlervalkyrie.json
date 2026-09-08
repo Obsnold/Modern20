@@ -1,0 +1,27 @@
+{
+  "_id": "TBFr1OfuCbE6zFpe",
+  "name": "Stradtler Valkyrie",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "F",
+    "initiative": -2,
+    "maneuver": 1,
+    "topSpeed": "295 (29)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 24,
+      "max": 24
+    },
+    "size": "large",
+    "purchaseDC": 28,
+    "restriction": "lic"
+  },
+  "_key": "!actors!TBFr1OfuCbE6zFpe"
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "Yt0R53tIbm8j4aJM",
+  "name": "Concussion",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 2,
+    "display": "Audible",
+    "powerPoints": 3,
+    "castingTime": "Attack action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "target": "One individual",
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude half"
+  },
+  "_key": "!items!Yt0R53tIbm8j4aJM"
+}

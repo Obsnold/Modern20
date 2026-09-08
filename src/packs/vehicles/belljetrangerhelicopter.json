@@ -1,0 +1,27 @@
+{
+  "_id": "lLsyZcfLwEuq7jcp",
+  "name": "Bell Jet Ranger (helicopter)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "250 lb.",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "245 (25)",
+    "defense": 6,
+    "hardness": 5,
+    "hp": {
+      "value": 28,
+      "max": 28
+    },
+    "size": "gargantuan",
+    "purchaseDC": 39,
+    "restriction": "lic"
+  },
+  "_key": "!actors!lLsyZcfLwEuq7jcp"
+}

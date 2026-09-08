@@ -1,0 +1,27 @@
+{
+  "_id": "6zLNg4PQ109bX3bK",
+  "name": "Ducati 998R (racing bike)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "0 lb.",
+    "initiative": 0,
+    "maneuver": 3,
+    "topSpeed": "370 (37)",
+    "defense": 10,
+    "hardness": 5,
+    "hp": {
+      "value": 18,
+      "max": 18
+    },
+    "size": "medium",
+    "purchaseDC": 27,
+    "restriction": "lic"
+  },
+  "_key": "!actors!6zLNg4PQ109bX3bK"
+}

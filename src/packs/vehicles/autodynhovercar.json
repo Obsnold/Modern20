@@ -1,0 +1,27 @@
+{
+  "_id": "1m7tSsGYOky6XfkB",
+  "name": "AutoDyn hovercar",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "L",
+    "initiative": -1,
+    "maneuver": 0,
+    "topSpeed": "250 (25)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 28,
+      "max": 28
+    },
+    "size": "large",
+    "purchaseDC": 36,
+    "restriction": "lic"
+  },
+  "_key": "!actors!1m7tSsGYOky6XfkB"
+}

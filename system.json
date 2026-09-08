@@ -161,6 +161,17 @@
       }
     },
     {
+      "name": "psionics",
+      "label": "Psionic Powers",
+      "path": "packs/psionics",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "weapons",
       "label": "Weapons",
       "path": "packs/weapons",
@@ -197,6 +208,17 @@
       "name": "creatures",
       "label": "Creatures",
       "path": "packs/creatures",
+      "type": "Actor",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "vehicles",
+      "label": "Vehicles",
+      "path": "packs/vehicles",
       "type": "Actor",
       "system": "modern20",
       "ownership": {

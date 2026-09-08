@@ -1,0 +1,27 @@
+{
+  "_id": "oE7x9xqKpjF8N9G1",
+  "name": "Chevrolet Suburban (SUV)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 8,
+    "cargo": "500 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "175 (17)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 38,
+      "max": 38
+    },
+    "size": "huge",
+    "purchaseDC": 30,
+    "restriction": "lic"
+  },
+  "_key": "!actors!oE7x9xqKpjF8N9G1"
+}

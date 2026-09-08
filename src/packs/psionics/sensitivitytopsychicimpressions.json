@@ -1,0 +1,20 @@
+{
+  "_id": "wqAIDnGzjAq9zUJg",
+  "name": "Sensitivity to Psychic Impressions",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 2,
+    "display": "Audible, Material",
+    "powerPoints": 2,
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "target": "Area within a 25-ft. + 5 ft./2 levels-radius spread, centered on you",
+    "duration": "Concentration, up to 10 minutes/level (D)",
+    "savingThrow": "None"
+  },
+  "_key": "!items!wqAIDnGzjAq9zUJg"
+}

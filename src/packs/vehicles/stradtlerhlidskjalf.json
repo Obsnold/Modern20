@@ -1,0 +1,27 @@
+{
+  "_id": "oPwWZ7AILhl31Lnv",
+  "name": "Stradtler Hlidskjalf",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "M",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "255 (25)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 35,
+      "max": 35
+    },
+    "size": "huge",
+    "purchaseDC": 36,
+    "restriction": "lic"
+  },
+  "_key": "!actors!oPwWZ7AILhl31Lnv"
+}

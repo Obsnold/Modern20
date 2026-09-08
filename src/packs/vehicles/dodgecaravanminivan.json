@@ -1,0 +1,27 @@
+{
+  "_id": "Qn8xW2XkdAw6dQTA",
+  "name": "Dodge Caravan (minivan)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 8,
+    "cargo": "325 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "195 (19)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 28,
+    "restriction": "lic"
+  },
+  "_key": "!actors!Qn8xW2XkdAw6dQTA"
+}

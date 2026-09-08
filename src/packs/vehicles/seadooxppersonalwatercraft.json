@@ -1,0 +1,27 @@
+{
+  "_id": "GRzl7Ke0HHxKU4ss",
+  "name": "Sea-Doo XP (personal watercraft)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "60 lb.",
+    "initiative": -1,
+    "maneuver": 1,
+    "topSpeed": "105 (10)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 22,
+      "max": 22
+    },
+    "size": "large",
+    "purchaseDC": 24,
+    "restriction": "lic"
+  },
+  "_key": "!actors!GRzl7Ke0HHxKU4ss"
+}

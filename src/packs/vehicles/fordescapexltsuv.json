@@ -1,0 +1,27 @@
+{
+  "_id": "Ds9IzRQu5pNDF4f3",
+  "name": "Ford Escape XLT (SUV)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "300 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "200 (20)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 32,
+      "max": 32
+    },
+    "size": "huge",
+    "purchaseDC": 29,
+    "restriction": "lic"
+  },
+  "_key": "!actors!Ds9IzRQu5pNDF4f3"
+}

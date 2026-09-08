@@ -1,0 +1,27 @@
+{
+  "_id": "BKnjehCNMHtyrSF0",
+  "name": "Ford F-150 XL (pickup)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 2,
+    "cargo": "1,700 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "175 (17)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 36,
+      "max": 36
+    },
+    "size": "huge",
+    "purchaseDC": 28,
+    "restriction": "lic"
+  },
+  "_key": "!actors!BKnjehCNMHtyrSF0"
+}

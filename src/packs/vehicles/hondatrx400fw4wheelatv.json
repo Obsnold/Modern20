@@ -1,0 +1,27 @@
+{
+  "_id": "oMqTwyQFntZVbUg5",
+  "name": "Honda TRX400FW (4-wheel ATV)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "675 lb.",
+    "initiative": -1,
+    "maneuver": 1,
+    "topSpeed": "95 (9)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 22,
+      "max": 22
+    },
+    "size": "large",
+    "purchaseDC": 23,
+    "restriction": "lic"
+  },
+  "_key": "!actors!oMqTwyQFntZVbUg5"
+}

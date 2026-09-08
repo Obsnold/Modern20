@@ -1,0 +1,27 @@
+{
+  "_id": "cYpdHiNunSMnu13y",
+  "name": "AutoMac taxi",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 0,
+    "passengers": 6,
+    "cargo": "L",
+    "initiative": -3,
+    "maneuver": -2,
+    "topSpeed": "175 (17)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 31,
+    "restriction": "lic"
+  },
+  "_key": "!actors!cYpdHiNunSMnu13y"
+}

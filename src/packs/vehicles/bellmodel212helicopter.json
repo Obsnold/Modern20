@@ -1,0 +1,27 @@
+{
+  "_id": "hImHiQbZRpMqujmK",
+  "name": "Bell Model 212 (helicopter)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 2,
+    "passengers": 13,
+    "cargo": "5,000 lb.",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "200 (20)",
+    "defense": 6,
+    "hardness": 5,
+    "hp": {
+      "value": 36,
+      "max": 36
+    },
+    "size": "gargantuan",
+    "purchaseDC": 45,
+    "restriction": "res"
+  },
+  "_key": "!actors!hImHiQbZRpMqujmK"
+}

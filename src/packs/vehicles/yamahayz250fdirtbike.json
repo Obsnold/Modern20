@@ -1,0 +1,27 @@
+{
+  "_id": "GHq97mEnbyIFuU08",
+  "name": "Yamaha YZ250F (dirt bike)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "0 lb.",
+    "initiative": 0,
+    "maneuver": 2,
+    "topSpeed": "165 (16)",
+    "defense": 10,
+    "hardness": 5,
+    "hp": {
+      "value": 18,
+      "max": 18
+    },
+    "size": "medium",
+    "purchaseDC": 23,
+    "restriction": "lic"
+  },
+  "_key": "!actors!GHq97mEnbyIFuU08"
+}

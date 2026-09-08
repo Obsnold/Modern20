@@ -1,0 +1,27 @@
+{
+  "_id": "LZi6FUYKxrkJVBng",
+  "name": "AutoDyn hoverbike",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "D",
+    "initiative": 1,
+    "maneuver": 2,
+    "topSpeed": "410 (41)",
+    "defense": 10,
+    "hardness": 5,
+    "hp": {
+      "value": 15,
+      "max": 15
+    },
+    "size": "medium",
+    "purchaseDC": 37,
+    "restriction": "lic"
+  },
+  "_key": "!actors!LZi6FUYKxrkJVBng"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "vS702ZPaya9kvARJ",
+  "name": "Chevrolet Corvette (sports coupe)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "250 lb.",
+    "initiative": -2,
+    "maneuver": 0,
+    "topSpeed": "310 (31)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 32,
+      "max": 32
+    },
+    "size": "huge",
+    "purchaseDC": 30,
+    "restriction": "lic"
+  },
+  "_key": "!actors!vS702ZPaya9kvARJ"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "ehHDIFDojoQvswv4",
+  "name": "Chevrolet Cavalier (economy coupe)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "275 lb.",
+    "initiative": -1,
+    "maneuver": -1,
+    "topSpeed": "185 (18)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 30,
+      "max": 30
+    },
+    "size": "large",
+    "purchaseDC": 26,
+    "restriction": "lic"
+  },
+  "_key": "!actors!ehHDIFDojoQvswv4"
+}

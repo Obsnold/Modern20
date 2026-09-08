@@ -1,0 +1,20 @@
+{
+  "_id": "1ejQ3d7AhBL2knUX",
+  "name": "Inertial Barrier",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
+    "level": 4,
+    "display": "Audible, Mental",
+    "powerPoints": 7,
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "target": "Creature touched",
+    "duration": "10 minutes/level or until discharged",
+    "savingThrow": "Will negates (harmless)"
+  },
+  "_key": "!items!1ejQ3d7AhBL2knUX"
+}

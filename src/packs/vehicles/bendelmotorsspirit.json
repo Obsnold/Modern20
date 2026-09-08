@@ -1,0 +1,27 @@
+{
+  "_id": "FNYMJgzMcnc5NqKf",
+  "name": "Bendel Motors Spirit",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "M",
+    "initiative": -2,
+    "maneuver": 0,
+    "topSpeed": "290 (29)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 36,
+      "max": 36
+    },
+    "size": "huge",
+    "purchaseDC": 29,
+    "restriction": "lic"
+  },
+  "_key": "!actors!FNYMJgzMcnc5NqKf"
+}

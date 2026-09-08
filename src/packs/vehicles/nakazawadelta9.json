@@ -1,0 +1,27 @@
+{
+  "_id": "n1CSpTr7dDeJU6JD",
+  "name": "Nakazawa Delta-9",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "L",
+    "initiative": -2,
+    "maneuver": -1,
+    "topSpeed": "245 (24)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 31,
+    "restriction": "lic"
+  },
+  "_key": "!actors!n1CSpTr7dDeJU6JD"
+}

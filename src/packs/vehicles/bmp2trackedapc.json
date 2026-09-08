@@ -1,0 +1,27 @@
+{
+  "_id": "0g2QBHOzdR5RbeSX",
+  "name": "BMP-2 (tracked APC)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 3,
+    "passengers": 7,
+    "cargo": "250 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "70 (7)",
+    "defense": 8,
+    "hardness": 10,
+    "hp": {
+      "value": 52,
+      "max": 52
+    },
+    "size": "huge",
+    "purchaseDC": 40,
+    "restriction": "mil"
+  },
+  "_key": "!actors!0g2QBHOzdR5RbeSX"
+}

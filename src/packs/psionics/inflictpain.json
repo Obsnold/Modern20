@@ -1,0 +1,20 @@
+{
+  "_id": "triuwmk9LxZzi8KN",
+  "name": "Inflict Pain",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 2,
+    "display": "Audible",
+    "powerPoints": 3,
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "target": "One living creature",
+    "duration": "Concentration, up to 5 rounds",
+    "savingThrow": "Will negates"
+  },
+  "_key": "!items!triuwmk9LxZzi8KN"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "3Ip5dxoWlhjfMmwO",
+  "name": "BMW M3 (sports coupe)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "200 lb.",
+    "initiative": -2,
+    "maneuver": 1,
+    "topSpeed": "275 (27)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 32,
+      "max": 32
+    },
+    "size": "huge",
+    "purchaseDC": 30,
+    "restriction": "lic"
+  },
+  "_key": "!actors!3Ip5dxoWlhjfMmwO"
+}

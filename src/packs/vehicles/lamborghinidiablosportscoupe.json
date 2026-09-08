@@ -1,0 +1,27 @@
+{
+  "_id": "baF0Avy3BTbKOAVM",
+  "name": "Lamborghini Diablo (sports coupe)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "100 lb.",
+    "initiative": -2,
+    "maneuver": 1,
+    "topSpeed": "360 (36)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 37,
+    "restriction": "lic"
+  },
+  "_key": "!actors!baF0Avy3BTbKOAVM"
+}

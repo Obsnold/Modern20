@@ -1,0 +1,27 @@
+{
+  "_id": "iToZixyU9wUgi7HJ",
+  "name": "SKG Metropolitan",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 7,
+    "cargo": "L",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "215 (21)",
+    "defense": 6,
+    "hardness": 6,
+    "hp": {
+      "value": 41,
+      "max": 41
+    },
+    "size": "gargantuan",
+    "purchaseDC": 42,
+    "restriction": "lic"
+  },
+  "_key": "!actors!iToZixyU9wUgi7HJ"
+}

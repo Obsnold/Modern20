@@ -1,0 +1,27 @@
+{
+  "_id": "ufJOBVqimRbaUXzd",
+  "name": "Gaia Motor Company Virgo",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 6,
+    "cargo": "M",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "215 (21)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 35,
+      "max": 35
+    },
+    "size": "huge",
+    "purchaseDC": 29,
+    "restriction": "lic"
+  },
+  "_key": "!actors!ufJOBVqimRbaUXzd"
+}

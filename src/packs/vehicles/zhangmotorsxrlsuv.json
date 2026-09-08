@@ -1,0 +1,27 @@
+{
+  "_id": "bVfZclVOkOEt7FfZ",
+  "name": "Zhang Motors XRL (SUV)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 3,
+    "cargo": "L",
+    "initiative": -2,
+    "maneuver": -1,
+    "topSpeed": "245 (24)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 40,
+      "max": 40
+    },
+    "size": "huge",
+    "purchaseDC": 32,
+    "restriction": "lic"
+  },
+  "_key": "!actors!bVfZclVOkOEt7FfZ"
+}
