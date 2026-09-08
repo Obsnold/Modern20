@@ -1,5 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 
+const { Item } = foundry.documents;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 

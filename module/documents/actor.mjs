@@ -1,6 +1,11 @@
 import { MODERN20 } from "../config.mjs";
 import { rollWealthCheck, commitWealthLoss } from "../dice/wealth.mjs";
 
+// Foundry v14 removed the bare Actor/Item/Roll/ChatMessage globals; only
+// CONFIG, Hooks, game and ui survive. Everything else comes off the namespace.
+const { Actor, ChatMessage } = foundry.documents;
+const { Roll } = foundry.dice;
+
 export class Modern20Actor extends Actor {
   /** Data exposed to roll formulas via @-references, e.g. "@str.mod". */
   getRollData() {
