@@ -49,7 +49,8 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       ability: "str",
       hitPoints: null,
       ranks: {},
-      specialties: {}
+      specialties: {},
+      subjectPicks: {}
     };
   }
 
@@ -147,6 +148,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       grantedSkills: granted,
       pending: plan.ranks,
       pendingSpecialties: plan.specialties,
+      picks: plan.subjectPicks,
       characterLevel: plan.characterLevel
     });
     context.spent = spendOf(context.skillRows);
@@ -169,8 +171,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
    */
   static #onAddSubject(event, target) {
     const key = target.dataset.skill;
-    const input = target.closest("tr")?.querySelector(".m20-subject");
-    const name = (input?.value ?? "").trim();
+    const name = (this.#plan.subjectPicks[key] ?? "").trim();
     if (!name) {
       ui.notifications.warn(game.i18n.localize("MODERN20.Skills.NeedSubject"));
       return;
@@ -189,6 +190,10 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       if (data[key] !== undefined) plan[key] = data[key];
     }
     for (const [key, value] of Object.entries(data)) {
+      if (key.startsWith("subject.")) {
+        plan.subjectPicks[key.slice("subject.".length)] = String(value ?? "");
+        continue;
+      }
       if (key.startsWith("specialty.")) {
         const [, skill, ...rest] = key.split(".");
         const name = rest.join(".");

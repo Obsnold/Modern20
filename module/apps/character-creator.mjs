@@ -30,6 +30,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
   // ApplicationV2 defines a read-only `state` getter for its render state, so
   // the wizard's own state lives in a private field behind its own accessor.
   #choices;
+  #packCache;
 
   constructor(actor, options = {}) {
     super(options);
@@ -44,7 +45,8 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       classId: "",
       talentUuid: "",
       ranks: {},
-      specialties: {}
+      specialties: {},
+      subjectPicks: {}
     };
   }
 
@@ -193,6 +195,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       grantedSkills: granted,
       pending: state.ranks,
       pendingSpecialties: state.specialties,
+      picks: state.subjectPicks,
       characterLevel: 1
     });
     context.spent = spendOf(context.skillRows);
@@ -205,12 +208,21 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     return context;
   }
 
-  /** Entries from a compendium, or an empty list if it is not installed. */
+  /**
+   * Entries from a compendium, or an empty list if it is not installed.
+   *
+   * Cached for the life of the window: submitOnChange re-renders on every
+   * keystroke, and loading every class, occupation and talent each time made
+   * the screen visibly lag.
+   */
   async #compendiumChoices(packId) {
+    this.#packCache ??= new Map();
+    if (this.#packCache.has(packId)) return this.#packCache.get(packId);
+
     const pack = game.packs.get(packId);
     if (!pack) return [];
     const documents = await pack.getDocuments();
-    return documents
+    const entries = documents
       .map((d) => ({
         id: d.id,
         uuid: d.uuid,
@@ -223,6 +235,9 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
         summary: d.system.description || ""
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
+
+    this.#packCache.set(packId, entries);
+    return entries;
   }
 
   /**
@@ -232,8 +247,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
    */
   static #onAddSubject(event, target) {
     const key = target.dataset.skill;
-    const input = target.closest("tr")?.querySelector(".m20-subject");
-    const name = (input?.value ?? "").trim();
+    const name = (this.#choices.subjectPicks[key] ?? "").trim();
     if (!name) {
       ui.notifications.warn(game.i18n.localize("MODERN20.Skills.NeedSubject"));
       return;
@@ -272,6 +286,10 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     if (data.occupationFeat !== undefined) state.occupationFeat = data.occupationFeat;
     if (data.talentUuid !== undefined) state.talentUuid = data.talentUuid;
     for (const [key, value] of Object.entries(data)) {
+      if (key.startsWith("subject.")) {
+        state.subjectPicks[key.slice("subject.".length)] = String(value ?? "");
+        continue;
+      }
       if (key.startsWith("specialty.")) {
         const [, skill, ...rest] = key.split(".");
         const name = rest.join(".");

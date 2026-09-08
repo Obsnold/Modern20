@@ -22,13 +22,17 @@
             <td>{{row.label}}{{#if row.trainedOnly}} <span class="m20-hint">*</span>{{/if}}</td>
             <td>{{#if row.classSkill}}<i class="fa-solid fa-check m20-granted"></i>{{/if}}</td>
             <td colspan="3">
+              {{!-- Named, and its value comes from state: ApplicationV2 only
+                    restores focus for controls it can address by name or id,
+                    and a re-render rebuilds the markup from context. --}}
               {{#if row.open}}
-                <input type="text" class="m20-subject" data-skill="{{row.key}}"
+                <input type="text" class="m20-subject" name="subject.{{row.key}}"
+                       id="m20-subject-{{row.key}}" value="{{row.pick}}"
                        placeholder="{{localize 'MODERN20.Skills.NewSubjectOpen'}}">
               {{else}}
-                <select class="m20-subject" data-skill="{{row.key}}">
+                <select class="m20-subject" name="subject.{{row.key}}" id="m20-subject-{{row.key}}">
                   {{#each row.options as |option|}}
-                    <option value="{{option}}">{{option}}</option>
+                    <option value="{{option}}" {{#if (eq option ../row.pick)}}selected{{/if}}>{{option}}</option>
                   {{/each}}
                 </select>
               {{/if}}

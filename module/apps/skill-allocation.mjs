@@ -19,7 +19,7 @@ import { MODERN20 } from "../config.mjs";
  * this sitting, keyed by skill then subject name.
  */
 export function skillRows(actor, {
-  grantedSkills, pending = {}, pendingSpecialties = {}, characterLevel
+  grantedSkills, pending = {}, pendingSpecialties = {}, picks = {}, characterLevel
 }) {
   const maxRanks = characterLevel + 3;
   const maxCrossClass = maxRanks / 2;
@@ -53,8 +53,12 @@ export function skillRows(actor, {
     }
 
     // A heading row, so the subjects beneath it read as one skill.
-    rows.push({ ...base, header: true, specialtyKey: key,
-                options: specialty.options, open: specialty.open });
+    rows.push({
+      ...base, header: true, specialtyKey: key,
+      options: specialty.options, open: specialty.open,
+      // The picker's current value, so a re-render restores it.
+      pick: picks[key] ?? (specialty.open ? "" : specialty.options[0] ?? "")
+    });
 
     const subjects = new Map();
     for (const entry of stored.specialties) subjects.set(entry.name, entry.ranks);
