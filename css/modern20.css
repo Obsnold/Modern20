@@ -18,6 +18,34 @@
   font-family: "Signika", sans-serif;
 }
 
+/* --- Sheet layout and scrolling ----------------------------------------
+   ApplicationV2 renders each part as a sibling inside .window-content, so the
+   content area has to be an explicit flex column for the active tab to claim
+   the leftover height. Without min-height:0 the section grows to fit its
+   content instead of scrolling, and the window simply clips it. */
+
+.modern20 .window-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Every part except the active tab keeps its natural height; only the
+   panel scrolls. Matching on :not(.tab) avoids depending on what the header
+   and the core tab-navigation partial happen to call their root elements. */
+.modern20 .window-content > *:not(.tab) {
+  flex: 0 0 auto;
+}
+
+.modern20 .tab {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  padding: 0.5rem 0.25rem 0.75rem;
+}
+
 /* --- Header ------------------------------------------------------------ */
 
 .modern20 .m20-header {

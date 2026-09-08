@@ -23,8 +23,8 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static PARTS = {
     header: { template: "systems/modern20/templates/item/item-header.hbs" },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
-    details: { template: "systems/modern20/templates/item/item-details.hbs" },
-    description: { template: "systems/modern20/templates/item/item-description.hbs" }
+    details: { template: "systems/modern20/templates/item/item-details.hbs", scrollable: [""] },
+    description: { template: "systems/modern20/templates/item/item-description.hbs", scrollable: [""] }
   };
 
   static TABS = {
