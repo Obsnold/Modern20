@@ -28,7 +28,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       spendActionPoint: Modern20ActorSheetBase.#onSpendActionPoint,
       createItem: Modern20ActorSheetBase.#onCreateItem,
       editItem: Modern20ActorSheetBase.#onEditItem,
-      deleteItem: Modern20ActorSheetBase.#onDeleteItem
+      deleteItem: Modern20ActorSheetBase.#onDeleteItem,
+      adjustClassLevel: Modern20ActorSheetBase.#onAdjustClassLevel
     }
   };
 
@@ -166,6 +167,30 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
 
   static async #onEditItem(event, target) {
     this._itemFromEvent(target)?.sheet.render(true);
+  }
+
+  /**
+   * Raise or lower a class by one level from the sheet. Levelling is the most
+   * common thing a player does, and it was only reachable by opening the class
+   * item and editing a number.
+   */
+  static async #onAdjustClassLevel(event, target) {
+    const item = this._itemFromEvent(target);
+    if (item?.type !== "class") return;
+
+    const delta = Number(target.dataset.delta) || 0;
+    const levels = Math.max(0, item.system.levels + delta);
+
+    // Warn past the end of the table but allow it: the SRD's own advanced
+    // classes stop at 10 and GMs extend them.
+    const max = item.system.maxProgressionLevel;
+    if (max && levels > max) {
+      ui.notifications.warn(game.i18n.format("MODERN20.Warning.PastProgression", {
+        name: item.name, max
+      }));
+    }
+
+    await item.update({ "system.levels": levels });
   }
 
   static async #onDeleteItem(event, target) {

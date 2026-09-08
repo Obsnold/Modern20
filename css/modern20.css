@@ -196,6 +196,17 @@
 
 .modern20 .m20-tag--empty { color: var(--m20-muted); font-style: italic; }
 .modern20 .m20-tag--dc { background: #e3ecdf; font-variant-numeric: tabular-nums; }
+.modern20 .m20-tag--level { background: #dfe6ec; font-weight: 600; }
+
+/* Level controls sit tight against their tag so the group reads as one unit. */
+.modern20 .m20-levelctl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex: 0 0 auto;
+}
+
+.modern20 .m20-levelctl .m20-icon { width: 1.2rem; font-size: 0.72rem; }
 
 /* --- Skills ------------------------------------------------------------ */
 

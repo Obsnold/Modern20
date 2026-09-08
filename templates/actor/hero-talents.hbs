@@ -11,7 +11,15 @@
           <img src="{{item.img}}" alt="{{item.name}}">
           <span class="m20-itemrow__name">{{item.name}}</span>
           {{#if item.system.tree}}<span class="m20-tag">{{item.system.tree}}</span>{{/if}}
-          {{#if item.system.levels}}<span class="m20-tag">{{localize "MODERN20.Level"}} {{item.system.levels}}</span>{{/if}}
+          {{#if (eq item.type "class")}}
+            <span class="m20-levelctl">
+              <button type="button" class="m20-icon" data-action="adjustClassLevel" data-delta="-1"
+                      title="{{localize 'MODERN20.LevelDown'}}"><i class="fa-solid fa-minus"></i></button>
+              <span class="m20-tag">{{localize "MODERN20.Level"}} {{item.system.levels}}</span>
+              <button type="button" class="m20-icon" data-action="adjustClassLevel" data-delta="1"
+                      title="{{localize 'MODERN20.LevelUp'}}"><i class="fa-solid fa-plus"></i></button>
+            </span>
+          {{/if}}
           <button type="button" class="m20-icon" data-action="rollItem" title="{{localize 'MODERN20.ToChat'}}">
             <i class="fa-solid fa-comment"></i>
           </button>
