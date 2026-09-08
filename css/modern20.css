@@ -249,6 +249,11 @@
 /* Ranks above the level cap are flagged, never blocked. */
 .modern20 .m20-skill--overspent { outline: 1px solid var(--m20-warn); }
 
+.modern20 .m20-skills__subject td { background: rgba(0, 0, 0, 0.04); }
+.modern20 .m20-skills__subject .m20-subject { width: 60%; }
+/* Subjects sit under the skill they belong to. */
+.modern20 .m20-skills__variant td:first-child { padding-left: 1.1rem; }
+
 .modern20 .m20-skills__grouphead { color: var(--m20-muted); font-size: 0.7rem; font-style: italic; }
 .modern20 .m20-skills__summary { font-size: 0.74rem; color: var(--m20-muted); padding: 0.3rem 0; }
 

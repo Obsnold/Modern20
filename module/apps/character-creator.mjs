@@ -43,7 +43,8 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       occupationFeat: "",
       classId: "",
       talentUuid: "",
-      ranks: {}
+      ranks: {},
+      specialties: {}
     };
   }
 
@@ -65,6 +66,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       closeOnSubmit: false
     },
     actions: {
+      addSubject: Modern20CharacterCreator.#onAddSubject,
       rollAbilities: Modern20CharacterCreator.#onRollAbilities,
       resetAbilities: Modern20CharacterCreator.#onResetAbilities,
       create: Modern20CharacterCreator.#onCreate
@@ -165,6 +167,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     context.skillRows = skillRows(this.actor, {
       grantedSkills: granted,
       pending: state.ranks,
+      pendingSpecialties: state.specialties,
       characterLevel: 1
     });
     context.spent = spendOf(context.skillRows);
@@ -197,6 +200,26 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       .sort((a, b) => a.name.localeCompare(b.name));
   }
 
+  /**
+   * Add a subject to a skill taken per subject — Knowledge (Streetwise), or a
+   * language. The subject appears as its own row with its own ranks, because
+   * the SRD treats each as a separate skill.
+   */
+  static #onAddSubject(event, target) {
+    const key = target.dataset.skill;
+    const input = target.closest("tr")?.querySelector(".m20-subject");
+    const name = (input?.value ?? "").trim();
+    if (!name) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Skills.NeedSubject"));
+      return;
+    }
+
+    const pending = this.#choices.specialties;
+    pending[key] ??= {};
+    if (pending[key][name] === undefined) pending[key][name] = 0;
+    this.render();
+  }
+
   static async #onChange(event, form, formData) {
     const data = formData.object;
     const state = this.#choices;
@@ -224,6 +247,14 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     if (data.occupationFeat !== undefined) state.occupationFeat = data.occupationFeat;
     if (data.talentUuid !== undefined) state.talentUuid = data.talentUuid;
     for (const [key, value] of Object.entries(data)) {
+      if (key.startsWith("specialty.")) {
+        const [, skill, ...rest] = key.split(".");
+        const name = rest.join(".");
+        const ranks = Math.max(0, Number(value) || 0);
+        state.specialties[skill] ??= {};
+        state.specialties[skill][name] = ranks;
+        continue;
+      }
       if (key.startsWith("rank.")) {
         const skill = key.slice("rank.".length);
         const ranks = Math.max(0, Number(value) || 0);
@@ -322,12 +353,17 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       if (item) granted.push(item.name);
     }
 
-    const ranks = rankUpdates(actor, state.ranks);
+    const ranks = rankUpdates(actor, state.ranks, state.specialties);
     if (Object.keys(ranks).length) await actor.update(ranks);
 
     const spentRanks = Object.entries(state.ranks)
       .filter(([, added]) => added)
       .map(([key, added]) => `${game.i18n.localize(MODERN20.skills[key].label)} +${added}`);
+    for (const [key, subjects] of Object.entries(state.specialties)) {
+      for (const [name, added] of Object.entries(subjects)) {
+        if (added) spentRanks.push(`${game.i18n.localize(MODERN20.skills[key].label)} (${name}) +${added}`);
+      }
+    }
 
     await actor.update({
       "system.advancement": [{

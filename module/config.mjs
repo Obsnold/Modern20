@@ -76,6 +76,29 @@ MODERN20.skills = {
   tumble:             { label: "MODERN20.Skill.Tumble",             ability: "dex", trainedOnly: true, armorCheck: true }
 };
 
+/**
+ * Skills taken per subject, and the subjects available.
+ *
+ * `open` means the subject is chosen freely rather than from the SRD's list —
+ * a Profession or a language. `perRank` marks the two language skills, which
+ * the SRD says do not work like a standard skill: "Each additional language
+ * costs 1 rank" and "a character never makes Speak Language checks", so each
+ * rank buys one language rather than raising a total.
+ */
+MODERN20.skillSpecialties = {
+  craft: { open: false, perRank: false, options: ["Chemical", "Electronic", "Mechanical", "Pharmaceutical", "Structural", "Visual Art", "Writing"] },
+  knowledge: { open: false, perRank: false, options: ["Arcane Lore", "Art", "Behavioral Sciences", "Business", "Civics", "Current Events", "Earth and Life Sciences", "History", "Physical Sciences", "Popular Culture", "Streetwise", "Tactics", "Technology", "Theology and Philosophy"] },
+  perform: { open: false, perRank: false, options: ["Art", "Dance", "Keyboards", "Percussion Instruments", "Sing", "Stand-Up", "Stringed Instruments", "Wind Instruments"] },
+  profession: { open: true, perRank: false, options: [] },
+  readWriteLanguage: { open: true, perRank: true, options: [] },
+  speakLanguage: { open: true, perRank: true, options: [] },
+};
+
+/** Skills whose ranks buy subjects rather than raise a check total. */
+MODERN20.perRankSkills = Object.entries(MODERN20.skillSpecialties)
+  .filter(([, entry]) => entry.perRank)
+  .map(([key]) => key);
+
 /** Skills that are taken per-subject rather than as a single ranked skill. */
 MODERN20.specialtySkills = Object.entries(MODERN20.skills)
   .filter(([, s]) => s.specialties)

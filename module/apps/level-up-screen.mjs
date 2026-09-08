@@ -48,7 +48,8 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       generalFeatUuid: "",
       ability: "str",
       hitPoints: null,
-      ranks: {}
+      ranks: {},
+      specialties: {}
     };
   }
 
@@ -68,6 +69,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       closeOnSubmit: false
     },
     actions: {
+      addSubject: Modern20LevelUpScreen.#onAddSubject,
       rollHitPoints: Modern20LevelUpScreen.#onRollHitPoints,
       confirm: Modern20LevelUpScreen.#onConfirm
     }
@@ -138,6 +140,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     context.skillRows = skillRows(actor, {
       grantedSkills: granted,
       pending: plan.ranks,
+      pendingSpecialties: plan.specialties,
       characterLevel: plan.characterLevel
     });
     context.spent = spendOf(context.skillRows);
@@ -153,6 +156,26 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     return context;
   }
 
+  /**
+   * Add a subject to a skill taken per subject — Knowledge (Streetwise), or a
+   * language. The subject appears as its own row with its own ranks, because
+   * the SRD treats each as a separate skill.
+   */
+  static #onAddSubject(event, target) {
+    const key = target.dataset.skill;
+    const input = target.closest("tr")?.querySelector(".m20-subject");
+    const name = (input?.value ?? "").trim();
+    if (!name) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Skills.NeedSubject"));
+      return;
+    }
+
+    const pending = this.#plan.specialties;
+    pending[key] ??= {};
+    if (pending[key][name] === undefined) pending[key][name] = 0;
+    this.render();
+  }
+
   static async #onChange(event, form, formData) {
     const data = formData.object;
     const plan = this.#plan;
@@ -160,6 +183,13 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       if (data[key] !== undefined) plan[key] = data[key];
     }
     for (const [key, value] of Object.entries(data)) {
+      if (key.startsWith("specialty.")) {
+        const [, skill, ...rest] = key.split(".");
+        const name = rest.join(".");
+        plan.specialties[skill] ??= {};
+        plan.specialties[skill][name] = Math.max(0, Number(value) || 0);
+        continue;
+      }
       if (!key.startsWith("rank.")) continue;
       const skill = key.slice("rank.".length);
       const ranks = Math.max(0, Number(value) || 0);
@@ -222,12 +252,17 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
       }));
     }
 
-    const ranks = rankUpdates(actor, plan.ranks);
+    const ranks = rankUpdates(actor, plan.ranks, plan.specialties);
     if (Object.keys(ranks).length) await actor.update(ranks);
 
     const spentRanks = Object.entries(plan.ranks)
       .filter(([, added]) => added)
       .map(([key, added]) => `${game.i18n.localize(MODERN20.skills[key].label)} +${added}`);
+    for (const [key, subjects] of Object.entries(plan.specialties)) {
+      for (const [name, added] of Object.entries(subjects)) {
+        if (added) spentRanks.push(`${game.i18n.localize(MODERN20.skills[key].label)} (${name}) +${added}`);
+      }
+    }
 
     // Append rather than replace: the log is the character's history.
     await actor.update({

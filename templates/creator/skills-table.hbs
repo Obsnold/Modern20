@@ -17,15 +17,41 @@
     </thead>
     <tbody>
       {{#each skillRows as |row|}}
-        <tr class="{{#if row.overCap}}m20-skill--overspent{{/if}}">
-          <td>{{row.label}}{{#if row.trainedOnly}} <span class="m20-hint">*</span>{{/if}}</td>
-          <td>{{#if row.classSkill}}<i class="fa-solid fa-check m20-granted"></i>{{/if}}</td>
-          <td>{{row.existing}}</td>
-          <td><input type="number" name="rank.{{row.key}}" value="{{row.added}}" min="0" max="{{row.cap}}"></td>
-          <td class="m20-mod">{{row.total}} / {{row.cap}}</td>
-        </tr>
+        {{#if row.header}}
+          <tr class="m20-skills__subject">
+            <td>{{row.label}}{{#if row.trainedOnly}} <span class="m20-hint">*</span>{{/if}}</td>
+            <td>{{#if row.classSkill}}<i class="fa-solid fa-check m20-granted"></i>{{/if}}</td>
+            <td colspan="3">
+              {{#if row.open}}
+                <input type="text" class="m20-subject" data-skill="{{row.key}}"
+                       placeholder="{{localize 'MODERN20.Skills.NewSubjectOpen'}}">
+              {{else}}
+                <select class="m20-subject" data-skill="{{row.key}}">
+                  {{#each row.options as |option|}}
+                    <option value="{{option}}">{{option}}</option>
+                  {{/each}}
+                </select>
+              {{/if}}
+              <button type="button" class="m20-button m20-button--small"
+                      data-action="addSubject" data-skill="{{row.key}}">
+                {{localize "MODERN20.Skills.AddSubject"}}
+              </button>
+            </td>
+          </tr>
+        {{else}}
+          <tr class="{{#if row.overCap}}m20-skill--overspent{{/if}} {{#if row.specialty}}m20-skills__variant{{/if}}">
+            <td>{{row.label}}{{#unless row.specialty}}{{#if row.trainedOnly}} <span class="m20-hint">*</span>{{/if}}{{/unless}}</td>
+            <td>{{#if row.classSkill}}<i class="fa-solid fa-check m20-granted"></i>{{/if}}</td>
+            <td>{{row.existing}}</td>
+            <td><input type="number" name="{{row.field}}" value="{{row.added}}" min="0"></td>
+            <td class="m20-mod">
+              {{#if row.perRank}}{{row.total}}{{else}}{{row.total}} / {{row.cap}}{{/if}}
+            </td>
+          </tr>
+        {{/if}}
       {{/each}}
     </tbody>
   </table>
   <p class="m20-hint">{{localize "MODERN20.Skills.TrainedNote"}}</p>
+  <p class="m20-hint">{{localize "MODERN20.Skills.LanguageNote"}}</p>
 </div>
