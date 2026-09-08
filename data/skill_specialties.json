@@ -1,0 +1,58 @@
+{
+  "craft": {
+    "options": [
+      "Chemical",
+      "Electronic",
+      "Mechanical",
+      "Pharmaceutical",
+      "Structural",
+      "Visual Art",
+      "Writing"
+    ],
+    "open": false
+  },
+  "knowledge": {
+    "options": [
+      "Arcane Lore",
+      "Art",
+      "Behavioral Sciences",
+      "Business",
+      "Civics",
+      "Current Events",
+      "Earth and Life Sciences",
+      "History",
+      "Physical Sciences",
+      "Popular Culture",
+      "Streetwise",
+      "Tactics",
+      "Technology",
+      "Theology and Philosophy"
+    ],
+    "open": false
+  },
+  "perform": {
+    "options": [
+      "Art",
+      "Dance",
+      "Keyboards",
+      "Percussion Instruments",
+      "Sing",
+      "Stand-Up",
+      "Stringed Instruments",
+      "Wind Instruments"
+    ],
+    "open": false
+  },
+  "profession": {
+    "options": [],
+    "open": true
+  },
+  "readWriteLanguage": {
+    "options": [],
+    "open": true
+  },
+  "speakLanguage": {
+    "options": [],
+    "open": true
+  }
+}

@@ -238,6 +238,19 @@ No part of character creation or levelling uses a dialog. Every choice is made
 on a screen that shows the surrounding context, and nothing is written until
 the screen is confirmed.
 
+**Skills taken per subject** — Knowledge, Craft, Perform, Profession and the two
+language skills — are handled as the SRD describes them: each subject is a
+separate skill with its own ranks. The subject lists are scraped rather than
+transcribed, using the SRD's own stated counts ("the fourteen Knowledge
+categories") to separate the list from the section headings that follow it in
+the same shape: 14 Knowledge, 8 Perform, 7 Craft. Profession and the languages
+are open, so their subject is typed rather than chosen.
+
+The two language skills are marked `perRank`, because the SRD says they do not
+work like a standard skill: *"Each additional language costs 1 rank"* and *"a
+character never makes Speak Language checks"*. Each rank buys one language, and
+no rank cap applies.
+
 **Skill points are spent in those screens too** — the creator's Skills step for
 a starting character's (points + Int) x 4, and the level-up screen for each
 level's allocation. Both use the same costing: one point per rank in a class

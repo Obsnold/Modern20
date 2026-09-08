@@ -684,7 +684,11 @@ def scrape_vehicles() -> list[dict]:
     return [vehicles[k] for k in sorted(vehicles)]
 
 
-NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5}
+NUMBER_WORDS = {
+    "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+    "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
+    "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16,
+}
 
 # The boilerplate that sits between the instruction and the actual list.
 SKILL_LIST_SPLIT = re.compile(r"using that skill\.\s*", re.I)
@@ -779,6 +783,52 @@ def parse_feat_choices(text: str) -> list[str]:
     return names
 
 
+# "The fourteen Knowledge categories, and the topics each one encompasses..."
+# The SRD states its own count, which is what separates the list from the
+# section headings that follow it in the same name/description shape.
+CATEGORY_INTRO = re.compile(r"The (\w+) (\w[\w/ ]*?) categories,", re.I)
+
+# Skills whose specialty is chosen freely rather than from a stated list.
+OPEN_SPECIALTIES = {"profession", "readWriteLanguage", "speakLanguage"}
+
+
+def scrape_skill_specialties() -> dict:
+    """The category list for each skill that is taken per subject."""
+    lines = text_lines(srd.fetch(srd.PAGES["skills"]))
+    found = {}
+
+    for index, line in enumerate(lines):
+        match = CATEGORY_INTRO.search(line)
+        if not match:
+            continue
+        count = NUMBER_WORDS.get(match.group(1).lower())
+        skill = camel(match.group(2).strip())
+
+        categories = []
+        cursor = index + 1
+        while cursor + 1 < len(lines):
+            name, value = lines[cursor], lines[cursor + 1]
+            if not is_value(value) or len(name) > 45 or is_value(name):
+                break
+            categories.append(name)
+            cursor += 2
+
+        found[skill] = categories[:count] if count else categories
+
+    # Craft's categories are separate headings rather than a listed set.
+    craft = sorted({
+        m.group(1) for m in (re.match(r"^Craft \(([a-z ]+)\)$", l) for l in lines) if m
+    })
+    if craft:
+        found["craft"] = [c.title() for c in craft]
+
+    for key in OPEN_SPECIALTIES:
+        found.setdefault(key, [])
+
+    return {key: {"options": value, "open": key in OPEN_SPECIALTIES}
+            for key, value in sorted(found.items())}
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -856,6 +906,8 @@ def main() -> int:
     print("Extracting datasets...")
     skills = scrape_skills()
     write("skills.json", skills)
+    specialties = scrape_skill_specialties()
+    write("skill_specialties.json", specialties)
     classes = scrape_classes(skills)
     write("classes.json", classes)
     feats = scrape_feats()
@@ -876,7 +928,7 @@ def main() -> int:
     write("tables.json", tables)
 
     levels = sum(len(c["progression"]) for c in classes)
-    print(f"\n{len(skills)} skills, {len(classes)} classes ({levels} levels), "
+    print(f"\n{len(skills)} skills ({sum(len(v['options']) for v in specialties.values())} specialties), {len(classes)} classes ({levels} levels), "
           f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
           f"{len(creatures)} creatures, {len(spells)} spells, "
           f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "

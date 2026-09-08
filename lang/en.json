@@ -1499,10 +1499,14 @@
     "SkillPointsSpent": "Skill points spent",
     "Skills": {
       "Add": "Add",
+      "AddSubject": "Add",
       "Allocate": "Skill points",
       "Have": "Have",
       "Hint": "A rank in a class skill costs one point; a cross-class rank costs two. Caps are level + 3, or half that cross-class.",
+      "LanguageNote": "Languages: each rank is one language, and they are never rolled.",
       "NeedClass": "Choose a class first — it decides which skills are class skills and how many points you get.",
+      "NeedSubject": "Name the subject first.",
+      "NewSubjectOpen": "Name a subject or language",
       "TrainedNote": "* Trained only: unusable without at least one rank."
     },
     "Source": {

@@ -10,31 +10,76 @@ import { MODERN20 } from "../config.mjs";
  * in the system — but the numbers are shown so the player can see the rules.
  */
 
-/** Rows for a skill table, given the ranks already held and those being added. */
-export function skillRows(actor, { grantedSkills, pending = {}, characterLevel }) {
+/**
+ * Rows for a skill table.
+ *
+ * A skill taken per subject — Knowledge, Craft, a language — contributes one
+ * row per subject rather than a single row, because each subject is a separate
+ * skill with its own ranks. `pendingSpecialties` holds subjects being added in
+ * this sitting, keyed by skill then subject name.
+ */
+export function skillRows(actor, {
+  grantedSkills, pending = {}, pendingSpecialties = {}, characterLevel
+}) {
   const maxRanks = characterLevel + 3;
   const maxCrossClass = maxRanks / 2;
+  const rows = [];
 
-  return Object.entries(MODERN20.skills).map(([key, cfg]) => {
-    const existing = actor.system.skills[key];
-    const isClassSkill = existing.classSkill || grantedSkills.has(key);
-    const added = pending[key] ?? 0;
-    const total = existing.ranks + added;
+  for (const [key, cfg] of Object.entries(MODERN20.skills)) {
+    const stored = actor.system.skills[key];
+    const isClassSkill = stored.classSkill || grantedSkills.has(key);
+    const cap = isClassSkill ? maxRanks : maxCrossClass;
+    const specialty = MODERN20.skillSpecialties[key];
 
-    return {
+    const base = {
       key,
       label: game.i18n.localize(cfg.label),
       ability: cfg.ability,
       trainedOnly: cfg.trainedOnly,
       classSkill: isClassSkill,
-      existing: existing.ranks,
-      added,
-      total,
-      cost: added * (isClassSkill ? 1 : 2),
-      cap: isClassSkill ? maxRanks : maxCrossClass,
-      overCap: total > (isClassSkill ? maxRanks : maxCrossClass)
+      cap,
+      // A language rank buys one language, so its cap is not a rank ceiling.
+      perRank: Boolean(specialty?.perRank)
     };
-  });
+
+    if (!specialty) {
+      const added = pending[key] ?? 0;
+      const total = stored.ranks + added;
+      rows.push({
+        ...base, field: `rank.${key}`, existing: stored.ranks, added, total,
+        cost: added * (isClassSkill ? 1 : 2), overCap: total > cap
+      });
+      continue;
+    }
+
+    // A heading row, so the subjects beneath it read as one skill.
+    rows.push({ ...base, header: true, specialtyKey: key,
+                options: specialty.options, open: specialty.open });
+
+    const subjects = new Map();
+    for (const entry of stored.specialties) subjects.set(entry.name, entry.ranks);
+    for (const [name, ranks] of Object.entries(pendingSpecialties[key] ?? {})) {
+      if (!subjects.has(name)) subjects.set(name, 0);
+    }
+
+    for (const [name, existingRanks] of subjects) {
+      const added = pendingSpecialties[key]?.[name] ?? 0;
+      const total = existingRanks + added;
+      rows.push({
+        ...base,
+        label: `${base.label} (${name})`,
+        specialty: name,
+        field: `specialty.${key}.${name}`,
+        existing: existingRanks,
+        added,
+        total,
+        cost: added * (isClassSkill ? 1 : 2),
+        overCap: !base.perRank && total > cap
+      });
+    }
+  }
+
+  return rows;
 }
 
 /** What a set of pending ranks costs in points. */
@@ -52,12 +97,29 @@ export function pointsForLevel(perLevel, intMod, { firstLevelEver = false } = {}
   return firstLevelEver ? each * 4 : each;
 }
 
-/** Fold pending ranks into the update payload for an actor. */
-export function rankUpdates(actor, pending) {
+/** Fold pending ranks and subjects into the update payload for an actor. */
+export function rankUpdates(actor, pending, pendingSpecialties = {}) {
   const updates = {};
+
   for (const [key, added] of Object.entries(pending)) {
     if (!added) continue;
     updates[`system.skills.${key}.ranks`] = actor.system.skills[key].ranks + added;
   }
+
+  for (const [key, subjects] of Object.entries(pendingSpecialties)) {
+    const stored = actor.system.skills[key];
+    if (!stored) continue;
+    // Rebuild the whole array: an ArrayField is replaced, not merged.
+    const merged = stored.specialties.map((entry) => ({ ...entry }));
+    for (const [name, added] of Object.entries(subjects)) {
+      const existing = merged.find((entry) => entry.name === name);
+      if (existing) existing.ranks += added;
+      else merged.push({ name, ranks: added, misc: 0, classSkill: false });
+    }
+    updates[`system.skills.${key}.specialties`] = merged
+      .filter((entry) => entry.name && entry.ranks > 0)
+      .map(({ name, ranks, misc, classSkill }) => ({ name, ranks, misc, classSkill }));
+  }
+
   return updates;
 }
