@@ -50,9 +50,7 @@ export class Modern20Hero extends Modern20ActorBase {
 
       // The Wealth economy: no currency, just a bonus that erodes as you buy.
       wealth: new fields.SchemaField({
-        bonus: int(0),
-        // Purchases the GM has granted but not yet charged against Wealth.
-        pendingPurchases: new fields.NumberField({ required: true, initial: 0, min: 0 })
+        bonus: int(0)
       }),
 
       reputation: new fields.SchemaField({
@@ -100,7 +98,14 @@ export class Modern20Hero extends Modern20ActorBase {
       MODERN20.actionPoints.startingBase +
         Math.floor(this.details.level * MODERN20.actionPoints.perLevel);
 
-    this.reputation.value = this.reputation.base + this.reputation.misc;
+    // An occupation's Reputation bonus is a permanent character trait, so it
+    // is derived. Its Wealth bonus is a one-time increase to starting Wealth
+    // and is applied when the occupation is added, not re-added every pass.
+    const occupationReputation = (this.parent?.items ?? [])
+      .filter((i) => i.type === "occupation")
+      .reduce((total, i) => total + (i.system.reputationBonus ?? 0), 0);
+
+    this.reputation.value = this.reputation.base + this.reputation.misc + occupationReputation;
 
     // Max ranks: level + 3 for a class skill, half that for cross-class.
     this.skillPoints.maxRanks = this.details.level + 3;

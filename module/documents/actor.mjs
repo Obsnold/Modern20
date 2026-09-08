@@ -120,6 +120,10 @@ export class Modern20Actor extends Actor {
     const hp = this.system.hp;
     if (!hp) return null;
 
+    // Damage reduction was stored on every actor but never subtracted.
+    const reduction = this.system.attributes?.damageReduction ?? 0;
+    amount = Math.max(0, amount - reduction);
+
     const afterTemp = Math.max(0, amount - hp.temp);
     const temp = Math.max(0, hp.temp - amount);
     const value = hp.value - afterTemp;
