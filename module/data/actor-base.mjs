@@ -44,6 +44,33 @@ function skillField() {
 }
 
 /**
+ * Fresh attribute fields.
+ *
+ * A factory rather than a shared object: a DataField instance belongs to
+ * exactly one parent schema, and Foundry throws "already belongs to some other
+ * parent and may not be reused" if a subclass spreads another schema's field
+ * instances into its own. Subtypes that extend `attributes` call this to get
+ * their own instances.
+ */
+function attributeFields() {
+  return {
+    baseAttack: int(0),
+    size: new fields.StringField({
+      required: true,
+      initial: "medium",
+      choices: Object.keys(MODERN20.sizes)
+    }),
+    speed: int(30),
+    initiative: new fields.SchemaField({ misc: int(0) }),
+    damageReduction: int(0),
+    // Blank means "use the Constitution score", which is the default rule.
+    massiveDamageThreshold: new fields.NumberField({
+      required: false, nullable: true, integer: true, initial: null
+    })
+  };
+}
+
+/**
  * Everything with hit points, abilities and Defense. `hero`, `ordinary` and
  * `creature` all extend this; `vehicle` does not.
  */
@@ -78,21 +105,7 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
         )
       ),
 
-      attributes: new fields.SchemaField({
-        baseAttack: int(0),
-        size: new fields.StringField({
-          required: true,
-          initial: "medium",
-          choices: Object.keys(MODERN20.sizes)
-        }),
-        speed: int(30),
-        initiative: new fields.SchemaField({ misc: int(0) }),
-        damageReduction: int(0),
-        // Blank means "use the Constitution score", which is the default rule.
-        massiveDamageThreshold: new fields.NumberField({
-          required: false, nullable: true, integer: true, initial: null
-        })
-      }),
+      attributes: new fields.SchemaField(attributeFields()),
 
       skills: new fields.SchemaField(
         Object.fromEntries(Object.keys(MODERN20.skills).map((k) => [k, skillField()]))
@@ -211,4 +224,4 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
   }
 }
 
-export { abilityField, skillField, skillEntryField, int };
+export { abilityField, skillField, skillEntryField, attributeFields, int };
