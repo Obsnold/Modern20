@@ -18,7 +18,7 @@ import {
 } from "./sheets/npc-sheets.mjs";
 import { Modern20ItemSheet } from "./sheets/item-sheet.mjs";
 import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
-import { applyOccupation } from "./apps/occupation.mjs";
+import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
 
 const SYSTEM_ID = "modern20";
 
@@ -68,19 +68,32 @@ Hooks.once("init", () => {
 });
 
 /**
- * A starting occupation offers a choice of class skills and sometimes a bonus
- * feat, and grants a one-time Wealth increase. Run when it is added, by
- * whoever owns the character, so it does not fire once per connected client.
+ * An occupation's Wealth increase is applied when it is added. The skill and
+ * bonus feat choices are made inline - in the creator, or on the occupation
+ * item's own sheet - rather than by interrupting with a dialog.
  */
 Hooks.on("createItem", async (item) => {
   if (item.type !== "occupation") return;
   const actor = item.parent;
-  if (!actor) return;
-  if (!actor.isOwner) return;
-  // Only one client should run the prompts and the update.
+  if (!actor?.isOwner) return;
+  // One client applies it, or the bonus is added once per connected owner.
   if (game.users.activeGM?.id !== game.user.id && !actor.testUserPermission(game.user, "OWNER")) return;
 
-  await applyOccupation(actor, item);
+  await applyOccupationWealth(actor, item);
+});
+
+/**
+ * Picking the occupation's bonus feat on its sheet grants the feat, so the
+ * choice has an effect without a separate step.
+ */
+Hooks.on("updateItem", async (item, changes) => {
+  if (item.type !== "occupation") return;
+  const chosen = changes.system?.bonusFeatChosen;
+  if (!chosen) return;
+  const actor = item.parent;
+  if (!actor?.isOwner) return;
+
+  await grantFeatByName(actor, chosen);
 });
 
 Hooks.once("ready", () => {
