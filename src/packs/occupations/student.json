@@ -1,0 +1,21 @@
+{
+  "_id": "aPw4fKF3IpzDmGjq",
+  "name": "Student",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "A student can be in high school, college, or graduate school. He or she could be in a seminary, a military school, or a private institution. A college-age student should also pick a major field of study.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+."
+    ]
+  },
+  "_key": "!items!aPw4fKF3IpzDmGjq"
+}

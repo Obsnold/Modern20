@@ -1,0 +1,20 @@
+{
+  "_id": "Tab9hmxXo8Xt9ruc",
+  "name": "Aircraft Operation",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Pilot 4 ranks."
+    ],
+    "benefit": "The character takes no penalty on Pilot checks or attack rolls made when operating an aircraft of the selected class.",
+    "normal": "Characters without this feat take a –4 penalty on Pilot checks made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.",
+    "special": "The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.",
+    "repeatable": false
+  },
+  "_key": "!items!Tab9hmxXo8Xt9ruc"
+}

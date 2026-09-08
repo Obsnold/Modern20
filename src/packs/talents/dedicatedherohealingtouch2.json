@@ -1,0 +1,18 @@
+{
+  "_id": "OjqGeaqEdPeCLK7w",
+  "name": "Healing Touch 2",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The Dedicated hero’s ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html",
+    "tree": "Healing Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "prerequisites": [
+      "Healing knack",
+      "healing touch 1."
+    ]
+  },
+  "_key": "!items!OjqGeaqEdPeCLK7w"
+}

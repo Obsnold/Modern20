@@ -1,0 +1,17 @@
+{
+  "_id": "p4VzNWdWMNUuBefc",
+  "name": "Improved Aid Another",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The Dedicated hero’s bonus on attempts to aid another increases by +1 on a successful aid another check. This talent can be selected multiple times, each time increasing the bonus by +1.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html",
+    "tree": "Empathic Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "prerequisites": [
+      "Empathy."
+    ]
+  },
+  "_key": "!items!p4VzNWdWMNUuBefc"
+}

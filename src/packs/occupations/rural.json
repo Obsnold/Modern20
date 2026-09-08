@@ -1,0 +1,21 @@
+{
+  "_id": "inojw0nuhakMULtI",
+  "name": "Rural",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Farm workers, hunters, and others who make a living in rural communities fall under this category.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "Select either Brawl or Personal Firearms Proficiency.",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+."
+    ]
+  },
+  "_key": "!items!inojw0nuhakMULtI"
+}

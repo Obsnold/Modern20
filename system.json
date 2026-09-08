@@ -117,6 +117,39 @@
       }
     },
     {
+      "name": "occupations",
+      "label": "Occupations",
+      "path": "packs/occupations",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "talents",
+      "label": "Talents",
+      "path": "packs/talents",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "feats",
+      "label": "Feats",
+      "path": "packs/feats",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "weapons",
       "label": "Weapons",
       "path": "packs/weapons",

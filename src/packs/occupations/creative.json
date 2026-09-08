@@ -1,0 +1,21 @@
+{
+  "_id": "EqOFfvYceOJclyGb",
+  "name": "Creative",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "The creative starting occupation covers artists of all types who fan their creative spark into a career. Illustrators, copywriters, cartoonists, graphic artists, novelists, magazine columnists, actors, sculptors, game designers, musicians, screenwriters, photographers, and web designers all fall under this occupation.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+."
+    ]
+  },
+  "_key": "!items!EqOFfvYceOJclyGb"
+}

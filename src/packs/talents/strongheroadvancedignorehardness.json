@@ -1,0 +1,18 @@
+{
+  "_id": "1YCUhHnlsKWx4sDO",
+  "name": "Advanced Ignore Hardness",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The Strong hero ignores 2 additional points of an object’s hardness (for a total of 6).",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html",
+    "tree": "Ignore Hardness Talent Tree",
+    "sourceClass": "Strong Hero",
+    "prerequisites": [
+      "Ignore hardness",
+      "improved ignore hardness."
+    ]
+  },
+  "_key": "!items!1YCUhHnlsKWx4sDO"
+}

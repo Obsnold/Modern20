@@ -1,0 +1,20 @@
+{
+  "_id": "f108T0dKcWsjXHgp",
+  "name": "Quick Reload",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Base attack bonus +1."
+    ],
+    "benefit": "Reloading a firearm with an already filled box magazine or speed loader is a free action. Reloading a revolver without a speed loader, or reloading any firearm with an internal magazine, is a move action.",
+    "normal": "Reloading a firearm with an already filled box magazine or speed loader is a move action. Reloading a revolver without a speed loader, or reloading any firearm with an internal magazine, is a full-round action.",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!f108T0dKcWsjXHgp"
+}

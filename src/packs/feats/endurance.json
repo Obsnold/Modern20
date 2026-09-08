@@ -1,0 +1,18 @@
+{
+  "_id": "ipoS72vYsA65Mk4K",
+  "name": "Endurance",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [],
+    "benefit": "The character gains a +4 bonus on the following checks and saves: hourly Swim checks to avoid becoming fatigued, Constitution checks to continue running, Constitution checks to hold the character’s breath, Constitution checks to avoid damage from starvation or thirst, Fortitude saves to avoid damage from hot or cold environments, and Fortitude saves to resist suffocation or drowning.",
+    "normal": "A character without this feat who sleeps in armor is automatically fatigued the following day.",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!ipoS72vYsA65Mk4K"
+}

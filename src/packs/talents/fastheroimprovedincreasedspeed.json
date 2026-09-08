@@ -1,0 +1,17 @@
+{
+  "_id": "BRuDsPKjyljPvtUE",
+  "name": "Improved Increased Speed",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The Fast hero’s base speed increases by 5 feet. This talent stacks with increased speed (10 feet total).",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html",
+    "tree": "Increased Speed Talent Tree",
+    "sourceClass": "Fast Hero",
+    "prerequisites": [
+      "Increased speed."
+    ]
+  },
+  "_key": "!items!BRuDsPKjyljPvtUE"
+}

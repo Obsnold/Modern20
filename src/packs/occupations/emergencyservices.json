@@ -1,0 +1,21 @@
+{
+  "_id": "37iTuLGvgK4KaThv",
+  "name": "Emergency Services",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Rescue workers, firefighters, paramedics, hazardous material handlers, and emergency medical technicians fall under this category.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 18+."
+    ]
+  },
+  "_key": "!items!37iTuLGvgK4KaThv"
+}

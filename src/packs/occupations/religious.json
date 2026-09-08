@@ -1,0 +1,21 @@
+{
+  "_id": "4GLIgdVM10IYIQI8",
+  "name": "Religious",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Ordained clergy of all persuasions, as well as theological scholars and experts on religious studies fall within the scope of this starting occupation.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 23+."
+    ]
+  },
+  "_key": "!items!4GLIgdVM10IYIQI8"
+}

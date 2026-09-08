@@ -1,0 +1,15 @@
+{
+  "_id": "icSz1ep1TjAf97EP",
+  "name": "Savant",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "Select one of the skills listed in the following paragraph. The hero must have ranks in the skill if it is Trained Only. The Smart hero gets to add a bonus equal to his or her Smart level when making checks with that skill. A Smart hero can take this talent multiple times; each time it applies to a different skill.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html",
+    "tree": "Research Talent Tree",
+    "sourceClass": "Smart Hero",
+    "prerequisites": []
+  },
+  "_key": "!items!icSz1ep1TjAf97EP"
+}

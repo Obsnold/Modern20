@@ -1,0 +1,18 @@
+{
+  "_id": "eBbKFzA4t9P1MkAP",
+  "name": "Brawl",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [],
+    "benefit": "When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier.",
+    "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!eBbKFzA4t9P1MkAP"
+}

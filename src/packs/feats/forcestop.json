@@ -1,0 +1,21 @@
+{
+  "_id": "Vpkvf3xX0Bj5HMX2",
+  "name": "Force Stop",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Drive 4 ranks",
+      "Vehicle Expert."
+    ],
+    "benefit": "When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character’s turn number.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!Vpkvf3xX0Bj5HMX2"
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "eyphSL5rKgJcC6Lk",
+  "name": "Criminal",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "This illicit starting occupation reveals a background from the wrong side of the law. This occupation includes con artists, burglars, thieves, crime family soldiers, gang members, bank robbers, and other types of career criminals.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "Select either Brawl or Personal Firearms Proficiency.",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+."
+    ]
+  },
+  "_key": "!items!eyphSL5rKgJcC6Lk"
+}

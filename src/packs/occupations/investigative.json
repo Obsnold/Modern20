@@ -1,0 +1,21 @@
+{
+  "_id": "lUNxc63vgfoQeLZX",
+  "name": "Investigative",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "There are a number of jobs that fit within this occupation, including investigative reporters, photojournalists, private investigators, police detectives, criminologists, criminal profilers, espionage agents, and others who use their skills to gather evidence and analyze clues.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "Select either Brawl or Personal Firearms Proficiency.",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 23+."
+    ]
+  },
+  "_key": "!items!lUNxc63vgfoQeLZX"
+}

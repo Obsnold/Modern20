@@ -1,0 +1,17 @@
+{
+  "_id": "X01GXLXkjf08tBYe",
+  "name": "Aware",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The Dedicated hero is intuitively aware of his or her surroundings. The hero adds his or her base Will saving throw bonus to Listen or Spot checks to avoid surprise.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html",
+    "tree": "Insightful Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "prerequisites": [
+      "Skill emphasis."
+    ]
+  },
+  "_key": "!items!X01GXLXkjf08tBYe"
+}

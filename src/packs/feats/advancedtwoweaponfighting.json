@@ -1,0 +1,23 @@
+{
+  "_id": "kj37j9OYXCSZmKJu",
+  "name": "Advanced Two-Weapon Fighting",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Dexterity 13",
+      "Two-Weapon Fighting",
+      "Improved Two-Weapon Fighting",
+      "base attack bonus +11."
+    ],
+    "benefit": "The character gets a third attack with his or her offhand weapon, albeit at a –10 penalty. This feat also allows the character to use a melee weapon in one hand and a ranged weapon in the other.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!kj37j9OYXCSZmKJu"
+}

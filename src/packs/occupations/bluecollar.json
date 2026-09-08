@@ -1,0 +1,21 @@
+{
+  "_id": "ZvprriN4V23KPj8t",
+  "name": "Blue Collar",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Blue collar occupations include factory work, food service jobs, construction, service industry jobs, taxi drivers, postal workers, and other jobs that are usually not considered to be desk jobs.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 18+."
+    ]
+  },
+  "_key": "!items!ZvprriN4V23KPj8t"
+}

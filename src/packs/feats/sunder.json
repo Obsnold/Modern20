@@ -1,0 +1,21 @@
+{
+  "_id": "rAcu16ymR6l45QHK",
+  "name": "Sunder",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Strength 13",
+      "Power Attack."
+    ],
+    "benefit": "When the character strikes an object held or carried by an opponent, such as a weapon, the character does not provoke an attack of opportunity.",
+    "normal": "A character without this feat incurs an attack of opportunity when he or she strikes at an object held or carried by another character.",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!rAcu16ymR6l45QHK"
+}
