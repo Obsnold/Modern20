@@ -198,6 +198,25 @@
 .modern20 .m20-tag--dc { background: #e3ecdf; font-variant-numeric: tabular-nums; }
 .modern20 .m20-tag--level { background: #dfe6ec; font-weight: 600; }
 
+/* Provenance reads as secondary to the item's own name. */
+.modern20 .m20-tag--source {
+  background: transparent;
+  border-style: dashed;
+  color: var(--m20-muted);
+  font-size: 0.62rem;
+}
+
+.modern20 .m20-logentry {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.3rem 0.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.8rem;
+}
+
+.modern20 .m20-logentry__body { flex: 1; }
+
 /* Level controls sit tight against their tag so the group reads as one unit. */
 .modern20 .m20-levelctl {
   display: inline-flex;

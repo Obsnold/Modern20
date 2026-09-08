@@ -203,28 +203,37 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
   }
 
   /**
-   * Skills the character's classes and occupations make class skills.
-   * A hand-ticked box still counts, so the stored value acts as an override
-   * for anything granted outside these items.
+   * Which item made each skill a class skill, keyed by skill id.
+   *
+   * Kept as names rather than a boolean so the sheet can answer "why is this a
+   * class skill" — a character with several classes and an occupation has no
+   * other way to tell where a grant came from.
    */
-  get grantedClassSkills() {
-    const granted = new Set();
+  get classSkillSources() {
+    const sources = {};
+    const add = (key, name) => {
+      sources[key] ??= [];
+      if (!sources[key].includes(name)) sources[key].push(name);
+    };
+
     for (const item of this.parent?.items ?? []) {
       if (item.type === "class") {
-        for (const key of item.system.classSkills ?? []) granted.add(key);
+        for (const key of item.system.classSkills ?? []) add(key, item.name);
       } else if (item.type === "occupation") {
-        for (const key of item.system.skillsChosen ?? []) granted.add(key);
+        for (const key of item.system.skillsChosen ?? []) add(key, item.name);
       }
     }
-    return granted;
+    return sources;
   }
 
   #prepareSkills() {
-    const granted = this.grantedClassSkills;
+    const sources = this.classSkillSources;
     for (const [key, cfg] of Object.entries(MODERN20.skills)) {
       const skill = this.skills[key];
       // Derived, so removing a class removes what it granted.
-      skill.grantedByClass = granted.has(key);
+      skill.sources = sources[key] ?? [];
+      skill.grantedByClass = skill.sources.length > 0;
+      skill.sourceLabel = skill.sources.join(", ");
       skill.classSkill = skill.classSkill || skill.grantedByClass;
       const abilityMod = cfg.ability ? this.abilities[cfg.ability].mod : 0;
       const penalty = cfg.armorCheck ? this.attributes.armorCheckPenalty : 0;
@@ -240,6 +249,8 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
 
       for (const specialty of skill.specialties) {
         specialty.grantedByClass = skill.grantedByClass;
+        specialty.sources = skill.sources;
+        specialty.sourceLabel = skill.sourceLabel;
         specialty.classSkill = specialty.classSkill || skill.grantedByClass;
         specialty.total = totalOf(specialty);
         specialty.usable = !cfg.trainedOnly || specialty.ranks > 0;

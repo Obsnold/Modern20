@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { talentChoices, featChoices, grant, grantNamedFeature } from "./level-up.mjs";
+import { talentChoices, featChoices, grant, grantNamedFeature, sourceStamp } from "./level-up.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./occupation.mjs";
 import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
@@ -308,7 +308,11 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     await actor.update({ "system.hp.max": gained, "system.hp.value": gained });
 
     const granted = [];
-    const talent = await grant(actor, state.talentUuid);
+    const talent = await grant(actor, state.talentUuid, sourceStamp({
+      origin: "creation",
+      label: game.i18n.format("MODERN20.Source.ClassLevel", { name: created.name, level: 1 }),
+      characterLevel: 1
+    }));
     if (talent) granted.push(talent.name);
 
     const features = created.system.progression?.find((r) => r.level === 1)?.features ?? [];
@@ -320,6 +324,22 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
 
     const ranks = rankUpdates(actor, state.ranks);
     if (Object.keys(ranks).length) await actor.update(ranks);
+
+    const spentRanks = Object.entries(state.ranks)
+      .filter(([, added]) => added)
+      .map(([key, added]) => `${game.i18n.localize(MODERN20.skills[key].label)} +${added}`);
+
+    await actor.update({
+      "system.advancement": [{
+        characterLevel: 1,
+        className: created.name,
+        classLevel: 1,
+        hitPoints: gained,
+        gained: [...granted, ...spentRanks],
+        note: game.i18n.localize("MODERN20.Source.Created"),
+        at: new Date().toISOString()
+      }]
+    });
 
     if (actor.system.actionPoints) {
       await actor.update({ "system.actionPoints.value": actor.system.actionPoints.max });

@@ -37,7 +37,8 @@
             <td>
               {{#if row.grantedByClass}}
                 <i class="fa-solid fa-check m20-granted"
-                   title="{{localize 'MODERN20.GrantedByClass'}}"></i>
+                   data-tooltip="{{row.sourceLabel}}"
+                   title="{{row.sourceLabel}}"></i>
               {{else}}
                 <input type="checkbox" {{#if row.classSkill}}checked{{/if}}
                        name="system.skills.{{row.key}}{{#if row.specialty}}.specialties.{{row.index}}{{/if}}.classSkill">

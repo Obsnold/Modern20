@@ -941,7 +941,6 @@
       "General": "General Feat"
     },
     "FlatFooted": "Flat-Footed",
-    "GrantedByClass": "Class skill, granted by a class or occupation",
     "Grapple": "Grapple",
     "Handling": "Handling",
     "Hardness": "Hardness",
@@ -1506,7 +1505,13 @@
       "NeedClass": "Choose a class first — it decides which skills are class skills and how many points you get.",
       "TrainedNote": "* Trained only: unusable without at least one rank."
     },
-    "Source": "Source",
+    "Source": {
+      "AbilityRaised": "{ability} raised to {value}",
+      "ClassLevel": "{name} level {level}",
+      "Created": "Character created",
+      "LogTitle": "Advancement log",
+      "Milestone": "Character level {level}"
+    },
     "SpecialQualities": "Special Qualities",
     "SpecialtySkill": "Choose a subject",
     "Speed": "Speed",

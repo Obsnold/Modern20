@@ -108,6 +108,9 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     };
     context.skills = this._prepareSkillRows(actor.system.skills);
 
+    // Newest first: what happened most recently is what a player checks.
+    context.advancement = [...(actor.system.advancement ?? [])].reverse();
+
     return context;
   }
 
@@ -120,12 +123,22 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
   }
 
   /** Group owned items so each tab can render its own list. */
+  /** The provenance stamp a granted item carries, if any. */
+  _sourceOf(item) {
+    return item.getFlag("modern20", "source")?.label ?? "";
+  }
+
   _sortItemsByType(items) {
     const groups = {
       class: [], occupation: [], talent: [], feat: [],
       weapon: [], armor: [], gear: [], spell: [], psiPower: [], vehicleMod: []
     };
-    for (const item of items) groups[item.type]?.push(item);
+    for (const item of items) {
+      if (!groups[item.type]) continue;
+      // Attached rather than stored, so the sheet can show where it came from.
+      item.grantSource = this._sourceOf(item);
+      groups[item.type].push(item);
+    }
     for (const list of Object.values(groups)) list.sort((a, b) => a.sort - b.sort);
     return groups;
   }

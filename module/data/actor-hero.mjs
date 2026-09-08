@@ -66,6 +66,21 @@ export class Modern20Hero extends Modern20ActorBase {
         })
       }),
 
+      // An append-only record of what each level added, so a character can be
+      // audited long after the screens that built it were closed.
+      advancement: new fields.ArrayField(
+        new fields.SchemaField({
+          characterLevel: int(1, { min: 1 }),
+          className: new fields.StringField({ initial: "" }),
+          classLevel: int(1, { min: 0 }),
+          hitPoints: int(0),
+          gained: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+          note: new fields.StringField({ initial: "" }),
+          at: new fields.StringField({ initial: "" })
+        }),
+        { initial: [] }
+      ),
+
       skillPoints: new fields.SchemaField({
         spentOverride: new fields.NumberField({
           required: false, nullable: true, integer: true, initial: null
