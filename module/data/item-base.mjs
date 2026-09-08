@@ -5,6 +5,7 @@ export const int = (initial = 0, opts = {}) =>
 
 /** Fields every item carries, including the OGL attribution for scraped content. */
 export class Modern20ItemBase extends foundry.abstract.TypeDataModel {
+
   static defineSchema() {
     return {
       description: new fields.HTMLField({ initial: "" }),

@@ -6,6 +6,9 @@ const int = (initial = 0, opts = {}) =>
 
 /** A vehicle. Vehicles have no abilities or saves, so this does not extend the actor base. */
 export class Modern20Vehicle extends foundry.abstract.TypeDataModel {
+  /** Field labels and hints come from lang/en.json under these prefixes. */
+  static LOCALIZATION_PREFIXES = ["MODERN20.Actor.Vehicle"];
+
   static defineSchema() {
     return {
       crew: int(1, { min: 0 }),

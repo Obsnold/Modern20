@@ -5,6 +5,9 @@ const fields = foundry.data.fields;
 
 /** A player hero: talents, action points, Reputation and a Wealth bonus. */
 export class Modern20Hero extends Modern20ActorBase {
+  /** Field labels and hints come from lang/en.json under these prefixes. */
+  static LOCALIZATION_PREFIXES = ["MODERN20.Actor.Hero"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),

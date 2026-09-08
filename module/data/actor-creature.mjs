@@ -4,6 +4,9 @@ const fields = foundry.data.fields;
 
 /** A creature stat block from the SRD Creatures chapter. */
 export class Modern20Creature extends Modern20ActorBase {
+  /** Field labels and hints come from lang/en.json under these prefixes. */
+  static LOCALIZATION_PREFIXES = ["MODERN20.Actor.Creature"];
+
   static defineSchema() {
     const base = super.defineSchema();
     return {

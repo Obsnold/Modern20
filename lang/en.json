@@ -29,6 +29,825 @@
     },
     "Acquisition": "Acquisition",
     "ActionPoints": "Action Points",
+    "Actor": {
+      "Creature": {
+        "FIELDS": {
+          "abilities": {
+            "label": "Abilities"
+          },
+          "abilities.cha": {
+            "label": "Charisma"
+          },
+          "abilities.con": {
+            "label": "Constitution"
+          },
+          "abilities.dex": {
+            "label": "Dexterity"
+          },
+          "abilities.int": {
+            "label": "Intelligence"
+          },
+          "abilities.str": {
+            "label": "Strength"
+          },
+          "abilities.wis": {
+            "label": "Wisdom"
+          },
+          "allegiances": {
+            "label": "Allegiances"
+          },
+          "attributes": {
+            "label": "Attributes"
+          },
+          "attributes.baseAttack": {
+            "label": "Base Attack Bonus"
+          },
+          "attributes.damageReduction": {
+            "label": "Damage Reduction"
+          },
+          "attributes.initiative": {
+            "label": "Initiative"
+          },
+          "attributes.massiveDamageThreshold": {
+            "label": "Massive Damage Threshold"
+          },
+          "attributes.reach": {
+            "label": "Reach"
+          },
+          "attributes.size": {
+            "label": "Size"
+          },
+          "attributes.space": {
+            "label": "Space"
+          },
+          "attributes.speed": {
+            "label": "Speed"
+          },
+          "biography": {
+            "label": "Biography"
+          },
+          "defense": {
+            "label": "Defense"
+          },
+          "defense.classBonus": {
+            "label": "Class Defense Bonus"
+          },
+          "defense.misc": {
+            "label": "Misc"
+          },
+          "defense.naturalArmor": {
+            "label": "Natural Armor"
+          },
+          "details": {
+            "label": "Details"
+          },
+          "details.advancement": {
+            "label": "Advancement"
+          },
+          "details.challengeRating": {
+            "label": "Challenge Rating"
+          },
+          "details.creatureType": {
+            "label": "Creature Type"
+          },
+          "details.hitDice": {
+            "label": "Hit Dice"
+          },
+          "details.organization": {
+            "label": "Organization"
+          },
+          "details.subtype": {
+            "label": "Subtype"
+          },
+          "details.treasure": {
+            "label": "Treasure"
+          },
+          "hp": {
+            "label": "Hit Points"
+          },
+          "hp.formula": {
+            "label": "Formula"
+          },
+          "hp.max": {
+            "label": "Max"
+          },
+          "hp.temp": {
+            "label": "Temp"
+          },
+          "hp.value": {
+            "label": "Value"
+          },
+          "saves": {
+            "label": "Saves"
+          },
+          "saves.fort": {
+            "label": "Fortitude"
+          },
+          "saves.ref": {
+            "label": "Reflex"
+          },
+          "saves.will": {
+            "label": "Will"
+          },
+          "senses": {
+            "label": "Senses"
+          },
+          "skills": {
+            "label": "Skills"
+          },
+          "skills.balance": {
+            "label": "Balance"
+          },
+          "skills.bluff": {
+            "label": "Bluff"
+          },
+          "skills.climb": {
+            "label": "Climb"
+          },
+          "skills.computerUse": {
+            "label": "Computer Use"
+          },
+          "skills.concentration": {
+            "label": "Concentration"
+          },
+          "skills.craft": {
+            "label": "Craft"
+          },
+          "skills.decipherScript": {
+            "label": "Decipher Script"
+          },
+          "skills.demolitions": {
+            "label": "Demolitions"
+          },
+          "skills.diplomacy": {
+            "label": "Diplomacy"
+          },
+          "skills.disableDevice": {
+            "label": "Disable Device"
+          },
+          "skills.disguise": {
+            "label": "Disguise"
+          },
+          "skills.drive": {
+            "label": "Drive"
+          },
+          "skills.escapeArtist": {
+            "label": "Escape Artist"
+          },
+          "skills.forgery": {
+            "label": "Forgery"
+          },
+          "skills.gamble": {
+            "label": "Gamble"
+          },
+          "skills.gatherInformation": {
+            "label": "Gather Information"
+          },
+          "skills.handleAnimal": {
+            "label": "Handle Animal"
+          },
+          "skills.hide": {
+            "label": "Hide"
+          },
+          "skills.intimidate": {
+            "label": "Intimidate"
+          },
+          "skills.investigate": {
+            "label": "Investigate"
+          },
+          "skills.jump": {
+            "label": "Jump"
+          },
+          "skills.knowledge": {
+            "label": "Knowledge"
+          },
+          "skills.listen": {
+            "label": "Listen"
+          },
+          "skills.moveSilently": {
+            "label": "Move Silently"
+          },
+          "skills.navigate": {
+            "label": "Navigate"
+          },
+          "skills.perform": {
+            "label": "Perform"
+          },
+          "skills.pilot": {
+            "label": "Pilot"
+          },
+          "skills.profession": {
+            "label": "Profession"
+          },
+          "skills.readWriteLanguage": {
+            "label": "Read Write Language"
+          },
+          "skills.repair": {
+            "label": "Repair"
+          },
+          "skills.research": {
+            "label": "Research"
+          },
+          "skills.ride": {
+            "label": "Ride"
+          },
+          "skills.search": {
+            "label": "Search"
+          },
+          "skills.senseMotive": {
+            "label": "Sense Motive"
+          },
+          "skills.sleightOfHand": {
+            "label": "Sleight of Hand"
+          },
+          "skills.speakLanguage": {
+            "label": "Speak Language"
+          },
+          "skills.spot": {
+            "label": "Spot"
+          },
+          "skills.survival": {
+            "label": "Survival"
+          },
+          "skills.swim": {
+            "label": "Swim"
+          },
+          "skills.treatInjury": {
+            "label": "Treat Injury"
+          },
+          "skills.tumble": {
+            "label": "Tumble"
+          },
+          "specialQualities": {
+            "label": "Special Qualities"
+          }
+        }
+      },
+      "Hero": {
+        "FIELDS": {
+          "abilities": {
+            "label": "Abilities"
+          },
+          "abilities.cha": {
+            "label": "Charisma"
+          },
+          "abilities.con": {
+            "label": "Constitution"
+          },
+          "abilities.dex": {
+            "label": "Dexterity"
+          },
+          "abilities.int": {
+            "label": "Intelligence"
+          },
+          "abilities.str": {
+            "label": "Strength"
+          },
+          "abilities.wis": {
+            "label": "Wisdom"
+          },
+          "actionPoints": {
+            "label": "Action Points"
+          },
+          "actionPoints.maxOverride": {
+            "label": "Max Override"
+          },
+          "actionPoints.value": {
+            "label": "Value"
+          },
+          "allegiances": {
+            "label": "Allegiances"
+          },
+          "attributes": {
+            "label": "Attributes"
+          },
+          "attributes.baseAttack": {
+            "label": "Base Attack Bonus"
+          },
+          "attributes.damageReduction": {
+            "label": "Damage Reduction"
+          },
+          "attributes.initiative": {
+            "label": "Initiative"
+          },
+          "attributes.massiveDamageThreshold": {
+            "label": "Massive Damage Threshold"
+          },
+          "attributes.size": {
+            "label": "Size"
+          },
+          "attributes.speed": {
+            "label": "Speed"
+          },
+          "biography": {
+            "label": "Biography"
+          },
+          "defense": {
+            "label": "Defense"
+          },
+          "defense.classBonus": {
+            "label": "Class Defense Bonus"
+          },
+          "defense.misc": {
+            "label": "Misc"
+          },
+          "defense.naturalArmor": {
+            "label": "Natural Armor"
+          },
+          "details": {
+            "label": "Details"
+          },
+          "details.age": {
+            "label": "Age"
+          },
+          "details.height": {
+            "label": "Height"
+          },
+          "details.levelOverride": {
+            "label": "Level Override"
+          },
+          "details.occupation": {
+            "label": "Occupation"
+          },
+          "details.weight": {
+            "label": "Weight"
+          },
+          "details.xp": {
+            "label": "Xp"
+          },
+          "hp": {
+            "label": "Hit Points"
+          },
+          "hp.formula": {
+            "label": "Formula"
+          },
+          "hp.max": {
+            "label": "Max"
+          },
+          "hp.temp": {
+            "label": "Temp"
+          },
+          "hp.value": {
+            "label": "Value"
+          },
+          "reputation": {
+            "label": "Reputation"
+          },
+          "reputation.base": {
+            "label": "Base"
+          },
+          "reputation.misc": {
+            "label": "Misc"
+          },
+          "saves": {
+            "label": "Saves"
+          },
+          "saves.fort": {
+            "label": "Fortitude"
+          },
+          "saves.ref": {
+            "label": "Reflex"
+          },
+          "saves.will": {
+            "label": "Will"
+          },
+          "skillPoints": {
+            "label": "Skill Points"
+          },
+          "skillPoints.spentOverride": {
+            "label": "Spent Override"
+          },
+          "skills": {
+            "label": "Skills"
+          },
+          "skills.balance": {
+            "label": "Balance"
+          },
+          "skills.bluff": {
+            "label": "Bluff"
+          },
+          "skills.climb": {
+            "label": "Climb"
+          },
+          "skills.computerUse": {
+            "label": "Computer Use"
+          },
+          "skills.concentration": {
+            "label": "Concentration"
+          },
+          "skills.craft": {
+            "label": "Craft"
+          },
+          "skills.decipherScript": {
+            "label": "Decipher Script"
+          },
+          "skills.demolitions": {
+            "label": "Demolitions"
+          },
+          "skills.diplomacy": {
+            "label": "Diplomacy"
+          },
+          "skills.disableDevice": {
+            "label": "Disable Device"
+          },
+          "skills.disguise": {
+            "label": "Disguise"
+          },
+          "skills.drive": {
+            "label": "Drive"
+          },
+          "skills.escapeArtist": {
+            "label": "Escape Artist"
+          },
+          "skills.forgery": {
+            "label": "Forgery"
+          },
+          "skills.gamble": {
+            "label": "Gamble"
+          },
+          "skills.gatherInformation": {
+            "label": "Gather Information"
+          },
+          "skills.handleAnimal": {
+            "label": "Handle Animal"
+          },
+          "skills.hide": {
+            "label": "Hide"
+          },
+          "skills.intimidate": {
+            "label": "Intimidate"
+          },
+          "skills.investigate": {
+            "label": "Investigate"
+          },
+          "skills.jump": {
+            "label": "Jump"
+          },
+          "skills.knowledge": {
+            "label": "Knowledge"
+          },
+          "skills.listen": {
+            "label": "Listen"
+          },
+          "skills.moveSilently": {
+            "label": "Move Silently"
+          },
+          "skills.navigate": {
+            "label": "Navigate"
+          },
+          "skills.perform": {
+            "label": "Perform"
+          },
+          "skills.pilot": {
+            "label": "Pilot"
+          },
+          "skills.profession": {
+            "label": "Profession"
+          },
+          "skills.readWriteLanguage": {
+            "label": "Read Write Language"
+          },
+          "skills.repair": {
+            "label": "Repair"
+          },
+          "skills.research": {
+            "label": "Research"
+          },
+          "skills.ride": {
+            "label": "Ride"
+          },
+          "skills.search": {
+            "label": "Search"
+          },
+          "skills.senseMotive": {
+            "label": "Sense Motive"
+          },
+          "skills.sleightOfHand": {
+            "label": "Sleight of Hand"
+          },
+          "skills.speakLanguage": {
+            "label": "Speak Language"
+          },
+          "skills.spot": {
+            "label": "Spot"
+          },
+          "skills.survival": {
+            "label": "Survival"
+          },
+          "skills.swim": {
+            "label": "Swim"
+          },
+          "skills.treatInjury": {
+            "label": "Treat Injury"
+          },
+          "skills.tumble": {
+            "label": "Tumble"
+          },
+          "wealth": {
+            "label": "Wealth"
+          },
+          "wealth.bonus": {
+            "label": "Bonus"
+          },
+          "wealth.pendingPurchases": {
+            "label": "Pending Purchases"
+          }
+        }
+      },
+      "Ordinary": {
+        "FIELDS": {
+          "abilities": {
+            "label": "Abilities"
+          },
+          "abilities.cha": {
+            "label": "Charisma"
+          },
+          "abilities.con": {
+            "label": "Constitution"
+          },
+          "abilities.dex": {
+            "label": "Dexterity"
+          },
+          "abilities.int": {
+            "label": "Intelligence"
+          },
+          "abilities.str": {
+            "label": "Strength"
+          },
+          "abilities.wis": {
+            "label": "Wisdom"
+          },
+          "allegiances": {
+            "label": "Allegiances"
+          },
+          "attributes": {
+            "label": "Attributes"
+          },
+          "attributes.baseAttack": {
+            "label": "Base Attack Bonus"
+          },
+          "attributes.damageReduction": {
+            "label": "Damage Reduction"
+          },
+          "attributes.initiative": {
+            "label": "Initiative"
+          },
+          "attributes.massiveDamageThreshold": {
+            "label": "Massive Damage Threshold"
+          },
+          "attributes.size": {
+            "label": "Size"
+          },
+          "attributes.speed": {
+            "label": "Speed"
+          },
+          "biography": {
+            "label": "Biography"
+          },
+          "defense": {
+            "label": "Defense"
+          },
+          "defense.classBonus": {
+            "label": "Class Defense Bonus"
+          },
+          "defense.misc": {
+            "label": "Misc"
+          },
+          "defense.naturalArmor": {
+            "label": "Natural Armor"
+          },
+          "details": {
+            "label": "Details"
+          },
+          "details.challengeRating": {
+            "label": "Challenge Rating"
+          },
+          "details.level": {
+            "label": "Level"
+          },
+          "details.occupation": {
+            "label": "Occupation"
+          },
+          "hp": {
+            "label": "Hit Points"
+          },
+          "hp.formula": {
+            "label": "Formula"
+          },
+          "hp.max": {
+            "label": "Max"
+          },
+          "hp.temp": {
+            "label": "Temp"
+          },
+          "hp.value": {
+            "label": "Value"
+          },
+          "reputation": {
+            "label": "Reputation"
+          },
+          "reputation.base": {
+            "label": "Base"
+          },
+          "reputation.misc": {
+            "label": "Misc"
+          },
+          "saves": {
+            "label": "Saves"
+          },
+          "saves.fort": {
+            "label": "Fortitude"
+          },
+          "saves.ref": {
+            "label": "Reflex"
+          },
+          "saves.will": {
+            "label": "Will"
+          },
+          "skills": {
+            "label": "Skills"
+          },
+          "skills.balance": {
+            "label": "Balance"
+          },
+          "skills.bluff": {
+            "label": "Bluff"
+          },
+          "skills.climb": {
+            "label": "Climb"
+          },
+          "skills.computerUse": {
+            "label": "Computer Use"
+          },
+          "skills.concentration": {
+            "label": "Concentration"
+          },
+          "skills.craft": {
+            "label": "Craft"
+          },
+          "skills.decipherScript": {
+            "label": "Decipher Script"
+          },
+          "skills.demolitions": {
+            "label": "Demolitions"
+          },
+          "skills.diplomacy": {
+            "label": "Diplomacy"
+          },
+          "skills.disableDevice": {
+            "label": "Disable Device"
+          },
+          "skills.disguise": {
+            "label": "Disguise"
+          },
+          "skills.drive": {
+            "label": "Drive"
+          },
+          "skills.escapeArtist": {
+            "label": "Escape Artist"
+          },
+          "skills.forgery": {
+            "label": "Forgery"
+          },
+          "skills.gamble": {
+            "label": "Gamble"
+          },
+          "skills.gatherInformation": {
+            "label": "Gather Information"
+          },
+          "skills.handleAnimal": {
+            "label": "Handle Animal"
+          },
+          "skills.hide": {
+            "label": "Hide"
+          },
+          "skills.intimidate": {
+            "label": "Intimidate"
+          },
+          "skills.investigate": {
+            "label": "Investigate"
+          },
+          "skills.jump": {
+            "label": "Jump"
+          },
+          "skills.knowledge": {
+            "label": "Knowledge"
+          },
+          "skills.listen": {
+            "label": "Listen"
+          },
+          "skills.moveSilently": {
+            "label": "Move Silently"
+          },
+          "skills.navigate": {
+            "label": "Navigate"
+          },
+          "skills.perform": {
+            "label": "Perform"
+          },
+          "skills.pilot": {
+            "label": "Pilot"
+          },
+          "skills.profession": {
+            "label": "Profession"
+          },
+          "skills.readWriteLanguage": {
+            "label": "Read Write Language"
+          },
+          "skills.repair": {
+            "label": "Repair"
+          },
+          "skills.research": {
+            "label": "Research"
+          },
+          "skills.ride": {
+            "label": "Ride"
+          },
+          "skills.search": {
+            "label": "Search"
+          },
+          "skills.senseMotive": {
+            "label": "Sense Motive"
+          },
+          "skills.sleightOfHand": {
+            "label": "Sleight of Hand"
+          },
+          "skills.speakLanguage": {
+            "label": "Speak Language"
+          },
+          "skills.spot": {
+            "label": "Spot"
+          },
+          "skills.survival": {
+            "label": "Survival"
+          },
+          "skills.swim": {
+            "label": "Swim"
+          },
+          "skills.treatInjury": {
+            "label": "Treat Injury"
+          },
+          "skills.tumble": {
+            "label": "Tumble"
+          },
+          "wealth": {
+            "label": "Wealth"
+          },
+          "wealth.bonus": {
+            "label": "Bonus"
+          }
+        }
+      },
+      "Vehicle": {
+        "FIELDS": {
+          "cargo": {
+            "label": "Cargo"
+          },
+          "crew": {
+            "label": "Crew"
+          },
+          "defense": {
+            "label": "Defense"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "hardness": {
+            "label": "Hardness"
+          },
+          "hp": {
+            "label": "Hit Points"
+          },
+          "hp.max": {
+            "label": "Max"
+          },
+          "hp.value": {
+            "label": "Value"
+          },
+          "initiative": {
+            "label": "Initiative"
+          },
+          "maneuver": {
+            "label": "Maneuver"
+          },
+          "passengers": {
+            "label": "Passengers"
+          },
+          "purchaseDC": {
+            "label": "Purchase DC"
+          },
+          "restriction": {
+            "label": "Restriction"
+          },
+          "size": {
+            "label": "Size"
+          },
+          "topSpeed": {
+            "label": "Top Speed"
+          }
+        }
+      }
+    },
     "Advancement": "Advancement",
     "Allegiance": {
       "Major": "Major Allegiance",
@@ -100,6 +919,399 @@
     "HitDice": "Hit Dice",
     "HitPoints": "Hit Points",
     "Initiative": "Initiative",
+    "Item": {
+      "Armor": {
+        "FIELDS": {
+          "armorPenalty": {
+            "label": "Armor Penalty"
+          },
+          "armorType": {
+            "label": "Armor Type"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "equipmentBonus": {
+            "label": "Equipment Bonus"
+          },
+          "equipped": {
+            "label": "Equipped"
+          },
+          "maxDex": {
+            "label": "Maximum Dex Bonus"
+          },
+          "proficiency": {
+            "label": "Proficiency"
+          },
+          "purchaseDC": {
+            "label": "Purchase DC"
+          },
+          "quantity": {
+            "label": "Quantity"
+          },
+          "restriction": {
+            "label": "Restriction"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "speedPenalty": {
+            "label": "Speed Penalty"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "weight": {
+            "label": "Weight"
+          }
+        }
+      },
+      "Class": {
+        "FIELDS": {
+          "classSkills": {
+            "label": "Class Skills"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "hitDie": {
+            "label": "Hit Die"
+          },
+          "keyAbility": {
+            "label": "Key Ability"
+          },
+          "levels": {
+            "label": "Class Levels"
+          },
+          "prerequisites": {
+            "label": "Prerequisites"
+          },
+          "progression": {
+            "label": "Progression"
+          },
+          "skillPointsPerLevel": {
+            "label": "Skill Points per Level"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "tier": {
+            "label": "Class Tier"
+          }
+        }
+      },
+      "Feat": {
+        "FIELDS": {
+          "benefit": {
+            "label": "Benefit"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "featType": {
+            "label": "Feat Type"
+          },
+          "normal": {
+            "label": "Normal"
+          },
+          "prerequisites": {
+            "label": "Prerequisites"
+          },
+          "repeatable": {
+            "label": "Repeatable"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "special": {
+            "label": "Special"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          }
+        }
+      },
+      "Gear": {
+        "FIELDS": {
+          "category": {
+            "label": "Category"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "equipped": {
+            "label": "Equipped"
+          },
+          "purchaseDC": {
+            "label": "Purchase DC"
+          },
+          "quantity": {
+            "label": "Quantity"
+          },
+          "restriction": {
+            "label": "Restriction"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "weight": {
+            "label": "Weight"
+          }
+        }
+      },
+      "Occupation": {
+        "FIELDS": {
+          "bonusFeatChosen": {
+            "label": "Bonus Feat Chosen"
+          },
+          "bonusFeatOptions": {
+            "label": "Bonus Feat Options"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "prerequisites": {
+            "label": "Prerequisites"
+          },
+          "reputationBonus": {
+            "label": "Reputation Bonus"
+          },
+          "skillOptions": {
+            "label": "Skill Options"
+          },
+          "skillsChosen": {
+            "label": "Skills Chosen"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "wealthBonus": {
+            "label": "Wealth Bonus"
+          }
+        }
+      },
+      "PsiPower": {
+        "FIELDS": {
+          "castingTime": {
+            "label": "Casting Time"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "display": {
+            "label": "Display"
+          },
+          "duration": {
+            "label": "Duration"
+          },
+          "level": {
+            "label": "Level"
+          },
+          "powerPoints": {
+            "label": "Power Points"
+          },
+          "range": {
+            "label": "Range"
+          },
+          "savingThrow": {
+            "label": "Saving Throw"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "target": {
+            "label": "Target"
+          }
+        }
+      },
+      "Spell": {
+        "FIELDS": {
+          "area": {
+            "label": "Area"
+          },
+          "castingTime": {
+            "label": "Casting Time"
+          },
+          "components": {
+            "label": "Components"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "duration": {
+            "label": "Duration"
+          },
+          "level": {
+            "label": "Level"
+          },
+          "prepared": {
+            "label": "Prepared"
+          },
+          "range": {
+            "label": "Range"
+          },
+          "savingThrow": {
+            "label": "Saving Throw"
+          },
+          "school": {
+            "label": "School"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "spellResistance": {
+            "label": "Spell Resistance"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "subschool": {
+            "label": "Subschool"
+          },
+          "target": {
+            "label": "Target"
+          }
+        }
+      },
+      "Talent": {
+        "FIELDS": {
+          "description": {
+            "label": "Description"
+          },
+          "prerequisites": {
+            "label": "Prerequisites"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "sourceClass": {
+            "label": "Source Class"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "tree": {
+            "label": "Tree"
+          }
+        }
+      },
+      "VehicleMod": {
+        "FIELDS": {
+          "description": {
+            "label": "Description"
+          },
+          "effect": {
+            "label": "Effect"
+          },
+          "equipped": {
+            "label": "Equipped"
+          },
+          "purchaseDC": {
+            "label": "Purchase DC"
+          },
+          "quantity": {
+            "label": "Quantity"
+          },
+          "restriction": {
+            "label": "Restriction"
+          },
+          "slot": {
+            "label": "Slot"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "weight": {
+            "label": "Weight"
+          }
+        }
+      },
+      "Weapon": {
+        "FIELDS": {
+          "ammo": {
+            "label": "Ammo"
+          },
+          "ammo.max": {
+            "label": "Max"
+          },
+          "ammo.value": {
+            "label": "Value"
+          },
+          "attackBonus": {
+            "label": "Attack Bonus"
+          },
+          "category": {
+            "label": "Category"
+          },
+          "critical": {
+            "label": "Critical"
+          },
+          "damage": {
+            "label": "Damage"
+          },
+          "damageBonus": {
+            "label": "Damage Bonus"
+          },
+          "damageType": {
+            "label": "Damage Type"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "equipped": {
+            "label": "Equipped"
+          },
+          "magazine": {
+            "label": "Magazine"
+          },
+          "purchaseDC": {
+            "label": "Purchase DC"
+          },
+          "quantity": {
+            "label": "Quantity"
+          },
+          "rangeIncrement": {
+            "label": "Range Increment"
+          },
+          "ranged": {
+            "label": "Ranged Weapon"
+          },
+          "rateOfFire": {
+            "label": "Rate of Fire"
+          },
+          "restriction": {
+            "label": "Restriction"
+          },
+          "size": {
+            "label": "Size"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "weight": {
+            "label": "Weight"
+          }
+        }
+      }
+    },
     "ItemType": {
       "armor": "Armor",
       "class": "Classes",

@@ -4,6 +4,9 @@ const fields = foundry.data.fields;
 
 /** An ordinary: an NPC built on ordinary levels, with no talents or action points. */
 export class Modern20Ordinary extends Modern20ActorBase {
+  /** Field labels and hints come from lang/en.json under these prefixes. */
+  static LOCALIZATION_PREFIXES = ["MODERN20.Actor.Ordinary"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
