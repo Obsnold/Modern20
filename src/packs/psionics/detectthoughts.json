@@ -1,0 +1,20 @@
+{
+  "_id": "t5qgGjofqs9mdrWF",
+  "name": "Detect Thoughts",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 2,
+    "display": "Visual, Mental",
+    "powerPoints": 3,
+    "castingTime": "Attack action",
+    "range": "60 ft.",
+    "target": "",
+    "duration": "Concentration, up to 1 minute/level (D)",
+    "savingThrow": "Will negates (see text)"
+  },
+  "_key": "!items!t5qgGjofqs9mdrWF"
+}

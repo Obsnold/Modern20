@@ -1,0 +1,27 @@
+{
+  "_id": "cgO2u84hoBarIXl5",
+  "name": "Moving truck",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 2,
+    "cargo": "33,000 lb.",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "165 (16)",
+    "defense": 6,
+    "hardness": 5,
+    "hp": {
+      "value": 44,
+      "max": 44
+    },
+    "size": "gargantuan",
+    "purchaseDC": 34,
+    "restriction": "lic"
+  },
+  "_key": "!actors!cgO2u84hoBarIXl5"
+}

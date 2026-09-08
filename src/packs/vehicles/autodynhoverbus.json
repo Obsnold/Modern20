@@ -1,0 +1,27 @@
+{
+  "_id": "bNvtukbpl0T28Hq1",
+  "name": "AutoDyn hoverbus",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 38,
+    "cargo": "H",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "160 (16)",
+    "defense": 6,
+    "hardness": 5,
+    "hp": {
+      "value": 45,
+      "max": 45
+    },
+    "size": "gargantuan",
+    "purchaseDC": 45,
+    "restriction": "lic"
+  },
+  "_key": "!actors!bNvtukbpl0T28Hq1"
+}

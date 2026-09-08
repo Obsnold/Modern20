@@ -1,0 +1,27 @@
+{
+  "_id": "yK2SNmvjbxGmAXqb",
+  "name": "HydroDyn SeaHawk",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 3,
+    "cargo": "S",
+    "initiative": -2,
+    "maneuver": 0,
+    "topSpeed": "160 (16)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 30,
+      "max": 30
+    },
+    "size": "large",
+    "purchaseDC": 36,
+    "restriction": "lic"
+  },
+  "_key": "!actors!yK2SNmvjbxGmAXqb"
+}

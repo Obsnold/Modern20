@@ -1,0 +1,27 @@
+{
+  "_id": "h5vrd3lcXW0zwY86",
+  "name": "AD-Bright police cruiser",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "L",
+    "initiative": -2,
+    "maneuver": 0,
+    "topSpeed": "245 (24)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 32,
+      "max": 32
+    },
+    "size": "huge",
+    "purchaseDC": 38,
+    "restriction": "res"
+  },
+  "_key": "!actors!h5vrd3lcXW0zwY86"
+}

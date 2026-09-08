@@ -1,0 +1,20 @@
+{
+  "_id": "GXb6v6G9f5F27Ls4",
+  "name": "Signal Feed",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
+    "level": 5,
+    "display": "Visual",
+    "powerPoints": 9,
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. +5 ft./2 levels)",
+    "target": "One communication device",
+    "duration": "1 round/level",
+    "savingThrow": "Will negates"
+  },
+  "_key": "!items!GXb6v6G9f5F27Ls4"
+}

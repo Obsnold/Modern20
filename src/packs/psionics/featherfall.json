@@ -1,0 +1,20 @@
+{
+  "_id": "9jl51fMsAy0qjkx3",
+  "name": "Feather Fall",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
+    "level": 1,
+    "display": "Audible",
+    "powerPoints": 1,
+    "castingTime": "See text",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "target": "Any free-falling objects or creatures in a 10-ft. radius whose weight does not total more than 300 lb./level",
+    "duration": "Until landing or 1 round/level",
+    "savingThrow": "Will negates (object)"
+  },
+  "_key": "!items!9jl51fMsAy0qjkx3"
+}

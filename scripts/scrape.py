@@ -556,6 +556,127 @@ def scrape_spells(pages: list[str]) -> list[dict]:
     return [spells[k] for k in sorted(spells)]
 
 
+PSIONIC_ABILITIES = {
+    "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma",
+}
+
+PSIONIC_LABELS = {
+    "level", "display", "manifestation time", "range", "area", "effect",
+    "target", "targets", "duration", "saving throw", "power resistance",
+    "power point cost",
+}
+
+# Vehicle tables abbreviate size to a single letter.
+VEHICLE_SIZES = {
+    "F": "fine", "D": "diminutive", "T": "tiny", "S": "small", "M": "medium",
+    "L": "large", "H": "huge", "G": "gargantuan", "C": "colossal",
+}
+
+
+def scrape_psionics(pages: list[str]) -> list[dict]:
+    """Psionic powers: like spells, but with a display and a power point cost."""
+    powers = {}
+    for page in pages:
+        try:
+            lines = text_lines(srd.fetch(page))
+        except Exception:
+            continue
+
+        starts = entry_starts(lines, PSIONIC_LABELS, lookahead=3)
+        for position, start in enumerate(starts):
+            end = starts[position + 1] if position + 1 < len(starts) else len(lines)
+            name = lines[start]
+            fields = collect_labels(lines, start + 1, end, PSIONIC_LABELS)
+            if "level" not in fields or "power point cost" not in fields:
+                continue
+            # A bare ability name is the key-ability line, not a power name.
+            if name.split("[")[0].strip() in PSIONIC_ABILITIES:
+                continue
+
+            # The line after the name is the key ability, the psionic
+            # equivalent of a spell's school line.
+            key_ability = lines[start + 1] if start + 1 < len(lines) else ""
+            if is_label(key_ability, PSIONIC_LABELS) or is_value(key_ability):
+                key_ability = ""
+
+            level_match = re.search(r"(\d+)", fields.get("level", ""))
+            powers.setdefault(name, {
+                "id": camel(name),
+                "name": name,
+                "keyAbility": key_ability.split("[")[0].strip(),
+                "level": int(level_match.group(1)) if level_match else 0,
+                "levelText": fields.get("level", ""),
+                "display": fields.get("display", ""),
+                "powerPoints": srd.to_int(fields.get("power point cost", ""), 1),
+                "castingTime": fields.get("manifestation time", ""),
+                "range": fields.get("range", ""),
+                "target": fields.get("target", "") or fields.get("targets", "") or fields.get("effect", ""),
+                "duration": fields.get("duration", ""),
+                "savingThrow": fields.get("saving throw", ""),
+                "srdUrl": srd.page_url(page),
+            })
+
+    return [powers[k] for k in sorted(powers)]
+
+
+def scrape_vehicles() -> list[dict]:
+    """Vehicles, which the SRD tabulates with the full stat line."""
+    vehicles = {}
+    for page in ("vehicles.html", "futurevehicles.html"):
+        try:
+            page_html = srd.fetch(page)
+        except Exception:
+            continue
+
+        for table in srd.annotated_tables(page_html):
+            header = [c.strip().lower() for c in table["header"]]
+            if "crew" not in header or not any("purchase dc" in c for c in header):
+                continue
+            index_of = {name: i for i, name in enumerate(header)}
+
+            def column(raw, *names, default=""):
+                for name in names:
+                    position = index_of.get(name)
+                    if position is not None and position < len(raw):
+                        return raw[position].strip()
+                return default
+
+            category = ""
+            for raw, kind in zip(table["rows"], table["kinds"]):
+                if kind in ("category", "parent"):
+                    category = raw[0].strip() or category
+                    continue
+                if kind in ("blank", "header") or len(raw) < 6:
+                    continue
+
+                name = raw[0].strip()
+                if not name:
+                    continue
+
+                hp = srd.to_int(column(raw, "hit points"))
+                size_letter = column(raw, "size").upper()[:1]
+                vehicles.setdefault(camel(name), {
+                    "id": camel(name),
+                    "name": name,
+                    "crew": srd.to_int(column(raw, "crew"), 1),
+                    "passengers": srd.to_int(column(raw, "pass", "passengers")),
+                    "cargo": column(raw, "cargo"),
+                    "initiative": srd.to_int(column(raw, "init")),
+                    "maneuver": srd.to_int(column(raw, "maneuver")),
+                    "topSpeed": column(raw, "top speed"),
+                    "defense": srd.to_int(column(raw, "defense"), 10),
+                    "hardness": srd.to_int(column(raw, "hardness")),
+                    "hp": hp,
+                    "size": VEHICLE_SIZES.get(size_letter, "large"),
+                    "purchaseDC": srd.to_int(column(raw, "purchase dc", "purchase dc 1")),
+                    "restriction": column(raw, "restriction"),
+                    "category": category,
+                    "srdUrl": srd.page_url(page),
+                })
+
+    return [vehicles[k] for k in sorted(vehicles)]
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -645,6 +766,10 @@ def main() -> int:
     write("creatures.json", creatures)
     spells = scrape_spells([p for p in pages if "spelldesc" in p or "spells" in p])
     write("spells.json", spells)
+    psionics = scrape_psionics([p for p in pages if "power" in p or "psidesc" in p])
+    write("psionics.json", psionics)
+    vehicles = scrape_vehicles()
+    write("vehicles.json", vehicles)
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 
@@ -652,6 +777,7 @@ def main() -> int:
     print(f"\n{len(skills)} skills, {len(classes)} classes ({levels} levels), "
           f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
           f"{len(creatures)} creatures, {len(spells)} spells, "
+          f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "
           f"{sum(len(v) for v in tables.values())} tables")
     return 0
 

@@ -1,0 +1,20 @@
+{
+  "_id": "pCKoKPMotrfAXctA",
+  "name": "Detect Psionics",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 0,
+    "display": "Visual, Audible",
+    "powerPoints": 1,
+    "castingTime": "Attack action",
+    "range": "60 ft.",
+    "target": "",
+    "duration": "Concentration, up to 1 minute/_level (D)",
+    "savingThrow": "None"
+  },
+  "_key": "!items!pCKoKPMotrfAXctA"
+}

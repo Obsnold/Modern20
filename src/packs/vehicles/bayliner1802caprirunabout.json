@@ -1,0 +1,27 @@
+{
+  "_id": "pnfNpSjojs0YPnkN",
+  "name": "Bayliner 1802 Capri (runabout)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 5,
+    "cargo": "2,100 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "55 (5)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 28,
+      "max": 28
+    },
+    "size": "huge",
+    "purchaseDC": 28,
+    "restriction": "lic"
+  },
+  "_key": "!actors!pnfNpSjojs0YPnkN"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "It8fYcRuxWt0fu8r",
+  "name": "Aston-Martin Vanquish (sports coupe)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "175 lb.",
+    "initiative": -2,
+    "maneuver": 0,
+    "topSpeed": "335 (53)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 36,
+    "restriction": "lic"
+  },
+  "_key": "!actors!It8fYcRuxWt0fu8r"
+}

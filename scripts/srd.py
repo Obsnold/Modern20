@@ -236,6 +236,11 @@ LINK = re.compile(r"""href=["']([^"'#?]+\.html?)["']""", re.I)
 # Pages that appear in every sidebar and carry no content of their own.
 CHROME = {"srdhome.html", "index.html", "skills.html"}
 
+# Content pages that sit deeper than the crawl reaches. Psionic powers are four
+# hops from the index (srdhome -> fxbasics -> fxspells -> fxpsionics -> fxpowers),
+# and crawling that deep to find two pages would fetch most of the site again.
+DEEP_PAGES = ["fxpowers.html", "urbanpsidesc.html"]
+
 
 def links(page_html: str) -> list[str]:
     """Same-directory page links, de-duplicated, in document order."""
@@ -270,5 +275,8 @@ def crawl(start: str = "srdhome.html", depth: int = 2, *, refresh: bool = False)
                 seen.add(name)
                 next_frontier.append(name)
         frontier = next_frontier
+
+    for page in DEEP_PAGES:
+        seen.add(page)
 
     return sorted(seen)

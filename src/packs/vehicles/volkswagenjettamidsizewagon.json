@@ -1,0 +1,27 @@
+{
+  "_id": "iIpHegoXEW9vIZrb",
+  "name": "Volkswagen Jetta (mid-size wagon)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "275 lb.",
+    "initiative": -2,
+    "maneuver": 0,
+    "topSpeed": "230 (23)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 32,
+      "max": 32
+    },
+    "size": "huge",
+    "purchaseDC": 28,
+    "restriction": "lic"
+  },
+  "_key": "!actors!iIpHegoXEW9vIZrb"
+}

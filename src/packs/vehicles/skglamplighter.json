@@ -1,0 +1,27 @@
+{
+  "_id": "53s037bQEtGgonog",
+  "name": "SKG Lamplighter",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "M",
+    "initiative": -1,
+    "maneuver": -1,
+    "topSpeed": "210 (21)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 31,
+    "restriction": "lic"
+  },
+  "_key": "!actors!53s037bQEtGgonog"
+}

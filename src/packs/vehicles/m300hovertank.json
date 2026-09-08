@@ -1,0 +1,27 @@
+{
+  "_id": "34l1Vlibn7DnITR2",
+  "name": "M-300 Hovertank",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 4,
+    "passengers": 0,
+    "cargo": "M",
+    "initiative": -4,
+    "maneuver": -3,
+    "topSpeed": "120 (12)",
+    "defense": 6,
+    "hardness": 20,
+    "hp": {
+      "value": 62,
+      "max": 62
+    },
+    "size": "gargantuan",
+    "purchaseDC": 50,
+    "restriction": "mil"
+  },
+  "_key": "!actors!34l1Vlibn7DnITR2"
+}

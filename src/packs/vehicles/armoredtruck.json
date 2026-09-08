@@ -1,0 +1,27 @@
+{
+  "_id": "Wva2640vJpfXinLC",
+  "name": "Armored truck",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 2,
+    "passengers": 0,
+    "cargo": "3,600 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "175 (17)",
+    "defense": 8,
+    "hardness": 10,
+    "hp": {
+      "value": 36,
+      "max": 36
+    },
+    "size": "huge",
+    "purchaseDC": 34,
+    "restriction": "res"
+  },
+  "_key": "!actors!Wva2640vJpfXinLC"
+}

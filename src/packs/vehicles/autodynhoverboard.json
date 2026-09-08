@@ -1,0 +1,27 @@
+{
+  "_id": "JO4OiaRC0jnuvhkh",
+  "name": "AutoDyn hoverboard",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "F",
+    "initiative": 2,
+    "maneuver": 4,
+    "topSpeed": "50 (5)",
+    "defense": 14,
+    "hardness": 2,
+    "hp": {
+      "value": 8,
+      "max": 8
+    },
+    "size": "diminutive",
+    "purchaseDC": 17,
+    "restriction": "lic"
+  },
+  "_key": "!actors!JO4OiaRC0jnuvhkh"
+}

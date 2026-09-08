@@ -1,0 +1,27 @@
+{
+  "_id": "4C8CK2S11e25X7nr",
+  "name": "Fairline Targa 30 (cabin cruiser)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 3,
+    "cargo": "2,100 lb.",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "80 (8)",
+    "defense": 6,
+    "hardness": 5,
+    "hp": {
+      "value": 40,
+      "max": 40
+    },
+    "size": "gargantuan",
+    "purchaseDC": 32,
+    "restriction": "lic"
+  },
+  "_key": "!actors!4C8CK2S11e25X7nr"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "GB0F2BQES6hcf4vG",
+  "name": "Limousine",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 7,
+    "cargo": "425 lb.",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "195 (19)",
+    "defense": 6,
+    "hardness": 5,
+    "hp": {
+      "value": 38,
+      "max": 38
+    },
+    "size": "gargantuan",
+    "purchaseDC": 36,
+    "restriction": "lic"
+  },
+  "_key": "!actors!GB0F2BQES6hcf4vG"
+}

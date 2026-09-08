@@ -1,0 +1,27 @@
+{
+  "_id": "oFrNmuLQeHu6eCRM",
+  "name": "Harley Davidson FLSTF (street bike)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/vehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "0 lb.",
+    "initiative": -1,
+    "maneuver": 1,
+    "topSpeed": "275 (27)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 22,
+      "max": 22
+    },
+    "size": "large",
+    "purchaseDC": 26,
+    "restriction": "lic"
+  },
+  "_key": "!actors!oFrNmuLQeHu6eCRM"
+}

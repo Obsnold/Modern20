@@ -1,0 +1,27 @@
+{
+  "_id": "zf9O8AB6aWpyMx13",
+  "name": "Kirsch Sunflower",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 2,
+    "cargo": "S",
+    "initiative": -4,
+    "maneuver": -2,
+    "topSpeed": "160 (16)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 25,
+      "max": 25
+    },
+    "size": "large",
+    "purchaseDC": 27,
+    "restriction": "lic"
+  },
+  "_key": "!actors!zf9O8AB6aWpyMx13"
+}

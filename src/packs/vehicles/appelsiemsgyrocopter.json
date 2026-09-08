@@ -1,0 +1,27 @@
+{
+  "_id": "Wusj00PzeD0gewV1",
+  "name": "Appel-Siems Gyrocopter",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "F",
+    "initiative": -3,
+    "maneuver": -2,
+    "topSpeed": "360 (36)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 23,
+      "max": 23
+    },
+    "size": "large",
+    "purchaseDC": 38,
+    "restriction": "mil"
+  },
+  "_key": "!actors!Wusj00PzeD0gewV1"
+}

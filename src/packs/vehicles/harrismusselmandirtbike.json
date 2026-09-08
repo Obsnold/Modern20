@@ -1,0 +1,27 @@
+{
+  "_id": "X9gMpH3RlCdgwwS8",
+  "name": "Harris-Musselman dirt bike",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "F",
+    "initiative": 0,
+    "maneuver": 1,
+    "topSpeed": "180 (18)",
+    "defense": 10,
+    "hardness": 5,
+    "hp": {
+      "value": 19,
+      "max": 19
+    },
+    "size": "medium",
+    "purchaseDC": 24,
+    "restriction": "lic"
+  },
+  "_key": "!actors!X9gMpH3RlCdgwwS8"
+}

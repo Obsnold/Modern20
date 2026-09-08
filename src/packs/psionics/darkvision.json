@@ -1,0 +1,20 @@
+{
+  "_id": "K4LAHkS2ttmKyTbK",
+  "name": "Darkvision",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 2,
+    "display": "Visual",
+    "powerPoints": 3,
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "target": "Individual touched",
+    "duration": "1 hour/level",
+    "savingThrow": "None"
+  },
+  "_key": "!items!K4LAHkS2ttmKyTbK"
+}

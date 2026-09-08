@@ -400,6 +400,38 @@ def build_occupations() -> list[dict]:
     })
 
 
+def build_psionics() -> list[dict]:
+    return simple_pack("psionics", "psiPower", "psionics", "icons/svg/daze.svg", lambda e: {
+        "level": e["level"],
+        "display": e["display"],
+        "powerPoints": e["powerPoints"],
+        "castingTime": e["castingTime"],
+        "range": e["range"],
+        "target": e["target"],
+        "duration": e["duration"],
+        "savingThrow": e["savingThrow"],
+    })
+
+
+def build_vehicles() -> list[dict]:
+    """Vehicle actors. The SRD tabulates the full stat line, so this is a
+    direct mapping rather than an inference."""
+    return simple_pack("vehicles", "vehicle", "vehicles", "icons/svg/cave.svg", lambda e: {
+        "crew": e["crew"],
+        "passengers": e["passengers"],
+        "cargo": e["cargo"],
+        "initiative": e["initiative"],
+        "maneuver": e["maneuver"],
+        "topSpeed": e["topSpeed"],
+        "defense": e["defense"],
+        "hardness": e["hardness"],
+        "hp": {"value": e["hp"], "max": e["hp"]},
+        "size": e["size"],
+        "purchaseDC": e["purchaseDC"],
+        "restriction": parse_restriction(e["restriction"]),
+    }, document_class="Actor")
+
+
 def build() -> dict[str, list[dict]]:
     tables = json.load(open(os.path.join(srd.DATA, "purchase_tables.json"), encoding="utf-8"))
     packs: dict[str, list[dict]] = {}
@@ -465,7 +497,9 @@ def build() -> dict[str, list[dict]]:
         ("talents", build_talents),
         ("occupations", build_occupations),
         ("spells", build_spells),
+        ("psionics", build_psionics),
         ("creatures", build_creatures),
+        ("vehicles", build_vehicles),
     ):
         documents = builder()
         if documents:
@@ -510,13 +544,14 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
         "weapons": "Weapons", "armor": "Armor", "gear": "Equipment",
         "classes": "Classes", "feats": "Feats", "talents": "Talents",
         "occupations": "Occupations", "spells": "Spells", "creatures": "Creatures",
+        "psionics": "Psionic Powers", "vehicles": "Vehicles",
     }
     entries = [
         {
             "name": pack,
             "label": labels.get(pack, pack.title()),
             "path": f"packs/{pack}",
-            "type": "Actor" if pack == "creatures" else "Item",
+            "type": "Actor" if pack in ("creatures", "vehicles") else "Item",
             "system": "modern20",
             "ownership": {"PLAYER": "OBSERVER", "ASSISTANT": "OWNER"},
         }

@@ -1,0 +1,27 @@
+{
+  "_id": "CJn9Lesmr4P0HKhC",
+  "name": "WGM Wyoming",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurevehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "D",
+    "initiative": 1,
+    "maneuver": 2,
+    "topSpeed": "120 (12)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 25,
+      "max": 25
+    },
+    "size": "large",
+    "purchaseDC": 26,
+    "restriction": "lic"
+  },
+  "_key": "!actors!CJn9Lesmr4P0HKhC"
+}

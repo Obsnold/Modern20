@@ -1,0 +1,20 @@
+{
+  "_id": "5BflfCIP7WDXbm9P",
+  "name": "Metaphysical Weapon",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 3,
+    "display": "Visual",
+    "powerPoints": 5,
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "target": "One weapon or 50 projectiles (all of which must be in contact with each other at the time of manifestation)",
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless, object)"
+  },
+  "_key": "!items!5BflfCIP7WDXbm9P"
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "HUrEKyGwPPoeEwvI",
+  "name": "Dimension Door",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
+    "level": 4,
+    "display": "Visual",
+    "powerPoints": 7,
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "target": "You and touched objects or other touched willing creatures (see text)",
+    "duration": "Instantaneous",
+    "savingThrow": ""
+  },
+  "_key": "!items!HUrEKyGwPPoeEwvI"
+}
