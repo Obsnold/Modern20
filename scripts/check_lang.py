@@ -14,7 +14,9 @@ KEY = re.compile(r"MODERN20\.[A-Za-z0-9_.]+")
 SKIP_DIRS = {".git", ".cache", "node_modules", "packs", ".venv"}
 
 # Keys assembled at runtime from a type or tab id, which the regex cannot see.
-DYNAMIC_PREFIXES = ("MODERN20.ItemType.", "MODERN20.Tab.")
+# Keys assembled at runtime: item-type labels, and the tab labels ApplicationV2
+# builds from each sheet's TABS labelPrefix.
+DYNAMIC_PREFIXES = ("MODERN20.ItemType.", "MODERN20.Tab.", "MODERN20.Creator.Tab.")
 
 
 def flatten(node, prefix=""):

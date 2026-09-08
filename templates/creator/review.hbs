@@ -1,0 +1,26 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Creator.Review"}}</h3>
+    {{#each abilityRows as |ability|}}
+      <div class="m20-row">
+        <label>{{ability.label}}</label>
+        <span class="m20-mod">{{ability.value}} ({{modern20Signed ability.mod}})</span>
+      </div>
+    {{/each}}
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Creator.Occupation"}}</label>
+      <span>{{#if chosenOccupation}}{{chosenOccupation.name}}{{else}}&mdash;{{/if}}</span>
+    </div>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Creator.Class"}}</label>
+      <span>{{#if chosenClass}}{{chosenClass.name}}{{else}}&mdash;{{/if}}</span>
+    </div>
+  </div>
+
+  <p class="m20-hint">{{localize "MODERN20.Creator.ReviewHint"}}</p>
+  <p class="m20-hint">{{localize "MODERN20.Creator.FeatsNote"}}</p>
+
+  <button type="button" class="m20-button" data-action="create" {{#unless ready}}disabled{{/unless}}>
+    {{localize "MODERN20.Creator.Create"}}
+  </button>
+</section>

@@ -1,5 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { applyLevelGains } from "../apps/level-up.mjs";
+import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
 
 const { Item } = foundry.documents;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -30,7 +31,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       createItem: Modern20ActorSheetBase.#onCreateItem,
       editItem: Modern20ActorSheetBase.#onEditItem,
       deleteItem: Modern20ActorSheetBase.#onDeleteItem,
-      adjustClassLevel: Modern20ActorSheetBase.#onAdjustClassLevel
+      adjustClassLevel: Modern20ActorSheetBase.#onAdjustClassLevel,
+      openCreator: Modern20ActorSheetBase.#onOpenCreator
     }
   };
 
@@ -168,6 +170,10 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
 
   static async #onEditItem(event, target) {
     this._itemFromEvent(target)?.sheet.render(true);
+  }
+
+  static #onOpenCreator() {
+    new Modern20CharacterCreator(this.document).render(true);
   }
 
   /**

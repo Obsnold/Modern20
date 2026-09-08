@@ -277,6 +277,18 @@
 .m20-chat__result--failure { color: #8c2f1e; }
 .m20-chat__body { font-size: 0.82rem; }
 
+/* --- Character creator ------------------------------------------------- */
+
+.m20-creator .m20-panel { margin-bottom: 0.7rem; }
+
+/* A callout stands apart from the item lists it sits above. */
+.modern20 .m20-panel--callout {
+  border-left: 3px solid var(--m20-accent);
+  margin-bottom: 0.9rem;
+}
+
+.modern20 .m20-panel--callout .m20-button { margin-top: 0.4rem; }
+
 /* --- Level-up dialog --------------------------------------------------- */
 
 .m20-levelup select {

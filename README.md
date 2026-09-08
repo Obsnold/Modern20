@@ -86,6 +86,31 @@ src/packs/               Compendium source documents; committed
 packs/                   Compiled LevelDB packs; generated, gitignored
 ```
 
+## Creating and levelling
+
+`scripts/deploy.sh` builds, verifies and installs in one step:
+
+```bash
+scripts/deploy.sh                      # code, templates, styles and language
+scripts/deploy.sh user@host --packs    # also recompile and install the compendia
+```
+
+Every check runs before anything is copied, and a failure stops the deploy.
+Checks are deliberately not piped into `tail`: a pipe reports the exit status of
+the last command in it, which once let a failing check deploy anyway.
+
+**Character creation** is a stepped flow — abilities, occupation, class, review —
+reached from the Character tab of a hero with no class yet. It follows the shape
+the mature Foundry systems settled on, where each pick narrows the next, and it
+writes nothing until Create is pressed. Applying a choice reuses the same code
+paths as levelling and as dropping an occupation onto a sheet rather than
+duplicating them, so first-level hit points are the maximum and the class's own
+level 1 grant is offered exactly as it would be at any other level.
+
+The SRD does not state how to generate ability scores, so the creator offers the
+conventional options — standard array, 4d6 drop lowest, or entry by hand —
+rather than presenting one as official.
+
 ## Field labels
 
 Every document subtype declares `LOCALIZATION_PREFIXES`, and Foundry reads each
