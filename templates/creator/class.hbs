@@ -7,7 +7,7 @@
       <select name="classId">
         <option value="">{{localize "MODERN20.Creator.None"}}</option>
         {{#each classes as |heroClass|}}
-          <option value="{{heroClass.id}}" {{#if (eq heroClass.id ../state.classId)}}selected{{/if}}>
+          <option value="{{heroClass.id}}" {{#if (eq heroClass.id ../choices.classId)}}selected{{/if}}>
             {{heroClass.name}}
           </option>
         {{/each}}

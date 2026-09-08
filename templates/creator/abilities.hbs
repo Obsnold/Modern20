@@ -5,7 +5,7 @@
     <label>{{localize "MODERN20.Creator.Method"}}</label>
     <select name="method">
       {{#each methods as |method|}}
-        <option value="{{method.id}}" {{#if (eq method.id ../state.method)}}selected{{/if}}>{{method.label}}</option>
+        <option value="{{method.id}}" {{#if (eq method.id ../choices.method)}}selected{{/if}}>{{method.label}}</option>
       {{/each}}
     </select>
     <button type="button" class="m20-button m20-button--small" data-action="rollAbilities">

@@ -1,0 +1,127 @@
+<div class="m20-levelscreen">
+  <div class="m20-panel">
+    <h3>{{classItem.name}} {{plan.from}} &rarr; {{plan.to}}</h3>
+    <p class="m20-hint">
+      {{localize "MODERN20.CharacterLevel"}} {{plan.characterLevel}}
+      {{#if features.length}}
+        &middot; {{localize "MODERN20.LevelScreen.Grants"}}:
+        {{#each features}}<span class="m20-tag">{{this}}</span> {{/each}}
+      {{/if}}
+    </p>
+    {{#if pastTable}}
+      <p class="m20-hint m20-over">{{localize "MODERN20.LevelScreen.PastTable"}}</p>
+    {{/if}}
+  </div>
+
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.HitPoints"}}</h3>
+    <div class="m20-row">
+      <label>{{hitDie}} + {{localize "MODERN20.Ability.Con.long"}}</label>
+      <span class="m20-hint">{{hitPointRange}}</span>
+      <button type="button" class="m20-button m20-button--small" data-action="rollHitPoints">
+        {{localize "MODERN20.LevelScreen.Roll"}}
+      </button>
+    </div>
+    {{#if rolledHitPoints}}
+      <p class="m20-mod">
+        {{localize "MODERN20.LevelScreen.Rolled"}} {{rolledHitPoints.rolled}}
+        &rarr; <strong>+{{rolledHitPoints.gained}}</strong> {{localize "MODERN20.HitPoints"}}
+      </p>
+    {{else}}
+      <p class="m20-hint">{{localize "MODERN20.LevelScreen.WillRoll"}}</p>
+    {{/if}}
+  </div>
+
+  {{#if needsTalent}}
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.LevelScreen.Talent"}}</h3>
+      {{#if talents.length}}
+        <select name="talentUuid">
+          <option value="">{{localize "MODERN20.Creator.None"}}</option>
+          {{#each talents as |talent|}}
+            <option value="{{talent.uuid}}" {{#if (eq talent.uuid ../plan.talentUuid)}}selected{{/if}}>
+              {{talent.tree}} &mdash; {{talent.name}}
+            </option>
+          {{/each}}
+        </select>
+      {{else}}
+        <p class="m20-hint">{{localize "MODERN20.LevelUp.NoTalents"}}</p>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  {{#if needsClassFeat}}
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.LevelScreen.ClassFeat"}}</h3>
+      <select name="classFeatUuid">
+        <option value="">{{localize "MODERN20.Creator.None"}}</option>
+        {{#each feats as |feat|}}
+          <option value="{{feat.uuid}}" {{#if (eq feat.uuid ../plan.classFeatUuid)}}selected{{/if}}>{{feat.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+  {{/if}}
+
+  {{#if needsGeneralFeat}}
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.LevelScreen.GeneralFeat"}}</h3>
+      <p class="m20-hint">{{localize "MODERN20.LevelUp.GeneralFeatHint"}}</p>
+      <select name="generalFeatUuid">
+        <option value="">{{localize "MODERN20.Creator.None"}}</option>
+        {{#each feats as |feat|}}
+          <option value="{{feat.uuid}}" {{#if (eq feat.uuid ../plan.generalFeatUuid)}}selected{{/if}}>{{feat.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+  {{/if}}
+
+  {{#if needsAbility}}
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.LevelScreen.Ability"}}</h3>
+      <p class="m20-hint">{{localize "MODERN20.LevelUp.AbilityHint"}}</p>
+      <select name="ability">
+        {{#each abilityRows as |ability|}}
+          <option value="{{ability.key}}" {{#if (eq ability.key ../plan.ability)}}selected{{/if}}>
+            {{ability.label}} {{ability.value}} &rarr; {{add ability.value 1}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+  {{/if}}
+
+  {{#if namedFeatures.length}}
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.LevelScreen.Automatic"}}</h3>
+      {{#each namedFeatures}}<span class="m20-tag">{{this}}</span> {{/each}}
+    </div>
+  {{/if}}
+
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.LevelScreen.Preview"}}</h3>
+    <table class="m20-skills">
+      <thead>
+        <tr>
+          <th>{{localize "MODERN20.LevelScreen.Stat"}}</th>
+          <th>{{localize "MODERN20.LevelScreen.Now"}}</th>
+          <th>{{localize "MODERN20.LevelScreen.After"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each preview as |row|}}
+          <tr>
+            <td>{{localize row.label}}</td>
+            <td>{{row.before}}</td>
+            <td class="{{#if row.delta}}m20-granted{{/if}}">
+              {{row.after}}{{#if row.delta}} ({{modern20Signed row.delta}}){{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="m20-hint">{{localize "MODERN20.LevelScreen.Nothing"}}</p>
+  <button type="button" class="m20-button" data-action="confirm">
+    {{localize "MODERN20.LevelScreen.Confirm"}}
+  </button>
+</div>

@@ -26,7 +26,7 @@ const TALENT_PACK = "modern20.talents";
 const FEAT_PACK = "modern20.feats";
 
 /** Documents from a compendium, or an empty array if it is not installed. */
-async function packDocuments(packId) {
+export async function packDocuments(packId) {
   const pack = game.packs.get(packId);
   if (!pack) return [];
   return pack.getDocuments();
@@ -85,7 +85,7 @@ async function chooseOne({ title, hint, entries, groupBy }) {
 }
 
 /** Add a compendium document to the actor by uuid. */
-async function grant(actor, uuid) {
+export async function grant(actor, uuid) {
   if (!uuid) return null;
   const document = await fromUuid(uuid);
   if (!document) return null;
@@ -94,7 +94,7 @@ async function grant(actor, uuid) {
 }
 
 /** Talents the character does not already have, from this class's trees. */
-async function talentChoices(actor, classItem) {
+export async function talentChoices(actor, classItem) {
   const owned = new Set(actor.items.filter((i) => i.type === "talent").map((i) => i.name));
   const talents = await packDocuments(TALENT_PACK);
   return talents
@@ -104,7 +104,7 @@ async function talentChoices(actor, classItem) {
 }
 
 /** Feats the character does not already have, unless the feat repeats. */
-async function featChoices(actor) {
+export async function featChoices(actor) {
   const owned = new Set(actor.items.filter((i) => i.type === "feat").map((i) => i.name));
   const feats = await packDocuments(FEAT_PACK);
   return feats
@@ -120,7 +120,7 @@ async function featChoices(actor) {
  * unique to the class. Grant the feat when one matches by name, and otherwise
  * record the feature as a talent so it is at least visible on the sheet.
  */
-async function grantNamedFeature(actor, classItem, feature, level) {
+export async function grantNamedFeature(actor, classItem, feature, level) {
   const feats = await packDocuments(FEAT_PACK);
   const match = feats.find((f) => f.name.toLowerCase() === feature.toLowerCase());
   if (match) return grant(actor, match.uuid);

@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { applyLevelGains } from "../apps/level-up.mjs";
+import { Modern20LevelUpScreen } from "../apps/level-up-screen.mjs";
 import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
 
 const { Item } = foundry.documents;
@@ -172,8 +172,14 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     this._itemFromEvent(target)?.sheet.render(true);
   }
 
-  static #onOpenCreator() {
-    new Modern20CharacterCreator(this.document).render(true);
+  static async #onOpenCreator() {
+    // render() returns a promise: leaving it unawaited turned any failure into
+    // an unhandled rejection, so the button appeared to do nothing at all.
+    try {
+      await new Modern20CharacterCreator(this.document).render(true);
+    } catch (error) {
+      ui.notifications.error(error, { console: true });
+    }
   }
 
   /**
@@ -186,30 +192,20 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     if (item?.type !== "class") return;
 
     const delta = Number(target.dataset.delta) || 0;
-    const levels = Math.max(0, item.system.levels + delta);
 
-    // Warn past the end of the table but allow it: the SRD's own advanced
-    // classes stop at 10 and GMs extend them.
-    const max = item.system.maxProgressionLevel;
-    if (max && levels > max) {
-      ui.notifications.warn(game.i18n.format("MODERN20.Warning.PastProgression", {
-        name: item.name, max
-      }));
-    }
-
-    // Whether this is the character's very first level decides maximum versus
-    // rolled hit points, so it has to be read before the update.
-    const priorLevels = this.document.items
-      .filter((i) => i.type === "class")
-      .reduce((total, i) => total + i.system.levels, 0);
-
-    await item.update({ "system.levels": levels });
-
-    // Gains are offered only after the numbers are applied, so a dismissed
-    // prompt still leaves a correctly levelled character.
+    // Gaining a level opens the level-up screen, which previews the whole
+    // change and applies it on confirm. Losing one is a correction, not a
+    // decision, so it just decrements.
     if (delta > 0) {
-      await applyLevelGains(this.document, item, levels, { isFirstLevelEver: priorLevels === 0 });
+      try {
+        await new Modern20LevelUpScreen(this.document, item).render(true);
+      } catch (error) {
+        ui.notifications.error(error, { console: true });
+      }
+      return;
     }
+
+    await item.update({ "system.levels": Math.max(0, item.system.levels + delta) });
   }
 
   static async #onDeleteItem(event, target) {

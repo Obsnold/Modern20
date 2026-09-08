@@ -127,4 +127,7 @@ function registerHandlebarsHelpers() {
   // occupation sheet needs to tick the skills already chosen.
   Handlebars.registerHelper("includes", (list, value) =>
     Array.isArray(list) && list.includes(value));
+
+  // Core has no arithmetic helper; the level-up preview needs "score + 1".
+  Handlebars.registerHelper("add", (a, b) => (Number(a) || 0) + (Number(b) || 0));
 }
