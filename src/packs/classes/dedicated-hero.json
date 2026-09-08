@@ -1,0 +1,154 @@
+{
+  "_id": "RH1LE7CAMjrEvX78",
+  "name": "Dedicated Hero",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "basic",
+    "levels": 1,
+    "keyAbility": "wis",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      "craft",
+      "gamble",
+      "investigate",
+      "knowledge",
+      "listen",
+      "profession",
+      "readWriteLanguage",
+      "senseMotive",
+      "speakLanguage",
+      "spot",
+      "survival",
+      "treatInjury"
+    ],
+    "prerequisites": [],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 2,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 3,
+        "will": 4,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 3,
+        "will": 5,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  "_key": "!items!RH1LE7CAMjrEvX78"
+}

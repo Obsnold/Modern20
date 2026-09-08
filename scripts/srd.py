@@ -186,6 +186,29 @@ def annotated_tables(page_html: str, *, min_rows: int = 3, min_cols: int = 2):
     return out
 
 
+
+def data_tables(page_html: str, *, min_rows: int = 3, min_cols: int = 2):
+    """Tables that look like data rather than page layout, as rows of text."""
+    result = []
+    for table in tables(page_html):
+        if len(table) < min_rows:
+            continue
+        if max(len(row) for row in table) < min_cols:
+            continue
+        result.append(table)
+    return result
+
+
+def find_table(page_html: str, *headers: str):
+    """The first data table whose header row mentions all the given headers."""
+    wanted = [h.lower() for h in headers]
+    for table in data_tables(page_html):
+        head = " ".join(table[0]).lower()
+        if all(w in head for w in wanted):
+            return table
+    return None
+
+
 def clean(text: str) -> str:
     """Normalize SRD cell text: unescape entities, collapse whitespace."""
     text = html.unescape(text)

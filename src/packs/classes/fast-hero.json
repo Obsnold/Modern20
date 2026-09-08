@@ -1,0 +1,156 @@
+{
+  "_id": "85VrrCRGu8BZSLxV",
+  "name": "Fast Hero",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "basic",
+    "levels": 1,
+    "keyAbility": "dex",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      "balance",
+      "craft",
+      "drive",
+      "escapeArtist",
+      "hide",
+      "knowledge",
+      "moveSilently",
+      "pilot",
+      "profession",
+      "readWriteLanguage",
+      "ride",
+      "sleightOfHand",
+      "speakLanguage",
+      "tumble"
+    ],
+    "prerequisites": [],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 0,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 4,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 3,
+        "will": 2,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 7,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 4,
+        "will": 3,
+        "defense": 7,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 5,
+        "will": 3,
+        "defense": 8,
+        "reputation": 3
+      }
+    ],
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  "_key": "!items!85VrrCRGu8BZSLxV"
+}

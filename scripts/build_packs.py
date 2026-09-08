@@ -182,6 +182,48 @@ def to_int(text: str, default: int = 0) -> int:
 BUILDERS = {"weapon": build_weapon, "armor": build_armor, "gear": build_gear}
 
 
+# Basic classes are keyed to an ability score; advanced classes are not.
+BASIC_CLASS_ABILITY = {
+    "strongHero": "str", "fastHero": "dex", "toughHero": "con",
+    "smartHero": "int", "dedicatedHero": "wis", "charismaticHero": "cha",
+}
+
+
+def build_classes() -> list[dict]:
+    """Class items, with the per-level progression the actor sums at runtime."""
+    path = os.path.join(srd.DATA, "classes.json")
+    if not os.path.exists(path):
+        return []
+
+    documents = []
+    for entry in json.load(open(path, encoding="utf-8")):
+        slug = srd.slugify(entry["name"])
+        doc_id = document_id("classes", slug)
+        documents.append({
+            "_id": doc_id,
+            "name": entry["name"],
+            "type": "class",
+            "img": "icons/svg/upgrade.svg",
+            "system": {
+                "description": "",
+                "tier": entry["tier"],
+                # A class item on a sheet starts at one level; the sheet's own
+                # level field is what the player raises.
+                "levels": 1,
+                "keyAbility": BASIC_CLASS_ABILITY.get(entry["id"], ""),
+                "hitDie": entry["hitDie"],
+                "skillPointsPerLevel": entry["skillPointsPerLevel"],
+                "classSkills": entry["classSkills"],
+                "prerequisites": [entry["requirements"]] if entry.get("requirements") else [],
+                "progression": entry["progression"],
+                "source": "d20 Modern SRD",
+                "srdUrl": entry["srdUrl"],
+            },
+            "_key": f"!items!{doc_id}",
+        })
+    return documents
+
+
 def build() -> dict[str, list[dict]]:
     tables = json.load(open(os.path.join(srd.DATA, "purchase_tables.json"), encoding="utf-8"))
     packs: dict[str, list[dict]] = {}
@@ -240,6 +282,10 @@ def build() -> dict[str, list[dict]]:
                 "_key": f"!items!{document_id(pack, slug)}",
             })
 
+    classes = build_classes()
+    if classes:
+        packs["classes"] = classes
+
     return packs
 
 
@@ -257,7 +303,7 @@ def write(packs: dict[str, list[dict]]) -> None:
 
 def manifest_block(packs: dict[str, list[dict]]) -> str:
     """The system.json `packs` array for the packs that now exist."""
-    labels = {"weapons": "Weapons", "armor": "Armor", "gear": "Equipment"}
+    labels = {"weapons": "Weapons", "armor": "Armor", "gear": "Equipment", "classes": "Classes"}
     entries = [
         {
             "name": pack,

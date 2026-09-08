@@ -1,0 +1,159 @@
+{
+  "_id": "KIJFfwjbrIbg4bKu",
+  "name": "Field Scientist",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "computerUse",
+      "craft",
+      "decipherScript",
+      "demolitions",
+      "disableDevice",
+      "drive",
+      "investigate",
+      "knowledge",
+      "navigate",
+      "pilot",
+      "profession",
+      "readWriteLanguage",
+      "research",
+      "search",
+      "speakLanguage"
+    ],
+    "prerequisites": [
+      "To qualify to become a Field Scientist, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Smart Defense"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 0,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Scientific improvisation"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Skill mastery"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Minor breakthrough"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Smart survival"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Smart weapon"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Major breakthrough"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 5,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fieldscientist.html"
+  },
+  "_key": "!items!KIJFfwjbrIbg4bKu"
+}
