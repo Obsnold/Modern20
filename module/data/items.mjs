@@ -9,6 +9,8 @@ const fields = foundry.data.fields;
  * Reputation, and the actor just sums what it has.
  */
 export class Modern20Class extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Class"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -49,6 +51,8 @@ export class Modern20Class extends Modern20ItemBase {
 
 /** A starting occupation: skill bonuses, a bonus feat and a Wealth bump. */
 export class Modern20Occupation extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Occupation"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -66,6 +70,8 @@ export class Modern20Occupation extends Modern20ItemBase {
 
 /** A talent from one of a basic class's talent trees. */
 export class Modern20Talent extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Talent"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -77,6 +83,8 @@ export class Modern20Talent extends Modern20ItemBase {
 }
 
 export class Modern20Feat extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Feat"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -95,6 +103,8 @@ export class Modern20Feat extends Modern20ItemBase {
 }
 
 export class Modern20Weapon extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Weapon"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -121,6 +131,8 @@ export class Modern20Weapon extends Modern20ItemBase {
 }
 
 export class Modern20Armor extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Armor"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -142,6 +154,8 @@ export class Modern20Armor extends Modern20ItemBase {
 }
 
 export class Modern20Gear extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Gear"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -152,6 +166,8 @@ export class Modern20Gear extends Modern20ItemBase {
 }
 
 export class Modern20VehicleMod extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.VehicleMod"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -164,6 +180,8 @@ export class Modern20VehicleMod extends Modern20ItemBase {
 
 /** Arcane spells from the FX chapter. */
 export class Modern20Spell extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Spell"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),
@@ -185,6 +203,8 @@ export class Modern20Spell extends Modern20ItemBase {
 
 /** Psionic powers, kept separate from spells so a non-FX game can ignore both. */
 export class Modern20PsiPower extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.PsiPower"];
+
   static defineSchema() {
     return {
       ...super.defineSchema(),

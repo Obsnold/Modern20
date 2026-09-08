@@ -57,6 +57,24 @@ src/packs/               Compendium source documents; committed
 packs/                   Compiled LevelDB packs; generated, gitignored
 ```
 
+## Field labels
+
+Every document subtype declares `LOCALIZATION_PREFIXES`, and Foundry reads each
+field's label from `lang/en.json` at `<prefix>.FIELDS.<path>.label`. A field with
+no entry renders as an unlabelled input — which is exactly how the item sheets
+first shipped.
+
+The blocks are generated from the real schemas rather than written by hand, so a
+field added later cannot be forgotten:
+
+```bash
+node scripts/gen_field_labels.mjs > /tmp/fields.json   # then merge into lang/en.json
+```
+
+Labels are humanised from the field name, with an acronym list (DC, HP, BAB, SRD)
+and an override map for names that read badly on their own — `str` becomes
+Strength, not Str.
+
 ## The SRD pipeline
 
 The SRD is static HTML, so content is scraped rather than retyped. Everything

@@ -75,6 +75,7 @@ function attributeFields() {
  * `creature` all extend this; `vehicle` does not.
  */
 export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
+
   static defineSchema() {
     return {
       abilities: new fields.SchemaField(

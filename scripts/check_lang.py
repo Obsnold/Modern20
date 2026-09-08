@@ -61,12 +61,25 @@ def main():
     for key in collisions:
         print(f"COLLIDES {key} is both a string and a namespace")
 
-    missing = sorted(k for k in used if k not in strings)
+    # A LOCALIZATION_PREFIXES entry names a namespace, not a string: Foundry
+    # reads <prefix>.FIELDS.<path>.label beneath it. Treat such a key as
+    # satisfied when anything exists under it.
+    namespaces = {k.rsplit(".", 1)[0] for k in strings}
+    for key in list(strings):
+        parts = key.split(".")
+        for depth in range(1, len(parts)):
+            namespaces.add(".".join(parts[:depth]))
+
+    missing = sorted(k for k in used if k not in strings and k not in namespaces)
+    # FIELDS blocks are read by Foundry's own data model localization, keyed
+    # off each model's LOCALIZATION_PREFIXES, so they never appear in a
+    # template or a localize() call.
     unused = sorted(
         k for k in strings
         if k.startswith("MODERN20.") and k not in used
         and not k.startswith(DYNAMIC_PREFIXES)
         and not k.endswith(".abbr")
+        and ".FIELDS." not in k
     )
 
     for key in missing:
