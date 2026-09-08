@@ -1,5 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 
+const { Roll } = foundry.dice;
+
 /**
  * The Wealth economy, per the SRD Wealth rules.
  *

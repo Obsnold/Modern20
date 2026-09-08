@@ -1,5 +1,8 @@
 import { MODERN20 } from "../config.mjs";
 
+const { Item, ChatMessage } = foundry.documents;
+const { Roll } = foundry.dice;
+
 export class Modern20Item extends Item {
   getRollData() {
     const data = { ...(this.actor?.getRollData() ?? {}) };

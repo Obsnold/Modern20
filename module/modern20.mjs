@@ -71,14 +71,12 @@ function registerSheets() {
   const { DocumentSheetConfig } = foundry.applications.apps;
   const { Actor: ActorDoc, Item: ItemDoc } = foundry.documents;
 
-  DocumentSheetConfig.unregisterSheet(ActorDoc, "core", foundry.applications.sheets.ActorSheetV2);
   DocumentSheetConfig.registerSheet(ActorDoc, SYSTEM_ID, Modern20HeroSheet, {
     types: ["hero", "ordinary", "creature"],
     makeDefault: true,
     label: "MODERN20.SheetLabel.Hero"
   });
 
-  DocumentSheetConfig.unregisterSheet(ItemDoc, "core", foundry.applications.sheets.ItemSheetV2);
   DocumentSheetConfig.registerSheet(ItemDoc, SYSTEM_ID, Modern20ItemSheet, {
     makeDefault: true,
     label: "MODERN20.SheetLabel.Item"
