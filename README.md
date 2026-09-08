@@ -189,9 +189,20 @@ Roughly in the order worth doing it:
 4. **The rest of d20 Future and Urban Arcana** — progress levels, cybernetics,
    mecha, robots, xenoforms.
 
-Occupations store their skill and bonus-feat choices as SRD prose rather than
-structured options, because the SRD states them as a sentence offering a
-choice. Turning those into pickable lists is the next refinement.
+Class skills are granted by the character's class and occupation items rather
+than ticked by hand — removing a class removes what it granted. A hand-ticked
+box still counts, so the stored value acts as an override for anything granted
+outside those items.
+
+An occupation's Reputation bonus is derived, since it is a permanent trait. Its
+Wealth bonus is applied once when the occupation is added: Wealth erodes as the
+character buys things, so re-deriving it every preparation pass would silently
+refund purchases.
+
+Occupations still store their skill and bonus-feat *choices* as SRD prose
+rather than structured options, because the SRD states them as a sentence
+offering a choice. `skillOptions` and `bonusFeatOptions` are the placeholders
+for that, and are the only two schema fields nothing yet reads.
 
 ## Known rough edges
 

@@ -907,6 +907,7 @@
       "General": "General Feat"
     },
     "FlatFooted": "Flat-Footed",
+    "GrantedByClass": "Class skill, granted by a class or occupation",
     "Grapple": "Grapple",
     "Handling": "Handling",
     "Hardness": "Hardness",
@@ -919,6 +920,9 @@
     },
     "HitDice": "Hit Dice",
     "HitPoints": "Hit Points",
+    "Info": {
+      "OccupationWealth": "{name} increases the Wealth bonus by {bonus}."
+    },
     "Initiative": "Initiative",
     "Item": {
       "Armor": {

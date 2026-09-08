@@ -66,6 +66,27 @@ Hooks.once("init", () => {
   };
 });
 
+/**
+ * An occupation's Wealth Bonus Increase is a one-time increase to starting
+ * Wealth, not an ongoing modifier: Wealth erodes as the character buys things,
+ * so re-deriving it every preparation pass would silently refund purchases.
+ * Applied once, when the occupation is added to a character.
+ */
+Hooks.on("createItem", async (item) => {
+  if (item.type !== "occupation") return;
+  const actor = item.parent;
+  if (!actor || actor.system.wealth === undefined) return;
+  if (!game.user.isGM && game.user.id !== game.users.find((u) => u.character?.id === actor.id)?.id) return;
+
+  const bonus = item.system.wealthBonus ?? 0;
+  if (!bonus) return;
+
+  await actor.update({ "system.wealth.bonus": actor.system.wealth.bonus + bonus });
+  ui.notifications.info(game.i18n.format("MODERN20.Info.OccupationWealth", {
+    name: item.name, bonus
+  }));
+});
+
 Hooks.once("ready", () => {
   console.log(`${SYSTEM_ID} | Ready`);
 });

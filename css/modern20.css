@@ -236,6 +236,9 @@
 /* Overspending is flagged, never blocked. */
 .modern20 .m20-over { color: var(--m20-warn); font-weight: 600; }
 
+/* A class skill granted by a class or occupation is shown, not editable. */
+.modern20 .m20-granted { color: var(--m20-success); }
+
 /* --- Item lists -------------------------------------------------------- */
 
 .modern20 .m20-itemlist { margin-bottom: 0.8rem; }

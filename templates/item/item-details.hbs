@@ -37,6 +37,7 @@
     {{formField fields.rangeIncrement value=system.rangeIncrement}}
     {{formField fields.rateOfFire value=system.rateOfFire}}
     {{formField fields.magazine value=system.magazine}}
+    {{formField fields.ammo value=system.ammo}}
     {{formField fields.attackBonus value=system.attackBonus}}
     {{formField fields.damageBonus value=system.damageBonus}}
   {{/if}}
@@ -47,6 +48,12 @@
     {{formField fields.maxDex value=system.maxDex}}
     {{formField fields.armorPenalty value=system.armorPenalty}}
     {{formField fields.speedPenalty value=system.speedPenalty}}
+    {{formField fields.proficiency value=system.proficiency}}
+  {{/if}}
+
+  {{#if (eq document.type "vehicleMod")}}
+    {{formField fields.slot value=system.slot}}
+    {{formField fields.effect value=system.effect}}
   {{/if}}
 
   {{#if (eq document.type "gear")}}
@@ -56,12 +63,16 @@
   {{#if (eq document.type "spell")}}
     {{formField fields.level value=system.level}}
     {{formField fields.school value=system.school}}
+    {{formField fields.subschool value=system.subschool}}
+    {{formField fields.components value=system.components}}
     {{formField fields.castingTime value=system.castingTime}}
     {{formField fields.range value=system.range}}
+    {{formField fields.area value=system.area}}
     {{formField fields.target value=system.target}}
     {{formField fields.duration value=system.duration}}
     {{formField fields.savingThrow value=system.savingThrow}}
     {{formField fields.spellResistance value=system.spellResistance}}
+    {{formField fields.prepared value=system.prepared}}
   {{/if}}
 
   {{#if (eq document.type "psiPower")}}

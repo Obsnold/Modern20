@@ -202,9 +202,30 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
     }
   }
 
+  /**
+   * Skills the character's classes and occupations make class skills.
+   * A hand-ticked box still counts, so the stored value acts as an override
+   * for anything granted outside these items.
+   */
+  get grantedClassSkills() {
+    const granted = new Set();
+    for (const item of this.parent?.items ?? []) {
+      if (item.type === "class") {
+        for (const key of item.system.classSkills ?? []) granted.add(key);
+      } else if (item.type === "occupation") {
+        for (const key of item.system.skillsChosen ?? []) granted.add(key);
+      }
+    }
+    return granted;
+  }
+
   #prepareSkills() {
+    const granted = this.grantedClassSkills;
     for (const [key, cfg] of Object.entries(MODERN20.skills)) {
       const skill = this.skills[key];
+      // Derived, so removing a class removes what it granted.
+      skill.grantedByClass = granted.has(key);
+      skill.classSkill = skill.classSkill || skill.grantedByClass;
       const abilityMod = cfg.ability ? this.abilities[cfg.ability].mod : 0;
       const penalty = cfg.armorCheck ? this.attributes.armorCheckPenalty : 0;
 
@@ -218,6 +239,8 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
       skill.usable = !cfg.trainedOnly || skill.ranks > 0;
 
       for (const specialty of skill.specialties) {
+        specialty.grantedByClass = skill.grantedByClass;
+        specialty.classSkill = specialty.classSkill || skill.grantedByClass;
         specialty.total = totalOf(specialty);
         specialty.usable = !cfg.trainedOnly || specialty.ranks > 0;
       }
