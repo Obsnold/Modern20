@@ -1331,12 +1331,19 @@
     "Level": "Level",
     "LevelDown": "Remove a level from this class",
     "LevelUp": {
+      "AbilityHint": "Every fourth character level raises one ability score by 1.",
+      "AbilityTitle": "Character level {level}: increase an ability score",
       "Add": "Add",
       "ClassFeature": "Class Feature",
       "FeatHint": "Any feat may be chosen. Prerequisites are not enforced.",
       "FeatTitle": "Level {level}: choose a bonus feat",
+      "GeneralFeatHint": "Every third character level grants a feat. Prerequisites are not enforced.",
+      "GeneralFeatTitle": "Character level {level}: choose a feat",
       "Granted": "Gained: {names}",
       "GrantedAt": "Granted by {name} at level {level}.",
+      "HitPointsFlavor": "Hit points from {name} ({die})",
+      "HitPointsGained": "Gained <strong>{gained}</strong> hit points ({rolled} on the die, Constitution {con}).",
+      "Maximum": "maximum",
       "NoTalents": "No talents remain for {name}; the compendium may not be installed.",
       "TalentHint": "Talents are grouped by tree. Prerequisites are not enforced — check the talent's own description.",
       "TalentTitle": "{name} level {level}: choose a talent"
@@ -1432,6 +1439,7 @@
       "TreatInjury": "Treat Injury",
       "Tumble": "Tumble"
     },
+    "SkillPointsRemaining": "remaining",
     "SkillPointsSpent": "Skill points spent",
     "Source": "Source",
     "SpecialQualities": "Special Qualities",

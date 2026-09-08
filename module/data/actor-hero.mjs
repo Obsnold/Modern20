@@ -3,6 +3,29 @@ import { Modern20ActorBase, int } from "./actor-base.mjs";
 
 const fields = foundry.data.fields;
 
+/**
+ * The skill point budget for a set of class items.
+ *
+ * A class grants (its per-level points + Intelligence modifier) each level,
+ * never less than one. The character's very first class level is worth four
+ * times that, which is the SRD's "Skill Points at 1st Level: (x + Int) x 4".
+ * Exported as a pure function so the arithmetic can be tested directly.
+ *
+ * @param {Array<{levels: number, perLevel: number}>} classes  Starting class first.
+ * @param {number} intMod
+ */
+export function skillPointBudget(classes, intMod) {
+  let total = 0;
+  classes.forEach((cls, index) => {
+    if (cls.levels < 1) return;
+    const perLevel = Math.max(1, cls.perLevel + intMod);
+    // Only the starting class multiplies its first level.
+    total += index === 0 ? perLevel * 4 + perLevel * (cls.levels - 1) : perLevel * cls.levels;
+  });
+  return total;
+}
+
+
 /** A player hero: talents, action points, Reputation and a Wealth bonus. */
 export class Modern20Hero extends Modern20ActorBase {
   /** Field labels and hints come from lang/en.json under these prefixes. */
@@ -84,6 +107,8 @@ export class Modern20Hero extends Modern20ActorBase {
     this.skillPoints.maxCrossClassRanks = this.skillPoints.maxRanks / 2;
     this.skillPoints.spent =
       this.skillPoints.spentOverride ?? this.#countSpentSkillPoints();
+    this.skillPoints.available = this.#countAvailableSkillPoints(classes);
+    this.skillPoints.remaining = this.skillPoints.available - this.skillPoints.spent;
 
     this.#flagOverspentSkills();
   }
@@ -118,6 +143,14 @@ export class Modern20Hero extends Modern20ActorBase {
     this.saves.will.base += will;
     this.defense.classBonus += defense;
     this.reputation.base += reputation;
+  }
+
+  /** The starting class is the first class item in sort order. */
+  #countAvailableSkillPoints(classes) {
+    const ordered = [...classes]
+      .sort((a, b) => a.sort - b.sort)
+      .map((c) => ({ levels: c.system.levels, perLevel: c.system.skillPointsPerLevel }));
+    return skillPointBudget(ordered, this.abilities.int.mod);
   }
 
   #countSpentSkillPoints() {

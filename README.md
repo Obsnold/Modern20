@@ -53,6 +53,19 @@ that exists in the compendium, so the rest are recorded as class-feature
 talents — they are described in the class's own page prose, not as reusable
 feats.
 
+A level also rolls hit points, refreshes action points, and applies the two
+character-level milestones the SRD states independently of class level: a feat
+every third level and +1 to an ability score every fourth. Hit points are the
+maximum die roll only for a character's very first level — *"when picking up a
+new class, a hero doesn't receive maximum hit points but should roll the new
+Hit Die"* — and a level never yields fewer than one.
+
+The Skills tab shows the point budget: a class grants its per-level points plus
+the Intelligence modifier each level, never fewer than one, with the starting
+class's first level worth four times that. Overspending is flagged, not blocked.
+`skillPointBudget` in `module/data/actor-hero.mjs` is a pure function so the
+arithmetic can be tested directly.
+
 ## Layout
 
 ```

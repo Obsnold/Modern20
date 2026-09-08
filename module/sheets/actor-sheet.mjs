@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { promptLevelUpChoices } from "../apps/level-up.mjs";
+import { applyLevelGains } from "../apps/level-up.mjs";
 
 const { Item } = foundry.documents;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -191,11 +191,19 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       }));
     }
 
+    // Whether this is the character's very first level decides maximum versus
+    // rolled hit points, so it has to be read before the update.
+    const priorLevels = this.document.items
+      .filter((i) => i.type === "class")
+      .reduce((total, i) => total + i.system.levels, 0);
+
     await item.update({ "system.levels": levels });
 
-    // Offer the level's choices only after the numbers are applied, so a
-    // dismissed prompt still leaves a correctly levelled character.
-    if (delta > 0) await promptLevelUpChoices(this.document, item, levels);
+    // Gains are offered only after the numbers are applied, so a dismissed
+    // prompt still leaves a correctly levelled character.
+    if (delta > 0) {
+      await applyLevelGains(this.document, item, levels, { isFirstLevelEver: priorLevels === 0 });
+    }
   }
 
   static async #onDeleteItem(event, target) {
