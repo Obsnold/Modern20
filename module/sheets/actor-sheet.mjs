@@ -51,6 +51,20 @@ export class Modern20HeroSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     }
   };
 
+  /**
+   * Hand each templated part its own tab entry.
+   *
+   * ApplicationV2 populates `context.tabs` for the whole application, which is
+   * what renders the tab bar, but the base _preparePartContext only sets
+   * partId. Without this every section renders with no data-tab and no active
+   * class, so the bar appears and all the panels stay hidden.
+   */
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
+    if (context.tabs && partId in context.tabs) context.tab = context.tabs[partId];
+    return context;
+  }
+
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const actor = this.document;
