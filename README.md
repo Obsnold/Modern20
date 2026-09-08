@@ -230,9 +230,13 @@ refund purchases.
 
 An occupation's choices are parsed from the SRD's own sentence — *"Choose three
 of the following skills as permanent class skills"* — into a count and a list
-of options. Adding an occupation to a character prompts for the picks, grants
-the bonus feat from the compendium when it offers one, and applies the Wealth
-increase. All nineteen parse cleanly; the awkward cases were Academic, which
+of options. Those picks are made inline: on the Occupation step of the creator,
+or on the occupation item's own sheet afterwards. Choosing the bonus feat there
+grants it. The Wealth increase is applied when the occupation is added.
+
+No part of character creation or levelling uses a dialog. Every choice is made
+on a screen that shows the surrounding context, and nothing is written until
+the screen is confirmed. All nineteen parse cleanly; the awkward cases were Academic, which
 hides two more skills in a trailing clause, and the occupations that write
 "either A or B" with no comma to split on.
 

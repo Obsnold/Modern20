@@ -13,7 +13,19 @@
     {{formField fields.wealthBonus value=system.wealthBonus}}
     {{formField fields.reputationBonus value=system.reputationBonus}}
     {{formField fields.skillChoiceCount value=system.skillChoiceCount}}
-    {{formField fields.bonusFeatChosen value=system.bonusFeatChosen}}
+    {{#if system.bonusFeatOptions.length}}
+      <div class="form-group">
+        <label>{{localize "MODERN20.Occupation.FeatTitle2"}}</label>
+        <div class="form-fields">
+          <select name="system.bonusFeatChosen">
+            <option value="">{{localize "MODERN20.Creator.None"}}</option>
+            {{#each system.bonusFeatOptions as |feat|}}
+              <option value="{{feat}}" {{#if (eq feat ../system.bonusFeatChosen)}}selected{{/if}}>{{feat}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    {{/if}}
 
     <fieldset>
       <legend>{{localize "MODERN20.Occupation.Chosen"}}</legend>

@@ -18,7 +18,34 @@
       <div class="m20-panel">
         <h3>{{chosenOccupation.name}}</h3>
         <p class="m20-hint">{{localize "MODERN20.Creator.WealthBonus"}}: +{{chosenOccupation.wealthBonus}}</p>
-        <p class="m20-hint">{{localize "MODERN20.Creator.OccupationPrompt"}}</p>
+
+        {{#if occupationSkillCount}}
+          <h3>
+            {{localize "MODERN20.Occupation.Chosen"}}
+            <span class="{{#if (gt occupationSkillsPicked occupationSkillCount)}}m20-over{{/if}}">
+              {{occupationSkillsPicked}} / {{occupationSkillCount}}
+            </span>
+          </h3>
+          <div class="m20-choices">
+            {{#each occupationSkillOptions as |option|}}
+              <label class="m20-choice">
+                <input type="checkbox" name="occupationSkill" value="{{option.skill}}"
+                       {{#if (includes ../choices.occupationSkills option.skill)}}checked{{/if}}>
+                <span>{{option.label}}</span>
+              </label>
+            {{/each}}
+          </div>
+        {{/if}}
+
+        {{#if occupationFeatOptions.length}}
+          <h3>{{localize "MODERN20.Occupation.FeatTitle2"}}</h3>
+          <select name="occupationFeat">
+            <option value="">{{localize "MODERN20.Creator.None"}}</option>
+            {{#each occupationFeatOptions as |feat|}}
+              <option value="{{feat}}" {{#if (eq feat ../choices.occupationFeat)}}selected{{/if}}>{{feat}}</option>
+            {{/each}}
+          </select>
+        {{/if}}
       </div>
     {{/if}}
   {{else}}

@@ -24,7 +24,24 @@
           <label>{{localize "MODERN20.SkillPointsSpent"}}</label>
           <span>{{chosenClass.skillPoints}} + {{localize "MODERN20.Ability.Int.long"}}</span>
         </div>
-        <p class="m20-hint">{{localize "MODERN20.Creator.ClassPrompt"}}</p>
+        {{#if classFeatures.length}}
+          <p class="m20-hint">
+            {{localize "MODERN20.LevelScreen.Grants"}}:
+            {{#each classFeatures}}<span class="m20-tag">{{this}}</span> {{/each}}
+          </p>
+        {{/if}}
+
+        {{#if classTalents.length}}
+          <h3>{{localize "MODERN20.LevelScreen.Talent"}}</h3>
+          <select name="talentUuid">
+            <option value="">{{localize "MODERN20.Creator.None"}}</option>
+            {{#each classTalents as |talent|}}
+              <option value="{{talent.uuid}}" {{#if (eq talent.uuid ../choices.talentUuid)}}selected{{/if}}>
+                {{talent.tree}} &mdash; {{talent.name}}
+              </option>
+            {{/each}}
+          </select>
+        {{/if}}
       </div>
     {{/if}}
   {{else}}

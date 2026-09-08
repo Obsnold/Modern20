@@ -1,8 +1,10 @@
 import { MODERN20 } from "../config.mjs";
-import { applyLevelGains } from "./level-up.mjs";
+import { talentChoices, featChoices, grant, grantNamedFeature } from "./level-up.mjs";
+import { applyOccupationWealth, grantFeatByName } from "./occupation.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 const { Roll } = foundry.dice;
+const { ChatMessage } = foundry.documents;
 
 /**
  * Guided first-level character creation.
@@ -36,8 +38,10 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       pool: [...STANDARD_ARRAY],
       abilities: Object.fromEntries(ABILITIES.map((a) => [a, 10])),
       occupationId: "",
+      occupationSkills: [],
+      occupationFeat: "",
       classId: "",
-      feats: []
+      talentUuid: ""
     };
   }
 
@@ -121,6 +125,25 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
 
     context.chosenOccupation = context.occupations.find((o) => o.id === state.occupationId) ?? null;
     context.chosenClass = context.classes.find((c) => c.id === state.classId) ?? null;
+
+    // The occupation's own choices, shown on the same step rather than in a
+    // dialog after the fact.
+    if (context.chosenOccupation) {
+      const pack = game.packs.get("modern20.occupations");
+      const document = await pack?.getDocument(state.occupationId);
+      context.occupationSkillOptions = document?.system.skillOptions ?? [];
+      context.occupationSkillCount = document?.system.skillChoiceCount ?? 0;
+      context.occupationFeatOptions = document?.system.bonusFeatOptions ?? [];
+      context.occupationSkillsPicked = state.occupationSkills.length;
+    }
+
+    // A basic class grants a talent at level 1, so offer it here too.
+    if (context.chosenClass) {
+      const pack = game.packs.get("modern20.classes");
+      const document = await pack?.getDocument(state.classId);
+      context.classTalents = document ? await talentChoices(this.actor, document) : [];
+      context.classFeatures = document?.system.progression?.find((r) => r.level === 1)?.features ?? [];
+    }
     context.startingFeats = STARTING_FEATS;
     context.ready = Boolean(state.classId);
 
@@ -161,8 +184,22 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
         state.abilities[key] = Number(data[`abilities.${key}`]) || 0;
       }
     }
-    if (data.occupationId !== undefined) state.occupationId = data.occupationId;
-    if (data.classId !== undefined) state.classId = data.classId;
+    if (data.occupationId !== undefined && data.occupationId !== state.occupationId) {
+      state.occupationId = data.occupationId;
+      // A different occupation offers different skills, so old picks are void.
+      state.occupationSkills = [];
+      state.occupationFeat = "";
+    }
+    if (data.classId !== undefined && data.classId !== state.classId) {
+      state.classId = data.classId;
+      state.talentUuid = "";
+    }
+    if (data.occupationFeat !== undefined) state.occupationFeat = data.occupationFeat;
+    if (data.talentUuid !== undefined) state.talentUuid = data.talentUuid;
+    if (data.occupationSkill !== undefined) {
+      const picked = Array.isArray(data.occupationSkill) ? data.occupationSkill : [data.occupationSkill];
+      state.occupationSkills = picked.filter(Boolean);
+    }
 
     this.render();
   }
@@ -206,23 +243,60 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     );
     await actor.update(abilities);
 
-    // Adding the occupation runs its own skill and bonus feat prompts.
     if (state.occupationId) {
       const pack = game.packs.get("modern20.occupations");
       const occupation = await pack?.getDocument(state.occupationId);
-      if (occupation) await actor.createEmbeddedDocuments("Item", [occupation.toObject()]);
+      if (occupation) {
+        const source = occupation.toObject();
+        // Picks made on the Occupation step travel with the item.
+        source.system.skillsChosen = state.occupationSkills;
+        source.system.bonusFeatChosen = state.occupationFeat;
+        const [created] = await actor.createEmbeddedDocuments("Item", [source]);
+        await applyOccupationWealth(actor, created);
+        if (state.occupationFeat) await grantFeatByName(actor, state.occupationFeat);
+      }
     }
 
     const classPack = game.packs.get("modern20.classes");
     const heroClass = await classPack?.getDocument(state.classId);
-    if (heroClass) {
-      const source = heroClass.toObject();
-      source.system.levels = 1;
-      const [created] = await actor.createEmbeddedDocuments("Item", [source]);
-      // Reuses the level-up path, so first-level hit points are the maximum
-      // and the class's own level 1 grant is offered.
-      await applyLevelGains(actor, created, 1, { isFirstLevelEver: true });
+    if (!heroClass) return;
+
+    const source = heroClass.toObject();
+    source.system.levels = 1;
+    const [created] = await actor.createEmbeddedDocuments("Item", [source]);
+
+    // A character's very first level takes the maximum hit die rather than
+    // rolling; the SRD reserves rolling for picking up a new class later.
+    const faces = Number(String(created.system.hitDie).match(/d(\d+)/i)?.[1]) || 8;
+    const conMod = Math.floor((state.abilities.con - 10) / 2);
+    const gained = Math.max(1, faces + conMod);
+    await actor.update({ "system.hp.max": gained, "system.hp.value": gained });
+
+    const granted = [];
+    const talent = await grant(actor, state.talentUuid);
+    if (talent) granted.push(talent.name);
+
+    const features = created.system.progression?.find((r) => r.level === 1)?.features ?? [];
+    for (const feature of features) {
+      if (/^talents?$/i.test(feature) || /bonus feat/i.test(feature)) continue;
+      const item = await grantNamedFeature(actor, created, feature, 1);
+      if (item) granted.push(item.name);
     }
+
+    if (actor.system.actionPoints) {
+      await actor.update({ "system.actionPoints.value": actor.system.actionPoints.max });
+    }
+
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      flavor: game.i18n.format("MODERN20.Creator.Flavor", { name: created.name }),
+      content: `<p>${game.i18n.format("MODERN20.LevelUp.HitPointsGained", {
+        gained, rolled: game.i18n.localize("MODERN20.LevelUp.Maximum"),
+        con: conMod >= 0 ? `+${conMod}` : conMod
+      })}</p>${granted.length ? `<p>${game.i18n.format("MODERN20.LevelUp.Granted", {
+        names: granted.join(", ")
+      })}</p>` : ""}`
+    });
 
     ui.notifications.info(game.i18n.format("MODERN20.Creator.Done", {
       name: actor.name, feats: STARTING_FEATS
