@@ -1,0 +1,28 @@
+{
+  "_id": "audAy8sixZgHR4Q4",
+  "name": "Magic Bullets",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 4,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "50 bullets, all of which must be in contact with each other at the time of casting",
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "prepared": 0
+  },
+  "_key": "!items!audAy8sixZgHR4Q4"
+}

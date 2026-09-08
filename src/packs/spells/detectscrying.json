@@ -1,0 +1,28 @@
+{
+  "_id": "cGjn7BhPznMrHJSB",
+  "name": "Detect Scrying",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 4,
+    "school": "Divination",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "120 ft.",
+    "area": "120-ft.-radius emanation centered on you",
+    "target": "",
+    "duration": "24 hours",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!cGjn7BhPznMrHJSB"
+}

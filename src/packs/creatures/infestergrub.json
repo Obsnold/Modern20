@@ -1,0 +1,99 @@
+{
+  "_id": "TDhpmcxzdraodOke",
+  "name": "Infester (grub)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+    "abilities": {
+      "str": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 23,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 5,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 1,
+      "max": 1,
+      "temp": 0,
+      "formula": "1/16 d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 8
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "fine",
+      "speed": 30,
+      "initiative": {
+        "misc": -3
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 11,
+      "reach": 6,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "vermin",
+      "subtype": "",
+      "challengeRating": "1/16 d8; hp 1",
+      "hitDice": "1/16 d8",
+      "advancement": "None",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Anesthetic bite, attach, blindsight 60 ft., boost host, host protection, infestation, vermin",
+    "specialQualities": "Anesthetic bite, attach, blindsight 60 ft., boost host, host protection, infestation, vermin",
+    "biography": "<p><strong>Attack:</strong> +3 melee (1, bite)</p><p><strong>Full Attack:</strong> +3 melee (1, bite)</p><p><strong>Skills:</strong> Hide +24, Move Silently +8, Spot +6</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!TDhpmcxzdraodOke"
+}

@@ -1,0 +1,28 @@
+{
+  "_id": "GGdDzYPSx2NOlObU",
+  "name": "Fear",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 4,
+    "school": "Necromancy",
+    "subschool": "Fear, Mind-Affecting",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "Cone",
+    "target": "",
+    "duration": "1 round/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!GGdDzYPSx2NOlObU"
+}

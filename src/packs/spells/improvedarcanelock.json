@@ -1,0 +1,28 @@
+{
+  "_id": "MJXbhR5e7wsFdtvE",
+  "name": "Improved Arcane Lock",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 3,
+    "school": "Abjuration",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "",
+    "target": "One door, cabinet, chest, or portal/level, up to 30 sq. ft./ level each",
+    "duration": "1 hour/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!MJXbhR5e7wsFdtvE"
+}

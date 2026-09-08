@@ -1,0 +1,28 @@
+{
+  "_id": "9vX9ZGPwpgRXndRg",
+  "name": "Ice Storm",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 4,
+    "school": "Evocation",
+    "subschool": "Cold",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "Cylinder (20-ft. radius, 40 ft. high)",
+    "target": "",
+    "duration": "1 round",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!9vX9ZGPwpgRXndRg"
+}

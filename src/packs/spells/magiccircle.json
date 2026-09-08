@@ -1,0 +1,28 @@
+{
+  "_id": "RHQNIrJcGLxWZxpy",
+  "name": "Magic Circle",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 3,
+    "school": "Abjuration",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "10-ft.-radius emanation from touched creature",
+    "target": "",
+    "duration": "10 minutes/level",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "No (see text)",
+    "prepared": 0
+  },
+  "_key": "!items!RHQNIrJcGLxWZxpy"
+}

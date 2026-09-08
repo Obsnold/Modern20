@@ -1,0 +1,28 @@
+{
+  "_id": "6E5TO1BCLQOr78Fi",
+  "name": "Nondetection",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 3,
+    "school": "Abjuration",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature or object touched",
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "prepared": 0
+  },
+  "_key": "!items!6E5TO1BCLQOr78Fi"
+}

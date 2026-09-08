@@ -150,6 +150,17 @@
       }
     },
     {
+      "name": "spells",
+      "label": "Spells",
+      "path": "packs/spells",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "weapons",
       "label": "Weapons",
       "path": "packs/weapons",
@@ -176,6 +187,17 @@
       "label": "Equipment",
       "path": "packs/gear",
       "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "creatures",
+      "label": "Creatures",
+      "path": "packs/creatures",
+      "type": "Actor",
       "system": "modern20",
       "ownership": {
         "PLAYER": "OBSERVER",

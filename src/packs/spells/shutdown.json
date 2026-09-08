@@ -1,0 +1,27 @@
+{
+  "_id": "s6zk9O592h5Bz80l",
+  "name": "Shutdown",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 3,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "M/DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "15-ft.-radius emanation centered on a point in space",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!s6zk9O592h5Bz80l"
+}

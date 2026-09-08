@@ -1,0 +1,28 @@
+{
+  "_id": "vIf0uEJTipcP6alV",
+  "name": "Shadowmoth Plague",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 3,
+    "school": "Conjuration (Summoning)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Fullround action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "5- ft.-high cloud of shadowmoths filling a 10-ft.-radius spread",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!vIf0uEJTipcP6alV"
+}

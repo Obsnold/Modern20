@@ -1,0 +1,28 @@
+{
+  "_id": "jVVpwrqfNpudxwAQ",
+  "name": "Sleep",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 1,
+    "school": "Enchantment",
+    "subschool": "Mind-Affecting",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "area": "Several living creatures within a 15-ft.-radius burst",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!jVVpwrqfNpudxwAQ"
+}

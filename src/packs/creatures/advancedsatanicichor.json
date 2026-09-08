@@ -1,0 +1,99 @@
+{
+  "_id": "1nG9ns3xdUve8ivx",
+  "name": "Advanced Satanic Ichor",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 80,
+      "max": 80,
+      "temp": 0,
+      "formula": "8d10+36"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 2,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 2,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 6,
+      "size": "medium",
+      "speed": 10,
+      "initiative": {
+        "misc": 1
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": null,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "ooze",
+      "subtype": "",
+      "challengeRating": "10",
+      "hitDice": "8d10+36",
+      "advancement": "9 HD (Medium-size); 10-15 HD (Large)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 120 ft., corrupt the mind (DC 18), immunities, ooze, telepathy, vessel of flesh (DC 18)",
+    "specialQualities": "Blindsight 120 ft., corrupt the mind (DC 18), immunities, ooze, telepathy, vessel of flesh (DC 18)",
+    "biography": "<p><strong>Attack:</strong> +9 melee touch (1d6+4 plus special, slam)</p><p><strong>Full Attack:</strong> +9/+4 melee touch (1d6+4 plus special, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!1nG9ns3xdUve8ivx"
+}

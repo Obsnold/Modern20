@@ -1,0 +1,99 @@
+{
+  "_id": "9pWX6exYM9fi2PTh",
+  "name": "Advanced Fire Wisp",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 22,
+      "max": 22,
+      "temp": 0,
+      "formula": "5d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 1
+    },
+    "saves": {
+      "fort": {
+        "base": 1,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "tiny",
+      "speed": 20,
+      "initiative": {
+        "misc": -1
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": null,
+      "reach": 1,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "elemental (fire)",
+      "subtype": "",
+      "challengeRating": "5",
+      "hitDice": "5d8",
+      "advancement": "6 HD (Tiny)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "Evil or none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 60 ft., damage reduction 10/+1, elemental, fiery leap, fire subtype, gaseous, ignite, immunities",
+    "specialQualities": "Blindsight 60 ft., damage reduction 10/+1, elemental, fiery leap, fire subtype, gaseous, ignite, immunities",
+    "biography": "<p><strong>Attack:</strong> +8 melee touch (1d6 fire, touch)</p><p><strong>Full Attack:</strong> +8 melee touch (1d6 fire, touch)</p><p><strong>Skills:</strong> Listen +6, Spot +6</p><p><strong>Feats:</strong> Heroic Surge (2/day)</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!9pWX6exYM9fi2PTh"
+}

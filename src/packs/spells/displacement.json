@@ -1,0 +1,27 @@
+{
+  "_id": "SMTvk96HTl7VLLvM",
+  "name": "Displacement",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 3,
+    "school": "Illusion",
+    "subschool": "",
+    "components": [
+      "V",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature touched",
+    "duration": "1 round/level (D)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!SMTvk96HTl7VLLvM"
+}

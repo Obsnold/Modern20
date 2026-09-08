@@ -1,0 +1,28 @@
+{
+  "_id": "GwIcNLXlDaZesCJa",
+  "name": "Wall of Fire",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 4,
+    "school": "Evocation",
+    "subschool": "Fire",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "area": "Opaque sheet of flame up to 20 ft. long/caster level or a ring of fire with a radius of up to 5 ft./two caster levels; either form 20 ft. high",
+    "target": "",
+    "duration": "Concentration + 1 round/level",
+    "savingThrow": "See text",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!GwIcNLXlDaZesCJa"
+}

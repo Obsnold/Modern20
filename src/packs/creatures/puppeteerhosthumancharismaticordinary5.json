@@ -1,0 +1,99 @@
+{
+  "_id": "AwzCb0NL4Zht4qOo",
+  "name": "Puppeteer Host (Human Charismatic Ordinary 5)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+    "abilities": {
+      "str": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 19,
+      "max": 19,
+      "temp": 0,
+      "formula": "5d6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 2
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": -1
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 10,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "",
+      "challengeRating": "5",
+      "hitDice": "5d6",
+      "advancement": "N/A",
+      "organization": "",
+      "treasure": "Business clothes, cell phone, PDA, briefcase, stun gun, Beretta 92F (9mm autoloader)†, 15 rounds of 9mm ammunition†, firearms license†, wallet with ID and credit cards, BMW M3 sports coupe with car alarm, car alarm keychain. †These items are stored in the BMW’s glove compartment."
+    },
+    "allegiances": [
+      {
+        "name": "Puppeteer",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 60 ft., immune to mind-influencing effects, resistance to massive damage",
+    "specialQualities": "Blindsight 60 ft., immune to mind-influencing effects, resistance to massive damage",
+    "biography": "<p><strong>Attack:</strong> +1 melee (1d3 electricity plus paralysis, stun gun)</p><p><strong>Full Attack:</strong> +1 melee (1d3 electricity plus paralysis, stun gun), or +3 ranged (2d6, Beretta 92F)</p><p><strong>Skills:</strong> Bluff +10, Computer Use +4, Diplomacy +12, Disguise +6, Gather Information +12, Intimidate +10, Knowledge (business) +8, Knowledge (current events) +8, Listen +3**, Read/_Write English (or other language), Speak English (or other language), Spot +3**. **Skill bonus conferred by puppeteer.</p><p><strong>Feats:</strong> Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Trustworthy</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!AwzCb0NL4Zht4qOo"
+}

@@ -1,0 +1,99 @@
+{
+  "_id": "9jkhf60Zg2aPKmOL",
+  "name": "Sasquatch (Weren)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 22,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 22,
+      "max": 22,
+      "temp": 0,
+      "formula": "3d8+9"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 3,
+      "misc": -1
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "large",
+      "speed": 30,
+      "initiative": {
+        "misc": 1
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 17,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "giant",
+      "subtype": "",
+      "challengeRating": "2",
+      "hitDice": "3d8+9",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": "N/A"
+    },
+    "allegiances": [
+      {
+        "name": "Any",
+        "strength": "none"
+      }
+    ],
+    "senses": "Low-light vision",
+    "specialQualities": "Low-light vision",
+    "biography": "<p><strong>Attack:</strong> +7 melee (1d4+6, slam)</p><p><strong>Full Attack:</strong> +7 melee (1d4+6, 2 slams)</p><p><strong>Skills:</strong> Climb +8, Intimidate +4, Listen +5, Speak Weren, Spot +5.</p><p><strong>Feats:</strong> Alertness, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
+  },
+  "_key": "!actors!9jkhf60Zg2aPKmOL"
+}

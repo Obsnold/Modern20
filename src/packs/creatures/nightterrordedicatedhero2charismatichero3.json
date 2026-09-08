@@ -1,0 +1,99 @@
+{
+  "_id": "rCWfGXL8OCMIC2fl",
+  "name": "Night Terror Dedicated Hero 2/Charismatic Hero 3",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 24,
+      "max": 24,
+      "temp": 0,
+      "formula": "3d6 plus 2d6 plus 2d6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 1,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 5,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 6,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 10,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "fey",
+      "subtype": "",
+      "challengeRating": "7",
+      "hitDice": "3d6 plus 2d6 plus 2d6",
+      "advancement": "By character class.",
+      "organization": "",
+      "treasure": "Colt M1911 (.45 autoloader), cleaver, talking clown doll."
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Chosen victim, fear aura (DC 17), immune to fear, low-light vision, selective invisibility, terrify (DC 17), vulnerability (laughter of children)",
+    "specialQualities": "Chosen victim, fear aura (DC 17), immune to fear, low-light vision, selective invisibility, terrify (DC 17), vulnerability (laughter of children)",
+    "biography": "<p><strong>Attack:</strong> +4 melee (1d4+1, claw) or +4 melee (1d6+1/19-20, cleaver)</p><p><strong>Full Attack:</strong> +4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p><p><strong>Skills:</strong> Bluff +10, Climb +3, Disguise +9, Escape Artist +2, Hide +4, Intimidate +17, Knowledge (behavioral science) +12, Knowledge (popular culture) +7, Listen +11, Move Silently +5, Read/ Write English, Search +3, Sense Motive +13, Speak English, Spot +11.</p><p><strong>Feats:</strong> Dodge, Improved Initiative, Point Blank Shot, Personal Firearms Proficiency, Renown, Simple Weapon Proficiency.</p><p><strong>Talents:</strong> (Dedicated Hero): Empathy (Charismatic Hero): Fast-talk, dazzle</p>"
+  },
+  "_key": "!actors!rCWfGXL8OCMIC2fl"
+}

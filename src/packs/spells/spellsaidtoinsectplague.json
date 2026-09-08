@@ -1,0 +1,28 @@
+{
+  "_id": "w0GOJnqasf7Zwf1e",
+  "name": "SPELLS - AID TO INSECT PLAGUE",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 2,
+    "school": "Aid",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Living creature touched",
+    "duration": "1 minute/level",
+    "savingThrow": "None",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!w0GOJnqasf7Zwf1e"
+}

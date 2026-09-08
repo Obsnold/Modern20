@@ -1,0 +1,28 @@
+{
+  "_id": "tHmMDWTjcJQNEv8b",
+  "name": "Fireball",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 3,
+    "school": "Evocation",
+    "subschool": "Fire",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "20-ft.-radius spread",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "Reflex half",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!tHmMDWTjcJQNEv8b"
+}

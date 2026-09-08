@@ -1,0 +1,27 @@
+{
+  "_id": "E7KPZHF8dVgpikDW",
+  "name": "Speak with Animals",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 2,
+    "school": "Divination",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Personal",
+    "area": "",
+    "target": "You",
+    "duration": "1 minute/ level",
+    "savingThrow": "",
+    "spellResistance": "",
+    "prepared": 0
+  },
+  "_key": "!items!E7KPZHF8dVgpikDW"
+}

@@ -1,0 +1,26 @@
+{
+  "_id": "FF7MjdA9vpvoZZ27",
+  "name": "Shout",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 4,
+    "school": "Evocation",
+    "subschool": "Sonic",
+    "components": [
+      "V"
+    ],
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "Cone",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial (see text) (object)",
+    "spellResistance": "Yes (object)",
+    "prepared": 0
+  },
+  "_key": "!items!FF7MjdA9vpvoZZ27"
+}

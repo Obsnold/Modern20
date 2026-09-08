@@ -1,0 +1,27 @@
+{
+  "_id": "bgKUqOeObYBtFFa4",
+  "name": "Cure Moderate Wounds",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 2,
+    "school": "Conjuration (Healing)",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Creature touched",
+    "duration": "Instantaneous",
+    "savingThrow": "Will half (harmless) (see text)",
+    "spellResistance": "Yes (harmless)",
+    "prepared": 0
+  },
+  "_key": "!items!bgKUqOeObYBtFFa4"
+}

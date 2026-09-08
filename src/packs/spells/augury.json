@@ -1,0 +1,28 @@
+{
+  "_id": "83u2FYyp5BENQjFy",
+  "name": "Augury",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 2,
+    "school": "Divination",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "F"
+    ],
+    "castingTime": "Attack action",
+    "range": "Personal",
+    "area": "",
+    "target": "You",
+    "duration": "Instantaneous",
+    "savingThrow": "",
+    "spellResistance": "",
+    "prepared": 0
+  },
+  "_key": "!items!83u2FYyp5BENQjFy"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "fkPVl1tzxEqsBUix",
+  "name": "Electromagnetic Pulse",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 3,
+    "school": "Evocation",
+    "subschool": "Electricity",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Short (25 ft. + 5 ft./2 levels)",
+    "area": "20-ft. burst",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (object)",
+    "spellResistance": "Yes (object)",
+    "prepared": 0
+  },
+  "_key": "!items!fkPVl1tzxEqsBUix"
+}

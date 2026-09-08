@@ -1,0 +1,28 @@
+{
+  "_id": "jRZU5j3eq862T0BZ",
+  "name": "Invisibility",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 2,
+    "school": "Illusion",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Personal or touch",
+    "area": "",
+    "target": "You or a creature or object weighing no more than 100 lb./level",
+    "duration": "1 minute/level (D)",
+    "savingThrow": "Will negates (harmless) or Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless) or Yes (harmless, object)",
+    "prepared": 0
+  },
+  "_key": "!items!jRZU5j3eq862T0BZ"
+}

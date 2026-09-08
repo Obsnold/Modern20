@@ -1,0 +1,28 @@
+{
+  "_id": "tzpqkZRhtoDOiA9F",
+  "name": "Water Breathing",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 3,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M/DF"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "Living creatures touched",
+    "duration": "2 hours/level (see text)",
+    "savingThrow": "Will negates (harmless)",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!tzpqkZRhtoDOiA9F"
+}

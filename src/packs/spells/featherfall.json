@@ -1,0 +1,26 @@
+{
+  "_id": "Vd5yCT4LYnoGUlJf",
+  "name": "Feather Fall",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 1,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V"
+    ],
+    "castingTime": "See text",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "area": "",
+    "target": "Any free-falling objects or creatures in a 10-ft. radius whose weight does not total more than 300 lb./level",
+    "duration": "Until landing or 1 round/level",
+    "savingThrow": "Will negates (harmless) or Will negates (object)",
+    "spellResistance": "Yes (object)",
+    "prepared": 0
+  },
+  "_key": "!items!Vd5yCT4LYnoGUlJf"
+}

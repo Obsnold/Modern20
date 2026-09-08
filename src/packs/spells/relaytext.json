@@ -1,0 +1,27 @@
+{
+  "_id": "yw4vc0CqN1BqLhc7",
+  "name": "Relay Text",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 2,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Unlimited",
+    "area": "A text message reaches an electronic device of someone you know",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!yw4vc0CqN1BqLhc7"
+}

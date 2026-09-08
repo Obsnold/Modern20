@@ -1,0 +1,27 @@
+{
+  "_id": "fS4C2UfHgpzv6SRB",
+  "name": "Mending",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 0,
+    "school": "Transmutation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "10 ft.",
+    "area": "",
+    "target": "One object of up to 1 pound/level",
+    "duration": "Instantaneous",
+    "savingThrow": "Will negates (harmless, object)",
+    "spellResistance": "Yes (harmless, object)",
+    "prepared": 0
+  },
+  "_key": "!items!fS4C2UfHgpzv6SRB"
+}

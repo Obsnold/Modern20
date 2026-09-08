@@ -1,0 +1,99 @@
+{
+  "_id": "E9s8krq5QPHKikYF",
+  "name": "Advanced Invisible Stalker",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+    "abilities": {
+      "str": {
+        "value": 26,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 102,
+      "max": 102,
+      "temp": 0,
+      "formula": "12d8+48"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 7,
+      "misc": -2
+    },
+    "saves": {
+      "fort": {
+        "base": 4,
+        "misc": 0
+      },
+      "ref": {
+        "base": 8,
+        "misc": 0
+      },
+      "will": {
+        "base": 4,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 9,
+      "size": "huge",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": null,
+      "reach": 15,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "elemental (air)",
+      "subtype": "",
+      "challengeRating": "11",
+      "hitDice": "12d8+48",
+      "advancement": "13-16 HD (Huge); 17-24 HD (Gargantuan)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "None or master",
+        "strength": "none"
+      }
+    ],
+    "senses": "Elemental, natural invisibility, improved tracking, darkvision 60 ft.",
+    "specialQualities": "Elemental, natural invisibility, improved tracking, darkvision 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +15 melee (2d6+12, slam)</p><p><strong>Full Attack:</strong> +15/+10 melee (2d6+12, slam), or +10 ranged</p><p><strong>Skills:</strong> Listen +13, Move Silently +17, Search +13, Spot +15</p><p><strong>Feats:</strong> Combat Reflexes, Dodge, Improved Initiative, Weapon Focus (slam)</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!E9s8krq5QPHKikYF"
+}

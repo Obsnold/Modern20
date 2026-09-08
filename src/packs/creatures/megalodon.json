@@ -1,0 +1,99 @@
+{
+  "_id": "Da75Yhx7kEnihprM",
+  "name": "Megalodon",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 31,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 24,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 264,
+      "max": 264,
+      "temp": 0,
+      "formula": "24d8+168"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 12,
+      "misc": -4
+    },
+    "saves": {
+      "fort": {
+        "base": 14,
+        "misc": 0
+      },
+      "ref": {
+        "base": 14,
+        "misc": 0
+      },
+      "will": {
+        "base": 8,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 18,
+      "size": "gargantuan",
+      "speed": 120,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 24,
+      "reach": 20,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "11",
+      "hitDice": "24d8+168",
+      "advancement": "25-48 HD (Gargantuan); 49-72 HD (Colossal)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "darkvision 60 ft., improved grab, keen scent, low-light vision, swallow whole",
+    "specialQualities": "darkvision 60 ft., improved grab, keen scent, low-light vision, swallow whole",
+    "biography": "<p><strong>Attack:</strong> +24 melee (4d6+10, bite)</p><p><strong>Full Attack:</strong> +24/+19/+14/+9 melee (4d6+10, bite)</p><p><strong>Skills:</strong> Hide -10, Listen +6, Spot +6, Swim +15</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!Da75Yhx7kEnihprM"
+}

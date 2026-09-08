@@ -1,0 +1,27 @@
+{
+  "_id": "XFMJxhgCOXxAcf8W",
+  "name": "SPELLS - URBAN ARCANA SPELL DESCRIPTIONS",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 0,
+    "school": "Arcane Graffiti",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "0 ft.",
+    "area": "One personal rune or short message",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!XFMJxhgCOXxAcf8W"
+}

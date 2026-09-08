@@ -1,0 +1,28 @@
+{
+  "_id": "6HIPb8C1oiFMgBmQ",
+  "name": "Arcane Lock",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 2,
+    "school": "Abjuration",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "area": "",
+    "target": "One door, cabinet, chest, or portal touched, up to 30 sq. ft./level in size",
+    "duration": "Permanent",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!6HIPb8C1oiFMgBmQ"
+}

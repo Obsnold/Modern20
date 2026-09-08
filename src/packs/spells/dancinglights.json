@@ -1,0 +1,27 @@
+{
+  "_id": "nuW1A0Z6MU0RNa53",
+  "name": "Dancing Lights",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 0,
+    "school": "Evocation",
+    "subschool": "Light",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "area": "Up to four lights, all within a 10-ft.-radius area",
+    "target": "",
+    "duration": "1 minute (D)",
+    "savingThrow": "None",
+    "spellResistance": "No",
+    "prepared": 0
+  },
+  "_key": "!items!nuW1A0Z6MU0RNa53"
+}

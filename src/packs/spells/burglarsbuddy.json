@@ -1,0 +1,28 @@
+{
+  "_id": "L6txzs203szhSkJE",
+  "name": "Burglar’s Buddy",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "level": 2,
+    "school": "Illusion",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "area": "15-ft.-radius emanation centered on a creature, object, or point in space",
+    "target": "",
+    "duration": "1 minute/level",
+    "savingThrow": "None and Will negates (object)",
+    "spellResistance": "Yes and no (object)",
+    "prepared": 0
+  },
+  "_key": "!items!L6txzs203szhSkJE"
+}

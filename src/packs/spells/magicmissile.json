@@ -1,0 +1,27 @@
+{
+  "_id": "JZnVf6RablUXE42V",
+  "name": "Magic Missile",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
+    "level": 1,
+    "school": "Evocation",
+    "subschool": "Force",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "area": "",
+    "target": "Up to five creatures, no two of which can be more than 15 ft. apart",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!JZnVf6RablUXE42V"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "d9nBy6BFtjnsGIEO",
+  "name": "Faith’s Fury",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 4,
+    "school": "Evocation",
+    "subschool": "",
+    "components": [
+      "V",
+      "S"
+    ],
+    "castingTime": "Attack action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "area": "20-ft.-radius burst",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "Fortitude partial (see text)",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!d9nBy6BFtjnsGIEO"
+}

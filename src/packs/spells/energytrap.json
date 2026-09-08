@@ -1,0 +1,28 @@
+{
+  "_id": "niaIqpppEo0og5i1",
+  "name": "Energy Trap",
+  "type": "spell",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
+    "level": 4,
+    "school": "Abjuration",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Touch",
+    "area": "",
+    "target": "Object touched",
+    "duration": "Permanent until discharged (D)",
+    "savingThrow": "Reflex half (see text)",
+    "spellResistance": "Yes",
+    "prepared": 0
+  },
+  "_key": "!items!niaIqpppEo0og5i1"
+}
