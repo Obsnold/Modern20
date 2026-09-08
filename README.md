@@ -41,8 +41,17 @@ progression table warns and holds the bonuses at the last defined level.
 
 **Levelling up:** the Character tab has `-` / `+` controls on each class. Adding
 a level recomputes attack, saves, Defense, Reputation, action points and the
-skill rank cap from that class's progression table. Multiclassing is just a
-second class item — character level is the sum.
+skill rank cap from that class's progression table, then offers whatever that
+level grants — a talent from the class's own trees, a bonus feat, or a named
+class feature. Numbers are applied before the prompt, so dismissing it still
+leaves a correctly levelled character. Multiclassing is just a second class
+item; character level is the sum.
+
+Across the 180 progression rows the SRD defines, that is 30 talent picks, 66
+bonus feats and 87 named features. Only two of the named features match a feat
+that exists in the compendium, so the rest are recorded as class-feature
+talents — they are described in the class's own page prose, not as reusable
+feats.
 
 ## Layout
 
