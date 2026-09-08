@@ -1,0 +1,21 @@
+{
+  "_id": "QqEL4tbfDZIQ1poC",
+  "name": "Academic",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Academics include librarians, archaeologists, scholars, professors, teachers, and other education professionals.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 3,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 23+."
+    ]
+  },
+  "_key": "!items!QqEL4tbfDZIQ1poC"
+}

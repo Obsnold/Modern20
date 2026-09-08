@@ -1,0 +1,21 @@
+{
+  "_id": "i9VCueyb6w2198SS",
+  "name": "Law Enforcement",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Law enforcement personnel include uniformed police, state troopers, federal police, federal agents, SWAT team members, and military police.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "Select one of the following: Combat Martial Arts, Armor Proficiency (light), or Personal Firearms Proficiency.",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 20+."
+    ]
+  },
+  "_key": "!items!i9VCueyb6w2198SS"
+}

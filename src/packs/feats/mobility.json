@@ -1,0 +1,21 @@
+{
+  "_id": "N9JO1LcBH11hsPC4",
+  "name": "Mobility",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Dexterity 13",
+      "Dodge."
+    ],
+    "benefit": "The character gets a +4 dodge bonus to Defense against attacks of opportunity provoked when the character moves out of a threatened square.",
+    "normal": "",
+    "special": "A condition that makes a character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+    "repeatable": false
+  },
+  "_key": "!items!N9JO1LcBH11hsPC4"
+}

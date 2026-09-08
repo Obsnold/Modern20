@@ -1,0 +1,21 @@
+{
+  "_id": "2XLQrAkdD1DierCS",
+  "name": "Agile Riposte",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Dexterity 13",
+      "Dodge."
+    ],
+    "benefit": "Once per round, if the opponent the character has designated as his or her dodge target (see the Dodge feat) makes a melee attack or melee touch attack against the character and misses, the character may make an attack of opportunity against that opponent. Resolve and apply the effects from both attacks simultaneously.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!2XLQrAkdD1DierCS"
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "WohSUJUKoD0k3lCc",
+  "name": "Armor Proficiency (heavy)",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Armor Proficiency (light)",
+      "Armor Proficiency (medium)."
+    ],
+    "benefit": "See Armor Proficiency (light).",
+    "normal": "See Armor Proficiency (light).",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!WohSUJUKoD0k3lCc"
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "x8PpFk4O2VqdygOf",
+  "name": "Surface Vehicle Operation",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Drive 4 ranks."
+    ],
+    "benefit": "The character takes no penalty on Drive checks or attack rolls made when operating a surface vehicle of the selected class.",
+    "normal": "Characters without this feat take a –4 penalty on Drive checks made to operate a surface vehicle that falls under any of these classes, and to attacks made with vehicle weapons. There is no penalty when you operate a general-purpose surface vehicle.",
+    "special": "A character can gain this feat as many as five times. Each time the character takes the feat, he or she selects a different class of surface vehicle.",
+    "repeatable": false
+  },
+  "_key": "!items!x8PpFk4O2VqdygOf"
+}

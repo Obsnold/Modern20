@@ -1,0 +1,20 @@
+{
+  "_id": "xAuE4rUyps8xUyx5",
+  "name": "Combat Throw",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Defensive Martial Arts."
+    ],
+    "benefit": "The character gains a +2 bonus on opposed Strength and Dexterity checks any time the character attempts trip or grapple attacks, or when the character trys to avoid a trip or grapple attack made against him or her.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!xAuE4rUyps8xUyx5"
+}

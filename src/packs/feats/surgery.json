@@ -1,0 +1,20 @@
+{
+  "_id": "ay58GHII5YV9oMln",
+  "name": "Surgery",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Treat Injury 4 ranks."
+    ],
+    "benefit": "The character can use the Treat Injury skill to perform surgery without penalty. See the Treat Injury skill description.",
+    "normal": "Characters without this feat take a –4 penalty on Treat Injury checks made to perform surgery.",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!ay58GHII5YV9oMln"
+}

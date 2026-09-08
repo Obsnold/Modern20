@@ -1,0 +1,22 @@
+{
+  "_id": "7GdVa5wdICvHt7bf",
+  "name": "Improved Knockout Punch",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Brawl",
+      "Knockout Punch",
+      "base attack bonus +6."
+    ],
+    "benefit": "When making the character’s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This critical hit deals triple damage. The damage is nonlethal damage.",
+    "normal": "",
+    "special": "Even if the character has the ability to treat unarmed damage as lethal damage, the damage from a knockout punch is always nonlethal.",
+    "repeatable": false
+  },
+  "_key": "!items!7GdVa5wdICvHt7bf"
+}

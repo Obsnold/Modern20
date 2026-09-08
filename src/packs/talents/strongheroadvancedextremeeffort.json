@@ -1,0 +1,18 @@
+{
+  "_id": "UJtAkXrSiE1x70yu",
+  "name": "Advanced Extreme Effort",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The effort requires a full-round action and provides a +2 bonus that stacks with the bonuses provided by extreme effort and improved extreme effort (+6 total).",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html",
+    "tree": "Extreme Effort Talent Tree",
+    "sourceClass": "Strong Hero",
+    "prerequisites": [
+      "Extreme effort",
+      "improved extreme effort."
+    ]
+  },
+  "_key": "!items!UJtAkXrSiE1x70yu"
+}

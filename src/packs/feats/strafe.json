@@ -1,0 +1,21 @@
+{
+  "_id": "b1qimT03RuWhLTxw",
+  "name": "Strafe",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Personal Firearms Proficiency",
+      "Advanced Firearms Proficiency."
+    ],
+    "benefit": "When using a firearm on autofire, the character can affect an area four 5-foot squares long and one square wide (that is, any four squares in a straight line).",
+    "normal": "A firearm on autofire normally affects a 10-foot-by-10-foot area.",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!b1qimT03RuWhLTxw"
+}

@@ -191,12 +191,8 @@ BASIC_CLASS_ABILITY = {
 
 def build_classes() -> list[dict]:
     """Class items, with the per-level progression the actor sums at runtime."""
-    path = os.path.join(srd.DATA, "classes.json")
-    if not os.path.exists(path):
-        return []
-
     documents = []
-    for entry in json.load(open(path, encoding="utf-8")):
+    for entry in load_dataset("classes"):
         slug = srd.slugify(entry["name"])
         doc_id = document_id("classes", slug)
         documents.append({
@@ -222,6 +218,114 @@ def build_classes() -> list[dict]:
             "_key": f"!items!{doc_id}",
         })
     return documents
+
+
+OVERRIDES = os.path.join(srd.ROOT, "data", "overrides")
+
+
+def load_overrides(name: str) -> dict:
+    """Hand corrections merged over scraped data, keyed by entry id.
+
+    The SRD has genuine errors in it - Alertness prints its benefit under a
+    "Prerequisite" label - and no parser should be contorted to accommodate
+    them. Corrections live here with a stated reason instead.
+    """
+    path = os.path.join(OVERRIDES, f"{name}.json")
+    if not os.path.exists(path):
+        return {}
+    data = json.load(open(path, encoding="utf-8"))
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+def apply_override(entry: dict, override: dict) -> dict:
+    """Merge one correction, dropping the bookkeeping key."""
+    merged = dict(entry)
+    for key, value in override.items():
+        if key != "why":
+            merged[key] = value
+    return merged
+
+
+def load_dataset(name: str) -> list[dict]:
+    """Read data/<name>.json and apply data/overrides/<name>.json."""
+    path = os.path.join(srd.DATA, f"{name}.json")
+    if not os.path.exists(path):
+        return []
+    entries = json.load(open(path, encoding="utf-8"))
+    overrides = load_overrides(name)
+
+    applied = 0
+    out = []
+    for entry in entries:
+        override = overrides.get(entry.get("id"))
+        if override:
+            entry = apply_override(entry, override)
+            applied += 1
+        out.append(entry)
+
+    unused = set(overrides) - {e.get("id") for e in entries}
+    for key in sorted(unused):
+        print(f"  ! override {name}.{key} matches no entry", file=sys.stderr)
+    if applied:
+        print(f"  {applied} override(s) applied to {name}")
+    return out
+
+
+def simple_pack(dataset: str, item_type: str, pack: str, img: str, mapper) -> list[dict]:
+    """Build one pack from a scraped dataset."""
+    documents = []
+    for entry in load_dataset(dataset):
+        slug = srd.slugify(entry.get("id") or entry["name"])
+        doc_id = document_id(pack, slug)
+        documents.append({
+            "_id": doc_id,
+            "name": entry["name"],
+            "type": item_type,
+            "img": img,
+            "system": {
+                "description": entry.get("description", ""),
+                "source": "d20 Modern SRD",
+                "srdUrl": entry.get("srdUrl", ""),
+                **mapper(entry),
+            },
+            "_key": f"!items!{doc_id}",
+            "_slug": slug,
+        })
+    return documents
+
+
+def build_feats() -> list[dict]:
+    return simple_pack("feats", "feat", "feats", "icons/svg/upgrade.svg", lambda e: {
+        "featType": "general",
+        "prerequisites": e.get("prerequisites", []),
+        "benefit": e.get("benefit", ""),
+        "normal": e.get("normal", ""),
+        "special": e.get("special", ""),
+        "repeatable": "can be taken multiple times" in (e.get("special") or "").lower(),
+    })
+
+
+def build_talents() -> list[dict]:
+    return simple_pack("talents", "talent", "talents", "icons/svg/statue.svg", lambda e: {
+        "tree": e.get("tree", ""),
+        "sourceClass": e.get("sourceClass", ""),
+        "prerequisites": e.get("prerequisites", []),
+    })
+
+
+def build_occupations() -> list[dict]:
+    return simple_pack("occupations", "occupation", "occupations", "icons/svg/village.svg", lambda e: {
+        # The SRD states skills and bonus feats as a sentence offering a
+        # choice, so they are kept as prose for the player to pick from
+        # rather than guessed at here.
+        "skillOptions": [],
+        "skillsChosen": [],
+        "bonusFeatOptions": [],
+        "bonusFeatChosen": e.get("bonusFeat", ""),
+        "wealthBonus": e.get("wealthBonus", 0),
+        "reputationBonus": e.get("reputationBonus", 0),
+        "prerequisites": e.get("prerequisites", []),
+    })
 
 
 def build() -> dict[str, list[dict]]:
@@ -280,11 +384,18 @@ def build() -> dict[str, list[dict]]:
                     **BUILDERS[item_type](row, columns, category, table["srdUrl"]),
                 },
                 "_key": f"!items!{document_id(pack, slug)}",
+                "_slug": slug,
             })
 
-    classes = build_classes()
-    if classes:
-        packs["classes"] = classes
+    for name, builder in (
+        ("classes", build_classes),
+        ("feats", build_feats),
+        ("talents", build_talents),
+        ("occupations", build_occupations),
+    ):
+        documents = builder()
+        if documents:
+            packs[name] = documents
 
     return packs
 
@@ -293,17 +404,39 @@ def write(packs: dict[str, list[dict]]) -> None:
     for pack, documents in packs.items():
         directory = os.path.join(OUT, pack)
         os.makedirs(directory, exist_ok=True)
+
+        # Filenames come from the entry slug, not the display name: two classes
+        # can have a talent of the same name, and naming by name silently
+        # overwrote five of them.
+        seen = {}
         for document in documents:
-            path = os.path.join(directory, f"{srd.slugify(document['name'])}.json")
-            with open(path, "w", encoding="utf-8") as handle:
+            slug = document.pop("_slug", None) or srd.slugify(document["name"])
+            if slug in seen:
+                raise SystemExit(
+                    f"{pack}: slug collision on {slug!r} between "
+                    f"{seen[slug]!r} and {document['name']!r} - documents would be lost"
+                )
+            seen[slug] = document["name"]
+
+            with open(os.path.join(directory, f"{slug}.json"), "w", encoding="utf-8") as handle:
                 json.dump(document, handle, indent=2, ensure_ascii=False)
                 handle.write("\n")
-        print(f"  src/packs/{pack:8} {len(documents):4} documents")
+
+        on_disk = len([f for f in os.listdir(directory) if f.endswith(".json")])
+        if on_disk != len(documents):
+            raise SystemExit(
+                f"{pack}: built {len(documents)} documents but {on_disk} files exist"
+            )
+        print(f"  src/packs/{pack:12} {len(documents):4} documents")
 
 
 def manifest_block(packs: dict[str, list[dict]]) -> str:
     """The system.json `packs` array for the packs that now exist."""
-    labels = {"weapons": "Weapons", "armor": "Armor", "gear": "Equipment", "classes": "Classes"}
+    labels = {
+        "weapons": "Weapons", "armor": "Armor", "gear": "Equipment",
+        "classes": "Classes", "feats": "Feats", "talents": "Talents",
+        "occupations": "Occupations",
+    }
     entries = [
         {
             "name": pack,

@@ -1,0 +1,21 @@
+{
+  "_id": "gdr2lm6yGpulpo9x",
+  "name": "Doctor",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "A doctor can be a physician (general practitioner or specialist), a surgeon, or a psychiatrist.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 4,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 25+."
+    ]
+  },
+  "_key": "!items!gdr2lm6yGpulpo9x"
+}

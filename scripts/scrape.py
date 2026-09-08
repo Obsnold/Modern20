@@ -198,6 +198,155 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
     return out
 
 
+# SRD entries are written as a name line, then alternating label and value
+# lines, because the source splits each label into its own tag:
+#     Acrobatic / Benefit / ": The character gets a +2 bonus..."
+FEAT_LABELS = {"prerequisite", "prerequisites", "benefit", "normal", "special"}
+OCCUPATION_LABELS = {
+    "prerequisite", "prerequisites", "skills", "bonus feat",
+    "wealth bonus increase", "reputation bonus increase",
+}
+PREREQ_LABELS = {"prerequisite", "prerequisites"}
+
+
+def is_label(line: str, labels: set[str]) -> bool:
+    return line.rstrip(":").strip().lower() in labels
+
+
+def is_value(line: str) -> bool:
+    return line.startswith(":")
+
+
+def value_of(line: str) -> str:
+    return line.lstrip(":").strip()
+
+
+def collect_labels(lines: list[str], start: int, end: int, labels: set[str]) -> dict[str, str]:
+    """Read every label/value pair in a slice, keyed by lowercased label."""
+    found = {}
+    for i in range(start, min(end, len(lines) - 1)):
+        if is_label(lines[i], labels) and is_value(lines[i + 1]):
+            found[lines[i].rstrip(":").strip().lower()] = value_of(lines[i + 1])
+    return found
+
+
+def entry_starts(lines: list[str], labels: set[str], lookahead: int = 3) -> list[int]:
+    """Indices of lines that name an entry: a plain line shortly followed by a label."""
+    starts = []
+    for i, line in enumerate(lines):
+        if is_value(line) or is_label(line, labels) or len(line) > 70:
+            continue
+        window = lines[i + 1: i + 1 + lookahead]
+        if any(is_label(w, labels) for w in window):
+            starts.append(i)
+    return starts
+
+
+def scrape_feats() -> list[dict]:
+    """Feats from the alphabetical listing, which carries the descriptions."""
+    lines = text_lines(srd.fetch("featorder.html"))
+    starts = entry_starts(lines, FEAT_LABELS, lookahead=4)
+
+    feats = {}
+    for position, start in enumerate(starts):
+        end = starts[position + 1] if position + 1 < len(starts) else len(lines)
+        name = lines[start]
+        fields = collect_labels(lines, start + 1, end, FEAT_LABELS)
+        if not (fields.keys() & FEAT_LABELS):
+            continue
+
+        prereq = fields.get("prerequisites") or fields.get("prerequisite") or ""
+        feats[name] = {
+            "id": camel(name),
+            "name": name,
+            "prerequisites": [p.strip() for p in prereq.split(",") if p.strip()],
+            "benefit": fields.get("benefit", ""),
+            "normal": fields.get("normal", ""),
+            "special": fields.get("special", ""),
+            "srdUrl": srd.page_url("featorder.html"),
+        }
+
+    return [feats[k] for k in sorted(feats)]
+
+
+def scrape_occupations() -> list[dict]:
+    """Starting occupations: skill choices, a bonus feat and a Wealth bump."""
+    lines = text_lines(srd.fetch(srd.PAGES["occupations"]))
+    starts = entry_starts(lines, OCCUPATION_LABELS, lookahead=3)
+
+    occupations = {}
+    for position, start in enumerate(starts):
+        end = starts[position + 1] if position + 1 < len(starts) else len(lines)
+        name = lines[start]
+        fields = collect_labels(lines, start + 1, end, OCCUPATION_LABELS)
+        # Every occupation states a prerequisite, even if only an age.
+        if not (fields.keys() & PREREQ_LABELS):
+            continue
+
+        prereq = fields.get("prerequisites") or fields.get("prerequisite") or ""
+        occupations[name] = {
+            "id": camel(name),
+            "name": name,
+            # The line after the name is the flavour paragraph.
+            "description": lines[start + 1] if start + 1 < len(lines) and not is_label(lines[start + 1], OCCUPATION_LABELS) else "",
+            "prerequisites": [p.strip() for p in prereq.split(",") if p.strip()],
+            "skills": fields.get("skills", ""),
+            "bonusFeat": fields.get("bonus feat", ""),
+            "wealthBonus": srd.to_int(fields.get("wealth bonus increase", "")),
+            "reputationBonus": srd.to_int(fields.get("reputation bonus increase", "")),
+            "srdUrl": srd.page_url(srd.PAGES["occupations"]),
+        }
+
+    return [occupations[k] for k in sorted(occupations)]
+
+
+def scrape_talents() -> list[dict]:
+    """Talents, grouped by tree, from each basic class page.
+
+    A tree heading ends in "Talent Tree"; each talent underneath is a name line
+    followed directly by its ": description".
+    """
+    talents = []
+    for page, tier in sorted(class_pages().items()):
+        if tier != "basic":
+            continue
+        try:
+            lines = text_lines(srd.fetch(page))
+        except Exception:
+            continue
+
+        caption = next((l for l in lines if l.lower().startswith("table: the ")), "")
+        class_name = caption[len("Table: The "):].strip() if caption else page.replace(".html", "")
+
+        tree = ""
+        for i, line in enumerate(lines):
+            if line.lower().endswith("talent tree"):
+                tree = line
+                continue
+            if not tree or i + 1 >= len(lines):
+                continue
+            if is_value(line) or is_label(line, PREREQ_LABELS) or len(line) > 70:
+                continue
+            if not is_value(lines[i + 1]):
+                continue
+
+            prereq = ""
+            if i + 3 < len(lines) and is_label(lines[i + 2], PREREQ_LABELS) and is_value(lines[i + 3]):
+                prereq = value_of(lines[i + 3])
+
+            talents.append({
+                "id": camel(f"{class_name} {line}"),
+                "name": line,
+                "tree": tree,
+                "sourceClass": class_name,
+                "description": value_of(lines[i + 1]),
+                "prerequisites": [p.strip() for p in prereq.split(",") if p.strip()],
+                "srdUrl": srd.page_url(page),
+            })
+
+    return talents
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -277,12 +426,19 @@ def main() -> int:
     write("skills.json", skills)
     classes = scrape_classes(skills)
     write("classes.json", classes)
+    feats = scrape_feats()
+    write("feats.json", feats)
+    occupations = scrape_occupations()
+    write("occupations.json", occupations)
+    talents = scrape_talents()
+    write("talents.json", talents)
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 
     levels = sum(len(c["progression"]) for c in classes)
-    print(f"\n{len(skills)} skills, {len(classes)} classes ({levels} class levels), "
-          f"{sum(len(v) for v in tables.values())} tables total")
+    print(f"\n{len(skills)} skills, {len(classes)} classes ({levels} levels), "
+          f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
+          f"{sum(len(v) for v in tables.values())} tables")
     return 0
 
 

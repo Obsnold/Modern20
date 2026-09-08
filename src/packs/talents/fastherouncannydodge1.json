@@ -1,0 +1,17 @@
+{
+  "_id": "YtB31kYb02xW39d7",
+  "name": "Uncanny Dodge 1",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The Fast hero retains his or her Dexterity bonus to Defense regardless of being caught flat-footed or struck by a hidden attacker. (The hero still loses his or her Dexterity bonus to Defense if the hero is immobilized.)",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html",
+    "tree": "Defensive Talent Tree",
+    "sourceClass": "Fast Hero",
+    "prerequisites": [
+      "Evasion"
+    ]
+  },
+  "_key": "!items!YtB31kYb02xW39d7"
+}

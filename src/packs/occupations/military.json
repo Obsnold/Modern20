@@ -1,0 +1,21 @@
+{
+  "_id": "oUJ71cvTl3opUGNA",
+  "name": "Military",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Military covers any of the branches of the armed forces, including army, navy, air force, and marines, as well as the various elite training units such as Seals, Rangers, and Special Forces.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "Select one of the following: Brawl, Combat Martial Arts, Armor Proficiency (light), or Personal Firearms Proficiency.",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 18+."
+    ]
+  },
+  "_key": "!items!oUJ71cvTl3opUGNA"
+}

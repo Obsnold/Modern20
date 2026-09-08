@@ -1,0 +1,579 @@
+[
+  {
+    "id": "charismaticHeroCharm",
+    "name": "Charm",
+    "tree": "Charm Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero gets a competence bonus on all Charisma-based skill checks made to influence members of his chosen gender. (Some characters are charming to members of the opposite gender, others to members of the same gender.) The bonus is equal to the character’s Charismatic level.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroFavor",
+    "name": "Favor",
+    "tree": "Charm Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero has the ability to acquire minor aid from anyone he or she meets. By making a favor check, a Charismatic hero can gain important information without going through the time and trouble of doing a lot of research. Favors can also be used to acquire the loan of equipment or documents, or to receive other minor assistance in the course of an adventure.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroCaptivate",
+    "name": "Captivate",
+    "tree": "Charm Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero has the ability to temporarily beguile a target through the use of words and bearing. The target must have an Intelligence score of 3 or higher to be susceptible to a captivate attempt, must be within 30 feet of the hero, must be flat-footed or not in combat, and must be able to see, hear, and understand the hero.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroFastTalk",
+    "name": "Fast-Talk",
+    "tree": "Fast-Talk Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero has a way with words when attempting to con and deceive. With this talent, he or she applies his or her Charismatic level as a competence bonus on any Bluff, Diplomacy, or Gamble checks the hero makes while attempting to lie, cheat, or otherwise bend the truth.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroDazzle",
+    "name": "Dazzle",
+    "tree": "Fast-Talk Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero has the ability to dazzle a target through sheer force of personality, a winning smile, and fast-talking. The target must have an Intelligence score of 3 or higher to be susceptible to a dazzle attempt, must be within 30 feet of the hero, and must be able to see, hear, and understand the hero.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroTaunt",
+    "name": "Taunt",
+    "tree": "Fast-Talk Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero has the ability to temporarily rattle a target through the use of insults and goading. The target must have an Intelligence score of 3 or higher to be susceptible to a taunt, must be within 30 feet of the hero, and must be able to hear and understand the hero.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroCoordinate",
+    "name": "Coordinate",
+    "tree": "Leadership Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero has a knack for getting people to work together. When the hero can spend a full round directing his or her allies and makes a Charisma check (DC 10), the hero provides any of his or her allies within 30 feet a +1 bonus on their attack rolls and skill checks. The bonus lasts for a number of rounds equal to the hero’s Charisma modifier.The hero can coordinate a number of allies equal to one-half his or her Charismatic level, rounded down (to a minimum of one ally).",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroInspiration",
+    "name": "Inspiration",
+    "tree": "Leadership Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero can inspire his or her allies, bolstering them and improving their chances of success. An ally must listen to and observe the Charismatic hero for a full round for the inspiration to take hold, and the hero must make a Charisma check (DC 10). The effect lasts for a number of rounds equal to the hero’s Charisma modifier.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroGreaterInspiration",
+    "name": "Greater Inspiration",
+    "tree": "Leadership Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "The Charismatic hero can inspire his or her allies to even greater heights, bolstering them and improving their chances of success. An ally must listen to and observe the Charismatic hero for a full round for the greater inspiration to take hold, and the hero must make a Charisma check (DC 10). The effect lasts for a number of rounds equal to the hero’s Charisma modifier.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "charismaticHeroBonusFeatList",
+    "name": "Bonus Feat list",
+    "tree": "Leadership Talent Tree",
+    "sourceClass": "Charismatic Hero",
+    "description": "Agile Riposte, Creative, Deceptive, Dodge, Frightful Presence, Iron Will, Lightning Reflexes, Low Profile, Point Blank Shot, Renown, Trustworthy, Windfall.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "dedicatedHeroEmpathy",
+    "name": "Empathy",
+    "tree": "Empathic Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero has a knack for being sensitive to the feelings and thoughts of others without having those feelings and thoughts communicated in any objectively explicit manner. This innate talent provides a bonus on checks involving interaction skills (Bluff, Diplomacy, Handle Animal, Intimidate, Perform, and Sense Motive), provided the hero spends at least 1 minute observing his or her target prior to making the skill check. The bonus is equal to the hero’s Dedicated level.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroImprovedAidAnother",
+    "name": "Improved Aid Another",
+    "tree": "Empathic Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero’s bonus on attempts to aid another increases by +1 on a successful aid another check. This talent can be selected multiple times, each time increasing the bonus by +1.",
+    "prerequisites": [
+      "Empathy."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroIntuition",
+    "name": "Intuition",
+    "tree": "Empathic Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero has an innate ability to sense trouble in the air. The Dedicated hero can make a Will saving throw (DC 15). On a successful save, the hero gets a hunch that everything is all right, or the hero gets a bad feeling about a specific situation, based on the GM’s best guess relating to the circumstances. This talent is usable a number of times per day equal to the character’s Dedicated level.",
+    "prerequisites": [
+      "Empathy."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroHealingKnack",
+    "name": "Healing Knack",
+    "tree": "Healing Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The hero has a knack for the healing arts. The hero receives a +2 bonus on all Treat Injury skill checks.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroHealingTouch1",
+    "name": "Healing Touch 1",
+    "tree": "Healing Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero’s ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points.",
+    "prerequisites": [
+      "Healing knack"
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroHealingTouch2",
+    "name": "Healing Touch 2",
+    "tree": "Healing Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero’s ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.",
+    "prerequisites": [
+      "Healing knack",
+      "healing touch 1."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroSkillEmphasis",
+    "name": "Skill Emphasis",
+    "tree": "Insightful Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero chooses a single skill and receives a +3 bonus on all checks with that skill. This bonus does not allow the hero to make checks for a trained-only skill if the hero has no ranks in the skill.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroAware",
+    "name": "Aware",
+    "tree": "Insightful Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero is intuitively aware of his or her surroundings. The hero adds his or her base Will saving throw bonus to Listen or Spot checks to avoid surprise.",
+    "prerequisites": [
+      "Skill emphasis."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroFaith",
+    "name": "Faith",
+    "tree": "Insightful Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero has a great deal of faith. It might be faith in self, in a higher power, or in both. This unswerving belief allows the Dedicated hero to add his or her Wisdom modifier to the die roll whenever the hero spends 1 action point to improve the result of an attack roll, skill check, saving throw, or ability check.",
+    "prerequisites": [
+      "Skill emphasis."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroCoolUnderPressure",
+    "name": "Cool Under Pressure",
+    "tree": "Insightful Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "The Dedicated hero selects a number of skills equal to 3 + the hero’s Wisdom modifier. When making a check with one of these skills, the Dedicated hero can take 10 even when distracted or under duress.",
+    "prerequisites": [
+      "Skill emphasis plus either faith or aware."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "dedicatedHeroBonusFeatList",
+    "name": "Bonus Feat list",
+    "tree": "Insightful Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "description": "Advanced Firearms Proficiency, Alertness, Archaic Weapons Proficiency, Attentive, Blind-Fight, Deceptive, Educated, Far Shot, Iron Will, Medical Expert, Meticulous, Surgery, Track, Weapon Focus..",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "fastHeroEvasion",
+    "name": "Evasion",
+    "tree": "Defensive Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "If the Fast hero is exposed to any effect that normally allows a character to attempt a Reflex saving throw for half damage, the Fast hero suffers no damage if he or she makes a successful saving throw. Evasion can only be used when wearing light armor or no armor.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroUncannyDodge1",
+    "name": "Uncanny Dodge 1",
+    "tree": "Defensive Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "The Fast hero retains his or her Dexterity bonus to Defense regardless of being caught flat-footed or struck by a hidden attacker. (The hero still loses his or her Dexterity bonus to Defense if the hero is immobilized.)",
+    "prerequisites": [
+      "Evasion"
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroUncannyDodge2",
+    "name": "Uncanny Dodge 2",
+    "tree": "Defensive Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "The Fast hero can no longer be flanked; the hero can react to opponents on opposite sides of him or herself as easily as he or she can react to a single attacker.",
+    "prerequisites": [
+      "Evasion",
+      "uncanny dodge 1."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroDefensiveRoll",
+    "name": "Defensive Roll",
+    "tree": "Defensive Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "The Fast hero can roll with a potentially lethal attack to take less damage from it. When the Fast hero would be reduced to 0 hit points or less by damage in combat (from a ranged or melee attack), the Fast hero can attempt to roll with the damage.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroOpportunist",
+    "name": "Opportunist",
+    "tree": "Defensive Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "The Fast hero can spend 1 action point to use this talent. Once the point is spent, the hero can make an attack of opportunity against an opponent who has just been struck for damage in melee by another character. This attack counts as the Fast hero’s attack of opportunity for that round. Even a Fast hero with the Combat Reflexes feat can’t use this talent more than once per round.",
+    "prerequisites": [
+      "Evasion."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroIncreasedSpeed",
+    "name": "Increased Speed",
+    "tree": "Increased Speed Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "The Fast hero’s base speed increases by 5 feet.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroImprovedIncreasedSpeed",
+    "name": "Improved Increased Speed",
+    "tree": "Increased Speed Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "The Fast hero’s base speed increases by 5 feet. This talent stacks with increased speed (10 feet total).",
+    "prerequisites": [
+      "Increased speed."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroAdvancedIncreasedSpeed",
+    "name": "Advanced Increased Speed",
+    "tree": "Increased Speed Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "The Fast hero’s base speed increases by 5 feet. This talent stacks with increased speed and improved increased speed (15 feet total).",
+    "prerequisites": [
+      "Increased speed",
+      "improved increased speed."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fastHeroBonusFeatList",
+    "name": "Bonus Feat list",
+    "tree": "Increased Speed Talent Tree",
+    "sourceClass": "Fast Hero",
+    "description": "Acrobatic, Combat Expertise, Combat Throw, Defensive Martial Arts, Double Tap, Elusive Target, Focused, Improved Disarm, Mobility, Personal Firearms Proficiency, Point Blank Shot, Stealthy, Weapon Finesse.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "smartHeroSavant",
+    "name": "Savant",
+    "tree": "Research Talent Tree",
+    "sourceClass": "Smart Hero",
+    "description": "Select one of the skills listed in the following paragraph. The hero must have ranks in the skill if it is Trained Only. The Smart hero gets to add a bonus equal to his or her Smart level when making checks with that skill. A Smart hero can take this talent multiple times; each time it applies to a different skill.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
+  },
+  {
+    "id": "smartHeroLinguist",
+    "name": "Linguist",
+    "tree": "Research Talent Tree",
+    "sourceClass": "Smart Hero",
+    "description": "With this talent, the Smart hero becomes a master linguist. Whenever the hero encounters a new language, either spoken or written, that he or she does not know the Smart hero can make an Intelligence check to determine if he or she can understand it. The check is made with a bonus equal to the hero’s Smart level. For a written language, the bonus applies to a Decipher Script check instead.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
+  },
+  {
+    "id": "smartHeroExploitWeakness",
+    "name": "Exploit Weakness",
+    "tree": "Strategy Talent Tree",
+    "sourceClass": "Smart Hero",
+    "description": "After 1 round of combat, the Smart hero can designate one opponent and try to find ways to gain an advantage by using brains over brawn. The Smart hero uses a move action and makes an Intelligence check (DC 15) with a bonus equal to his or her Smart level. If the check succeeds, for the rest of the combat the Smart hero uses his or her Intelligence bonus instead of either Strength or Dexterity bonus on attack rolls as the hero finds ways to outthink his opponent and notices weaknesses in his opponent’s fighting style.",
+    "prerequisites": [
+      "One talent from the Research Talent Tree."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
+  },
+  {
+    "id": "smartHeroPlan",
+    "name": "Plan",
+    "tree": "Strategy Talent Tree",
+    "sourceClass": "Smart Hero",
+    "description": "Prior to an encounter the Smart hero can develop a plan of action to handle the situation. Using this talent requires preparation; a Smart hero can’t use this talent when surprised or otherwise unprepared for a particular situation. Creating a plan requires 1 minute.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
+  },
+  {
+    "id": "smartHeroTrick",
+    "name": "Trick",
+    "tree": "Strategy Talent Tree",
+    "sourceClass": "Smart Hero",
+    "description": "The Smart hero has the ability to temporarily confuse a target through the use of ploy and deception. The target must have an Intelligence score of 3 or higher to be susceptible to a trick, must be within 30 feet of the hero, and must be able to hear and understand the hero.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
+  },
+  {
+    "id": "smartHeroBonusFeatList",
+    "name": "Bonus Feat list",
+    "tree": "Strategy Talent Tree",
+    "sourceClass": "Smart Hero",
+    "description": "Builder, Cautious, Combat Expertise, Educated, Gearhead, Improved Disarm, Improved Trip, Iron Will, Lightning Reflexes, Meticulous, Studious, Vehicle Expert, Weapon Focus.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
+  },
+  {
+    "id": "strongHeroExtremeEffort",
+    "name": "Extreme Effort",
+    "tree": "Extreme Effort Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The effort requires a full-round action and provides a +2 bonus on the check.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroImprovedExtremeEffort",
+    "name": "Improved Extreme Effort",
+    "tree": "Extreme Effort Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The effort requires a full-round action and provides a +2 bonus that stacks with the bonus provided by extreme effort (+4 total).",
+    "prerequisites": [
+      "Extreme effort."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroAdvancedExtremeEffort",
+    "name": "Advanced Extreme Effort",
+    "tree": "Extreme Effort Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The effort requires a full-round action and provides a +2 bonus that stacks with the bonuses provided by extreme effort and improved extreme effort (+6 total).",
+    "prerequisites": [
+      "Extreme effort",
+      "improved extreme effort."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroIgnoreHardness",
+    "name": "Ignore Hardness",
+    "tree": "Ignore Hardness Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The Strong hero ignores 2 points of an object’s hardness.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroImprovedIgnoreHardness",
+    "name": "Improved Ignore Hardness",
+    "tree": "Ignore Hardness Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The Strong hero ignores 2 additional points of an object’s hardness (for a total of 4).",
+    "prerequisites": [
+      "Ignore hardness."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroAdvancedIgnoreHardness",
+    "name": "Advanced Ignore Hardness",
+    "tree": "Ignore Hardness Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The Strong hero ignores 2 additional points of an object’s hardness (for a total of 6).",
+    "prerequisites": [
+      "Ignore hardness",
+      "improved ignore hardness."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroMeleeSmash",
+    "name": "Melee Smash",
+    "tree": "Melee Smash Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The Strong hero receives a +1 bonus on melee damage.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroImprovedMeleeSmash",
+    "name": "Improved Melee Smash",
+    "tree": "Melee Smash Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The Strong hero receives an additional +1 bonus on melee damage (+2 total).",
+    "prerequisites": [
+      "Melee smash."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroAdvancedMeleeSmash",
+    "name": "Advanced Melee Smash",
+    "tree": "Melee Smash Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "The Strong hero receives an additional +1 bonus on melee damage (+3 total).",
+    "prerequisites": [
+      "Melee smash",
+      "improved melee smash."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "strongHeroBonusFeatList",
+    "name": "Bonus Feat list",
+    "tree": "Melee Smash Talent Tree",
+    "sourceClass": "Strong Hero",
+    "description": "Animal Affinity, Archaic Weapons Proficiency, Athletic, Blind-Fight, Brawl, Cleave, Combat Martial Arts, Combat Reflexes, Great Cleave, Improved Brawl, Improved Combat Martial Arts, Power Attack, Weapon Focus.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "toughHeroDamageReduction1",
+    "name": "Damage Reduction 1/-",
+    "tree": "Damage Reduction Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores 1 point of damage from melee and ranged weapons.",
+    "prerequisites": [
+      "One other talent from either the Energy Resistance Talent Tree or the Unbreakable Talent Tree."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroDamageReduction2",
+    "name": "Damage Reduction 2/—",
+    "tree": "Damage Reduction Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores an additional 1 point of damage from melee and ranged weapons (DR 2/— total).",
+    "prerequisites": [
+      "Damage reduction 1/—",
+      "one other talent from either the Energy Resistance Talent Tree or the Unbreakable Talent Tree."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroDamageReduction3",
+    "name": "Damage Reduction 3/—",
+    "tree": "Damage Reduction Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores an additional 1 point of damage from melee and ranged weapons (DR 3/— total).",
+    "prerequisites": [
+      "Damage reduction 1/—",
+      "damage reduction 2/—",
+      "one other talent from either the Energy Resistance Talent Tree or the Unbreakable Talent Tree."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroAcidResistance",
+    "name": "Acid Resistance",
+    "tree": "Energy Resistance Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores an amount of acid damage equal to his or her Constitution modifier.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroColdResistance",
+    "name": "Cold Resistance",
+    "tree": "Energy Resistance Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores an amount of cold damage equal to his or her Constitution modifier.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroElectricityResistance",
+    "name": "Electricity Resistance",
+    "tree": "Energy Resistance Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores an amount of electricity damage equal to his or her Constitution modifier.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroFireResistance",
+    "name": "Fire Resistance",
+    "tree": "Energy Resistance Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores an amount of fire damage equal to his or her Constitution modifier.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroSonicConcussionResistance",
+    "name": "Sonic/Concussion Resistance",
+    "tree": "Energy Resistance Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero ignores an amount of sonic or concussion damage equal to his or her Constitution modifier.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroRemainConscious",
+    "name": "Remain Conscious",
+    "tree": "Unbreakable Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero gains the ability to continue to perform actions when he or she would otherwise be considered unconscious and dying. When the Tough hero’s hit points reach –1, the hero can perform as though he or she were disabled, making either an attack action or a move action every round until the hero reaches –10 hit points (and dies) or the hero’s hit points return to 1 or higher. The hero can choose to succumb to unconsciousness if he or she thinks that doing so might prevent him or her from taking more damage.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroRobust",
+    "name": "Robust",
+    "tree": "Unbreakable Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero becomes especially robust, gaining a number of hit points equal to his or her Tough level as soon as he or she selects this talent. Thereafter, the hero gains +1 hit point with each level of Tough he or she gains.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroStamina",
+    "name": "Stamina",
+    "tree": "Unbreakable Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "The Tough hero recovers twice as fast as normal. So, the hero recovers 2 hit points per character level per evening of rest, 2 points of temporary ability damage per evening of rest, and awakens in half the normal time after being knocked unconscious.",
+    "prerequisites": [
+      "Robust."
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "toughHeroBonusFeatList",
+    "name": "Bonus Feat list",
+    "tree": "Unbreakable Talent Tree",
+    "sourceClass": "Tough Hero",
+    "description": "Alertness, Athletic, Brawl, Confident, Endurance, Great Fortitude, Improved Brawl, Improved Bull Rush, Improved Feint, Knockout Punch, Power Attack, Streetfighting, Toughness, Vehicle Expert.",
+    "prerequisites": [],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  }
+]

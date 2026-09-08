@@ -1,0 +1,21 @@
+{
+  "_id": "eFWR6yNrTe4kA8Ad",
+  "name": "Technician",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Scientists and engineers of all types fit within the scope of this starting occupation.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 3,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 23+."
+    ]
+  },
+  "_key": "!items!eFWR6yNrTe4kA8Ad"
+}

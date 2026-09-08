@@ -1,0 +1,21 @@
+{
+  "_id": "VDuLSrUngjLdhvGn",
+  "name": "Dead Aim",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Wisdom 13",
+      "Far Shot."
+    ],
+    "benefit": "Before making a ranged attack, the character may take a full-round action to line up your shot. This grants the character a +2 circumstance bonus on his or her next attack roll. Once the character begins aiming, he or she can’t move, even to take a 5-foot step, until after the character makes his or her next attack, or the benefit of the feat is lost.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!VDuLSrUngjLdhvGn"
+}

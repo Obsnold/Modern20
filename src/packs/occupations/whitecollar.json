@@ -1,0 +1,21 @@
+{
+  "_id": "VqYQpvuUxiV5LzsU",
+  "name": "White Collar",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Office workers and desk jockeys, lawyers, accountants, insurance agents, bank personnel, financial advisors, tax preparers, clerks, sales personnel, real estate agents, and a variety of mid-level managers fall within the scope of this starting occupation.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 3,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 23+."
+    ]
+  },
+  "_key": "!items!VqYQpvuUxiV5LzsU"
+}

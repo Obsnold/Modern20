@@ -1,0 +1,17 @@
+{
+  "_id": "9XyiKxfV1jP8j0nO",
+  "name": "Cool Under Pressure",
+  "type": "talent",
+  "img": "icons/svg/statue.svg",
+  "system": {
+    "description": "The Dedicated hero selects a number of skills equal to 3 + the hero’s Wisdom modifier. When making a check with one of these skills, the Dedicated hero can take 10 even when distracted or under duress.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html",
+    "tree": "Insightful Talent Tree",
+    "sourceClass": "Dedicated Hero",
+    "prerequisites": [
+      "Skill emphasis plus either faith or aware."
+    ]
+  },
+  "_key": "!items!9XyiKxfV1jP8j0nO"
+}

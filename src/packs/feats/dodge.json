@@ -1,0 +1,20 @@
+{
+  "_id": "GAchCvWMIstmZLSb",
+  "name": "Dodge",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Dexterity 13."
+    ],
+    "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+    "normal": "",
+    "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+    "repeatable": false
+  },
+  "_key": "!items!GAchCvWMIstmZLSb"
+}

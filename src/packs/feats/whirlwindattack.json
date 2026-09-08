@@ -1,0 +1,26 @@
+{
+  "_id": "PeGTMRqRvHMYM7ZN",
+  "name": "Whirlwind Attack",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Dexterity 13",
+      "Intelligence 13",
+      "Dodge",
+      "Mobility",
+      "Spring Attack",
+      "Combat Expertise",
+      "base attack bonus +4."
+    ],
+    "benefit": "When the character performs a full-round action, the character can give up his or her regular attacks and instead make one melee attack at the character’s highest base attack bonus against each adjacent opponent.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!PeGTMRqRvHMYM7ZN"
+}

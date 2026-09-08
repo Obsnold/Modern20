@@ -30,8 +30,8 @@ fighting it forever, so this is a standalone game system.
 | Wealth checks, purchase DCs, restriction ratings, black market surcharge | Working |
 | Action points, massive damage threshold and Fortitude save | Working |
 | Class progression folding into attack, saves, Defense and Reputation | Working |
-| Compendia: weapons, armor, general equipment | Built from the SRD |
-| Compendia: feats, talents, classes, occupations, creatures, spells | **Not yet** — see below |
+| Compendia: classes, occupations, talents, feats, weapons, armor, gear | Built from the SRD — 394 documents |
+| Compendia: creatures, spells, psionic powers, vehicles | **Not yet** — see below |
 | Vehicles, FX/psionics | Data models only, no sheets |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
@@ -136,21 +136,16 @@ is still honest.
 Roughly in the order worth doing it:
 
 1. **Load it in Foundry and fix what breaks.** Nothing here has run in a live world.
-2. **Feats, talents, classes and occupations compendia.** These are the big one.
-   The SRD stores them as *prose with headings*, not tables — only equipment is
-   tabular. Each needs a heading-based extractor like the one `scrape_skills()`
-   already uses, which is the pattern to copy.
-3. **Class progression tables.** The `class` item carries a per-level
-   `progression` array for attack, saves, Defense and Reputation; the six basic
-   class pages (`stronghero.html` and friends) have these as tables.
-4. **Creature stat blocks.** Messy; budget for a `data/overrides/` layer that
+2. **Creature stat blocks.** Messy; budget for a `data/overrides/` layer that
    merges hand corrections over scraped output.
-5. **Combat.** Conditions as ActiveEffects, attack/damage automation.
-6. **Ordinary, creature and vehicle sheets.** They currently share the hero sheet,
+3. **Combat.** Conditions as ActiveEffects, attack/damage automation.
+4. **Ordinary, creature and vehicle sheets.** They currently share the hero sheet,
    which is wrong for all three.
-7. **FX and d20 Future** as optional content.
+5. **FX and d20 Future** as optional content.
 
-Ship an alpha after step 3. Steps 5–7 are where solo system projects die.
+Occupations store their skill and bonus-feat choices as SRD prose rather than
+structured options, because the SRD states them as a sentence offering a
+choice. Turning those into pickable lists is the next refinement.
 
 ## Known rough edges
 
@@ -158,7 +153,9 @@ Ship an alpha after step 3. Steps 5–7 are where solo system projects die.
   The parser reads that hierarchy from the markup (bold / italic / `class="indent"`),
   but the SRD is inconsistent enough that some gear names will need hand fixing.
 - Armor speed penalties are stored as raw SRD strings, not parsed.
-- The `data/overrides/` merge layer is stubbed but not yet wired into `build_packs.py`.
+- `data/overrides/<dataset>.json` corrects genuine SRD errors, keyed by entry id
+  and requiring a stated `why`. One entry so far: Alertness prints its benefit
+  text under a `Prerequisite` label.
 
 ## License
 

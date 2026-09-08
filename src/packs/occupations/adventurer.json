@@ -1,0 +1,21 @@
+{
+  "_id": "4mrPruBeIyMwa16V",
+  "name": "Adventurer",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Adventurers include professional daredevils, big-game hunters, relic hunters, explorers, extreme sports enthusiasts, field scientists, thrill-seekers, and others called to face danger for a variety of reasons.",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+    "skillOptions": [],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "Select one of the following: Archaic Weapons Proficiency, Brawl, or Personal Firearms Proficiency.",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+."
+    ]
+  },
+  "_key": "!items!4mrPruBeIyMwa16V"
+}

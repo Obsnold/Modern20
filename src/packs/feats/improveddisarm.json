@@ -1,0 +1,21 @@
+{
+  "_id": "htqgmS5ftCS07M15",
+  "name": "Improved Disarm",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Intelligence 13",
+      "Combat Expertise."
+    ],
+    "benefit": "The character does not provoke an attack of opportunity when the character attempts to disarm an opponent, nor does the opponent get a chance to disarm the character.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!htqgmS5ftCS07M15"
+}

@@ -1,0 +1,22 @@
+{
+  "_id": "QodfKDN0sd2SNj0y",
+  "name": "Vehicle Dodge",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+    "featType": "general",
+    "prerequisites": [
+      "Dexterity 13",
+      "Drive 6 ranks or Pilot 6 ranks",
+      "Vehicle Expert."
+    ],
+    "benefit": "When driving a vehicle, during the character’s action the character designates an opposing vehicle or a single opponent. The character’s vehicle and everyone aboard it receive a +1 dodge bonus to Defense against attacks from that vehicle or opponent. The character can select a new vehicle or opponent on any action.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!QodfKDN0sd2SNj0y"
+}
