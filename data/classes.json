@@ -1,0 +1,2666 @@
+[
+  {
+    "id": "bodyguard",
+    "name": "Bodyguard",
+    "tier": "advanced",
+    "hitDie": "1d12",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "concentration",
+      "disguise",
+      "drive",
+      "forgery",
+      "gatherInformation",
+      "intimidate",
+      "knowledge",
+      "listen",
+      "profession",
+      "readWriteLanguage",
+      "search",
+      "senseMotive",
+      "speakLanguage",
+      "spot"
+    ],
+    "requirements": "To qualify to become a Bodyguard, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the Bodyguard attains a new level in this class",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Harm's way"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Combat sense +1"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 3,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Sudden action"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 4,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Improved charge"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 5,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Defensive strike"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Combat sense +2"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Blanket protection"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 7,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/bodyguard.html"
+  },
+  {
+    "id": "charismaticHero",
+    "name": "Charismatic Hero",
+    "tier": "basic",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      "bluff",
+      "craft",
+      "diplomacy",
+      "disguise",
+      "gatherInformation",
+      "handleAnimal",
+      "intimidate",
+      "knowledge",
+      "perform",
+      "profession",
+      "readWriteLanguage",
+      "speakLanguage"
+    ],
+    "requirements": "",
+    "actionPoints": "Charismatic heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 0,
+        "defense": 0,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 2,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 2,
+        "reputation": 4
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 3,
+        "reputation": 4
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 3,
+        "defense": 3,
+        "reputation": 4
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 5,
+        "will": 3,
+        "defense": 3,
+        "reputation": 5
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
+  },
+  {
+    "id": "daredevil",
+    "name": "Daredevil",
+    "tier": "advanced",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "balance",
+      "climb",
+      "concentration",
+      "demolitions",
+      "drive",
+      "escapeArtist",
+      "intimidate",
+      "jump",
+      "knowledge",
+      "perform",
+      "pilot",
+      "profession",
+      "readWriteLanguage",
+      "ride",
+      "speakLanguage",
+      "spot",
+      "swim",
+      "tumble"
+    ],
+    "requirements": "To qualify to become a Daredevil, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the daredevil attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Fearless"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Nip-up"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Action boost"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Adrenaline rush (1 ability score)"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Delay damage"
+        ],
+        "baseAttack": 3,
+        "fort": 5,
+        "ref": 2,
+        "will": 5,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Adrenaline rush (2 ability scores)"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 2,
+        "will": 2,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 3,
+        "will": 3,
+        "defense": 6,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Damage threshold"
+        ],
+        "baseAttack": 5,
+        "fort": 7,
+        "ref": 3,
+        "will": 3,
+        "defense": 7,
+        "reputation": 3
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/daredevil.html"
+  },
+  {
+    "id": "dedicatedHero",
+    "name": "Dedicated Hero",
+    "tier": "basic",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      "craft",
+      "gamble",
+      "investigate",
+      "knowledge",
+      "listen",
+      "profession",
+      "readWriteLanguage",
+      "senseMotive",
+      "speakLanguage",
+      "spot",
+      "survival",
+      "treatInjury"
+    ],
+    "requirements": "",
+    "actionPoints": "Dedicated heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 2,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 3,
+        "will": 4,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 3,
+        "will": 5,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
+  },
+  {
+    "id": "fastHero",
+    "name": "Fast Hero",
+    "tier": "basic",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      "balance",
+      "craft",
+      "drive",
+      "escapeArtist",
+      "hide",
+      "knowledge",
+      "moveSilently",
+      "pilot",
+      "profession",
+      "readWriteLanguage",
+      "ride",
+      "sleightOfHand",
+      "speakLanguage",
+      "tumble"
+    ],
+    "requirements": "",
+    "actionPoints": "Fast heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 0,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 4,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 3,
+        "will": 2,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 7,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 4,
+        "will": 3,
+        "defense": 7,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 5,
+        "will": 3,
+        "defense": 8,
+        "reputation": 3
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
+  },
+  {
+    "id": "fieldMedic",
+    "name": "Field Medic",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "computerUse",
+      "concentration",
+      "craft",
+      "diplomacy",
+      "drive",
+      "knowledge",
+      "listen",
+      "pilot",
+      "profession",
+      "readWriteLanguage",
+      "research",
+      "search",
+      "speakLanguage",
+      "spot",
+      "treatInjury"
+    ],
+    "requirements": "To qualify to become a Field Medic, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the Field Medic attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Medical Specialist +1"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Expert Healer"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 1,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Medical mastery"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 1,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Medical specialist +2"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 1,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 5,
+        "ref": 2,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Minor medical miracle"
+        ],
+        "baseAttack": 3,
+        "fort": 5,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Medical specialist +3"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 3,
+        "will": 4,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Medical miracle"
+        ],
+        "baseAttack": 5,
+        "fort": 7,
+        "ref": 3,
+        "will": 5,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fieldmedic.html"
+  },
+  {
+    "id": "fieldScientist",
+    "name": "Field Scientist",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "computerUse",
+      "craft",
+      "decipherScript",
+      "demolitions",
+      "disableDevice",
+      "drive",
+      "investigate",
+      "knowledge",
+      "navigate",
+      "pilot",
+      "profession",
+      "readWriteLanguage",
+      "research",
+      "search",
+      "speakLanguage"
+    ],
+    "requirements": "To qualify to become a Field Scientist, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the Field Scientist attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Smart Defense"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 0,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Scientific improvisation"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Skill mastery"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Minor breakthrough"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Smart survival"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Smart weapon"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Major breakthrough"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 5,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fieldscientist.html"
+  },
+  {
+    "id": "gunslinger",
+    "name": "Gunslinger",
+    "tier": "advanced",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "bluff",
+      "demolitions",
+      "drive",
+      "escapeArtist",
+      "gamble",
+      "intimidate",
+      "knowledge",
+      "moveSilently",
+      "profession",
+      "readWriteLanguage",
+      "ride",
+      "sleightOfHand",
+      "speakLanguage",
+      "spot",
+      "survival",
+      "tumble"
+    ],
+    "requirements": "To qualify to become a Gunslinger, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the gunslinger attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Close combat shot"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Weapon focus"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Defensive position"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Lightning shot"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Sharp-shooting"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Greater weapon focus"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bullseye"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/gunslinger.html"
+  },
+  {
+    "id": "infiltrator",
+    "name": "Infiltrator",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "balance",
+      "climb",
+      "disableDevice",
+      "disguise",
+      "escapeArtist",
+      "hide",
+      "investigate",
+      "jump",
+      "knowledge",
+      "listen",
+      "moveSilently",
+      "profession",
+      "readWriteLanguage",
+      "search",
+      "sleightOfHand",
+      "speakLanguage",
+      "spot",
+      "tumble"
+    ],
+    "requirements": "To qualify to become an Infiltrator, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the infiltrator attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Sweep"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Improvised implements"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 3,
+        "will": 0,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Improved evasion"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Skill mastery"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Improvised weapon damage"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Improved sweep"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 6,
+        "will": 2,
+        "defense": 6,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 6,
+        "will": 3,
+        "defense": 6,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Without a trace"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 7,
+        "will": 3,
+        "defense": 7,
+        "reputation": 4
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/infiltrator.html"
+  },
+  {
+    "id": "investigator",
+    "name": "Investigator",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "bluff",
+      "computerUse",
+      "disableDevice",
+      "drive",
+      "forgery",
+      "gatherInformation",
+      "intimidate",
+      "investigate",
+      "knowledge",
+      "listen",
+      "profession",
+      "research",
+      "search",
+      "senseMotive",
+      "speakLanguage",
+      "spot"
+    ],
+    "requirements": "To qualify to become an Investigator, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the Investigator attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Profile"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Contact",
+          "low-level"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Nonlethal force"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Contact",
+          "mid-level"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Discern lie"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Contact",
+          "high-level"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Sixth sense"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/investigator.html"
+  },
+  {
+    "id": "martialArtist",
+    "name": "Martial Artist",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "balance",
+      "climb",
+      "escapeArtist",
+      "hide",
+      "intimidate",
+      "jump",
+      "knowledge",
+      "moveSilently",
+      "perform",
+      "profession",
+      "readWriteLanguage",
+      "speakLanguage",
+      "spot",
+      "tumble"
+    ],
+    "requirements": "To qualify to become a Martial Artist, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the martial artist attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Living weapon 1d6"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Flying kick"
+        ],
+        "baseAttack": 2,
+        "fort": 0,
+        "ref": 3,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Living weapon 1d8"
+        ],
+        "baseAttack": 4,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Iron fist (one attack)"
+        ],
+        "baseAttack": 5,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Flurry of blows"
+        ],
+        "baseAttack": 7,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Living weapon 1d10"
+        ],
+        "baseAttack": 8,
+        "fort": 2,
+        "ref": 6,
+        "will": 2,
+        "defense": 6,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 9,
+        "fort": 3,
+        "ref": 6,
+        "will": 3,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Iron fist (all attacks)"
+        ],
+        "baseAttack": 10,
+        "fort": 3,
+        "ref": 7,
+        "will": 3,
+        "defense": 7,
+        "reputation": 2
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/martialartist.html"
+  },
+  {
+    "id": "negotiator",
+    "name": "Negotiator",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "bluff",
+      "computerUse",
+      "diplomacy",
+      "drive",
+      "gamble",
+      "gatherInformation",
+      "intimidate",
+      "investigate",
+      "knowledge",
+      "profession",
+      "readWriteLanguage",
+      "senseMotive",
+      "speakLanguage",
+      "spot"
+    ],
+    "requirements": "To qualify to become a Negotiator, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the Negotiator attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Conceal motigve"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 2,
+        "defense": 0,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "React first"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Talk down one opponent"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 4,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "No sweat"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talk down several opponents"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Sow distrust"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 2,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 3,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Talk down all opponents"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 3,
+        "will": 7,
+        "defense": 3,
+        "reputation": 4
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/negotiator.html"
+  },
+  {
+    "id": "personality",
+    "name": "Personality",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "bluff",
+      "craft",
+      "diplomacy",
+      "knowledge",
+      "perform",
+      "profession",
+      "speakLanguage"
+    ],
+    "requirements": "To qualify to become a Personality, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the Personality attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Unlimited access"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 0,
+        "defense": 0,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus class skill"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Royalty"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Winning smile"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 2,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 7,
+        "features": [
+          "Bonus class skill"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 2,
+        "reputation": 4
+      },
+      {
+        "level": 8,
+        "features": [
+          "Royalty"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 3,
+        "reputation": 4
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 4,
+        "will": 3,
+        "defense": 3,
+        "reputation": 4
+      },
+      {
+        "level": 10,
+        "features": [
+          "Compelling performance"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 5,
+        "will": 3,
+        "defense": 3,
+        "reputation": 5
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/personality.html"
+  },
+  {
+    "id": "smartHero",
+    "name": "Smart Hero",
+    "tier": "basic",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 9,
+    "classSkills": [
+      "computerUse",
+      "craft",
+      "decipherScript",
+      "demolitions",
+      "disableDevice",
+      "forgery",
+      "investigate",
+      "knowledge",
+      "navigate",
+      "profession",
+      "readWriteLanguage",
+      "repair",
+      "research",
+      "search",
+      "speakLanguage"
+    ],
+    "requirements": "",
+    "actionPoints": "Smart heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 1,
+        "defense": 0,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 4,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 5,
+        "defense": 3,
+        "reputation": 4
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
+  },
+  {
+    "id": "soldier",
+    "name": "Soldier",
+    "tier": "advanced",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "demolitions",
+      "drive",
+      "intimidate",
+      "jump",
+      "knowledge",
+      "listen",
+      "navigate",
+      "profession",
+      "readWriteLanguage",
+      "speakLanguage",
+      "spot",
+      "survival",
+      "swim"
+    ],
+    "requirements": "To qualify to become a Soldier, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the character attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Weapon Focus"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Weapon Specialization"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Tactical aid"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Improved Critical"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 2,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Improved reaction"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Graeter Weapon Specialization"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Critical strike"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 5,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/soldier.html"
+  },
+  {
+    "id": "strongHero",
+    "name": "Strong Hero",
+    "tier": "basic",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "climb",
+      "craft",
+      "handleAnimal",
+      "jump",
+      "knowledge",
+      "profession",
+      "readWriteLanguage",
+      "repair",
+      "speakLanguage",
+      "swim"
+    ],
+    "requirements": "",
+    "actionPoints": "Strong heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 7,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 8,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 9,
+        "fort": 4,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 10,
+        "fort": 5,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  {
+    "id": "techie",
+    "name": "Techie",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "computerUse",
+      "craft",
+      "demolitions",
+      "disableDevice",
+      "drive",
+      "knowledge",
+      "navigate",
+      "profession",
+      "readWriteLanguage",
+      "repair",
+      "research",
+      "search",
+      "speakLanguage",
+      "spot"
+    ],
+    "requirements": "To qualify to become a Techie, a character must fulfill the following criteria.",
+    "actionPoints": "6 + one-half character level, rounded down, every time the Techie attains a new level in this class",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Jury-rig +2"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Extreme machine"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Build robot"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Mastercraft"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Jury-rig +4"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Mastercraft"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Mastercraft"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/techie.html"
+  },
+  {
+    "id": "toughHero",
+    "name": "Tough Hero",
+    "tier": "basic",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "climb",
+      "concentration",
+      "craft",
+      "drive",
+      "intimidate",
+      "knowledge",
+      "profession",
+      "readWriteLanguage",
+      "ride",
+      "speakLanguage",
+      "spot",
+      "survival"
+    ],
+    "requirements": "",
+    "actionPoints": "Tough heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  }
+]

@@ -78,6 +78,126 @@ def scrape_skills() -> list[dict]:
     return [skills[k] for k in sorted(skills)]
 
 
+ORDINAL = re.compile(r"^(\d+)(?:st|nd|rd|th)$", re.I)
+
+# Progression column header -> the field it feeds on the class item.
+PROGRESSION_COLUMNS = {
+    "base attack bonus": "baseAttack",
+    "fort save": "fort",
+    "ref save": "ref",
+    "will save": "will",
+    "defense bonus": "defense",
+    "reputation bonus": "reputation",
+}
+FEATURE_COLUMNS = ("class features", "special")
+
+
+def labelled_value(lines: list[str], label: str) -> str:
+    """Read a "Label: value" entry, which the SRD splits across tags.
+
+    The label is its own line and the value follows on the next, usually
+    beginning with the colon: ["Hit Die", ": 1d8"].
+    """
+    for index, line in enumerate(lines):
+        if line.rstrip(":").strip().lower() != label.lower():
+            continue
+        tail = lines[index + 1] if index + 1 < len(lines) else ""
+        return tail.lstrip(":").strip()
+    return ""
+
+
+def class_pages() -> dict[str, str]:
+    """Class page -> tier, discovered from the two index pages."""
+    pages = {}
+    for index_page, tier in (("basicclasses.html", "basic"), ("advancedclasses.html", "advanced")):
+        try:
+            html_text = srd.fetch(index_page)
+        except Exception:
+            continue
+        for name in srd.links(html_text):
+            if name in srd.CHROME or name in set(srd.PAGES.values()):
+                continue
+            if name.startswith("appendix"):
+                continue
+            pages[name] = tier
+    return pages
+
+
+def parse_progression(table: dict) -> list[dict]:
+    """Turn a class progression table into one row per class level."""
+    header = [c.strip().lower() for c in table["header"]]
+    index_of = {name: i for i, name in enumerate(header)}
+
+    rows = []
+    for raw in table["rows"]:
+        if not raw:
+            continue
+        level_match = ORDINAL.match(raw[0].strip())
+        if not level_match:
+            continue
+
+        row = {"level": int(level_match.group(1)), "features": []}
+        for column, field in PROGRESSION_COLUMNS.items():
+            position = index_of.get(column)
+            row[field] = srd.to_int(raw[position]) if position is not None and position < len(raw) else 0
+
+        for column in FEATURE_COLUMNS:
+            position = index_of.get(column)
+            if position is not None and position < len(raw) and raw[position].strip():
+                row["features"] = [f.strip() for f in raw[position].split(",") if f.strip()]
+                break
+
+        rows.append(row)
+    return rows
+
+
+def scrape_classes(skills: list[dict]) -> list[dict]:
+    """Basic and advanced classes, with their per-level progression."""
+    # Longest first so "Read/Write Language" is matched before "Language".
+    skill_names = sorted(((s["name"], s["id"]) for s in skills), key=lambda p: -len(p[0]))
+
+    out = []
+    for page, tier in sorted(class_pages().items()):
+        try:
+            page_html = srd.fetch(page)
+        except Exception as error:
+            print(f"  ! {page}: {type(error).__name__}: {error}", file=sys.stderr)
+            continue
+
+        lines = text_lines(page_html)
+
+        # The progression table is the one with a Class Level column.
+        table = next(
+            (t for t in srd.annotated_tables(page_html)
+             if any("class level" in c.lower() for c in t["header"])),
+            None,
+        )
+        if not table:
+            print(f"  ! {page}: no progression table found", file=sys.stderr)
+            continue
+
+        caption = next((l for l in lines if l.lower().startswith("table: the ")), "")
+        name = caption[len("Table: The "):].strip() if caption else page.replace(".html", "").title()
+
+        class_skills_text = labelled_value(lines, "Class Skills")
+        class_skills = [sid for sname, sid in skill_names if sname.lower() in class_skills_text.lower()]
+
+        out.append({
+            "id": camel(name),
+            "name": name,
+            "tier": tier,
+            "hitDie": labelled_value(lines, "Hit Die") or "1d8",
+            "skillPointsPerLevel": srd.to_int(labelled_value(lines, "Skill Points at Each Additional Level"), 3),
+            "classSkills": sorted(set(class_skills)),
+            "requirements": labelled_value(lines, "Requirements"),
+            "actionPoints": labelled_value(lines, "Action Points"),
+            "progression": parse_progression(table),
+            "srdUrl": srd.page_url(page),
+        })
+
+    return out
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -146,13 +266,22 @@ def main() -> int:
     tables = scrape_generic_tables(pages)
     print(f"  {sum(len(v) for v in tables.values())} tables across {len(tables)} pages")
 
+    if not tables:
+        raise SystemExit(
+            "No tables parsed from any page. Every page raised, and the per-page\n"
+            "handler swallowed it — re-run without redirecting stderr to see why."
+        )
+
     print("Extracting datasets...")
     skills = scrape_skills()
     write("skills.json", skills)
+    classes = scrape_classes(skills)
+    write("classes.json", classes)
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 
-    print(f"\n{len(skills)} skills, "
+    levels = sum(len(c["progression"]) for c in classes)
+    print(f"\n{len(skills)} skills, {len(classes)} classes ({levels} class levels), "
           f"{sum(len(v) for v in tables.values())} tables total")
     return 0
 

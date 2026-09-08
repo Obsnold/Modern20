@@ -1,0 +1,158 @@
+{
+  "_id": "5AynlreJKBPudEfz",
+  "name": "Bodyguard",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d12",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "concentration",
+      "disguise",
+      "drive",
+      "forgery",
+      "gatherInformation",
+      "intimidate",
+      "knowledge",
+      "listen",
+      "profession",
+      "readWriteLanguage",
+      "search",
+      "senseMotive",
+      "speakLanguage",
+      "spot"
+    ],
+    "prerequisites": [
+      "To qualify to become a Bodyguard, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Harm's way"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Combat sense +1"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 3,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Sudden action"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 4,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Improved charge"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 5,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Defensive strike"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Combat sense +2"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Blanket protection"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 7,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/bodyguard.html"
+  },
+  "_key": "!items!5AynlreJKBPudEfz"
+}

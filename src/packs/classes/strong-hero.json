@@ -1,0 +1,152 @@
+{
+  "_id": "HT4H6K30vjBuhX1b",
+  "name": "Strong Hero",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "basic",
+    "levels": 1,
+    "keyAbility": "str",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      "climb",
+      "craft",
+      "handleAnimal",
+      "jump",
+      "knowledge",
+      "profession",
+      "readWriteLanguage",
+      "repair",
+      "speakLanguage",
+      "swim"
+    ],
+    "prerequisites": [],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 7,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 8,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Talent"
+        ],
+        "baseAttack": 9,
+        "fort": 4,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Bonus Feat"
+        ],
+        "baseAttack": 10,
+        "fort": 5,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      }
+    ],
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
+  },
+  "_key": "!items!HT4H6K30vjBuhX1b"
+}
