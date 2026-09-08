@@ -1,0 +1,74 @@
+# Checks that would have caught every bug this system has shipped so far.
+#
+# Runs on the `docker` label, which the runner maps to node:20-bookworm (see
+# the runner's label configuration in the runner's own configuration). That image already
+# ships git, curl, python3 and node, so there is no install step: verified as
+# node 20.20.2 / python 3.11.2 by running these checks inside the image.
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: docker
+    steps:
+      - name: checkout
+        run: |
+          set -eu
+          git init --quiet
+          git config --local http.${FORGEJO_SERVER_URL}/.extraheader \
+            "Authorization: Basic $(echo -n x-access-token:$FORGEJO_TOKEN | base64)"
+          git remote add origin "${FORGEJO_SERVER_URL}/${FORGEJO_REPOSITORY}.git"
+          git fetch --quiet --no-tags --depth=1 origin "${FORGEJO_SHA}"
+          git checkout --quiet FETCH_HEAD
+
+      - name: manifest and data files are valid JSON
+        run: |
+          set -eu
+          python3 - <<'PY'
+          import glob, json, sys
+          files = ["system.json", "lang/en.json"] + glob.glob("data/*.json") + glob.glob("src/packs/*/*.json")
+          bad = 0
+          for path in files:
+              try:
+                  json.load(open(path, encoding="utf-8"))
+              except Exception as error:
+                  print(f"INVALID {path}: {error}")
+                  bad += 1
+          print(f"{len(files)} JSON files checked, {bad} invalid")
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: modules parse
+        run: |
+          set -eu
+          fail=0
+          for f in $(find module scripts -name '*.mjs' | sort); do
+            if node --check "$f"; then echo "OK   $f"; else echo "FAIL $f"; fail=1; fi
+          done
+          exit $fail
+
+      # Foundry v14 removed the Actor/Item/Roll/ChatMessage globals. Referencing
+      # one in a class heritage clause takes the whole UI down as a black screen.
+      - name: no globals Foundry v14 removed
+        run: python3 scripts/check_globals.py
+
+      # Every localization key used in code or templates must exist, and no
+      # string key may shadow a namespace.
+      - name: localization keys resolve
+        run: python3 scripts/check_lang.py
+
+      # config.mjs is hand-transcribed from the SRD because it has to be plain
+      # browser JS. This proves the transcription still matches data/skills.json.
+      - name: config matches the scraped SRD
+        run: python3 scripts/check_config.py
+
+      # Imports the system and builds every document schema, enforcing
+      # Foundry's real invariants rather than merely resolving names.
+      - name: system loads and schemas build
+        run: node scripts/check_models.mjs
+
+      # A {{formField fields.typo}} renders as nothing with no console error,
+      # so template field references are checked against the real schemas.
+      - name: template field references resolve
+        run: node scripts/check_templates.mjs

@@ -93,17 +93,39 @@ rather than duplicating them.
 ## Checks
 
 ```bash
-python3 scripts/check_lang.py    # every referenced i18n key exists
-python3 scripts/check_config.py  # config.mjs still matches the scraped SRD
+python3 scripts/check_globals.py     # no globals Foundry v14 removed
+python3 scripts/check_lang.py        # every referenced i18n key exists
+python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
+node    scripts/check_models.mjs     # system imports, every schema builds
+node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
 ```
 
-Both are worth running in CI. They exist because both have already caught real
-bugs:
+`.forgejo/workflows/ci.yml` runs all five on every push, plus JSON validation
+and `node --check` on every module. It uses the `docker` runner label, which
+maps to `node:20-bookworm` — that image already ships git, curl, python3 and
+node, so there is no install step.
 
-- `check_config.py` found **5 of 41 skills** with the wrong trained-only flag,
-  transcribed by hand from a summary rather than the source.
-- `check_lang.py` found a key collision where `MODERN20.Skill` as a string
-  shadowed the `MODERN20.Skill.*` namespace, silently swallowing 50 skill names.
+Every one of these was written after a real failure, which is the only reason
+to trust any of them:
+
+| Check | The bug that caused it |
+|---|---|
+| `check_config.py` | 5 of 41 skills had the wrong trained-only flag, transcribed from a summary instead of the SRD |
+| `check_lang.py` | `MODERN20.Skill` as a string shadowed the `MODERN20.Skill.*` namespace, silently swallowing 50 skill names |
+| `check_globals.py` | `class Modern20Actor extends Actor` — v14 removed that global, so the world loaded as a black page |
+| `check_models.mjs` | a DataField shared between two schemas; an earlier permissive version of this harness passed the broken code |
+| `check_templates.mjs` | `{{formField fields.typo}}` renders as nothing with no console error — a blank row, not a crash |
+
+Two of these bugs took a black screen to find. The Node checks enforce
+Foundry's *real* invariants rather than merely resolving names, because a
+permissive stub is worse than no stub: it produces confident green output for
+code that cannot load.
+
+### What CI still cannot catch
+
+Nothing here renders a sheet. Anything in the render path — CSS specificity
+against core, ApplicationV2 part and tab wiring, actual layout — is only
+testable by opening the sheet in a browser. Three shipped bugs lived there.
 
 `config.mjs` has to be plain JS the browser can load, so SRD values are
 transcribed into it by hand. `check_config.py` is what proves the transcription
