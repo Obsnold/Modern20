@@ -82,6 +82,29 @@ function scan(source) {
   return refs;
 }
 
+/**
+ * `{{#each xs as |x|}}` introduces a lexically scoped parameter, reachable at
+ * any depth without `../`. Writing `../x` instead looks x up on the *parent
+ * context*, which silently yields undefined — a select whose selected option
+ * never matches, so it always shows the first entry. Nothing throws.
+ */
+function blockParamMisuse(source) {
+  const params = new Set();
+  for (const match of source.matchAll(/\{\{#each\s+[^}]*?\s+as\s+\|([^|]+)\|\}\}/g)) {
+    for (const name of match[1].trim().split(/\s+/)) params.add(name);
+  }
+
+  const problems = [];
+  source.split("\n").forEach((line, index) => {
+    for (const param of params) {
+      if (new RegExp(`\\.\\./${param}\\b`).test(line)) {
+        problems.push({ line: index + 1, param });
+      }
+    }
+  });
+  return problems;
+}
+
 function blockBalance(source) {
   // {{else}} and {{/if}} pair with an opener; {{#...}} opens one.
   const opens = (source.match(/\{\{#\w/g) ?? []).length;
@@ -109,6 +132,12 @@ let refCount = 0;
 for (const path of walk(TEMPLATES)) {
   const rel = relative(ROOT, path);
   const source = readFileSync(path, "utf8");
+
+  for (const { line, param } of blockParamMisuse(source)) {
+    problems++;
+    console.log(`${rel}:${line}: "../${param}" — ${param} is a block parameter, `
+      + `reachable directly; "../" resolves it against the parent context instead`);
+  }
 
   const imbalance = blockBalance(source);
   if (imbalance !== 0) {

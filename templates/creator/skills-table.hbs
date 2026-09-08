@@ -32,7 +32,7 @@
               {{else}}
                 <select class="m20-subject" name="subject.{{row.key}}" id="m20-subject-{{row.key}}">
                   {{#each row.options as |option|}}
-                    <option value="{{option}}" {{#if (eq option ../row.pick)}}selected{{/if}}>{{option}}</option>
+                    <option value="{{option}}" {{#if (eq option row.pick)}}selected{{/if}}>{{option}}</option>
                   {{/each}}
                 </select>
               {{/if}}
