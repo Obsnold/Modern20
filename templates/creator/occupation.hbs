@@ -29,8 +29,8 @@
           <div class="m20-choices">
             {{#each occupationSkillOptions as |option|}}
               <label class="m20-choice">
-                <input type="checkbox" name="occupationSkill" value="{{option.skill}}"
-                       {{#if (includes ../choices.occupationSkills option.skill)}}checked{{/if}}>
+                <input type="checkbox" name="occupationSkill" value="{{option.value}}"
+                       {{#if (includes ../choices.occupationSkills option.value)}}checked{{/if}}>
                 <span>{{option.label}}</span>
               </label>
             {{/each}}

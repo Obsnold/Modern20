@@ -12,42 +12,44 @@
       {
         "skill": "disableDevice",
         "label": "Disable Device",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "disguise",
         "label": "Disguise",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "forgery",
         "label": "Forgery",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "gamble",
         "label": "Gamble",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "hide",
         "label": "Hide",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (streetwise)",
-        "specialty": "streetwise"
+        "specialties": [
+          "Streetwise"
+        ]
       },
       {
         "skill": "moveSilently",
         "label": "Move Silently",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "sleightOfHand",
         "label": "Sleight of Hand",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

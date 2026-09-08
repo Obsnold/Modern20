@@ -11,18 +11,114 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 5,
     "classSkills": [
-      "craft",
-      "gamble",
-      "investigate",
-      "knowledge",
-      "listen",
-      "profession",
-      "readWriteLanguage",
-      "senseMotive",
-      "speakLanguage",
-      "spot",
-      "survival",
-      "treatInjury"
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
     ],
     "prerequisites": [],
     "progression": [

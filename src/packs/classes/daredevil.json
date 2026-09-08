@@ -11,24 +11,82 @@
     "hitDie": "1d10",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "balance",
-      "climb",
-      "concentration",
-      "demolitions",
-      "drive",
-      "escapeArtist",
-      "intimidate",
-      "jump",
-      "knowledge",
-      "perform",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "ride",
-      "speakLanguage",
-      "spot",
-      "swim",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become a Daredevil, a character must fulfill the following criteria."

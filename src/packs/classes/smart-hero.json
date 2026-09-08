@@ -11,21 +11,142 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 9,
     "classSkills": [
-      "computerUse",
-      "craft",
-      "decipherScript",
-      "demolitions",
-      "disableDevice",
-      "forgery",
-      "investigate",
-      "knowledge",
-      "navigate",
-      "profession",
-      "readWriteLanguage",
-      "repair",
-      "research",
-      "search",
-      "speakLanguage"
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "prerequisites": [],
     "progression": [

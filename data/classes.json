@@ -6,20 +6,74 @@
     "hitDie": "1d12",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "concentration",
-      "disguise",
-      "drive",
-      "forgery",
-      "gatherInformation",
-      "intimidate",
-      "knowledge",
-      "listen",
-      "profession",
-      "readWriteLanguage",
-      "search",
-      "senseMotive",
-      "speakLanguage",
-      "spot"
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Bodyguard, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the Bodyguard attains a new level in this class",
@@ -154,18 +208,118 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 7,
     "classSkills": [
-      "bluff",
-      "craft",
-      "diplomacy",
-      "disguise",
-      "gatherInformation",
-      "handleAnimal",
-      "intimidate",
-      "knowledge",
-      "perform",
-      "profession",
-      "readWriteLanguage",
-      "speakLanguage"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Keyboards"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Percussion Instruments"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Sing"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stand-Up"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stringed Instruments"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Wind Instruments"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "requirements": "",
     "actionPoints": "Charismatic heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
@@ -300,24 +454,82 @@
     "hitDie": "1d10",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "balance",
-      "climb",
-      "concentration",
-      "demolitions",
-      "drive",
-      "escapeArtist",
-      "intimidate",
-      "jump",
-      "knowledge",
-      "perform",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "ride",
-      "speakLanguage",
-      "spot",
-      "swim",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Daredevil, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the daredevil attains a new level in this class.",
@@ -452,18 +664,114 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 5,
     "classSkills": [
-      "craft",
-      "gamble",
-      "investigate",
-      "knowledge",
-      "listen",
-      "profession",
-      "readWriteLanguage",
-      "senseMotive",
-      "speakLanguage",
-      "spot",
-      "survival",
-      "treatInjury"
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
     ],
     "requirements": "",
     "actionPoints": "Dedicated heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
@@ -598,20 +906,70 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 5,
     "classSkills": [
-      "balance",
-      "craft",
-      "drive",
-      "escapeArtist",
-      "hide",
-      "knowledge",
-      "moveSilently",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "ride",
-      "sleightOfHand",
-      "speakLanguage",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "requirements": "",
     "actionPoints": "Fast heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
@@ -746,21 +1104,78 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "computerUse",
-      "concentration",
-      "craft",
-      "diplomacy",
-      "drive",
-      "knowledge",
-      "listen",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "research",
-      "search",
-      "speakLanguage",
-      "spot",
-      "treatInjury"
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Field Medic, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the Field Medic attains a new level in this class.",
@@ -895,21 +1310,90 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "computerUse",
-      "craft",
-      "decipherScript",
-      "demolitions",
-      "disableDevice",
-      "drive",
-      "investigate",
-      "knowledge",
-      "navigate",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "research",
-      "search",
-      "speakLanguage"
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Field Scientist, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the Field Scientist attains a new level in this class.",
@@ -1044,22 +1528,78 @@
     "hitDie": "1d10",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "bluff",
-      "demolitions",
-      "drive",
-      "escapeArtist",
-      "gamble",
-      "intimidate",
-      "knowledge",
-      "moveSilently",
-      "profession",
-      "readWriteLanguage",
-      "ride",
-      "sleightOfHand",
-      "speakLanguage",
-      "spot",
-      "survival",
-      "tumble"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Gunslinger, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the gunslinger attains a new level in this class.",
@@ -1194,24 +1734,94 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "balance",
-      "climb",
-      "disableDevice",
-      "disguise",
-      "escapeArtist",
-      "hide",
-      "investigate",
-      "jump",
-      "knowledge",
-      "listen",
-      "moveSilently",
-      "profession",
-      "readWriteLanguage",
-      "search",
-      "sleightOfHand",
-      "speakLanguage",
-      "spot",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become an Infiltrator, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the infiltrator attains a new level in this class.",
@@ -1346,22 +1956,82 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "bluff",
-      "computerUse",
-      "disableDevice",
-      "drive",
-      "forgery",
-      "gatherInformation",
-      "intimidate",
-      "investigate",
-      "knowledge",
-      "listen",
-      "profession",
-      "research",
-      "search",
-      "senseMotive",
-      "speakLanguage",
-      "spot"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become an Investigator, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the Investigator attains a new level in this class.",
@@ -1499,20 +2169,70 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "balance",
-      "climb",
-      "escapeArtist",
-      "hide",
-      "intimidate",
-      "jump",
-      "knowledge",
-      "moveSilently",
-      "perform",
-      "profession",
-      "readWriteLanguage",
-      "speakLanguage",
-      "spot",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Martial Artist, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the martial artist attains a new level in this class.",
@@ -1647,20 +2367,82 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "bluff",
-      "computerUse",
-      "diplomacy",
-      "drive",
-      "gamble",
-      "gatherInformation",
-      "intimidate",
-      "investigate",
-      "knowledge",
-      "profession",
-      "readWriteLanguage",
-      "senseMotive",
-      "speakLanguage",
-      "spot"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Negotiator, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the Negotiator attains a new level in this class.",
@@ -1795,13 +2577,70 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "bluff",
-      "craft",
-      "diplomacy",
-      "knowledge",
-      "perform",
-      "profession",
-      "speakLanguage"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Sing"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stand-Up"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Personality, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the Personality attains a new level in this class.",
@@ -1936,21 +2775,142 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 9,
     "classSkills": [
-      "computerUse",
-      "craft",
-      "decipherScript",
-      "demolitions",
-      "disableDevice",
-      "forgery",
-      "investigate",
-      "knowledge",
-      "navigate",
-      "profession",
-      "readWriteLanguage",
-      "repair",
-      "research",
-      "search",
-      "speakLanguage"
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "requirements": "",
     "actionPoints": "Smart heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
@@ -2085,19 +3045,70 @@
     "hitDie": "1d10",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "demolitions",
-      "drive",
-      "intimidate",
-      "jump",
-      "knowledge",
-      "listen",
-      "navigate",
-      "profession",
-      "readWriteLanguage",
-      "speakLanguage",
-      "spot",
-      "survival",
-      "swim"
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Soldier, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the character attains a new level in this class.",
@@ -2232,16 +3243,58 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "climb",
-      "craft",
-      "handleAnimal",
-      "jump",
-      "knowledge",
-      "profession",
-      "readWriteLanguage",
-      "repair",
-      "speakLanguage",
-      "swim"
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      }
     ],
     "requirements": "",
     "actionPoints": "Strong heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",
@@ -2376,20 +3429,78 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "computerUse",
-      "craft",
-      "demolitions",
-      "disableDevice",
-      "drive",
-      "knowledge",
-      "navigate",
-      "profession",
-      "readWriteLanguage",
-      "repair",
-      "research",
-      "search",
-      "speakLanguage",
-      "spot"
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
     ],
     "requirements": "To qualify to become a Techie, a character must fulfill the following criteria.",
     "actionPoints": "6 + one-half character level, rounded down, every time the Techie attains a new level in this class",
@@ -2524,18 +3635,66 @@
     "hitDie": "1d10",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "climb",
-      "concentration",
-      "craft",
-      "drive",
-      "intimidate",
-      "knowledge",
-      "profession",
-      "readWriteLanguage",
-      "ride",
-      "speakLanguage",
-      "spot",
-      "survival"
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      }
     ],
     "requirements": "",
     "actionPoints": "Tough heroes gain a number of action points equal to 5 + one-half their character level, rounded down, at 1st level and every time they attain a new level in this class.",

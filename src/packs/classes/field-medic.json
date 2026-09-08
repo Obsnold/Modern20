@@ -11,21 +11,78 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "computerUse",
-      "concentration",
-      "craft",
-      "diplomacy",
-      "drive",
-      "knowledge",
-      "listen",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "research",
-      "search",
-      "speakLanguage",
-      "spot",
-      "treatInjury"
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become a Field Medic, a character must fulfill the following criteria."

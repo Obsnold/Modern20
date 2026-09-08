@@ -218,12 +218,20 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
 
     for (const item of this.parent?.items ?? []) {
       if (item.type === "class") {
-        for (const key of item.system.classSkills ?? []) add(key, item.name);
+        for (const grant of item.system.classSkills ?? []) {
+          add(this.constructor.skillKey(grant.skill, grant.specialty), item.name);
+        }
       } else if (item.type === "occupation") {
-        for (const key of item.system.skillsChosen ?? []) add(key, item.name);
+        // Stored as "skill" or "skill:Subject".
+        for (const entry of item.system.skillsChosen ?? []) add(entry, item.name);
       }
     }
     return sources;
+  }
+
+  /** The key a grant is recorded under: "knowledge" or "knowledge:Streetwise". */
+  static skillKey(skill, specialty = "") {
+    return specialty ? `${skill}:${specialty}` : skill;
   }
 
   #prepareSkills() {
@@ -248,9 +256,12 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
       skill.usable = !cfg.trainedOnly || skill.ranks > 0;
 
       for (const specialty of skill.specialties) {
-        specialty.grantedByClass = skill.grantedByClass;
-        specialty.sources = skill.sources;
-        specialty.sourceLabel = skill.sourceLabel;
+        // A subject inherits a grant of the whole skill, and can also be
+        // granted on its own: Strong Hero grants Knowledge (Tactics) only.
+        const own = sources[`${key}:${specialty.name}`] ?? [];
+        specialty.sources = [...new Set([...skill.sources, ...own])];
+        specialty.grantedByClass = specialty.sources.length > 0;
+        specialty.sourceLabel = specialty.sources.join(", ");
         specialty.classSkill = specialty.classSkill || skill.grantedByClass;
         specialty.total = totalOf(specialty);
         specialty.usable = !cfg.trainedOnly || specialty.ranks > 0;

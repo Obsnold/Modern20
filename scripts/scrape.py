@@ -151,6 +151,62 @@ def parse_progression(table: dict) -> list[dict]:
     return rows
 
 
+ABILITY_TOKENS = {"str", "dex", "con", "int", "wis", "cha", "none"}
+
+
+def parse_specialty_entry(entry: str, skill_names: list[tuple[str, str]]) -> list[dict]:
+    """Parse one class-skill entry into its subjects.
+
+    Entries are written "Name (subjects) (Ability)", e.g.
+    "Craft (structural) (Int)" or
+    "Knowledge (current events, popular culture, streetwise, tactics) (Int)".
+    A subject list yields one grant per subject, since each subject is its own
+    skill; an entry with no subject grants the skill itself.
+    """
+    entry = entry.strip().rstrip(".")
+    entry = re.sub(r"^(and|or)\s+", "", entry, flags=re.I)
+    if not entry:
+        return []
+
+    brackets = re.findall(r"\(([^)]*)\)", entry)
+    head = re.sub(r"\s*\([^)]*\)", "", entry).strip()
+
+    skill = next((sid for name, sid in skill_names if head.lower() == name.lower()), None)
+    if not skill:
+        skill = next((sid for name, sid in skill_names if head.lower().startswith(name.lower())), None)
+    if not skill:
+        return []
+
+    # The trailing bracket is the key ability, not a subject.
+    subjects = [b for b in brackets if b.strip().lower() not in ABILITY_TOKENS]
+    if not subjects:
+        return [{"skill": skill, "specialty": ""}]
+
+    out = []
+    for name in split_outside_parens(subjects[0]):
+        name = re.sub(r"^(and|or)\s+", "", name, flags=re.I).strip()
+        if name and name.lower() not in ABILITY_TOKENS:
+            out.append({"skill": skill, "specialty": name.title()})
+    return out or [{"skill": skill, "specialty": ""}]
+
+
+def parse_class_skills(text: str, skill_names: list[tuple[str, str]]) -> list[dict]:
+    """Class skills with their subjects, from the SRD's sentence."""
+    if not text:
+        return []
+    listing = re.sub(r"^.*?\bare:\s*", "", text, count=1, flags=re.I | re.S)
+
+    grants, seen = [], set()
+    for entry in split_outside_parens(listing):
+        for grant in parse_specialty_entry(entry, skill_names):
+            key = (grant["skill"], grant["specialty"])
+            if key in seen:
+                continue
+            seen.add(key)
+            grants.append(grant)
+    return grants
+
+
 def scrape_classes(skills: list[dict]) -> list[dict]:
     """Basic and advanced classes, with their per-level progression."""
     # Longest first so "Read/Write Language" is matched before "Language".
@@ -180,7 +236,7 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
         name = caption[len("Table: The "):].strip() if caption else page.replace(".html", "").title()
 
         class_skills_text = labelled_value(lines, "Class Skills")
-        class_skills = [sid for sname, sid in skill_names if sname.lower() in class_skills_text.lower()]
+        class_skills = parse_class_skills(class_skills_text, skill_names)
 
         out.append({
             "id": camel(name),
@@ -188,7 +244,7 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
             "tier": tier,
             "hitDie": labelled_value(lines, "Hit Die") or "1d8",
             "skillPointsPerLevel": srd.to_int(labelled_value(lines, "Skill Points at Each Additional Level"), 3),
-            "classSkills": sorted(set(class_skills)),
+            "classSkills": class_skills,
             "requirements": labelled_value(lines, "Requirements"),
             "actionPoints": labelled_value(lines, "Action Points"),
             "progression": parse_progression(table),
@@ -755,10 +811,11 @@ def parse_skill_choices(text: str, skill_names: list[tuple[str, str]]) -> dict:
                 continue
             seen.add(sid)
             bracket = re.search(r"\(([^)]*)\)", label)
+            subjects = split_outside_parens(bracket.group(1)) if bracket else []
             options.append({
                 "skill": sid,
                 "label": label,
-                "specialty": bracket.group(1).strip() if bracket else ""
+                "specialties": [x.strip().title() for x in subjects if x.strip()]
             })
 
     return {"count": count, "options": options}

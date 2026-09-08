@@ -12,42 +12,55 @@
       {
         "skill": "bluff",
         "label": "Bluff",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "computerUse",
         "label": "Computer Use",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "craft",
         "label": "Craft (visual art or writing)",
-        "specialty": "visual art or writing"
+        "specialties": [
+          "Visual Art Or Writing"
+        ]
       },
       {
         "skill": "disguise",
         "label": "Disguise",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "forgery",
         "label": "Forgery",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (arcane lore or art)",
-        "specialty": "arcane lore or art"
+        "specialties": [
+          "Arcane Lore Or Art"
+        ]
       },
       {
         "skill": "perform",
         "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
-        "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+        "specialties": [
+          "Act",
+          "Dance",
+          "Keyboards",
+          "Percussion Instruments",
+          "Sing",
+          "Stand-Up",
+          "Stringed Instruments",
+          "Or Wind Instruments"
+        ]
       },
       {
         "skill": "spot",
         "label": "Spot",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

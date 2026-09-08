@@ -11,21 +11,90 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "computerUse",
-      "craft",
-      "decipherScript",
-      "demolitions",
-      "disableDevice",
-      "drive",
-      "investigate",
-      "knowledge",
-      "navigate",
-      "pilot",
-      "profession",
-      "readWriteLanguage",
-      "research",
-      "search",
-      "speakLanguage"
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become a Field Scientist, a character must fulfill the following criteria."

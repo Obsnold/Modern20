@@ -11,18 +11,118 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 7,
     "classSkills": [
-      "bluff",
-      "craft",
-      "diplomacy",
-      "disguise",
-      "gatherInformation",
-      "handleAnimal",
-      "intimidate",
-      "knowledge",
-      "perform",
-      "profession",
-      "readWriteLanguage",
-      "speakLanguage"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Keyboards"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Percussion Instruments"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Sing"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stand-Up"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stringed Instruments"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Wind Instruments"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "prerequisites": [],
     "progression": [

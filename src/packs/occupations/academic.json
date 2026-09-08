@@ -12,42 +12,58 @@
       {
         "skill": "computerUse",
         "label": "Computer Use",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "craft",
         "label": "Craft (writing)",
-        "specialty": "writing"
+        "specialties": [
+          "Writing"
+        ]
       },
       {
         "skill": "decipherScript",
         "label": "Decipher Script",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "gatherInformation",
         "label": "Gather Information",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy)",
-        "specialty": "arcane lore, art, behavioral sciences, business, civics, current events, earth and life sciences, history, physical sciences, popular culture, tactics, technology, or theology and philosophy"
+        "specialties": [
+          "Arcane Lore",
+          "Art",
+          "Behavioral Sciences",
+          "Business",
+          "Civics",
+          "Current Events",
+          "Earth And Life Sciences",
+          "History",
+          "Physical Sciences",
+          "Popular Culture",
+          "Tactics",
+          "Technology",
+          "Or Theology And Philosophy"
+        ]
       },
       {
         "skill": "research",
         "label": "Research",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "readWriteLanguage",
         "label": "Read/Write Language",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "speakLanguage",
         "label": "Speak Language",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

@@ -11,24 +11,94 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "balance",
-      "climb",
-      "disableDevice",
-      "disguise",
-      "escapeArtist",
-      "hide",
-      "investigate",
-      "jump",
-      "knowledge",
-      "listen",
-      "moveSilently",
-      "profession",
-      "readWriteLanguage",
-      "search",
-      "sleightOfHand",
-      "speakLanguage",
-      "spot",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become an Infiltrator, a character must fulfill the following criteria."

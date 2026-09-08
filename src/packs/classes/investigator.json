@@ -11,22 +11,82 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "bluff",
-      "computerUse",
-      "disableDevice",
-      "drive",
-      "forgery",
-      "gatherInformation",
-      "intimidate",
-      "investigate",
-      "knowledge",
-      "listen",
-      "profession",
-      "research",
-      "search",
-      "senseMotive",
-      "speakLanguage",
-      "spot"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become an Investigator, a character must fulfill the following criteria."

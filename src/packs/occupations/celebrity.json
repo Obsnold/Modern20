@@ -12,27 +12,38 @@
       {
         "skill": "bluff",
         "label": "Bluff",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "craft",
         "label": "Craft (visual art or writing)",
-        "specialty": "visual art or writing"
+        "specialties": [
+          "Visual Art Or Writing"
+        ]
       },
       {
         "skill": "diplomacy",
         "label": "Diplomacy",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "disguise",
         "label": "Disguise",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "perform",
         "label": "Perform (act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments)",
-        "specialty": "act, dance, keyboards, percussion instruments, sing, stand-up, stringed instruments, or wind instruments"
+        "specialties": [
+          "Act",
+          "Dance",
+          "Keyboards",
+          "Percussion Instruments",
+          "Sing",
+          "Stand-Up",
+          "Stringed Instruments",
+          "Or Wind Instruments"
+        ]
       }
     ],
     "skillsChosen": [],

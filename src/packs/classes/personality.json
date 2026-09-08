@@ -11,13 +11,70 @@
     "hitDie": "1d6",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "bluff",
-      "craft",
-      "diplomacy",
-      "knowledge",
-      "perform",
-      "profession",
-      "speakLanguage"
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Sing"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stand-Up"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become a Personality, a character must fulfill the following criteria."

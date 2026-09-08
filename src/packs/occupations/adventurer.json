@@ -12,82 +12,87 @@
       {
         "skill": "bluff",
         "label": "Bluff",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "climb",
         "label": "Climb",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "demolitions",
         "label": "Demolitions",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "disableDevice",
         "label": "Disable Device",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "drive",
         "label": "Drive",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "escapeArtist",
         "label": "Escape Artist",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "intimidate",
         "label": "Intimidate",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "jump",
         "label": "Jump",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (arcane lore, streetwise, tactics, or technology)",
-        "specialty": "arcane lore, streetwise, tactics, or technology"
+        "specialties": [
+          "Arcane Lore",
+          "Streetwise",
+          "Tactics",
+          "Or Technology"
+        ]
       },
       {
         "skill": "moveSilently",
         "label": "Move Silently",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "pilot",
         "label": "Pilot",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "ride",
         "label": "Ride",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "spot",
         "label": "Spot",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "survival",
         "label": "Survival",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "swim",
         "label": "Swim",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "treatInjury",
         "label": "Treat Injury",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

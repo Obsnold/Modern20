@@ -137,7 +137,18 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     if (context.chosenOccupation) {
       const pack = game.packs.get("modern20.occupations");
       const document = await pack?.getDocument(state.occupationId);
-      context.occupationSkillOptions = document?.system.skillOptions ?? [];
+      // An option naming several subjects is several choices: "Knowledge
+      // (arcane lore, art, ...)" lets the player pick one of those, not all.
+      context.occupationSkillOptions = (document?.system.skillOptions ?? []).flatMap((option) => {
+        const subjects = option.specialties ?? [];
+        if (!subjects.length) return [{ ...option, value: option.skill, label: option.label }];
+        const skillLabel = game.i18n.localize(MODERN20.skills[option.skill]?.label ?? option.skill);
+        return subjects.map((subject) => ({
+          ...option,
+          value: `${option.skill}:${subject}`,
+          label: `${skillLabel} (${subject})`
+        }));
+      });
       context.occupationSkillCount = document?.system.skillChoiceCount ?? 0;
       context.occupationFeatOptions = document?.system.bonusFeatOptions ?? [];
       context.occupationSkillsPicked = state.occupationSkills.length;
@@ -151,10 +162,24 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       context.classFeatures = document?.system.progression?.find((r) => r.level === 1)?.features ?? [];
     }
     const granted = new Set(state.occupationSkills);
+    // A ticked subject needs a row in the skills table to receive ranks.
+    for (const entry of state.occupationSkills) {
+      const [skill, subject] = entry.split(":");
+      if (!subject) continue;
+      state.specialties[skill] ??= {};
+      state.specialties[skill][subject] ??= 0;
+    }
     if (context.chosenClass) {
       const pack = game.packs.get("modern20.classes");
       const document = await pack?.getDocument(state.classId);
-      for (const key of document?.system.classSkills ?? []) granted.add(key);
+      for (const g of document?.system.classSkills ?? []) {
+        granted.add(g.specialty ? `${g.skill}:${g.specialty}` : g.skill);
+        // Class-granted subjects need a row to receive ranks.
+        if (g.specialty) {
+          state.specialties[g.skill] ??= {};
+          state.specialties[g.skill][g.specialty] ??= 0;
+        }
+      }
       context.skillBudget = pointsForLevel(
         document?.system.skillPointsPerLevel ?? 0,
         Math.floor((state.abilities.int - 10) / 2),

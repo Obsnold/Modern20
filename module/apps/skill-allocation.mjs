@@ -65,15 +65,19 @@ export function skillRows(actor, {
     for (const [name, existingRanks] of subjects) {
       const added = pendingSpecialties[key]?.[name] ?? 0;
       const total = existingRanks + added;
+      // A subject can be a class skill in its own right even when the parent
+      // skill is not: Strong Hero grants Knowledge (Tactics) alone.
+      const subjectIsClass = isClassSkill || grantedSkills.has(`${key}:${name}`);
       rows.push({
         ...base,
+        classSkill: subjectIsClass,
+        cost: added * (subjectIsClass ? 1 : 2),
         label: `${base.label} (${name})`,
         specialty: name,
         field: `specialty.${key}.${name}`,
         existing: existingRanks,
         added,
         total,
-        cost: added * (isClassSkill ? 1 : 2),
         overCap: !base.perRank && total > cap
       });
     }

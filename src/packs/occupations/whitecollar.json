@@ -12,22 +12,30 @@
       {
         "skill": "computerUse",
         "label": "Computer Use",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "diplomacy",
         "label": "Diplomacy",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (art, business, civics, earth and life sciences, history, physical sciences, or technology)",
-        "specialty": "art, business, civics, earth and life sciences, history, physical sciences, or technology"
+        "specialties": [
+          "Art",
+          "Business",
+          "Civics",
+          "Earth And Life Sciences",
+          "History",
+          "Physical Sciences",
+          "Or Technology"
+        ]
       },
       {
         "skill": "research",
         "label": "Research",
-        "specialty": ""
+        "specialties": []
       }
     ],
     "skillsChosen": [],

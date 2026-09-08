@@ -12,22 +12,26 @@
       {
         "skill": "bluff",
         "label": "Bluff",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "diplomacy",
         "label": "Diplomacy",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "gamble",
         "label": "Gamble",
-        "specialty": ""
+        "specialties": []
       },
       {
         "skill": "knowledge",
         "label": "Knowledge (business, current events, or technology)",
-        "specialty": "business, current events, or technology"
+        "specialties": [
+          "Business",
+          "Current Events",
+          "Or Technology"
+        ]
       }
     ],
     "skillsChosen": [],

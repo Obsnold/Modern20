@@ -11,20 +11,70 @@
     "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
-      "balance",
-      "climb",
-      "escapeArtist",
-      "hide",
-      "intimidate",
-      "jump",
-      "knowledge",
-      "moveSilently",
-      "perform",
-      "profession",
-      "readWriteLanguage",
-      "speakLanguage",
-      "spot",
-      "tumble"
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
     ],
     "prerequisites": [
       "To qualify to become a Martial Artist, a character must fulfill the following criteria."
