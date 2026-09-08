@@ -1,4 +1,14 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#unless system.details.classLevels.length}}
+    <div class="m20-panel m20-panel--callout">
+      <h3>{{localize "MODERN20.Creator.Title"}}</h3>
+      <p class="m20-hint">{{localize "MODERN20.Creator.Callout"}}</p>
+      <button type="button" class="m20-button" data-action="openCreator">
+        {{localize "MODERN20.Creator.Open"}}
+      </button>
+    </div>
+  {{/unless}}
+
   {{#each sections.character as |section|}}
     <div class="m20-itemlist">
       <h3>

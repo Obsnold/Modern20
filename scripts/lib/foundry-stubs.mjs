@@ -85,7 +85,16 @@ export function installStubs() {
     documents: { Actor: class {}, Item: class {}, ChatMessage: class {} },
     dice: { Roll: class {} },
     applications: {
-      api: { HandlebarsApplicationMixin: (Base) => class extends Base {} },
+      api: {
+        // Applications that are not document sheets extend ApplicationV2
+        // directly, so the stub must offer it as a real base class.
+        ApplicationV2: class { constructor(options = {}) { this.options = options; } },
+        DialogV2: class {
+          static async prompt() { return null; }
+          static async wait() { return null; }
+        },
+        HandlebarsApplicationMixin: (Base) => class extends Base {}
+      },
       sheets: { ActorSheetV2: class {}, ItemSheetV2: class {} },
       apps: {
         DocumentSheetConfig: {

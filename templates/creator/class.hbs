@@ -1,0 +1,33 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <p class="m20-hint">{{localize "MODERN20.Creator.ClassHint"}}</p>
+
+  {{#if classes.length}}
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Creator.Class"}}</label>
+      <select name="classId">
+        <option value="">{{localize "MODERN20.Creator.None"}}</option>
+        {{#each classes as |heroClass|}}
+          <option value="{{heroClass.id}}" {{#if (eq heroClass.id ../state.classId)}}selected{{/if}}>
+            {{heroClass.name}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{#if chosenClass}}
+      <div class="m20-panel">
+        <h3>{{chosenClass.name}}</h3>
+        <div class="m20-row">
+          <label>{{localize "MODERN20.HitDice"}}</label><span>{{chosenClass.hitDie}}</span>
+        </div>
+        <div class="m20-row">
+          <label>{{localize "MODERN20.SkillPointsSpent"}}</label>
+          <span>{{chosenClass.skillPoints}} + {{localize "MODERN20.Ability.Int.long"}}</span>
+        </div>
+        <p class="m20-hint">{{localize "MODERN20.Creator.ClassPrompt"}}</p>
+      </div>
+    {{/if}}
+  {{else}}
+    <p class="m20-hint">{{localize "MODERN20.Creator.NoPack"}}</p>
+  {{/if}}
+</section>

@@ -1,0 +1,35 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <p class="m20-hint">{{localize "MODERN20.Creator.AbilitiesHint"}}</p>
+
+  <div class="m20-row">
+    <label>{{localize "MODERN20.Creator.Method"}}</label>
+    <select name="method">
+      {{#each methods as |method|}}
+        <option value="{{method.id}}" {{#if (eq method.id ../state.method)}}selected{{/if}}>{{method.label}}</option>
+      {{/each}}
+    </select>
+    <button type="button" class="m20-button m20-button--small" data-action="rollAbilities">
+      {{localize "MODERN20.Creator.Roll"}}
+    </button>
+    <button type="button" class="m20-button m20-button--small" data-action="resetAbilities">
+      {{localize "MODERN20.Creator.Reset"}}
+    </button>
+  </div>
+
+  {{#if showPool}}
+    <p class="m20-hint">
+      {{localize "MODERN20.Creator.Pool"}}:
+      {{#each pool}}<span class="m20-tag">{{this}}</span> {{/each}}
+    </p>
+  {{/if}}
+
+  <div class="m20-panel">
+    {{#each abilityRows as |ability|}}
+      <div class="m20-row">
+        <label>{{ability.label}}</label>
+        <input type="number" name="abilities.{{ability.key}}" value="{{ability.value}}" min="1">
+        <span class="m20-mod">{{modern20Signed ability.mod}}</span>
+      </div>
+    {{/each}}
+  </div>
+</section>

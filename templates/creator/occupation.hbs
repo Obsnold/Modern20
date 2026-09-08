@@ -1,0 +1,27 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <p class="m20-hint">{{localize "MODERN20.Creator.OccupationHint"}}</p>
+
+  {{#if occupations.length}}
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Creator.Occupation"}}</label>
+      <select name="occupationId">
+        <option value="">{{localize "MODERN20.Creator.None"}}</option>
+        {{#each occupations as |occupation|}}
+          <option value="{{occupation.id}}" {{#if (eq occupation.id ../state.occupationId)}}selected{{/if}}>
+            {{occupation.name}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{#if chosenOccupation}}
+      <div class="m20-panel">
+        <h3>{{chosenOccupation.name}}</h3>
+        <p class="m20-hint">{{localize "MODERN20.Creator.WealthBonus"}}: +{{chosenOccupation.wealthBonus}}</p>
+        <p class="m20-hint">{{localize "MODERN20.Creator.OccupationPrompt"}}</p>
+      </div>
+    {{/if}}
+  {{else}}
+    <p class="m20-hint">{{localize "MODERN20.Creator.NoPack"}}</p>
+  {{/if}}
+</section>
