@@ -1,0 +1,26 @@
+{
+  "_id": "KyEifpZL0l5YKGCb",
+  "name": "Javelin (Simple)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d6",
+    "damageType": "piercing",
+    "critical": "20",
+    "rangeIncrement": 30,
+    "rateOfFire": "1",
+    "magazine": "-",
+    "size": "med",
+    "ranged": true,
+    "weight": 2.0,
+    "purchaseDC": 4,
+    "restriction": "none",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!KyEifpZL0l5YKGCb"
+}

@@ -1,0 +1,26 @@
+{
+  "_id": "n8OdFV7mlty3qWGS",
+  "name": "Whip (Simple)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d2",
+    "damageType": "slashing",
+    "critical": "20",
+    "rangeIncrement": 15,
+    "rateOfFire": "1",
+    "magazine": "-",
+    "size": "small",
+    "ranged": true,
+    "weight": 2.0,
+    "purchaseDC": 4,
+    "restriction": "none",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!n8OdFV7mlty3qWGS"
+}

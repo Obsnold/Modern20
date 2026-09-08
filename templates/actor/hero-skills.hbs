@@ -1,0 +1,52 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-skills__summary">
+    {{localize "MODERN20.SkillPointsSpent"}}: {{system.skillPoints.spent}} &middot;
+    {{localize "MODERN20.MaxRanks"}}: {{system.skillPoints.maxRanks}}
+    ({{localize "MODERN20.CrossClass"}} {{system.skillPoints.maxCrossClassRanks}})
+  </div>
+
+  <table class="m20-skills">
+    <thead>
+      <tr>
+        <th>{{localize "MODERN20.Header.Skill"}}</th>
+        <th>{{localize "MODERN20.ClassSkill"}}</th>
+        <th>{{localize "MODERN20.Ranks"}}</th>
+        <th>{{localize "MODERN20.Misc"}}</th>
+        <th>{{localize "MODERN20.Total"}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each skills as |row|}}
+        <tr class="{{#unless row.usable}}m20-skill--untrained{{/unless}} {{#if row.overMaxRanks}}m20-skill--overspent{{/if}}">
+          <td>
+            {{#if row.usable}}
+              <button type="button" class="m20-roll" data-action="rollSkill"
+                      data-skill="{{row.key}}" data-specialty="{{row.specialty}}">{{row.label}}</button>
+            {{else}}
+              <span title="{{localize 'MODERN20.Warning.TrainedOnlyShort'}}">{{row.label}}</span>
+            {{/if}}
+          </td>
+          {{#if row.header}}
+            <td colspan="4" class="m20-skills__grouphead">{{localize "MODERN20.SpecialtySkill"}}</td>
+          {{else}}
+            <td>
+              <input type="checkbox" {{#if row.classSkill}}checked{{/if}}
+                     name="system.skills.{{row.key}}{{#if row.specialty}}.specialties.{{row.index}}{{/if}}.classSkill">
+            </td>
+            <td>
+              <input type="number" min="0"
+                     name="system.skills.{{row.key}}{{#if row.specialty}}.specialties.{{row.index}}{{/if}}.ranks"
+                     value="{{row.ranks}}">
+            </td>
+            <td>
+              <input type="number"
+                     name="system.skills.{{row.key}}{{#if row.specialty}}.specialties.{{row.index}}{{/if}}.misc"
+                     value="{{row.misc}}">
+            </td>
+            <td class="m20-mod">{{modern20Signed row.total}}</td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

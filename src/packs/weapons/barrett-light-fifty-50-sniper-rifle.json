@@ -1,0 +1,26 @@
+{
+  "_id": "Yj4Yn1uFhBqTm8fd",
+  "name": "Barrett Light Fifty (.50 sniper rifle)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "2d12",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 120,
+    "rateOfFire": "S",
+    "magazine": "11 box",
+    "size": "huge",
+    "ranged": true,
+    "weight": 35.0,
+    "purchaseDC": 22,
+    "restriction": "lic",
+    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!Yj4Yn1uFhBqTm8fd"
+}

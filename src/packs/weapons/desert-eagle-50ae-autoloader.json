@@ -1,0 +1,26 @@
+{
+  "_id": "qLiioElGbEXb6zyR",
+  "name": "Desert Eagle (.50AE autoloader)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d8",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 40,
+    "rateOfFire": "S",
+    "magazine": "8 box",
+    "size": "med",
+    "ranged": true,
+    "weight": 4.0,
+    "purchaseDC": 18,
+    "restriction": "lic",
+    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!qLiioElGbEXb6zyR"
+}

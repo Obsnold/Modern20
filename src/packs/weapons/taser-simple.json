@@ -1,0 +1,26 @@
+{
+  "_id": "mxnKJmlV40G8z6cG",
+  "name": "Taser (Simple)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d4 2",
+    "damageType": "electricity",
+    "critical": "-",
+    "rangeIncrement": 5,
+    "rateOfFire": "1",
+    "magazine": "1 int.",
+    "size": "small",
+    "ranged": true,
+    "weight": 2.0,
+    "purchaseDC": 7,
+    "restriction": "none",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!mxnKJmlV40G8z6cG"
+}

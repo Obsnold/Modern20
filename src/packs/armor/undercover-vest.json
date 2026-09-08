@@ -1,0 +1,23 @@
+{
+  "_id": "MZHmRYX6BDR0DWd3",
+  "name": "Undercover vest",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 3,
+    "maxDex": 5,
+    "armorPenalty": -2,
+    "speedPenalty": "30",
+    "proficiency": "light",
+    "weight": 3.0,
+    "purchaseDC": 14,
+    "restriction": "lic",
+    "source": "Light Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!MZHmRYX6BDR0DWd3"
+}

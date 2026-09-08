@@ -1,0 +1,23 @@
+{
+  "_id": "IHwrMnJg7uNYZbWK",
+  "name": "Light undercover shirt",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 2,
+    "maxDex": 7,
+    "armorPenalty": 0,
+    "speedPenalty": "30",
+    "proficiency": "light",
+    "weight": 2.0,
+    "purchaseDC": 13,
+    "restriction": "lic",
+    "source": "Light Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!IHwrMnJg7uNYZbWK"
+}

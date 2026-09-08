@@ -1,0 +1,19 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Allegiances"}}</h3>
+    {{#each system.allegiances as |allegiance index|}}
+      <div class="m20-row">
+        <input type="text" name="system.allegiances.{{index}}.name" value="{{allegiance.name}}">
+        <select name="system.allegiances.{{index}}.strength">
+          {{#each ../config.allegianceStrength as |label key|}}
+            <option value="{{key}}" {{#if (eq key ../allegiance.strength)}}selected{{/if}}>{{localize label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{else}}
+      <p class="m20-hint">{{localize "MODERN20.NoAllegiances"}}</p>
+    {{/each}}
+  </div>
+
+  {{formField fields.biography value=system.biography enriched=enrichedBiography toggled=true}}
+</section>

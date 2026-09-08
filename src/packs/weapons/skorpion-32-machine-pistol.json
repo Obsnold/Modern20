@@ -1,0 +1,26 @@
+{
+  "_id": "OLGdX3rCSPtpBNDP",
+  "name": "Skorpion (.32 machine pistol)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d4",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 40,
+    "rateOfFire": "S,A",
+    "magazine": "20 box",
+    "size": "med",
+    "ranged": true,
+    "weight": 4.0,
+    "purchaseDC": 17,
+    "restriction": "res",
+    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!OLGdX3rCSPtpBNDP"
+}

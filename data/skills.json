@@ -1,0 +1,371 @@
+[
+  {
+    "id": "balance",
+    "name": "Balance",
+    "ability": "dex",
+    "trainedOnly": false,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "bluff",
+    "name": "Bluff",
+    "ability": "cha",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "climb",
+    "name": "Climb",
+    "ability": "str",
+    "trainedOnly": false,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "computerUse",
+    "name": "Computer Use",
+    "ability": "int",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "concentration",
+    "name": "Concentration",
+    "ability": "con",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "craft",
+    "name": "Craft",
+    "ability": "int",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": true,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "decipherScript",
+    "name": "Decipher Script",
+    "ability": "int",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "demolitions",
+    "name": "Demolitions",
+    "ability": "int",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "diplomacy",
+    "name": "Diplomacy",
+    "ability": "cha",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "disableDevice",
+    "name": "Disable Device",
+    "ability": "int",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "disguise",
+    "name": "Disguise",
+    "ability": "cha",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "drive",
+    "name": "Drive",
+    "ability": "dex",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "escapeArtist",
+    "name": "Escape Artist",
+    "ability": "dex",
+    "trainedOnly": false,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "forgery",
+    "name": "Forgery",
+    "ability": "int",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "gamble",
+    "name": "Gamble",
+    "ability": "wis",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "gatherInformation",
+    "name": "Gather Information",
+    "ability": "cha",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "handleAnimal",
+    "name": "Handle Animal",
+    "ability": "cha",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "hide",
+    "name": "Hide",
+    "ability": "dex",
+    "trainedOnly": false,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "intimidate",
+    "name": "Intimidate",
+    "ability": "cha",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "investigate",
+    "name": "Investigate",
+    "ability": "int",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "jump",
+    "name": "Jump",
+    "ability": "str",
+    "trainedOnly": false,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "knowledge",
+    "name": "Knowledge",
+    "ability": "int",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": true,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "listen",
+    "name": "Listen",
+    "ability": "wis",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "moveSilently",
+    "name": "Move Silently",
+    "ability": "dex",
+    "trainedOnly": false,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "navigate",
+    "name": "Navigate",
+    "ability": "int",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "perform",
+    "name": "Perform",
+    "ability": "cha",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": true,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "pilot",
+    "name": "Pilot",
+    "ability": "dex",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "profession",
+    "name": "Profession",
+    "ability": "wis",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": true,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "readWriteLanguage",
+    "name": "Read/Write Language",
+    "ability": null,
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": true,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "repair",
+    "name": "Repair",
+    "ability": "int",
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "research",
+    "name": "Research",
+    "ability": "int",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "ride",
+    "name": "Ride",
+    "ability": "dex",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "search",
+    "name": "Search",
+    "ability": "int",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "senseMotive",
+    "name": "Sense Motive",
+    "ability": "wis",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "sleightOfHand",
+    "name": "Sleight of Hand",
+    "ability": "dex",
+    "trainedOnly": true,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "speakLanguage",
+    "name": "Speak Language",
+    "ability": null,
+    "trainedOnly": true,
+    "armorCheck": false,
+    "specialties": true,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "spot",
+    "name": "Spot",
+    "ability": "wis",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "survival",
+    "name": "Survival",
+    "ability": "wis",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "swim",
+    "name": "Swim",
+    "ability": "str",
+    "trainedOnly": false,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "treatInjury",
+    "name": "Treat Injury",
+    "ability": "wis",
+    "trainedOnly": false,
+    "armorCheck": false,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  },
+  {
+    "id": "tumble",
+    "name": "Tumble",
+    "ability": "dex",
+    "trainedOnly": true,
+    "armorCheck": true,
+    "specialties": false,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/skillsorder.html"
+  }
+]

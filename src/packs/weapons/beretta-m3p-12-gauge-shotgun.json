@@ -1,0 +1,26 @@
+{
+  "_id": "RObIWo93berJDlMG",
+  "name": "Beretta M3P (12-gauge shotgun)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "2d8",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 30,
+    "rateOfFire": "S",
+    "magazine": "5 box",
+    "size": "large",
+    "ranged": true,
+    "weight": 9.0,
+    "purchaseDC": 16,
+    "restriction": "lic",
+    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!RObIWo93berJDlMG"
+}

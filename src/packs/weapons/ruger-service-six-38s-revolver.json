@@ -1,0 +1,26 @@
+{
+  "_id": "PovF0QrV2IWBc9hq",
+  "name": "Ruger Service-Six (.38S revolver)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d6",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 30,
+    "rateOfFire": "S",
+    "magazine": "6 cyl.",
+    "size": "small",
+    "ranged": true,
+    "weight": 2.0,
+    "purchaseDC": 14,
+    "restriction": "lic",
+    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!PovF0QrV2IWBc9hq"
+}

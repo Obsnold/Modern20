@@ -1,0 +1,23 @@
+{
+  "_id": "KhyaJDzZrqhIJGw5",
+  "name": "Leather armor",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 2,
+    "maxDex": 6,
+    "armorPenalty": 0,
+    "speedPenalty": "30",
+    "proficiency": "light",
+    "weight": 15.0,
+    "purchaseDC": 12,
+    "restriction": "lic",
+    "source": "Light Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!KhyaJDzZrqhIJGw5"
+}

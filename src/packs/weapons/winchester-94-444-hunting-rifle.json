@@ -1,0 +1,26 @@
+{
+  "_id": "jA2NzQOsjbbgt6Gs",
+  "name": "Winchester 94 (.444 hunting rifle)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "2d10",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 90,
+    "rateOfFire": "S",
+    "magazine": "6 int.",
+    "size": "large",
+    "ranged": true,
+    "weight": 7.0,
+    "purchaseDC": 15,
+    "restriction": "lic",
+    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!jA2NzQOsjbbgt6Gs"
+}

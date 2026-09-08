@@ -1,0 +1,26 @@
+{
+  "_id": "baVBUW5ug0M7oRVo",
+  "name": "Spear",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "archaic",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "critical": "20",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "large",
+    "ranged": false,
+    "weight": 9.0,
+    "purchaseDC": 6,
+    "restriction": "none",
+    "source": "Archaic Weapons (require the Archaic Weapons Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!baVBUW5ug0M7oRVo"
+}

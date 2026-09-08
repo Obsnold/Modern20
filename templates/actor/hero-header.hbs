@@ -1,0 +1,51 @@
+<header class="m20-header">
+  <img class="m20-portrait" src="{{document.img}}" data-edit="img" alt="{{document.name}}">
+
+  <div class="m20-header__identity">
+    <input class="m20-name" type="text" name="name" value="{{document.name}}" placeholder="{{localize 'MODERN20.Placeholder.Name'}}">
+    <div class="m20-header__classes">
+      {{#each system.details.classLevels}}
+        <span class="m20-tag">{{this.name}} {{this.levels}}</span>
+      {{else}}
+        <span class="m20-tag m20-tag--empty">{{localize "MODERN20.NoClasses"}}</span>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="m20-header__stats">
+    <div class="m20-stat">
+      <label>{{localize "MODERN20.Defense"}}</label>
+      <span class="m20-stat__value">{{system.defense.value}}</span>
+      <span class="m20-stat__sub">
+        {{localize "MODERN20.Touch"}} {{system.defense.touch}} /
+        {{localize "MODERN20.FlatFooted"}} {{system.defense.flatFooted}}
+      </span>
+    </div>
+
+    <div class="m20-stat">
+      <label>{{localize "MODERN20.HitPoints"}}</label>
+      <span class="m20-stat__value">
+        <input type="number" name="system.hp.value" value="{{system.hp.value}}"> / {{system.hp.max}}
+      </span>
+      <span class="m20-stat__sub">{{localize "MODERN20.Massive"}} {{system.attributes.massiveDamage}}</span>
+    </div>
+
+    <div class="m20-stat">
+      <label>{{localize "MODERN20.Wealth"}}</label>
+      <span class="m20-stat__value">
+        <input type="number" name="system.wealth.bonus" value="{{system.wealth.bonus}}">
+      </span>
+      <span class="m20-stat__sub">{{localize "MODERN20.Reputation"}} {{modern20Signed system.reputation.value}}</span>
+    </div>
+
+    <div class="m20-stat">
+      <label>{{localize "MODERN20.ActionPoints"}}</label>
+      <span class="m20-stat__value">
+        <input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}"> / {{system.actionPoints.max}}
+      </span>
+      <button type="button" class="m20-button m20-button--small" data-action="spendActionPoint">
+        {{localize "MODERN20.Spend"}}
+      </button>
+    </div>
+  </div>
+</header>

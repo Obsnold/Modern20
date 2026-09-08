@@ -1,0 +1,23 @@
+{
+  "_id": "Zixdgim28zli5fXz",
+  "name": "Chainmail shirt",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "medium",
+    "equipmentBonus": 5,
+    "maxDex": 2,
+    "armorPenalty": -5,
+    "speedPenalty": "20",
+    "proficiency": "medium",
+    "weight": 40.0,
+    "purchaseDC": 18,
+    "restriction": "none",
+    "source": "Medium Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!Zixdgim28zli5fXz"
+}

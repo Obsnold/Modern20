@@ -1,0 +1,26 @@
+{
+  "_id": "Ahx2rORlcLufzb03",
+  "name": "M4 Carbine (5.56mm assault rifle)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "2d8",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 60,
+    "rateOfFire": "S,A",
+    "magazine": "30 box",
+    "size": "large",
+    "ranged": true,
+    "weight": 7.0,
+    "purchaseDC": 16,
+    "restriction": "res",
+    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!Ahx2rORlcLufzb03"
+}

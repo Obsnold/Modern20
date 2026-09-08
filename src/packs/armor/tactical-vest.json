@@ -1,0 +1,23 @@
+{
+  "_id": "3yNrA2t776vYdYzR",
+  "name": "Tactical vest",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "medium",
+    "equipmentBonus": 6,
+    "maxDex": 2,
+    "armorPenalty": -5,
+    "speedPenalty": "25",
+    "proficiency": "medium",
+    "weight": 10.0,
+    "purchaseDC": 17,
+    "restriction": "lic",
+    "source": "Medium Armor",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html"
+  },
+  "_key": "!items!3yNrA2t776vYdYzR"
+}

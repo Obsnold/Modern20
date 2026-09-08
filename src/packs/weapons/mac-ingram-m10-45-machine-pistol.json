@@ -1,0 +1,26 @@
+{
+  "_id": "EUC06QxOG8s3dx94",
+  "name": "MAC Ingram M10 (.45 machine pistol)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d6",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 40,
+    "rateOfFire": "S,A",
+    "magazine": "30 box",
+    "size": "med",
+    "ranged": true,
+    "weight": 6.0,
+    "purchaseDC": 15,
+    "restriction": "res",
+    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+  },
+  "_key": "!items!EUC06QxOG8s3dx94"
+}
