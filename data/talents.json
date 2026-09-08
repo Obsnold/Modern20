@@ -81,15 +81,6 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
   },
   {
-    "id": "charismaticHeroBonusFeatList",
-    "name": "Bonus Feat list",
-    "tree": "Leadership Talent Tree",
-    "sourceClass": "Charismatic Hero",
-    "description": "Agile Riposte, Creative, Deceptive, Dodge, Frightful Presence, Iron Will, Lightning Reflexes, Low Profile, Point Blank Shot, Renown, Trustworthy, Windfall.",
-    "prerequisites": [],
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
-  },
-  {
     "id": "dedicatedHeroEmpathy",
     "name": "Empathy",
     "tree": "Empathic Talent Tree",
@@ -195,15 +186,6 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
   },
   {
-    "id": "dedicatedHeroBonusFeatList",
-    "name": "Bonus Feat list",
-    "tree": "Insightful Talent Tree",
-    "sourceClass": "Dedicated Hero",
-    "description": "Advanced Firearms Proficiency, Alertness, Archaic Weapons Proficiency, Attentive, Blind-Fight, Deceptive, Educated, Far Shot, Iron Will, Medical Expert, Meticulous, Surgery, Track, Weapon Focus..",
-    "prerequisites": [],
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
-  },
-  {
     "id": "fastHeroEvasion",
     "name": "Evasion",
     "tree": "Defensive Talent Tree",
@@ -288,15 +270,6 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
   },
   {
-    "id": "fastHeroBonusFeatList",
-    "name": "Bonus Feat list",
-    "tree": "Increased Speed Talent Tree",
-    "sourceClass": "Fast Hero",
-    "description": "Acrobatic, Combat Expertise, Combat Throw, Defensive Martial Arts, Double Tap, Elusive Target, Focused, Improved Disarm, Mobility, Personal Firearms Proficiency, Point Blank Shot, Stealthy, Weapon Finesse.",
-    "prerequisites": [],
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
-  },
-  {
     "id": "smartHeroSavant",
     "name": "Savant",
     "tree": "Research Talent Tree",
@@ -340,15 +313,6 @@
     "tree": "Strategy Talent Tree",
     "sourceClass": "Smart Hero",
     "description": "The Smart hero has the ability to temporarily confuse a target through the use of ploy and deception. The target must have an Intelligence score of 3 or higher to be susceptible to a trick, must be within 30 feet of the hero, and must be able to hear and understand the hero.",
-    "prerequisites": [],
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
-  },
-  {
-    "id": "smartHeroBonusFeatList",
-    "name": "Bonus Feat list",
-    "tree": "Strategy Talent Tree",
-    "sourceClass": "Smart Hero",
-    "description": "Builder, Cautious, Combat Expertise, Educated, Gearhead, Improved Disarm, Improved Trip, Iron Will, Lightning Reflexes, Meticulous, Studious, Vehicle Expert, Weapon Focus.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
   },
@@ -446,15 +410,6 @@
       "Melee smash",
       "improved melee smash."
     ],
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
-  },
-  {
-    "id": "strongHeroBonusFeatList",
-    "name": "Bonus Feat list",
-    "tree": "Melee Smash Talent Tree",
-    "sourceClass": "Strong Hero",
-    "description": "Animal Affinity, Archaic Weapons Proficiency, Athletic, Blind-Fight, Brawl, Cleave, Combat Martial Arts, Combat Reflexes, Great Cleave, Improved Brawl, Improved Combat Martial Arts, Power Attack, Weapon Focus.",
-    "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
   },
   {
@@ -565,15 +520,6 @@
     "prerequisites": [
       "Robust."
     ],
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
-  },
-  {
-    "id": "toughHeroBonusFeatList",
-    "name": "Bonus Feat list",
-    "tree": "Unbreakable Talent Tree",
-    "sourceClass": "Tough Hero",
-    "description": "Alertness, Athletic, Brawl, Confident, Endurance, Great Fortitude, Improved Brawl, Improved Bull Rush, Improved Feint, Knockout Punch, Power Attack, Streetfighting, Toughness, Vehicle Expert.",
-    "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
   }
 ]

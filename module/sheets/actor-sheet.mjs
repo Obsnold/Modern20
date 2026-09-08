@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { promptLevelUpChoices } from "../apps/level-up.mjs";
 
 const { Item } = foundry.documents;
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -191,6 +192,10 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     }
 
     await item.update({ "system.levels": levels });
+
+    // Offer the level's choices only after the numbers are applied, so a
+    // dismissed prompt still leaves a correctly levelled character.
+    if (delta > 0) await promptLevelUpChoices(this.document, item, levels);
   }
 
   static async #onDeleteItem(event, target) {

@@ -271,6 +271,13 @@
 .m20-chat__result--failure { color: #8c2f1e; }
 .m20-chat__body { font-size: 0.82rem; }
 
+/* --- Level-up dialog --------------------------------------------------- */
+
+.m20-levelup select {
+  width: 100%;
+  margin-top: 0.4rem;
+}
+
 /* --- Prerequisites ----------------------------------------------------- */
 
 .modern20 .m20-prereqs legend { display: flex; align-items: center; gap: 0.4rem; }

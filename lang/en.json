@@ -1330,7 +1330,17 @@
     },
     "Level": "Level",
     "LevelDown": "Remove a level from this class",
-    "LevelUp": "Gain a level in this class",
+    "LevelUp": {
+      "Add": "Add",
+      "ClassFeature": "Class Feature",
+      "FeatHint": "Any feat may be chosen. Prerequisites are not enforced.",
+      "FeatTitle": "Level {level}: choose a bonus feat",
+      "Granted": "Gained: {names}",
+      "GrantedAt": "Granted by {name} at level {level}.",
+      "NoTalents": "No talents remain for {name}; the compendium may not be installed.",
+      "TalentHint": "Talents are grouped by tree. Prerequisites are not enforced — check the talent's own description.",
+      "TalentTitle": "{name} level {level}: choose a talent"
+    },
     "Maneuver": "Maneuver",
     "Massive": "Massive",
     "MaxRanks": "Max ranks",

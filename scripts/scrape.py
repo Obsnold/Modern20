@@ -348,6 +348,10 @@ def scrape_talents() -> list[dict]:
                 continue
             if not is_value(lines[i + 1]):
                 continue
+            # Each basic class ends its talent trees with a "Bonus Feat list"
+            # heading, which is a section title rather than a talent.
+            if re.match(r"bonus feat", line, re.I):
+                continue
 
             prereq = ""
             if i + 3 < len(lines) and is_label(lines[i + 2], PREREQ_LABELS) and is_value(lines[i + 3]):
