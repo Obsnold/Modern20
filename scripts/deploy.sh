@@ -21,6 +21,7 @@ cd "$ROOT"
 
 echo "==> Local checks"
 python3 scripts/check_globals.py
+python3 scripts/check_app_props.py
 python3 scripts/check_lang.py
 python3 scripts/check_config.py
 

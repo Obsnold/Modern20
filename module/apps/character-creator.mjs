@@ -24,10 +24,14 @@ const STANDARD_ARRAY = [15, 14, 13, 12, 10, 8];
 const STARTING_FEATS = 2;
 
 export class Modern20CharacterCreator extends HandlebarsApplicationMixin(ApplicationV2) {
+  // ApplicationV2 defines a read-only `state` getter for its render state, so
+  // the wizard's own state lives in a private field behind its own accessor.
+  #choices;
+
   constructor(actor, options = {}) {
     super(options);
     this.actor = actor;
-    this.state = {
+    this.#choices = {
       method: "array",
       pool: [...STANDARD_ARRAY],
       abilities: Object.fromEntries(ABILITIES.map((a) => [a, 10])),
@@ -37,8 +41,15 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     };
   }
 
+  get choices() {
+    return this.#choices;
+  }
+
   static DEFAULT_OPTIONS = {
     id: "modern20-character-creator",
+    // Without tag "form" this.form is null, so ApplicationV2 never binds the
+    // change listener and nothing the player picks would reach the state.
+    tag: "form",
     classes: ["modern20", "sheet", "m20-creator"],
     position: { width: 720, height: 720 },
     window: { title: "MODERN20.Creator.Title", resizable: true },
@@ -83,11 +94,11 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-    const state = this.state;
+    const state = this.#choices;
 
     context.actor = this.actor;
     context.config = MODERN20;
-    context.state = state;
+    context.choices = state;
 
     context.abilityRows = ABILITIES.map((key) => ({
       key,
@@ -138,7 +149,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
 
   static async #onChange(event, form, formData) {
     const data = formData.object;
-    const state = this.state;
+    const state = this.#choices;
 
     if (data.method && data.method !== state.method) {
       state.method = data.method;
@@ -164,17 +175,17 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       results.push(roll.total);
     }
     results.sort((a, b) => b - a);
-    this.state.method = "roll";
-    this.state.pool = results;
+    this.#choices.method = "roll";
+    this.#choices.pool = results;
     // Seed the scores in rolled order; the player reassigns from the selects.
-    ABILITIES.forEach((key, index) => { this.state.abilities[key] = results[index]; });
+    ABILITIES.forEach((key, index) => { this.#choices.abilities[key] = results[index]; });
     this.render();
   }
 
   static #onResetAbilities() {
-    this.state.method = "array";
-    this.state.pool = [...STANDARD_ARRAY];
-    ABILITIES.forEach((key, index) => { this.state.abilities[key] = STANDARD_ARRAY[index]; });
+    this.#choices.method = "array";
+    this.#choices.pool = [...STANDARD_ARRAY];
+    ABILITIES.forEach((key, index) => { this.#choices.abilities[key] = STANDARD_ARRAY[index]; });
     this.render();
   }
 
@@ -183,7 +194,8 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
    * skill budget see the final Constitution and Intelligence.
    */
   static async #onCreate() {
-    const { actor, state } = this;
+    const actor = this.actor;
+    const state = this.#choices;
     if (!state.classId) {
       ui.notifications.warn(game.i18n.localize("MODERN20.Creator.NeedClass"));
       return;

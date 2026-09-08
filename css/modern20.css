@@ -281,6 +281,10 @@
 
 .m20-creator .m20-panel { margin-bottom: 0.7rem; }
 
+.m20-levelscreen select { width: 100%; }
+.m20-levelscreen .m20-skills td:not(:first-child) { text-align: center; }
+.m20-levelscreen > .m20-button { width: 100%; padding: 0.4rem; font-weight: 600; }
+
 /* A callout stands apart from the item lists it sits above. */
 .modern20 .m20-panel--callout {
   border-left: 3px solid var(--m20-accent);

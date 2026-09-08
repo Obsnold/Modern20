@@ -53,6 +53,11 @@ jobs:
       - name: no globals Foundry v14 removed
         run: python3 scripts/check_globals.py
 
+      # ApplicationV2 has twelve read-only getters; assigning over one throws
+      # from the constructor and reads as a control that does nothing.
+      - name: no assignments over ApplicationV2 getters
+        run: python3 scripts/check_app_props.py
+
       # Every localization key used in code or templates must exist, and no
       # string key may shadow a namespace.
       - name: localization keys resolve

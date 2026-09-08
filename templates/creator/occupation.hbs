@@ -7,7 +7,7 @@
       <select name="occupationId">
         <option value="">{{localize "MODERN20.Creator.None"}}</option>
         {{#each occupations as |occupation|}}
-          <option value="{{occupation.id}}" {{#if (eq occupation.id ../state.occupationId)}}selected{{/if}}>
+          <option value="{{occupation.id}}" {{#if (eq occupation.id ../choices.occupationId)}}selected{{/if}}>
             {{occupation.name}}
           </option>
         {{/each}}

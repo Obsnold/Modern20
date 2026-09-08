@@ -39,10 +39,13 @@ GMs override them constantly and a hard block just makes the sheet unusable.
 The same applies to class levels: taking a class past the end of its SRD
 progression table warns and holds the bonuses at the last defined level.
 
-**Levelling up:** the Character tab has `-` / `+` controls on each class. Adding
-a level recomputes attack, saves, Defense, Reputation, action points and the
-skill rank cap from that class's progression table, then offers whatever that
-level grants — a talent from the class's own trees, a bonus feat, or a named
+**Levelling up:** the Character tab has `-` / `+` controls on each class. `+`
+opens a level-up screen showing what the level grants, every choice it needs,
+the hit point roll, and a before-and-after of attack, Defense, saves and
+Reputation — applied together on confirm, so closing the window changes
+nothing. `-` just decrements, being a correction rather than a decision.
+
+The screen offers whatever that level grants — a talent from the class's own trees, a bonus feat, or a named
 class feature. Numbers are applied before the prompt, so dismissing it still
 leaves a correctly levelled character. Multiclassing is just a second class
 item; character level is the sum.
