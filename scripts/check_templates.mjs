@@ -5,8 +5,10 @@
  * so a typo becomes a blank row on the sheet with no console error. It is the
  * hardest kind of bug to notice and the cheapest to catch mechanically.
  *
- * Also checks that block helpers are balanced, which Handlebars would only
- * report at render time.
+ * Also compiles every template, and checks that block helpers are balanced.
+ * A template that does not compile takes its whole sheet with it — the
+ * application throws on render and the window never opens — and nothing else
+ * here would have noticed, because a parse error is not a bad field reference.
  *
  *     node scripts/check_templates.mjs
  */
@@ -14,6 +16,26 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadSystem } from "./lib/foundry-stubs.mjs";
+import { createRequire } from "node:module";
+
+/**
+ * Handlebars, from wherever Foundry keeps it.
+ *
+ * Compiling with the real parser is the point: hand-written checks cannot tell
+ * that `(lookup a b).label` is a parse error, because it looks like every
+ * other subexpression until Handlebars refuses it.
+ */
+async function loadHandlebars() {
+  const require = createRequire(import.meta.url);
+  for (const path of [
+    "handlebars",
+    "/opt/foundry/current/node_modules/handlebars",
+    "/opt/foundry/node_modules/handlebars"
+  ]) {
+    try { return require(path); } catch { /* try the next */ }
+  }
+  return null;
+}
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const TEMPLATES = join(ROOT, "templates");
@@ -159,12 +181,19 @@ const allSchemas = { ...actorSchemas, ...itemSchemas };
 const anyItemField = new Set(Object.values(itemSchemas).flatMap((s) => [...(s ?? [])]));
 const anyActorField = new Set(Object.values(actorSchemas).flatMap((s) => [...(s ?? [])]));
 
+const handlebars = await loadHandlebars();
+if (!handlebars) {
+  console.log("NOTE  Handlebars not found; templates were not compiled");
+}
+
 let problems = 0;
 let refCount = 0;
+let compiled = 0;
 
 for (const path of walk(TEMPLATES)) {
   const rel = relative(ROOT, path);
   const source = readFileSync(path, "utf8");
+  compiled++;
 
   for (const { line, param } of blockParamMisuse(source)) {
     problems++;
@@ -176,6 +205,18 @@ for (const path of walk(TEMPLATES)) {
   if (imbalance !== 0) {
     problems++;
     console.log(`${rel}: ${imbalance > 0 ? imbalance + " unclosed" : -imbalance + " extra closing"} block helper(s)`);
+  }
+
+  // A template that does not compile never renders, so this is checked first
+  // and the rest of the file's findings are noise beside it.
+  if (handlebars) {
+    try {
+      handlebars.precompile(source);
+    } catch (error) {
+      problems++;
+      compiled--;
+      console.log(`${rel}: does not compile — ${error.message.split("\n")[0]}`);
+    }
   }
 
   const isItem = rel.includes("/item/");
@@ -200,5 +241,6 @@ for (const path of walk(TEMPLATES)) {
   }
 }
 
-console.log(`\n${refCount} field references checked, ${problems} problems`);
+console.log(`\n${compiled} templates compiled, ${refCount} field references checked, `
+  + `${problems} problems`);
 process.exit(problems ? 1 : 0);
