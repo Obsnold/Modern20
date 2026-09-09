@@ -129,7 +129,10 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
 
   return {
     roll, confirmation, natural, hit, threatened, confirmed,
-    defense, target, targetName: target?.name ?? null,
+    defense, target,
+    targetName: target?.name ?? null,
+    targetTokenId: targetToken?.id ?? null,
+    targetSceneId: targetToken?.scene?.id ?? null,
     distance, range, ranged,
     activity,
     activityId: activity.id,
@@ -182,7 +185,13 @@ export async function postAttackCard(item, result) {
     rolls: [result.roll, result.confirmation].filter(Boolean),
     flags: {
       modern20: {
-        attack: { itemId: item.id, critical: result.confirmed, activityId: result.activityId }
+        attack: {
+          itemId: item.id,
+          critical: result.confirmed,
+          activityId: result.activityId,
+          targetTokenId: result.targetTokenId,
+          targetSceneId: result.targetSceneId
+        }
       }
     }
   });

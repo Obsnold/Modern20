@@ -9,7 +9,15 @@
      {{#unless hit}}{{#if showOutcome}}m20-chat__result--failure{{/if}}{{/unless}}">
     {{total}}
     {{#if showOutcome}}
-      {{#if targetName}}vs {{targetName}} {{localize "MODERN20.Attack.Defense"}} {{defense}}{{/if}}
+      {{#if targetName}}
+        vs
+        {{#if targetTokenId}}
+          <a data-m20-select-target data-tooltip="{{localize 'MODERN20.Attack.SelectTarget'}}">
+            <i class="fa-solid fa-crosshairs"></i> {{targetName}}
+          </a>
+        {{else}}{{targetName}}{{/if}}
+        {{localize "MODERN20.Attack.Defense"}} {{defense}}
+      {{/if}}
       &mdash; {{#if hit}}{{localize "MODERN20.Attack.Hit"}}{{else}}{{localize "MODERN20.Attack.Miss"}}{{/if}}
     {{else}}
       &mdash; <span class="m20-hint">{{targetingHint}}</span>
