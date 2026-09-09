@@ -71,6 +71,8 @@ export async function applyAmount(amount, { multiplier = 1 } = {}) {
  * than jQuery.
  */
 export function bindDamageControls(message, html) {
+  bindAttackDamage(message, html);
+
   const total = message.getFlag("modern20", "damage");
   if (total === undefined) return;
 
@@ -89,4 +91,27 @@ export function bindDamageControls(message, html) {
   }
 
   (html.querySelector(".message-content") ?? html).append(buttons);
+}
+
+/**
+ * Bind the damage buttons on an attack card.
+ *
+ * The card knows which weapon it came from and whether the threat confirmed,
+ * so damage is rolled from the item rather than re-derived here.
+ */
+function bindAttackDamage(message, html) {
+  const attack = message.getFlag("modern20", "attack");
+  if (!attack) return;
+
+  for (const button of html.querySelectorAll("[data-m20-damage]")) {
+    button.addEventListener("click", async () => {
+      const actor = ChatMessage.getSpeakerActor(message.speaker);
+      const item = actor?.items?.get(attack.itemId);
+      if (!item) {
+        ui.notifications.warn(game.i18n.localize("MODERN20.Attack.ItemGone"));
+        return;
+      }
+      await item.rollDamage({ critical: button.dataset.m20Damage === "critical" });
+    });
+  }
 }

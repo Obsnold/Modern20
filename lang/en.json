@@ -861,6 +861,22 @@
       "Medium": "Medium Armor",
       "Shield": "Shield"
     },
+    "Attack": {
+      "Confirm": "Confirmation",
+      "Critical": "Critical hit",
+      "Defense": "Defense",
+      "Hit": "Hit",
+      "ItemGone": "That weapon is no longer on the character.",
+      "Miss": "Miss",
+      "Natural": "natural",
+      "NoAmmo": "{name} is empty.",
+      "NoTarget": "no target selected",
+      "NotConfirmed": "not confirmed",
+      "RangePenalty": "Range penalty",
+      "RollCritical": "Critical damage",
+      "RollDamage": "Damage",
+      "Threat": "Threat"
+    },
     "AutoSuccess": "Automatic success",
     "BaseAttack": "Base Attack",
     "Benefit": "Benefit",

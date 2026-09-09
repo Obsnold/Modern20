@@ -1,0 +1,43 @@
+<div class="m20-chat m20-chat--attack">
+  <header class="m20-chat__header">
+    <img src="{{item.img}}" alt="{{item.name}}">
+    <span class="m20-chat__title">{{item.name}}</span>
+  </header>
+
+  <p class="m20-chat__result
+     {{#if hit}}m20-chat__result--success{{/if}}
+     {{#unless hit}}{{#if showOutcome}}m20-chat__result--failure{{/if}}{{/unless}}">
+    {{total}}
+    {{#if showOutcome}}
+      {{#if targetName}}vs {{targetName}} {{localize "MODERN20.Attack.Defense"}} {{defense}}{{/if}}
+      &mdash; {{#if hit}}{{localize "MODERN20.Attack.Hit"}}{{else}}{{localize "MODERN20.Attack.Miss"}}{{/if}}
+    {{else}}
+      &mdash; <span class="m20-hint">{{localize "MODERN20.Attack.NoTarget"}}</span>
+    {{/if}}
+  </p>
+
+  {{#if threatened}}
+    <p class="m20-hint">
+      {{localize "MODERN20.Attack.Threat"}} ({{localize "MODERN20.Attack.Natural"}} {{natural}})
+      {{#if confirmationTotal}}
+        &middot; {{localize "MODERN20.Attack.Confirm"}} {{confirmationTotal}}
+        &mdash; {{#if confirmed}}<strong>{{localize "MODERN20.Attack.Critical"}}</strong>
+                {{else}}{{localize "MODERN20.Attack.NotConfirmed"}}{{/if}}
+      {{/if}}
+    </p>
+  {{/if}}
+
+  {{#if range}}
+    <p class="m20-hint">
+      {{localize "MODERN20.Attack.RangePenalty"}} {{range}}
+      {{#if distance}}({{distance}} ft.){{/if}}
+    </p>
+  {{/if}}
+
+  <div class="m20-damage-buttons">
+    <button type="button" data-m20-damage="normal">{{localize "MODERN20.Attack.RollDamage"}}</button>
+    {{#if confirmed}}
+      <button type="button" data-m20-damage="critical">{{localize "MODERN20.Attack.RollCritical"}}</button>
+    {{/if}}
+  </div>
+</div>

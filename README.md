@@ -114,6 +114,30 @@ The SRD does not state how to generate ability scores, so the creator offers the
 conventional options — standard array, 4d6 drop lowest, or entry by hand —
 rather than presenting one as official.
 
+## Attacks
+
+An attack resolves against the target's Defense when a token is targeted, and
+says so on its own chat card. The rules it encodes, quoted where they decide
+something:
+
+- *"If the result equals or beats the target's Defense, it's a hit."*
+- *"A natural 1 is always a miss. A natural 20 is always a hit. A natural 20 is
+  also always a threat — a possible critical hit."*
+- *"If the threat is confirmed, a weapon deals double damage on a critical hit
+  (roll damage twice, as if hitting the target two times)."* A threat therefore
+  rolls a confirmation against the same Defense, and a confirmed critical rolls
+  the whole damage expression **twice** rather than multiplying it by two —
+  which is a different number as soon as a Strength modifier or a flat bonus is
+  involved.
+- *"Each full range increment causes a cumulative -2 penalty on the attack
+  roll."* Distance comes from the grid when both tokens are placed, and the
+  penalty is simply omitted when it cannot be measured.
+- Melee attack bonus is base attack + Strength + size; ranged is base attack +
+  Dexterity + range penalty + size.
+
+Firing spends a round from the magazine, and an empty weapon says so rather
+than silently going negative.
+
 ## Conditions
 
 The SRD's 24 conditions are registered as Foundry status effects, so they
