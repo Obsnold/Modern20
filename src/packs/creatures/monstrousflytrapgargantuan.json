@@ -1,20 +1,20 @@
 {
-  "_id": "3laU1k3yptBECGhC",
-  "name": "Advanced Dread Tree",
+  "_id": "aHgg88m1AFN3mUsJ",
+  "name": "Monstrous Flytrap (Gargantuan)",
   "type": "creature",
   "img": "icons/svg/mystery-man.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
     "abilities": {
       "str": {
-        "value": 37,
+        "value": 36,
         "tempMod": 0,
         "damage": 0
       },
       "dex": {
-        "value": 8,
+        "value": 7,
         "tempMod": 0,
         "damage": 0
       },
@@ -24,48 +24,48 @@
         "damage": 0
       },
       "int": {
-        "value": 2,
+        "value": 10,
         "tempMod": 0,
         "damage": 0
       },
       "wis": {
-        "value": 15,
+        "value": 14,
         "tempMod": 0,
         "damage": 0
       },
       "cha": {
-        "value": 12,
+        "value": 14,
         "tempMod": 0,
         "damage": 0
       }
     },
     "hp": {
-      "value": 195,
-      "max": 195,
+      "value": 253,
+      "max": 253,
       "temp": 0,
-      "formula": "17d8+119"
+      "formula": "22d8+154"
     },
     "defense": {
       "classBonus": 0,
-      "naturalArmor": 17,
+      "naturalArmor": 12,
       "misc": -4
     },
     "saves": {
       "fort": {
-        "base": 10,
+        "base": 13,
         "misc": 0
       },
       "ref": {
-        "base": 5,
+        "base": 7,
         "misc": 0
       },
       "will": {
-        "base": 5,
+        "base": 7,
         "misc": 0
       }
     },
     "attributes": {
-      "baseAttack": 12,
+      "baseAttack": 16,
       "size": "gargantuan",
       "speed": 20,
       "initiative": {
@@ -80,20 +80,20 @@
       "creatureType": "plant",
       "subtype": "",
       "challengeRating": "12",
-      "hitDice": "17d8+119",
-      "advancement": "18-21 HD (Gargantuan)",
+      "hitDice": "22d8+154",
+      "advancement": "23-32 HD (Gargantuan); 33-48 HD (Colossal)",
       "organization": "",
       "treasure": ""
     },
     "allegiances": [
       {
-        "name": "Evil",
+        "name": "None or owner",
         "strength": "none"
       }
     ],
-    "senses": "Blindsight 30 ft., double damage to objects, fire vulnerability, intoxicating fruit (DC 19), plant, smash 2d8+17",
-    "specialQualities": "Blindsight 30 ft., double damage to objects, fire vulnerability, intoxicating fruit (DC 19), plant, smash 2d8+17",
-    "biography": "<p><strong>Attack:</strong> +25 melee (2d8+17, slam)</p><p><strong>Full Attack:</strong> +25/+20/+15 melee (2d8+17, slam)</p><p><strong>Skills:</strong> Hide -6 (+10 in forested areas), Intimidate +4, Listen +5, Spot +5</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+    "senses": "Plant, improved grab, swallow whole, blood drain 1d8+19, blindsight 60 ft.",
+    "specialQualities": "Plant, improved grab, swallow whole, blood drain 1d8+19, blindsight 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +25 melee (1d8+19, bite)</p><p><strong>Full Attack:</strong> +25/+20/+15/+10 melee (1d8+19, bite), or +9 ranged</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!3laU1k3yptBECGhC"
+  "_key": "!actors!aHgg88m1AFN3mUsJ"
 }

@@ -175,5 +175,58 @@ if (sizeGuidance("giant", "tiny")) fail("the SRD prints no tiny giant");
 if (!sizeGuidance("giant", "large")) fail("a large giant should have a size row");
 console.log("4 size guidance cases checked");
 
+/* -- every imported creature must know what it is ----------------------- */
+
+// A stat block that prints its size and type in an unexpected place used to
+// import as a creature with neither — and four of them took the size line for
+// their name, so the compendium held a creature called "Huge animal".
+const creatures = JSON.parse(readFileSync(join(ROOT, "data", "creatures.json"), "utf8"));
+
+const untyped = creatures.filter((entry) => !entry.creatureType);
+if (untyped.length) {
+  fail(`${untyped.length} creatures have no type: `
+    + untyped.slice(0, 5).map((e) => e.name).join(", "));
+}
+const unresolved = creatures.filter(
+  (entry) => entry.creatureType && !creatureType(entry.creatureType)
+);
+if (unresolved.length) {
+  fail(`${unresolved.length} creatures have a type that resolves to nothing: `
+    + unresolved.slice(0, 5).map((e) => `${e.name} (${e.creatureType})`).join(", "));
+}
+// A name that is a size followed by a creature type is the size line read as
+// a name. "Medium Dog" and "Huge Crocodile" are real names the SRD prints;
+// "Huge vermin" is not, because vermin is a type.
+const typeNames = Object.values(CREATURE_TYPES).map((type) => type.name.toLowerCase());
+const misnamed = creatures.filter((entry) => {
+  const match = entry.name.toLowerCase().match(
+    /^(?:fine|diminutive|tiny|small|medium-size|medium|large|huge|gargantuan|colossal)\s+(.+)$/
+  );
+  return match && typeNames.includes(match[1]);
+});
+if (misnamed.length) {
+  fail(`${misnamed.length} creatures are named after their size line: `
+    + misnamed.map((e) => e.name).join(", "));
+}
+
+// The four blocks that print the size and type nowhere: recovered from the
+// Defense line's own size modifier and from the creature's special abilities.
+const recovered = {
+  "Chemical Golem": { size: "large", creatureType: "construct" },
+  "Advanced Chemical Golem": { size: "huge", creatureType: "construct" },
+  "Dread Tree": { size: "huge", creatureType: "plant" },
+  "Advanced Dread Tree": { size: "gargantuan", creatureType: "plant" }
+};
+for (const [name, want] of Object.entries(recovered)) {
+  const entry = creatures.find((e) => e.name === name);
+  if (!entry) { fail(`no creature "${name}"`); continue; }
+  for (const [key, value] of Object.entries(want)) {
+    if (entry[key] !== value) {
+      fail(`${name}: expected ${key} "${value}", got "${entry[key]}"`);
+    }
+  }
+}
+console.log(`${creatures.length} imported creatures checked for size and type`);
+
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);

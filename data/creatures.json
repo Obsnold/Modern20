@@ -218,8 +218,8 @@
   {
     "id": "advancedChemicalGolem",
     "name": "Advanced Chemical Golem",
-    "size": "medium",
-    "creatureType": "",
+    "size": "huge",
+    "creatureType": "construct",
     "subtype": "",
     "challengeRating": "13",
     "hitDice": "19d10+40",
@@ -390,8 +390,8 @@
   {
     "id": "advancedDreadTree",
     "name": "Advanced Dread Tree",
-    "size": "medium",
-    "creatureType": "",
+    "size": "gargantuan",
+    "creatureType": "plant",
     "subtype": "",
     "challengeRating": "12",
     "hitDice": "17d8+119",
@@ -1033,6 +1033,92 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html"
   },
   {
+    "id": "anacondaGiantGargantuan",
+    "name": "Anaconda, Giant (Gargantuan)",
+    "size": "gargantuan",
+    "creatureType": "animal",
+    "subtype": "",
+    "challengeRating": "15",
+    "hitDice": "30d8+210",
+    "hp": 345,
+    "massiveDamageThreshold": 25,
+    "abilities": {
+      "str": 40,
+      "dex": 13,
+      "con": 25,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttack": 22,
+    "speed": 20,
+    "initiativeMisc": 0,
+    "naturalArmor": 11,
+    "defenseMisc": -4,
+    "defenseTotal": 18,
+    "saves": {
+      "fort": 17,
+      "ref": 17,
+      "will": 10
+    },
+    "attack": "+33 melee (1d8+15, tail slap)",
+    "fullAttack": "+33 melee (1d8+15, tail slap) and +28 melee (2d8+7, bite)",
+    "reach": "20 ft. by 20 ft./15 ft.",
+    "specialQualities": "constrict (1d8+22), improved grab, low-light vision, scent, swallow whole",
+    "allegiances": [
+      "None"
+    ],
+    "skills": "Balance +9, Climb +23, Hide +8, Listen +5, Spot +5, Swim +23",
+    "feats": "None",
+    "talents": "",
+    "possessions": "",
+    "advancement": "31-36 HD (Gargantuan)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html"
+  },
+  {
+    "id": "anacondaGiantHuge",
+    "name": "Anaconda, Giant (Huge)",
+    "size": "huge",
+    "creatureType": "animal",
+    "subtype": "",
+    "challengeRating": "9",
+    "hitDice": "12d8+60",
+    "hp": 114,
+    "massiveDamageThreshold": 21,
+    "abilities": {
+      "str": 32,
+      "dex": 13,
+      "con": 21,
+      "int": 1,
+      "wis": 12,
+      "cha": 2
+    },
+    "baseAttack": 9,
+    "speed": 20,
+    "initiativeMisc": 0,
+    "naturalArmor": 7,
+    "defenseMisc": -2,
+    "defenseTotal": 16,
+    "saves": {
+      "fort": 8,
+      "ref": 8,
+      "will": 4
+    },
+    "attack": "+18 melee (1d6+11, tail slap)",
+    "fullAttack": "+18 melee (1d6+11, tail slap) and +13 melee (2d6+5, bite)",
+    "reach": "15 ft. by 15 ft./10 ft.",
+    "specialQualities": "constrict (1d6+16), improved grab, low-light vision, scent, swallow whole",
+    "allegiances": [
+      "None"
+    ],
+    "skills": "Balance +9, Climb +19, Hide +12, Listen +5, Spot +5, Swim +19",
+    "feats": "None",
+    "talents": "",
+    "possessions": "",
+    "advancement": "13-23 HD (Huge); 24-36 HD (Gargantuan)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html"
+  },
+  {
     "id": "bodak",
     "name": "Bodak",
     "size": "small",
@@ -1296,8 +1382,8 @@
   {
     "id": "chemicalGolem",
     "name": "Chemical Golem",
-    "size": "medium",
-    "creatureType": "",
+    "size": "large",
+    "creatureType": "construct",
     "subtype": "",
     "challengeRating": "10",
     "hitDice": "9d10+20",
@@ -1683,8 +1769,8 @@
   {
     "id": "dreadTree",
     "name": "Dread Tree",
-    "size": "medium",
-    "creatureType": "",
+    "size": "huge",
+    "creatureType": "plant",
     "subtype": "",
     "challengeRating": "8",
     "hitDice": "7d8+35",
@@ -2072,49 +2158,6 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html"
   },
   {
-    "id": "gargantuanAnimal",
-    "name": "Gargantuan animal",
-    "size": "medium",
-    "creatureType": "",
-    "subtype": "",
-    "challengeRating": "15",
-    "hitDice": "30d8+210",
-    "hp": 345,
-    "massiveDamageThreshold": 25,
-    "abilities": {
-      "str": 40,
-      "dex": 13,
-      "con": 25,
-      "int": 1,
-      "wis": 12,
-      "cha": 2
-    },
-    "baseAttack": 22,
-    "speed": 20,
-    "initiativeMisc": 0,
-    "naturalArmor": 11,
-    "defenseMisc": -4,
-    "defenseTotal": 18,
-    "saves": {
-      "fort": 17,
-      "ref": 17,
-      "will": 10
-    },
-    "attack": "+33 melee (1d8+15, tail slap)",
-    "fullAttack": "+33 melee (1d8+15, tail slap) and +28 melee (2d8+7, bite)",
-    "reach": "20 ft. by 20 ft./15 ft.",
-    "specialQualities": "constrict (1d8+22), improved grab, low-light vision, scent, swallow whole",
-    "allegiances": [
-      "None"
-    ],
-    "skills": "Balance +9, Climb +23, Hide +8, Listen +5, Spot +5, Swim +23",
-    "feats": "None",
-    "talents": "",
-    "possessions": "",
-    "advancement": "31-36 HD (Gargantuan)",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html"
-  },
-  {
     "id": "gargantuanAnimatedObject",
     "name": "Gargantuan Animated Object",
     "size": "gargantuan",
@@ -2198,49 +2241,6 @@
     "talents": "",
     "possessions": "",
     "advancement": "None",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html"
-  },
-  {
-    "id": "gargantuanPlant",
-    "name": "Gargantuan plant",
-    "size": "medium",
-    "creatureType": "",
-    "subtype": "",
-    "challengeRating": "12",
-    "hitDice": "22d8+154",
-    "hp": 253,
-    "massiveDamageThreshold": null,
-    "abilities": {
-      "str": 36,
-      "dex": 7,
-      "con": 25,
-      "int": 10,
-      "wis": 14,
-      "cha": 14
-    },
-    "baseAttack": 16,
-    "speed": 20,
-    "initiativeMisc": 0,
-    "naturalArmor": 12,
-    "defenseMisc": -4,
-    "defenseTotal": 16,
-    "saves": {
-      "fort": 13,
-      "ref": 7,
-      "will": 7
-    },
-    "attack": "+25 melee (1d8+19, bite)",
-    "fullAttack": "+25/+20/+15/+10 melee (1d8+19, bite), or +9 ranged",
-    "reach": "20 ft. by 20 ft./15 ft.",
-    "specialQualities": "Plant, improved grab, swallow whole, blood drain 1d8+19, blindsight 60 ft.",
-    "allegiances": [
-      "None or owner"
-    ],
-    "skills": "None",
-    "feats": "None",
-    "talents": "",
-    "possessions": "",
-    "advancement": "23-32 HD (Gargantuan); 33-48 HD (Colossal)",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html"
   },
   {
@@ -2725,49 +2725,6 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html"
   },
   {
-    "id": "hugeAnimal",
-    "name": "Huge animal",
-    "size": "medium",
-    "creatureType": "",
-    "subtype": "",
-    "challengeRating": "9",
-    "hitDice": "12d8+60",
-    "hp": 114,
-    "massiveDamageThreshold": 21,
-    "abilities": {
-      "str": 32,
-      "dex": 13,
-      "con": 21,
-      "int": 1,
-      "wis": 12,
-      "cha": 2
-    },
-    "baseAttack": 9,
-    "speed": 20,
-    "initiativeMisc": 0,
-    "naturalArmor": 7,
-    "defenseMisc": -2,
-    "defenseTotal": 16,
-    "saves": {
-      "fort": 8,
-      "ref": 8,
-      "will": 4
-    },
-    "attack": "+18 melee (1d6+11, tail slap)",
-    "fullAttack": "+18 melee (1d6+11, tail slap) and +13 melee (2d6+5, bite)",
-    "reach": "15 ft. by 15 ft./10 ft.",
-    "specialQualities": "constrict (1d6+16), improved grab, low-light vision, scent, swallow whole",
-    "allegiances": [
-      "None"
-    ],
-    "skills": "Balance +9, Climb +19, Hide +12, Listen +5, Spot +5, Swim +19",
-    "feats": "None",
-    "talents": "",
-    "possessions": "",
-    "advancement": "13-23 HD (Huge); 24-36 HD (Gargantuan)",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html"
-  },
-  {
     "id": "hugeAnimatedObject",
     "name": "Huge Animated Object",
     "size": "huge",
@@ -2897,46 +2854,46 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html"
   },
   {
-    "id": "hugePlant",
-    "name": "Huge plant",
-    "size": "medium",
-    "creatureType": "",
+    "id": "hugeMonstrousSpider",
+    "name": "Huge Monstrous Spider",
+    "size": "huge",
+    "creatureType": "vermin",
     "subtype": "",
-    "challengeRating": "7",
-    "hitDice": "11d8+55",
-    "hp": 104,
-    "massiveDamageThreshold": null,
+    "challengeRating": "4",
+    "hitDice": "10d8+10",
+    "hp": 55,
+    "massiveDamageThreshold": 12,
     "abilities": {
-      "str": 28,
-      "dex": 7,
-      "con": 21,
+      "str": 19,
+      "dex": 17,
+      "con": 12,
       "int": 10,
-      "wis": 14,
-      "cha": 14
+      "wis": 10,
+      "cha": 2
     },
-    "baseAttack": 8,
-    "speed": 20,
+    "baseAttack": 7,
+    "speed": 30,
     "initiativeMisc": 0,
-    "naturalArmor": 8,
+    "naturalArmor": 5,
     "defenseMisc": -2,
-    "defenseTotal": 14,
+    "defenseTotal": 16,
     "saves": {
       "fort": 7,
       "ref": 3,
       "will": 3
     },
-    "attack": "+16 melee (1d6+13, bite)",
-    "fullAttack": "+16/+11 melee (1d6+13, bite), or +5 ranged)",
+    "attack": "+9 melee (2d6+6 plus poison, bite)",
+    "fullAttack": "+9 melee (2d6+6 plus poison, bite)",
     "reach": "15 ft. by 15 ft./10 ft.",
-    "specialQualities": "Plant, improved grab, swallow whole, blood drain 1d6+13, blindsight 60 ft.",
+    "specialQualities": "Poison, webs, darkvision 60 ft., immune to mind-affecting attacks, resistance to massive damage",
     "allegiances": [
-      "None or owner"
+      "None"
     ],
-    "skills": "None",
+    "skills": "Climb +16, Hide +1, Jump +4 (+10 for hunting spiders), Move Silently +9, Spot +12",
     "feats": "None",
     "talents": "",
     "possessions": "",
-    "advancement": "12-16 HD (Huge); 17-32 HD (Gargantuan); 33-48 HD (Colossal)",
+    "advancement": "None",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html"
   },
   {
@@ -2981,49 +2938,6 @@
     "possessions": "",
     "advancement": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html"
-  },
-  {
-    "id": "hugeVermin",
-    "name": "Huge vermin",
-    "size": "huge",
-    "creatureType": "vermin",
-    "subtype": "",
-    "challengeRating": "4",
-    "hitDice": "10d8+10",
-    "hp": 55,
-    "massiveDamageThreshold": 12,
-    "abilities": {
-      "str": 19,
-      "dex": 17,
-      "con": 12,
-      "int": 10,
-      "wis": 10,
-      "cha": 2
-    },
-    "baseAttack": 7,
-    "speed": 30,
-    "initiativeMisc": 0,
-    "naturalArmor": 5,
-    "defenseMisc": -2,
-    "defenseTotal": 16,
-    "saves": {
-      "fort": 7,
-      "ref": 3,
-      "will": 3
-    },
-    "attack": "+9 melee (2d6+6 plus poison, bite)",
-    "fullAttack": "+9 melee (2d6+6 plus poison, bite)",
-    "reach": "15 ft. by 15 ft./10 ft.",
-    "specialQualities": "Poison, webs, darkvision 60 ft., immune to mind-affecting attacks, resistance to massive damage",
-    "allegiances": [
-      "None"
-    ],
-    "skills": "Climb +16, Hide +1, Jump +4 (+10 for hunting spiders), Move Silently +9, Spot +12",
-    "feats": "None",
-    "talents": "",
-    "possessions": "",
-    "advancement": "None",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html"
   },
   {
     "id": "humanSkeleton",
@@ -4326,6 +4240,92 @@
     "possessions": "",
     "advancement": "3-5 HD (Small); 6-10 HD (Mediumsize); 11-15 HD (Large)",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html"
+  },
+  {
+    "id": "monstrousFlytrapGargantuan",
+    "name": "Monstrous Flytrap (Gargantuan)",
+    "size": "gargantuan",
+    "creatureType": "plant",
+    "subtype": "",
+    "challengeRating": "12",
+    "hitDice": "22d8+154",
+    "hp": 253,
+    "massiveDamageThreshold": null,
+    "abilities": {
+      "str": 36,
+      "dex": 7,
+      "con": 25,
+      "int": 10,
+      "wis": 14,
+      "cha": 14
+    },
+    "baseAttack": 16,
+    "speed": 20,
+    "initiativeMisc": 0,
+    "naturalArmor": 12,
+    "defenseMisc": -4,
+    "defenseTotal": 16,
+    "saves": {
+      "fort": 13,
+      "ref": 7,
+      "will": 7
+    },
+    "attack": "+25 melee (1d8+19, bite)",
+    "fullAttack": "+25/+20/+15/+10 melee (1d8+19, bite), or +9 ranged",
+    "reach": "20 ft. by 20 ft./15 ft.",
+    "specialQualities": "Plant, improved grab, swallow whole, blood drain 1d8+19, blindsight 60 ft.",
+    "allegiances": [
+      "None or owner"
+    ],
+    "skills": "None",
+    "feats": "None",
+    "talents": "",
+    "possessions": "",
+    "advancement": "23-32 HD (Gargantuan); 33-48 HD (Colossal)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html"
+  },
+  {
+    "id": "monstrousFlytrapHuge",
+    "name": "Monstrous Flytrap (Huge)",
+    "size": "huge",
+    "creatureType": "plant",
+    "subtype": "",
+    "challengeRating": "7",
+    "hitDice": "11d8+55",
+    "hp": 104,
+    "massiveDamageThreshold": null,
+    "abilities": {
+      "str": 28,
+      "dex": 7,
+      "con": 21,
+      "int": 10,
+      "wis": 14,
+      "cha": 14
+    },
+    "baseAttack": 8,
+    "speed": 20,
+    "initiativeMisc": 0,
+    "naturalArmor": 8,
+    "defenseMisc": -2,
+    "defenseTotal": 14,
+    "saves": {
+      "fort": 7,
+      "ref": 3,
+      "will": 3
+    },
+    "attack": "+16 melee (1d6+13, bite)",
+    "fullAttack": "+16/+11 melee (1d6+13, bite), or +5 ranged)",
+    "reach": "15 ft. by 15 ft./10 ft.",
+    "specialQualities": "Plant, improved grab, swallow whole, blood drain 1d6+13, blindsight 60 ft.",
+    "allegiances": [
+      "None or owner"
+    ],
+    "skills": "None",
+    "feats": "None",
+    "talents": "",
+    "possessions": "",
+    "advancement": "12-16 HD (Huge); 17-32 HD (Gargantuan); 33-48 HD (Colossal)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html"
   },
   {
     "id": "montaukMonster",
