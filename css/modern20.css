@@ -197,6 +197,8 @@
 
 .modern20 .m20-mode:disabled { opacity: 0.4; cursor: not-allowed; }
 
+.modern20 .m20-ammo { max-width: 9rem; font-size: 0.7rem; }
+
 .modern20 .m20-encumbrance { margin-bottom: 0.8rem; }
 
 .modern20 .m20-hpsteps { display: flex; gap: 0.1rem; }

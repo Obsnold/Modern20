@@ -65,6 +65,14 @@
             <span class="m20-tag {{#unless item.system.ammo.value}}m20-over{{/unless}}">
               {{item.system.ammo.value}}/{{item.system.ammo.max}}
             </span>
+            {{#if item.ammoChoices.length}}
+              <select class="m20-ammo" data-ammo-for="{{item.id}}"
+                      data-tooltip="{{localize 'MODERN20.Attack.ChooseRounds'}}">
+                {{#each item.ammoChoices as |box|}}
+                  <option value="{{box.id}}">{{box.name}} ({{box.system.quantity}})</option>
+                {{/each}}
+              </select>
+            {{/if}}
             <button type="button" class="m20-icon" data-action="reloadWeapon"
                     data-tooltip="{{localize 'MODERN20.Attack.Reload'}}">
               <i class="fa-solid fa-rotate"></i>

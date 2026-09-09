@@ -1,6 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { activityById, activityDamageFormula } from "./activities.mjs";
-import { accessoryAttackBonus, effectiveRangeIncrement } from "./accessories.mjs";
+import { accessoryAttackBonus, effectiveRangeIncrement, ammunitionAttackBonus, loadedSpecial } from "./accessories.mjs";
 
 const { Roll } = foundry.dice;
 const { ChatMessage } = foundry.documents;
@@ -153,13 +153,15 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     condition: actor.system.attributes.attackMisc ?? 0,
     // A laser sight, where the target is close enough for it to apply.
     accessory: accessoryAttackBonus(item, distance),
+    // Armour-piercing against an armoured target, tracer on autofire.
+    ammunition: ammunitionAttackBonus(item, { target, activityId: activity.id }),
     range,
     activity: activity.penalty,
     situational
   };
   const formula =
-    "1d20 + @bab + @ability + @size + @weapon + @condition + @accessory + @range "
-    + "+ @activity + @situational";
+    "1d20 + @bab + @ability + @size + @weapon + @condition + @accessory + @ammunition "
+    + "+ @range + @activity + @situational";
 
   const roll = await new Roll(formula, data).evaluate();
   const natural = roll.dice[0]?.results?.[0]?.result ?? 0;
@@ -193,6 +195,7 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     maxRange: melee ? reachFeet : reach,
     activity,
     activityId: activity.id,
+    ammunition: loadedSpecial(item)?.name ?? null,
     area: activity.area?.size || null,
     ammoSpent: activity.consume?.ammo ?? 0
   };

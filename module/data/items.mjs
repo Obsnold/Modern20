@@ -184,6 +184,9 @@ export class Modern20Weapon extends Modern20ItemBase {
       // reloading. Blank means the SRD names no ammunition for it.
       caliber: new fields.StringField({ initial: "" }),
       ammo: new fields.SchemaField({ value: int(0, { min: 0 }), max: int(0, { min: 0 }) }),
+      // Which carried ammunition is in the magazine, by item id. Set when
+      // reloading, so the loaded type's effects apply to what is fired.
+      loadedAmmo: new fields.StringField({ initial: "" }),
       size: new fields.StringField({ initial: "medium" }),
       // Attacks add Dex instead of Str when the weapon is ranged.
       ranged: new fields.BooleanField({ initial: false }),
@@ -254,6 +257,10 @@ export class Modern20Gear extends Modern20ItemBase {
       ...purchasableFields(),
       // Set on ammunition, so a weapon of the same calibre can draw on it.
       caliber: new fields.StringField({ initial: "" }),
+      // An exotic type, keyed to MODERN20.specialAmmunition. Blank is ordinary
+      // ammunition. The SRD prices these as a modifier on a normal purchase,
+      // so this marks a variant of a calibre rather than a separate product.
+      special: new fields.StringField({ initial: "" }),
       category: new fields.StringField({ initial: "general" })
     };
   }

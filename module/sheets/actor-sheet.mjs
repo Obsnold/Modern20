@@ -114,7 +114,10 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     };
     context.containers = this._containers(actor, grouped);
     // Accessories hang off the weapon they are fitted to.
-    for (const weapon of grouped.weapon ?? []) weapon.fitted = weapon.accessories;
+    for (const weapon of grouped.weapon ?? []) {
+      weapon.fitted = weapon.accessories;
+      weapon.ammoChoices = weapon.ammunitionChoices;
+    }
     context.skills = this._prepareSkillRows(actor.system.skills);
 
     // Newest first: what happened most recently is what a player checks.
@@ -264,7 +267,11 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    */
   /** Refill a weapon's magazine. */
   static async #onReloadWeapon(event, target) {
-    await this._itemFromEvent(target)?.reload();
+    const item = this._itemFromEvent(target);
+    // The row's own select says which rounds to load, when there is a choice.
+    const chosen = target.closest("tr, .m20-itemrow")
+      ?.querySelector("select[data-ammo-for]")?.value ?? "";
+    await item?.reload(chosen);
   }
 
   /** Remove an accessory from the weapon it is fitted to. */
