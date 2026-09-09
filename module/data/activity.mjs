@@ -38,7 +38,9 @@ function baseFields(type) {
   return {
     type: typeField(type),
     name: new fields.StringField({ initial: "" }),
-    img: new fields.FilePathField({ categories: ["IMAGE"], initial: "" }),
+    // FilePathField defaults to nullable with a null initial and blank: false,
+    // so an empty string is invalid: "may not be a blank string".
+    img: new fields.FilePathField({ categories: ["IMAGE"] }),
     // Shown on the button and explained on the card.
     note: new fields.StringField({ initial: "" }),
     // Gates: a feat the owner must have, and ammunition that must be loaded.
