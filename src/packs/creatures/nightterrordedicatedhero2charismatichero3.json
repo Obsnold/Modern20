@@ -414,7 +414,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -427,7 +428,20 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Fear Aura",
+            "actionType": "varies",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 17,
+              "onSuccess": "negate"
+            }
+          }
+        }
       }
     },
     {
@@ -440,7 +454,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -453,7 +468,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -466,7 +482,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -479,7 +496,25 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Terrify",
+            "actionType": "fullRound",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 17,
+              "onSuccess": "negate"
+            },
+            "damage": {
+              "formula": "1d4",
+              "type": "wisdom",
+              "addAbility": false
+            }
+          }
+        }
       }
     },
     {
@@ -492,7 +527,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -505,7 +541,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -518,7 +555,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     }
   ]

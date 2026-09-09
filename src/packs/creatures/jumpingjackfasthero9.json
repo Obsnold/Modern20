@@ -411,7 +411,25 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Breath Weapon",
+            "actionType": "varies",
+            "save": {
+              "ability": "ref",
+              "calculation": "flat",
+              "dc": 17,
+              "onSuccess": "negate"
+            },
+            "damage": {
+              "formula": "2d6",
+              "type": "fire",
+              "addAbility": false
+            }
+          }
+        }
       }
     },
     {
@@ -424,7 +442,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -437,7 +456,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -450,7 +470,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -463,7 +484,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     }
   ]

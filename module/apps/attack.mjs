@@ -345,10 +345,11 @@ export async function postSaveCard(item, activity) {
   });
 }
 
-/** A grenade detonates; a spell is cast at someone. */
+/** A grenade detonates; a spell is cast; a creature uses what it has. */
 function saveFlavor(item) {
   if (item.type === "spell") return "MODERN20.Cast.Casts";
   if (item.type === "psiPower") return "MODERN20.Cast.Manifests";
+  if (item.type === "specialAbility") return "MODERN20.Attack.UsesAbility";
   return "MODERN20.Attack.Detonates";
 }
 

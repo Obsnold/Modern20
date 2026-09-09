@@ -246,7 +246,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -259,7 +260,25 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Necrotizing Touch",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 15,
+              "onSuccess": "negate"
+            },
+            "damage": {
+              "formula": "1d3",
+              "type": "constitution",
+              "addAbility": false
+            }
+          }
+        }
       }
     },
     {
@@ -272,7 +291,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -285,7 +305,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -298,7 +319,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -311,7 +333,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     }
   ]

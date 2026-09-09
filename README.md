@@ -33,7 +33,7 @@ fighting it forever, so this is a standalone game system.
 | Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 671 items, built from the SRD |
 | Ammunition and containers | 18 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles | 202 actors, built from the SRD |
-| Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text |
+| Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text, 64 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
@@ -413,10 +413,28 @@ where its feats finally appear: the feat list lives on the hero sheet's
 Character tab, and a creature sheet does not have one, so the 341 feats
 imported with the creatures had nowhere to be seen.
 
-What is *not* automated: an ability is text on an item. Nothing rolls a breath
-weapon's save DC or tracks a grapple started by improved grab. The SRD writes
-these as instructions to a GM, and the useful thing was to put them where the
-creature is rather than to guess at a mechanism for 253 different abilities.
+**64 of them can be rolled.** Where the SRD states a DC and names a save, the
+ability carries a save activity and posts the same card an explosive does: the
+targets roll, and the card says whether each one beat it. The DC is the number
+the stat block prints. Where it prints none, the SRD's own formula in the
+ability's text — *"DC 10 + 1/2 the dread tree's Hit Dice + its Charisma
+modifier"* — is worked out from that creature's Hit Dice and ability scores,
+which covers five more. Printed always wins: eleven of the advanced and
+class-levelled blocks print a DC their own formula no longer produces, and the
+stat block is what the SRD tells you to use.
+
+Damage is attached only when the SRD states it in the same sentence as the
+save. A paragraph that mentions both a save and a die roll is not saying the
+save is against that roll — the charred one deals 2d10 to anything touching it
+*and* allows a Fortitude save for the weapon that touched it. That rule costs
+16 of the 30 abilities whose text mentions damage somewhere, and is the reason
+the other 14 are right.
+
+What is *not* automated: everything else is text on an item. Nothing tracks a
+grapple started by improved grab, or a regeneration that has to be checked
+each round. The SRD writes those as instructions to a GM, and the useful thing
+was to put them where the creature is rather than to guess at a mechanism for
+253 different abilities.
 
 ## Field labels
 
