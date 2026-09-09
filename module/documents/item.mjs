@@ -22,6 +22,12 @@ export class Modern20Item extends Item {
     const actor = this.actor;
     if (!actor) throw new Error("Cannot roll an attack for an unowned weapon");
 
+    // A weapon that is not to hand is a mistake worth surfacing, not blocking:
+    // the same "warn, never enforce" rule the rest of the system follows.
+    if (!this.system.equipped) {
+      ui.notifications.warn(game.i18n.format("MODERN20.Equip.NotEquipped", { name: this.name }));
+    }
+
     const abilityMod = this.system.ranged
       ? actor.system.abilities.dex.mod
       : actor.system.abilities.str.mod;

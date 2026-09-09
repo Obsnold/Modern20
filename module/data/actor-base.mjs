@@ -145,6 +145,8 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
     this.#prepareSaves();
     this.#prepareSkills();
 
+    this.#prepareEncumbrance();
+
     this.attributes.initiative.value =
       this.abilities.dex.mod + this.attributes.initiative.misc;
 
@@ -153,6 +155,49 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
 
     const grapple = MODERN20.sizes[this.attributes.size]?.grapple ?? 0;
     this.attributes.grapple = this.attributes.baseAttack + this.abilities.str.mod + grapple;
+  }
+
+  /**
+   * Total carried weight, the resulting load, and the speed it allows.
+   *
+   * The SRD counts "everything a character is wearing or carrying", so this
+   * sums all items rather than only equipped ones. Speed is reduced to the
+   * value the table gives, never raised, and never below the reduced figure a
+   * character is already at for another reason.
+   */
+  #prepareEncumbrance() {
+    const items = this.parent?.items ?? [];
+    const carried = items.reduce((total, item) => {
+      const weight = item.system?.weight ?? 0;
+      const quantity = item.system?.quantity ?? 1;
+      return total + weight * quantity;
+    }, 0);
+
+    const strength = Math.max(1, this.abilities.str.total);
+    const table = MODERN20.carrying.loads;
+    // Beyond the table's last entry the SRD's own figures stop; hold there
+    // rather than inventing a formula.
+    const key = table[strength] ? strength : Math.max(...Object.keys(table).map(Number));
+    const limits = table[key];
+
+    let level = "light";
+    if (carried > limits.heavy) level = "over";
+    else if (carried > limits.medium) level = "heavy";
+    else if (carried > limits.light) level = "medium";
+
+    const base = this.attributes.speed;
+    let speed = base;
+    if (level === "medium") speed = MODERN20.carrying.mediumSpeed[base] ?? base;
+    else if (level === "heavy") speed = MODERN20.carrying.heavySpeed[base] ?? base;
+    else if (level === "over") speed = 0;
+
+    this.attributes.encumbrance = {
+      carried: Math.round(carried * 10) / 10,
+      limits,
+      level,
+      label: MODERN20.loadLevels[level],
+      speed: Math.min(base, speed)
+    };
   }
 
   /** Sum equipped armor into an equipment bonus, max Dex cap and check penalty. */
