@@ -73,6 +73,7 @@
     {{/if}}
     {{formField fields.rateOfFire value=system.rateOfFire}}
     {{formField fields.magazine value=system.magazine}}
+    {{formField fields.caliber value=system.caliber}}
     {{formField fields.ammo value=system.ammo}}
     {{formField fields.attackBonus value=system.attackBonus}}
     {{formField fields.damageBonus value=system.damageBonus}}
@@ -94,6 +95,7 @@
 
   {{#if (eq document.type "gear")}}
     {{formField fields.category value=system.category}}
+    {{formField fields.caliber value=system.caliber}}
     {{#if weapons.length}}
       <div class="form-group">
         <label>{{localize "MODERN20.Accessory.FittedTo"}}</label>

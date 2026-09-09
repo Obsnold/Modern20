@@ -1,7 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { resolveAttack, postAttackCard, postSaveCard, rollWeaponDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
-import { accessoriesOf, reloadAction } from "../apps/accessories.mjs";
+import { accessoriesOf, reloadAction, ammunitionFor, magazineSize } from "../apps/accessories.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
@@ -109,12 +109,12 @@ export class Modern20Item extends Item {
   }
 
   /**
-   * Reload the magazine.
+   * Reload the magazine, drawing on carried ammunition of the same calibre.
    *
-   * Reports the action it costs rather than spending it: the system tracks no
-   * action economy, so the cost is something the table needs told, not
-   * enforced. A carried box of the right calibre is not consumed, because the
-   * SRD's weapon tables name no ammunition type to match against.
+   * Reports the action it costs rather than spending it: there is no action
+   * economy to deduct from. Partial reloads are allowed — a box with eight
+   * rounds left fills eight of a fifteen-round magazine — because refusing
+   * would be worse than the SRD, which simply assumes you have rounds.
    */
   async reload() {
     if (this.type !== "weapon") return null;
@@ -128,11 +128,30 @@ export class Modern20Item extends Item {
       return null;
     }
 
-    await this.update({ "system.ammo.value": ammo.max });
+    const wanted = ammo.max - ammo.value;
+    const box = ammunitionFor(this);
+
+    // A weapon with a calibre needs rounds; one without - a flamethrower, a
+    // rocket launcher - has no ammunition entry in the SRD and just refills.
+    let loaded = wanted;
+    if (this.system.caliber) {
+      if (!box) {
+        ui.notifications.warn(game.i18n.format("MODERN20.Attack.NoRounds", {
+          name: this.name, caliber: this.system.caliber
+        }));
+        return null;
+      }
+      loaded = Math.min(wanted, box.system.quantity);
+      await box.update({ "system.quantity": box.system.quantity - loaded });
+    }
+
+    await this.update({ "system.ammo.value": ammo.value + loaded });
+
     const action = reloadAction(this);
     ui.notifications.info(game.i18n.format("MODERN20.Attack.Reloaded", {
       name: this.name,
-      rounds: ammo.max,
+      rounds: ammo.value + loaded,
+      max: ammo.max,
       action: game.i18n.localize(`MODERN20.Action.${action}`)
     }));
     return action;

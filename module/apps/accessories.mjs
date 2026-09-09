@@ -73,3 +73,28 @@ export function reloadAction(item) {
   if (quickCase) return quick ? "free" : "move";
   return quick ? "move" : "fullRound";
 }
+
+/** Rounds a magazine holds, from "15 box" or "6 cyl.". */
+export function magazineSize(item) {
+  const match = String(item.system.magazine ?? "").match(/\d+/);
+  return match ? Number(match[0]) : 0;
+}
+
+/**
+ * Ammunition the actor is carrying that this weapon can use.
+ *
+ * Matched on calibre, which most weapons state in their own name and the rest
+ * carry from data/overrides/weapons.json. A weapon with no calibre - a
+ * flamethrower, a rocket launcher - matches nothing, which is correct: the SRD
+ * lists no ammunition entry for them.
+ */
+export function ammunitionFor(item) {
+  const caliber = item.system.caliber;
+  if (!caliber || !item.actor) return null;
+
+  return item.actor.items.find((other) =>
+    other.type === "gear"
+    && other.system?.caliber === caliber
+    && (other.system.quantity ?? 0) > 0
+  ) ?? null;
+}

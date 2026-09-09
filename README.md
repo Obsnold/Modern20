@@ -253,6 +253,17 @@ rules the system can act on directly.
 The cost is reported rather than spent: there is no action economy to deduct
 from, so it is something the table needs told, not enforced.
 
+Reloading draws on carried ammunition of the same calibre. Most weapons state
+theirs in their own name — *"Beretta 92F (9mm autoloader)"* — so 35 of the 42
+weapons with a magazine derive it, and the rest are corrected in
+`data/overrides/weapons.json`: abbreviations the ammunition table does not use
+(`.38S`, `12-ga`), one SRD misspelling (`12-gague`), and seven weapons the SRD
+names no ammunition for at all, which reload without consuming anything.
+
+Partial reloads are allowed — a box with eight rounds left fills eight of a
+fifteen-round magazine — because refusing would be stricter than the SRD, which
+simply assumes you have rounds.
+
 ## Containers and ammunition
 
 Bags and cases are their own item type rather than general gear, since a

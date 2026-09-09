@@ -180,6 +180,9 @@ export class Modern20Weapon extends Modern20ItemBase {
       rangeIncrement: int(0, { min: 0 }),
       rateOfFire: new fields.StringField({ initial: "" }),
       magazine: new fields.StringField({ initial: "" }),
+      // What this fires, matched against an ammunition item's own calibre when
+      // reloading. Blank means the SRD names no ammunition for it.
+      caliber: new fields.StringField({ initial: "" }),
       ammo: new fields.SchemaField({ value: int(0, { min: 0 }), max: int(0, { min: 0 }) }),
       size: new fields.StringField({ initial: "medium" }),
       // Attacks add Dex instead of Str when the weapon is ranged.
@@ -249,6 +252,8 @@ export class Modern20Gear extends Modern20ItemBase {
     return {
       ...super.defineSchema(),
       ...purchasableFields(),
+      // Set on ammunition, so a weapon of the same calibre can draw on it.
+      caliber: new fields.StringField({ initial: "" }),
       category: new fields.StringField({ initial: "general" })
     };
   }

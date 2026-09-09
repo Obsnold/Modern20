@@ -1,6 +1,5 @@
 {
   "_comment": "Hand corrections merged over weapons built from the SRD's tables, keyed by slug. The tables have no reach column, so reach weapons are recorded here from their own descriptions. Each entry needs a 'why'.",
-
   "spear": {
     "why": "weapons.html: 'This primitive device is a reach weapon. A character can strike opponents 10 feet away with it, but can't use it against an adjacent foe.' The melee table has no reach column.",
     "reach": 10,
@@ -10,5 +9,49 @@
     "why": "weapons.html: 'If a character uses the chain as a reach weapon, he or she can strike opponents up to 10 feet away. In addition, unlike other weapons with reach, the character can use it against an adjacent foe.'",
     "reach": 10,
     "reachOnly": false
+  },
+  "ruger-service-six-38s-revolver": {
+    "why": "The SRD abbreviates .38 special as '.38S' in this weapon's name, so it does not match the ammunition entry.",
+    "caliber": ".38 special"
+  },
+  "sawed-off-shotgun-12-ga-shotgun": {
+    "why": "Abbreviated '12-ga' in the name; the ammunition entry is '12-gauge buckshot'.",
+    "caliber": "12-gauge"
+  },
+  "benelli-121-m1-12-gague-shotgun": {
+    "why": "The SRD misspells gauge as 'gague' in this weapon's name.",
+    "caliber": "12-gauge"
+  },
+  "crossbow-simple": {
+    "why": "Fires crossbow bolts, which the ammunition table lists but the weapon's name does not.",
+    "caliber": "Crossbow bolt"
+  },
+  "m79-grenade-launcher": {
+    "why": "Fires 40mm grenades, which are weapons in their own right rather than an ammunition entry. Left blank so reloading does not consume anything.",
+    "caliber": ""
+  },
+  "m2hb-heavy-machine-gun": {
+    "why": "The SRD names no ammunition type for it. Left blank so reloading does not consume anything.",
+    "caliber": ""
+  },
+  "m-60-medium-machine-gun": {
+    "why": "The SRD names no ammunition type for it.",
+    "caliber": ""
+  },
+  "m72a3-law-rocket-launcher": {
+    "why": "Single-use launcher; the SRD names no separate ammunition.",
+    "caliber": ""
+  },
+  "taser-simple": {
+    "why": "Fires darts, which the ammunition table does not list.",
+    "caliber": ""
+  },
+  "pepper-spray-simple": {
+    "why": "A canister rather than a magazine; no ammunition entry exists.",
+    "caliber": ""
+  },
+  "flamethrower-no-feat-needed": {
+    "why": "Fuel rather than rounds; the SRD names no ammunition entry.",
+    "caliber": ""
   }
 }
