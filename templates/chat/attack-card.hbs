@@ -12,7 +12,7 @@
       {{#if targetName}}vs {{targetName}} {{localize "MODERN20.Attack.Defense"}} {{defense}}{{/if}}
       &mdash; {{#if hit}}{{localize "MODERN20.Attack.Hit"}}{{else}}{{localize "MODERN20.Attack.Miss"}}{{/if}}
     {{else}}
-      &mdash; <span class="m20-hint">{{localize "MODERN20.Attack.NoTarget"}}</span>
+      &mdash; <span class="m20-hint">{{targetingHint}}</span>
     {{/if}}
   </p>
 

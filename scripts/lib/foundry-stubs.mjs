@@ -132,7 +132,11 @@ export function installStubs() {
     // Foundry maps a few effects to engine behaviour (defeated, blind, ...).
     specialStatusEffects: {},
   };
-  globalThis.game = { i18n: { localize: (k) => k, format: (k) => k }, system: { id: "modern20" } };
+  globalThis.game = {
+    i18n: { localize: (k) => k, format: (k) => k },
+    system: { id: "modern20" },
+    keybindings: { get: () => [] },
+  };
   globalThis.ui = { notifications: { warn: () => {}, error: () => {} } };
   globalThis.Handlebars = { registerHelper: () => {} };
 

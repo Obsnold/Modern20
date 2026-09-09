@@ -49,11 +49,25 @@ export function rangePenalty(distance, increment) {
   return Math.floor(distance / increment) * RANGE_PENALTY_PER_INCREMENT;
 }
 
-/** The actor being attacked: the user's target, else a single selected token. */
+/**
+ * The actor being attacked.
+ *
+ * Only the user's target counts. Deliberately no fall back to the selected
+ * token: the selected token is normally the attacker, so falling back would
+ * quietly resolve the attack against themselves. Applying damage does fall
+ * back to selection, because by then the victim is what is selected.
+ */
 function currentTarget() {
   const targeted = [...(game.user.targets ?? [])][0];
   if (targeted) return { token: targeted, actor: targeted.actor };
   return { token: null, actor: null };
+}
+
+/** How this user targets, read from their own keybinding rather than assumed. */
+function targetingHint() {
+  const binding = game.keybindings?.get("core", "target")?.[0];
+  const key = binding?.key?.replace(/^Key/, "") ?? "T";
+  return game.i18n.format("MODERN20.Attack.HowToTarget", { key });
 }
 
 /**
@@ -155,6 +169,7 @@ export async function postAttackCard(item, result) {
       item,
       ...result,
       total: result.roll.total,
+      targetingHint: targetingHint(),
       confirmationTotal: result.confirmation?.total ?? null,
       showOutcome: result.hit !== null
     }
