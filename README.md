@@ -132,6 +132,12 @@ something:
 - *"Each full range increment causes a cumulative -2 penalty on the attack
   roll."* Distance comes from the grid when both tokens are placed, and the
   penalty is simply omitted when it cannot be measured.
+- *"A thrown weapon has a maximum range of five range increments. Ranged
+  weapons that fire projectiles can shoot up to ten increments."* A rate of
+  fire is what separates the two in the data — a firearm or a bow has one, a
+  thrown hatchet or grenade does not — so a Desert Eagle reaches 400 ft and a
+  hatchet 50 ft. Beyond that the card says so and calls it a miss rather than
+  refusing the roll.
 - Melee attack bonus is base attack + Strength + size; ranged is base attack +
   Dexterity + range penalty + size.
 
