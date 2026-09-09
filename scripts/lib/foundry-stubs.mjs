@@ -51,7 +51,24 @@ export class ArrayField extends DataField {
   }
 }
 
-const leaf = () => class extends DataField {};
+/**
+ * A leaf field that enforces the invariants a schema author can get wrong.
+ *
+ * `defaults` are the field type's own option defaults, since a field that
+ * forbids a blank string while defaulting to one only fails when a document is
+ * actually created — on a drag to a sheet, long after every check passed.
+ */
+const leaf = (defaults = {}) => class extends DataField {
+  constructor(options = {}) {
+    super({ ...defaults, ...options });
+    const { blank, initial } = this.options;
+    if (blank === false && initial === "") {
+      throw new TypeError(
+        'A field with blank: false cannot have initial: "" — "may not be a blank string"'
+      );
+    }
+  }
+};
 
 export class TypeDataModel {
   static defineSchema() { return {}; }
@@ -123,8 +140,10 @@ export function installStubs() {
     data: {
       fields: {
         SchemaField, ArrayField, TypedSchemaField, TypedObjectField,
-        NumberField: leaf(), StringField: leaf(), BooleanField: leaf(),
-        HTMLField: leaf(), ObjectField: leaf(), FilePathField: leaf(),
+        NumberField: leaf(), StringField: leaf({ blank: true }), BooleanField: leaf(),
+        HTMLField: leaf({ blank: true }), ObjectField: leaf(),
+        // Foundry's own defaults: nullable, blank: false, initial: null.
+        FilePathField: leaf({ nullable: true, blank: false, initial: null }),
       },
     },
     abstract: { TypeDataModel, DataModel },
