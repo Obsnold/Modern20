@@ -474,5 +474,57 @@ for (const creature of creatures) {
 }
 console.log(`${traitEntries} resistances, immunities and vulnerabilities checked`);
 
+/* -- the abilities that can be rolled ------------------------------------ */
+
+// An ability with a printed DC is something to roll. The DC on the activity
+// has to be the one the stat block prints: a save card offering the wrong
+// number is worse than no card, because nobody checks it against the book.
+let saveActivities = 0;
+for (const creature of creatures) {
+  const document = readCreatureDocument(creature.id);
+  if (!document) continue;
+
+  const traits = new Map(
+    (creature.speciesTraits ?? []).map((trait) => [slugify(trait.key), trait])
+  );
+
+  for (const item of (document.items ?? []).filter((i) => i.type === "specialAbility")) {
+    const activities = Object.values(item.system.activities ?? {});
+    for (const activity of activities) {
+      saveActivities++;
+      if (activity.type !== "save") {
+        fail(`${creature.name}: "${item.name}" has a ${activity.type} activity`);
+        continue;
+      }
+      if (!["fort", "ref", "will"].includes(activity.save.ability)) {
+        fail(`${creature.name}: "${item.name}" saves against "${activity.save.ability}"`);
+      }
+      if (activity.save.calculation !== "flat") {
+        fail(`${creature.name}: "${item.name}" derives its DC instead of using the printed one`);
+      }
+      if (!(activity.save.dc > 0)) {
+        fail(`${creature.name}: "${item.name}" has DC ${activity.save.dc}`);
+      }
+      // The name carries what the stat block printed: "Death Gaze (DC 15)".
+      const printed = item.name.match(/\bDC\s*(\d+)/i);
+      if (printed && Number(printed[1]) !== activity.save.dc) {
+        fail(`${creature.name}: "${item.name}" rolls against DC ${activity.save.dc}, `
+          + `the SRD prints ${printed[1]}`);
+      }
+    }
+
+    // Every ability that prints a DC and names a save in its own text must
+    // have become rollable; one that quietly did not is the failure mode this
+    // whole pass exists to prevent.
+    const printed = item.name.match(/\bDC\s*(\d+)/i);
+    const trait = traits.get(slugify(item.name.replace(/\s*\(.*$/, "")));
+    const names = /\b(Fortitude|Reflex|Will)\b/.test(trait?.description ?? "");
+    if (printed && names && !activities.length) {
+      fail(`${creature.name}: "${item.name}" prints a DC and a save but rolls nothing`);
+    }
+  }
+}
+console.log(`${saveActivities} rollable abilities checked against their printed DCs`);
+
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);

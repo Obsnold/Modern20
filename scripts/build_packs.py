@@ -767,13 +767,110 @@ def creature_abilities(entry: dict, glossary: dict) -> list[dict]:
         name = source["name"] if source else title_case(printed)
         if source and extra and not name.lower().endswith(extra.lower()):
             name = f"{name} {extra}"
-        items.append(ability_item(entry, name, quality["sense"], trait, defined))
+        items.append(ability_item(entry, name, quality["sense"], trait, defined, printed))
 
     for slug, trait in traits.items():
         if slug not in used:
             items.append(ability_item(entry, trait["name"], False, trait, glossary.get(slug)))
     return items
 
+
+# "must succeed at a Fortitude save (DC 10 + 1/2 the bodak's Hit Dice + its
+# Charisma modifier) or die instantly" — the sentence that makes an ability
+# something to roll rather than something to read.
+SAVE_NAMES = {"fortitude": "fort", "reflex": "ref", "will": "will"}
+PRINTED_DC = re.compile(r"\bDC\s*(\d+)", re.I)
+# The SRD's own formula, which most creature abilities state instead of a
+# number: "DC 10 + 1/2 the creature's HD + its Charisma modifier".
+DC_FORMULA = re.compile(
+    r"DC\s*10\s*\+\s*(?:1/2|½|one-half)[^+]*?(?:hit dice|hd)[^+]*?\+\s*(?:its\s+)?(\w+)", re.I)
+FORMULA_ABILITIES = {
+    "charisma": "cha", "constitution": "con", "intelligence": "int",
+    "wisdom": "wis", "strength": "str", "dexterity": "dex",
+}
+SAVE_DAMAGE = re.compile(r"(\d+d\d+(?:\s*[+-]\s*\d+)?)\s+points of\s+([a-z/]+)\s+damage", re.I)
+# What using it costs, where the SRD says. Longest first: "full-round action"
+# must be matched before "action".
+ABILITY_ACTIONS = [
+    ("full-round action", "fullRound"), ("full round action", "fullRound"),
+    ("free action", "free"), ("move action", "move"),
+    ("attack action", "attack"), ("standard action", "attack"),
+]
+
+
+def ability_activity(entry: dict, printed: str, trait: dict | None) -> dict:
+    """The saving throw an ability calls for, as an activity the GM can roll.
+
+    An ability was an item with rules text and no way to use it, which is the
+    difference between a compendium and a table aid. Where the SRD states a DC
+    and names a save, the ability posts a card the targets roll against - the
+    same card an explosive already posts.
+
+    The DC is the one the stat block prints. Where it prints none, the SRD's
+    formula in the ability's own text is worked out from this creature's Hit
+    Dice and ability scores. Printed wins: eleven of the advanced and
+    class-levelled blocks print a DC their own formula no longer produces, and
+    the number in the stat block is what the SRD says to use.
+    """
+    description = (trait or {}).get("description", "")
+    if not description:
+        return {}
+
+    named = re.search(r"\b(Fortitude|Reflex|Will)\b", description)
+    if not named:
+        return {}
+    ability = SAVE_NAMES[named.group(1).lower()]
+
+    match = PRINTED_DC.search(printed)
+    dc = int(match.group(1)) if match else formula_dc(entry, description)
+    if not dc:
+        return {}
+
+    # Damage is only taken from the sentence that names the save. The SRD
+    # writes a creature's abilities as prose, and a paragraph that mentions
+    # both a save and a die roll is not saying the save is against that roll.
+    sentence = next((s for s in re.split(r"(?<=[.!?])\s+", description)
+                     if named.group(1) in s), description)
+    damage = SAVE_DAMAGE.search(sentence)
+    action = next((action for phrase, action in ABILITY_ACTIONS
+                   if phrase in description.lower()), "varies")
+
+    activity = {
+        "type": "save",
+        "name": trait["name"],
+        "actionType": action,
+        "save": {
+            "ability": ability,
+            # The stat block's own number, not one derived from the caster.
+            "calculation": "flat",
+            "dc": dc,
+            "onSuccess": "half" if re.search(r"half damage|for half", sentence, re.I) else "negate",
+        },
+    }
+    if damage:
+        activity["damage"] = {
+            "formula": re.sub(r"\s+", "", damage.group(1)),
+            "type": damage.group(2).split("/")[0].lower(),
+            # The printed dice are the whole of it; nothing adds Strength to a
+            # breath weapon.
+            "addAbility": False,
+        }
+    return {"save": activity}
+
+
+def formula_dc(entry: dict, description: str) -> int:
+    """The DC the SRD's formula gives for this creature, or nothing.
+
+    "DC 10 + 1/2 the dread tree's Hit Dice + its Charisma modifier" is a
+    calculation this creature's own stat block can complete.
+    """
+    match = DC_FORMULA.search(description)
+    ability = FORMULA_ABILITIES.get((match.group(1) if match else "").lower())
+    if not ability:
+        return 0
+    hit_dice = int(re.match(r"\s*(\d+)", entry["hitDice"]).group(1)) \
+        if re.match(r"\s*(\d+)", entry["hitDice"]) else 1
+    return 10 + hit_dice // 2 + (entry["abilities"][ability] - 10) // 2
 
 def described(key: str, traits: dict, glossary: dict) -> str:
     """The slug under which a printed quality's rules are filed.
@@ -791,7 +888,7 @@ def described(key: str, traits: dict, glossary: dict) -> str:
 
 
 def ability_item(entry: dict, name: str, sense: bool, trait: dict | None,
-                 defined: dict | None) -> dict:
+                 defined: dict | None, printed: str = "") -> dict:
     """One special ability item, described by the SRD or declared undescribed."""
     description = paragraphs((trait or {}).get("description", "")) \
         or paragraphs((defined or {}).get("description", ""))
@@ -808,6 +905,9 @@ def ability_item(entry: dict, name: str, sense: bool, trait: dict | None,
             "srdUrl": entry["srdUrl"] if trait or not defined else defined["srdUrl"],
             "abilityType": (trait or {}).get("kind") or (defined or {}).get("kind", ""),
             "sense": sense,
+            # Where the SRD states a DC, the ability is something to roll
+            # rather than only something to read.
+            "activities": ability_activity(entry, printed, trait),
         },
     }
 

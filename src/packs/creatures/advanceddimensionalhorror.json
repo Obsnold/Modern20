@@ -286,7 +286,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -299,7 +300,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -312,7 +314,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -325,7 +328,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -338,7 +342,20 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Shift Dimension",
+            "actionType": "free",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 19,
+              "onSuccess": "negate"
+            }
+          }
+        }
       }
     }
   ]

@@ -360,7 +360,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -373,7 +374,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -386,7 +388,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -399,7 +402,20 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Mesmerizing Gaze",
+            "actionType": "varies",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 15,
+              "onSuccess": "negate"
+            }
+          }
+        }
       }
     },
     {
@@ -412,7 +428,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -425,7 +442,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -438,7 +456,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -451,7 +470,20 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Feline Aversion (Ex",
+            "actionType": "varies",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 14,
+              "onSuccess": "negate"
+            }
+          }
+        }
       }
     },
     {
@@ -464,7 +496,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     }
   ]

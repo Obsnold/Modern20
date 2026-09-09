@@ -217,7 +217,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -230,7 +231,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -243,7 +245,20 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Death Gaze",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 15,
+              "onSuccess": "negate"
+            }
+          }
+        }
       }
     },
     {
@@ -256,7 +271,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -269,7 +285,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -282,7 +299,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -295,7 +313,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -308,7 +327,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     }
   ]

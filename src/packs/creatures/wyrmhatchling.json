@@ -269,7 +269,20 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "abilityType": "supernatural",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Breath Weapon",
+            "actionType": "attack",
+            "save": {
+              "ability": "ref",
+              "calculation": "flat",
+              "dc": 15,
+              "onSuccess": "half"
+            }
+          }
+        }
       }
     },
     {
@@ -282,7 +295,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -295,7 +309,20 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Poison",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 15,
+              "onSuccess": "negate"
+            }
+          }
+        }
       }
     },
     {
@@ -308,7 +335,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -321,7 +349,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -334,7 +363,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "abilityType": "extraordinary",
-        "sense": true
+        "sense": true,
+        "activities": {}
       }
     },
     {
@@ -347,7 +377,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "abilityType": "extraordinary",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     },
     {
@@ -360,7 +391,8 @@
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "abilityType": "",
-        "sense": false
+        "sense": false,
+        "activities": {}
       }
     }
   ]

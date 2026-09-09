@@ -63,6 +63,15 @@
           {{#if item.abilityTypeLabel}}
             <span class="m20-tag">{{item.abilityTypeLabel}}</span>
           {{/if}}
+          {{!-- An ability the SRD gives a save DC posts a card the targets
+                roll against, the same one an explosive posts. --}}
+          {{#each item.activities as |activity|}}
+            <button type="button" class="m20-icon m20-mode" data-player-allowed
+                    data-action="useActivity" data-activity="{{activity.id}}"
+                    data-tooltip="{{localize activity.label}}">
+              {{localize activity.label}}
+            </button>
+          {{/each}}
           <button type="button" class="m20-icon" data-action="rollItem"
                   title="{{localize 'MODERN20.ToChat'}}">
             <i class="fa-solid fa-comment"></i>
