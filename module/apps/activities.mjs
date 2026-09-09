@@ -1,5 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { ACTIVITY_DEFAULTS } from "../activity-defaults.mjs";
+import { castingTimeAction } from "./actions.mjs";
 
 /**
  * Activities: the things an item can do.
@@ -79,6 +80,8 @@ function castingActivity(type, system) {
   const area = system.areaShape?.size
     ? { area: { shape: system.areaShape.shape, size: system.areaShape.size } }
     : {};
+  // "Casting Time: Attack action" is what the spell list itself says.
+  const actionType = castingTimeAction(system.castingTime);
 
   const damage = system.damage
     ? {
@@ -97,6 +100,7 @@ function castingActivity(type, system) {
       [id]: {
         type: "save",
         name,
+        actionType,
         ...area,
         ...damage,
         save: {
@@ -115,8 +119,8 @@ function castingActivity(type, system) {
   // No save to roll: damage lands, or the spell simply happens.
   return {
     [id]: system.damage
-      ? { type: "damage", name, ...area, ...damage }
-      : { type: "utility", name, ...area }
+      ? { type: "damage", name, actionType, ...area, ...damage }
+      : { type: "utility", name, actionType, ...area }
   };
 }
 

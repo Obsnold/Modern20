@@ -45,6 +45,7 @@ cd $STAGE
 node scripts/check_models.mjs
 node scripts/check_templates.mjs
 node scripts/check_casting.mjs
+node scripts/check_combat.mjs
 
 if [ "\$PACKS" = "--packs" ]; then
   for p in classes occupations talents feats spells psionics weapons armor gear creatures vehicles; do

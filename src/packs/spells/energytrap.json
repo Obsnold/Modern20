@@ -44,6 +44,7 @@
       "cast": {
         "type": "save",
         "name": "MODERN20.Cast.Cast",
+        "actionType": "none",
         "damage": {
           "formula": "1d4",
           "type": "",

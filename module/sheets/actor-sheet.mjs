@@ -1,6 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { Modern20LevelUpScreen } from "../apps/level-up-screen.mjs";
 import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
+import { STANCES } from "../apps/actions.mjs";
 
 const { Item } = foundry.documents;
 
@@ -43,7 +44,11 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       reloadWeapon: Modern20ActorSheetBase.#onReloadWeapon,
       detachItem: Modern20ActorSheetBase.#onDetachItem,
       useActivity: Modern20ActorSheetBase.#onUseActivity,
-      restCasting: Modern20ActorSheetBase.#onRestCasting
+      restCasting: Modern20ActorSheetBase.#onRestCasting,
+      takeStance: Modern20ActorSheetBase.#onTakeStance,
+      endTurn: Modern20ActorSheetBase.#onEndTurn,
+      fiveFootStep: Modern20ActorSheetBase.#onFiveFootStep,
+      fullAttack: Modern20ActorSheetBase.#onFullAttack
     }
   };
 
@@ -119,16 +124,55 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     context.casting = this._prepareCasting(grouped);
     context.containers = this._containers(actor, grouped);
     // Accessories hang off the weapon they are fitted to.
+    const sequence = actor.attackSequence ?? [0];
     for (const weapon of grouped.weapon ?? []) {
       weapon.fitted = weapon.accessories;
       weapon.ammoChoices = weapon.ammunitionChoices;
+      // A full attack is only worth offering to someone who gets more than
+      // one attack from it.
+      weapon.canFullAttack = sequence.length > 1;
+      weapon.attackSequence = sequence
+        .map((bonus) => (bonus >= 0 ? `+${bonus}` : `${bonus}`)).join(" / ");
     }
     context.skills = this._prepareSkillRows(actor.system.skills);
+    context.combat = this._prepareCombat(actor);
 
     // Newest first: what happened most recently is what a player checks.
     context.advancement = [...(actor.system.advancement ?? [])].reverse();
 
     return context;
+  }
+
+  /**
+   * This turn's budget, the stance, and the attack sequence.
+   *
+   * The budget is shown so a player can see what is left, not to stop them
+   * spending it: the SRD leaves several actions as "varies", and the table
+   * routinely does things the rules do not name.
+   */
+  _prepareCombat(actor) {
+    const turn = actor.system.turn ?? {};
+    const sequence = actor.attackSequence ?? [0];
+    return {
+      pools: Object.keys(MODERN20.turnBudget).map((pool) => ({
+        pool,
+        label: game.i18n.localize(`MODERN20.Action.${pool}`),
+        remaining: turn.remaining?.[pool] ?? 0,
+        spent: turn[pool] ?? 0
+      })),
+      stance: turn.stance ?? "",
+      stanceLabel: turn.stance ? game.i18n.localize(STANCES[turn.stance]?.label ?? "") : "",
+      stances: Object.values(STANCES).map((stance) => ({
+        id: stance.id,
+        label: stance.label,
+        action: game.i18n.localize(MODERN20.actionTypes[stance.action]),
+        active: turn.stance === stance.id
+      })),
+      // "+11/+6/+1": shown whenever there is more than one, since that is when
+      // a full attack is worth taking.
+      sequence: sequence.map((bonus) => (bonus >= 0 ? `+${bonus}` : `${bonus}`)).join(" / "),
+      multiattack: sequence.length > 1
+    };
   }
 
   /**
@@ -364,6 +408,29 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    */
   static async #onRestCasting() {
     await this.document.restoreCasting();
+  }
+
+  /**
+   * The combat actions: stance, 5-foot step, end of turn.
+   *
+   * All of these are things a character does in play rather than part of
+   * building one, so they stay with the player who owns the sheet.
+   */
+  static async #onTakeStance(event, target) {
+    await this.document.takeStance(target.dataset.stance);
+  }
+
+  static async #onEndTurn() {
+    await this.document.startTurn();
+  }
+
+  static async #onFiveFootStep() {
+    await this.document.spendAction("fiveFootStep");
+  }
+
+  static async #onFullAttack(event, target) {
+    const item = this._itemFromEvent(target);
+    await item?.fullAttack({ activityId: target.dataset.activity || "shot" });
   }
 
   /** Use one of an item's activities. */

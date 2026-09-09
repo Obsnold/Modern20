@@ -43,6 +43,7 @@
       "cast": {
         "type": "damage",
         "name": "MODERN20.Cast.Cast",
+        "actionType": "attack",
         "damage": {
           "formula": "1d8",
           "type": "",

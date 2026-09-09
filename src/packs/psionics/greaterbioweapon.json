@@ -32,6 +32,7 @@
       "manifest": {
         "type": "damage",
         "name": "MODERN20.Cast.Manifest",
+        "actionType": "attack",
         "damage": {
           "formula": "2d8",
           "type": "bludgeoning",

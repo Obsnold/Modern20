@@ -1,0 +1,345 @@
+[
+  {
+    "id": "attackMelee",
+    "name": "Attack (melee)",
+    "action": "attack",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "attackRanged",
+    "name": "Attack (ranged)",
+    "action": "attack",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "attackUnarmed",
+    "name": "Attack (unarmed)",
+    "action": "attack",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "attackAidAnother",
+    "name": "Attack (aid another)",
+    "action": "attack",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "bullRushAttack",
+    "name": "Bull rush (attack)",
+    "action": "attack",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "escapeAGrapple",
+    "name": "Escape a grapple",
+    "action": "attack",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "feintSeeTheBluffSkill",
+    "name": "Feint (see the Bluff skill)",
+    "action": "attack",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "readyTriggersAnAttackAction",
+    "name": "Ready (triggers an attack action)",
+    "action": "attack",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "makeADyingCharacterStable",
+    "name": "Make a dying character stable",
+    "action": "attack",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "attackAWeapon",
+    "name": "Attack a weapon",
+    "action": "attack",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "attackAnObject",
+    "name": "Attack an object",
+    "action": "attack",
+    "provokes": "maybe",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "totalDefense",
+    "name": "Total defense",
+    "action": "attack",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "useASkillThatTakesAnAttackAction",
+    "name": "Use a skill that takes an attack action",
+    "action": "attack",
+    "provokes": "usually",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "startCompleteFullRoundAction",
+    "name": "Start/complete full-round action",
+    "action": "attack",
+    "provokes": "varies",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "moveYourSpeed",
+    "name": "Move your speed",
+    "action": "move",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "useAPieceOfEquipment",
+    "name": "Use a piece of equipment",
+    "action": "move",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "climbOneQuarterSpeed",
+    "name": "Climb (one-quarter speed)",
+    "action": "move",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "climbAcceleratedOneHalfSpeed",
+    "name": "Climb, accelerated (one-half speed)",
+    "action": "move",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "crawl",
+    "name": "Crawl",
+    "action": "move",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "drawAWeapon",
+    "name": "Draw a weapon",
+    "action": "move",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "holsterAWeapon",
+    "name": "Holster a weapon",
+    "action": "move",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "moveAHeavyObject",
+    "name": "Move a heavy object",
+    "action": "move",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "openADoor",
+    "name": "Open a door",
+    "action": "move",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "pickUpAnObject",
+    "name": "Pick up an object",
+    "action": "move",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "reloadAFirearmWithABoxMagazineOrSpeedLoader",
+    "name": "Reload a firearm with a box magazine or speed loader",
+    "action": "move",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "retrieveAStoredObject",
+    "name": "Retrieve a stored object",
+    "action": "move",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "standUpFromProneSittingOrKneeling",
+    "name": "Stand up from prone, sitting, or kneeling",
+    "action": "move",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "swim",
+    "name": "Swim",
+    "action": "move",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "useASkillThatTakesAMoveAction",
+    "name": "Use a skill that takes a move action",
+    "action": "move",
+    "provokes": "usually",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "bullRushCharge",
+    "name": "Bull rush (charge)",
+    "action": "fullRound",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "charge",
+    "name": "Charge",
+    "action": "fullRound",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "coupDeGrace",
+    "name": "Coup de grace",
+    "action": "fullRound",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "fullAttack",
+    "name": "Full attack",
+    "action": "fullRound",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "overrunCharge",
+    "name": "Overrun (charge)",
+    "action": "fullRound",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "run",
+    "name": "Run",
+    "action": "fullRound",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "withdraw",
+    "name": "Withdraw",
+    "action": "fullRound",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "extinguishFlames",
+    "name": "Extinguish flames",
+    "action": "fullRound",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "useASkillThatTakesAFullRound",
+    "name": "Use a skill that takes a full round",
+    "action": "fullRound",
+    "provokes": "usually",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "reloadAFirearmWithAnInternalMagazine",
+    "name": "Reload a firearm with an internal magazine",
+    "action": "fullRound",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "dropAnObject",
+    "name": "Drop an object",
+    "action": "free",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "dropToProneSittingOrKneeling",
+    "name": "Drop to prone, sitting, or kneeling",
+    "action": "free",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "speak",
+    "name": "Speak",
+    "action": "free",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "disarm",
+    "name": "Disarm",
+    "action": "varies",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "grapple",
+    "name": "Grapple",
+    "action": "varies",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "loadAWeapon",
+    "name": "Load a weapon",
+    "action": "varies",
+    "provokes": "yes",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "tripAnOpponent",
+    "name": "Trip an opponent",
+    "action": "varies",
+    "provokes": "no (yes if unarmed)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "useAFeat",
+    "name": "Use a feat",
+    "action": "varies",
+    "provokes": "varies",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "delay",
+    "name": "Delay",
+    "action": "none",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  },
+  {
+    "id": "5FootStep",
+    "name": "5-foot step",
+    "action": "none",
+    "provokes": "no",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatactions.html"
+  }
+]

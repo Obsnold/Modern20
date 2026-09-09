@@ -43,6 +43,17 @@ function baseFields(type) {
     img: new fields.FilePathField({ categories: ["IMAGE"] }),
     // Shown on the button and explained on the card.
     note: new fields.StringField({ initial: "" }),
+    /**
+     * What using this costs from the turn's budget.
+     *
+     * Stored rather than inferred from the item type, so a magic item that
+     * fires as a free action, or a heavy weapon that takes a full round, says
+     * so on the activity that does it.
+     */
+    actionType: new fields.StringField({
+      initial: "attack",
+      choices: ["attack", "move", "fullRound", "free", "varies", "none"]
+    }),
     // Gates: a feat the owner must have, and ammunition that must be loaded.
     requiresFeat: new fields.StringField({ initial: "" }),
     requiresAmmo: int(0, { min: 0 }),

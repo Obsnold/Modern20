@@ -149,6 +149,20 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
         })
       }),
 
+      /**
+       * What this turn's actions have been spent on.
+       *
+       * "A round is an opportunity for each character involved in a combat to
+       * take an action." Reset when the turn comes round again, and shown
+       * rather than enforced — see module/apps/actions.mjs.
+       */
+      turn: new fields.SchemaField({
+        attack: int(0, { min: 0 }),
+        move: int(0, { min: 0 }),
+        fiveFootStep: int(0, { min: 0 }),
+        stance: new fields.StringField({ initial: "" })
+      }),
+
       biography: new fields.HTMLField({ initial: "" })
     };
   }
@@ -182,6 +196,8 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
     const grapple = MODERN20.sizes[this.attributes.size]?.grapple ?? 0;
     this.attributes.grapple = this.attributes.baseAttack + this.abilities.str.mod + grapple;
 
+    this.#prepareTurn();
+
     this.spellcasting.casterLevel =
       this.spellcasting.casterLevelOverride ?? this.defaultCasterLevel;
   }
@@ -192,6 +208,24 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
    */
   get defaultCasterLevel() {
     return this.details?.level ?? 1;
+  }
+
+  /**
+   * What is left of this turn.
+   *
+   * A turn buys one attack action and one move action, or one full-round
+   * action in place of both, plus a 5-foot step. Free actions cost nothing and
+   * are not counted.
+   */
+  #prepareTurn() {
+    const budget = MODERN20.turnBudget;
+    this.turn.remaining = Object.fromEntries(
+      Object.entries(budget).map(([pool, total]) =>
+        [pool, Math.max(0, total - (this.turn[pool] ?? 0))])
+    );
+    this.turn.used = Object.keys(budget)
+      .reduce((total, pool) => total + (this.turn[pool] ?? 0), 0);
+    this.turn.any = this.turn.used > 0 || Boolean(this.turn.stance);
   }
 
   /**

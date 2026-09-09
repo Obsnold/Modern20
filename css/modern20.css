@@ -346,6 +346,10 @@
 .m20-chat__result { font-size: 1rem; font-weight: 600; margin: 0.3rem 0; }
 .m20-chat__result--success { color: #2f6b3a; }
 .m20-chat__result--failure { color: #8c2f1e; }
+/* The turn panel: action budget and stances, sitting under the two columns. */
+.m20-turn { grid-column: 1 / -1; }
+.m20-stances { flex-wrap: wrap; gap: 0.3rem; }
+
 .m20-chat__body { font-size: 0.82rem; }
 
 /* A spell's rules text, which is often several paragraphs, so it scrolls

@@ -111,6 +111,41 @@ Hooks.on("updateItem", async (item, changes) => {
 // HTMLElement rather than jQuery.
 Hooks.on("renderChatMessageHTML", (message, html) => bindDamageControls(message, html));
 
+/**
+ * Refill the turn budget when a combatant's turn comes round.
+ *
+ * "Each round's activity begins with the character with the highest initiative
+ * result and then proceeds, in order, from there." Only the GM writes, so the
+ * update happens once rather than once per connected client.
+ */
+Hooks.on("combatTurnChange", async (combat, previous, current) => {
+  if (!game.user.isGM) return;
+  const actor = combat.combatants.get(current?.combatantId)?.actor;
+  if (!actor) return;
+  await actor.startTurn();
+  // The character has now had a chance to act, so is no longer flat-footed.
+  await actor.toggleStatusEffect("flatfooted", { active: false });
+});
+
+/**
+ * "At the start of a battle, before the character has had a chance to act
+ * (specifically, before the character's first turn in the initiative order),
+ * the character is flat-footed."
+ *
+ * Applied to everyone when the battle starts and cleared as each combatant's
+ * turn arrives, which is exactly what the rule describes. Surprise is not
+ * automated: who was aware of whom is the GM's call, not the tracker's.
+ */
+Hooks.on("combatStart", async (combat) => {
+  if (!game.user.isGM) return;
+  for (const combatant of combat.combatants) {
+    const actor = combatant.actor;
+    if (!actor) continue;
+    await actor.startTurn();
+    await actor.toggleStatusEffect("flatfooted", { active: true });
+  }
+});
+
 Hooks.once("ready", () => {
   console.log(`${SYSTEM_ID} | Ready`);
 });

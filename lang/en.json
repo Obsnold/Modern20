@@ -33,9 +33,26 @@
     },
     "Acquisition": "Acquisition",
     "Action": {
+      "Costs": "Costs {action}",
+      "EndTurn": "End turn",
+      "FiveFootStep": "5-foot step",
+      "None": "not an action",
+      "NotInCombat": "Not in a combat; the budget resets when you end your turn.",
+      "Overspent": "{name} has already used this turn's {action}.",
+      "Provokes": "Provokes an attack of opportunity",
+      "ProvokesMaybe": "May provoke an attack of opportunity",
+      "Remaining": "Remaining this turn",
+      "Reset": "New turn",
+      "Spent": "{spent} of {total}",
+      "Title": "Actions",
+      "Used": "Used",
+      "attack": "attack action",
+      "fiveFootStep": "5-foot step",
       "free": "free action",
       "fullRound": "full-round action",
-      "move": "move action"
+      "move": "move action",
+      "none": "not an action",
+      "varies": "action varies"
     },
     "ActionPoints": "Action Points",
     "Activity": {
@@ -338,6 +355,21 @@
           "spellcasting.casterLevelOverride": {
             "label": "Caster level",
             "hint": "Blank derives it from character level."
+          },
+          "turn": {
+            "label": "Turn"
+          },
+          "turn.attack": {
+            "label": "Attack"
+          },
+          "turn.fiveFootStep": {
+            "label": "Five Foot Step"
+          },
+          "turn.move": {
+            "label": "Move"
+          },
+          "turn.stance": {
+            "label": "Stance"
           }
         }
       },
@@ -632,6 +664,21 @@
             "label": "Caster level",
             "hint": "Blank derives it from character level."
           },
+          "turn": {
+            "label": "Turn"
+          },
+          "turn.attack": {
+            "label": "Attack"
+          },
+          "turn.fiveFootStep": {
+            "label": "Five Foot Step"
+          },
+          "turn.move": {
+            "label": "Move"
+          },
+          "turn.stance": {
+            "label": "Stance"
+          },
           "wealth": {
             "label": "Wealth"
           },
@@ -895,6 +942,21 @@
             "label": "Caster level",
             "hint": "Blank derives it from character level."
           },
+          "turn": {
+            "label": "Turn"
+          },
+          "turn.attack": {
+            "label": "Attack"
+          },
+          "turn.fiveFootStep": {
+            "label": "Five Foot Step"
+          },
+          "turn.move": {
+            "label": "Move"
+          },
+          "turn.stance": {
+            "label": "Stance"
+          },
           "wealth": {
             "label": "Wealth"
           },
@@ -990,6 +1052,8 @@
       "Detonate": "Detonate",
       "DetonateNote": "Everyone in the burst radius; a save halves it.",
       "Detonates": "{name} detonates",
+      "FullAttack": "Full attack",
+      "FullAttackHint": "Roll every attack a high base attack bonus grants.",
       "Hit": "Hit",
       "HowToTarget": "no target — hover a token and press {key} to target it",
       "InBlast": "Targeted",
@@ -2123,6 +2187,17 @@
       "Longarm": "Longarm",
       "Simple": "Simple Weapon",
       "Unarmed": "Unarmed"
+    },
+    "Stance": {
+      "Title": "Stance",
+      "TotalDefense": "Total defense",
+      "FightDefensively": "Fight defensively",
+      "Run": "Run",
+      "Charge": "Charge",
+      "Withdraw": "Withdraw",
+      "Ends": "{name} drops the {stance} stance.",
+      "Takes": "{name}: {stance}.",
+      "None": "No stance."
     }
   },
   "TYPES": {
