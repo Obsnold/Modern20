@@ -1,3 +1,5 @@
+import { CREATURE_TYPES } from "../creature-types.mjs";
+import { creatureType } from "../apps/creature-types.mjs";
 import { Modern20ActorBase, attributeFields, int } from "./actor-base.mjs";
 
 const fields = foundry.data.fields;
@@ -28,6 +30,29 @@ export class Modern20Creature extends Modern20ActorBase {
       senses: new fields.StringField({ initial: "" }),
       specialQualities: new fields.StringField({ initial: "" })
     };
+  }
+
+  /**
+   * Normalise a creature type written as free text.
+   *
+   * The field was a text input before the fifteen types were imported, so a
+   * creature made or edited then holds whatever was typed — and the compendium
+   * held stat-block phrasing like "elemental (air)". Anything that resolves
+   * becomes the type's id so the picker can show it; anything that does not is
+   * left exactly as it was rather than being guessed at.
+   */
+  static migrateData(source) {
+    const written = source.details?.creatureType;
+    if (written && !CREATURE_TYPES[written]) {
+      const resolved = creatureType(written);
+      if (resolved) {
+        source.details.creatureType = resolved.id;
+        if (!source.details.subtype) {
+          source.details.subtype = String(written).match(/\(([^)]*)\)/)?.[1]?.trim() ?? "";
+        }
+      }
+    }
+    return super.migrateData(source);
   }
 
   /**

@@ -2,12 +2,25 @@
   <div class="m20-panel">
     <h3>{{localize "MODERN20.CreatureDetails"}}</h3>
     <div class="m20-row">
-      <label>{{localize "MODERN20.CreatureType"}}</label>
-      <input type="text" name="system.details.creatureType" value="{{system.details.creatureType}}">
+      <label for="m20-creature-type">{{localize "MODERN20.CreatureType"}}</label>
+      <select id="m20-creature-type" name="system.details.creatureType">
+        <option value="">{{localize "MODERN20.Creature.NoType"}}</option>
+        {{#each creatureTypes as |label key|}}
+          <option value="{{key}}" {{#if (eq key ../system.details.creatureType)}}selected{{/if}}>
+            {{label}}
+          </option>
+        {{/each}}
+      </select>
     </div>
     <div class="m20-row">
-      <label>{{localize "MODERN20.HitDice"}}</label>
-      <input type="text" name="system.details.hitDice" value="{{system.details.hitDice}}">
+      <label for="m20-hit-dice">{{localize "MODERN20.HitDice"}}</label>
+      <input id="m20-hit-dice" type="text" name="system.details.hitDice"
+             value="{{system.details.hitDice}}" placeholder="5d8">
+      <button type="button" class="m20-button m20-button--small"
+              data-action="applyCreatureType"
+              data-tooltip="{{localize 'MODERN20.Creature.ApplyHint'}}">
+        {{localize "MODERN20.Creature.Apply"}}
+      </button>
     </div>
     <div class="m20-row">
       <label>{{localize "MODERN20.Advancement"}}</label>

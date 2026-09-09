@@ -1,8 +1,10 @@
 import { MODERN20 } from "../config.mjs";
+import { announce } from "../apps/announce.mjs";
 import { Modern20LevelUpScreen } from "../apps/level-up-screen.mjs";
 import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
 import { STANCES } from "../apps/actions.mjs";
 import { setting } from "../settings.mjs";
+import { creatureTypeChoices, derivedFromType, sizeGuidance } from "../apps/creature-types.mjs";
 
 const { Item } = foundry.documents;
 
@@ -49,7 +51,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       takeStance: Modern20ActorSheetBase.#onTakeStance,
       endTurn: Modern20ActorSheetBase.#onEndTurn,
       fiveFootStep: Modern20ActorSheetBase.#onFiveFootStep,
-      fullAttack: Modern20ActorSheetBase.#onFullAttack
+      fullAttack: Modern20ActorSheetBase.#onFullAttack,
+      applyCreatureType: Modern20ActorSheetBase.#onApplyCreatureType
     }
   };
 
@@ -138,6 +141,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     }
     context.skills = this._prepareSkillRows(actor.system.skills);
     context.combat = this._prepareCombat(actor);
+    context.creatureTypes = creatureTypeChoices();
 
     // Newest first: what happened most recently is what a player checks.
     context.advancement = [...(actor.system.advancement ?? [])].reverse();
@@ -410,6 +414,57 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    */
   static async #onRestCasting() {
     await this.document.restoreCasting();
+  }
+
+  /**
+   * Fill in what the creature's type and Hit Dice decide.
+   *
+   * Base attack and saves follow from the type's column and the shared
+   * progression table, so they are written. Ability scores do not: the SRD
+   * gives a range for each size and picking within it is the point of building
+   * a creature rather than copying one, so those are reported as guidance.
+   */
+  static async #onApplyCreatureType() {
+    const actor = this.document;
+    const details = actor.system.details ?? {};
+    const derived = derivedFromType(details.creatureType, details.hitDice);
+
+    if (!derived) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Creature.PickType"));
+      return;
+    }
+
+    await actor.update({
+      "system.details.hitDice": derived.hitDice,
+      "system.attributes.baseAttack": derived.baseAttack,
+      "system.saves.fort.base": derived.saves.fort,
+      "system.saves.ref.base": derived.saves.ref,
+      "system.saves.will.base": derived.saves.will
+    });
+
+    const guidance = sizeGuidance(details.creatureType, actor.system.attributes.size);
+    const lines = [
+      game.i18n.format("MODERN20.Creature.Applied", {
+        type: derived.type.name,
+        hitDice: derived.hitDice,
+        attack: derived.attackSequence
+      })
+    ];
+    if (guidance) {
+      lines.push(game.i18n.format("MODERN20.Creature.Abilities", {
+        str: guidance.str, dex: guidance.dex, con: guidance.con || "\u2014"
+      }));
+      const attacks = ["slam", "bite", "claw", "gore"]
+        .filter((key) => guidance[key] && guidance[key] !== "-")
+        .map((key) => `${game.i18n.localize(`MODERN20.Creature.${key}`)} ${guidance[key]}`);
+      if (attacks.length) {
+        lines.push(game.i18n.format("MODERN20.Creature.NaturalAttacks", {
+          attacks: attacks.join(", ")
+        }));
+      }
+    }
+
+    await announce(actor, { title: actor.name, lines, img: actor.img, whisper: true });
   }
 
   /**

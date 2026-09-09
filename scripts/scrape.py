@@ -638,7 +638,11 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
         "id": camel(name),
         "name": name,
         "size": size,
-        "creatureType": creature_type,
+        # Stored as the type's own id, with anything parenthesised — "elemental
+        # (air)" — kept as the subtype, so the sheet can offer the fifteen
+        # types as a list and still say which elemental this is.
+        "creatureType": creature_type_id(creature_type),
+        "subtype": creature_subtype(creature_type),
         "challengeRating": rows.get("cr", ""),
         "hitDice": hit_dice.split(";")[0].strip(),
         "hp": hp,
@@ -1015,6 +1019,190 @@ def signed_int(text: str) -> int | None:
     """A modifier cell as a number, or None where the cell holds no modifier."""
     value = strip_footnote(text)
     return int(value) if SIGNED.match(value) else None
+
+
+CREATURE_TYPE_LABELS = {
+    "hit die", "base attack bonus", "good saving throws", "skill points", "feats",
+}
+
+# "Base Attack Bonus (A): Use this column for aberrations, animals..." The page
+# names which column each type uses in a footnote rather than in the entry.
+BAB_COLUMN = re.compile(r"Base Attack Bonus \(([ABC])\)\s*$")
+
+
+# The fifteen type names, longest first so "monstrous humanoid" is matched
+# before "humanoid".
+CREATURE_TYPE_NAMES = [
+    "monstrous humanoid", "magical beast", "aberration", "animal", "construct",
+    "dragon", "elemental", "fey", "giant", "humanoid", "ooze", "outsider",
+    "plant", "undead", "vermin",
+]
+
+
+def creature_type_id(text: str) -> str:
+    """"elemental (air)" and "Monstrous Humanoid" both name a type."""
+    lowered = (text or "").lower()
+    for name in CREATURE_TYPE_NAMES:
+        if name in lowered:
+            return camel(name)
+    return ""
+
+
+def creature_subtype(text: str) -> str:
+    """The parenthetical a stat block adds: "elemental (air)"."""
+    match = re.search(r"\(([^)]*)\)", text or "")
+    return match.group(1).strip() if match else ""
+
+
+def scrape_creature_types() -> dict:
+    """The fifteen creature types, and the progression table they share.
+
+    Each type sets a hit die, which of three base attack columns it uses, its
+    good saves, and how many skill points and feats it gets — everything you
+    need to build one rather than copy one. The per-size table that follows
+    each entry gives ability ranges and natural attack damage for that size.
+    """
+    page = srd.fetch("creaturetypes.html")
+    lines = text_lines(page)
+    tables = srd.annotated_tables(page)
+
+    progression_table = find_table(tables, "good save bonus", "base attack bonus")
+    progression = []
+    for row in (progression_table["rows"] if progression_table else []):
+        # "1 or less" is the first row's label.
+        hit_dice = srd.to_int(row[0], 0) or 0
+        if not hit_dice or len(row) < 6:
+            continue
+        progression.append({
+            "hitDice": hit_dice,
+            "goodSave": srd.to_int(row[1], 0) or 0,
+            "poorSave": srd.to_int(row[2], 0) or 0,
+            # Kept as printed: "+11/+6/+1" is three attacks, not a number.
+            "attackA": row[3].strip(),
+            "attackB": row[4].strip(),
+            "attackC": row[5].strip(),
+        })
+
+    # Which column each type uses, from the three footnotes under the table.
+    columns = {}
+    for i, line in enumerate(lines):
+        match = BAB_COLUMN.match(line.strip())
+        if match and i + 1 < len(lines) and is_value(lines[i + 1]):
+            # ": Use this column for aberrations, animals, constructs, ..."
+            listed = value_of(lines[i + 1]).split("for", 1)[-1]
+            for name in re.split(r",|\band\b", listed):
+                name = re.sub(r"[^a-z ]", "", name.lower()).strip()
+                if name:
+                    columns[singular(name)] = match.group(1)
+
+    # Each type's own size table follows its entry, in page order.
+    size_tables = [t for t in tables
+                   if t["header"][:1] == ["Size"] and "Minimum HD" in t["header"]]
+
+    # Anchored on "Hit Die" and walked back to the heading, rather than on the
+    # generic entry finder: every size table on this page is full of short
+    # cells like "1" and "-" that sit within its lookahead of the next type's
+    # labels, and each one was being read as a creature type.
+    starts = []
+    for i, line in enumerate(lines):
+        if line.strip() != "Hit Die":
+            continue
+        for back in range(1, 4):
+            candidate = lines[i - back].strip()
+            if not candidate or is_value(candidate) or len(candidate) > 30:
+                continue
+            starts.append(i - back)
+            break
+
+    types = []
+    for position, start in enumerate(starts):
+        end = starts[position + 1] if position + 1 < len(starts) else len(lines)
+        name = lines[start]
+        fields = collect_labels(lines, start + 1, end, CREATURE_TYPE_LABELS)
+        if "hit die" not in fields:
+            continue
+
+        key = singular(name.lower())
+        types.append({
+            "id": camel(name),
+            "name": name,
+            # A description sits between the heading and the labels, except
+            # where the SRD prints none.
+            "description": (lines[start + 1]
+                            if start + 1 < len(lines) and lines[start + 1].strip() != "Hit Die"
+                            else ""),
+            "hitDie": fields["hit die"].strip(),
+            # A, B or C — which column of the shared progression table.
+            "baseAttack": columns.get(key, "A"),
+            "baseAttackText": fields.get("base attack bonus", ""),
+            "goodSaves": [SAVE_NAMES[word.lower()]
+                          for word in re.findall(r"[A-Za-z]+", fields.get("good saving throws", ""))
+                          if word.lower() in SAVE_NAMES],
+            "skillPoints": fields.get("skill points", ""),
+            "feats": fields.get("feats", ""),
+            "traits": creature_traits(lines, start, end, CREATURE_TYPE_LABELS),
+            "sizes": size_rows(size_tables[len(types)] if len(types) < len(size_tables) else None),
+            "srdUrl": srd.page_url("creaturetypes.html"),
+        })
+
+    return {"progression": progression, "types": types}
+
+
+def singular(name: str) -> str:
+    """"Aberrations" and "Oozes" both name the aberration and ooze types."""
+    name = name.strip().lower()
+    if name.endswith("ies"):
+        return name[:-3] + "y"
+    return name[:-1] if name.endswith("s") else name
+
+
+def creature_traits(lines, start, end, labels) -> list[dict]:
+    """The extra traits a type grants, after its label block.
+
+    Written the same way as the labelled fields but with names the label set
+    does not know — "Darkvision (Ex)", "Immunities", "Repairable" — so they are
+    read by shape rather than by name.
+    """
+    traits = []
+    for i in range(start, min(end, len(lines) - 1)):
+        line = lines[i]
+        if is_label(line, labels) or is_value(line) or line.startswith("Table:"):
+            continue
+        if is_value(lines[i + 1]) and len(line) < 60:
+            traits.append({"name": line.strip(), "text": value_of(lines[i + 1])})
+    return traits
+
+
+def size_rows(table) -> list[dict]:
+    """A type's per-size table: ability ranges and natural attack damage."""
+    if not table:
+        return []
+    header = [c.strip().lower() for c in table["header"]]
+    rows = []
+    for raw in table["rows"]:
+        if not raw or raw[0].strip() not in SIZE_NAMES:
+            continue
+        cell = {name: (raw[i].strip() if i < len(raw) else "")
+                for i, name in enumerate(header)}
+        rows.append({
+            "size": cell.get("size", ""),
+            "str": cell.get("str", ""),
+            "dex": cell.get("dex", ""),
+            "con": cell.get("con", ""),
+            "minimumHD": cell.get("minimum hd", ""),
+            "extraHitPoints": srd.to_int(cell.get("extra hit points", ""), 0) or 0,
+            "slam": cell.get("slam", ""),
+            "bite": cell.get("bite", ""),
+            "claw": cell.get("claw", ""),
+            "gore": cell.get("gore", ""),
+        })
+    return rows
+
+
+SIZE_NAMES = {
+    "Fine", "Diminutive", "Tiny", "Small", "Medium-size",
+    "Large", "Huge", "Gargantuan", "Colossal",
+}
 
 
 def scrape_combat_actions() -> list[dict]:
@@ -1562,6 +1750,9 @@ def main() -> int:
     write("talents.json", talents)
     creatures = scrape_creatures(pages)
     write("creatures.json", creatures)
+    creature_types = scrape_creature_types()
+    write("creature_types.json", creature_types)
+
     combat_actions = scrape_combat_actions()
     write("combat_actions.json", combat_actions)
     combat_tables = scrape_combat_tables()
@@ -1580,6 +1771,7 @@ def main() -> int:
     print(f"\n{len(skills)} skills ({sum(len(v['options']) for v in specialties.values())} specialties), {len(classes)} classes ({levels} levels), "
           f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
           f"{len(combat_actions)} combat actions, "
+          f"{len(creature_types['types'])} creature types, "
           f"{len(creatures)} creatures, {len(spells)} spells, "
           f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "
           f"{len(conditions)} conditions, "

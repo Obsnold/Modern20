@@ -21,7 +21,10 @@ SKIP_DIRS = {".git", ".cache", "node_modules", "packs", ".venv"}
 DYNAMIC_PREFIXES = ("MODERN20.ItemType.", "MODERN20.Tab.", "MODERN20.Creator.Tab.",
                     "MODERN20.Condition.", "MODERN20.Activity.Type.",
                     "MODERN20.Activity.OnSuccess.", "MODERN20.Action.",
-                    "MODERN20.Settings.")
+                    "MODERN20.Settings.",
+                    # Natural attack names, keyed by the column of the SRD's
+                    # own per-size table: slam, bite, claw, gore.
+                    "MODERN20.Creature.")
 
 
 def flatten(node, prefix=""):

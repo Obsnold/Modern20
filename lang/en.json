@@ -1305,6 +1305,19 @@
       "Title": "Create a character",
       "WealthBonus": "Wealth bonus"
     },
+    "Creature": {
+      "Apply": "Apply type",
+      "ApplyHint": "Set base attack and saves from the type and Hit Dice, and show the ability ranges and natural attacks for this size.",
+      "Applied": "{type}, {hitDice} — attacks at {attack}",
+      "Abilities": "Str {str} · Dex {dex} · Con {con} for this size",
+      "NaturalAttacks": "Natural attacks: {attacks}",
+      "NoType": "No type",
+      "PickType": "Pick a creature type and set its Hit Dice first.",
+      "bite": "bite",
+      "claw": "claw",
+      "gore": "gore",
+      "slam": "slam"
+    },
     "CreatureDetails": "Creature Details",
     "CreatureType": "Type",
     "Crew": "Crew",

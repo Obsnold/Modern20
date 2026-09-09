@@ -549,7 +549,7 @@ def build_creatures() -> list[dict]:
             },
             "details": {
                 "creatureType": e["creatureType"],
-                "subtype": "",
+                "subtype": e.get("subtype", ""),
                 "challengeRating": e["challengeRating"],
                 "hitDice": e["hitDice"],
                 "advancement": e["advancement"],
