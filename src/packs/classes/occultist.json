@@ -1,6 +1,6 @@
 {
-  "_id": "sn2igHzan7RmHU0q",
-  "name": "Negotiator",
+  "_id": "TmfG7wDVWuuZEIBi",
+  "name": "Occultist",
   "type": "class",
   "img": "icons/svg/upgrade.svg",
   "system": {
@@ -8,19 +8,11 @@
     "tier": "advanced",
     "levels": 1,
     "keyAbility": "",
-    "hitDie": "1d8",
+    "hitDie": "The Occultist gains 1d6 hit points per level. The character’s Constitution modifier applies.",
     "skillPointsPerLevel": 3,
     "classSkills": [
       {
-        "skill": "bluff",
-        "specialty": ""
-      },
-      {
-        "skill": "computerUse",
-        "specialty": ""
-      },
-      {
-        "skill": "diplomacy",
+        "skill": "decipherScript",
         "specialty": ""
       },
       {
@@ -28,15 +20,11 @@
         "specialty": ""
       },
       {
-        "skill": "gamble",
+        "skill": "escapeArtist",
         "specialty": ""
       },
       {
-        "skill": "gatherInformation",
-        "specialty": ""
-      },
-      {
-        "skill": "intimidate",
+        "skill": "forgery",
         "specialty": ""
       },
       {
@@ -45,27 +33,15 @@
       },
       {
         "skill": "knowledge",
-        "specialty": "Behavioral Sciences"
+        "specialty": "Arcane Lore"
       },
       {
         "skill": "knowledge",
-        "specialty": "Business"
+        "specialty": "History"
       },
       {
         "skill": "knowledge",
-        "specialty": "Civics"
-      },
-      {
-        "skill": "knowledge",
-        "specialty": "Current Events"
-      },
-      {
-        "skill": "knowledge",
-        "specialty": "Popular Culture"
-      },
-      {
-        "skill": "knowledge",
-        "specialty": "Streetwise"
+        "specialty": "Theology And Philosophy"
       },
       {
         "skill": "profession",
@@ -76,141 +52,138 @@
         "specialty": ""
       },
       {
-        "skill": "senseMotive",
+        "skill": "sleightOfHand",
         "specialty": ""
       },
       {
         "skill": "speakLanguage",
         "specialty": ""
-      },
-      {
-        "skill": "spot",
-        "specialty": ""
       }
     ],
     "prerequisites": [
-      "To qualify to become a Negotiator, a character must fulfill the following criteria."
+      "To qualify to become an Occultist, a character must fulfill the following criteria."
     ],
     "progression": [
       {
         "level": 1,
         "features": [
-          "Conceal motigve"
+          "Arcane skills",
+          "spell resistance"
         ],
         "baseAttack": 0,
-        "fort": 1,
+        "fort": 0,
         "ref": 0,
-        "will": 2,
+        "will": 1,
         "defense": 0,
-        "reputation": 1
+        "reputation": 0
       },
       {
         "level": 2,
         "features": [
-          "React first"
+          "Arcane research (scrolls)"
         ],
         "baseAttack": 1,
-        "fort": 2,
+        "fort": 0,
         "ref": 0,
-        "will": 3,
+        "will": 2,
         "defense": 1,
-        "reputation": 1
+        "reputation": 0
       },
       {
         "level": 3,
         "features": [
           "Bonus feat"
         ],
-        "baseAttack": 2,
-        "fort": 2,
+        "baseAttack": 1,
+        "fort": 1,
         "ref": 1,
-        "will": 3,
+        "will": 2,
         "defense": 1,
         "reputation": 1
       },
       {
         "level": 4,
         "features": [
-          "Talk down one opponent"
+          "Shadow contact"
         ],
-        "baseAttack": 3,
-        "fort": 2,
+        "baseAttack": 2,
+        "fort": 1,
         "ref": 1,
-        "will": 4,
+        "will": 2,
         "defense": 1,
-        "reputation": 2
+        "reputation": 1
       },
       {
         "level": 5,
         "features": [
-          "No sweat"
+          "Bind Shadow creature"
         ],
-        "baseAttack": 3,
-        "fort": 3,
+        "baseAttack": 2,
+        "fort": 1,
         "ref": 1,
-        "will": 4,
+        "will": 3,
         "defense": 2,
-        "reputation": 2
+        "reputation": 1
       },
       {
         "level": 6,
         "features": [
           "Bonus feat"
         ],
-        "baseAttack": 4,
-        "fort": 3,
+        "baseAttack": 3,
+        "fort": 2,
         "ref": 2,
-        "will": 5,
+        "will": 3,
         "defense": 2,
         "reputation": 2
       },
       {
         "level": 7,
         "features": [
-          "Talk down several opponents"
+          "Arcane research (items)"
         ],
-        "baseAttack": 5,
-        "fort": 4,
+        "baseAttack": 3,
+        "fort": 2,
         "ref": 2,
-        "will": 5,
+        "will": 4,
         "defense": 2,
-        "reputation": 3
+        "reputation": 2
       },
       {
         "level": 8,
         "features": [
-          "Sow distrust"
+          "Bind Shadow creature"
         ],
-        "baseAttack": 6,
-        "fort": 4,
+        "baseAttack": 4,
+        "fort": 2,
         "ref": 2,
-        "will": 6,
+        "will": 4,
         "defense": 3,
-        "reputation": 3
+        "reputation": 2
       },
       {
         "level": 9,
         "features": [
           "Bonus feat"
         ],
-        "baseAttack": 6,
-        "fort": 4,
+        "baseAttack": 4,
+        "fort": 3,
         "ref": 3,
-        "will": 6,
+        "will": 4,
         "defense": 3,
         "reputation": 3
       },
       {
         "level": 10,
         "features": [
-          "Talk down all opponents"
+          "Banish"
         ],
-        "baseAttack": 7,
-        "fort": 5,
+        "baseAttack": 5,
+        "fort": 3,
         "ref": 3,
-        "will": 7,
+        "will": 5,
         "defense": 3,
-        "reputation": 4
+        "reputation": 3
       }
     ],
     "casting": {
@@ -224,7 +197,7 @@
       "powersKnown": []
     },
     "source": "d20 Modern SRD",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/negotiator.html"
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occultist.html"
   },
-  "_key": "!items!sn2igHzan7RmHU0q"
+  "_key": "!items!TmfG7wDVWuuZEIBi"
 }

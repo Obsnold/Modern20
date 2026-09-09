@@ -58,21 +58,35 @@ export class Modern20Item extends Item {
         : postCastCard(this, activity);
 
     const result = await card;
-    await this.#spendPreparation();
+    await this.#spendCastingResource();
     return result;
   }
 
   /**
-   * Expend a prepared spell.
+   * Spend what casting this costs: a spell slot of its level, or the power
+   * points the power lists.
    *
-   * A Mage "must prepare spells ahead of time" and casting uses one up. Only
-   * counted down where a count was set: the imported spell list has none, and
-   * warning on every cast that a spell nobody prepared is unprepared would be
-   * noise rather than help. Never blocks the cast — the GM rules on that.
+   * "He is limited to a certain number of spells of each spell level per day",
+   * and a psionic character "just pays the power point cost of a power to
+   * manifest it". Reported rather than enforced — an empty pool warns, it does
+   * not refuse, since scrolls, items and the GM all cast around the table.
    */
-  async #spendPreparation() {
-    if (this.type !== "spell" || !(this.system.prepared > 0)) return;
-    await this.update({ "system.prepared": this.system.prepared - 1 });
+  async #spendCastingResource() {
+    if (!this.actor) return;
+
+    if (this.type === "spell") {
+      // A prepared count, where the player set one, comes off first: it is
+      // the specific spell, where the slot is only its level.
+      if (this.system.prepared > 0) {
+        await this.update({ "system.prepared": this.system.prepared - 1 });
+      }
+      await this.actor.spendSpellSlot(this.system.tradition, this.castingLevel);
+      return;
+    }
+
+    if (this.type === "psiPower") {
+      await this.actor.spendPowerPoints(this.system.powerPoints ?? 0);
+    }
   }
 
   /**
