@@ -597,6 +597,97 @@ def ability_mod(score: int) -> int:
     return (score - 10) // 2
 
 
+def sized_name(cell: str, sibling: str) -> str:
+    """A name for a column that printed its size and type instead of a name.
+
+    "Huge vermin" beside "Large Monstrous Spider" is the huge one of those, so
+    it takes the sibling's name with its size swapped for this column's.
+    """
+    words = (cell or "").split()
+    size = words[0] if words else ""
+    if not sibling:
+        return cell
+    base = sibling.split(" ", 1)[1] if sibling.split()[0].lower() in SIZE_WORDS else sibling
+    return f"{size} {base}".strip()
+
+
+# The words a size-and-type line is made of. A stat block's first row reads
+# "Medium-size undead"; some print it in the name row instead, and a few print
+# it nowhere at all.
+SIZE_WORDS = {
+    "fine", "diminutive", "tiny", "small", "medium-size", "medium",
+    "large", "huge", "gargantuan", "colossal",
+}
+
+
+def looks_like_size_type(cell: str) -> bool:
+    """Whether a cell is a size-and-type line rather than a name.
+
+    Both halves have to be there. A size word alone is not enough: "Huge
+    Crocodile Zombie" and "Tiny Viper" are names the SRD prints, and reading
+    them as size lines renamed them after their neighbours.
+    """
+    text = re.sub(r"\([^)]*\)", " ", (cell or "").lower())
+    words = text.split()
+    if not words or words[0] not in SIZE_WORDS:
+        return False
+    rest = " ".join(words[1:]).strip()
+    return any(rest == name or rest.startswith(name + " ") for name in CREATURE_TYPE_NAMES)
+
+
+def heading_before(page_html: str, needle: str) -> str:
+    """The creature name heading printed above a stat block.
+
+    A few blocks put the size and type in the name row, leaving the name only
+    in the heading above the table — so "Huge animal" was being imported as a
+    creature called "Huge animal".
+    """
+    position = page_html.find(needle)
+    if position < 0:
+        return ""
+    for line in reversed(text_lines(page_html[:position])):
+        # Headings are short noun phrases; the prose above them ends in a full
+        # stop and the label/value lines start with a colon.
+        if line and len(line) < 46 and not is_value(line) and not line.endswith("."):
+            return line.title() if line.isupper() else line
+    return ""
+
+
+# "Construct: A chemical golem has the traits and immunities common to
+# constructs." Where a stat block omits its size-and-type line, the creature's
+# own text still says what it is.
+TRAITS_COMMON = re.compile(r"traits and immunities common to (\w+)", re.I)
+
+
+def type_from_traits(page_html: str, name: str) -> str:
+    """The creature type stated in a block's own special abilities."""
+    position = page_html.find(name)
+    if position < 0:
+        return ""
+    section = text_lines(page_html[position:position + 9000])
+    match = TRAITS_COMMON.search(" ".join(section))
+    return singular(match.group(1).lower()) if match else ""
+
+
+def size_from_defense(defense_text: str) -> str:
+    """The size a Defense line's own size modifier implies.
+
+    "20, touch 8, flat-footed 19 (-1 size, -1 Dex, +10 natural)" is a Large
+    creature. Arithmetic from the printed line rather than a guess, which is
+    what makes it usable where the size is not printed anywhere else.
+    """
+    match = re.search(r"([-+]?\d+)\s+size", defense_text or "")
+    if not match:
+        return ""
+    return SIZE_BY_MODIFIER.get(int(match.group(1)), "")
+
+
+SIZE_BY_MODIFIER = {
+    8: "fine", 4: "diminutive", 2: "tiny", 1: "small", 0: "medium",
+    -1: "large", -2: "huge", -4: "gargantuan", -8: "colossal",
+}
+
+
 def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: str) -> dict:
     """One column of a stat block into the fields the creature model stores.
 
@@ -691,7 +782,34 @@ def scrape_creatures(pages: list[str]) -> list[dict]:
                 continue
 
             names = table["header"]
-            size_types = table["rows"][0] if table["rows"] else []
+            first = table["rows"][0] if table["rows"] else []
+
+            # A stat block normally opens with an unlabelled size-and-type row.
+            if first and not first[0].strip() and any(looks_like_size_type(c) for c in first):
+                size_types = first
+            elif any(looks_like_size_type(c) for c in names[1:]):
+                # Some blocks put the size and type where the names belong, and
+                # print the name only as the heading above the table.
+                size_types = names
+                heading = heading_before(page_html, next(c for c in names if c.strip()))
+                names = [""] + [
+                    f"{heading} ({cell.split()[0]})" if heading and cell.strip() else cell
+                    for cell in names[1:]
+                ]
+            else:
+                # A handful print it nowhere; the creature's own text still says.
+                size_types = []
+
+            # A column whose name cell holds a size and type has no name of its
+            # own: the SRD prints "Large Monstrous Spider" and then, for the
+            # bigger one, just "Huge vermin". Named from its sibling and its
+            # own size, which is what the printed pair means.
+            sibling = next((c.strip() for c in names[1:]
+                            if c.strip() and not looks_like_size_type(c)), "")
+            names = [names[0]] + [
+                sized_name(cell, sibling) if looks_like_size_type(cell) else cell
+                for cell in names[1:]
+            ]
 
             for column in range(1, len(names)):
                 name = names[column].strip()
@@ -705,7 +823,15 @@ def scrape_creatures(pages: list[str]) -> list[dict]:
                     key = raw[0].rstrip(":").strip().lower()
                     rows[key] = raw[column].strip() if column < len(raw) else ""
 
-                size_type = size_types[column] if column < len(size_types) else "Medium-size"
+                size_type = size_types[column] if column < len(size_types) else ""
+                if not size_type:
+                    # Recovered from the block itself: the Defense line states
+                    # the size modifier, and the special abilities name the type.
+                    size_type = " ".join(filter(None, [
+                        size_from_defense(rows.get("defense", "")),
+                        type_from_traits(page_html, name),
+                    ])) or "Medium-size"
+
                 entry = parse_creature_column(rows, name, size_type, srd.page_url(page))
                 # Later pages repeat a few creatures; first definition wins.
                 creatures.setdefault(entry["id"], entry)

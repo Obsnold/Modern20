@@ -66,7 +66,7 @@
     },
     "attributes": {
       "baseAttack": 5,
-      "size": "medium",
+      "size": "huge",
       "speed": 20,
       "initiative": {
         "misc": 0
@@ -77,7 +77,7 @@
       "space": 5
     },
     "details": {
-      "creatureType": "",
+      "creatureType": "plant",
       "subtype": "",
       "challengeRating": "8",
       "hitDice": "7d8+35",
