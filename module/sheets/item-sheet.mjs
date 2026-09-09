@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { maxRange, maxIncrements } from "../apps/attack.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -85,6 +86,8 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     context.fields = item.system.schema.fields;
     context.isPurchasable = item.system.purchaseDC !== undefined;
     context.hasPrerequisites = Array.isArray(item.system.prerequisites);
+    context.maxRange = item.type === "weapon" ? maxRange(item.system) : 0;
+    context.maxIncrements = item.type === "weapon" ? maxIncrements(item.system) : 0;
 
     // Stored activities, and the generated defaults shown when there are none
     // so it is clear what adding one would replace.

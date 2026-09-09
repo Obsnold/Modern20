@@ -63,6 +63,12 @@
     {{formField fields.critical value=system.critical}}
     {{formField fields.ranged value=system.ranged}}
     {{formField fields.rangeIncrement value=system.rangeIncrement}}
+    {{#if maxRange}}
+      <p class="m20-hint">
+        {{localize "MODERN20.Attack.MaxRange"}}: {{maxRange}} ft.
+        ({{maxIncrements}} &times; {{system.rangeIncrement}} ft.)
+      </p>
+    {{/if}}
     {{formField fields.rateOfFire value=system.rateOfFire}}
     {{formField fields.magazine value=system.magazine}}
     {{formField fields.ammo value=system.ammo}}

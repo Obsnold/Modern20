@@ -20,6 +20,29 @@ const { ChatMessage } = foundry.documents;
 
 const RANGE_PENALTY_PER_INCREMENT = -2;
 
+// "A thrown weapon has a maximum range of five range increments. Ranged
+// weapons that fire projectiles can shoot up to ten increments."
+const MAX_INCREMENTS_THROWN = 5;
+const MAX_INCREMENTS_PROJECTILE = 10;
+
+/**
+ * How many increments a weapon reaches.
+ *
+ * A rate of fire is what separates the two in the data: a firearm or a bow has
+ * one, a thrown hatchet or grenade does not.
+ */
+export function maxIncrements(system) {
+  // The SRD writes "no rate of fire" as a dash, which is not a rate of fire.
+  const rate = String(system.rateOfFire ?? "").replace(/[-–—\s]/g, "");
+  return rate ? MAX_INCREMENTS_PROJECTILE : MAX_INCREMENTS_THROWN;
+}
+
+/** A weapon's maximum range in feet, or 0 when it is not a ranged weapon. */
+export function maxRange(system) {
+  const increment = system.rangeIncrement ?? 0;
+  return increment ? increment * maxIncrements(system) : 0;
+}
+
 /** The lowest d20 result that threatens: "19-20" gives 19, "20" gives 20. */
 export function threatRange(critical) {
   const numbers = String(critical ?? "20").match(/\d+/g)?.map(Number) ?? [20];
@@ -94,6 +117,11 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
   const distance = measures ? tokenDistance(attackerToken, targetToken) : null;
   const range = measures ? rangePenalty(distance, item.system.rangeIncrement) : 0;
 
+  // Beyond its maximum the weapon simply does not reach. Reported rather than
+  // refused, so the GM can rule otherwise.
+  const reach = maxRange(item.system);
+  const outOfRange = Boolean(measures && reach && distance !== null && distance > reach);
+
   const data = {
     bab: actor.system.attributes.baseAttack,
     ability: abilityMod,
@@ -113,7 +141,8 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
   // An activity may set its own Defense: autofire rolls against the area.
   const defense = activity.attack?.defenseOverride ?? target?.system?.defense?.value ?? null;
   let hit = null;
-  if (natural === 1) hit = false;
+  if (outOfRange) hit = false;
+  else if (natural === 1) hit = false;
   else if (natural === 20) hit = true;
   else if (defense !== null) hit = roll.total >= defense;
 
@@ -133,7 +162,7 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     targetName: target?.name ?? null,
     targetTokenId: targetToken?.id ?? null,
     targetSceneId: targetToken?.scene?.id ?? null,
-    distance, range, ranged,
+    distance, range, ranged, outOfRange, maxRange: reach,
     activity,
     activityId: activity.id,
     area: activity.area?.size || null,
