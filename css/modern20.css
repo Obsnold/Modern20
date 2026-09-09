@@ -185,6 +185,18 @@
 /* An equipped item's control reads as active rather than merely hoverable. */
 .modern20 .m20-icon--on { color: var(--m20-success); }
 
+/* A weapon offers one button per firing mode, so they need to read as words. */
+.modern20 .m20-mode {
+  width: auto;
+  padding: 0 0.3rem;
+  font-size: 0.64rem;
+  font-weight: 600;
+  border: 1px solid var(--m20-rule);
+  border-radius: 3px;
+}
+
+.modern20 .m20-mode:disabled { opacity: 0.4; cursor: not-allowed; }
+
 .modern20 .m20-encumbrance { margin-bottom: 0.8rem; }
 
 .modern20 .m20-hpsteps { display: flex; gap: 0.1rem; }

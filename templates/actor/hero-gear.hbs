@@ -45,7 +45,18 @@
           <button type="button" class="m20-icon" data-action="purchaseItem" title="{{localize 'MODERN20.BuyHint'}}">
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
-          <button type="button" class="m20-icon" data-action="rollItem"><i class="fa-solid fa-dice-d20"></i></button>
+          {{#if (eq item.type "weapon")}}
+            {{#each item.attackModes as |mode|}}
+              <button type="button" class="m20-icon m20-mode"
+                      data-action="rollAttackMode" data-mode="{{mode.id}}"
+                      {{#unless mode.available}}disabled{{/unless}}
+                      data-tooltip="{{localize mode.label}}{{#if mode.note}} — {{localize mode.note}}{{/if}}">
+                {{localize mode.label}}
+              </button>
+            {{/each}}
+          {{else}}
+            <button type="button" class="m20-icon" data-action="rollItem"><i class="fa-solid fa-dice-d20"></i></button>
+          {{/if}}
           <button type="button" class="m20-icon" data-action="editItem"><i class="fa-solid fa-pen"></i></button>
           <button type="button" class="m20-icon" data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
         </div>

@@ -135,8 +135,30 @@ something:
 - Melee attack bonus is base attack + Strength + size; ranged is base attack +
   Dexterity + range penalty + size.
 
-Firing spends a round from the magazine, and an empty weapon says so rather
-than silently going negative.
+### Firing modes
+
+A weapon is not one attack. An automatic firearm offers **Shot**, **Auto** and
+**Burst**, each resolved differently and each spending its own ammunition — one
+round, ten, and five. Unavailable modes are shown disabled with the reason,
+rather than hidden.
+
+- **Autofire**: *"targets a 10-foot-by-10-foot area and makes an attack roll;
+  the targeted area has an effective Defense of 10"*, affecting everyone in it,
+  at -4 without Advanced Firearms Proficiency.
+- **Burst fire**: needs the feat and five rounds loaded, *"a -4 penalty on the
+  attack roll, but deal +2 dice of damage"* — two more of the weapon's own die,
+  so 2d6 becomes 4d6.
+
+This is the problem dnd5e solved with per-item activities. It is kept lighter
+here because d20 Modern decides the modes from the weapon's rate of fire rather
+than needing them authored per item.
+
+### What is deliberately not automated
+
+Attacks of opportunity, cover, concealment and flanking. No core system
+automates these — in the Foundry ecosystem that is module territory
+(Midi-QOL, PF2e Flank Helper) and GM adjudication. The situational modifier on
+an attack covers them.
 
 ## Conditions
 
