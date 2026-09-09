@@ -39,6 +39,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       openCreator: Modern20ActorSheetBase.#onOpenCreator,
       toggleEquipped: Modern20ActorSheetBase.#onToggleEquipped,
       adjustHealth: Modern20ActorSheetBase.#onAdjustHealth,
+      unpackItem: Modern20ActorSheetBase.#onUnpackItem,
       useActivity: Modern20ActorSheetBase.#onUseActivity
     }
   };
@@ -109,6 +110,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       character: this._section(grouped, ["class", "occupation", "talent", "feat"]),
       gear: this._section(grouped, ["weapon", "armor", "gear"])
     };
+    context.containers = this._containers(actor, grouped);
     context.skills = this._prepareSkillRows(actor.system.skills);
 
     // Newest first: what happened most recently is what a player checks.
@@ -126,6 +128,33 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
   }
 
   /** Group owned items so each tab can render its own list. */
+  /**
+   * Containers and what is packed in each.
+   *
+   * Contents still count towards encumbrance — the SRD has no container that
+   * reduces weight — so this is about knowing where things are and whether a
+   * bag is overfull, not about carrying more.
+   */
+  _containers(actor, grouped) {
+    return (grouped.container ?? []).map((container) => {
+      const contents = actor.items.filter(
+        (item) => item.system?.container === container.id
+      );
+      const carried = contents.reduce(
+        (total, item) => total + (item.system.weight ?? 0) * (item.system.quantity ?? 1), 0
+      );
+      const capacity = container.system.capacity ?? 0;
+
+      return {
+        item: container,
+        contents,
+        carried: Math.round(carried * 10) / 10,
+        capacity,
+        over: Boolean(capacity && carried > capacity)
+      };
+    });
+  }
+
   /** The provenance stamp a granted item carries, if any. */
   _sourceOf(item) {
     return item.getFlag("modern20", "source")?.label ?? "";
@@ -134,7 +163,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
   _sortItemsByType(items) {
     const groups = {
       class: [], occupation: [], talent: [], feat: [],
-      weapon: [], armor: [], gear: [], spell: [], psiPower: [], vehicleMod: []
+      weapon: [], armor: [], gear: [], container: [],
+      spell: [], psiPower: [], vehicleMod: []
     };
     for (const item of items) {
       if (!groups[item.type]) continue;
@@ -228,6 +258,13 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * rather than a text field, because an unnamed input cannot survive the
    * re-render that submitOnChange triggers when it loses focus.
    */
+  /** Take an item back out of the container it is packed in. */
+  static async #onUnpackItem(event, target) {
+    const item = this._itemFromEvent(target);
+    if (!item) return;
+    await item.update({ "system.container": "" });
+  }
+
   /** Use one of an item's activities. */
   static async #onUseActivity(event, target) {
     const item = this._itemFromEvent(target);

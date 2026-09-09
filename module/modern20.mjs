@@ -6,7 +6,7 @@ import { Modern20Creature } from "./data/actor-creature.mjs";
 import { Modern20Vehicle } from "./data/actor-vehicle.mjs";
 import {
   Modern20Class, Modern20Occupation, Modern20Talent, Modern20Feat,
-  Modern20Weapon, Modern20Armor, Modern20Gear, Modern20VehicleMod,
+  Modern20Weapon, Modern20Armor, Modern20Gear, Modern20Container, Modern20VehicleMod,
   Modern20Spell, Modern20PsiPower
 } from "./data/items.mjs";
 
@@ -52,6 +52,7 @@ Hooks.once("init", () => {
     weapon: Modern20Weapon,
     armor: Modern20Armor,
     gear: Modern20Gear,
+    container: Modern20Container,
     vehicleMod: Modern20VehicleMod,
     spell: Modern20Spell,
     psiPower: Modern20PsiPower

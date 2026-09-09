@@ -1,13 +1,14 @@
 {
   "_id": "Q9FM8x7dKCompzzW",
   "name": "Handbag",
-  "type": "gear",
+  "type": "container",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
     "category": "Bags and Boxes",
+    "capacity": 0,
     "weight": 1.0,
     "purchaseDC": 4,
     "restriction": "none",

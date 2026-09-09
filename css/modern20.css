@@ -326,6 +326,13 @@
 }
 
 .modern20 .m20-itemrow img { width: 24px; height: 24px; object-fit: cover; border: none; }
+
+/* Packed items sit under the container holding them. */
+.modern20 .m20-itemrow--packed {
+  padding-left: 1.8rem;
+  font-size: 0.78rem;
+  border-bottom-style: dotted;
+}
 .modern20 .m20-itemrow__name { flex: 1; }
 
 /* --- Chat cards -------------------------------------------------------- */

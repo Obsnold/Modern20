@@ -21,6 +21,34 @@
     {{/unless}}
   </div>
 
+  {{#if containers.length}}
+    <div class="m20-itemlist">
+      <h3>{{localize "MODERN20.ItemType.container"}}</h3>
+      {{#each containers as |entry|}}
+        <div class="m20-itemrow" data-item-id="{{entry.item.id}}">
+          <img src="{{entry.item.img}}" alt="{{entry.item.name}}">
+          <span class="m20-itemrow__name">{{entry.item.name}}</span>
+          <span class="m20-tag {{#if entry.over}}m20-over{{/if}}">
+            {{entry.carried}}{{#if entry.capacity}} / {{entry.capacity}}{{/if}} lb
+          </span>
+          <span class="m20-hint">{{entry.contents.length}} {{localize "MODERN20.Container.Items"}}</span>
+          <button type="button" class="m20-icon" data-action="editItem"><i class="fa-solid fa-pen"></i></button>
+          <button type="button" class="m20-icon" data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        {{#each entry.contents as |item|}}
+          <div class="m20-itemrow m20-itemrow--packed" data-item-id="{{item.id}}">
+            <span class="m20-itemrow__name">{{item.name}}</span>
+            <span class="m20-hint">{{item.system.weight}} lb</span>
+            <button type="button" class="m20-icon" data-action="unpackItem"
+                    data-tooltip="{{localize 'MODERN20.Container.Unpack'}}">
+              <i class="fa-solid fa-box-open"></i>
+            </button>
+          </div>
+        {{/each}}
+      {{/each}}
+    </div>
+  {{/if}}
+
   {{#each sections.gear as |section|}}
     <div class="m20-itemlist">
       <h3>

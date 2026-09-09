@@ -227,6 +227,21 @@ export class Modern20Armor extends Modern20ItemBase {
   }
 }
 
+/** A bag, case or box. Holds other items, up to a stated weight. */
+export class Modern20Container extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Container"];
+
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      ...purchasableFields(),
+      // Zero means the SRD states no capacity for it.
+      capacity: new fields.NumberField({ required: true, initial: 0, min: 0 }),
+      category: new fields.StringField({ initial: "Bags and Boxes" })
+    };
+  }
+}
+
 export class Modern20Gear extends Modern20ItemBase {
   static LOCALIZATION_PREFIXES = ["MODERN20.Item.Gear"];
 

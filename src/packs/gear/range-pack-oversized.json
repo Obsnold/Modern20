@@ -1,13 +1,14 @@
 {
   "_id": "AN5jrAuTK2WbDPMU",
   "name": "Range Pack (Oversized)",
-  "type": "gear",
+  "type": "container",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
     "category": "Bags and Boxes",
+    "capacity": 0,
     "weight": 3.0,
     "purchaseDC": 9,
     "restriction": "none",

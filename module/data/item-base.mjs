@@ -30,7 +30,11 @@ export function purchasableFields() {
     restriction: new fields.StringField({ initial: "none" }),
     weight: new fields.NumberField({ required: true, initial: 0, min: 0 }),
     quantity: new fields.NumberField({ required: true, integer: true, initial: 1, min: 0 }),
-    equipped: new fields.BooleanField({ initial: false })
+    equipped: new fields.BooleanField({ initial: false }),
+    // The container this is packed inside, by item id. Empty means carried
+    // loose. Contents are still carried, so encumbrance is unaffected — the
+    // SRD has no container that reduces weight.
+    container: new fields.StringField({ initial: "" })
   };
 }
 

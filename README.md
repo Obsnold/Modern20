@@ -30,7 +30,8 @@ fighting it forever, so this is a standalone game system.
 | Wealth checks, purchase DCs, restriction ratings, black market surcharge | Working |
 | Action points, massive damage threshold and Fortitude save | Working |
 | Class progression folding into attack, saves, Defense and Reputation | Working |
-| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 653 items, built from the SRD |
+| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 671 items, built from the SRD |
+| Ammunition and containers | 18 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles | 202 actors, built from the SRD |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
@@ -219,6 +220,19 @@ Attacks of opportunity, cover, concealment and flanking. No core system
 automates these — in the Foundry ecosystem that is module territory
 (Midi-QOL, PF2e Flank Helper) and GM adjudication. The situational modifier on
 an attack covers them.
+
+## Containers and ammunition
+
+Bags and cases are their own item type rather than general gear, since a
+container holds things and has a capacity. The Gear tab lists each container
+with what is packed in it and how full it is. Contents still count towards
+encumbrance — the SRD has no container that reduces weight — so this is about
+knowing where things are, not carrying more.
+
+Ammunition had never been imported. The SRD lists it as a name and a purchase
+DC only, so its rows are two cells wide and were being dropped by a
+three-cell minimum meant to skip malformed rows. All eighteen types are now in
+the gear pack with their box quantity read from the name.
 
 ## Conditions
 
