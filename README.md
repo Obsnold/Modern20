@@ -135,16 +135,27 @@ something:
 - Melee attack bonus is base attack + Strength + size; ranged is base attack +
   Dexterity + range penalty + size.
 
-### Firing modes
+### Activities
 
-A weapon is not one attack. An automatic firearm offers **Shot**, **Auto** and
-**Burst**, each resolved differently and each spending its own ammunition — one
-round, ten, and five. Unavailable modes are shown disabled with the reason,
-rather than hidden.
+An item is not a single action, so every item type carries an `activities`
+array: one entry per thing it can do. An automatic firearm offers **Shot**,
+**Auto** and **Burst**; a grenade would carry an area and a save; a magic item
+carries whatever it does. Adding a new kind of item means authoring an
+activity, not adding a branch to the attack code.
+
+Compendium weapons have theirs generated from their rate of fire rather than
+authored 200 times, and a weapon with no stored activities falls back to those
+same defaults — so a hand-made weapon works, and a stored activity wins when
+there is one. Unavailable activities are shown disabled with the reason.
+
+This is the shape dnd5e reached with per-item activities. It is lighter here:
+plain schema entries rather than pseudo-documents, since nothing yet needs
+them to be individually addressable.
 
 - **Autofire**: *"targets a 10-foot-by-10-foot area and makes an attack roll;
   the targeted area has an effective Defense of 10"*, affecting everyone in it,
-  at -4 without Advanced Firearms Proficiency.
+  at -4 without Advanced Firearms Proficiency. The area Defense is an
+  activity's `attack.defenseOverride`, not a special case in the resolver.
 - **Burst fire**: needs the feat and five rounds loaded, *"a -4 penalty on the
   attack roll, but deal +2 dice of damage"* — two more of the weapon's own die,
   so 2d6 becomes 4d6.

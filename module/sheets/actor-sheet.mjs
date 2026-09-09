@@ -39,7 +39,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       openCreator: Modern20ActorSheetBase.#onOpenCreator,
       toggleEquipped: Modern20ActorSheetBase.#onToggleEquipped,
       adjustHealth: Modern20ActorSheetBase.#onAdjustHealth,
-      rollAttackMode: Modern20ActorSheetBase.#onRollAttackMode
+      useActivity: Modern20ActorSheetBase.#onUseActivity
     }
   };
 
@@ -228,11 +228,11 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * rather than a text field, because an unnamed input cannot survive the
    * re-render that submitOnChange triggers when it loses focus.
    */
-  /** Fire a weapon in one of the modes its rate of fire allows. */
-  static async #onRollAttackMode(event, target) {
+  /** Use one of an item's activities. */
+  static async #onUseActivity(event, target) {
     const item = this._itemFromEvent(target);
-    if (item?.type !== "weapon") return;
-    await item.rollAttack({ mode: target.dataset.mode });
+    if (!item) return;
+    await item.rollAttack({ activityId: target.dataset.activity });
   }
 
   static async #onAdjustHealth(event, target) {
