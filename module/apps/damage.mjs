@@ -104,6 +104,7 @@ function bindAttackDamage(message, html) {
   if (!attack) return;
 
   bindSelectTarget(html, attack);
+  bindSaveRolls(message, html);
 
   for (const button of html.querySelectorAll("[data-m20-damage]")) {
     button.addEventListener("click", async () => {
@@ -147,5 +148,37 @@ function bindSelectTarget(html, attack) {
 
     token.control({ releaseOthers: true });
     await canvas.animatePan({ x: token.center.x, y: token.center.y });
+  });
+}
+
+/** Roll the save an explosive allows, for every targeted actor the user owns. */
+function bindSaveRolls(message, html) {
+  const save = message.getFlag("modern20", "save");
+  const button = html.querySelector("[data-m20-save]");
+  if (!save || !button) return;
+
+  button.addEventListener("click", async () => {
+    const targets = [...(game.user.targets ?? [])].map((token) => token.actor).filter(Boolean);
+    if (!targets.length) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Damage.NoTarget"));
+      return;
+    }
+
+    for (const actor of targets) {
+      if (!actor.isOwner) {
+        ui.notifications.warn(game.i18n.format("MODERN20.Damage.NotYours", { name: actor.name }));
+        continue;
+      }
+      const roll = await actor.rollSave(save.ability, {
+        flavor: game.i18n.format("MODERN20.Attack.SaveAgainst", { dc: save.dc })
+      });
+      if (roll) {
+        const passed = roll.total >= save.dc;
+        ui.notifications.info(game.i18n.format(
+          passed ? "MODERN20.Attack.SavePassed" : "MODERN20.Attack.SaveFailed",
+          { name: actor.name, total: roll.total, dc: save.dc }
+        ));
+      }
+    }
   });
 }

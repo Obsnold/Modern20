@@ -1,0 +1,47 @@
+{
+  "_id": "xtzjuxbLvAVj8OFk",
+  "name": "Fragmentation grenade",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "4d6",
+    "damageType": "slashing",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "tiny",
+    "ranged": true,
+    "weight": 1.0,
+    "purchaseDC": 15,
+    "restriction": "mil",
+    "burstRadius": "20 ft.",
+    "reflexDC": 15,
+    "source": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 15
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 20
+        }
+      }
+    }
+  },
+  "_key": "!items!xtzjuxbLvAVj8OFk"
+}

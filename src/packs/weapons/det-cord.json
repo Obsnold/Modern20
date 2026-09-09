@@ -1,0 +1,47 @@
+{
+  "_id": "s348z8aYmMPoB3IQ",
+  "name": "Det cord",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "2d6",
+    "damageType": "fire",
+    "critical": "-",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "med",
+    "ranged": false,
+    "weight": 2.0,
+    "purchaseDC": 8,
+    "restriction": "res",
+    "burstRadius": "See text",
+    "reflexDC": 12,
+    "source": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 12
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 0
+        }
+      }
+    }
+  },
+  "_key": "!items!s348z8aYmMPoB3IQ"
+}

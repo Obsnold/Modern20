@@ -196,3 +196,39 @@ export async function postAttackCard(item, result) {
     }
   });
 }
+
+/**
+ * Resolve a save activity: an explosive going off.
+ *
+ * "An explosive ... affects all creatures and objects within its burst radius."
+ * There is no attack roll — everyone in the radius takes the damage, halved by
+ * a successful Reflex save. The card offers the damage and, for whoever is
+ * targeted, the saves.
+ */
+export async function postSaveCard(item, activity) {
+  const actor = item.actor;
+  const targets = [...(game.user.targets ?? [])].map((token) => token.actor).filter(Boolean);
+
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/modern20/templates/chat/save-card.hbs",
+    {
+      item,
+      activity,
+      saveLabel: game.i18n.localize(MODERN20.saves[activity.save.ability]?.label ?? ""),
+      damage: activityDamageFormula(item, activity),
+      targets: targets.map((target) => target.name)
+    }
+  );
+
+  return ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    flavor: game.i18n.format("MODERN20.Attack.Detonates", { name: item.name }),
+    content,
+    flags: {
+      modern20: {
+        attack: { itemId: item.id, critical: false, activityId: activity.id },
+        save: { ability: activity.save.ability, dc: activity.save.dc }
+      }
+    }
+  });
+}

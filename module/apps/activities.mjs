@@ -37,11 +37,32 @@ export function defaultActivities(type, system = {}) {
   const defaults = ACTIVITY_DEFAULTS[type];
   if (!defaults) return {};
 
-  const list = [...(defaults.always ?? [])];
-  if (type === "weapon" && isAutomatic(system.rateOfFire)) {
+  // An explosive is thrown and detonates; it has no shot to fire.
+  const explosive = type === "weapon" && Boolean(system.reflexDC);
+  const list = explosive
+    ? [...(defaults.explosive ?? [])]
+    : [...(defaults.always ?? [])];
+
+  if (type === "weapon" && !explosive && isAutomatic(system.rateOfFire)) {
     list.push(...(defaults.automatic ?? []));
   }
-  return Object.fromEntries(list.map(({ id, ...rest }) => [id, rest]));
+
+  return Object.fromEntries(list.map(({ id, ...rest }) => {
+    const activity = foundry.utils.deepClone(rest);
+    // The DC and radius live on the weapon, so the activity reads them here
+    // rather than being authored per explosive.
+    if (explosive) {
+      activity.save = { ...activity.save, dc: system.reflexDC ?? 0 };
+      activity.area = { shape: "radius", size: parseFeet(system.burstRadius) };
+    }
+    return [id, activity];
+  }));
+}
+
+/** "20 ft." becomes 20; "See text" becomes 0. */
+export function parseFeet(text) {
+  const match = String(text ?? "").match(/\d+/);
+  return match ? Number(match[0]) : 0;
 }
 
 /**

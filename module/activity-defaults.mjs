@@ -51,6 +51,21 @@ export const ACTIVITY_DEFAULTS = {
         "requiresAmmo": 5,
         "requiresFeat": "Burst Fire"
       }
+    ],
+    "explosive": [
+      {
+        "id": "detonate",
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half"
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote"
+      }
     ]
   }
 };

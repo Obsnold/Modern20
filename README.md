@@ -175,6 +175,12 @@ editor creates and deletes rather than converting.
   the targeted area has an effective Defense of 10"*, affecting everyone in it,
   at -4 without Advanced Firearms Proficiency. The area Defense is an
   activity's `attack.defenseOverride`, not a special case in the resolver.
+- **Explosives** carry a burst radius and a fixed Reflex DC instead of a rate of
+  fire, so they get a **Detonate** activity in place of a shot: *"An explosive
+  ... affects all creatures and objects within its burst radius"*, with *"a
+  Reflex save against the DC given in this column for half damage."* The card
+  states the radius and DC, rolls the damage, and rolls saves for whoever is
+  targeted.
 - **Burst fire**: needs the feat and five rounds loaded, *"a -4 penalty on the
   attack roll, but deal +2 dice of damage"* — two more of the weapon's own die,
   so 2d6 becomes 4d6.

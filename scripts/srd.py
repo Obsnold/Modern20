@@ -178,10 +178,22 @@ def annotated_tables(page_html: str, *, min_rows: int = 3, min_cols: int = 2):
         text = [[c["text"] for c in row] for row in table]
         if len(text) < min_rows or max(len(r) for r in text) < min_cols:
             continue
+        kinds = [classify_row(row) for row in table]
+
+        # A table may open with a category banner, putting the real header on
+        # the second row - which is how the explosives table hid from a filter
+        # looking for "Purchase DC" in the header.
+        head = 0
+        while head < len(kinds) - 1 and kinds[head] in ("category", "parent", "blank"):
+            if kinds[head + 1] == "header":
+                head += 1
+                break
+            head += 1
+
         out.append({
-            "header": text[0],
-            "rows": text[1:],
-            "kinds": [classify_row(row) for row in table[1:]],
+            "header": text[head],
+            "rows": text[head + 1:],
+            "kinds": kinds[head + 1:],
         })
     return out
 

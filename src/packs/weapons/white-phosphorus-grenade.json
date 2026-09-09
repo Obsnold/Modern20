@@ -1,0 +1,47 @@
+{
+  "_id": "9d7F9MZ3uWmtpLkZ",
+  "name": "White phosphorus grenade",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "2d6",
+    "damageType": "fire",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": true,
+    "weight": 2.0,
+    "purchaseDC": 15,
+    "restriction": "mil",
+    "burstRadius": "20 ft.",
+    "reflexDC": 12,
+    "source": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 12
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 20
+        }
+      }
+    }
+  },
+  "_key": "!items!9d7F9MZ3uWmtpLkZ"
+}

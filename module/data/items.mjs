@@ -185,7 +185,15 @@ export class Modern20Weapon extends Modern20ItemBase {
       // Attacks add Dex instead of Str when the weapon is ranged.
       ranged: new fields.BooleanField({ initial: false }),
       attackBonus: int(0),
-      damageBonus: int(0)
+      damageBonus: int(0),
+      // Explosives: "the burst radius is the area affected by the explosive.
+      // All creatures or objects within the burst radius take damage."
+      burstRadius: new fields.StringField({ initial: "" }),
+      // "Any creature caught within the burst radius may make a Reflex save
+      // against the DC given in this column for half damage."
+      reflexDC: new fields.NumberField({
+        required: false, nullable: true, integer: true, initial: null
+      })
     };
   }
 }

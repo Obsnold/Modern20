@@ -1,0 +1,47 @@
+{
+  "_id": "toVRGQmgfhaXkoBV",
+  "name": "C4/Semtex",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "4d6",
+    "damageType": "concussion",
+    "critical": "-",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": false,
+    "weight": 1.0,
+    "purchaseDC": 12,
+    "restriction": "mil",
+    "burstRadius": "10 ft.",
+    "reflexDC": 18,
+    "source": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 18
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 10
+        }
+      }
+    }
+  },
+  "_key": "!items!toVRGQmgfhaXkoBV"
+}

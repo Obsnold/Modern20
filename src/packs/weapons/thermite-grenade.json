@@ -1,0 +1,47 @@
+{
+  "_id": "Bd8hTm8HHOhGRcDC",
+  "name": "Thermite grenade",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "6d6",
+    "damageType": "fire",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": true,
+    "weight": 2.0,
+    "purchaseDC": 17,
+    "restriction": "mil",
+    "burstRadius": "5 ft.",
+    "reflexDC": 12,
+    "source": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 12
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 5
+        }
+      }
+    }
+  },
+  "_key": "!items!Bd8hTm8HHOhGRcDC"
+}

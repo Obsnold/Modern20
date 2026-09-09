@@ -232,7 +232,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
   static async #onUseActivity(event, target) {
     const item = this._itemFromEvent(target);
     if (!item) return;
-    await item.rollAttack({ activityId: target.dataset.activity });
+    await item.use(target.dataset.activity);
   }
 
   static async #onAdjustHealth(event, target) {
