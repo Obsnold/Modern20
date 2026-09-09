@@ -9,6 +9,18 @@ import { setting } from "../settings.mjs";
 const { Actor, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
 
+/**
+ * Whether an actor is one of the named creature types.
+ *
+ * A plain function rather than a private method: private members are
+ * brand-checked, which makes the rules that depend on them unreachable from a
+ * test that has not built a full document.
+ */
+function hasCreatureType(system, ...types) {
+  const type = (system?.details?.creatureType ?? "").toLowerCase();
+  return types.some((match) => type.includes(match));
+}
+
 export class Modern20Actor extends Actor {
   /** Data exposed to roll formulas via @-references, e.g. "@str.mod". */
   getRollData() {
@@ -183,6 +195,99 @@ export class Modern20Actor extends Actor {
   }
 
   /** Creature types the SRD says are "not subject to ... nonlethal damage". */
+  /**
+   * The state hit points put a character in.
+   *
+   * "Disabled: the character has 0 hit points." "Dying: the character is near
+   * death and unconscious, with -1 to -9 wound points." "Dead: a character
+   * dies when his or her hit points drop to -10 or lower, or when his or her
+   * Constitution drops to 0."
+   *
+   * Exact thresholds, no judgement required — which is why this is automated
+   * where cover and flanking are not.
+   */
+  get deathState() {
+    const hp = this.system.hp;
+    if (!hp) return "";
+
+    // "A creature with no Constitution has no body or no metabolism" — the
+    // same set that ignores massive damage. Draining a score it does not have
+    // to zero must not kill it.
+    const constitution = this.system.abilities?.con?.total;
+    if (constitution !== undefined && constitution <= 0 && !this.isImmuneToMassiveDamage) {
+      return "dead";
+    }
+
+    if (hp.value <= MODERN20.death.dead) return "dead";
+    if (hp.value < 0) return "dying";
+    if (hp.value === 0) return "disabled";
+    return "";
+  }
+
+  /**
+   * Put the actor in the state its hit points call for.
+   *
+   * "A stable character is no longer dying, but is still unconscious", so a
+   * character someone has stabilised keeps that state rather than being
+   * dropped back into dying every time anything touches the sheet.
+   */
+  async applyDeathStates() {
+    if (!setting("deathStates") || !this.system.hp) return null;
+
+    const state = this.deathState;
+    const stable = this.statuses.has("stable");
+
+    // A stabilised character is at dying hit points but "is no longer dying",
+    // so the state is theirs to keep until something moves the number.
+    const wanted = (state === "dying" && stable) ? "" : state;
+
+    for (const status of MODERN20.death.states) {
+      const active = this.statuses.has(status);
+      if (active === (status === wanted)) continue;
+      await this.toggleStatusEffect(status, { active: status === wanted });
+    }
+
+    // Back above zero is not stable, it is well.
+    if (!state && stable) await this.toggleStatusEffect("stable", { active: false });
+
+    return state;
+  }
+
+  /**
+   * "Each round a dying character loses 1 hit point until he or she dies or
+   * becomes stable."
+   *
+   * Not damage: it goes past damage reduction and never triggers a massive
+   * damage save, because it is the wound already taken finishing its work.
+   */
+  async bleed() {
+    if (!setting("deathStates")) return null;
+    if (this.deathState !== "dying" || this.statuses.has("stable")) return null;
+
+    const value = this.system.hp.value - 1;
+    await this.update({ "system.hp.value": value });
+    await announce(this, {
+      title: game.i18n.format("MODERN20.Death.Bleeds", { name: this.name, hp: value }),
+      warning: true
+    });
+    return value;
+  }
+
+  /**
+   * Reconcile the death states whenever hit points move.
+   *
+   * On the update rather than inside applyDamage: healing, a GM typing into
+   * the sheet and the damage buttons all change hit points by different
+   * routes, and all of them should leave the character in the right state.
+   * Only the user who made the change reconciles, so one client writes.
+   */
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
+    if (userId !== game.user.id) return;
+    if (changed.system?.hp === undefined && changed.system?.abilities?.con === undefined) return;
+    this.applyDeathStates();
+  }
+
   /**
    * Spend an action from this turn's budget.
    *
@@ -405,7 +510,7 @@ export class Modern20Actor extends Actor {
   }
 
   get isImmuneToNonlethal() {
-    return this.#isCreatureType("construct", "undead", "ooze");
+    return hasCreatureType(this.system, "construct", "undead", "ooze");
   }
 
   /**
@@ -415,12 +520,7 @@ export class Modern20Actor extends Actor {
    * A different list from the nonlethal one, which is why it is its own.
    */
   get isImmuneToMassiveDamage() {
-    return this.#isCreatureType("construct", "elemental", "ooze", "plant", "undead");
-  }
-
-  #isCreatureType(...types) {
-    const type = (this.system.details?.creatureType ?? "").toLowerCase();
-    return types.some((immune) => type.includes(immune));
+    return hasCreatureType(this.system, "construct", "elemental", "ooze", "plant", "undead");
   }
 
   async #d20Roll(modifier, { flavor } = {}) {

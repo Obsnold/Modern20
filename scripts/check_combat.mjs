@@ -219,5 +219,46 @@ if (resolveModifiers({ defense: ["defenderProne"] }).losesDex) {
 }
 console.log(`${modifierCases.length + 2} circumstance cases checked`);
 
+/* -- death states -------------------------------------------------------- */
+
+// "Disabled: the character has 0 hit points." "Dying: ... with -1 to -9 wound
+// points." "Dead: a character dies when his or her hit points drop to -10 or
+// lower, or when his or her Constitution drops to 0."
+const { Modern20Actor } = await import(join(ROOT, "module", "documents", "actor.mjs"));
+
+const deathCases = [
+  { hp: 12, con: 12, state: "" },
+  { hp: 1, con: 12, state: "" },
+  { hp: 0, con: 12, state: "disabled" },
+  { hp: -1, con: 12, state: "dying" },
+  { hp: -9, con: 12, state: "dying" },
+  { hp: -10, con: 12, state: "dead" },
+  { hp: -25, con: 12, state: "dead" },
+  // Constitution reaching zero kills whatever the hit points say.
+  { hp: 30, con: 0, state: "dead" },
+  // "A creature with no Constitution has no body or no metabolism" — the set
+  // that ignores massive damage never had a score to lose.
+  { hp: 30, con: 0, type: "Undead", state: "" },
+  { hp: 30, con: 0, type: "Construct", state: "" },
+  { hp: -3, con: 0, type: "Undead", state: "dying" }
+];
+
+for (const testCase of deathCases) {
+  const actor = Object.create(Modern20Actor.prototype);
+  Object.defineProperty(actor, "system", {
+    value: {
+      hp: { value: testCase.hp, max: 30 },
+      abilities: { con: { total: testCase.con } },
+      details: { creatureType: testCase.type ?? "Humanoid" }
+    }
+  });
+  const got = actor.deathState;
+  if (got !== testCase.state) {
+    fail(`${testCase.hp} hp, Con ${testCase.con}, ${testCase.type ?? "Humanoid"}: `
+      + `expected "${testCase.state}", got "${got}"`);
+  }
+}
+console.log(`${deathCases.length} death state cases checked`);
+
 console.log(problems ? `\n${problems} problems` : "\nall combat checks passed");
 process.exit(problems ? 1 : 0);

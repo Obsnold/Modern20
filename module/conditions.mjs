@@ -127,7 +127,7 @@ const ICONS = {
  * enumerate the skill list to build their changes.
  */
 export function registerConditions(conditions) {
-  CONFIG.statusEffects = conditions.map((condition) => {
+  const effects = conditions.map((condition) => {
     const effect = CONDITION_EFFECTS[condition.id];
     return {
       id: condition.id.toLowerCase(),
@@ -137,6 +137,14 @@ export function registerConditions(conditions) {
       changes: effect?.changes() ?? []
     };
   });
+
+  // Emptied and refilled rather than replaced. CONFIG.statusEffects is a Proxy
+  // that mirrors every entry under its `id`, and that is the lookup
+  // Actor#toggleStatusEffect uses — `CONFIG.statusEffects[statusId]`. Assigning
+  // a plain array over the Proxy loses it, and every toggle then throws
+  // "Invalid status ID".
+  CONFIG.statusEffects.length = 0;
+  for (const effect of effects) CONFIG.statusEffects.push(effect);
 
   // Foundry looks these up when a token is defeated or a combatant dies.
   CONFIG.specialStatusEffects.DEFEATED = "dead";

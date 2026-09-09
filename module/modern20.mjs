@@ -127,6 +127,12 @@ Hooks.on("combatTurnChange", async (combat, previous, current) => {
   if (!game.user.isGM || !setting("autoTurnReset")) return;
   const actor = combat.combatants.get(current?.combatantId)?.actor;
   if (!actor) return;
+
+  // "Each round a dying character loses 1 hit point until he or she dies or
+  // becomes stable." Before the turn refills, since a dying character has no
+  // turn to take.
+  await actor.bleed();
+
   await actor.startTurn();
   // The character has now had a chance to act, so is no longer flat-footed.
   if (setting("autoFlatFooted")) {

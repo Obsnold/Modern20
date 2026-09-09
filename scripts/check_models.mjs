@@ -53,6 +53,36 @@ if (!registeredSheets.length) {
 }
 
 /**
+ * Every condition has to be reachable by id.
+ *
+ * Actor#toggleStatusEffect looks a status up as `CONFIG.statusEffects[id]`,
+ * which works because Foundry's is a Proxy that mirrors each entry under its
+ * id. Assigning a plain array over that Proxy loses the lookup and every
+ * toggle throws — silently, since nothing reads statusEffects by id until
+ * something tries to apply a condition.
+ */
+{
+  const statuses = CONFIG.statusEffects ?? [];
+  const unreachable = [...statuses].filter((effect) => statuses[effect.id] !== effect);
+  if (unreachable.length) {
+    failures++;
+    console.log(`FAIL  ${unreachable.length} conditions not reachable by id `
+      + `(${unreachable.slice(0, 3).map((e) => e.id).join(", ")}...) — `
+      + "CONFIG.statusEffects was replaced rather than filled");
+  } else {
+    console.log(`PASS  ${statuses.length} conditions reachable by id`);
+  }
+
+  // The ones the system toggles itself must exist, or the call throws in play.
+  for (const id of ["flatfooted", "disabled", "dying", "dead", "stable"]) {
+    if (!statuses[id]) {
+      failures++;
+      console.log(`FAIL  the system toggles "${id}" but no such status is registered`);
+    }
+  }
+}
+
+/**
  * Every setting must have a name, a hint, and a string for each of its
  * choices, and every setting must be read somewhere.
  *

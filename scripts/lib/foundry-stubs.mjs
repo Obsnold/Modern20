@@ -121,6 +121,33 @@ export class TypedObjectField extends DataField {
  * Install the stubs as globals and return the recorders, so a caller can see
  * what the system registered during its init hook.
  */
+/** A stand-in for Foundry's id-indexing statusEffects Proxy. */
+function statusEffectsProxy() {
+  return new Proxy([], {
+    set(statuses, prop, value) {
+      if (prop === "length") {
+        for (let i = value; i < statuses.length; i++) {
+          const id = statuses[i]?.id;
+          if (id !== undefined) delete statuses[id];
+        }
+        statuses.length = value;
+        return true;
+      }
+      const index = Number(prop);
+      if (Number.isInteger(index)) {
+        const previous = statuses.at(index)?.id;
+        if (previous !== undefined) delete statuses[previous];
+        statuses[value.id] = value;
+        statuses[index] = value;
+        return true;
+      }
+      statuses[prop] = value;
+      return true;
+    },
+  });
+}
+
+
 export function installStubs() {
   const hooks = [];
   const registeredSheets = [];
@@ -128,7 +155,14 @@ export function installStubs() {
   globalThis.Hooks = { once: (event, fn) => hooks.push([event, fn]), on: () => {}, callAll: () => {} };
   globalThis.CONFIG = {
     Actor: {}, Item: {}, Combat: {},
-    statusEffects: [],
+    /**
+     * Foundry's own CONFIG.statusEffects is a Proxy over an array that also
+     * mirrors each entry under its `id`, which is how Actor#toggleStatusEffect
+     * looks one up: `CONFIG.statusEffects[statusId]`. Modelled here because
+     * assigning a plain array over it silently destroys that lookup, and every
+     * toggleStatusEffect call then throws "Invalid status ID".
+     */
+    statusEffects: statusEffectsProxy(),
     // Foundry maps a few effects to engine behaviour (defeated, blind, ...).
     specialStatusEffects: {},
   };
