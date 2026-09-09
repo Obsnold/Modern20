@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { activityById, activityDamageFormula } from "./activities.mjs";
 
 const { Roll } = foundry.dice;
 const { ChatMessage } = foundry.documents;
@@ -18,106 +19,6 @@ const { ChatMessage } = foundry.documents;
  */
 
 const RANGE_PENALTY_PER_INCREMENT = -2;
-
-/**
- * The ways a weapon can be fired.
- *
- * A weapon is not one attack: an automatic firearm can be fired single, set on
- * autofire, or burst with the feat, and each resolves differently. This is the
- * same problem dnd5e solved with per-item activities, kept lighter here
- * because d20 Modern's modes are decided by the weapon's rate of fire rather
- * than authored per item.
- */
-
-const AUTOFIRE = {
-  // "The character targets a 10-foot-by-10-foot area ... the targeted area has
-  // an effective Defense of 10." Ten bullets are spent regardless.
-  areaDefense: 10,
-  ammo: 10,
-  area: 10,
-  unskilledPenalty: -4,
-  proficiency: "Advanced Firearms Proficiency"
-};
-
-const BURST = {
-  // "When using an automatic firearm with at least five bullets loaded ... a
-  // -4 penalty on the attack roll, but deal +2 dice of damage."
-  ammo: 5,
-  penalty: -4,
-  extraDice: 2,
-  feat: "Burst Fire"
-};
-
-/** Does the actor have a feat of this name? */
-function hasFeat(actor, name) {
-  return actor?.items?.some(
-    (item) => item.type === "feat" && item.name.toLowerCase() === name.toLowerCase()
-  ) ?? false;
-}
-
-/** True when the weapon's rate of fire includes automatic. */
-export function isAutomatic(weapon) {
-  return /\bA\b/.test(String(weapon.system.rateOfFire ?? ""));
-}
-
-/**
- * Modes this weapon offers its owner, most conventional first.
- * Unavailable modes are returned with a reason rather than hidden, so the
- * sheet can say why burst fire is not on offer.
- */
-export function attackModes(item) {
-  const actor = item.actor;
-  const modes = [{ id: "single", label: "MODERN20.Attack.Single", available: true }];
-
-  if (isAutomatic(item)) {
-    modes.push({
-      id: "autofire",
-      label: "MODERN20.Attack.Autofire",
-      available: true,
-      note: hasFeat(actor, AUTOFIRE.proficiency) ? "" : "MODERN20.Attack.AutofireUnskilled"
-    });
-
-    const loaded = item.system.ammo?.value ?? 0;
-    const canBurst = hasFeat(actor, BURST.feat);
-    modes.push({
-      id: "burst",
-      label: "MODERN20.Attack.Burst",
-      available: canBurst && loaded >= BURST.ammo,
-      note: !canBurst ? "MODERN20.Attack.BurstNeedsFeat" : "MODERN20.Attack.BurstNeedsAmmo"
-    });
-  }
-
-  return modes;
-}
-
-/** The attack modifier and ammunition a mode costs. */
-export function modeAdjustments(item, mode) {
-  const actor = item.actor;
-  if (mode === "autofire") {
-    return {
-      penalty: hasFeat(actor, AUTOFIRE.proficiency) ? 0 : AUTOFIRE.unskilledPenalty,
-      ammo: AUTOFIRE.ammo,
-      // Autofire is resolved against the area, not a creature.
-      fixedDefense: AUTOFIRE.areaDefense
-    };
-  }
-  if (mode === "burst") {
-    return { penalty: BURST.penalty, ammo: BURST.ammo, fixedDefense: null };
-  }
-  return { penalty: 0, ammo: 1, fixedDefense: null };
-}
-
-/**
- * Burst fire deals "+2 dice of damage": two more of the weapon's own damage
- * die, so 2d6 becomes 4d6.
- */
-export function burstDamageFormula(damage) {
-  const match = String(damage).match(/^(\d+)d(\d+)/);
-  if (!match) return damage;
-  const [whole, count, faces] = match;
-  return String(damage).replace(whole, `${Number(count) + BURST.extraDice}d${faces}`);
-}
-
 
 /** The lowest d20 result that threatens: "19-20" gives 19, "20" gives 20. */
 export function threatRange(critical) {
@@ -159,19 +60,25 @@ function currentTarget() {
  * Roll an attack, resolving it against the target's Defense where there is a
  * target, and confirming a threat where one is rolled.
  */
-export async function resolveAttack(item, { situational = 0, mode = "single" } = {}) {
+export async function resolveAttack(item, { situational = 0, activityId = "shot" } = {}) {
   const actor = item.actor;
   if (!actor) throw new Error("Cannot attack with an unowned weapon");
 
+  const activity = activityById(item, activityId);
+  if (!activity) throw new Error(`Unknown activity "${activityId}" on ${item.name}`);
+
   const ranged = item.system.ranged;
-  const abilityMod = ranged ? actor.system.abilities.dex.mod : actor.system.abilities.str.mod;
+  // An activity may name its ability; otherwise the SRD's own rule applies —
+  // Strength in melee, Dexterity at range.
+  const abilityKey = activity.attack.ability || (ranged ? "dex" : "str");
+  const abilityMod = actor.system.abilities[abilityKey]?.mod ?? 0;
   const size = MODERN20.sizes[actor.system.attributes.size]?.mod ?? 0;
 
-  const adjust = modeAdjustments(item, mode);
   const { token: targetToken, actor: target } = currentTarget();
   const attackerToken = actor.getActiveTokens?.()[0] ?? null;
-  const distance = ranged ? tokenDistance(attackerToken, targetToken) : null;
-  const range = ranged ? rangePenalty(distance, item.system.rangeIncrement) : 0;
+  const measures = ranged && activity.attack.usesRange;
+  const distance = measures ? tokenDistance(attackerToken, targetToken) : null;
+  const range = measures ? rangePenalty(distance, item.system.rangeIncrement) : 0;
 
   const data = {
     bab: actor.system.attributes.baseAttack,
@@ -180,17 +87,17 @@ export async function resolveAttack(item, { situational = 0, mode = "single" } =
     weapon: item.system.attackBonus,
     condition: actor.system.attributes.attackMisc ?? 0,
     range,
-    mode: adjust.penalty,
+    activity: activity.penalty,
     situational
   };
   const formula =
-    "1d20 + @bab + @ability + @size + @weapon + @condition + @range + @mode + @situational";
+    "1d20 + @bab + @ability + @size + @weapon + @condition + @range + @activity + @situational";
 
   const roll = await new Roll(formula, data).evaluate();
   const natural = roll.dice[0]?.results?.[0]?.result ?? 0;
 
-  // Autofire is rolled against the area's Defense rather than a creature's.
-  const defense = adjust.fixedDefense ?? target?.system?.defense?.value ?? null;
+  // An activity may set its own Defense: autofire rolls against the area.
+  const defense = activity.attack.defenseOverride ?? target?.system?.defense?.value ?? null;
   let hit = null;
   if (natural === 1) hit = false;
   else if (natural === 20) hit = true;
@@ -209,9 +116,11 @@ export async function resolveAttack(item, { situational = 0, mode = "single" } =
   return {
     roll, confirmation, natural, hit, threatened, confirmed,
     defense, target, targetName: target?.name ?? null,
-    distance, range, ranged, mode,
-    area: mode === "autofire" ? AUTOFIRE.area : null,
-    ammoSpent: adjust.ammo
+    distance, range, ranged,
+    activity,
+    activityId: activity.id,
+    area: activity.area.size || null,
+    ammoSpent: activity.consume.ammo
   };
 }
 
@@ -222,11 +131,15 @@ export async function resolveAttack(item, { situational = 0, mode = "single" } =
  * target two times". That is deliberately not a x2 multiplier, which would
  * treat a flat bonus and the dice differently from the way the SRD describes.
  */
-export async function rollWeaponDamage(item, { critical = false, mode = "single" } = {}) {
+export async function rollWeaponDamage(item, { critical = false, activityId = "shot" } = {}) {
   const actor = item.actor;
-  const strMod = !item.system.ranged && actor ? actor.system.abilities.str.mod : 0;
+  const activity = activityById(item, activityId) ?? activityById(item, "shot");
+  const addAbility = activity?.damage.addAbility ?? true;
+
+  const strMod = (addAbility && !item.system.ranged && actor)
+    ? actor.system.abilities.str.mod : 0;
   const data = { str: strMod, bonus: item.system.damageBonus };
-  const damage = mode === "burst" ? burstDamageFormula(item.system.damage) : item.system.damage;
+  const damage = activity ? activityDamageFormula(item, activity) : item.system.damage;
   const single = `${damage} + @str + @bonus`;
 
   const formula = critical ? `${single} + ${single}` : single;
@@ -253,7 +166,9 @@ export async function postAttackCard(item, result) {
     content,
     rolls: [result.roll, result.confirmation].filter(Boolean),
     flags: {
-      modern20: { attack: { itemId: item.id, critical: result.confirmed, mode: result.mode } }
+      modern20: {
+        attack: { itemId: item.id, critical: result.confirmed, activityId: result.activityId }
+      }
     }
   });
 }

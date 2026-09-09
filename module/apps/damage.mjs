@@ -113,7 +113,7 @@ function bindAttackDamage(message, html) {
       }
       await item.rollDamage({
         critical: button.dataset.m20Damage === "critical",
-        mode: attack.mode ?? "single"
+        activityId: attack.activityId ?? "shot"
       });
     });
   }
