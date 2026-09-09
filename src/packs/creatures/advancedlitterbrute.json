@@ -95,5 +95,38 @@
     "specialQualities": "Construct, darkvision 60 ft., dimension door, engulf, fast healing 5, garbage growth, sharp implements",
     "biography": "<p><strong>Attack:</strong> +13 melee (2d6+6, slam)</p><p><strong>Full Attack:</strong> +13 melee (2d6+6, 2 slams)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!EtXShPXgZE5J51n6"
+  "_key": "!actors!EtXShPXgZE5J51n6",
+  "items": [
+    {
+      "_id": "n9V6LYjLiXGmKOaj",
+      "name": "Slam (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (2d6+6, 2 slams)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "2d6+6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

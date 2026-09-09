@@ -99,5 +99,38 @@
     "specialQualities": "Undead, despair, mummy rot, fire vulnerability, resistant to blows, damage reduction 5/+1, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d6+4 plus mummy rot, slam)</p><p><strong>Full Attack:</strong> +6 melee (1d6+4 plus mummy rot, slam), or +2 ranged</p><p><strong>Skills:</strong> Hide +8, Listen +9, Move Silently +8, Read/Write Egyptian, Speak Egyptian, Spot +9</p><p><strong>Feats:</strong> Alertness, Archaic Weapons Proficiency, Toughness</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!ddGYoiNM3F7cXbTQ"
+  "_key": "!actors!ddGYoiNM3F7cXbTQ",
+  "items": [
+    {
+      "_id": "K6nsLeaGi1WjB1Xu",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d6+4 plus mummy rot, slam), or +2 ranged</p><p><strong>Plus:</strong> mummy rot</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

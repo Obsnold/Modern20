@@ -95,5 +95,131 @@
     "specialQualities": "Absorb, alien physiology, cold resistance 10, convert, darkvision 60 ft., fear aura (DC 14), flesh transfer (DC 17), hive mind, immunities, mimic, regeneration 5, split",
     "biography": "<p><strong>Attack:</strong> +13 melee (2d6+8, bite)</p><p><strong>Full Attack:</strong> +13 melee (2d6+8, bite) and +8 melee (1d8+4, gore) and +8 melee (1d6+4, claw) and +8 melee (1d4+4, slam)</p><p><strong>Skills:</strong> Climb +23, Craft (electronic) +9, Craft (mechanical) +9, Drive +2, Listen +8, Hide -1, Move Silently -1, Pilot +2, Spot +8, Swim +23</p><p><strong>Feats:</strong> Alertness, Athletic, Builder, Power Attack, Simple Weapons Proficiency</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!wAPzZeQ6PDTtE5mO"
+  "_key": "!actors!wAPzZeQ6PDTtE5mO",
+  "items": [
+    {
+      "_id": "kCRDO9xlXXY38M2e",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (2d6+8, bite) and +8 melee (1d8+4, gore) and +8 melee (1d6+4, claw) and +8 melee (1d4+4, slam)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "2d6+8",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "JUsPSuloU9FCKwav",
+      "name": "Gore",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (2d6+8, bite) and +8 melee (1d8+4, gore) and +8 melee (1d6+4, claw) and +8 melee (1d4+4, slam)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d8+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "BJ8rEXMWGspWyqch",
+      "name": "Claw",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (2d6+8, bite) and +8 melee (1d8+4, gore) and +8 melee (1d6+4, claw) and +8 melee (1d4+4, slam)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "ZgZLq57tz0XIK6Lq",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (2d6+8, bite) and +8 melee (1d8+4, gore) and +8 melee (1d6+4, claw) and +8 melee (1d4+4, slam)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d4+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

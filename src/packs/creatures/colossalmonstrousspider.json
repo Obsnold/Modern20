@@ -95,5 +95,38 @@
     "specialQualities": "Poison, webs, darkvision 60 ft., immune to mind-affecting attacks, resistance to massive damage",
     "biography": "<p><strong>Attack:</strong> +36 melee (4d6+12 plus poison, bite)</p><p><strong>Full Attack:</strong> +36 melee (4d6+12 plus poison, bite)</p><p><strong>Skills:</strong> Climb +20, Hide -7, Jump +8 (+14 for hunting spiders), Move Silently +9, Spot +12</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!zX2ravVsD8XTQuJf"
+  "_key": "!actors!zX2ravVsD8XTQuJf",
+  "items": [
+    {
+      "_id": "CK7pWF2B2d4Sgm19",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+36 melee (4d6+12 plus poison, bite)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "4d6+12",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "colossal",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

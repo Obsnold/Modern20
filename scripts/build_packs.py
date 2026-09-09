@@ -526,6 +526,115 @@ def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extr
     return documents
 
 
+# A creature's own weapons: the words the SRD's per-type tables use for a
+# natural attack. Anything else it is printed as wielding — a lead pipe, a Colt
+# Python — is a manufactured weapon it picked up.
+NATURAL_ATTACKS = {
+    "slam", "bite", "claw", "gore", "tentacle", "tail slap", "touch",
+    "incorporeal touch", "sting", "hoof", "talon", "wing", "tail", "pincer",
+}
+
+# The size modifier a creature takes on its attack rolls.
+ATTACK_SIZE_MODIFIER = {
+    "fine": 8, "diminutive": 4, "tiny": 2, "small": 1, "medium": 0,
+    "large": -1, "huge": -2, "gargantuan": -4, "colossal": -8,
+}
+
+
+def creature_weapons(entry: dict) -> list[dict]:
+    """The creature's printed attacks, as weapons it can actually roll.
+
+    The SRD prints the attack total; the system derives one from base attack,
+    an ability modifier and size. So the weapon stores the difference, exactly
+    as Defense and the saves already do, and the sheet shows the printed
+    number. For the same reason the damage is stored as printed and the
+    activity is told not to add Strength again — "2d4+8" already includes it.
+    """
+    abilities = entry["abilities"]
+    size_modifier = ATTACK_SIZE_MODIFIER.get(entry["size"], 0)
+
+    def ability_modifier(score):
+        return (score - 10) // 2
+
+    items = []
+    seen = set()
+    for attack in entry["attacks"]:
+        name = attack["name"].strip()
+        if not name or not attack["damage"]:
+            continue
+        # The SRD prints two alternative full-attack routines for a few
+        # creatures, and the same weapon appears in both.
+        key = (name.lower(), attack["damage"], attack["bonus"])
+        if key in seen:
+            continue
+        seen.add(key)
+
+        natural = name.lower() in NATURAL_ATTACKS
+        ability = abilities["dex"] if attack["ranged"] else abilities["str"]
+        derived = entry["baseAttack"] + ability_modifier(ability) + size_modifier
+
+        label = name[:1].upper() + name[1:]
+        if attack["count"] > 1:
+            label = f"{label} (x{attack['count']})"
+        # A few creatures bite at two different bonuses, once in each of two
+        # printed full-attack routines. Two weapons both called "Bite" tell a
+        # GM nothing, so the later one carries the bonus that distinguishes it.
+        if any(item["name"].split(" (")[0] == label.split(" (")[0] for item in items):
+            label = f"{label} ({attack['bonus']:+d})"
+
+        described = [f"<p>{entry['fullAttack'] or entry['attack']}</p>"]
+        if attack["extra"]:
+            described.append(f"<p><strong>Plus:</strong> {attack['extra']}</p>")
+        if attack["alternateName"]:
+            described.append(f"<p><strong>Also called:</strong> {attack['alternateName']}</p>")
+
+        slug = srd.slugify(f"{entry['id']}-{name}")
+        items.append({
+            "_id": document_id("creature-weapons", slug),
+            "name": label,
+            "type": "weapon",
+            "img": "icons/svg/sword.svg",
+            "system": {
+                "description": "".join(described),
+                "source": "d20 Modern SRD",
+                "srdUrl": entry["srdUrl"],
+                "category": "unarmed" if natural else "simple",
+                "damage": attack["damage"],
+                "damageType": attack["damageType"] or ("bludgeoning" if natural else ""),
+                "critical": attack["critical"],
+                "ranged": attack["ranged"],
+                # The offset that reproduces the printed total.
+                "attackBonus": attack["bonus"] - derived,
+                "size": entry["size"],
+                # A creature's own weapons are always to hand.
+                "equipped": True,
+                "quantity": 1,
+                "weight": 0,
+                "purchaseDC": 0,
+                "activities": creature_weapon_activities(attack),
+            },
+        })
+    return items
+
+
+def creature_weapon_activities(attack: dict) -> dict:
+    """The attack activity a creature's weapon ships with.
+
+    The same shape as any other weapon's, except that the printed damage
+    already includes the creature's Strength, so the activity must not add it
+    a second time.
+    """
+    activities = strip_notes(ACTIVITY_DEFAULTS.get("weapon", {})).get("always", [])
+    out = {}
+    for entry in json.loads(json.dumps(activities)):
+        key = entry.pop("id")
+        entry.setdefault("damage", {})["addAbility"] = False
+        # A claw has no magazine to spend.
+        entry.pop("consume", None)
+        out[key] = entry
+    return out
+
+
 def build_creatures() -> list[dict]:
     """Creature actors. Derived values are stored as the offset that
     reproduces the printed total, so the sheet shows what the SRD prints."""
@@ -569,7 +678,8 @@ def build_creatures() -> list[dict]:
         }
 
     return simple_pack("creatures", "creature", "creatures", "icons/svg/mystery-man.svg",
-                       system, document_class="Actor")
+                       system, document_class="Actor",
+                       extra=lambda e: {"items": creature_weapons(e)})
 
 
 def spell_system(e: dict) -> dict:

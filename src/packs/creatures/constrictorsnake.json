@@ -95,5 +95,38 @@
     "specialQualities": "Improved grab, constrict 1d6+4, scent, low-light vision",
     "biography": "<p><strong>Attack:</strong> Atk +5 melee (1d6+4, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d6+4, bite)</p><p><strong>Skills:</strong> Balance +11, Climb +14, Hide +11, Listen +9, Spot +9, Swim +11.</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!R0qTLXZbdygXlcFJ"
+  "_key": "!actors!R0qTLXZbdygXlcFJ",
+  "items": [
+    {
+      "_id": "rC9QA8fDwJyJKtcY",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d6+4, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "category": "unarmed",
+        "damage": "1d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

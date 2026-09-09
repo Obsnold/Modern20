@@ -228,5 +228,65 @@ for (const [name, want] of Object.entries(recovered)) {
 }
 console.log(`${creatures.length} imported creatures checked for size and type`);
 
+/* -- a creature's attacks must roll the number the SRD prints ------------ */
+
+// The system derives an attack from base attack, an ability modifier and size;
+// the SRD prints the total. The weapon stores the difference, so the check is
+// that adding it all back up gives the printed number again — for every attack
+// of every creature, since one wrong sign would be invisible on a sheet.
+const ATTACK_SIZE_MODIFIER = {
+  fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0,
+  large: -1, huge: -2, gargantuan: -4, colossal: -8
+};
+
+let weapons = 0;
+for (const creature of creatures) {
+  const document = readCreatureDocument(creature.id);
+  if (!document) continue;
+
+  // Matched one for one and consumed: a creature that bites at two different
+  // bonuses must produce both, not the same one twice.
+  const unmatched = [...creature.attacks];
+
+  for (const item of document.items ?? []) {
+    weapons++;
+    const base = item.name.split(" (")[0].toLowerCase();
+    const index = unmatched.findIndex((attack) => attack.name.toLowerCase() === base);
+    if (index < 0) { fail(`${creature.name}: no printed attack for "${item.name}"`); continue; }
+    const [printed] = unmatched.splice(index, 1);
+
+    const score = printed.ranged ? creature.abilities.dex : creature.abilities.str;
+    const total = creature.baseAttack
+      + Math.floor((score - 10) / 2)
+      + (ATTACK_SIZE_MODIFIER[creature.size] ?? 0)
+      + item.system.attackBonus;
+
+    if (total !== printed.bonus) {
+      fail(`${creature.name} ${item.name}: rolls at ${total >= 0 ? "+" : ""}${total}, `
+        + `the SRD prints ${printed.bonus >= 0 ? "+" : ""}${printed.bonus}`);
+    }
+    // The printed damage already includes Strength, so the activity must not
+    // add it a second time.
+    for (const activity of Object.values(item.system.activities ?? {})) {
+      if (activity.damage?.addAbility !== false) {
+        fail(`${creature.name} ${item.name}: would add Strength to damage that includes it`);
+      }
+    }
+  }
+}
+console.log(`${weapons} creature attacks checked against their printed totals`);
+
+/** One built creature document. The pack names its files from the entry id. */
+function readCreatureDocument(id) {
+  const file = join(ROOT, "src", "packs", "creatures", `${slugify(id)}.json`);
+  try { return JSON.parse(readFileSync(file, "utf8")); }
+  catch { fail(`no built document for "${id}"`); return null; }
+}
+
+/** The same slug the pack build names files with. */
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "unnamed";
+}
+
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);

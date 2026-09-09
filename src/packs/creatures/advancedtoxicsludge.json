@@ -95,5 +95,38 @@
     "specialQualities": "Acid, blindsight, expansion, immunities, improved grab, ooze, toxic fumes (DC 26)",
     "biography": "<p><strong>Attack:</strong> +21 melee (2d8+10 plus 1d4 acid, slam)</p><p><strong>Full Attack:</strong> +21/+16/+11 melee (2d8+10 plus 1d4 acid, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!qa6xbA7VR8m7IB3u"
+  "_key": "!actors!qa6xbA7VR8m7IB3u",
+  "items": [
+    {
+      "_id": "J9rKIaBJ5vCo1JqS",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+21/+16/+11 melee (2d8+10 plus 1d4 acid, slam)</p><p><strong>Plus:</strong> 1d4 acid</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "2d8+10",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

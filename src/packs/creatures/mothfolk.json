@@ -95,5 +95,38 @@
     "specialQualities": "Darkvision 60 ft., fear aura (DC 11)",
     "biography": "<p><strong>Attack:</strong> +2 melee (1d6+1, claw)</p><p><strong>Full Attack:</strong> +2 melee (1d6+1, 2 claws) or +2 ranged)</p><p><strong>Skills:</strong> Balance +7, Climb +7, Hide +5, Listen +8, Move Silently +7, Read/Write Mothfolk, Sense Motive +4, Speak Mothfolk, Spot +4.</p><p><strong>Feats:</strong> Simple Weapons Proficiency, Stealthy.</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!CqiUxqZBQvEaUCfZ"
+  "_key": "!actors!CqiUxqZBQvEaUCfZ",
+  "items": [
+    {
+      "_id": "LysYAPE5vCKS4PsD",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d6+1, 2 claws) or +2 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d6+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

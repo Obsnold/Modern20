@@ -99,5 +99,69 @@
     "specialQualities": "Cold resistance 20, darkvision 120 ft., easy breathing, light sensitivity",
     "biography": "<p><strong>Attack:</strong> +3 melee (1d4+1, claw or bite)</p><p><strong>Full Attack:</strong> +3 melee (1d4+1, 2 claws) and +1 melee (1d4, bite) or +3 ranged)</p><p><strong>Skills:</strong> Climb +5, Hide +5 (+9 when concealed against a white background), Listen +3, Move Silently +5, Spot +3, Survival +5, Swim +10.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Multiattack, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!AWzeSbz10jFQ3STK"
+  "_key": "!actors!AWzeSbz10jFQ3STK",
+  "items": [
+    {
+      "_id": "TE4Hqm1pmQBkvH4b",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d4+1, 2 claws) and +1 melee (1d4, bite) or +3 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "g8GE8JA6JdEBIrA5",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d4+1, 2 claws) and +1 melee (1d4, bite) or +3 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -2,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

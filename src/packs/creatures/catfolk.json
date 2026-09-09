@@ -95,5 +95,69 @@
     "specialQualities": "alternate form, claws, feline aversion (DC 15), mesmerizing gaze (DC 15), scent",
     "biography": "<p><strong>Attack:</strong> +2 melee (1d4+1, 2 claws)</p><p><strong>Full Attack:</strong> +2 melee (1d4+1, 2 claws) or +6 ranged (2d6, Glock 17)</p><p><strong>Skills:</strong> Balance +8, Hide +8, Listen +7, Read/Write Cat Folk, Read/Write English, Speak Cat Folk, Speak English, Spot +7, Tumble +7.</p><p><strong>Feats:</strong> Alertness, Improved Initiative, Personal Firearms Proficiency, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!qz1mpHIP8PdruIaz"
+  "_key": "!actors!qz1mpHIP8PdruIaz",
+  "items": [
+    {
+      "_id": "TKJexqQwdZCaNS36",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4+1, 2 claws) or +6 ranged (2d6, Glock 17)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "27MDij2my4sucCyq",
+      "name": "Glock 17",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4+1, 2 claws) or +6 ranged (2d6, Glock 17)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

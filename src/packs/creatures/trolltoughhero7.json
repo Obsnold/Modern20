@@ -107,5 +107,100 @@
     "specialQualities": "10 ft. by 10 ft./10 ft.",
     "biography": "<p><strong>Attack:</strong> +14 melee (1d6+6, claw)</p><p><strong>Full Attack:</strong> +14 melee (1d6+6, 2 claws), +12 melee (1d6+3 bite), or +10/+5 ranged (2d8, M16A2)</p><p><strong>Skills:</strong> Climb +8, Drive +7, Listen +5, Read/Write English, Speak English, Speak Giant, Spot +5</p><p><strong>Feats:</strong> Advanced Firearms Proficiency, Alertness, Heroic Surge, Improved Bull Rush, Multiattack, Power Attack, Simple Weapons Proficiency, Vehicle Expert</p><p><strong>Talents:</strong> (Tough Hero): Acid resistance 7, fire resistance 7, robust, second wind</p>"
   },
-  "_key": "!actors!01hzKZixzh3lIPdb"
+  "_key": "!actors!01hzKZixzh3lIPdb",
+  "items": [
+    {
+      "_id": "zWAsnj1vQ6zrpq33",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+14 melee (1d6+6, 2 claws), +12 melee (1d6+3 bite), or +10/+5 ranged (2d8, M16A2)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1d6+6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "j3OlqBhvN0W4vCN9",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+14 melee (1d6+6, 2 claws), +12 melee (1d6+3 bite), or +10/+5 ranged (2d8, M16A2)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1d6+3",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -2,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "eMSsMTpfoYDjdl8O",
+      "name": "M16A2",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+14 melee (1d6+6, 2 claws), +12 melee (1d6+3 bite), or +10/+5 ranged (2d8, M16A2)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "2d8",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

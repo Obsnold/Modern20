@@ -95,5 +95,38 @@
     "specialQualities": "Darkvision 60 ft., divine spells, fear aura (DC 14), turn undead",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d6+1, claw)</p><p><strong>Full Attack:</strong> +6 melee (1d6+1, 2 claws) or +7 ranged)</p><p><strong>Skills:</strong> Balance +7, Climb +7, Concentration +6, Hide +5, Knowledge (theology and philosophy) +4, Listen +8, Move Silently +7, Read/Write Mothfolk, Sense Motive +4, Speak Mothfolk, Spellcraft +6, Spot +4, Survival +6, Treat Injury +6.</p><p><strong>Feats:</strong> Iron Will, Lightning Reflexes, Mobility, Simple Weapons Proficiency, Stealthy, Track.</p><p><strong>Talents:</strong> (Dedicated Hero): Aware, skill emphasis (Survival).</p>"
   },
-  "_key": "!actors!kSyvAcrrKwLwpOo1"
+  "_key": "!actors!kSyvAcrrKwLwpOo1",
+  "items": [
+    {
+      "_id": "97Jfv4HQc3dqDxq1",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d6+1, 2 claws) or +7 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d6+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

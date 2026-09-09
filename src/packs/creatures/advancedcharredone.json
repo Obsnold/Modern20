@@ -99,5 +99,38 @@
     "specialQualities": "darkvision 60 ft., fire subtype, heat (DC 15), incorporeal subtype, locate killer, undead",
     "biography": "<p><strong>Attack:</strong> +7 melee (2d10 fire, incorporeal touch)</p><p><strong>Full Attack:</strong> +7 melee (2d10 fire, incorporeal touch)</p><p><strong>Skills:</strong> Hide +10, Intimidate +10, Listen +13, Read/Write Language (any one), Speak Language (any one), Spot +13.</p><p><strong>Feats:</strong> Iron Will, Lightning Reflexes, Weapon Focus (incorporeal touch)</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!twN7XXjbljN59OuY"
+  "_key": "!actors!twN7XXjbljN59OuY",
+  "items": [
+    {
+      "_id": "SuR5Dc7Z3bZOwhYD",
+      "name": "Incorporeal touch",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+7 melee (2d10 fire, incorporeal touch)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d10",
+        "damageType": "fire",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 2,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

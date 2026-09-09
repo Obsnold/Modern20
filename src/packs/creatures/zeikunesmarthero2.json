@@ -95,5 +95,69 @@
     "specialQualities": "Darkvision 60 ft., improved grab, liquefaction, power resistance 17, psionics, siphon fluids",
     "biography": "<p><strong>Attack:</strong> +4 melee (2d4, bite) or +6 ranged (2d6, Ruger Service-Six)</p><p><strong>Full Attack:</strong> +4 melee (2d4, bite) or +6 ranged (2d6, Ruger Service-Six)</p><p><strong>Skills:</strong> Computer Use +8, Disable Device +6, Hide +11, Listen +10, Move Silently +11, Read/Write English, Repair +5, Research +6, Search +6, Spot +10.</p><p><strong>Feats:</strong> Improved Initiative, Lightning Reflexes, Personal Firearms Proficiency, Simple Weapons Proficiency</p><p><strong>Talents:</strong> (Smart Hero): Savant (Computer Use)</p>"
   },
-  "_key": "!actors!pnN0vyDUMzNp8yCn"
+  "_key": "!actors!pnN0vyDUMzNp8yCn",
+  "items": [
+    {
+      "_id": "ZkEZzRxdBJHQYurq",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (2d4, bite) or +6 ranged (2d6, Ruger Service-Six)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "2d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "sp6kpxwdGkq17P54",
+      "name": "Ruger Service-Six",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (2d4, bite) or +6 ranged (2d6, Ruger Service-Six)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

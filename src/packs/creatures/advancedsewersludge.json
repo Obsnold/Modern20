@@ -95,5 +95,38 @@
     "specialQualities": "Blindsight 30 ft., disease, camouflage, constrict 1d6+1, immunities, improved grab, ooze, stench (DC 17)",
     "biography": "<p><strong>Attack:</strong> +10 melee (1d8+7 plus disease, slam)</p><p><strong>Full Attack:</strong> +10/+5 melee (1d8+7 plus disease, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!EkJ6KyFnrFAjPRKD"
+  "_key": "!actors!EkJ6KyFnrFAjPRKD",
+  "items": [
+    {
+      "_id": "VWAhiPPOcYgDpFKZ",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+10/+5 melee (1d8+7 plus disease, slam)</p><p><strong>Plus:</strong> disease</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d8+7",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

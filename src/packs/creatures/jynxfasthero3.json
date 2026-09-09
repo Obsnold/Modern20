@@ -99,5 +99,38 @@
     "specialQualities": "electricity immunity, low-light vision, natural invisibility, rending claws, spider climb",
     "biography": "<p><strong>Attack:</strong> +7 melee (1d3-2, claw)</p><p><strong>Full Attack:</strong> +7 melee (1d3-2, 2 claws) or +6 ranged</p><p><strong>Skills:</strong> Balance +14, Climb +2, Demolitions +8, Disable Device +16, Drive +7, Escape Artist +14, Hide +8, Jump +4, Listen +7, Move Silently +8, Pilot +11; Repair +3, Search +6, Spot +7, Tumble +12.</p><p><strong>Feats:</strong> Acrobatic, Aircraft Operation (heavy aircraft), Aircraft Operation (jet fighters), Dodge, Mobility, Personal Firearms Proficiency, Weapon Finesse (claws)</p><p><strong>Talents:</strong> Evasion, uncanny dodge 1</p>"
   },
-  "_key": "!actors!xZA0nd9tOuCfzjYD"
+  "_key": "!actors!xZA0nd9tOuCfzjYD",
+  "items": [
+    {
+      "_id": "3xKeGE0YmLbTyYQU",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+7 melee (1d3-2, 2 claws) or +6 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d3-2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 6,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

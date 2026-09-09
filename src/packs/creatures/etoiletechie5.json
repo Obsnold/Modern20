@@ -99,5 +99,38 @@
     "specialQualities": "Darkvision 60 ft., device operation, electric shock, electricity immunity, elemental, mechanical healing, nannite infection (DC 19), telepathy",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d3-1 plus 1d6 electricity, pincer)</p><p><strong>Full Attack:</strong> +9 melee (1d3-1 plus 1d6 electricity, 3 pincers)</p><p><strong>Skills:</strong> Computer Use +18, Craft (electrical) +18, Craft (mechanical) +18, Demolitions +14, Disable Device +18, Knowledge (earth and life sciences) +10, Knowledge (physical sciences) +10, Knowledge (technology) +16, Read/Write English, Read/Write Japanese, Research +13; Repair +18, Treat Injury +7.</p><p><strong>Feats:</strong> Builder, Cautious, Defensive Martial Arts, Educated (Knowledge [physical sciences], Knowledge [technology]), Gearhead, Surgery, Weapon Finesse (pincer)</p><p><strong>Talents:</strong> (Techie): Build robot, extreme machine, jury-rig +2, mastercraft.</p>"
   },
-  "_key": "!actors!pwVTFCbt3IRcuzVA"
+  "_key": "!actors!pwVTFCbt3IRcuzVA",
+  "items": [
+    {
+      "_id": "TiuRI3QalnUppmPV",
+      "name": "Pincer (x3)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d3-1 plus 1d6 electricity, 3 pincers)</p><p><strong>Plus:</strong> 1d6 electricity</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d3-1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 4,
+        "size": "tiny",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

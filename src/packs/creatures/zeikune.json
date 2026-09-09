@@ -95,5 +95,38 @@
     "specialQualities": "Darkvision 60 ft., improved grab, liquefaction, power resistance 17, psionics, siphon fluids",
     "biography": "<p><strong>Attack:</strong> +3 melee (2d4, bite)</p><p><strong>Full Attack:</strong> +3 melee (2d4, bite) or +5 ranged)</p><p><strong>Skills:</strong> Hide +9, Listen +8, Move Silently +9, Spot +8.</p><p><strong>Feats:</strong> Improved Initiative, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!yuMMaU6XBq264LuB"
+  "_key": "!actors!yuMMaU6XBq264LuB",
+  "items": [
+    {
+      "_id": "mCpYFhHzrB0xnzZW",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (2d4, bite) or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "2d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

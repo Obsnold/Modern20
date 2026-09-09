@@ -95,5 +95,38 @@
     "specialQualities": "by object, construct, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +25 melee (4d6+13, slam)</p><p><strong>Full Attack:</strong> +25 melee (4d6+13, slam) or +13 ranged)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!IY2ZuhDwAhD5lxuB"
+  "_key": "!actors!IY2ZuhDwAhD5lxuB",
+  "items": [
+    {
+      "_id": "cmQhpxXJ9tCFjg9U",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+25 melee (4d6+13, slam) or +13 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "4d6+13",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "colossal",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

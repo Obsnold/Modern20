@@ -95,5 +95,69 @@
     "specialQualities": "constrict (1d8+22), improved grab, low-light vision, scent, swallow whole",
     "biography": "<p><strong>Attack:</strong> +33 melee (1d8+15, tail slap)</p><p><strong>Full Attack:</strong> +33 melee (1d8+15, tail slap) and +28 melee (2d8+7, bite)</p><p><strong>Skills:</strong> Balance +9, Climb +23, Hide +8, Listen +5, Spot +5, Swim +23</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!B5jQRoinlAKDYA0m"
+  "_key": "!actors!B5jQRoinlAKDYA0m",
+  "items": [
+    {
+      "_id": "XXxeHBEWsoFRwSep",
+      "name": "Tail slap",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+33 melee (1d8+15, tail slap) and +28 melee (2d8+7, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "1d8+15",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "kmAy3tikOKSzQU5c",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+33 melee (1d8+15, tail slap) and +28 melee (2d8+7, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d8+7",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

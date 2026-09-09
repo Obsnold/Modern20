@@ -95,5 +95,100 @@
     "specialQualities": "Damage reduction 10/+1 (fire form only), darkvision 60 ft., elemental traits, fear aura (DC 20), fire form (DC 20), fire subtype, flame shield (DC 20), flame sword, telepathy",
     "biography": "<p><strong>Attack:</strong> +8 melee (2d6+2 plus 3d6 fire, flame sword) or +9 ranged (2d6, HK MP5) or +8 ranged touch (3d6 fire, flame shield)</p><p><strong>Full Attack:</strong> +8/+3 melee (2d6+2 plus 3d6 fire, flame sword) or +9/+4 ranged (2d6, HK MP5) or +8 ranged touch (3d6 fire, flame shield)</p><p><strong>Skills:</strong> Bluff +18, Diplomacy +18, Gather Information +15, Intimidate +16, Investigate +8, Profession +9, Read/Write (English), Read/Write (Spanish), Research +8, Search +4, Speak (English), Speak (Spanish).</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Burst Fire, Personal Firearms Proficiency, Renown, Simple Weapons Proficiency, Trustworthy.</p><p><strong>Talents:</strong> (Charismatic Hero): Coordinate, fast-talk</p>"
   },
-  "_key": "!actors!qSJ9ZtXIJYMFv1er"
+  "_key": "!actors!qSJ9ZtXIJYMFv1er",
+  "items": [
+    {
+      "_id": "4wC4ortL5FYij8nn",
+      "name": "Flame sword",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8/+3 melee (2d6+2 plus 3d6 fire, flame sword) or +9/+4 ranged (2d6, HK MP5) or +8 ranged touch (3d6 fire, flame shield)</p><p><strong>Plus:</strong> 3d6 fire</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "2d6+2",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "TT9RLPpDuK9wp8RW",
+      "name": "HK MP5",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8/+3 melee (2d6+2 plus 3d6 fire, flame sword) or +9/+4 ranged (2d6, HK MP5) or +8 ranged touch (3d6 fire, flame shield)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "Hrc2YBz8H8zCya52",
+      "name": "Flame shield",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8/+3 melee (2d6+2 plus 3d6 fire, flame sword) or +9/+4 ranged (2d6, HK MP5) or +8 ranged touch (3d6 fire, flame shield)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "3d6",
+        "damageType": "fire",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

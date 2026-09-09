@@ -95,5 +95,38 @@
     "specialQualities": "Construct, berserk, magic immunity, damage reduction 15/+1",
     "biography": "<p><strong>Attack:</strong> +10 melee (2d8+5, slam)</p><p><strong>Full Attack:</strong> +10 melee (2d8+5, 2 slams), or +4 ranged</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!SKCVAjNy41dOgnii"
+  "_key": "!actors!SKCVAjNy41dOgnii",
+  "items": [
+    {
+      "_id": "PJNclid4tVLU1igt",
+      "name": "Slam (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+10 melee (2d8+5, 2 slams), or +4 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "2d8+5",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -95,5 +95,38 @@
     "specialQualities": "Plant, improved grab, swallow whole, blood drain 1d6+13, blindsight 60 ft.",
     "biography": "<p><strong>Attack:</strong> +16 melee (1d6+13, bite)</p><p><strong>Full Attack:</strong> +16/+11 melee (1d6+13, bite), or +5 ranged)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!xRHQodsw0Va7U3nq"
+  "_key": "!actors!xRHQodsw0Va7U3nq",
+  "items": [
+    {
+      "_id": "OoVjFH1f48N9zRYq",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+16/+11 melee (1d6+13, bite), or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d6+13",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

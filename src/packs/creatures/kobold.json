@@ -99,5 +99,100 @@
     "specialQualities": "Darkvision 60 ft., light sensitivity",
     "biography": "<p><strong>Attack:</strong> -1 melee (1d2-2, slam or 1d3-2, knife)</p><p><strong>Full Attack:</strong> -1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p><p><strong>Skills:</strong> Craft (mechanical) +2, Hide +8, Listen +2, Move Silently +4, Read/Write Draconic, Search +2, Speak Draconic, Spot +2</p><p><strong>Feats:</strong> Alertness, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!0OnFHRzFygy6nYf2"
+  "_key": "!actors!0OnFHRzFygy6nYf2",
+  "items": [
+    {
+      "_id": "OHEpwE373fB7iTzC",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>-1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d2-2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "vbQBFphINPbud6Od",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>-1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "1d3-2",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "tNdwYTqR5q61baz6",
+      "name": "Pathfinder",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>-1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": -4,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -688,6 +688,94 @@ SIZE_BY_MODIFIER = {
 }
 
 
+# "+23/+18/+13 melee (2d8+13 plus 1d6 acid, slam)" — a bonus or a sequence of
+# them, the mode, and a bracket holding damage and the weapon's name. A few
+# lines carry two weapons in one bracket, joined by "or".
+ATTACK_LINE = re.compile(r"""
+    (?P<bonuses>[+-]\d+(?:/[+-]\d+)*)\s+
+    (?P<mode>melee|ranged)
+    (?P<touch>\s+touch)?
+    (?:\s*\((?P<body>[^)]*)\))?
+""", re.X | re.I)
+
+
+def parse_attack_part(part: str) -> dict | None:
+    """One weapon out of an attack bracket: "2d8+13 plus 1d6 acid, slam"."""
+    if "," in part:
+        damage_text, name = part.rsplit(",", 1)
+    else:
+        # A few omit the comma: "1d6+3 bite".
+        match = re.match(r"\s*(\d+d\d+(?:[+-]\d+)?(?:/[^\s]*)?)\s+(.+)", part)
+        if not match:
+            return None
+        damage_text, name = match.group(1), match.group(2)
+
+    match = re.match(
+        r"\s*(\d+d\d+(?:[+-]\d+)?|\d+)\s*(?:/[^\d]*(\d+(?:-\d+)?))?\s*(.*)",
+        damage_text.strip(),
+    )
+    if not match:
+        return None
+    damage, critical, rest = match.group(1), match.group(2), match.group(3).strip()
+
+    # "plus 1d6 acid" is a rider; a bare word is the damage's own energy type.
+    extra, damage_type = "", ""
+    if rest:
+        rider = re.match(r"(?:plus|and)\s+(.*)", rest, re.I)
+        if rider:
+            extra = rider.group(1).strip()
+        else:
+            damage_type = rest.split()[0].lower()
+
+    # "2 claws" is two attacks with one weapon.
+    count = 1
+    name = name.strip()
+    counted = re.match(r"(\d+)\s+(.*)", name)
+    if counted:
+        count = int(counted.group(1))
+        name = counted.group(2).rstrip("s")
+
+    return {
+        "damage": damage, "critical": critical or "20", "damageType": damage_type,
+        "extra": extra, "name": name, "count": count,
+    }
+
+
+def parse_attacks(text: str) -> list[dict]:
+    """A creature's printed attack line, as the weapons it names.
+
+    A bonus with no bracket — "or +9 ranged" — names no weapon and is skipped:
+    the SRD is giving the creature's ranged attack bonus for whatever it picks
+    up, not an attack it has.
+    """
+    attacks = []
+    for match in ATTACK_LINE.finditer(text or ""):
+        bonuses = [int(b) for b in match.group("bonuses").split("/")]
+        parts = [p.strip() for p in re.split(r"\bor\b", match.group("body") or "") if p.strip()]
+
+        for part in parts:
+            parsed = parse_attack_part(part)
+            if not parsed:
+                # "bite or tail slap" is one attack under two names.
+                if attacks and part and not re.search(r"\d", part):
+                    attacks[-1]["alternateName"] = part
+                continue
+            attacks.append({
+                "bonus": bonuses[0],
+                "sequence": bonuses,
+                "ranged": match.group("mode").lower() == "ranged",
+                "touch": bool(match.group("touch")),
+                "alternateName": "",
+                **parsed,
+            })
+    return attacks
+
+
+# The size modifier a creature of each size takes on its attack rolls, which is
+# the inverse of the table size_from_defense reads.
+ATTACK_SIZE_MODIFIER = {size: modifier for modifier, size in SIZE_BY_MODIFIER.items()}
+
+
 def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: str) -> dict:
     """One column of a stat block into the fields the creature model stores.
 
@@ -740,6 +828,8 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
         "massiveDamageThreshold": massive,
         "abilities": abilities,
         "baseAttack": bab,
+        # The printed attack line, as the weapons it names.
+        "attacks": parse_attacks(rows.get("full atk", "") or rows.get("atk", "")),
         "speed": speed,
         # Everything the model derives is stored as the offset that reproduces
         # the printed total, so nothing is silently wrong on the sheet.

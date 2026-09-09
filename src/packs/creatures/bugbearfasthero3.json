@@ -99,5 +99,69 @@
     "specialQualities": "darkvision 60 ft., scent",
     "biography": "<p><strong>Attack:</strong> +4 melee (1d3+2, slam or 1d6+2/19-20, metal baton), or +3 ranged (2d6, Colt Python)</p><p><strong>Full Attack:</strong> +6 melee (1d3+2, slam or 1d6+2/_19-20, metal baton)</p><p><strong>Skills:</strong> Climb +2*, Drive +3, Escape Artist +3*, Hide +5*, Knowledge (streetwise) +2, Listen +3, Move Silently +8*, Read/Write Goblin, Speak Goblin, Spot +3, Tumble +3*. *Includes the -2 armor penalty for wearing an undercover vest.</p><p><strong>Feats:</strong> Alertness, Armor Proficiency (light), Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> Evasion, uncanny dodge 1.</p>"
   },
-  "_key": "!actors!mYBErpHSAsNdL4Go"
+  "_key": "!actors!mYBErpHSAsNdL4Go",
+  "items": [
+    {
+      "_id": "VN4fLYYlUnvyXzD4",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d3+2, slam or 1d6+2/_19-20, metal baton)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "1d3+2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "3CTLi7C0iYFiypVU",
+      "name": "Metal baton",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d3+2, slam or 1d6+2/_19-20, metal baton)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "1d6+2",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

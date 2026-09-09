@@ -95,5 +95,69 @@
     "specialQualities": "Chosen victim, fear aura (DC 14), immune to fear, low-light vision, selective invisibility, terrify (DC 14), vulnerability (any one)",
     "biography": "<p><strong>Attack:</strong> +2 melee (1d4+1, claw) or +2 melee (1d6+1/19-20, cleaver)</p><p><strong>Full Attack:</strong> +2 melee (1d4+1, 2 claws) or +2 melee (1d6+1/19-20, cleaver) or +2 ranged</p><p><strong>Skills:</strong> Bluff +6, Climb +3, Disguise +5, Escape Artist +2, Hide +4, Intimidate +13, Knowledge (behavioral science) +6, Listen +6, Move Silently +5, Search +3, Sense Motive +13, Spot +6.</p><p><strong>Feats:</strong> Improved Initiative, Renown, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!lCBp0bNJxFVXXcXm"
+  "_key": "!actors!lCBp0bNJxFVXXcXm",
+  "items": [
+    {
+      "_id": "KXJGTQOla8xOTEMi",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4+1, 2 claws) or +2 melee (1d6+1/19-20, cleaver) or +2 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "W2I8kuEsn4Me1mdq",
+      "name": "Cleaver",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4+1, 2 claws) or +2 melee (1d6+1/19-20, cleaver) or +2 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "1d6+1",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

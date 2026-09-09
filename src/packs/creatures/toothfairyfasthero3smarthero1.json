@@ -95,5 +95,69 @@
     "specialQualities": "Fey rod, invisibility, anyspeak, low-light vision",
     "biography": "<p><strong>Attack:</strong> +2 melee (1d4, knife)</p><p><strong>Full Attack:</strong> +2 melee (1d4, knife), or +3 ranged (2d6, Colt Double Eagle)</p><p><strong>Skills:</strong> Bluff +4, Computer Use +4, Craft (chemical) +3, Decipher Script +4, Disguise +4, Escape Artist +7, Hide +9, Intimidate +4, Listen +4, Move Silently +9, Repair +4, Research +5, Search +4, Sense Motive +4, Sleight of Hand +7, Spot +4, Tumble +7</p><p><strong>Feats:</strong> Heroic Surge, Improved Initiative, Personal Firearms Proficiency, Renown, Simple Weapons Proficiency, Stealthy</p><p><strong>Talents:</strong> (Fast Hero): Evasion, uncanny dodge 1 (Smart Hero): Savant (Research)</p>"
   },
-  "_key": "!actors!Q3d3yG0bj8Xz2lFR"
+  "_key": "!actors!Q3d3yG0bj8Xz2lFR",
+  "items": [
+    {
+      "_id": "zs7NvN0aDRh6X5A0",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4, knife), or +3 ranged (2d6, Colt Double Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "cJXxrM0bILBBQF9l",
+      "name": "Colt Double Eagle",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4, knife), or +3 ranged (2d6, Colt Double Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

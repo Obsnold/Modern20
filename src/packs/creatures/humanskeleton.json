@@ -95,5 +95,38 @@
     "specialQualities": "Undead, skeleton immunities",
     "biography": "<p><strong>Attack:</strong> +0 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +0 melee (1d4, 2 claws)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> Improved Initiative, Simple Weapons Proficiency</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!fn8ymQQ1XTN38UqL"
+  "_key": "!actors!fn8ymQQ1XTN38UqL",
+  "items": [
+    {
+      "_id": "rsyyT0m7shz7fGD0",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+0 melee (1d4, 2 claws)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }
