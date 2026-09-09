@@ -346,6 +346,11 @@
 .m20-chat__result { font-size: 1rem; font-weight: 600; margin: 0.3rem 0; }
 .m20-chat__result--success { color: #2f6b3a; }
 .m20-chat__result--failure { color: #8c2f1e; }
+/* A record card: what happened, kept in chat rather than flashed as a toast. */
+.m20-chat--record .m20-chat__header img { width: 22px; height: 22px; }
+.m20-chat--warning { border-left: 3px solid #8c2f1e; padding-left: 0.4rem; }
+.m20-chat--warning .m20-chat__title { color: #8c2f1e; }
+
 /* The attack modifier dialog: a column of fieldsets over a running total. */
 .m20-dialog { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem; }
 .m20-dialog__header { display: flex; align-items: center; gap: 0.4rem; }

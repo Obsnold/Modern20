@@ -38,6 +38,7 @@
       "FiveFootStep": "5-foot step",
       "None": "not an action",
       "NotInCombat": "Not in a combat; the budget resets when you end your turn.",
+      "NothingLeft": "No actions left this turn.",
       "Overspent": "{name} has already used this turn's {action}.",
       "Provokes": "Provokes an attack of opportunity",
       "ProvokesMaybe": "May provoke an attack of opportunity",
@@ -1143,8 +1144,11 @@
     "Chat": {
       "ActionPoint": "Spends an action point",
       "Attack": "Attack with {weapon}",
+      "AttackAt": "Attack with {weapon} on {target}",
       "CriticalDamage": "Critical damage from {weapon}",
+      "CriticalDamageAt": "Critical damage from {weapon} to {target}",
       "Damage": "Damage from {weapon}",
+      "DamageAt": "Damage from {weapon} to {target}",
       "MassiveDamage": "Massive damage! Fortitude DC {dc}",
       "WealthCheck": "Wealth check for {item} (DC {dc})"
     },
@@ -1314,6 +1318,7 @@
       "Healed": "{names} healed {amount}.",
       "ImmuneNonlethal": "{name} is not subject to nonlethal damage.",
       "NoTarget": "Target or select a token first.",
+      "Nonlethal": "Nonlethal.",
       "NonlethalExceeds": "{name}'s nonlethal damage ({total}) has reached their hit points ({hp}).",
       "NonlethalShort": "nonlethal",
       "NotYours": "You do not own {name}.",
@@ -2208,15 +2213,20 @@
       "Unarmed": "Unarmed"
     },
     "Stance": {
+      "Charge": "Charge",
+      "ChargeEffect": "Move at least 10 feet in a straight line, then one attack.",
+      "Ends": "{name} drops the {stance} stance.",
+      "FightDefensively": "Fight defensively",
+      "FightDefensivelyEffect": "-4 attack, +2 Defense for the round.",
+      "None": "No stance.",
+      "Run": "Run",
+      "RunEffect": "Four times speed in a straight line; loses the Dexterity bonus to Defense, +2 against ranged.",
+      "Takes": "{name}: {stance}.",
       "Title": "Stance",
       "TotalDefense": "Total defense",
-      "FightDefensively": "Fight defensively",
-      "Run": "Run",
-      "Charge": "Charge",
+      "TotalDefenseEffect": "+4 Defense for 1 round; no attack or other activity.",
       "Withdraw": "Withdraw",
-      "Ends": "{name} drops the {stance} stance.",
-      "Takes": "{name}: {stance}.",
-      "None": "No stance."
+      "WithdrawEffect": "Twice speed; the starting square is not threatened."
     }
   },
   "TYPES": {

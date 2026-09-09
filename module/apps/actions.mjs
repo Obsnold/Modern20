@@ -81,6 +81,7 @@ export const STANCES = {
     id: "totalDefense",
     action: "attack",
     label: "MODERN20.Stance.TotalDefense",
+    detail: "MODERN20.Stance.TotalDefenseEffect",
     // "The character doesn't get to attack or perform any other activity, but
     // does get a +4 dodge bonus to his or her Defense for 1 round."
     cites: "a +4 dodge bonus to his or her Defense for 1 round",
@@ -91,6 +92,7 @@ export const STANCES = {
     id: "fightDefensively",
     action: "attack",
     label: "MODERN20.Stance.FightDefensively",
+    detail: "MODERN20.Stance.FightDefensivelyEffect",
     // "takes a -4 penalty on his or her attack in a round to gain a +2 dodge
     // bonus to Defense in the same round"
     cites: "a -4 penalty on his or her attack in a round to gain a +2 dodge bonus",
@@ -104,6 +106,7 @@ export const STANCES = {
     id: "run",
     action: "fullRound",
     label: "MODERN20.Stance.Run",
+    detail: "MODERN20.Stance.RunEffect",
     // "The character loses any Dexterity bonus to Defense since he or she
     // can't avoid attacks. However, the character gets a +2 bonus to Defense
     // against ranged attacks while running."
@@ -115,6 +118,7 @@ export const STANCES = {
     id: "charge",
     action: "fullRound",
     label: "MODERN20.Stance.Charge",
+    detail: "MODERN20.Stance.ChargeEffect",
     // "Charging is a special full-round action that allows a character to move
     // more than his or her speed and attack during the action." No bonus and
     // no penalty: the restrictions are all on the movement.
@@ -126,6 +130,7 @@ export const STANCES = {
     id: "withdraw",
     action: "fullRound",
     label: "MODERN20.Stance.Withdraw",
+    detail: "MODERN20.Stance.WithdrawEffect",
     // "The square the character starts from is not considered threatened for
     // purposes of withdrawing."
     cites: "the square the character starts from is not considered threatened",

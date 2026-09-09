@@ -4,6 +4,7 @@ import { availableActivities, defaultActivities } from "../apps/activities.mjs";
 import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazineSize } from "../apps/accessories.mjs";
 import { activityAction } from "../apps/actions.mjs";
 import { Modern20AttackDialog } from "../apps/attack-dialog.mjs";
+import { announce, acknowledge, problem } from "../apps/announce.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
@@ -200,7 +201,7 @@ export class Modern20Item extends Item {
     if (this.type !== "weapon") throw new Error("Only weapons can roll attacks");
 
     if (!this.system.equipped) {
-      ui.notifications.warn(game.i18n.format("MODERN20.Equip.NotEquipped", { name: this.name }));
+      problem(game.i18n.format("MODERN20.Equip.NotEquipped", { name: this.name }));
     }
 
     let chosen = modifiers;
@@ -228,7 +229,10 @@ export class Modern20Item extends Item {
     if (this.system.ammo?.max) {
       const remaining = this.system.ammo.value - result.ammoSpent;
       if (remaining < 0) {
-        ui.notifications.warn(game.i18n.format("MODERN20.Attack.NoAmmo", { name: this.name }));
+        await announce(this.actor, {
+          title: game.i18n.format("MODERN20.Attack.NoAmmo", { name: this.name }),
+          img: this.img, warning: true
+        });
       } else {
         await this.update({ "system.ammo.value": remaining });
       }
@@ -237,20 +241,27 @@ export class Modern20Item extends Item {
     return result;
   }
 
-  /** Damage from any item that deals it, doubled by rolling twice on a critical. */
-  async rollDamage({ critical = false, activityId = "" } = {}) {
+  /**
+   * Damage from any item that deals it, doubled by rolling twice on a critical.
+   *
+   * The target is carried through from the attack: "Damage from Colt M1911"
+   * says nothing useful when read back an hour later, and who it was aimed at
+   * is the line a battle log exists for.
+   */
+  async rollDamage({ critical = false, activityId = "", targetName = "" } = {}) {
     const roll = await rollItemDamage(this, { critical, activityId });
+    const key = targetName
+      ? (critical ? "MODERN20.Chat.CriticalDamageAt" : "MODERN20.Chat.DamageAt")
+      : (critical ? "MODERN20.Chat.CriticalDamage" : "MODERN20.Chat.Damage");
     await roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: game.i18n.format(
-        critical ? "MODERN20.Chat.CriticalDamage" : "MODERN20.Chat.Damage",
-        { weapon: this.name }
-      ),
+      flavor: game.i18n.format(key, { weapon: this.name, target: targetName }),
       flags: {
         modern20: {
           damage: roll.total,
           // Carried so the apply buttons know which pool it belongs in.
-          nonlethal: this.isNonlethal(activityId)
+          nonlethal: this.isNonlethal(activityId),
+          targetName
         }
       }
     });
@@ -317,11 +328,11 @@ export class Modern20Item extends Item {
     if (this.type !== "weapon") return null;
     const ammo = this.system.ammo;
     if (!ammo?.max) {
-      ui.notifications.warn(game.i18n.format("MODERN20.Attack.NoMagazine", { name: this.name }));
+      problem(game.i18n.format("MODERN20.Attack.NoMagazine", { name: this.name }));
       return null;
     }
     if (ammo.value >= ammo.max) {
-      ui.notifications.info(game.i18n.format("MODERN20.Attack.AlreadyLoaded", { name: this.name }));
+      acknowledge(game.i18n.format("MODERN20.Attack.AlreadyLoaded", { name: this.name }));
       return null;
     }
 
@@ -333,9 +344,12 @@ export class Modern20Item extends Item {
     let loaded = wanted;
     if (this.system.caliber) {
       if (!box) {
-        ui.notifications.warn(game.i18n.format("MODERN20.Attack.NoRounds", {
-          name: this.name, caliber: this.system.caliber
-        }));
+        await announce(this.actor, {
+          title: game.i18n.format("MODERN20.Attack.NoRounds", {
+            name: this.name, caliber: this.system.caliber
+          }),
+          img: this.img, warning: true
+        });
         return null;
       }
       loaded = Math.min(wanted, box.system.quantity);
@@ -352,13 +366,16 @@ export class Modern20Item extends Item {
     // "Reload a firearm with a box magazine or speed loader" is a move action;
     // an internal magazine is a full round. reloadAction works out which.
     await this.actor?.spendAction(action);
-    ui.notifications.info(game.i18n.format("MODERN20.Attack.Reloaded", {
-      name: this.name,
-      rounds: ammo.value + loaded,
-      max: ammo.max,
-      action: game.i18n.localize(`MODERN20.Action.${action}`),
-      ammo: box?.name ?? game.i18n.localize("MODERN20.Attack.OrdinaryRounds")
-    }));
+    await announce(this.actor, {
+      title: game.i18n.format("MODERN20.Attack.Reloaded", {
+        name: this.name,
+        rounds: ammo.value + loaded,
+        max: ammo.max,
+        action: game.i18n.localize(`MODERN20.Action.${action}`),
+        ammo: box?.name ?? game.i18n.localize("MODERN20.Attack.OrdinaryRounds")
+      }),
+      img: this.img
+    });
     return action;
   }
 
@@ -366,7 +383,7 @@ export class Modern20Item extends Item {
   async purchase({ blackMarket = false } = {}) {
     if (!this.actor) throw new Error("Cannot purchase an unowned item");
     if (this.system.purchaseDC === undefined) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Warning.NotPurchasable"));
+      problem(game.i18n.localize("MODERN20.Warning.NotPurchasable"));
       return null;
     }
     return this.actor.purchase(this.system.purchaseDC, {
