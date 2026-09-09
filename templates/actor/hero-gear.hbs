@@ -1,4 +1,26 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel m20-encumbrance">
+    <h3>{{localize "MODERN20.Load.Title"}}</h3>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Load.Carried"}}</label>
+      <span class="m20-mod">{{system.attributes.encumbrance.carried}} lb.</span>
+      <span class="m20-tag {{#if (eq system.attributes.encumbrance.level 'over')}}m20-over{{/if}}">
+        {{localize system.attributes.encumbrance.label}}
+      </span>
+      <span class="m20-hint">
+        {{system.attributes.encumbrance.limits.light}} /
+        {{system.attributes.encumbrance.limits.medium}} /
+        {{system.attributes.encumbrance.limits.heavy}} lb.
+      </span>
+    </div>
+    {{#unless (eq system.attributes.encumbrance.speed system.attributes.speed)}}
+      <p class="m20-hint m20-over">
+        {{localize "MODERN20.Load.SpeedReduced"}}
+        {{system.attributes.speed}} &rarr; {{system.attributes.encumbrance.speed}} ft.
+      </p>
+    {{/unless}}
+  </div>
+
   {{#each sections.gear as |section|}}
     <div class="m20-itemlist">
       <h3>
@@ -13,6 +35,13 @@
           {{#if item.system.damage}}<span class="m20-tag">{{item.system.damage}}</span>{{/if}}
           {{#if item.system.equipmentBonus}}<span class="m20-tag">+{{item.system.equipmentBonus}} {{localize "MODERN20.Def"}}</span>{{/if}}
           <span class="m20-tag m20-tag--dc">{{localize "MODERN20.PurchaseDCShort"}} {{item.system.purchaseDC}}</span>
+          {{#unless (eq item.type "gear")}}
+            <button type="button" class="m20-icon {{#if item.system.equipped}}m20-icon--on{{/if}}"
+                    data-action="toggleEquipped"
+                    data-tooltip="{{#if item.system.equipped}}{{localize 'MODERN20.Equip.Stow'}}{{else}}{{localize 'MODERN20.Equip.Wear'}}{{/if}}">
+              <i class="fa-solid {{#if item.system.equipped}}fa-shield-halved{{else}}fa-shield{{/if}}"></i>
+            </button>
+          {{/unless}}
           <button type="button" class="m20-icon" data-action="purchaseItem" title="{{localize 'MODERN20.BuyHint'}}">
             <i class="fa-solid fa-cart-shopping"></i>
           </button>

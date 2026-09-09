@@ -36,7 +36,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       editItem: Modern20ActorSheetBase.#onEditItem,
       deleteItem: Modern20ActorSheetBase.#onDeleteItem,
       adjustClassLevel: Modern20ActorSheetBase.#onAdjustClassLevel,
-      openCreator: Modern20ActorSheetBase.#onOpenCreator
+      openCreator: Modern20ActorSheetBase.#onOpenCreator,
+      toggleEquipped: Modern20ActorSheetBase.#onToggleEquipped
     }
   };
 
@@ -214,6 +215,18 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
 
   static async #onEditItem(event, target) {
     this._itemFromEvent(target)?.sheet.render(true);
+  }
+
+  /**
+   * Equip or stow an item.
+   *
+   * Deliberately not GM-only: equipping is something a character does in play,
+   * not part of building one, so it stays with the player who owns the sheet.
+   */
+  static async #onToggleEquipped(event, target) {
+    const item = this._itemFromEvent(target);
+    if (item?.system?.equipped === undefined) return;
+    await item.update({ "system.equipped": !item.system.equipped });
   }
 
   static async #onOpenCreator() {

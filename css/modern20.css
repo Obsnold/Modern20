@@ -182,6 +182,11 @@
 
 .modern20 .m20-icon:hover { color: var(--m20-accent); }
 
+/* An equipped item's control reads as active rather than merely hoverable. */
+.modern20 .m20-icon--on { color: var(--m20-success); }
+
+.modern20 .m20-encumbrance { margin-bottom: 0.8rem; }
+
 /* --- Tags -------------------------------------------------------------- */
 
 .modern20 .m20-tag {

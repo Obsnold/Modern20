@@ -265,7 +265,20 @@ hero carries an append-only `system.advancement` log — one entry per level wit
 the hit points rolled, what was gained and which skill ranks were bought —
 displayed newest-first on the Character tab.
 
-**Sheets are read-only for players.** Building happens in the creator and the
+**Equipping** is a per-row toggle on the Gear tab, the shape the mature systems
+settled on — d20 Modern has no slots or attunement to model. Equipped armor
+feeds the equipment bonus, the maximum Dex bonus and the armor check penalty;
+attacking with a stowed weapon warns rather than blocks.
+
+**Encumbrance** is derived from everything carried, against the SRD's
+Strength table. Note that d20 Modern's encumbrance costs *speed* rather than
+the d20 3.5 Dexterity cap and check penalty — *"An encumbered character's speed
+is reduced to the value given below"* — and above the heavy figure a character
+cannot move or act at all.
+
+**Sheets are read-only for players.** Equipping is the exception: it is
+something a character does in play rather than part of building one, so it
+stays with the player who owns the sheet. Building happens in the creator and the
 level-up screen, which apply the rules; editing the same values directly on the
 sheet bypasses them. Players keep everything that reads or rolls, plus the
 level-up control. The GM edits freely, and a lock icon in the header says which

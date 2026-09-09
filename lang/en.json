@@ -933,6 +933,11 @@
     "Def": "Def",
     "Defense": "Defense",
     "Durability": "Durability",
+    "Equip": {
+      "NotEquipped": "{name} is not equipped.",
+      "Stow": "Stow",
+      "Wear": "Equip"
+    },
     "FailedNoCost": "A failed Wealth check costs nothing.",
     "Failure": "Failure",
     "FeatType": {
@@ -1396,6 +1401,15 @@
       "HitPointsGained": "Gained <strong>{gained}</strong> hit points ({rolled} on the die, Constitution {con}).",
       "Maximum": "maximum",
       "NoTalents": "No talents remain for {name}; the compendium may not be installed."
+    },
+    "Load": {
+      "Carried": "Carried",
+      "Heavy": "Heavily encumbered",
+      "Light": "Light load",
+      "Medium": "Encumbered",
+      "Over": "Over maximum load",
+      "SpeedReduced": "Speed reduced:",
+      "Title": "Load"
     },
     "Locked": "Locked. Use the creator or the level-up screen; ask the GM for anything else.",
     "Maneuver": "Maneuver",

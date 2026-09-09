@@ -886,6 +886,58 @@ def scrape_skill_specialties() -> dict:
             for key, value in sorted(found.items())}
 
 
+def parse_pounds(text: str) -> tuple[int, int]:
+    """Lower and upper bound of a load cell: "up to 6 lb." or "7-13 lb."."""
+    numbers = [int(n) for n in re.findall(r"\d+", text or "")]
+    if not numbers:
+        return (0, 0)
+    if len(numbers) == 1:
+        return (0, numbers[0])
+    return (numbers[0], numbers[-1])
+
+
+def scrape_carrying_capacity() -> dict:
+    """Load thresholds by Strength, and the speeds encumbrance reduces you to.
+
+    d20 Modern's encumbrance costs speed rather than the 3.5 Dex cap and check
+    penalty: "An encumbered character's speed is reduced to the value given
+    below". The two speed tables give those values.
+    """
+    page_html = srd.fetch(srd.PAGES["equipment"])
+    tables = srd.annotated_tables(page_html)
+
+    loads = {}
+    speeds = []
+    for table in tables:
+        header = [c.strip().lower() for c in table["header"]]
+        if "strength" in header and any("light load" in c for c in header):
+            for row in table["rows"]:
+                if not row or not row[0].strip().isdigit():
+                    continue
+                strength = int(row[0])
+                cells = [c for c in row[1:] if c.strip()]
+                if not cells:
+                    continue
+                light = parse_pounds(cells[0])[1]
+                heavy_low, heavy_max = parse_pounds(cells[-1])
+                # The Strength 1 row omits its medium cell, so medium's ceiling
+                # is derived from where heavy begins rather than read directly.
+                medium = heavy_low - 1 if heavy_low else light
+                loads[strength] = {"light": light, "medium": medium, "heavy": heavy_max}
+        elif header[:2] == ["previous speed", "current speed"]:
+            speeds.append({
+                srd.to_int(row[0]): srd.to_int(row[1])
+                for row in table["rows"] if len(row) >= 2 and srd.to_int(row[0])
+            })
+
+    return {
+        "loads": loads,
+        # The first speed table is the medium-load reduction, the second heavy.
+        "mediumSpeed": speeds[0] if speeds else {},
+        "heavySpeed": speeds[1] if len(speeds) > 1 else {},
+    }
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -965,6 +1017,7 @@ def main() -> int:
     write("skills.json", skills)
     specialties = scrape_skill_specialties()
     write("skill_specialties.json", specialties)
+    write("carrying.json", scrape_carrying_capacity())
     classes = scrape_classes(skills)
     write("classes.json", classes)
     feats = scrape_feats()
