@@ -4,7 +4,7 @@
   <div class="m20-header__identity">
     <input class="m20-name" type="text" name="name" value="{{document.name}}">
     <div class="m20-header__classes">
-      <span class="m20-tag">{{localize (lookup config.sizes system.attributes.size).label}}</span>
+      <span class="m20-tag">{{localize (lookup (lookup config.sizes system.attributes.size) "label")}}</span>
       {{#if system.details.creatureType}}<span class="m20-tag">{{system.details.creatureType}}</span>{{/if}}
       {{#if system.details.hitDice}}<span class="m20-tag">{{system.details.hitDice}}</span>{{/if}}
     </div>
