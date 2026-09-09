@@ -35,6 +35,23 @@
     </p>
   {{/if}}
 
+  {{#if concealment}}
+    <p class="m20-hint {{#if concealment.missed}}m20-over{{/if}}">
+      {{localize "MODERN20.Attack.MissChance"}} {{concealment.chance}}%
+      &middot; {{localize "MODERN20.Attack.Rolled"}} {{concealment.rolled}}
+      &mdash; {{#if concealment.missed}}{{localize "MODERN20.Attack.ConcealedMiss"}}
+              {{else}}{{localize "MODERN20.Attack.ConcealedHit"}}{{/if}}
+    </p>
+  {{/if}}
+
+  {{#if circumstanceLabels.length}}
+    <p class="m20-hint">
+      {{#each circumstanceLabels as |entry|}}
+        {{entry.label}} {{entry.text}}{{#unless @last}} &middot; {{/unless}}
+      {{/each}}
+    </p>
+  {{/if}}
+
   {{#if area}}
     <p class="m20-hint">{{localize "MODERN20.Attack.AutofireArea" }} ({{area}} ft.)</p>
   {{/if}}

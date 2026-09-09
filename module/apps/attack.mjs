@@ -1,6 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { activityById, activityDamageFormula } from "./activities.mjs";
 import { accessoryAttackBonus, effectiveRangeIncrement, ammunitionAttackBonus, loadedSpecial } from "./accessories.mjs";
+import { resolveModifiers } from "./attack-dialog.mjs";
 
 const { Roll } = foundry.dice;
 const { ChatMessage } = foundry.documents;
@@ -106,7 +107,9 @@ function targetingHint() {
  * Roll an attack, resolving it against the target's Defense where there is a
  * target, and confirming a threat where one is rolled.
  */
-export async function resolveAttack(item, { situational = 0, activityId = "shot" } = {}) {
+export async function resolveAttack(
+  item, { situational = 0, activityId = "shot", modifiers = null } = {}
+) {
   const actor = item.actor;
   if (!actor) throw new Error("Cannot attack with an unowned weapon");
 
@@ -145,6 +148,12 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     && meleeDistance <= (actor.system.attributes.reach || 5)
   );
 
+  // "Any situational modifier created by the attacker's position or tactics
+  // applies to the attack roll, while any situational modifier created by the
+  // defender's position, state, or tactics applies to the defender's Defense."
+  const circumstance = resolveModifiers(modifiers ?? {}, ranged);
+  const chosenSituational = situational + Number(modifiers?.situational ?? 0);
+
   const data = {
     bab: actor.system.attributes.baseAttack,
     ability: abilityMod,
@@ -157,17 +166,20 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     ammunition: ammunitionAttackBonus(item, { target, activityId: activity.id }),
     range,
     activity: activity.penalty,
-    situational
+    circumstance: circumstance.attack,
+    situational: chosenSituational
   };
   const formula =
     "1d20 + @bab + @ability + @size + @weapon + @condition + @accessory + @ammunition "
-    + "+ @range + @activity + @situational";
+    + "+ @range + @activity + @circumstance + @situational";
 
   const roll = await new Roll(formula, data).evaluate();
   const natural = roll.dice[0]?.results?.[0]?.result ?? 0;
 
-  // An activity may set its own Defense: autofire rolls against the area.
-  const defense = activity.attack?.defenseOverride ?? target?.system?.defense?.value ?? null;
+  // An activity may set its own Defense: autofire rolls against the area, and
+  // the defender's circumstances and cover move the number to beat.
+  const baseDefense = activity.attack?.defenseOverride ?? target?.system?.defense?.value ?? null;
+  const defense = baseDefense === null ? null : baseDefense + circumstance.defense;
   let hit = null;
   if (outOfRange || tooClose) hit = false;
   else if (natural === 1) hit = false;
@@ -184,9 +196,26 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     confirmed = defense === null ? true : confirmation.total >= defense;
   }
 
+  // "If the attacker hits, the defender must make a miss chance percentile
+  // roll to avoid being struck." Rolled here so the card can report it, and
+  // only when there is a hit for it to undo.
+  let concealment = null;
+  if (hit && circumstance.missChance) {
+    const roll100 = await new Roll("1d100").evaluate();
+    concealment = {
+      chance: circumstance.missChance,
+      rolled: roll100.total,
+      missed: roll100.total <= circumstance.missChance,
+      roll: roll100
+    };
+    if (concealment.missed) hit = false;
+  }
+
   return {
     roll, confirmation, natural, hit, threatened, confirmed,
-    defense, target,
+    defense, baseDefense, target,
+    circumstance,
+    concealment,
     targetName: target?.name ?? null,
     targetTokenId: targetToken?.id ?? null,
     targetSceneId: targetToken?.scene?.id ?? null,
@@ -239,7 +268,16 @@ export async function postAttackCard(item, result) {
       total: result.roll.total,
       targetingHint: targetingHint(),
       confirmationTotal: result.confirmation?.total ?? null,
-      showOutcome: result.hit !== null
+      showOutcome: result.hit !== null,
+      // Flattened for the card: what applied, and which side it landed on.
+      circumstanceLabels: (result.circumstance?.labels ?? []).map((entry) => ({
+        label: entry.label,
+        text: entry.side === "conceal"
+          ? `${entry.value}%`
+          : `${entry.value >= 0 ? "+" : ""}${entry.value} `
+            + game.i18n.localize(entry.side === "attack"
+              ? "MODERN20.Attack.ToHit" : "MODERN20.Def")
+      }))
     }
   );
 
@@ -247,7 +285,7 @@ export async function postAttackCard(item, result) {
     speaker: ChatMessage.getSpeaker({ actor }),
     flavor: game.i18n.format("MODERN20.Chat.Attack", { weapon: item.name }),
     content,
-    rolls: [result.roll, result.confirmation].filter(Boolean),
+    rolls: [result.roll, result.confirmation, result.concealment?.roll].filter(Boolean),
     flags: {
       modern20: {
         attack: {

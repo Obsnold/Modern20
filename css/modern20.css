@@ -346,6 +346,18 @@
 .m20-chat__result { font-size: 1rem; font-weight: 600; margin: 0.3rem 0; }
 .m20-chat__result--success { color: #2f6b3a; }
 .m20-chat__result--failure { color: #8c2f1e; }
+/* The attack modifier dialog: a column of fieldsets over a running total. */
+.m20-dialog { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem; }
+.m20-dialog__header { display: flex; align-items: center; gap: 0.4rem; }
+.m20-dialog__header img { width: 28px; height: 28px; border: none; }
+.m20-dialog__title { font-weight: 600; flex: 1; }
+.m20-dialog fieldset { display: flex; flex-direction: column; gap: 0.2rem; }
+.m20-check { display: flex; align-items: center; gap: 0.4rem; }
+.m20-check span:first-of-type { flex: 1; }
+.m20-check em { font-style: italic; opacity: 0.75; font-size: 0.85em; }
+.m20-dialog__total { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.m20-dialog__buttons { display: flex; gap: 0.4rem; justify-content: flex-end; }
+
 /* The turn panel: action budget and stances, sitting under the two columns. */
 .m20-turn { grid-column: 1 / -1; }
 .m20-stances { flex-wrap: wrap; gap: 0.3rem; }
