@@ -19,6 +19,7 @@ import {
 import { Modern20ItemSheet } from "./sheets/item-sheet.mjs";
 import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
+import { bindDamageControls } from "./apps/damage.mjs";
 
 const SYSTEM_ID = "modern20";
 
@@ -96,6 +97,10 @@ Hooks.on("updateItem", async (item, changes) => {
 
   await grantFeatByName(actor, chosen);
 });
+
+// renderChatMessage was deprecated in v13 in favour of this, which passes an
+// HTMLElement rather than jQuery.
+Hooks.on("renderChatMessageHTML", (message, html) => bindDamageControls(message, html));
 
 Hooks.once("ready", () => {
   console.log(`${SYSTEM_ID} | Ready`);

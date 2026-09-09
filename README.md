@@ -276,9 +276,18 @@ the d20 3.5 Dexterity cap and check penalty — *"An encumbered character's spee
 is reduced to the value given below"* — and above the heavy figure a character
 cannot move or act at all.
 
-**Sheets are read-only for players.** Equipping is the exception: it is
-something a character does in play rather than part of building one, so it
-stays with the player who owns the sheet. Building happens in the creator and the
+**Sheets are read-only for players — but every action is not.** The rule is not
+"GM only": a player may do anything their character does as an action, and may
+not directly edit what those actions produce. Equipping, spending an action
+point, buying, rolling, levelling and taking damage are all theirs. Typing a
+new hit point total is not.
+
+So health changes through actions. A damage roll offers Apply, Half and Heal
+controls on its chat card, applied to targeted tokens or selected ones, and the
+hit point box carries -5 / -1 / +1 / +5 steps. Both route through
+`Actor#applyDamage`, so damage reduction and the massive damage Fortitude save
+happen wherever the damage came from — which is exactly why editing the number
+directly is the wrong path. Building happens in the creator and the
 level-up screen, which apply the rules; editing the same values directly on the
 sheet bypasses them. Players keep everything that reads or rolls, plus the
 level-up control. The GM edits freely, and a lock icon in the header says which
