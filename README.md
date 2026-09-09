@@ -143,10 +143,18 @@ array: one entry per thing it can do. An automatic firearm offers **Shot**,
 carries whatever it does. Adding a new kind of item means authoring an
 activity, not adding a branch to the attack code.
 
-Compendium weapons have theirs generated from their rate of fire rather than
-authored 200 times, and a weapon with no stored activities falls back to those
-same defaults — so a hand-made weapon works, and a stored activity wins when
-there is one. Unavailable activities are shown disabled with the reason.
+Every item stores its own activities — there is no runtime fallback, so what
+the sheet shows is what is stored, and a compendium weapon is as editable as
+any other. Three paths write them, all from the same
+`data/activity_defaults.json`:
+
+- `scripts/build_packs.py` writes them into compendium items at build time
+- `Modern20Item._preCreate` seeds an item created by hand
+- `Modern20Weapon.migrateData` backfills one made before activities existed
+
+`scripts/gen_activity_defaults.py` generates `module/activity-defaults.mjs`
+from that same JSON, so the build and the runtime cannot drift. Unavailable
+activities are shown disabled with the reason.
 
 Activities are typed sub-documents, stored as a `TypedObjectField` of
 `TypedSchemaField` — Foundry's own machinery for *"a union of schema-constrained

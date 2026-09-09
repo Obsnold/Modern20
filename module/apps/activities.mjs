@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { ACTIVITY_DEFAULTS } from "../activity-defaults.mjs";
 
 /**
  * Activities: the things an item can do.
@@ -9,12 +10,8 @@ import { MODERN20 } from "../config.mjs";
  * to the same defaults, so a hand-made weapon still works.
  */
 
-const AUTOFIRE = {
-  areaDefense: 10, ammo: 10, area: 10,
-  unskilledPenalty: -4, proficiency: "Advanced Firearms Proficiency"
-};
-
-const BURST = { ammo: 5, penalty: -4, extraDice: 2, feat: "Burst Fire" };
+const AUTOFIRE_PROFICIENCY = "Advanced Firearms Proficiency";
+const AUTOFIRE_UNSKILLED_PENALTY = -4;
 
 /** Does the actor have a feat of this name? */
 export function hasFeat(actor, name) {
@@ -30,71 +27,36 @@ export function isAutomatic(rateOfFire) {
 }
 
 /**
- * The activities a weapon has by default, from its rate of fire.
+ * The activities an item of this type starts with, keyed by id.
  *
- * Generated rather than authored because the SRD decides them: "Only weapons
- * with the automatic rate of fire can be set on autofire."
+ * Used when creating an item and when backfilling one made before activities
+ * existed. The compendium build writes the same data from the same JSON, so a
+ * weapon from a pack and one made by hand are identical.
  */
-export function defaultWeaponActivities(system) {
-  const activities = [{
-    id: "shot", type: "attack", name: "MODERN20.Attack.Single",
-    attack: { ability: "", bonus: 0, defenseOverride: null, usesRange: true },
-    damage: { formula: "", type: "", extraDice: 0, addAbility: true },
-    save: { ability: "", dc: 0, onSuccess: "half" },
-    area: { shape: "", size: 0 },
-    consume: { ammo: 1, actionPoints: 0, quantity: 0 },
-    requiresFeat: "", requiresAmmo: 0, note: ""
-  }];
+export function defaultActivities(type, system = {}) {
+  const defaults = ACTIVITY_DEFAULTS[type];
+  if (!defaults) return {};
 
-  if (!isAutomatic(system.rateOfFire)) return activities;
-
-  activities.push({
-    id: "autofire", type: "attack", name: "MODERN20.Attack.Autofire",
-    // "The character targets a 10-foot-by-10-foot area ... the targeted area
-    // has an effective Defense of 10."
-    attack: { ability: "", bonus: 0, defenseOverride: AUTOFIRE.areaDefense, usesRange: true },
-    damage: { formula: "", type: "", extraDice: 0, addAbility: true },
-    save: { ability: "", dc: 0, onSuccess: "half" },
-    area: { shape: "square", size: AUTOFIRE.area },
-    consume: { ammo: AUTOFIRE.ammo, actionPoints: 0, quantity: 0 },
-    // Without the feat it is a penalty, not a prohibition.
-    requiresFeat: "", requiresAmmo: AUTOFIRE.ammo,
-    note: "MODERN20.Attack.AutofireArea"
-  });
-
-  activities.push({
-    id: "burst", type: "attack", name: "MODERN20.Attack.Burst",
-    attack: { ability: "", bonus: BURST.penalty, defenseOverride: null, usesRange: true },
-    // "+2 dice of damage" - two more of the weapon's own die.
-    damage: { formula: "", type: "", extraDice: BURST.extraDice, addAbility: true },
-    save: { ability: "", dc: 0, onSuccess: "half" },
-    area: { shape: "", size: 0 },
-    consume: { ammo: BURST.ammo, actionPoints: 0, quantity: 0 },
-    requiresFeat: BURST.feat, requiresAmmo: BURST.ammo,
-    note: ""
-  });
-
-  return activities;
+  const list = [...(defaults.always ?? [])];
+  if (type === "weapon" && isAutomatic(system.rateOfFire)) {
+    list.push(...(defaults.automatic ?? []));
+  }
+  return Object.fromEntries(list.map(({ id, ...rest }) => [id, rest]));
 }
 
 /**
- * An item's activities as a list, its own or the defaults its type implies.
+ * An item's activities as a list.
  *
- * Stored activities are a map of id to activity, so the id is carried back
- * onto each entry for the sheet and the chat card to address it by.
+ * Every item stores its own: the compendium build writes them, creating an
+ * item seeds them, and migrateData backfills anything older. No runtime
+ * fallback, so what the sheet shows is what is stored.
  */
 export function activitiesOf(item) {
-  const stored = item.system.activities ?? {};
-  const entries = Object.entries(stored);
-  if (entries.length) {
-    return entries.map(([id, activity]) => ({
-      ...(activity.toObject?.() ?? activity),
-      id,
-      type: activity.type ?? "attack"
-    }));
-  }
-  if (item.type === "weapon") return defaultWeaponActivities(item.system);
-  return [];
+  return Object.entries(item.system.activities ?? {}).map(([id, activity]) => ({
+    ...(activity.toObject?.() ?? activity),
+    id,
+    type: activity.type ?? "attack"
+  }));
 }
 
 /**
@@ -117,7 +79,7 @@ export function availableActivities(item) {
 
     // Autofire without the proficiency is allowed, at a penalty.
     const unskilledAutofire = activity.id === "autofire"
-      && !hasFeat(actor, AUTOFIRE.proficiency);
+      && !hasFeat(actor, AUTOFIRE_PROFICIENCY);
 
     // A type that does not roll to hit still needs a button.
     const rolls = activity.type === "attack";
@@ -128,7 +90,8 @@ export function availableActivities(item) {
       label: activity.name || activity.id,
       available: !missingFeat && !shortAmmo,
       reason,
-      penalty: (activity.attack?.bonus ?? 0) + (unskilledAutofire ? AUTOFIRE.unskilledPenalty : 0),
+      penalty: (activity.attack?.bonus ?? 0)
+        + (unskilledAutofire ? AUTOFIRE_UNSKILLED_PENALTY : 0),
       unskilled: unskilledAutofire
     };
   });

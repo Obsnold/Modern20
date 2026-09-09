@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { defaultActivities } from "../apps/activities.mjs";
 import { Modern20ItemBase, purchasableFields, prerequisiteField, int } from "./item-base.mjs";
 
 const fields = foundry.data.fields;
@@ -151,6 +152,18 @@ export class Modern20Feat extends Modern20ItemBase {
 
 export class Modern20Weapon extends Modern20ItemBase {
   static LOCALIZATION_PREFIXES = ["MODERN20.Item.Weapon"];
+
+  /**
+   * Backfill activities onto a weapon made before they existed, which is what
+   * dnd5e does on migration to its own activity system. Without this an older
+   * weapon would simply have no way to be fired.
+   */
+  static migrateData(source) {
+    if (foundry.utils.isEmpty(source.activities ?? {})) {
+      source.activities = defaultActivities("weapon", source);
+    }
+    return super.migrateData(source);
+  }
 
   static defineSchema() {
     return {

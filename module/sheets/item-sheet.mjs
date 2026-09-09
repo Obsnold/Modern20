@@ -95,8 +95,6 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       data: activity,
       fields: item.system.schema.fields.activities.element.getField?.(activity.type)?.fields ?? null
     }));
-    context.hasStoredActivities = context.activities.length > 0;
-    context.generatedActivities = context.hasStoredActivities ? [] : item.activities;
     context.activityTypes = Object.keys(CONFIG.MODERN20?.activityTypes ?? {});
 
     context.enrichedDescription =

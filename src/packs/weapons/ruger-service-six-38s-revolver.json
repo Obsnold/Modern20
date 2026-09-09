@@ -20,7 +20,16 @@
     "purchaseDC": 14,
     "restriction": "lic",
     "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    }
   },
   "_key": "!items!PovF0QrV2IWBc9hq"
 }

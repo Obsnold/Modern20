@@ -98,9 +98,42 @@ def cell(row: list[str], columns: dict[str, int], *names: str, default: str = ""
     return default
 
 
+ACTIVITY_DEFAULTS = json.load(
+    open(os.path.join(srd.ROOT, "data", "activity_defaults.json"), encoding="utf-8")
+)
+
+
+def strip_notes(value):
+    """Drop the _cites keys, which document the JSON rather than the item."""
+    if isinstance(value, dict):
+        return {k: strip_notes(v) for k, v in value.items() if not k.startswith("_")}
+    if isinstance(value, list):
+        return [strip_notes(v) for v in value]
+    return value
+
+
+def weapon_activities(system: dict) -> dict:
+    """The activities a weapon ships with, keyed by id.
+
+    Written into the compendium so a pack weapon and a hand-made one are the
+    same shape; module/activity-defaults.mjs is generated from the same JSON.
+    """
+    defaults = strip_notes(ACTIVITY_DEFAULTS.get("weapon", {}))
+    entries = list(defaults.get("always", []))
+    # "Only weapons with the automatic rate of fire can be set on autofire."
+    if re.search(r"\bA\b", system.get("rateOfFire") or ""):
+        entries.extend(defaults.get("automatic", []))
+
+    out = {}
+    for entry in entries:
+        entry = dict(entry)
+        out[entry.pop("id")] = entry
+    return out
+
+
 def build_weapon(row, columns, category, url):
     ranged = bool(cell(row, columns, "rate of fire")) or cell(row, columns, "range increment") not in ("", "-")
-    return {
+    weapon = {
         "category": weapon_category(category),
         "damage": cell(row, columns, "damage", default="1d4"),
         "damageType": cell(row, columns, "damage type").lower(),
@@ -116,6 +149,8 @@ def build_weapon(row, columns, category, url):
         "source": category,
         "srdUrl": url,
     }
+    weapon["activities"] = weapon_activities(weapon)
+    return weapon
 
 
 def weapon_category(section: str) -> str:
