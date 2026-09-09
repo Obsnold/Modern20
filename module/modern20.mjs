@@ -22,6 +22,7 @@ import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
 import { bindDamageControls } from "./apps/damage.mjs";
 import { registerConditions } from "./conditions.mjs";
 import { CONDITIONS } from "./condition-list.mjs";
+import { ACTIVITY_TYPES } from "./data/activity.mjs";
 
 const SYSTEM_ID = "modern20";
 
@@ -29,6 +30,9 @@ Hooks.once("init", () => {
   console.log(`${SYSTEM_ID} | Initializing the Modern20 game system`);
 
   CONFIG.MODERN20 = MODERN20;
+  // Exposed so a module can register its own activity type before any item is
+  // prepared.
+  CONFIG.MODERN20.activityTypes = ACTIVITY_TYPES;
 
   CONFIG.Actor.documentClass = Modern20Actor;
   CONFIG.Item.documentClass = Modern20Item;
@@ -163,4 +167,7 @@ function registerHandlebarsHelpers() {
 
   // Core has no arithmetic helper; the level-up preview needs "score + 1".
   Handlebars.registerHelper("add", (a, b) => (Number(a) || 0) + (Number(b) || 0));
+
+  // Core has no way to write a literal list in a template.
+  Handlebars.registerHelper("array", (...args) => args.slice(0, -1));
 }

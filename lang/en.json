@@ -29,6 +29,41 @@
     },
     "Acquisition": "Acquisition",
     "ActionPoints": "Action Points",
+    "Activity": {
+      "Ability": "Ability",
+      "AbilityAuto": "From the weapon",
+      "Add": "Add activity",
+      "AddAbility": "Add ability",
+      "Ammo": "Ammunition",
+      "Area": "Area",
+      "AttackBonus": "Attack bonus",
+      "DC": "DC",
+      "Damage": "Damage",
+      "DamageAuto": "item's own",
+      "DefenseOverride": "Defense",
+      "Delete": "Delete this activity",
+      "ExtraDice": "Extra dice",
+      "Generated": "Generated activities",
+      "GeneratedHint": "This item has none of its own, so these are used. Adding an activity replaces them.",
+      "Hint": "Activities are the things this item can do. A weapon without any uses the modes its rate of fire implies; adding one replaces those.",
+      "NewName": "New {type}",
+      "OnSuccess": {
+        "half": "Half on a success",
+        "negate": "Negated on a success",
+        "none": "No effect on a success"
+      },
+      "RequiresFeat": "Requires feat",
+      "Save": "Save",
+      "TargetDefense": "target's",
+      "Type": {
+        "attack": "Attack",
+        "damage": "Damage",
+        "save": "Saving throw",
+        "utility": "Utility"
+      },
+      "Unnamed": "Unnamed activity",
+      "UsesRange": "Range penalty"
+    },
     "Actor": {
       "Creature": {
         "FIELDS": {
