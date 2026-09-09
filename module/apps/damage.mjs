@@ -111,7 +111,10 @@ function bindAttackDamage(message, html) {
         ui.notifications.warn(game.i18n.localize("MODERN20.Attack.ItemGone"));
         return;
       }
-      await item.rollDamage({ critical: button.dataset.m20Damage === "critical" });
+      await item.rollDamage({
+        critical: button.dataset.m20Damage === "critical",
+        mode: attack.mode ?? "single"
+      });
     });
   }
 }

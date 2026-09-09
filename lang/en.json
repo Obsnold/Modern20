@@ -862,6 +862,12 @@
       "Shield": "Shield"
     },
     "Attack": {
+      "Autofire": "Auto",
+      "AutofireArea": "Autofire: 10-foot square, effective Defense 10, everyone in it",
+      "AutofireUnskilled": "-4 without Advanced Firearms Proficiency",
+      "Burst": "Burst",
+      "BurstNeedsAmmo": "needs five rounds loaded",
+      "BurstNeedsFeat": "requires the Burst Fire feat",
       "Confirm": "Confirmation",
       "Critical": "Critical hit",
       "Defense": "Defense",
@@ -875,6 +881,7 @@
       "RangePenalty": "Range penalty",
       "RollCritical": "Critical damage",
       "RollDamage": "Damage",
+      "Single": "Shot",
       "Threat": "Threat"
     },
     "AutoSuccess": "Automatic success",

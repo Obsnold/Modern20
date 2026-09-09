@@ -27,6 +27,10 @@
     </p>
   {{/if}}
 
+  {{#if area}}
+    <p class="m20-hint">{{localize "MODERN20.Attack.AutofireArea" }} ({{area}} ft.)</p>
+  {{/if}}
+
   {{#if range}}
     <p class="m20-hint">
       {{localize "MODERN20.Attack.RangePenalty"}} {{range}}
