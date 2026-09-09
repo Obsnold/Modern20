@@ -42,7 +42,12 @@
         <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="-5"
                 data-tooltip="{{localize 'MODERN20.Damage.Heal5'}}">+5</button>
       </span>
-      <span class="m20-stat__sub">{{localize "MODERN20.Massive"}} {{system.attributes.massiveDamage}}</span>
+      <span class="m20-stat__sub">
+        {{localize "MODERN20.Massive"}} {{system.attributes.massiveDamage}}
+        {{#if system.hp.nonlethal}}
+          &middot; <span class="m20-over">{{localize "MODERN20.Damage.NonlethalShort"}} {{system.hp.nonlethal}}</span>
+        {{/if}}
+      </span>
     </div>
 
     <div class="m20-stat">

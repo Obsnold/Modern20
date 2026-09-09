@@ -175,6 +175,9 @@ export class Modern20Weapon extends Modern20ItemBase {
       }),
       damage: new fields.StringField({ initial: "1d4" }),
       damageType: new fields.StringField({ initial: "ballistic" }),
+      // A sap "deals nonlethal damage instead of lethal damage"; so do unarmed
+      // strikes and beanbag rounds.
+      nonlethal: new fields.BooleanField({ initial: false }),
       critical: new fields.StringField({ initial: "20" }),
       // Firearms use a range increment; melee weapons leave this at 0.
       rangeIncrement: int(0, { min: 0 }),

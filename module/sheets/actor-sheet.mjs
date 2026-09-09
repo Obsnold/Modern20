@@ -299,6 +299,16 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     if (!delta) return;
 
     const actor = this.document;
+    // Healing clears nonlethal damage first, since it is the lighter wound.
+    if (delta < 0 && actor.system.hp.nonlethal > 0) {
+      const remaining = Math.max(0, actor.system.hp.nonlethal + delta);
+      const absorbed = actor.system.hp.nonlethal - remaining;
+      await actor.update({ "system.hp.nonlethal": remaining });
+      if (absorbed >= -delta) return;
+      return actor.update({
+        "system.hp.value": Math.min(actor.system.hp.max, actor.system.hp.value - delta - absorbed)
+      });
+    }
     if (delta > 0) {
       await actor.applyDamage(delta);
       return;

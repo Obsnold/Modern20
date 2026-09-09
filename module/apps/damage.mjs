@@ -29,7 +29,7 @@ export function damageRecipients() {
  * Healing is a plain hit point restore rather than a call to applyDamage,
  * which would run damage reduction and the massive damage save against it.
  */
-export async function applyAmount(amount, { multiplier = 1 } = {}) {
+export async function applyAmount(amount, { multiplier = 1, nonlethal = false } = {}) {
   const recipients = damageRecipients();
   if (!recipients.length) {
     ui.notifications.warn(game.i18n.localize("MODERN20.Damage.NoTarget"));
@@ -48,7 +48,7 @@ export async function applyAmount(amount, { multiplier = 1 } = {}) {
     if (!hp) continue;
 
     if (scaled >= 0) {
-      await actor.applyDamage(scaled);
+      await actor.applyDamage(scaled, { nonlethal });
     } else {
       const healed = Math.min(hp.max, hp.value - scaled);
       await actor.update({ "system.hp.value": healed });
@@ -87,7 +87,11 @@ export function bindDamageControls(message, html) {
 
   for (const button of buttons.querySelectorAll("[data-m20-apply]")) {
     button.addEventListener("click", () => {
-      applyAmount(total, { multiplier: Number(button.dataset.m20Apply) });
+      applyAmount(total, {
+        multiplier: Number(button.dataset.m20Apply),
+        // The roll knows whether it was nonlethal; the button need not repeat it.
+        nonlethal: Boolean(message.getFlag("modern20", "nonlethal"))
+      });
     });
   }
 

@@ -91,6 +91,10 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
         value: int(6),
         max: int(6),
         temp: int(0),
+        // Tracked separately from hit points. The SRD says what deals
+        // nonlethal damage and what is immune to it, but never states how it
+        // accumulates, so this is recorded and surfaced rather than enforced.
+        nonlethal: int(0, { min: 0 }),
         formula: new fields.StringField({ initial: "" })
       }),
 

@@ -1163,7 +1163,10 @@
       "Heal1": "Heal 1",
       "Heal5": "Heal 5",
       "Healed": "{names} healed {amount}.",
+      "ImmuneNonlethal": "{name} is not subject to nonlethal damage.",
       "NoTarget": "Target or select a token first.",
+      "NonlethalExceeds": "{name}'s nonlethal damage ({total}) has reached their hit points ({hp}).",
+      "NonlethalShort": "nonlethal",
       "NotYours": "You do not own {name}.",
       "Take1": "Take 1 damage",
       "Take5": "Take 5 damage"

@@ -67,6 +67,8 @@ function damageFields() {
       type: new fields.StringField({ initial: "" }),
       // Burst fire's "+2 dice of damage": more of the weapon's own die.
       extraDice: int(0),
+      // Overrides the item's own setting where an activity differs.
+      nonlethal: new fields.BooleanField({ initial: false }),
       addAbility: new fields.BooleanField({ initial: true })
     })
   };
