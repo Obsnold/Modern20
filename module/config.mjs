@@ -274,6 +274,24 @@ MODERN20.actionPoints = {
   die: "1d6"
 };
 
+/**
+ * What hit points do to a character.
+ *
+ * "Disabled: the character has 0 hit points." "Dying: ... with -1 to -9 wound
+ * points." "Dead: a character dies when his or her hit points drop to -10 or
+ * lower, or when his or her Constitution drops to 0."
+ */
+MODERN20.death = {
+  dead: -10,
+  /**
+   * The statuses derived purely from hit points, and so the only ones this
+   * automation owns. Unconscious is deliberately not among them: nonlethal
+   * damage, sleep and a dozen other things cause it, and clearing what a GM
+   * applied for one of those would be worse than leaving it.
+   */
+  states: ["disabled", "dying", "dead"]
+};
+
 /** Massive damage: exceed the threshold and make a Fortitude save or drop. */
 MODERN20.massiveDamage = {
   defaultSaveDC: 15,

@@ -38,6 +38,15 @@ export const SETTINGS = {
     }
   },
 
+  /**
+   * "Disabled: the character has 0 hit points." "Dying: ... -1 to -9." "Dead:
+   * ... -10 or lower". Exact thresholds, so this is automated by default —
+   * but a table that tracks these by hand can turn it off.
+   */
+  deathStates: {
+    scope: "world", config: true, type: Boolean, default: true
+  },
+
   /** "before the character's first turn in the initiative order" */
   autoFlatFooted: {
     scope: "world", config: true, type: Boolean, default: true

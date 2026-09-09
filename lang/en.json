@@ -1326,6 +1326,9 @@
       "Take1": "Take 1 damage",
       "Take5": "Take 5 damage"
     },
+    "Death": {
+      "Bleeds": "{name} is bleeding out — down to {hp} hit points."
+    },
     "Def": "Def",
     "Defense": "Defense",
     "Durability": "Durability",
@@ -2090,36 +2093,12 @@
     },
     "SavingThrows": "Saving Throws",
     "Settings": {
-      "massiveDamage": {
-        "name": "Massive damage",
-        "hint": "Damage at or above a character's threshold forces a Fortitude save or a drop to -1 hit points. The SRD's rule; turn it off for a less lethal game."
-      },
-      "massiveDamageDC": {
-        "name": "Massive damage save DC",
-        "hint": "The SRD's is 15."
-      },
       "actionBudget": {
         "name": "Action budget",
         "hint": "What happens when a character has already spent the action something costs. The SRD leaves five actions as \"varies\", so warning is the default.",
         "warn": "Warn, but allow it",
         "block": "Refuse the action",
         "off": "Do not track actions"
-      },
-      "autoFlatFooted": {
-        "name": "Flat-footed at the start of a battle",
-        "hint": "Apply the condition to everyone when combat begins, clearing it as each combatant's first turn arrives."
-      },
-      "autoTurnReset": {
-        "name": "Refill actions each turn",
-        "hint": "Reset the action budget and drop any stance when a combatant's turn comes round."
-      },
-      "lockPlayerSheets": {
-        "name": "Lock player sheets",
-        "hint": "Players build characters in the creator and the level-up screen, which apply the rules. Unlock to let them edit their sheets directly."
-      },
-      "encumbranceSpeed": {
-        "name": "Encumbrance slows characters",
-        "hint": "A medium or heavy load reduces speed. The load is always shown either way."
       },
       "actionPointDie": {
         "name": "Action point die",
@@ -2131,6 +2110,34 @@
         "always": "Ask, unless shift is held",
         "shift": "Only when shift is held",
         "never": "Never ask"
+      },
+      "autoFlatFooted": {
+        "name": "Flat-footed at the start of a battle",
+        "hint": "Apply the condition to everyone when combat begins, clearing it as each combatant's first turn arrives."
+      },
+      "autoTurnReset": {
+        "name": "Refill actions each turn",
+        "hint": "Reset the action budget and drop any stance when a combatant's turn comes round."
+      },
+      "deathStates": {
+        "name": "Track disabled, dying and dead",
+        "hint": "Apply the conditions hit points call for — Disabled at 0, Dying below it, Dead at -10 — and bleed a dying character for 1 hit point each round until they die or are stabilised."
+      },
+      "encumbranceSpeed": {
+        "name": "Encumbrance slows characters",
+        "hint": "A medium or heavy load reduces speed. The load is always shown either way."
+      },
+      "lockPlayerSheets": {
+        "name": "Lock player sheets",
+        "hint": "Players build characters in the creator and the level-up screen, which apply the rules. Unlock to let them edit their sheets directly."
+      },
+      "massiveDamage": {
+        "name": "Massive damage",
+        "hint": "Damage at or above a character's threshold forces a Fortitude save or a drop to -1 hit points. The SRD's rule; turn it off for a less lethal game."
+      },
+      "massiveDamageDC": {
+        "name": "Massive damage save DC",
+        "hint": "The SRD's is 15."
       }
     },
     "SheetLabel": {
