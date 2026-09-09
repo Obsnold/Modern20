@@ -176,6 +176,7 @@ def build_weapon(row, columns, category, url):
         "critical": cell(row, columns, "critical", default="20"),
         "rangeIncrement": int(re.search(r"\d+", cell(row, columns, "range increment") or "0").group()) if re.search(r"\d+", cell(row, columns, "range increment") or "") else 0,
         "rateOfFire": cell(row, columns, "rate of fire"),
+        "caliber": weapon_caliber(row[0]),
         "magazine": cell(row, columns, "magazine"),
         "size": cell(row, columns, "size").lower() or "medium",
         "ranged": ranged,
@@ -239,6 +240,30 @@ def armor_type(section: str) -> str:
 
 
 QUANTITY_IN_NAME = re.compile(r"\((\d+)\)\s*$")
+
+# The calibre an ammunition entry names, once its box count and descriptive
+# suffix are removed: ".45 caliber (50)" is ".45", "12-gauge buckshot" is
+# "12-gauge". Collected during the build so weapons can be matched to it.
+AMMUNITION_CALIBERS: list[str] = []
+
+
+def ammunition_caliber(name: str) -> str:
+    core = QUANTITY_IN_NAME.sub("", name)
+    return core.replace(" caliber", "").replace(" buckshot", "").strip()
+
+
+def weapon_caliber(name: str) -> str:
+    """The calibre a weapon's own name states, longest match first.
+
+    Most weapons name it - "Beretta 92F (9mm autoloader)" - so it is derived
+    rather than authored. The handful that abbreviate it, or name no
+    ammunition at all, are corrected in data/overrides/weapons.json.
+    """
+    lowered = name.lower()
+    for caliber in sorted(AMMUNITION_CALIBERS, key=len, reverse=True):
+        if caliber.lower() in lowered:
+            return caliber
+    return ""
 CAPACITY_IN_NAME = re.compile(r"([\d.]+)\s*lb", re.I)
 
 
@@ -246,8 +271,10 @@ def build_ammunition(row, columns, category, url):
     """A box of rounds: a name, a count in brackets, and a purchase DC."""
     name = row[0].strip()
     match = QUANTITY_IN_NAME.search(name)
+    AMMUNITION_CALIBERS.append(ammunition_caliber(name))
     return {
         "category": "Ammunition",
+        "caliber": ammunition_caliber(name),
         "weight": 0.0,
         "quantity": int(match.group(1)) if match else 1,
         "purchaseDC": to_int(cell(row, columns, "purchase dc")),
@@ -548,6 +575,9 @@ def build_vehicles() -> list[dict]:
 
 def build() -> dict[str, list[dict]]:
     tables = json.load(open(os.path.join(srd.DATA, "purchase_tables.json"), encoding="utf-8"))
+    # Ammunition first: weapons derive their calibre by matching against it.
+    tables.sort(key=lambda t: 0 if any(AMMUNITION_HEADER in c.lower()
+                                       for c in t["header"][:1]) else 1)
     packs: dict[str, list[dict]] = {}
     seen: dict[str, set[str]] = {}
 
