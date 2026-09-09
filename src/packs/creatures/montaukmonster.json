@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 0
       },
-      "damageReduction": 0,
+      "damageReduction": 20,
       "massiveDamageThreshold": null,
       "reach": 10,
       "space": 5
@@ -84,6 +84,32 @@
       "advancement": "10-18 HD (Large); 19-27 (Huge)",
       "organization": "",
       "treasure": ""
+    },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      }
     },
     "allegiances": [
       {
@@ -126,6 +152,40 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "6hYVNDcQUJ3E3YL9",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "3Khei4gsfBYvjlwX",
+      "name": "Lightning Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

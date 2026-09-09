@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 0
       },
-      "damageReduction": 0,
+      "damageReduction": 15,
       "massiveDamageThreshold": 18,
       "reach": 5,
       "space": 5
@@ -84,6 +84,36 @@
       "advancement": "5-6 HD (Medium-size); 7-12 HD (Large); or by character class",
       "organization": "",
       "treasure": "N/A"
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Terran",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      }
     },
     "allegiances": [
       {
@@ -192,6 +222,83 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "C85csX5G6u2Esh7Z",
+      "name": "Multiattack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "yLsis7vZgyoMGEqU",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "yLsis7vZgyoMGEqU",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "yLsis7vZgyoMGEqU",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false
       }
     }
   ]

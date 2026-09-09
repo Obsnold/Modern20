@@ -85,6 +85,42 @@
       "organization": "",
       "treasure": "Huge club (6 feet long, 8 inches thick), undercover vest, overcoat, Browning BPS 10-gauge shotgun, 20 10-gauge shotgun shells, standard flashlight"
     },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": -3,
+        "classSkill": false
+      },
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Giant",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "Chaos",
@@ -196,6 +232,133 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "TEVlwIY7lwJ71YHX",
+      "name": "Armor Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "0vCDPfOLUXY08xjb",
+      "name": "Brawl",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier.",
+        "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "UqYvws3VsBl9NRz1",
+      "name": "Knockout Punch",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Brawl",
+          "base attack bonus +3."
+        ],
+        "benefit": "When making the character’s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This damage is nonlethal damage.",
+        "normal": "",
+        "special": "Even if the character has the ability to treat unarmed damage as lethal damage, the damage from a knockout punch is always nonlethal.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "cdi6tXWnKb7bpJmQ",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "acdmld5yF8EAigPq",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "pma6k49Mgrnaf7Ra",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "nPUR6cwi5cGO6EgH",
+      "name": "Weapon Focus",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "The character gains a +1 bonus on all attack rolls he or she makes using the selected weapon.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
+        "repeatable": false
       }
     }
   ]

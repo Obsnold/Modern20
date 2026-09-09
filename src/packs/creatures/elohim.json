@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 0
       },
-      "damageReduction": 0,
+      "damageReduction": 10,
       "massiveDamageThreshold": null,
       "reach": 5,
       "space": 5
@@ -84,6 +84,82 @@
       "advancement": "By character class",
       "organization": "",
       "treasure": "N/A"
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "gatherInformation": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "investigate": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 5,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any two",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "research": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any two",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      }
     },
     "allegiances": [
       {
@@ -157,6 +233,57 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "P6GgRJqzesL0jRPO",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "f2laWmosNuvtSmmt",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "tYXzKUMKxJ7K9qAi",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

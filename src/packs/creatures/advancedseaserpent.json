@@ -85,6 +85,26 @@
       "organization": "",
       "treasure": ""
     },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": -11,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "None",
@@ -126,6 +146,84 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "TQrmHembPLa3ROgO",
+      "name": "Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "L2wbEzxvKC86Jq9v",
+      "name": "Great Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack",
+          "Cleave",
+          "base attack bonus +4."
+        ],
+        "benefit": "As Cleave, except that the character has no limit to the number of times he or she can use it per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "HlinIDaB2Y6l45uW",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "muBjNyxbgp1QmWyV",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

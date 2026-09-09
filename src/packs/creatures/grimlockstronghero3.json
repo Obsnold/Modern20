@@ -85,6 +85,50 @@
       "organization": "",
       "treasure": "Spear, compound bow with 12 arrows"
     },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "Evil",
@@ -188,6 +232,131 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "JS4m38689zqeVWu8",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "c78udigSsrv49nGS",
+      "name": "Athletic",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Climb checks and Swim checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "D6kcum4VgmMbqKdA",
+      "name": "Brawl",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier.",
+        "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "xmTSnkjxtLBnIwMi",
+      "name": "Improved Brawl",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Brawl",
+          "base attack bonus +3."
+        ],
+        "benefit": "When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character’s Strength modifier.",
+        "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "oIaMAIbYBiMqcYzz",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "1TtbEtMvrkQi4EqE",
+      "name": "Track",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "To find tracks or follow them for one mile requires a Survival check. The character must make another Survival check every time the tracks become difficult to follow.",
+        "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "K4Gjcrx2WIZXp1dD",
+      "name": "Weapon Focus",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "The character gains a +1 bonus on all attack rolls he or she makes using the selected weapon.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
+        "repeatable": false
       }
     }
   ]

@@ -85,6 +85,98 @@
       "organization": "",
       "treasure": "Tiny robot (wheeled, 10 ranks in Disable Device), Diminutive robot (wheeled, 10 ranks in Demolitions)."
     },
+    "skills": {
+      "computerUse": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "electrical",
+            "ranks": 0,
+            "misc": 13,
+            "classSkill": false
+          },
+          {
+            "name": "mechanical",
+            "ranks": 0,
+            "misc": 13,
+            "classSkill": false
+          }
+        ]
+      },
+      "demolitions": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 8,
+        "classSkill": false
+      },
+      "disableDevice": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 12,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "earth and life sciences",
+            "ranks": 1,
+            "misc": 4,
+            "classSkill": false
+          },
+          {
+            "name": "physical sciences",
+            "ranks": 1,
+            "misc": 4,
+            "classSkill": false
+          },
+          {
+            "name": "technology",
+            "ranks": 1,
+            "misc": 10,
+            "classSkill": false
+          }
+        ]
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Japanese",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "research": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "repair": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 12,
+        "classSkill": false
+      },
+      "treatInjury": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "Etoile",
@@ -130,6 +222,130 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "Y1CiMODaujrplFed",
+      "name": "Builder",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "Pick two of the following skills: Craft (chemical), Craft (electronic), Craft (mechanical), and Craft (structural). The character gets a +2 bonus on all checks with those skills.",
+        "normal": "",
+        "special": "The character can select this feat twice. The second time, the character applies it to the two skills he or she didn’t pick originally. Remember that Craft (chemical), Craft (electronic), and Craft (mechanical) cannot be used untrained.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "MHNIk3Rrw2DXTDks",
+      "name": "Cautious",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "xBwffnETCOsJgyfS",
+      "name": "Defensive Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gains a +1 dodge bonus to Defense against melee attacks.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack, unlike most other types of bonuses.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "JJ2s6Kay8e9zts8K",
+      "name": "Educated, Knowledge)",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "QcRPzBxJH1X6c5TO",
+      "name": "Gearhead",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Computer Use checks and Repair checks.",
+        "normal": "",
+        "special": "Remember that the Computer Use skill and the Repair skill can only be used untrained in certain situations.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "ZlZswWNrM7WC1Ini",
+      "name": "Surgery",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Treat Injury 4 ranks."
+        ],
+        "benefit": "The character can use the Treat Injury skill to perform surgery without penalty. See the Treat Injury skill description.",
+        "normal": "Characters without this feat take a –4 penalty on Treat Injury checks made to perform surgery.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "w2v5i7cNBpPflzOs",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false
       }
     }
   ]

@@ -85,6 +85,144 @@
       "organization": "",
       "treasure": "Colt Python (.357 revolver), 12 rounds of .357 ammunition, 1d4 scrolls, 1d4 potions"
     },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "computerUse": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "chemical",
+            "ranks": 0,
+            "misc": 9,
+            "classSkill": false
+          }
+        ]
+      },
+      "decipherScript": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 5,
+        "classSkill": false
+      },
+      "disableDevice": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 5,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "investigate": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 5,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "arcane lore",
+            "ranks": 1,
+            "misc": 13,
+            "classSkill": false
+          },
+          {
+            "name": "technology",
+            "ranks": 1,
+            "misc": 5,
+            "classSkill": false
+          }
+        ]
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Arabic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Aramaic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Dutch",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "research": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Arabic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Aramaic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Dutch",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "French",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      }
+    },
     "allegiances": [
       {
         "name": "Any",
@@ -157,6 +295,110 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "g5gYFhwxni1iN8Op",
+      "name": "Alien Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "R0jjHMa23iCSUys0",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "IQlzjHNRGV2ctKYj",
+      "name": "Combat Expertise",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Intelligence 13."
+        ],
+        "benefit": "When the character uses the attack action or the full attack action in melee, the character can take a penalty of up to –5 on his or her attack roll and add the same number (up to +5) to the character’s Defense. This number may not exceed the character’s base attack bonus. The changes to attack rolls and Defense last until the character’s next action. The bonus to the character’s Defense is a dodge bonus (and as such it stacks with other dodge bonuses the character may have).",
+        "normal": "A character without the Combat Expertise feat can fight defensively while using the attack or full attack action to take a –4 penalty on attacks and gain a +2 dodge bonus to Defense.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "3U0hqwgjDA9PBLEm",
+      "name": "Iron Will",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "TmKkCGBmtasQMGJE",
+      "name": "Low Profile",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "Reduce the character’s Reputation bonus by 3 points.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "DEc50lqoyFrHAwfS",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

@@ -248,7 +248,7 @@ for (const creature of creatures) {
   // bonuses must produce both, not the same one twice.
   const unmatched = [...creature.attacks];
 
-  for (const item of document.items ?? []) {
+  for (const item of (document.items ?? []).filter((i) => i.type === "weapon")) {
     weapons++;
     const base = item.name.split(" (")[0].toLowerCase();
     const index = unmatched.findIndex((attack) => attack.name.toLowerCase() === base);
@@ -287,6 +287,65 @@ function readCreatureDocument(id) {
 function slugify(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "unnamed";
 }
+
+/* -- skills, feats and damage reduction --------------------------------- */
+
+// The same offset arithmetic as the attacks: the SRD prints a total, the model
+// derives one, and the difference is stored. A creature that rolls Hide at the
+// wrong number looks perfectly normal on the sheet.
+const { MODERN20 } = await import(join(ROOT, "module", "config.mjs"));
+
+let skillTotals = 0;
+let featItems = 0;
+for (const creature of creatures) {
+  const document = readCreatureDocument(creature.id);
+  if (!document) continue;
+  const stored = document.system.skills ?? {};
+
+  for (const printed of creature.skillEntries) {
+    const config = MODERN20.skills[printed.skill];
+    if (!config) { fail(`${creature.name}: unknown skill "${printed.skill}"`); continue; }
+    // A language is known rather than rolled, so there is no total to check.
+    if (!config.ability) continue;
+
+    const entry = printed.specialty
+      ? (stored[printed.skill]?.specialties ?? []).find((s) => s.name === printed.specialty)
+      : stored[printed.skill];
+    if (!entry) {
+      fail(`${creature.name}: nothing stored for ${printed.skill}`
+        + `${printed.specialty ? ` (${printed.specialty})` : ""}`);
+      continue;
+    }
+
+    skillTotals++;
+    const score = creature.abilities[config.ability];
+    const total = entry.ranks + entry.misc + Math.floor((score - 10) / 2);
+    if (total !== printed.bonus) {
+      fail(`${creature.name} ${printed.skill}: rolls at ${total >= 0 ? "+" : ""}${total}, `
+        + `the SRD prints ${printed.bonus >= 0 ? "+" : ""}${printed.bonus}`);
+    }
+    // A trained-only skill with no ranks cannot be rolled at all.
+    if (config.trainedOnly && entry.ranks < 1) {
+      fail(`${creature.name} ${printed.skill}: trained-only with no ranks, so unrollable`);
+    }
+  }
+
+  // Every printed feat becomes an item, defined by the SRD or not.
+  const feats = (document.items ?? []).filter((item) => item.type === "feat");
+  featItems += feats.length;
+  if (feats.length !== creature.featNames.length) {
+    fail(`${creature.name}: ${creature.featNames.length} feats printed, `
+      + `${feats.length} items built`);
+  }
+
+  // "damage reduction 15/silver" was printed and never read.
+  const reduction = document.system.attributes.damageReduction;
+  if (reduction !== creature.damageReduction.value) {
+    fail(`${creature.name}: damage reduction ${reduction}, `
+      + `the SRD prints ${creature.damageReduction.value}`);
+  }
+}
+console.log(`${skillTotals} skill totals and ${featItems} feats checked against the SRD`);
 
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);

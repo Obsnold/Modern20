@@ -85,6 +85,72 @@
       "organization": "",
       "treasure": ""
     },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 18,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "electronic",
+            "ranks": 0,
+            "misc": 6,
+            "classSkill": false
+          },
+          {
+            "name": "mechanical",
+            "ranks": 0,
+            "misc": 6,
+            "classSkill": false
+          }
+        ]
+      },
+      "drive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": false
+      },
+      "pilot": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 3,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 18,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "Evil",
@@ -219,6 +285,135 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "P59LpyR7C4B9LZTQ",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "UESAsyokfblysZ2b",
+      "name": "Athletic",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Climb checks and Swim checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "RfWrBNkH1vfJyhsp",
+      "name": "Builder",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "Pick two of the following skills: Craft (chemical), Craft (electronic), Craft (mechanical), and Craft (structural). The character gets a +2 bonus on all checks with those skills.",
+        "normal": "",
+        "special": "The character can select this feat twice. The second time, the character applies it to the two skills he or she didn’t pick originally. Remember that Craft (chemical), Craft (electronic), and Craft (mechanical) cannot be used untrained.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "XYwJlyoFFFsM0oM3",
+      "name": "Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "Da8YVYCYnGs7Rm71",
+      "name": "Great Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack",
+          "Cleave",
+          "base attack bonus +4."
+        ],
+        "benefit": "As Cleave, except that the character has no limit to the number of times he or she can use it per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "lZcstpY4ZkZrQAR5",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "u5vtjjH7JZjd60pH",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 5
       },
-      "damageReduction": 0,
+      "damageReduction": 15,
       "massiveDamageThreshold": null,
       "reach": 5,
       "space": 5
@@ -84,6 +84,32 @@
       "advancement": "13-18 HD (Medium-size); 19-27 HD (Large)",
       "organization": "",
       "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": false
+      }
     },
     "allegiances": [
       {
@@ -126,6 +152,42 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "07TVyTUf1DAjvkok",
+      "name": "Dodge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13."
+        ],
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "TF97it6Ne541bKSE",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

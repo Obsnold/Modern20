@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 0
       },
-      "damageReduction": 0,
+      "damageReduction": 15,
       "massiveDamageThreshold": null,
       "reach": 10,
       "space": 5
@@ -85,6 +85,7 @@
       "organization": "",
       "treasure": ""
     },
+    "skills": {},
     "allegiances": [
       {
         "name": "None or owner",

@@ -85,6 +85,44 @@
       "organization": "",
       "treasure": ""
     },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "navigate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "None",
@@ -157,6 +195,40 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "atROlrhYEsB76PHV",
+      "name": "Multiattack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "ylr53io1JhZsNs9Z",
+      "name": "Track",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "To find tracks or follow them for one mile requires a Survival check. The character must make another Survival check every time the tracks become difficult to follow.",
+        "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

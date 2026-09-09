@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 0
       },
-      "damageReduction": 0,
+      "damageReduction": 10,
       "massiveDamageThreshold": 14,
       "reach": 5,
       "space": 5
@@ -84,6 +84,46 @@
       "advancement": "By character class",
       "organization": "",
       "treasure": "N/A"
+    },
+    "skills": {
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "tumble": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 2,
+        "classSkill": false
+      }
     },
     "allegiances": [
       {
@@ -130,6 +170,23 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "icyXWDtjBPoUQY9M",
+      "name": "Acrobatic",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Jump checks and Tumble checks.",
+        "normal": "",
+        "special": "Remember that the Tumble skill can’t be used untrained.",
+        "repeatable": false
       }
     }
   ]

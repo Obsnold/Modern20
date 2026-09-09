@@ -85,6 +85,38 @@
       "organization": "",
       "treasure": ""
     },
+    "skills": {
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "None or owner",

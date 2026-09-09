@@ -85,6 +85,72 @@
       "organization": "",
       "treasure": ""
     },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "electronic",
+            "ranks": 0,
+            "misc": 6,
+            "classSkill": false
+          },
+          {
+            "name": "mechanical",
+            "ranks": 0,
+            "misc": 6,
+            "classSkill": false
+          }
+        ]
+      },
+      "drive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "pilot": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 3,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      }
+    },
     "allegiances": [
       {
         "name": "Evil",
@@ -219,6 +285,74 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "3cf1BcplNVTPNCJU",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "cpQq67Nu4UamNO9j",
+      "name": "Athletic",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Climb checks and Swim checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "vPaOblHKP01aXIg5",
+      "name": "Builder",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "Pick two of the following skills: Craft (chemical), Craft (electronic), Craft (mechanical), and Craft (structural). The character gets a +2 bonus on all checks with those skills.",
+        "normal": "",
+        "special": "The character can select this feat twice. The second time, the character applies it to the two skills he or she didn’t pick originally. Remember that Craft (chemical), Craft (electronic), and Craft (mechanical) cannot be used untrained.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "EzrlBEIg8f3BCS7O",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
       }
     }
   ]
