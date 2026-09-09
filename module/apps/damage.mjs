@@ -103,6 +103,8 @@ function bindAttackDamage(message, html) {
   const attack = message.getFlag("modern20", "attack");
   if (!attack) return;
 
+  bindSelectTarget(html, attack);
+
   for (const button of html.querySelectorAll("[data-m20-damage]")) {
     button.addEventListener("click", async () => {
       const actor = ChatMessage.getSpeakerActor(message.speaker);
@@ -117,4 +119,33 @@ function bindAttackDamage(message, html) {
       });
     });
   }
+}
+
+/**
+ * Select and pan to the token an attack was made against.
+ *
+ * Closes the loop between "this hit the Bugbear" and applying damage to it,
+ * which otherwise means finding the token on the canvas by eye. PF2e users
+ * install a module for this; it is small enough to just have.
+ */
+function bindSelectTarget(html, attack) {
+  const link = html.querySelector("[data-m20-select-target]");
+  if (!link || !attack.targetTokenId) return;
+
+  link.addEventListener("click", async () => {
+    // The attack may have happened on a scene the viewer is no longer on.
+    if (attack.targetSceneId && canvas.scene?.id !== attack.targetSceneId) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Attack.TargetElsewhere"));
+      return;
+    }
+
+    const token = canvas.tokens?.get(attack.targetTokenId);
+    if (!token) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Attack.TargetGone"));
+      return;
+    }
+
+    token.control({ releaseOthers: true });
+    await canvas.animatePan({ x: token.center.x, y: token.center.y });
+  });
 }

@@ -203,6 +203,11 @@
 .modern20 .m20-hpsteps .m20-icon { width: 1.5rem; font-size: 0.66rem; font-weight: 600; }
 
 /* Damage controls sit under the roll they apply. */
+.m20-chat--attack a[data-m20-select-target] {
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+
 .m20-damage-buttons {
   display: flex;
   gap: 0.3rem;
