@@ -42,6 +42,10 @@ DEPRECATED = {
         'custom/multiply/add/subtract/downgrade/upgrade/override',
     "renderChatMessage":
         "removed in v15 — use renderChatMessageHTML, which passes an HTMLElement",
+    "MeasuredTemplateDocument":
+        "removed in v16 — merged into Region; create a RegionDocument with a shape",
+    "CONST.MEASURED_TEMPLATE_TYPES":
+        "removed in v16 without replacement — Region shapes are typed instead",
 }
 
 # A name is fine when it is a property access, a key, a string, or locally bound

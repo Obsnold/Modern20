@@ -136,6 +136,7 @@ export function installStubs() {
     i18n: { localize: (k) => k, format: (k) => k },
     system: { id: "modern20" },
     keybindings: { get: () => [] },
+    settings: { get: () => false },
   };
   globalThis.ui = { notifications: { warn: () => {}, error: () => {} } };
   globalThis.Handlebars = { registerHelper: () => {} };

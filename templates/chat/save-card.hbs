@@ -24,5 +24,8 @@
   <div class="m20-damage-buttons">
     <button type="button" data-m20-damage="normal">{{localize "MODERN20.Attack.RollDamage"}}</button>
     <button type="button" data-m20-save>{{localize "MODERN20.Attack.RollSaves"}}</button>
+    {{#if activity.area.size}}
+      <button type="button" data-m20-area>{{localize "MODERN20.Area.Place"}}</button>
+    {{/if}}
   </div>
 </div>
