@@ -1,0 +1,14 @@
+{{!--
+  A record of something that happened in play: a stance taken, a magazine
+  reloaded, a resource spent. Chat because it is permanent and scrollable —
+  a notification lasts five seconds and Foundry keeps no history of them.
+--}}
+<div class="m20-chat m20-chat--record {{#if warning}}m20-chat--warning{{/if}}">
+  <header class="m20-chat__header">
+    {{#if img}}<img src="{{img}}" alt="{{name}}">{{/if}}
+    <span class="m20-chat__title">{{title}}</span>
+  </header>
+  {{#each lines as |line|}}
+    <p class="m20-hint">{{line}}</p>
+  {{/each}}
+</div>

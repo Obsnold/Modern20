@@ -283,7 +283,10 @@ export async function postAttackCard(item, result) {
 
   return ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: game.i18n.format("MODERN20.Chat.Attack", { weapon: item.name }),
+    flavor: game.i18n.format(
+      result.targetName ? "MODERN20.Chat.AttackAt" : "MODERN20.Chat.Attack",
+      { weapon: item.name, target: result.targetName }
+    ),
     content,
     rolls: [result.roll, result.confirmation, result.concealment?.roll].filter(Boolean),
     flags: {
@@ -292,6 +295,8 @@ export async function postAttackCard(item, result) {
           itemId: item.id,
           critical: result.confirmed,
           activityId: result.activityId,
+          // Carried so the damage rolled from this card can say who it is for.
+          targetName: result.targetName ?? "",
           targetTokenId: result.targetTokenId,
           targetSceneId: result.targetSceneId
         }

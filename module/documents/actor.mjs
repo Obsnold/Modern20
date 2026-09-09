@@ -1,6 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { rollWealthCheck, commitWealthLoss } from "../dice/wealth.mjs";
 import { ACTION_COST, STANCES, canAfford, attackSequence } from "../apps/actions.mjs";
+import { announce, problem } from "../apps/announce.mjs";
 
 // Foundry v14 removed the bare Actor/Item/Roll/ChatMessage globals; only
 // CONFIG, Hooks, game and ui survive. Everything else comes off the namespace.
@@ -55,7 +56,7 @@ export class Modern20Actor extends Actor {
     if (!entry) throw new Error(`Unknown specialty "${specialty}" on ${skillKey}`);
 
     if (!entry.usable) {
-      ui.notifications.warn(
+      problem(
         game.i18n.format("MODERN20.Warning.TrainedOnly", {
           skill: game.i18n.localize(MODERN20.skills[skillKey].label)
         })
@@ -72,7 +73,7 @@ export class Modern20Actor extends Actor {
   /** Buy something. Resolves the check and commits the Wealth loss on success. */
   async purchase(purchaseDC, { restriction = "none", blackMarket = false, label = "" } = {}) {
     if (this.system.wealth === undefined) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Warning.NoWealth"));
+      problem(game.i18n.localize("MODERN20.Warning.NoWealth"));
       return null;
     }
 
@@ -96,11 +97,11 @@ export class Modern20Actor extends Actor {
   async spendActionPoint({ flavor } = {}) {
     const ap = this.system.actionPoints;
     if (!ap) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Warning.NoActionPoints"));
+      problem(game.i18n.localize("MODERN20.Warning.NoActionPoints"));
       return null;
     }
     if (ap.value < 1) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Warning.NoActionPointsLeft"));
+      problem(game.i18n.localize("MODERN20.Warning.NoActionPointsLeft"));
       return null;
     }
 
@@ -124,9 +125,9 @@ export class Modern20Actor extends Actor {
     // "They are not subject to critical hits, nonlethal damage, ability
     // damage..." — constructs and their kind simply ignore it.
     if (nonlethal && this.isImmuneToNonlethal) {
-      ui.notifications.info(game.i18n.format("MODERN20.Damage.ImmuneNonlethal", {
-        name: this.name
-      }));
+      await announce(this, {
+        title: game.i18n.format("MODERN20.Damage.ImmuneNonlethal", { name: this.name })
+      });
       return { value: hp.value, immune: true };
     }
 
@@ -140,9 +141,12 @@ export class Modern20Actor extends Actor {
       // The SRD never states the threshold, so this reports rather than
       // applying a condition the GM may not want.
       if (total >= hp.value) {
-        ui.notifications.warn(game.i18n.format("MODERN20.Damage.NonlethalExceeds", {
-          name: this.name, total, hp: hp.value
-        }));
+        await announce(this, {
+          title: game.i18n.format("MODERN20.Damage.NonlethalExceeds", {
+            name: this.name, total, hp: hp.value
+          }),
+          warning: true
+        });
       }
       return { value: hp.value, nonlethal: total };
     }
@@ -193,10 +197,14 @@ export class Modern20Actor extends Actor {
     await this.update(update);
 
     if (!affordable) {
-      ui.notifications.warn(game.i18n.format("MODERN20.Action.Overspent", {
-        name: this.name,
-        action: game.i18n.localize(MODERN20.actionTypes[actionType] ?? actionType)
-      }));
+      await announce(this, {
+        title: game.i18n.format("MODERN20.Action.Overspent", {
+          name: this.name,
+          action: game.i18n.localize(MODERN20.actionTypes[actionType] ?? actionType)
+        }),
+        lines: [this.#actionsLeft()],
+        warning: true
+      });
     }
     return affordable;
   }
@@ -235,9 +243,12 @@ export class Modern20Actor extends Actor {
 
     if (this.system.turn.stance === stanceId) {
       await this.update({ "system.turn.stance": "" });
-      ui.notifications.info(game.i18n.format("MODERN20.Stance.Ends", {
-        name: this.name, stance: game.i18n.localize(stance.label)
-      }));
+      await announce(this, {
+        title: game.i18n.format("MODERN20.Stance.Ends", {
+          name: this.name, stance: game.i18n.localize(stance.label)
+        }),
+        img: stance.icon
+      });
       return null;
     }
 
@@ -255,10 +266,30 @@ export class Modern20Actor extends Actor {
 
     await this.update({ "system.turn.stance": stanceId });
     await this.spendAction(stance.action);
-    ui.notifications.info(game.i18n.format("MODERN20.Stance.Takes", {
-      name: this.name, stance: game.i18n.localize(stance.label)
-    }));
+    await announce(this, {
+      title: game.i18n.format("MODERN20.Stance.Takes", {
+        name: this.name, stance: game.i18n.localize(stance.label)
+      }),
+      lines: [game.i18n.localize(stance.detail), this.#actionsLeft()],
+      img: stance.icon
+    });
     return stance;
+  }
+
+  /**
+   * What is left of the turn, in words, for a record card.
+   *
+   * The number on the sheet is only visible to whoever has the sheet open;
+   * the card is what everyone else sees.
+   */
+  #actionsLeft() {
+    const remaining = this.system.turn?.remaining ?? {};
+    const left = Object.entries(remaining)
+      .filter(([, amount]) => amount > 0)
+      .map(([pool]) => game.i18n.localize(`MODERN20.Action.${pool}`));
+    return left.length
+      ? game.i18n.format("MODERN20.Action.Remaining", { actions: left.join(", ") })
+      : game.i18n.localize("MODERN20.Action.NothingLeft");
   }
 
   /** Remove whatever effect a stance put on this actor. */
@@ -302,9 +333,10 @@ export class Modern20Actor extends Actor {
     await this.update({ [`system.casting.slotsUsed.${tradition}`]: used });
 
     if (slot.available < 1) {
-      ui.notifications.warn(game.i18n.format("MODERN20.Cast.NoSlots", {
-        name: this.name, level
-      }));
+      await announce(this, {
+        title: game.i18n.format("MODERN20.Cast.NoSlots", { name: this.name, level }),
+        warning: true
+      });
       return false;
     }
     return true;
@@ -320,9 +352,10 @@ export class Modern20Actor extends Actor {
     });
 
     if (pool.value < cost) {
-      ui.notifications.warn(game.i18n.format("MODERN20.Cast.NoPoints", {
-        name: this.name, cost
-      }));
+      await announce(this, {
+        title: game.i18n.format("MODERN20.Cast.NoPoints", { name: this.name, cost }),
+        warning: true
+      });
       return false;
     }
     return true;
@@ -340,7 +373,9 @@ export class Modern20Actor extends Actor {
       "system.casting.slotsUsed.divine": [],
       "system.casting.powerPointsUsed": 0
     });
-    ui.notifications.info(game.i18n.format("MODERN20.Cast.Rested", { name: this.name }));
+    await announce(this, {
+      title: game.i18n.format("MODERN20.Cast.Rested", { name: this.name })
+    });
     return this;
   }
 

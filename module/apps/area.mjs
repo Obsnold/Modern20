@@ -1,3 +1,5 @@
+import { announce, problem } from "./announce.mjs";
+
 /**
  * Placing an activity's area on the canvas.
  *
@@ -68,30 +70,42 @@ function shapeFor(activity, origin) {
  * Returns the created region, or null when there is nothing to draw or no
  * scene to draw it on.
  */
-export async function placeArea(item, activity) {
+export async function placeArea(item, activity, { messageId = "" } = {}) {
   if (!canvas?.scene) {
-    ui.notifications.warn(game.i18n.localize("MODERN20.Area.NoScene"));
+    problem(game.i18n.localize("MODERN20.Area.NoScene"));
     return null;
   }
 
   const origin = areaOrigin(item);
   const shape = shapeFor(activity, origin);
   if (!shape) {
-    ui.notifications.warn(game.i18n.localize("MODERN20.Area.NoArea"));
+    problem(game.i18n.localize("MODERN20.Area.NoArea"));
     return null;
+  }
+
+  // Clicking the button again moves the blast rather than leaving a second one
+  // on the map: the same explosion did not happen twice.
+  if (messageId) {
+    const stale = canvas.scene.regions
+      .filter((region) => region.getFlag("modern20", "area")?.messageId === messageId)
+      .map((region) => region.id);
+    if (stale.length) await canvas.scene.deleteEmbeddedDocuments("Region", stale);
   }
 
   const [region] = await canvas.scene.createEmbeddedDocuments("Region", [{
     // Region requires a non-blank name.
     name: item.name,
     shapes: [shape],
-    flags: { modern20: { area: { itemId: item.id, activityId: activity.id } } }
+    flags: { modern20: { area: { itemId: item.id, activityId: activity.id, messageId } } }
   }]);
 
   if (region) {
-    ui.notifications.info(game.i18n.format("MODERN20.Area.Placed", {
-      name: item.name, size: activity.area.size
-    }));
+    await announce(item.actor, {
+      title: game.i18n.format("MODERN20.Area.Placed", {
+        name: item.name, size: activity.area.size
+      }),
+      img: item.img
+    });
   }
   return region ?? null;
 }

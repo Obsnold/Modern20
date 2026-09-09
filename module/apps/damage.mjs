@@ -1,5 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { placeArea } from "./area.mjs";
+import { announce, problem } from "./announce.mjs";
 
 const { ChatMessage } = foundry.documents;
 
@@ -32,7 +33,7 @@ export function damageRecipients() {
 export async function applyAmount(amount, { multiplier = 1, nonlethal = false } = {}) {
   const recipients = damageRecipients();
   if (!recipients.length) {
-    ui.notifications.warn(game.i18n.localize("MODERN20.Damage.NoTarget"));
+    problem(game.i18n.localize("MODERN20.Damage.NoTarget"));
     return [];
   }
 
@@ -41,7 +42,7 @@ export async function applyAmount(amount, { multiplier = 1, nonlethal = false } 
 
   for (const actor of recipients) {
     if (!actor.isOwner) {
-      ui.notifications.warn(game.i18n.format("MODERN20.Damage.NotYours", { name: actor.name }));
+      problem(game.i18n.format("MODERN20.Damage.NotYours", { name: actor.name }));
       continue;
     }
     const hp = actor.system.hp;
@@ -57,10 +58,13 @@ export async function applyAmount(amount, { multiplier = 1, nonlethal = false } 
   }
 
   if (applied.length) {
-    ui.notifications.info(game.i18n.format(
-      scaled >= 0 ? "MODERN20.Damage.Applied" : "MODERN20.Damage.Healed",
-      { amount: Math.abs(scaled), names: applied.join(", ") }
-    ));
+    await announce(null, {
+      title: game.i18n.format(
+        scaled >= 0 ? "MODERN20.Damage.Applied" : "MODERN20.Damage.Healed",
+        { amount: Math.abs(scaled), names: applied.join(", ") }
+      ),
+      lines: nonlethal ? [game.i18n.localize("MODERN20.Damage.Nonlethal")] : []
+    });
   }
   return applied;
 }
@@ -117,12 +121,15 @@ function bindAttackDamage(message, html) {
       const actor = ChatMessage.getSpeakerActor(message.speaker);
       const item = actor?.items?.get(attack.itemId);
       if (!item) {
-        ui.notifications.warn(game.i18n.localize("MODERN20.Attack.ItemGone"));
+        problem(game.i18n.localize("MODERN20.Attack.ItemGone"));
         return;
       }
       await item.rollDamage({
         critical: button.dataset.m20Damage === "critical",
-        activityId: attack.activityId ?? "shot"
+        activityId: attack.activityId ?? "shot",
+        // Carried from the attack so the damage says who it was aimed at,
+        // which is the line a battle log is read for.
+        targetName: attack.targetName ?? ""
       });
     });
   }
@@ -142,13 +149,13 @@ function bindSelectTarget(html, attack) {
   link.addEventListener("click", async () => {
     // The attack may have happened on a scene the viewer is no longer on.
     if (attack.targetSceneId && canvas.scene?.id !== attack.targetSceneId) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Attack.TargetElsewhere"));
+      problem(game.i18n.localize("MODERN20.Attack.TargetElsewhere"));
       return;
     }
 
     const token = canvas.tokens?.get(attack.targetTokenId);
     if (!token) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Attack.TargetGone"));
+      problem(game.i18n.localize("MODERN20.Attack.TargetGone"));
       return;
     }
 
@@ -166,24 +173,29 @@ function bindSaveRolls(message, html) {
   button.addEventListener("click", async () => {
     const targets = [...(game.user.targets ?? [])].map((token) => token.actor).filter(Boolean);
     if (!targets.length) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Damage.NoTarget"));
+      problem(game.i18n.localize("MODERN20.Damage.NoTarget"));
       return;
     }
 
     for (const actor of targets) {
       if (!actor.isOwner) {
-        ui.notifications.warn(game.i18n.format("MODERN20.Damage.NotYours", { name: actor.name }));
+        problem(game.i18n.format("MODERN20.Damage.NotYours", { name: actor.name }));
         continue;
       }
       const roll = await actor.rollSave(save.ability, {
         flavor: game.i18n.format("MODERN20.Attack.SaveAgainst", { dc: save.dc })
       });
       if (roll) {
+        // The save roll posts its own card; whether it beat the DC is the part
+        // that used to be a toast, and it belongs beside the roll.
         const passed = roll.total >= save.dc;
-        ui.notifications.info(game.i18n.format(
-          passed ? "MODERN20.Attack.SavePassed" : "MODERN20.Attack.SaveFailed",
-          { name: actor.name, total: roll.total, dc: save.dc }
-        ));
+        await announce(actor, {
+          title: game.i18n.format(
+            passed ? "MODERN20.Attack.SavePassed" : "MODERN20.Attack.SaveFailed",
+            { name: actor.name, total: roll.total, dc: save.dc }
+          ),
+          warning: !passed
+        });
       }
     }
   });
@@ -199,9 +211,9 @@ function bindPlaceArea(message, html, attack) {
     const item = actor?.items?.get(attack.itemId);
     const activity = item?.activities.find((entry) => entry.id === attack.activityId);
     if (!activity) {
-      ui.notifications.warn(game.i18n.localize("MODERN20.Attack.ItemGone"));
+      problem(game.i18n.localize("MODERN20.Attack.ItemGone"));
       return;
     }
-    await placeArea(item, activity);
+    await placeArea(item, activity, { messageId: message.id });
   });
 }
