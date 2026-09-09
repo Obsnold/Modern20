@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 0
       },
-      "damageReduction": 0,
+      "damageReduction": 10,
       "massiveDamageThreshold": null,
       "reach": 1,
       "space": 5
@@ -84,6 +84,20 @@
       "advancement": "3-4 HD (Diminutive); 5-6 HD (Tiny)",
       "organization": "",
       "treasure": ""
+    },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 1,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 1,
+        "classSkill": false
+      }
     },
     "allegiances": [
       {

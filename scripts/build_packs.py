@@ -635,9 +635,95 @@ def creature_weapon_activities(attack: dict) -> dict:
     return out
 
 
+SKILLS = {entry["id"]: entry
+          for entry in json.load(open(os.path.join(srd.DATA, "skills.json"), encoding="utf-8"))}
+
+
+def creature_skills(entry: dict) -> dict:
+    """The creature's printed skill totals, as the sheet's own skill entries.
+
+    The SRD prints a total and the model derives one from ranks plus the key
+    ability, so — as everywhere else here — what is stored is the difference.
+    A creature has no ranks, so the whole of the printed number less its
+    ability modifier goes into misc, and the sheet shows what the SRD prints.
+    """
+    abilities = entry["abilities"]
+
+    def ability_modifier(skill_id):
+        ability = SKILLS.get(skill_id, {}).get("ability")
+        return (abilities[ability] - 10) // 2 if ability else 0
+
+    skills = {}
+    for printed in entry["skillEntries"]:
+        skill = skills.setdefault(printed["skill"], {"specialties": []})
+        config = SKILLS.get(printed["skill"], {})
+
+        # A printed bonus in a trained-only skill says the creature is trained,
+        # and the model will not let an untrained character roll one. So it
+        # gets the single rank that says so, and the rest goes to misc — the
+        # printed total is unchanged either way.
+        ranks = 1 if config.get("trainedOnly") else 0
+        misc = printed["bonus"] - ability_modifier(printed["skill"]) - ranks
+        # A language is not rolled at all: it is one rank per language known,
+        # and there is no total for a modifier to be part of.
+        if config.get("ability") is None:
+            misc = 0
+
+        stored = {"ranks": ranks, "misc": misc, "classSkill": False}
+        if printed["specialty"]:
+            # Knowledge (arcane lore) and every language are taken per subject.
+            skill["specialties"].append({"name": printed["specialty"], **stored})
+        else:
+            skill.update(stored)
+
+    return skills
+
+
+def creature_feats(entry: dict, feats_by_name: dict) -> list[dict]:
+    """The creature's printed feats, as items.
+
+    A name the SRD's feat list does not define — Multiattack and Flyby Attack
+    are creature feats from another game's monster rules — still becomes an
+    item, because the stat block prints it and a GM needs to see it; its
+    description says the SRD does not define it rather than inventing one.
+    """
+    items = []
+    for name in entry["featNames"]:
+        source = feats_by_name.get(name.lower()) or feats_by_name.get(
+            name.lower().replace(" weapon ", " weapons ")
+        )
+        slug = srd.slugify(f"{entry['id']}-{name}")
+        items.append({
+            "_id": document_id("creature-feats", slug),
+            "name": source["name"] if source else name,
+            "type": "feat",
+            "img": "icons/svg/upgrade.svg",
+            "system": {
+                "description": "" if source else UNDEFINED_FEAT,
+                "source": "d20 Modern SRD",
+                "srdUrl": source["srdUrl"] if source else entry["srdUrl"],
+                "featType": "general",
+                "prerequisites": source.get("prerequisites", []) if source else [],
+                "benefit": source.get("benefit", "") if source else "",
+                "normal": source.get("normal", "") if source else "",
+                "special": source.get("special", "") if source else "",
+                "repeatable": False,
+            },
+        })
+    return items
+
+
+UNDEFINED_FEAT = (
+    "<p>Printed in this creature's stat block, but not defined in the SRD's "
+    "feat list.</p>"
+)
+
+
 def build_creatures() -> list[dict]:
     """Creature actors. Derived values are stored as the offset that
     reproduces the printed total, so the sheet shows what the SRD prints."""
+    feats_by_name = {f["name"].lower(): f for f in load_dataset("feats")}
+
     def system(e):
         return {
             "abilities": {k: {"value": v, "tempMod": 0, "damage": 0}
@@ -651,7 +737,9 @@ def build_creatures() -> list[dict]:
                 "size": e["size"],
                 "speed": e["speed"],
                 "initiative": {"misc": e["initiativeMisc"]},
-                "damageReduction": 0,
+                # "damage reduction 15/silver" was printed and never read, so
+                # applyDamage subtracted nothing for any imported creature.
+                "damageReduction": e["damageReduction"]["value"],
                 "massiveDamageThreshold": e["massiveDamageThreshold"],
                 "reach": srd.to_int(e["reach"], 5) or 5,
                 "space": 5,
@@ -665,6 +753,7 @@ def build_creatures() -> list[dict]:
                 "organization": "",
                 "treasure": e["possessions"],
             },
+            "skills": creature_skills(e),
             "allegiances": [{"name": a, "strength": "none"} for a in e["allegiances"]],
             "senses": e["specialQualities"],
             "specialQualities": e["specialQualities"],
@@ -679,7 +768,9 @@ def build_creatures() -> list[dict]:
 
     return simple_pack("creatures", "creature", "creatures", "icons/svg/mystery-man.svg",
                        system, document_class="Actor",
-                       extra=lambda e: {"items": creature_weapons(e)})
+                       extra=lambda e: {
+                           "items": creature_weapons(e) + creature_feats(e, feats_by_name)
+                       })
 
 
 def spell_system(e: dict) -> dict:

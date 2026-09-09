@@ -53,6 +53,46 @@
       "None"
     ],
     "skills": "Climb +14, Hide +3 (+18 in snowy conditions), Move Silently +10, Speak Giant, Survival +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 3,
+        "note": "+18 in snowy conditions"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Power Attack",
+      "Track"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Power Attack, Track",
     "talents": "",
     "possessions": "",
@@ -113,6 +153,39 @@
       "None"
     ],
     "skills": "Hide +6, Listen +6, Move Silently +8, Spot +6",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Power Attack"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Power Attack",
     "talents": "",
     "possessions": "",
@@ -173,6 +246,42 @@
       "None"
     ],
     "skills": "Hide +11, Listen +12, Move Silently +16, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Combat Reflexes",
+      "Lightning Reflexes",
+      "Power Attack",
+      "Stealthy"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Combat Reflexes, Lightning Reflexes, Power Attack, Stealthy",
     "talents": "",
     "possessions": "",
@@ -233,6 +342,40 @@
       "Evil"
     ],
     "skills": "Hide +12, Listen +11, Move Silently +12, Spot +1",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 1,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Dodge",
+      "Improved Initiative"
+    ],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "silver"
+    },
     "feats": "Dodge, Improved Initiative",
     "talents": "",
     "possessions": "",
@@ -294,6 +437,53 @@
       "evil"
     ],
     "skills": "Hide +10, Intimidate +10, Listen +13, Read/Write Language (any one), Speak Language (any one), Spot +13.",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Iron Will",
+      "Lightning Reflexes",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Iron Will, Lightning Reflexes, Weapon Focus (incorporeal touch)",
     "talents": "",
     "possessions": "",
@@ -354,6 +544,12 @@
       "Creator"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "+1"
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -416,6 +612,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -476,6 +678,40 @@
       "Evil"
     ],
     "skills": "Bluff +11, Listen +16, Sense Motive +14, Spot +16.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Improved Initiative"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "+1"
+    },
     "feats": "Alertness, Improved Initiative",
     "talents": "",
     "possessions": "",
@@ -551,6 +787,54 @@
       "None"
     ],
     "skills": "Listen +19, Navigate +16, Search +15, Sense Motive +16, Spot +19, Survival +19",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 19,
+        "note": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 15,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 19,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 19,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Cleave",
+      "Multiattack",
+      "Power Attack",
+      "Track"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Cleave, Multiattack, Power Attack, Track",
     "talents": "",
     "possessions": "",
@@ -613,6 +897,37 @@
       "Evil"
     ],
     "skills": "Hide -6 (+10 in forested areas), Intimidate +4, Listen +5, Spot +5",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -6,
+        "note": "+10 in forested areas"
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -673,6 +988,27 @@
       "Evil or none"
     ],
     "skills": "Listen +6, Spot +6",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Heroic Surge"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "+1"
+    },
     "feats": "Heroic Surge (2/day)",
     "talents": "",
     "possessions": "",
@@ -733,6 +1069,12 @@
       "None or owner"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "+1"
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -793,6 +1135,43 @@
       "None"
     ],
     "skills": "Balance +6, Climb +12, Hide +3, Listen +4, Spot +4",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -854,6 +1233,42 @@
       "None or master"
     ],
     "skills": "Listen +13, Move Silently +17, Search +13, Spot +15",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 15,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Combat Reflexes",
+      "Dodge",
+      "Improved Initiative",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Combat Reflexes, Dodge, Improved Initiative, Weapon Focus (slam)",
     "talents": "",
     "possessions": "",
@@ -914,6 +1329,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -974,6 +1395,25 @@
       "None"
     ],
     "skills": "Climb +14, Listen +5",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1037,6 +1477,37 @@
       "None"
     ],
     "skills": "Hide -10, Listen +6, Spot +6, Swim +20",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -10,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 20,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1097,6 +1568,27 @@
       "None"
     ],
     "skills": "Listen +5, Spot +8",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -1158,6 +1650,12 @@
       "Evil"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1218,6 +1716,36 @@
       "None"
     ],
     "skills": "Hide -8 (+2 in water), Listen +7, Spot +7",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -8,
+        "note": "+2 in water"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Cleave",
+      "Great Cleave",
+      "Improved Initiative",
+      "Power Attack"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Cleave, Great Cleave, Improved Initiative, Power Attack",
     "talents": "",
     "possessions": "",
@@ -1279,6 +1807,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1339,6 +1873,53 @@
       "Evil"
     ],
     "skills": "Climb +9, Jump +9, Listen +10, Read/Write (any one), Speak (any one), Spot +10",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Agile Riposte",
+      "Dodge",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Agile Riposte, Dodge, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -1401,6 +1982,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1445,6 +2032,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1520,6 +2113,49 @@
       "None"
     ],
     "skills": "Balance +9, Climb +23, Hide +8, Listen +5, Spot +5, Swim +23",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 23,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 23,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1595,6 +2231,49 @@
       "None"
     ],
     "skills": "Balance +9, Climb +19, Hide +12, Listen +5, Spot +5, Swim +19",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 19,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 19,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -1655,6 +2334,40 @@
       "Evil"
     ],
     "skills": "Hide +11, Listen +9, Move Silently +11, Spot +9",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Dodge",
+      "Improved Initiative"
+    ],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "silver"
+    },
     "feats": "Dodge, Improved Initiative",
     "talents": "",
     "possessions": "",
@@ -1731,6 +2444,59 @@
       "evil"
     ],
     "skills": "Climb +2, Hide +3, Listen +3, Move Silently +6 (includes species bonus), Read/Write Goblin, Speak Goblin, Spot +3.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 6,
+        "note": "includes species bonus"
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "N/A",
     "possessions": "N/A",
@@ -1807,6 +2573,85 @@
       "evil"
     ],
     "skills": "Climb +2*, Drive +3, Escape Artist +3*, Hide +5*, Knowledge (streetwise) +2, Listen +3, Move Silently +8*, Read/Write Goblin, Speak Goblin, Spot +3, Tumble +3*. *Includes the -2 armor penalty for wearing an undercover vest.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "streetwise",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Armor Proficiency",
+      "Personal Firearms Proficiency",
+      "Point Blank Shot",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Armor Proficiency (light), Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency.",
     "talents": "Evasion, uncanny dodge 1.",
     "possessions": "Undercover vest, metal baton, Mossberg (12-gauge shotgun), 20 rounds of 12-gauge ammunition, fatigues, fatigue jacket, car opening kit, climbing gear.",
@@ -1882,6 +2727,72 @@
       "Evil"
     ],
     "skills": "Balance +8, Hide +8, Listen +7, Read/Write Cat Folk, Read/Write English, Speak Cat Folk, Speak English, Spot +7, Tumble +7.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Cat Folk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Cat Folk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Improved Initiative",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Improved Initiative, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "N/A",
     "possessions": "Glock 17 (9mm autoloader), 50 rounds of ammunition, concealed carry holster, formal outfit.",
@@ -1957,6 +2868,103 @@
       "Evil"
     ],
     "skills": "Balance +10, Bluff +6, Disguise +8, Gather Information +7, Hide +11, Knowledge (behavioral science) +5, Knowledge (streetwise) +5, Listen +10, Read/ Write English, Read/Write Cat Folk, Speak English, Speak Cat Folk, Spot +10, Tumble +8.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "behavioral science",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "streetwise",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Write English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Cat Folk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Cat Folk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Dodge",
+      "Improved Initiative",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Dodge, Improved Initiative, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "",
     "possessions": "Glock 17 (9mm autoloader), 50 rounds of ammunition, formal outfit, concealed carry holster, cell phone.",
@@ -2018,6 +3026,52 @@
       "evil"
     ],
     "skills": "Hide +6, Intimidate +6, Listen +11, Read/Write Language (any one), Speak Language (any one), Spot +11.",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Lightning Reflexes",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Lightning Reflexes, Weapon Focus (incorporeal touch)",
     "talents": "",
     "possessions": "",
@@ -2078,6 +3132,12 @@
       "Creator"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "+1"
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2138,6 +3198,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2198,6 +3264,43 @@
       "None"
     ],
     "skills": "Climb +20, Hide -7, Jump +8 (+14 for hunting spiders), Move Silently +9, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 20,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -7,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 8,
+        "note": "+14 for hunting spiders"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2258,6 +3361,49 @@
       "None"
     ],
     "skills": "Balance +11, Climb +14, Hide +11, Listen +9, Spot +9, Swim +11.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2318,6 +3464,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2393,6 +3545,31 @@
       "None"
     ],
     "skills": "Hide +7 (+19 when submerged), Listen +5, Spot +5",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 7,
+        "note": "+19 when submerged"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2453,6 +3630,40 @@
       "Evil"
     ],
     "skills": "Bluff +5, Listen +10, Sense Motive +8, Spot +10.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Improved Initiative"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "+1"
+    },
     "feats": "Alertness, Improved Initiative",
     "talents": "",
     "possessions": "",
@@ -2528,6 +3739,52 @@
       "None"
     ],
     "skills": "Listen +11, Navigate +4, Search +5, Sense Motive +6, Spot +11, Survival +11.",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Multiattack",
+      "Track"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Multiattack, Track",
     "talents": "",
     "possessions": "",
@@ -2572,6 +3829,12 @@
       "None"
     ],
     "skills": "None (unless programmed by a Techie)",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2632,6 +3895,37 @@
       "Evil"
     ],
     "skills": "Hide -6 (+10 in forested areas), Intimidate +4, Listen +5, Spot +5",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -6,
+        "note": "+10 in forested areas"
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2707,6 +4001,83 @@
       "Evil"
     ],
     "skills": "Bluff +10, Diplomacy +10, Gather Information +10, Intimidate +10, Investigate +8, Read/Write English, Read/ Write Language (any two), Research +8, Search +4, Speak English, Speak Language (any two).",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "any two",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "research",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "any two",
+        "bonus": 0,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "+1 (fire form only)"
+    },
     "feats": "Archaic Weapons Proficiency, Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "N/A",
@@ -2799,6 +4170,92 @@
       "Evil"
     ],
     "skills": "Bluff +18, Diplomacy +18, Gather Information +15, Intimidate +16, Investigate +8, Profession +9, Read/Write (English), Read/Write (Spanish), Research +8, Search +4, Speak (English), Speak (Spanish).",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": "",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": "",
+        "bonus": 15,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Spanish",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "research",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Spanish",
+        "bonus": 0,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Burst Fire",
+      "Personal Firearms Proficiency",
+      "Renown",
+      "Simple Weapons Proficiency",
+      "Trustworthy"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "+1 (fire form only)"
+    },
     "feats": "Archaic Weapons Proficiency, Burst Fire, Personal Firearms Proficiency, Renown, Simple Weapons Proficiency, Trustworthy.",
     "talents": "(Charismatic Hero): Coordinate, fast-talk",
     "possessions": "Light undercover shirt, HK MP5, 60 rounds of 9mm ammunition (2 magazines), cell phone, PDA, briefcase",
@@ -2860,6 +4317,67 @@
       "Evil"
     ],
     "skills": "Computer Use +13, Craft (electrical) +13, Craft (mechanical) +13, Demolitions +9, Disable Device +13, Knowledge (technology) +11; Repair +13, Treat Injury +7.",
+    "skillEntries": [
+      {
+        "skill": "computerUse",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "electrical",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "technology",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Builder",
+      "Cautious",
+      "Gearhead",
+      "Surgery",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Builder, Cautious, Gearhead, Surgery, Weapon Finesse (pincer)",
     "talents": "N/A",
     "possessions": "N/A",
@@ -2921,6 +4439,99 @@
       "Evil"
     ],
     "skills": "Computer Use +18, Craft (electrical) +18, Craft (mechanical) +18, Demolitions +14, Disable Device +18, Knowledge (earth and life sciences) +10, Knowledge (physical sciences) +10, Knowledge (technology) +16, Read/Write English, Read/Write Japanese, Research +13; Repair +18, Treat Injury +7.",
+    "skillEntries": [
+      {
+        "skill": "computerUse",
+        "specialty": "",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "electrical",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": "",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "earth and life sciences",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "physical sciences",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "technology",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Japanese",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "research",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": "",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Builder",
+      "Cautious",
+      "Defensive Martial Arts",
+      "Educated, Knowledge)",
+      "Gearhead",
+      "Surgery",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Builder, Cautious, Defensive Martial Arts, Educated (Knowledge [physical sciences], Knowledge [technology]), Gearhead, Surgery, Weapon Finesse (pincer)",
     "talents": "(Techie): Build robot, extreme machine, jury-rig +2, mastercraft.",
     "possessions": "Tiny robot (wheeled, 10 ranks in Disable Device), Diminutive robot (wheeled, 10 ranks in Demolitions).",
@@ -2981,6 +4592,25 @@
       "Evil or none"
     ],
     "skills": "Listen +3, Spot +3",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "+1"
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -3041,6 +4671,12 @@
       "None or owner"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "+1"
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -3119,6 +4755,116 @@
       "chaos"
     ],
     "skills": "Balance +10, Bluff +7, Disguise +7, Escape Artist +10, Hide +11, Knowledge (arcane lore) +6, Knowledge (behavioral science) +6, Listen +6, Move Silently +11, Read/Write Abyssal, Read/Write English, Read/Write Latin, Speak English, Speak Abyssal, Speak Latin, Spot +6.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "arcane lore",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "behavioral science",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Abyssal",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Latin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Abyssal",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Latin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Dodge",
+      "Improved Initiative",
+      "Simple Weapons Proficiency",
+      "Weapon Finesse",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "ballistic"
+    },
     "feats": "Archaic Weapons Proficiency, Dodge, Improved Initiative, Simple Weapons Proficiency, Weapon Finesse (knife), Weapon Focus (knife).",
     "talents": "(Fast Hero): Evasion, uncanny dodge 1",
     "possessions": "Leather jacket, casual outfit, hat, 12 knives",
@@ -3180,6 +4926,114 @@
       "chaos"
     ],
     "skills": "Balance +8, Bluff +4, Disguise +4, Escape Artist +8, Hide +8, Knowledge (arcane lore) +6, Knowledge (behavioral science) +6, Listen +5, Move Silently +8, Read/Write Abyssal, Read/Write English, Read/Write Latin, Speak English, Speak Abyssal, Speak Latin, Spot +5.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "arcane lore",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "behavioral science",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Abyssal",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Latin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Abyssal",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Latin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Simple Weapons Proficiency",
+      "Weapon Finesse",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "ballistic"
+    },
     "feats": "Archaic Weapons Proficiency, Simple Weapons Proficiency, Weapon Finesse (knife), Weapon Focus (knife).",
     "talents": "N/A",
     "possessions": "Leather jacket, casual outfit, hat, 12 knives",
@@ -3240,6 +5094,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -3300,6 +5160,43 @@
       "None"
     ],
     "skills": "Climb +18, Hide -3, Jump +6 (+12 for hunting spiders), Move Silently +9, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -3,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 6,
+        "note": "+12 for hunting spiders"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -3391,6 +5288,42 @@
       "evil"
     ],
     "skills": "Hide +9 (+17 when concealed against worked stone), Listen +4, Speak Terran, Spot +4",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 9,
+        "note": "+17 when concealed against worked stone"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Terran",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Multiattack",
+      "Weapon Finesse",
+      "Weapon Finesse",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "+1"
+    },
     "feats": "Multiattack, Weapon Finesse (bite), Weapon Finesse (claw), Weapon Finesse (gore)",
     "talents": "N/A",
     "possessions": "N/A",
@@ -3482,6 +5415,57 @@
       "evil"
     ],
     "skills": "Hide +11 (+19 when concealed against worked stone), Intimidate +1, Listen +4, Move Silently +4, Speak Terran, Spot +4",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": "+19 when concealed against worked stone"
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 1,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Terran",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Multiattack",
+      "Power Attack",
+      "Simple Weapons Proficiency",
+      "Stealthy",
+      "Weapon Finesse",
+      "Weapon Finesse",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "+1"
+    },
     "feats": "Multiattack, Power Attack, Simple Weapons Proficiency, Stealthy, Weapon Finesse (bite), Weapon Finesse (claw), Weapon Finesse (gore)",
     "talents": "(Tough) Robust, stamina",
     "possessions": "-",
@@ -3573,6 +5557,40 @@
       "evil"
     ],
     "skills": "Listen +3, Read/Write Gnoll, Speak Gnoll, Spot +3",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Gnoll",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Gnoll",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "Metal baton, TEC-9 (9mm machine pistol), 50 rounds of 9mm ammunition, fatigues, fatigue jacket.",
@@ -3664,6 +5682,54 @@
       "evil"
     ],
     "skills": "Climb +4, Jump +4, Listen +3, Read/Write Gnoll, Speak Gnoll, Spot +3",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Gnoll",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Gnoll",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Combat Martial Arts",
+      "Personal Firearms Proficiency",
+      "Power Attack",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Combat Martial Arts, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency",
     "talents": "(Strong Hero) Melee smash",
     "possessions": "Metal baton, TEC-9 (9mm machine pistol), 50 rounds of 9mm ammunition, fatigues, fatigue jacket, climbing gear.",
@@ -3740,6 +5806,52 @@
       "tribe"
     ],
     "skills": "Hide +6, Listen +3, Move Silently +4, Read/Write Goblin, Speak Goblin, Spot +3",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "Knife, Colt Python (.357 revolver), 25 rounds of .357 ammunition, hip holster, basic walkie-talkie",
@@ -3831,6 +5943,72 @@
       "tribe"
     ],
     "skills": "Hide +8, Knowledge (streetwise) +2, Listen +3, Move Silently +6, Read/Write Goblin, Sleight of Hand +5, Speak Goblin, Spot +3, Tumble +5.",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "streetwise",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Goblin",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Dodge",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Dodge, Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "(Fast Hero) Evasion, increased speed",
     "possessions": "Metal baton, Desert Eagle (.50AE autoloader), 25 rounds of .50AE ammunition, windbreaker, concealed carry holster, basic walkie-talkie",
@@ -3921,6 +6099,52 @@
       "Evil"
     ],
     "skills": "Climb +7, Hide +6 (+16 in rocky terrain or underground), Listen +4, Search +5, Speak English, Survival +2.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 6,
+        "note": "+16 in rocky terrain or underground"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Brawl"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Archaic Weapons Proficiency, Brawl",
     "talents": "N/A",
     "possessions": "Spear",
@@ -4011,6 +6235,63 @@
       "Evil"
     ],
     "skills": "Climb +11, Hide +6 (+16 in rocky terrain or underground), Jump +7, Listen +4, Search +5, Survival +5, Swim +5.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 6,
+        "note": "+16 in rocky terrain or underground"
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Athletic",
+      "Brawl",
+      "Improved Brawl",
+      "Simple Weapons Proficiency",
+      "Track",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Archaic Weapons Proficiency, Athletic, Brawl, Improved Brawl, Simple Weapons Proficiency, Track, Weapon Focus (spear)",
     "talents": "Improved Melee Smash, Melee Smash",
     "possessions": "Spear, compound bow with 12 arrows",
@@ -4104,6 +6385,65 @@
       "Evil"
     ],
     "skills": "Bluff +6, Listen +5, Perform (act) +8, Perform (sing) +8, Perform (stand-up) +6, Read/Write English, Speak English, Spot +6.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "act",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "sing",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "stand-up",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Flyby Attack",
+      "Personal Weapon Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Flyby Attack, Personal Weapon Proficiency, Simple Weapons Proficiency.",
     "talents": "N/A",
     "possessions": "Leather jacket, S&W M29 (.44 magnum revolver), 50 rounds of ammunition, metal baton.",
@@ -4197,6 +6537,74 @@
       "Evil"
     ],
     "skills": "Bluff +10, Knowledge (any two) +2, Listen +5, Perform (act) +11, Perform (sing) +11, Perform (stand-up) +9, Read/Write English, Speak English, Spot +9.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "any two",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "act",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "sing",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "stand-up",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Flyby Attack",
+      "Personal Weapon Proficiency",
+      "Point Blank Shot",
+      "Renown",
+      "Simple Weapons Proficiency",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Flyby Attack, Personal Weapon Proficiency, Point Blank Shot, Renown, Simple Weapons Proficiency, Weapon Focus (S&W M29).",
     "talents": "(Charismatic): Charm, fast-talk",
     "possessions": "Leather jacket, S&W M29 (.44 magnum revolver), 50 rounds of ammunition, metal baton.",
@@ -4257,6 +6665,43 @@
       "None"
     ],
     "skills": "Balance +7, Climb +8, Hide +8, Listen +4, Spot +4",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -4317,6 +6762,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -4392,6 +6843,31 @@
       "None"
     ],
     "skills": "Hide +0 (+4 while submerged), Listen +5, Spot +5",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 0,
+        "note": "+4 while submerged"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -4467,6 +6943,14 @@
       "none or creator"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [
+      "Toughness"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Toughness",
     "talents": "",
     "possessions": "N/A",
@@ -4527,6 +7011,43 @@
       "None"
     ],
     "skills": "Climb +16, Hide +1, Jump +4 (+10 for hunting spiders), Move Silently +9, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 1,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 4,
+        "note": "+10 for hunting spiders"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -4632,6 +7153,81 @@
       "Evil"
     ],
     "skills": "Climb +30, Craft (electronic) +9, Craft (mechanical) +9, Drive +1, Listen +8, Hide -3, Move Silently -3, Pilot +1, Spot +8, Swim +30",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 30,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "electronic",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 1,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": -3,
+        "note": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": "",
+        "bonus": 1,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 30,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Athletic",
+      "Builder",
+      "Cleave",
+      "Great Cleave",
+      "Power Attack",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Athletic, Builder, Cleave, Great Cleave, Power Attack, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -4692,6 +7288,15 @@
       "Creator"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [
+      "Improved Initiative",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Improved Initiative, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -4752,6 +7357,14 @@
       "none or creator"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [
+      "Toughness"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Toughness",
     "talents": "",
     "possessions": "Burial clothes",
@@ -4812,6 +7425,31 @@
       "none"
     ],
     "skills": "Hide +14, Move Silently +6, Spot +6",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -4872,6 +7510,31 @@
       "none"
     ],
     "skills": "Hide +24, Move Silently +8, Spot +6",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 24,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -4933,6 +7596,41 @@
       "None or master"
     ],
     "skills": "Listen +11, Move Silently +15, Search +11, Spot +13",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 15,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Combat Reflexes",
+      "Improved Initiative",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Combat Reflexes, Improved Initiative, Weapon Focus (slam)",
     "talents": "",
     "possessions": "",
@@ -4994,6 +7692,45 @@
       "evil"
     ],
     "skills": "Intimidate +4, Jump +8, Read/Write English, Speak English, Tumble +8.",
+    "skillEntries": [
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Acrobatic"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "silver"
+    },
     "feats": "Acrobatic",
     "talents": "N/A",
     "possessions": "N/A",
@@ -5070,6 +7807,60 @@
       "evil"
     ],
     "skills": "Hide +14, Intimidate +13, Jump +17, Read/Write English, Speak English, Tumble +17.",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Acrobatic",
+      "Archaic Weapons Proficiency",
+      "Defensive Martial Arts",
+      "Dodge",
+      "Elusive Target",
+      "Heroic Surge",
+      "Improved Initiative",
+      "Mobility",
+      "Simple Weapons Proficiency",
+      "Spring Attack"
+    ],
+    "damageReduction": {
+      "value": 10,
+      "bypass": "silver"
+    },
     "feats": "Acrobatic, Archaic Weapons Proficiency, Defensive Martial Arts, Dodge, Elusive Target, Heroic Surge, Improved Initiative, Mobility, Simple Weapons Proficiency, Spring Attack.",
     "talents": "Evasion, defensive roll, increased speed, uncanny dodge 1, uncanny dodge 2",
     "possessions": "Colt Python (fully loaded)",
@@ -5131,6 +7922,89 @@
       "evil"
     ],
     "skills": "Balance +8, Climb +2, Disable Device +10, Escape Artist +8, Hide +8, Jump +2, Listen +7, Move Silently +8, Pilot +8; Repair +3, Search +6, Spot +7.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Dodge",
+      "Mobility",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Dodge, Mobility, Weapon Finesse (claw)",
     "talents": "N/A",
     "possessions": "None",
@@ -5192,6 +8066,111 @@
       "evil"
     ],
     "skills": "Balance +14, Climb +2, Demolitions +8, Disable Device +16, Drive +7, Escape Artist +14, Hide +8, Jump +4, Listen +7, Move Silently +8, Pilot +11; Repair +3, Search +6, Spot +7, Tumble +12.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": "",
+        "bonus": 16,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Acrobatic",
+      "Aircraft Operation",
+      "Aircraft Operation",
+      "Dodge",
+      "Mobility",
+      "Personal Firearms Proficiency",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Acrobatic, Aircraft Operation (heavy aircraft), Aircraft Operation (jet fighters), Dodge, Mobility, Personal Firearms Proficiency, Weapon Finesse (claws)",
     "talents": "Evasion, uncanny dodge 1",
     "possessions": "None",
@@ -5268,6 +8247,59 @@
       "evil"
     ],
     "skills": "Climb +5, Hide +5 (+9 when concealed against a white background), Listen +3, Move Silently +5, Spot +3, Survival +5, Swim +10.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 5,
+        "note": "+9 when concealed against a white background"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Multiattack",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Archaic Weapons Proficiency, Multiattack, Simple Weapons Proficiency.",
     "talents": "N/A",
     "possessions": "N/A",
@@ -5359,6 +8391,60 @@
       "evil"
     ],
     "skills": "Climb +6, Hide +5 (+9 when concealed against a white background), Listen +3, Move Silently +5, Spot +3, Survival +5, Swim +11.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 5,
+        "note": "+9 when concealed against a white background"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Multiattack",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Archaic Weapons Proficiency, Multiattack, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "(Strong Hero): Melee smash",
     "possessions": "Colt Desert Eagle, 20 rounds of 10mm ammunition",
@@ -5450,6 +8536,64 @@
       "law"
     ],
     "skills": "Craft (mechanical) +2, Hide +8, Listen +2, Move Silently +4, Read/Write Draconic, Search +2, Speak Draconic, Spot +2",
+    "skillEntries": [
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Draconic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Draconic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "Knife, Pathfinder (.22 revolver), 10 rounds of .22 ammunition",
@@ -5556,6 +8700,115 @@
       "law"
     ],
     "skills": "Craft (electronic) +7, Craft (mechanical) +8, Decipher Script +9, Demolitions +9, Disable Device +9, Knowledge (streetwise) +7, Knowledge (tactics) +7, Listen +2, Read/_Write Draconic, Read/Write English, Repair +11, Research +9, Search +9, Speak Draconic, Speak English, Spot +2",
+    "skillEntries": [
+      {
+        "skill": "craft",
+        "specialty": "electronic",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "streetwise",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "tactics",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Draconic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "research",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Draconic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Cautious",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency",
+      "Studious"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Cautious, Personal Firearms Proficiency, Simple Weapons Proficiency, Studious",
     "talents": "(Smart Hero): Plan, savant (Repair)",
     "possessions": "Leather jacket, stun gun, Pathfinder (.22 revolver), 20 rounds of .22 ammunition, 3 sticks of dynamite, tool belt, lockpick set, basic electrical toolkit, basic mechanical toolkit, demolitions kit",
@@ -5616,6 +8869,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -5676,6 +8935,43 @@
       "None"
     ],
     "skills": "Climb +14, Hide +5, Jump +2 (+8 for hunting spiders), Move Silently +9, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 2,
+        "note": "+8 for hunting spiders"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -5781,6 +9077,79 @@
       "Evil"
     ],
     "skills": "Climb +23, Craft (electronic) +9, Craft (mechanical) +9, Drive +2, Listen +8, Hide -1, Move Silently -1, Pilot +2, Spot +8, Swim +23",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 23,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "electronic",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -1,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": -1,
+        "note": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 23,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Athletic",
+      "Builder",
+      "Power Attack",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Athletic, Builder, Power Attack, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -5841,6 +9210,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -5916,6 +9291,51 @@
       "Any"
     ],
     "skills": "Bluff +4, Intimidate +4, Knowledge (arcane lore) +6, Read/Write Aramaic, Speak Aramaic, Speak English.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "arcane lore",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Aramaic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Aramaic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "Colt Python, 12 rounds of .357 ammunition",
@@ -5991,6 +9411,140 @@
       "Any"
     ],
     "skills": "Bluff +4, Computer Use +7, Concentration +8, Craft (chemical) +10, Decipher Script +7, Disable Device +7, Intimidate +7, Investigate +7, Knowledge (arcane lore) +15, Knowledge (technology) +7, Read/Write Arabic, Read/Write Aramaic, Read/Write Dutch, Read/Write English, Research +10, Speak Arabic, Speak Aramaic, Speak Dutch, Speak English, Speak French, Spellcraft +7.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "chemical",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "arcane lore",
+        "bonus": 15,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "technology",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Arabic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Aramaic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Dutch",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "research",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Arabic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Aramaic",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Dutch",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "French",
+        "bonus": 0,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alien Weapons Proficiency",
+      "Archaic Weapons Proficiency",
+      "Combat Expertise",
+      "Iron Will",
+      "Low Profile",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alien Weapons Proficiency, Archaic Weapons Proficiency, Combat Expertise, Iron Will, Low Profile, Simple Weapons Proficiency.",
     "talents": "Savant (research), trick",
     "possessions": "Colt Python (.357 revolver), 12 rounds of .357 ammunition, 1d4 scrolls, 1d4 potions",
@@ -6051,6 +9605,25 @@
       "None"
     ],
     "skills": "Climb +10, Listen +5",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -6111,6 +9684,43 @@
       "None or owner"
     ],
     "skills": "Jump +4, Listen +5, Spot +5, Survival +1 (+5 when tracking by scent), Swim +5.",
+    "skillEntries": [
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 1,
+        "note": "+5 when tracking by scent"
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -6171,6 +9781,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -6231,6 +9847,45 @@
       "None"
     ],
     "skills": "Climb +12, Hide +9, Jump +0 (+6 for hunting spiders), Move Silently +9, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 0,
+        "note": "+6 for hunting spiders"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -6336,6 +9991,78 @@
       "Evil"
     ],
     "skills": "Climb +17, Craft (electronic) +9, Craft (mechanical) +9, Drive +3, Listen +8, Hide +3, Move Silently +3, Pilot +3, Spot +8, Swim +17.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "electronic",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Athletic",
+      "Builder",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Athletic, Builder, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -6429,6 +10156,66 @@
       "law"
     ],
     "skills": "Bluff+11, Disguise +11, Move Silently +9, Read/_Write English, Read/Write Spanish, Speak English, Speak Spanish, Spot +10",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Spanish",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Spanish",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Personal Firearms Proficiency",
+      "Point Blank Shot",
+      "Simple Weapons Proficiency",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Weapon Finesse (snakes)",
     "talents": "N/A",
     "possessions": "Knife, Glock 17 (9mm autoloader), 50 rounds of 9mm ammunition, concealed carry holster, firearms license, casual clothing, overcoat",
@@ -6522,6 +10309,85 @@
       "law"
     ],
     "skills": "Bluff+15, Diplomacy +7, Disguise +15, Gather Information +7, Intimidate +7, Move Silently +9, Read/_Write English, Read/Write Spanish, Speak English, Speak Spanish, Spot +10",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 15,
+        "note": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 15,
+        "note": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Spanish",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Spanish",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Deceptive",
+      "Personal Firearms Proficiency",
+      "Point Blank Shot",
+      "Simple Weapons Proficiency",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Deceptive, Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Weapon Finesse (snakes)",
     "talents": "(Charismatic Hero): Coordinate",
     "possessions": "Knife, Glock 17 (9mm autoloader), 50 rounds of 9mm ammunition, concealed carry holster, firearms license, casual clothing, overcoat, cell phone, PDA (with addresses of various contacts and acquaintances), disguise kit",
@@ -6585,6 +10451,37 @@
       "None"
     ],
     "skills": "Hide -10, Listen +6, Spot +6, Swim +15",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -10,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 15,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -6693,6 +10590,53 @@
       "evil"
     ],
     "skills": "Intimidate +5, Jump +8, Listen +8, Search +6, Speak Giant, Spot +8",
+    "skillEntries": [
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Great Fortitude",
+      "Power Attack"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Archaic Weapons Proficiency, Great Fortitude, Power Attack",
     "talents": "N/A",
     "possessions": "Huge lead pipe (6 feet long, 4 inches thick)",
@@ -6785,6 +10729,68 @@
       "evil"
     ],
     "skills": "Intimidate +5, Jump +8, Knowledge (streetwise) +3, Listen +8, Search +6, Speak English (or other local language), Speak Giant, Spot +8",
+    "skillEntries": [
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "streetwise",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "or other local language",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Archaic Weapons Proficiency",
+      "Combat Reflexes",
+      "Exotic Weapon Proficiency",
+      "Great Fortitude",
+      "Power Attack",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Archaic Weapons Proficiency, Combat Reflexes, Exotic Weapon Proficiency (chain saw), Great Fortitude, Power Attack, Simple Weapons Proficiency",
     "talents": "(Strong Hero): Melee smash, improved melee smash",
     "possessions": "Chain saw, bloodstained smock",
@@ -6845,6 +10851,27 @@
       "None"
     ],
     "skills": "Listen +3, Spot +6",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -6908,6 +10935,12 @@
       "None or owner"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -6969,6 +11002,12 @@
       "None or owner"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -7029,6 +11068,40 @@
       "Evil"
     ],
     "skills": "Climb +13, Listen +9, Move Silently +8, Spot +9",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Lightning Reflexes"
+    ],
+    "damageReduction": {
+      "value": 20,
+      "bypass": "+1"
+    },
     "feats": "Alertness, Lightning Reflexes",
     "talents": "",
     "possessions": "",
@@ -7089,6 +11162,70 @@
       "Mothfolk"
     ],
     "skills": "Balance +7, Climb +7, Hide +5, Listen +8, Move Silently +7, Read/Write Mothfolk, Sense Motive +4, Speak Mothfolk, Spot +4.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Mothfolk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Mothfolk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Simple Weapons Proficiency",
+      "Stealthy"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Simple Weapons Proficiency, Stealthy.",
     "talents": "N/A",
     "possessions": "Various personal items.",
@@ -7149,6 +11286,98 @@
       "Mothfolk"
     ],
     "skills": "Balance +7, Climb +7, Concentration +6, Hide +5, Knowledge (theology and philosophy) +4, Listen +8, Move Silently +7, Read/Write Mothfolk, Sense Motive +4, Speak Mothfolk, Spellcraft +6, Spot +4, Survival +6, Treat Injury +6.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "theology and philosophy",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Mothfolk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Mothfolk",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Iron Will",
+      "Lightning Reflexes",
+      "Mobility",
+      "Simple Weapons Proficiency",
+      "Stealthy",
+      "Track"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Iron Will, Lightning Reflexes, Mobility, Simple Weapons Proficiency, Stealthy, Track.",
     "talents": "(Dedicated Hero): Aware, skill emphasis (Survival).",
     "possessions": "Various personal items.",
@@ -7210,6 +11439,53 @@
       "law"
     ],
     "skills": "Hide +8, Listen +9, Move Silently +8, Read/Write Egyptian, Speak Egyptian, Spot +9",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Egyptian",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Egyptian",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Archaic Weapons Proficiency",
+      "Toughness"
+    ],
+    "damageReduction": {
+      "value": 5,
+      "bypass": "+1"
+    },
     "feats": "Alertness, Archaic Weapons Proficiency, Toughness",
     "talents": "N/A",
     "possessions": "N/A",
@@ -7286,6 +11562,62 @@
       "law"
     ],
     "skills": "Hide +8, Listen +12, Move Silently +8, Read/Write Egyptian, Speak Egyptian, Spot +12, Survival +11",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Egyptian",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Egyptian",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Archaic Weapons Proficiency",
+      "Blind-Fight",
+      "Simple Weapons Proficiency",
+      "Toughness",
+      "Track"
+    ],
+    "damageReduction": {
+      "value": 5,
+      "bypass": "+1"
+    },
     "feats": "Alertness, Archaic Weapons Proficiency, Blind-Fight, Simple Weapons Proficiency, Toughness, Track",
     "talents": "(Dedicated Hero): Skill emphasis (Survival), aware",
     "possessions": "Crossbow, 15 crossbow bolts",
@@ -7361,6 +11693,89 @@
       "Evil"
     ],
     "skills": "Bluff +6, Climb +3, Disguise +5, Escape Artist +2, Hide +4, Intimidate +13, Knowledge (behavioral science) +6, Listen +6, Move Silently +5, Search +3, Sense Motive +13, Spot +6.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "behavioral science",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Improved Initiative",
+      "Renown",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Improved Initiative, Renown, Simple Weapons Proficiency.",
     "talents": "N/A",
     "possessions": "Cleaver, collection of beheaded dolls.",
@@ -7451,6 +11866,110 @@
       "Evil"
     ],
     "skills": "Bluff +10, Climb +3, Disguise +9, Escape Artist +2, Hide +4, Intimidate +17, Knowledge (behavioral science) +12, Knowledge (popular culture) +7, Listen +11, Move Silently +5, Read/ Write English, Search +3, Sense Motive +13, Speak English, Spot +11.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "behavioral science",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "popular culture",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "Write English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Dodge",
+      "Improved Initiative",
+      "Point Blank Shot",
+      "Personal Firearms Proficiency",
+      "Renown",
+      "Simple Weapon Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Dodge, Improved Initiative, Point Blank Shot, Personal Firearms Proficiency, Renown, Simple Weapon Proficiency.",
     "talents": "(Dedicated Hero): Empathy (Charismatic Hero): Fast-talk, dazzle",
     "possessions": "Colt M1911 (.45 autoloader), cleaver, talking clown doll.",
@@ -7527,6 +12046,40 @@
       "evil"
     ],
     "skills": "Climb +6, Listen +3, Speak Giant, Spot +3",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Simple Weapons Proficiency",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Simple Weapons Proficiency, Weapon Focus (Huge club)",
     "talents": "N/A",
     "possessions": "Huge club (6 feet long, 8 inches thick)",
@@ -7602,6 +12155,15 @@
       "Creator"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [
+      "Improved Initiative",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Improved Initiative, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -7697,6 +12259,51 @@
       "employer"
     ],
     "skills": "Climb +2*, Concentration +9, Listen +2, Speak Giant, Spot +3. *Includes armor check penalty for undercover vest.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Armor Proficiency",
+      "Brawl",
+      "Knockout Punch",
+      "Personal Firearms Proficiency",
+      "Power Attack",
+      "Simple Weapons Proficiency",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Armor Proficiency (light), Brawl, Knockout Punch, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Focus (great club)",
     "talents": "(Tough Hero): Damage reduction 1/-, 2/-, and Second Wind. (Bodyguard): Harm’s way",
     "possessions": "Huge club (6 feet long, 8 inches thick), undercover vest, overcoat, Browning BPS 10-gauge shotgun, 20 10-gauge shotgun shells, standard flashlight",
@@ -7757,6 +12364,31 @@
       "Evil"
     ],
     "skills": "Hide +20, Listen +7, Spot +7",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 20,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "N/A",
@@ -7832,6 +12464,90 @@
       "Puppeteer"
     ],
     "skills": "Bluff +10, Computer Use +4, Diplomacy +12, Disguise +6, Gather Information +12, Intimidate +10, Knowledge (business) +8, Knowledge (current events) +8, Listen +3**, Read/_Write English (or other language), Speak English (or other language), Spot +3**. **Skill bonus conferred by puppeteer.",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "business",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "current events",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "or other language",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "or other language",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Personal Firearms Proficiency",
+      "Point Blank Shot",
+      "Simple Weapons Proficiency",
+      "Trustworthy"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Trustworthy",
     "talents": "",
     "possessions": "Business clothes, cell phone, PDA, briefcase, stun gun, Beretta 92F (9mm autoloader)†, 15 rounds of 9mm ammunition†, firearms license†, wallet with ID and credit cards, BMW M3 sports coupe with car alarm, car alarm keychain. †These items are stored in the BMW’s glove compartment.",
@@ -7907,6 +12623,77 @@
       "Any"
     ],
     "skills": "Climb +8, Hide +0, Intimidate +4, Knowledge (tactics) +1, Listen +5, Move Silently +3, Speak Weren, Spot +5, Survival +2.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "tactics",
+        "bonus": 1,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Weren",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 2,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Cleave",
+      "Combat Martial Arts",
+      "Great Cleave",
+      "Improved Combat Martial Arts",
+      "Improved Damage Threshold",
+      "Power Attack",
+      "Simple Weapons Proficiency",
+      "Weapon Focus",
+      "Weapon Specialization"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Cleave, Combat Martial Arts, Great Cleave, Improved Combat Martial Arts, Improved Damage Threshold, Power Attack, Simple Weapons Proficiency, Weapon Focus (slam), Weapon Specialization (slam).",
     "talents": "(Strong Hero): Ignore hardness, melee smash",
     "possessions": "Crossbow, 20 bolts",
@@ -7967,6 +12754,46 @@
       "Any"
     ],
     "skills": "Climb +8, Intimidate +4, Listen +5, Speak Weren, Spot +5.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Weren",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "N/A",
@@ -8027,6 +12854,12 @@
       "Evil"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -8087,6 +12920,34 @@
       "None"
     ],
     "skills": "Hide +0 (+10 in water), Listen +7, Spot +7",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 0,
+        "note": "+10 in water"
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Improved Initiative",
+      "Power Attack"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Improved Initiative, Power Attack",
     "talents": "",
     "possessions": "",
@@ -8147,6 +13008,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -8207,6 +13074,51 @@
       "Evil"
     ],
     "skills": "Climb +6, Jump +6, Listen +8, Read/Write Language (any one), Speak Language (any one), Spot +8",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -8267,6 +13179,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -8327,6 +13245,43 @@
       "None or owner"
     ],
     "skills": "Jump +3, Listen +5, Spot +5, Survival +1 (+5 when tracking by scent), Swim +5",
+    "skillEntries": [
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 1,
+        "note": "+5 when tracking by scent"
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -8387,6 +13342,45 @@
       "None"
     ],
     "skills": "Climb +10, Hide +13, Jump -2 (+4 for hunting spiders), Move Silently +9, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 13,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": -2,
+        "note": "+4 for hunting spiders"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -8492,6 +13486,78 @@
       "Evil"
     ],
     "skills": "Climb +14, Craft (electronic) +9, Craft (mechanical) +9, Drive +4, Listen +8, Hide + 7, Move Silently +7, Pilot +4, Spot +8, Swim +14.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "electronic",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 14,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Athletic",
+      "Builder",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Athletic, Builder, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -8567,6 +13633,61 @@
       "Chaos"
     ],
     "skills": "Hide -2, Intimidate +10, Listen +12, Move Silently +6, Speak Auran, Speak Language (any one), Spot +12.",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": -2,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Auran",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "any one",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Cleave",
+      "Multiattack",
+      "Power Attack",
+      "Weapon Focus",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Cleave, Multiattack, Power Attack, Weapon Focus (bite), Weapon Focus (claw)",
     "talents": "",
     "possessions": "",
@@ -8642,6 +13763,51 @@
       "Chaos"
     ],
     "skills": "Hide +6, Intimidate +5, Listen +5, Move Silently +6, Speak Auran, Spot +5",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Auran",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Weapon Focus (bite)",
     "talents": "",
     "possessions": "",
@@ -8702,6 +13868,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -8762,6 +13934,45 @@
       "None"
     ],
     "skills": "Climb +8, Hide +17, Jump -4 (+2 for hunting spiders), Move Silently +9, Spot +12",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": -4,
+        "note": "+2 for hunting spiders"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -8806,6 +14017,12 @@
       "None"
     ],
     "skills": "None (unless programmed by a Techie)",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -8911,6 +14128,78 @@
       "Evil"
     ],
     "skills": "Climb +12, Craft (electronic) +9, Craft (mechanical) +9, Drive +5, Hide +11, Listen +8, Move Silently +11, Pilot +5, Spot +8, Swim +12.",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "electronic",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "mechanical",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Athletic",
+      "Builder",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Athletic, Builder, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -8971,6 +14260,51 @@
       "None"
     ],
     "skills": "Balance +11, Climb +12, Hide +18, Listen +8, Spot +8, Swim +11.",
+    "skillEntries": [
+      {
+        "skill": "balance",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 12,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 18,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Weapon Finesse (bite).",
     "talents": "",
     "possessions": "",
@@ -9031,6 +14365,101 @@
       "Evil"
     ],
     "skills": "Bluff +4, Craft (any one) +3, Decipher Script +4, Disguise +4, Escape Artist +4, Hide +4, Intimidate +4, Listen +4, Move Silently +4, Search +4, Sense Motive +4, Sleight of Hand +4, Spot +4, Tumble +4",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "any one",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Improved Initiative",
+      "Renown",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Improved Initiative, Renown, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "Fey rod, knife",
@@ -9106,6 +14535,122 @@
       "Evil"
     ],
     "skills": "Bluff +4, Computer Use +4, Craft (chemical) +3, Decipher Script +4, Disguise +4, Escape Artist +7, Hide +9, Intimidate +4, Listen +4, Move Silently +9, Repair +4, Research +5, Search +4, Sense Motive +4, Sleight of Hand +7, Spot +4, Tumble +7",
+    "skillEntries": [
+      {
+        "skill": "bluff",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "chemical",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "research",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Heroic Surge",
+      "Improved Initiative",
+      "Personal Firearms Proficiency",
+      "Renown",
+      "Simple Weapons Proficiency",
+      "Stealthy"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Heroic Surge, Improved Initiative, Personal Firearms Proficiency, Renown, Simple Weapons Proficiency, Stealthy",
     "talents": "(Fast Hero): Evasion, uncanny dodge 1 (Smart Hero): Savant (Research)",
     "possessions": "Colt Double Eagle (10mm autoloader), 18 rounds of 10mm ammunition, hip holster, fey rod, knife, day pack, bag of 25 caltrops, 3 sticks of dynamite, lighter, disguise kit, steel handcuffs",
@@ -9166,6 +14711,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -9287,6 +14838,28 @@
       "evil"
     ],
     "skills": "Hide +6, Listen +3",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Multiattack",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Multiattack, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "Sap, 1d4 javelins, backpack containing food and assorted items",
@@ -9408,6 +14981,49 @@
       "evil"
     ],
     "skills": "Craft (pharmaceutical) +1, Hide +7, Listen +3, Spot +3, Treat Injury +10",
+    "skillEntries": [
+      {
+        "skill": "craft",
+        "specialty": "pharmaceutical",
+        "bonus": 1,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Armor Proficiency",
+      "Multiattack",
+      "Simple Weapons Proficiency",
+      "Surgery",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Armor Proficiency (light), Multiattack, Simple Weapons Proficiency, Surgery, Weapon Focus (taser)",
     "talents": "(Dedicated Hero): Healing knack, healing touch 1 (Field Medic): Medical specialist +1",
     "possessions": "Sap, taser, medical kit, first aid kit, backpack containing food and assorted items",
@@ -9486,6 +15102,35 @@
       "darkvision 90 ft."
     ],
     "skills": "Listen +5, Speak Giant, Spot +5",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Multiattack",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Multiattack, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "N/A",
@@ -9580,6 +15225,64 @@
       "darkvision 90 ft."
     ],
     "skills": "Climb +8, Drive +7, Listen +5, Read/Write English, Speak English, Speak Giant, Spot +5",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Advanced Firearms Proficiency",
+      "Alertness",
+      "Heroic Surge",
+      "Improved Bull Rush",
+      "Multiattack",
+      "Power Attack",
+      "Simple Weapons Proficiency",
+      "Vehicle Expert"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Advanced Firearms Proficiency, Alertness, Heroic Surge, Improved Bull Rush, Multiattack, Power Attack, Simple Weapons Proficiency, Vehicle Expert",
     "talents": "(Tough Hero): Acid resistance 7, fire resistance 7, robust, second wind",
     "possessions": "M16A2 (5.56mm assault rifle), 200 rounds of 5.56mm ammunition, mesh vest, 8-person dome tent in backpack",
@@ -9624,6 +15327,12 @@
       "None"
     ],
     "skills": "None",
+    "skillEntries": [],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -9700,6 +15409,105 @@
       "chaos"
     ],
     "skills": "Climb +9, Handle Animal +3, Hide +3, Jump +7, Knowledge (current events) +5, Knowledge (popular culture) +5, Knowledge (streetwise) +5, Listen +6, Move Silently +4, Profession +5, Read/Write Language (any two), Speak Language (any two), Spot +4, Swim +9",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 3,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "current events",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "popular culture",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "streetwise",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "any two",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "any two",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 4,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Athletic",
+      "Heroic Surge",
+      "Iron Will",
+      "Personal Firearms Proficiency",
+      "Power Attack",
+      "Simple Weapons Proficiency",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Athletic, Heroic Surge, Iron Will, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Finesse (bite)",
     "talents": "(Strong Hero): Melee smash, improved melee smash, advanced melee smash",
     "possessions": "Mossberg (12-gauge shotgun), 12 rounds of 12-gauge ammunition, cleaver, casual clothes",
@@ -9761,6 +15569,57 @@
       "chaos"
     ],
     "skills": "Adjusted skills: Climb +10, Hide +5, Jump +8, Move Silently +6, Swim +10, Survival +5 (when tracking by scent)",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 5,
+        "note": "when tracking by scent"
+      }
+    ],
+    "featNames": [
+      "Athletic",
+      "Heroic Surge",
+      "Iron Will",
+      "Personal Firearms Proficiency",
+      "Power Attack",
+      "Simple Weapons Proficiency",
+      "Weapon Finesse"
+    ],
+    "damageReduction": {
+      "value": 15,
+      "bypass": "silver"
+    },
     "feats": "Athletic, Heroic Surge, Iron Will, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Finesse (bite)",
     "talents": "(Strong Hero): Melee smash, improved melee smash, advanced melee smash",
     "possessions": "N/A",
@@ -9851,6 +15710,43 @@
       "Evil"
     ],
     "skills": "Listen +22, Move Silently +17, Search +17, Spot +22 (+25 during daylight)",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 22,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 17,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 22,
+        "note": "+25 during daylight"
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Cleave",
+      "Multiattack",
+      "Power Attack",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Cleave (bite), Multiattack, Power Attack, Weapon Focus (sting)",
     "talents": "",
     "possessions": "",
@@ -9941,6 +15837,40 @@
       "Evil"
     ],
     "skills": "Listen +10, Move Silently +7, Search +5, Spot +10 (+13 during daylight)",
+    "skillEntries": [
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 10,
+        "note": "+13 during daylight"
+      }
+    ],
+    "featNames": [
+      "Alertness",
+      "Weapon Focus"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Alertness, Weapon Focus (sting)",
     "talents": "",
     "possessions": "",
@@ -10001,6 +15931,43 @@
       "None"
     ],
     "skills": "Climb +10, Hide +2 (+17 in snowy conditions), Move Silently +6, Speak Giant, Survival +7",
+    "skillEntries": [
+      {
+        "skill": "climb",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 2,
+        "note": "+17 in snowy conditions"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": "Giant",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": "",
+        "bonus": 7,
+        "note": ""
+      }
+    ],
+    "featNames": [],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -10061,6 +16028,40 @@
       "None"
     ],
     "skills": "Hide +9, Listen +8, Move Silently +9, Spot +8.",
+    "skillEntries": [
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 9,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Improved Initiative",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Improved Initiative, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "N/A",
@@ -10136,6 +16137,78 @@
       "None"
     ],
     "skills": "Computer Use +8, Disable Device +6, Hide +11, Listen +10, Move Silently +11, Read/Write English, Repair +5, Research +6, Search +6, Spot +10.",
+    "skillEntries": [
+      {
+        "skill": "computerUse",
+        "specialty": "",
+        "bonus": 8,
+        "note": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": "",
+        "bonus": 11,
+        "note": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": "English",
+        "bonus": 0,
+        "note": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": "",
+        "bonus": 5,
+        "note": ""
+      },
+      {
+        "skill": "research",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "search",
+        "specialty": "",
+        "bonus": 6,
+        "note": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": "",
+        "bonus": 10,
+        "note": ""
+      }
+    ],
+    "featNames": [
+      "Improved Initiative",
+      "Lightning Reflexes",
+      "Personal Firearms Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "damageReduction": {
+      "value": 0,
+      "bypass": ""
+    },
     "feats": "Improved Initiative, Lightning Reflexes, Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "(Smart Hero): Savant (Computer Use)",
     "possessions": "Ruger Service-Six (.38S revolver)",

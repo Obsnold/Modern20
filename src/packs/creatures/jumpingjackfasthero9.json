@@ -71,7 +71,7 @@
       "initiative": {
         "misc": 4
       },
-      "damageReduction": 0,
+      "damageReduction": 10,
       "massiveDamageThreshold": 14,
       "reach": 5,
       "space": 5
@@ -84,6 +84,52 @@
       "advancement": "By character class",
       "organization": "",
       "treasure": "Colt Python (fully loaded)"
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 15,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "tumble": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 11,
+        "classSkill": false
+      }
     },
     "allegiances": [
       {
@@ -161,6 +207,189 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "x0pd69uLEvxd3n5W",
+      "name": "Acrobatic",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Jump checks and Tumble checks.",
+        "normal": "",
+        "special": "Remember that the Tumble skill can’t be used untrained.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "nBONB0j0HCSgaUww",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "opfjBTsX7asr4PSM",
+      "name": "Defensive Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gains a +1 dodge bonus to Defense against melee attacks.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack, unlike most other types of bonuses.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "pgY2TF2RUTRZE7hn",
+      "name": "Dodge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13."
+        ],
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "uIt6NrumqsuEsd4d",
+      "name": "Elusive Target",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13",
+          "Defensive Martial Arts."
+        ],
+        "benefit": "When fighting an opponent or multiple opponents in melee, other opponents attempting to target the character with ranged attacks take a –4 penalty. This penalty is in addition to the normal –4 penalty for firing into melee, making the penalty to target to character –8.",
+        "normal": "",
+        "special": "An opponent with the Precise Shot feat has the penalty lessened to –4 when targeting the character.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "Ibdy3krHBPMrf0j9",
+      "name": "Heroic Surge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character’s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "k2CsXAehiPRaXOyt",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "Nl0S7Ac5fZBrch0E",
+      "name": "Mobility",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13",
+          "Dodge."
+        ],
+        "benefit": "The character gets a +4 dodge bonus to Defense against attacks of opportunity provoked when the character moves out of a threatened square.",
+        "normal": "",
+        "special": "A condition that makes a character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "gcRJGBj8jTjZIH59",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      }
+    },
+    {
+      "_id": "VQ6zCtUqw7UoOKxW",
+      "name": "Spring Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13",
+          "Dodge",
+          "Mobility",
+          "base attack bonus +4."
+        ],
+        "benefit": "When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater’s speed.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
       }
     }
   ]

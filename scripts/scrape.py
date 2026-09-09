@@ -688,6 +688,121 @@ SIZE_BY_MODIFIER = {
 }
 
 
+def split_outside_brackets(text: str) -> list[str]:
+    """Split a printed list on commas and semicolons, but not inside brackets.
+
+    "Educated (Knowledge [physical sciences], Knowledge [technology])" is one
+    feat, and "Knowledge (technology) +11; Repair +13" is two skills — the SRD
+    uses both separators and nests brackets inside entries.
+    """
+    parts, depth, current = [], 0, []
+    for character in text:
+        if character in "([":
+            depth += 1
+        elif character in ")]":
+            depth = max(0, depth - 1)
+        if character in ",;" and depth == 0:
+            parts.append("".join(current))
+            current = []
+            continue
+        current.append(character)
+    parts.append("".join(current))
+    return [p.strip() for p in parts if p.strip()]
+
+
+# "Hide +3 (+18 in snowy conditions)", "Climb +2*", "Spot +13.", "Speak Giant",
+# "Knowledge (arcane lore) +5". Every shape the printed Skills line takes.
+SKILL_ENTRY = re.compile(r"""
+    ^(?P<name>.+?)
+    (?:\s*\((?P<subject>[^)]*)\))?
+    \s*(?P<bonus>[+-]\s*\d+)?
+    \s*(?P<marks>\*+)?
+    (?:\s*\((?P<note>[^)]*)\))?
+    \.?\s*$
+""", re.X)
+
+# The two skills taken per language rather than per rank of bonus.
+LANGUAGE_SKILLS = {"read/write": "readWriteLanguage", "speak": "speakLanguage"}
+
+
+def parse_creature_skills(text: str, skill_names: list[tuple[str, str]]) -> list[dict]:
+    """A creature's printed Skills line, as skills the sheet can roll.
+
+    The SRD prints a total, so the caller stores the difference from what the
+    model derives — the same way the attacks and Defense already work. A
+    language is not a bonus at all: "Speak Giant" says the creature speaks
+    Giant, and the skill is taken per language.
+    """
+    out = []
+    for part in split_outside_brackets(text or ""):
+        # A footnote sentence trails the last entry — "Spot +3**. **Skill bonus
+        # conferred by puppeteer" — and explains the marks rather than naming a
+        # skill. The marks themselves are not part of the skill's name either.
+        part = re.sub(r"\*+\s*\.?\s*\*+.*$|\.\s*\*.*$", "", part.strip())
+        part = part.strip().rstrip("*. ")
+        # A couple of blocks label the line: "Adjusted skills: Climb +10".
+        part = re.sub(r"^[A-Za-z ]{0,20}skills:\s*", "", part, flags=re.I)
+        if not part or part.lower().startswith("none"):
+            continue
+
+        match = SKILL_ENTRY.match(part)
+        if not match:
+            continue
+        name = match.group("name").strip().rstrip("*")
+
+        # "Speak Giant" and "Read/Write Language (any one)" name a language.
+        flattened = re.sub(r"[_\s]*/[_\s]*", "/", name.lower())
+        language = next(
+            (skill for prefix, skill in LANGUAGE_SKILLS.items()
+             if flattened.startswith(prefix)),
+            None,
+        )
+        if language:
+            subject = match.group("subject") or name.split(None, 1)[-1]
+            if subject.lower().startswith("language"):
+                subject = match.group("subject") or ""
+            out.append({"skill": language, "specialty": subject.strip() or "any",
+                        "bonus": 0, "note": ""})
+            continue
+
+        skill = next((sid for label, sid in skill_names if name.lower() == label.lower()), None)
+        if not skill:
+            continue
+
+        bonus = match.group("bonus")
+        out.append({
+            "skill": skill,
+            "specialty": (match.group("subject") or "").strip(),
+            "bonus": int(re.sub(r"\s+", "", bonus)) if bonus else 0,
+            # "(+18 in snowy conditions)" is a situational bonus the GM applies.
+            "note": (match.group("note") or "").strip(),
+        })
+    return out
+
+
+def parse_creature_feats(text: str) -> list[str]:
+    """A creature's printed Feats line. "Weapon Finesse (bite)" is Weapon Finesse."""
+    feats = []
+    for part in split_outside_brackets(text or ""):
+        name = re.sub(r"\s*[(\[][^)\]]*[)\]]?", "", part).strip().rstrip(".")
+        if name and not name.lower().startswith("none"):
+            feats.append(name)
+    return feats
+
+
+# "damage reduction 15/silver" — the number stops damage, the word after the
+# slash is what gets through it.
+DAMAGE_REDUCTION = re.compile(r"damage reduction\s+(\d+)\s*/?\s*([^,;]*)", re.I)
+
+
+def parse_damage_reduction(text: str) -> dict:
+    """The damage reduction a creature's special qualities state."""
+    match = DAMAGE_REDUCTION.search(text or "")
+    if not match:
+        return {"value": 0, "bypass": ""}
+    return {"value": int(match.group(1)), "bypass": match.group(2).strip()}
+
+
 # "+23/+18/+13 melee (2d8+13 plus 1d6 acid, slam)" — a bonus or a sequence of
 # them, the mode, and a bracket holding damage and the weapon's name. A few
 # lines carry two weapons in one bracket, joined by "or".
@@ -776,13 +891,15 @@ def parse_attacks(text: str) -> list[dict]:
 ATTACK_SIZE_MODIFIER = {size: modifier for modifier, size in SIZE_BY_MODIFIER.items()}
 
 
-def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: str) -> dict:
+def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: str,
+                          skill_names: list[tuple[str, str]] | None = None) -> dict:
     """One column of a stat block into the fields the creature model stores.
 
     Printed Defense, saves and initiative are totals. The data model derives
     those from ability scores plus components, so the difference is put into
     the misc slots - the sheet then shows the number the SRD prints.
     """
+    skill_names = skill_names or []
     abilities = {}
     for key in ("str", "dex", "con", "int", "wis", "cha"):
         match = re.search(key + r":\s*(\d+)", rows.get("ability scores", ""), re.I)
@@ -845,6 +962,11 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
         "specialQualities": rows.get("sq", ""),
         "allegiances": [a.strip() for a in rows.get("al", "").split(",") if a.strip()],
         "skills": rows.get("skills", ""),
+        # The printed lines, structured: skills the sheet can roll, feats it
+        # can be granted, and the damage reduction applyDamage subtracts.
+        "skillEntries": parse_creature_skills(rows.get("skills", ""), skill_names),
+        "featNames": parse_creature_feats(rows.get("feats", "")),
+        "damageReduction": parse_damage_reduction(rows.get("sq", "")),
         "feats": rows.get("feats", ""),
         "talents": rows.get("talents", ""),
         "possessions": rows.get("possessions", ""),
@@ -853,12 +975,15 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
     }
 
 
-def scrape_creatures(pages: list[str]) -> list[dict]:
+def scrape_creatures(pages: list[str], skills: list[dict] | None = None) -> list[dict]:
     """Creature stat blocks, which the SRD lays out as label/value tables.
 
     Each table carries a base creature and an advanced variant side by side,
     so one table yields one creature per populated column.
     """
+    # Longest first, so "Move Silently" is matched before "Move".
+    skill_names = sorted(((s["name"], s["id"]) for s in (skills or [])),
+                         key=lambda pair: -len(pair[0]))
     creatures = {}
     for page in pages:
         try:
@@ -922,7 +1047,8 @@ def scrape_creatures(pages: list[str]) -> list[dict]:
                         type_from_traits(page_html, name),
                     ])) or "Medium-size"
 
-                entry = parse_creature_column(rows, name, size_type, srd.page_url(page))
+                entry = parse_creature_column(rows, name, size_type, srd.page_url(page),
+                                              skill_names)
                 # Later pages repeat a few creatures; first definition wins.
                 creatures.setdefault(entry["id"], entry)
 
@@ -1964,7 +2090,7 @@ def main() -> int:
     write("occupations.json", occupations)
     talents = scrape_talents()
     write("talents.json", talents)
-    creatures = scrape_creatures(pages)
+    creatures = scrape_creatures(pages, skills)
     write("creatures.json", creatures)
     creature_types = scrape_creature_types()
     write("creature_types.json", creature_types)
