@@ -11,6 +11,44 @@
     </div>
   </div>
 
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Defenses"}}</h3>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Actor.Creature.FIELDS.attributes.damageReduction.label"}}</label>
+      <input type="number" name="system.attributes.damageReduction.value"
+             value="{{system.attributes.damageReduction.value}}">
+      {{!-- "15/silver": what gets through it undiminished. --}}
+      <input type="text" name="system.attributes.damageReduction.bypass"
+             value="{{system.attributes.damageReduction.bypass}}"
+             placeholder="{{localize 'MODERN20.Creature.BypassHint'}}">
+    </div>
+
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Resistances"}}</label>
+      {{#each system.attributes.resistances as |resistance index|}}
+        <span class="m20-tag">{{resistance.type}} {{resistance.value}}</span>
+      {{else}}
+        <span class="m20-hint">{{localize "MODERN20.NoneStated"}}</span>
+      {{/each}}
+    </div>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Immunities"}}</label>
+      {{#each system.attributes.immunities as |immunity|}}
+        <span class="m20-tag">{{immunity}}</span>
+      {{else}}
+        <span class="m20-hint">{{localize "MODERN20.NoneStated"}}</span>
+      {{/each}}
+    </div>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Vulnerabilities"}}</label>
+      {{#each system.attributes.vulnerabilities as |vulnerability|}}
+        <span class="m20-tag">{{vulnerability}}</span>
+      {{else}}
+        <span class="m20-hint">{{localize "MODERN20.NoneStated"}}</span>
+      {{/each}}
+    </div>
+  </div>
+
   {{#each sections.abilities as |section|}}
     <div class="m20-itemlist">
       <h3>

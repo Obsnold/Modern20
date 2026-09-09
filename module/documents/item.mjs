@@ -277,6 +277,9 @@ export class Modern20Item extends Item {
           damage: roll.total,
           // Carried so the apply buttons know which pool it belongs in.
           nonlethal: this.isNonlethal(activityId),
+          // ... and what the target gets to ignore: a creature's resistances
+          // are by damage type, and its damage reduction by what bypasses it.
+          ...this.damageProperties(activityId),
           targetName
         }
       }
@@ -313,6 +316,27 @@ export class Modern20Item extends Item {
     const loaded = this.actor?.items?.get(this.system.loadedAmmo);
     const special = loaded?.system?.special;
     return Boolean(special && MODERN20.specialAmmunition[special]?.effect?.nonlethal);
+  }
+
+  /**
+   * What this item's damage counts as, for the target's own defences.
+   *
+   * The damage type decides whether a resistance or an immunity applies, and
+   * whether damage reduction is subtracted at all. The bypass is what the
+   * damage counts as beyond its type: silvered rounds "bypass the damage
+   * reduction of any creature that is vulnerable to silver".
+   */
+  damageProperties(activityId = "shot") {
+    const activity = this.activities.find((entry) => entry.id === activityId);
+    const damageType = activity?.damage?.type || this.system.damageType || "";
+
+    const bypasses = [];
+    const loaded = this.type === "weapon" ? this.actor?.items?.get(this.system.loadedAmmo) : null;
+    const special = loaded?.system?.special;
+    if (special && MODERN20.specialAmmunition[special]?.effect?.bypassesDamageReduction) {
+      bypasses.push(special);
+    }
+    return { damageType, bypasses };
   }
 
   /** Accessories fitted to this item. */

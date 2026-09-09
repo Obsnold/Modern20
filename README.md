@@ -383,6 +383,31 @@ by what the values are rather than by the creature's name — a special quality
 is not a face-and-reach measurement, and no allegiance in the 144 blocks
 contains a number.
 
+**What a creature ignores** is arithmetic now rather than text. Damage
+reduction was already subtracted, but only its number: `damage reduction
+15/silver` was stored as 15 and the bypass thrown away, so the silvered rounds
+the SRD sells for werewolves were stopped by the werewolf. The bypass is stored
+with it and checked against what the damage counts as — silvered ammunition,
+or a damage type for the machine with `10/ballistic`. `15/+1` wants a magic
+weapon, which this system does not model, so it is never bypassed and the chat
+card says the reduction applied: a wrong number is worse than an unautomated
+one. Damage reduction is also no longer subtracted from energy damage, which
+is what the SRD says — *"the creature takes normal damage from energy attacks
+(even nonmagical ones), spells, spell-like abilities, and supernatural
+abilities"*.
+
+Alongside it, 42 creatures now carry typed resistances, immunities and
+vulnerabilities — 74 entries — which `Actor#applyDamage` applies in the SRD's
+order: immunity removes the damage, a vulnerability adds half again, energy
+resistance is subtracted, then damage reduction. Every step says what it did
+on the chat card, because damage that arrives smaller than the roll with no
+explanation is the thing people distrust about automation. Only a phrase
+naming a damage type the system knows is stored: `immune to fire` is a rule,
+`immune to nannite infection` stays in the ability's text. The subtypes are
+where the prose earns its keep — the SQ line says only "Cold subtype", and the
+trait under it says the creature is immune to cold and takes 50% more from
+fire.
+
 The creature sheet has an **Abilities tab** to show all this, which is also
 where its feats finally appear: the feat list lives on the hero sheet's
 Character tab, and a creature sheet does not have one, so the 341 feats

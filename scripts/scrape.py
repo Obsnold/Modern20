@@ -881,6 +881,128 @@ def parse_special_qualities(text: str) -> list[dict]:
     return entries
 
 
+# The damage types a creature's defences are recorded against: the same list
+# as MODERN20.energyDamageTypes and MODERN20.physicalDamageTypes, because a
+# type the damage code cannot match on would be stored and never applied.
+# "immune to fire" is a rule; "immune to nannite infection" is a sentence for
+# the GM, and stays in the ability text.
+#
+# Named apart from the spell descriptions' own DAMAGE_TYPES, which is a wider
+# vocabulary and was silently shadowing this one — the check that every stored
+# type is one the config knows is what caught it.
+CREATURE_DAMAGE_TYPES = {
+    "acid", "cold", "electricity", "fire", "sonic", "concussion", "poison",
+    "ballistic", "bludgeoning", "piercing", "slashing",
+}
+
+# "sonic/concussion vulnerability" — one type written two ways, since the
+# weapon tables say concussion and the spells say sonic.
+DAMAGE_TYPE_ALIASES = {"concussion": "sonic"}
+
+
+def damage_types_in(text: str) -> list[str]:
+    """The damage types a printed phrase names, in order.
+
+    "acid and fire resistance 20" is two resistances; "immune to fire damage"
+    is one; "immune to nannite infection" is none, which is the answer that
+    keeps invented rules out of the model.
+    """
+    words = re.split(r"[/,]|\band\b|\bor\b", (text or "").lower())
+    found = []
+    for word in words:
+        word = word.strip(" .;:")
+        word = re.sub(r"^(?:damage from |all )?", "", word)
+        word = re.sub(r"\s+(?:damage|attacks?|weapons?|effects?)$", "", word).strip()
+        if word in CREATURE_DAMAGE_TYPES:
+            resolved = DAMAGE_TYPE_ALIASES.get(word, word)
+            if resolved not in found:
+                found.append(resolved)
+    return found
+
+
+# "acid and fire resistance 20", "cold resistance 10".
+PRINTED_RESISTANCE = re.compile(r"^(?P<types>[a-z/ ]+?)\s+resistance\s+(?P<value>\d+)$", re.I)
+# "electricity immunity", "immune to piercing weapons".
+PRINTED_IMMUNITY = re.compile(r"^(?:(?P<before>[a-z/ ]+?)\s+immunity|immune to\s+(?P<after>.+))$", re.I)
+PRINTED_VULNERABILITY = re.compile(r"^(?P<types>[a-z/ ]+?)\s+vulnerability$", re.I)
+
+# The same three, as the SRD words them in a creature's own traits: "A yeti is
+# immune to cold damage. It takes 50% more damage from fire attacks."
+DESCRIBED_IMMUNITY = re.compile(r"\bimmune to ([a-z/ ]+?)\s*(?:damage|attacks|\.|,|;|$)", re.I)
+DESCRIBED_VULNERABILITY = re.compile(
+    r"takes?\s+(?:50%|half again as much|double)\s+(?:more\s+)?damage from ([a-z/ ]+?)"
+    r"\s*(?:attacks|damage|\.|,|;|$)", re.I)
+DESCRIBED_RESISTANCE = re.compile(
+    r"ignores? the first (\d+) points of ([a-z/ ]+?) damage", re.I)
+
+
+def parse_damage_traits(qualities: list[dict]) -> dict:
+    """What a printed SQ line says a creature ignores.
+
+    "cold resistance 10", "electricity immunity" and "fire vulnerability" are
+    arithmetic the damage code can do; the stat block prints them beside
+    "immunities" and "resistant to blows", which are not, and those stay as
+    the ability text they already are.
+    """
+    traits = {"resistances": [], "immunities": [], "vulnerabilities": []}
+    for quality in qualities:
+        printed = quality["printed"]
+
+        match = PRINTED_RESISTANCE.match(printed)
+        if match:
+            for damage_type in damage_types_in(match.group("types")):
+                traits["resistances"].append(
+                    {"type": damage_type, "value": int(match.group("value"))})
+            continue
+
+        match = PRINTED_IMMUNITY.match(printed)
+        if match:
+            named = match.group("before") or match.group("after") or ""
+            traits["immunities"].extend(damage_types_in(named))
+            continue
+
+        match = PRINTED_VULNERABILITY.match(printed)
+        if match:
+            traits["vulnerabilities"].extend(damage_types_in(match.group("types")))
+    return dedupe_damage_traits(traits)
+
+
+def describe_damage_traits(traits: dict, described: list[dict]) -> dict:
+    """The same three as the creature's own traits state them in prose.
+
+    The subtypes are where this earns its keep: "Cold Subtype (Ex): A yeti is
+    immune to cold damage. It takes 50% more damage from fire attacks" is the
+    whole rule, and the SQ line only says "Cold subtype".
+    """
+    for trait in described:
+        text = trait["description"]
+        for match in DESCRIBED_IMMUNITY.finditer(text):
+            traits["immunities"].extend(damage_types_in(match.group(1)))
+        for match in DESCRIBED_VULNERABILITY.finditer(text):
+            traits["vulnerabilities"].extend(damage_types_in(match.group(1)))
+        for match in DESCRIBED_RESISTANCE.finditer(text):
+            for damage_type in damage_types_in(match.group(2)):
+                traits["resistances"].append(
+                    {"type": damage_type, "value": int(match.group(1))})
+    return dedupe_damage_traits(traits)
+
+
+def dedupe_damage_traits(traits: dict) -> dict:
+    """One entry per damage type, the printed line winning over the prose."""
+    seen = set()
+    resistances = []
+    for entry in traits["resistances"]:
+        if entry["type"] not in seen:
+            seen.add(entry["type"])
+            resistances.append(entry)
+    return {
+        "resistances": resistances,
+        # A type immune to something does not also resist it.
+        "immunities": list(dict.fromkeys(traits["immunities"])),
+        "vulnerabilities": list(dict.fromkeys(traits["vulnerabilities"])),
+    }
+
+
 # "SPECIES TRAITS" heads the prose that describes what a stat block's SQ line
 # names. "TEMPLATE TRAITS" is the same for a template — a werewolf, a skeleton —
 # and is printed above the blocks it applies to rather than below them.
@@ -1083,6 +1205,9 @@ def attach_special_abilities(page_html: str, creatures: list[dict]) -> None:
             continue
         creature["speciesTraits"] = parse_trait_entries(
             body[section], skip_stat_block=runs[section][0] == "template")
+        # The subtypes state their immunity and vulnerability in prose only.
+        creature["damageTraits"] = describe_damage_traits(
+            creature["damageTraits"], creature["speciesTraits"])
 
 
 def block_of(creature: dict, lines: list[str], runs: list[tuple[str, int, int]]) -> int | None:
@@ -1339,6 +1464,9 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
         "skillEntries": parse_creature_skills(rows.get("skills", ""), skill_names),
         "featNames": parse_creature_feats(rows.get("feats", "")),
         "damageReduction": parse_damage_reduction(rows.get("sq", "")),
+        # What the printed line says this creature ignores, as arithmetic the
+        # damage code can do rather than as text nothing reads.
+        "damageTraits": parse_damage_traits(parse_special_qualities(rows.get("sq", ""))),
         "feats": rows.get("feats", ""),
         "talents": rows.get("talents", ""),
         "possessions": rows.get("possessions", ""),
