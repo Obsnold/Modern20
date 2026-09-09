@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { resolveAttack, postAttackCard, rollWeaponDamage } from "../apps/attack.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
@@ -16,61 +17,44 @@ export class Modern20Item extends Item {
     return this.toChat();
   }
 
-  /** Ranged weapons add Dex to the attack; everything else adds Str. */
+  /**
+   * Roll an attack, resolved against the target's Defense where one is
+   * targeted, with threats confirmed. The detail lives in apps/attack.mjs.
+   */
   async rollAttack({ situational = 0 } = {}) {
     if (this.type !== "weapon") throw new Error("Only weapons can roll attacks");
-    const actor = this.actor;
-    if (!actor) throw new Error("Cannot roll an attack for an unowned weapon");
 
-    // A weapon that is not to hand is a mistake worth surfacing, not blocking:
-    // the same "warn, never enforce" rule the rest of the system follows.
     if (!this.system.equipped) {
       ui.notifications.warn(game.i18n.format("MODERN20.Equip.NotEquipped", { name: this.name }));
     }
 
-    const abilityMod = this.system.ranged
-      ? actor.system.abilities.dex.mod
-      : actor.system.abilities.str.mod;
-    const size = MODERN20.sizes[actor.system.attributes.size]?.mod ?? 0;
+    const result = await resolveAttack(this, { situational });
+    await postAttackCard(this, result);
 
-    const roll = await new Roll("1d20 + @bab + @ability + @size + @weapon + @condition + @situational", {
-      bab: actor.system.attributes.baseAttack,
-      ability: abilityMod,
-      size,
-      weapon: this.system.attackBonus,
-      // Conditions such as shaken and entangled penalise attacks.
-      condition: actor.system.attributes.attackMisc ?? 0,
-      situational
-    }).evaluate();
+    // Firearms spend a round per shot; a magazine that is empty says so.
+    if (this.system.ammo?.max) {
+      const remaining = this.system.ammo.value - 1;
+      if (remaining < 0) {
+        ui.notifications.warn(game.i18n.format("MODERN20.Attack.NoAmmo", { name: this.name }));
+      } else {
+        await this.update({ "system.ammo.value": remaining });
+      }
+    }
 
-    await roll.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor }),
-      flavor: game.i18n.format("MODERN20.Chat.Attack", { weapon: this.name })
-    });
-    return roll;
+    return result;
   }
 
-  /** Melee damage adds Str; ranged damage does not, absent a special property. */
+  /** Weapon damage, doubled by rolling twice when a critical is confirmed. */
   async rollDamage({ critical = false } = {}) {
     if (this.type !== "weapon") throw new Error("Only weapons can roll damage");
-    const actor = this.actor;
 
-    const strMod = !this.system.ranged && actor ? actor.system.abilities.str.mod : 0;
-    let formula = `${this.system.damage} + @str + @bonus`;
-    if (critical) formula = `(${this.system.damage}) * 2 + @str + @bonus`;
-
-    const roll = await new Roll(formula, {
-      str: strMod,
-      bonus: this.system.damageBonus
-    }).evaluate();
-
+    const roll = await rollWeaponDamage(this, { critical });
     await roll.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor }),
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: game.i18n.format(
         critical ? "MODERN20.Chat.CriticalDamage" : "MODERN20.Chat.Damage",
         { weapon: this.name }
       ),
-      // Read back by the chat card to offer apply controls.
       flags: { modern20: { damage: roll.total } }
     });
     return roll;
