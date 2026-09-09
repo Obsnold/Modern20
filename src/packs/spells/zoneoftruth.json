@@ -44,6 +44,7 @@
       "cast": {
         "type": "save",
         "name": "MODERN20.Cast.Cast",
+        "actionType": "attack",
         "area": {
           "shape": "radius",
           "size": 5

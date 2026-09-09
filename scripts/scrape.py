@@ -977,6 +977,187 @@ def scrape_psionics(pages: list[str]) -> list[dict]:
     return [powers[k] for k in sorted(powers)]
 
 
+# The sections of "Table: Actions in Combat". The section heading is written
+# as a row of the same table, so the parser tracks which one it is inside.
+ACTION_SECTIONS = {
+    "attack actions": "attack",
+    "move actions": "move",
+    "full-round actions": "fullRound",
+    "free actions": "free",
+    "action type varies": "varies",
+    "no action": "none",
+}
+
+# The SRD marks footnotes by appending a number to a cell: "Draw a weapon 3",
+# "Maybe 2", "-2 2", and once "Trip an opponent4 4". Matching a bare trailing
+# number would eat the cell itself, since "-2" is a whole modifier — so a
+# marker has to be separated by whitespace, or glued to a letter.
+FOOTNOTE_SPACED = re.compile(r"\s+\d+\s*$")
+FOOTNOTE_GLUED = re.compile(r"(?<=[a-zA-Z])\d+$")
+
+# Every modifier in the combat tables is written with an explicit sign, which
+# is what separates one from a stray footnote marker in its own cell.
+SIGNED = re.compile(r"^[+-]\d+$")
+
+
+def strip_footnote(text: str) -> str:
+    text = FOOTNOTE_SPACED.sub("", (text or "").strip()).strip()
+    return FOOTNOTE_GLUED.sub("", text).strip()
+
+
+def footnote_markers(text: str) -> set[int]:
+    """The footnote numbers a cell carries."""
+    match = FOOTNOTE_SPACED.search((text or "").strip())
+    return {int(match.group().strip())} if match else set()
+
+
+def signed_int(text: str) -> int | None:
+    """A modifier cell as a number, or None where the cell holds no modifier."""
+    value = strip_footnote(text)
+    return int(value) if SIGNED.match(value) else None
+
+
+def scrape_combat_actions() -> list[dict]:
+    """"Table: Actions in Combat": what each action costs and what it provokes.
+
+    The whole action economy is this one table. Every row names an action, the
+    section it sits in gives its cost, and the second column says whether it
+    provokes an attack of opportunity — "This column indicates whether the
+    action itself, not moving, provokes an attack of opportunity."
+    """
+    table = next(
+        (t for t in srd.annotated_tables(srd.fetch("combatactions.html"))
+         if "attack of opportunity" in " ".join(t["header"]).lower()),
+        None,
+    )
+    if not table:
+        print("  ! combatactions.html: no actions table found", file=sys.stderr)
+        return []
+
+    actions = []
+    # The header names the first section; later ones arrive as rows.
+    section = ACTION_SECTIONS.get(table["header"][0].strip().lower(), "attack")
+
+    for row in table["rows"]:
+        name = strip_footnote(row[0] if row else "")
+        if not name:
+            continue
+        # A footnote paragraph is one long cell with no second column.
+        if len(row) < 2:
+            continue
+        heading = ACTION_SECTIONS.get(name.lower())
+        if heading:
+            section = heading
+            continue
+
+        provokes = strip_footnote(row[1]).lower()
+        actions.append({
+            "id": camel(name),
+            "name": name,
+            "action": section,
+            # "Yes", "No", "Maybe", "Usually", "Varies" — kept as the SRD
+            # writes it, because three of the five are a judgement call.
+            "provokes": provokes or "no",
+            "srdUrl": srd.page_url("combatactions.html"),
+        })
+    return actions
+
+
+def scrape_combat_tables() -> dict:
+    """The numbers combat modifies rolls by: attacks, Defense, cover, extra attacks."""
+    def rows_of(page, *needles):
+        for table in srd.annotated_tables(srd.fetch(page)):
+            header = " ".join(table["header"]).lower()
+            if all(n in header for n in needles):
+                return table
+        return None
+
+    # "The defender loses any Dexterity bonus to Defense" is footnote 2 of the
+    # Defense table and footnote 3 of the attack table; the SRD marks the rows
+    # it applies to rather than giving it a column.
+    LOSES_DEX_FOOTNOTE = {"defense": 2, "attack": 3}
+
+    def modifiers(table, label):
+        """A circumstance table: melee and ranged modifiers per circumstance."""
+        out = []
+        for row in table["rows"] if table else []:
+            circumstance = strip_footnote(row[0])
+            # A footnote paragraph is a row that starts with its own marker.
+            if not circumstance or re.match(r"^\d+\s", row[0].strip()) or len(row) < 2:
+                continue
+            melee = signed_int(row[1])
+            ranged = signed_int(row[2]) if len(row) > 2 else None
+            # "--- See Cover ---" is a cross-reference, not a modifier.
+            if melee is None and ranged is None:
+                continue
+            markers = footnote_markers(row[1]) | (footnote_markers(row[2]) if len(row) > 2 else set())
+            out.append({
+                "id": camel(circumstance),
+                "circumstance": circumstance,
+                "applies": label,
+                "melee": melee or 0,
+                "ranged": ranged or 0,
+                "losesDex": LOSES_DEX_FOOTNOTE[label] in markers,
+            })
+        return out
+
+    combat_mods = srd.fetch("combatmods.html")
+    tables = srd.annotated_tables(combat_mods)
+    defense = next((t for t in tables if t["header"][:1] == ["Circumstance"]
+                    and "Defender" in " ".join(r[0] for r in t["rows"][:2])), None)
+    attack = next((t for t in tables if t["header"][:1] == ["Circumstance"]
+                   and "Attacker" in " ".join(r[0] for r in t["rows"][:2])), None)
+    cover = rows_of("combatmods.html", "degree of cover")
+    concealment = rows_of("combatmods.html", "concealment")
+    extra = rows_of("basicclasses.html", "base attack bonus", "modifiers")
+    two_weapon = rows_of("combatactions.html", "primary hand", "off-hand")
+
+    return {
+        "defenseModifiers": modifiers(defense, "defense"),
+        "attackModifiers": modifiers(attack, "attack"),
+        "cover": [
+            {
+                "id": camel(row[0].split("(")[0]),
+                "degree": row[0].split("(")[0].strip(),
+                "example": (re.search(r"\(([^)]*)\)", row[0]) or [None, ""])[1],
+                "defense": signed_int(row[1]) or 0,
+                "reflex": signed_int(row[2]) or 0,
+            }
+            for row in (cover["rows"] if cover else [])
+            if len(row) > 2 and not re.match(r"^\d+\s", row[0])
+        ],
+        "concealment": [
+            {
+                "id": camel(row[0].split("(")[0]),
+                "degree": row[0].split("(")[0].strip(),
+                "missChance": srd.to_int(row[1], 0) or 0,
+            }
+            for row in (concealment["rows"] if concealment else [])
+            if len(row) > 1 and "%" in row[1]
+        ],
+        # "A resulting value of +6 or higher provides the hero with multiple
+        # attacks." The column lists the extra attacks, not the first.
+        "extraAttacks": [
+            {
+                "baseAttack": srd.to_int(row[0], 0) or 0,
+                "extra": [srd.to_int(part, 0) or 0 for part in row[1].split("/")],
+            }
+            for row in (extra["rows"] if extra else [])
+            if len(row) > 1 and srd.to_int(row[0], 0)
+        ],
+        "twoWeapon": [
+            {
+                "id": camel(row[0]),
+                "circumstance": row[0].strip(),
+                "primary": srd.to_int(row[1], 0) or 0,
+                "offHand": srd.to_int(row[2], 0) or 0,
+            }
+            for row in (two_weapon["rows"] if two_weapon else [])
+            if len(row) > 2
+        ],
+    }
+
+
 def scrape_vehicles() -> list[dict]:
     """Vehicles, which the SRD tabulates with the full stat line."""
     vehicles = {}
@@ -1381,6 +1562,11 @@ def main() -> int:
     write("talents.json", talents)
     creatures = scrape_creatures(pages)
     write("creatures.json", creatures)
+    combat_actions = scrape_combat_actions()
+    write("combat_actions.json", combat_actions)
+    combat_tables = scrape_combat_tables()
+    write("combat_tables.json", combat_tables)
+
     spells = scrape_spells([p for p in pages if "spelldesc" in p or "spells" in p])
     write("spells.json", spells)
     psionics = scrape_psionics([p for p in pages if "power" in p or "psidesc" in p])
@@ -1393,6 +1579,7 @@ def main() -> int:
     levels = sum(len(c["progression"]) for c in classes)
     print(f"\n{len(skills)} skills ({sum(len(v['options']) for v in specialties.values())} specialties), {len(classes)} classes ({levels} levels), "
           f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
+          f"{len(combat_actions)} combat actions, "
           f"{len(creatures)} creatures, {len(spells)} spells, "
           f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "
           f"{len(conditions)} conditions, "

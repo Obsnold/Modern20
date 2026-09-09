@@ -43,6 +43,7 @@
       "cast": {
         "type": "save",
         "name": "MODERN20.Cast.Cast",
+        "actionType": "attack",
         "damage": {
           "formula": "3d8",
           "type": "",

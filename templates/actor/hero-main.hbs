@@ -29,6 +29,11 @@
       <div class="m20-row">
         <label>{{localize "MODERN20.BaseAttack"}}</label>
         <span class="m20-mod">{{modern20Signed system.attributes.baseAttack}}</span>
+        {{#if combat.multiattack}}
+          <span class="m20-tag" data-tooltip="{{localize 'MODERN20.Attack.FullAttackHint'}}">
+            {{combat.sequence}}
+          </span>
+        {{/if}}
       </div>
       <div class="m20-row">
         <label>{{localize "MODERN20.Initiative"}}</label>
@@ -52,6 +57,43 @@
           {{/each}}
         </select>
       </div>
+    </div>
+
+    <div class="m20-panel m20-turn" data-player-allowed>
+      <h3>
+        {{localize "MODERN20.Action.Title"}}
+        <button type="button" class="m20-button m20-button--small" data-action="endTurn">
+          {{localize "MODERN20.Action.Reset"}}
+        </button>
+      </h3>
+
+      <div class="m20-row">
+        {{#each combat.pools as |pool|}}
+          <span class="m20-tag {{#unless pool.remaining}}m20-over{{/unless}}"
+                data-tooltip="{{pool.label}}">
+            {{pool.label}}: {{pool.remaining}}
+          </span>
+        {{/each}}
+        <button type="button" class="m20-icon" data-action="fiveFootStep"
+                data-tooltip="{{localize 'MODERN20.Action.FiveFootStep'}}">
+          <i class="fa-solid fa-shoe-prints"></i>
+        </button>
+      </div>
+
+      <h3>{{localize "MODERN20.Stance.Title"}}</h3>
+      <div class="m20-row m20-stances">
+        {{#each combat.stances as |stance|}}
+          <button type="button"
+                  class="m20-button m20-button--small {{#if stance.active}}m20-icon--on{{/if}}"
+                  data-action="takeStance" data-stance="{{stance.id}}"
+                  data-tooltip="{{localize 'MODERN20.Action.Costs' action=stance.action}}">
+            {{localize stance.label}}
+          </button>
+        {{/each}}
+      </div>
+      {{#unless combat.stance}}
+        <p class="m20-hint">{{localize "MODERN20.Stance.None"}}</p>
+      {{/unless}}
     </div>
   </div>
 </section>

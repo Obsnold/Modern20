@@ -167,6 +167,25 @@ def weapon_activities(system: dict) -> dict:
     return out
 
 
+def casting_time_action(casting_time: str) -> str:
+    """A casting time as an action type.
+
+    Mirrors castingTimeAction in module/apps/actions.mjs. Anything longer than
+    a round is not a combat action at all, and is recorded as such rather than
+    rounded down to something it is not.
+    """
+    text = re.sub(r"[^a-z ]", "", (casting_time or "").lower())
+    if "full" in text:
+        return "fullRound"
+    if "free" in text:
+        return "free"
+    if "attack action" in text or "standard" in text:
+        return "attack"
+    if "move action" in text:
+        return "move"
+    return "none"
+
+
 def casting_activity(item_type: str, system: dict) -> dict:
     """The single activity a spell or psionic power ships with.
 
@@ -178,6 +197,8 @@ def casting_activity(item_type: str, system: dict) -> dict:
     name = "MODERN20.Cast.Cast" if item_type == "spell" else "MODERN20.Cast.Manifest"
     rolled = system["saveAbility"] and system["saveEffect"] != "harmless"
     area = {"area": system["areaShape"]} if system["areaShape"]["size"] else {}
+    # "Casting Time: Attack action" is what the spell list itself says.
+    action_type = casting_time_action(system["castingTime"])
 
     damage = {}
     if system["damage"]:
@@ -194,6 +215,7 @@ def casting_activity(item_type: str, system: dict) -> dict:
         return {key: {
             "type": "save",
             "name": name,
+            "actionType": action_type,
             **area,
             **damage,
             "save": {
@@ -204,8 +226,8 @@ def casting_activity(item_type: str, system: dict) -> dict:
         }}
 
     if system["damage"]:
-        return {key: {"type": "damage", "name": name, **area, **damage}}
-    return {key: {"type": "utility", "name": name, **area}}
+        return {key: {"type": "damage", "name": name, "actionType": action_type, **area, **damage}}
+    return {key: {"type": "utility", "name": name, "actionType": action_type, **area}}
 
 
 def casting_fields(entry: dict) -> dict:

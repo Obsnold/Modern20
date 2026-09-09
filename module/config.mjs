@@ -27,6 +27,26 @@ MODERN20.traditions = {
   divine: "MODERN20.Cast.Divine"
 };
 
+/**
+ * What a turn buys. "Table: Actions in Combat" sorts every action the SRD
+ * names into these, and an item's activity declares which one it costs.
+ */
+MODERN20.actionTypes = {
+  attack: "MODERN20.Action.attack",
+  move: "MODERN20.Action.move",
+  fullRound: "MODERN20.Action.fullRound",
+  free: "MODERN20.Action.free",
+  varies: "MODERN20.Action.varies",
+  none: "MODERN20.Action.none"
+};
+
+/**
+ * What a turn buys. "A round is an opportunity for each character involved in
+ * a combat to take an action": one attack action and one move action, or a
+ * full-round action in place of both, plus a 5-foot step.
+ */
+MODERN20.turnBudget = { attack: 1, move: 1, fiveFootStep: 1 };
+
 MODERN20.saves = {
   fort: { label: "MODERN20.Save.Fort", ability: "con" },
   ref: { label: "MODERN20.Save.Ref", ability: "dex" },

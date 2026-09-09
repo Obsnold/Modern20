@@ -1,5 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { rollWealthCheck, commitWealthLoss } from "../dice/wealth.mjs";
+import { ACTION_COST, STANCES, canAfford, attackSequence } from "../apps/actions.mjs";
 
 // Foundry v14 removed the bare Actor/Item/Roll/ChatMessage globals; only
 // CONFIG, Hooks, game and ui survive. Everything else comes off the namespace.
@@ -169,6 +170,116 @@ export class Modern20Actor extends Actor {
   }
 
   /** Creature types the SRD says are "not subject to ... nonlethal damage". */
+  /**
+   * Spend an action from this turn's budget.
+   *
+   * Reported, not enforced: a character who has already acted can still act
+   * again, and the sheet says the budget is gone rather than refusing. The SRD
+   * itself leaves several actions as "varies", and a table does things the
+   * table decides.
+   *
+   * @param {string} actionType  attack, move, fullRound, free, varies or none.
+   * @returns {Promise<boolean>} Whether it fitted in what was left.
+   */
+  async spendAction(actionType) {
+    const cost = ACTION_COST[actionType];
+    if (!cost || foundry.utils.isEmpty(cost)) return true;
+
+    const affordable = canAfford(this.system.turn, actionType);
+    const update = {};
+    for (const [pool, amount] of Object.entries(cost)) {
+      update[`system.turn.${pool}`] = (this.system.turn[pool] ?? 0) + amount;
+    }
+    await this.update(update);
+
+    if (!affordable) {
+      ui.notifications.warn(game.i18n.format("MODERN20.Action.Overspent", {
+        name: this.name,
+        action: game.i18n.localize(MODERN20.actionTypes[actionType] ?? actionType)
+      }));
+    }
+    return affordable;
+  }
+
+  /**
+   * Start a new turn: the budget refills and any stance from last turn ends.
+   *
+   * "A character can choose to fight defensively while making a melee attack...
+   * to gain a +2 dodge bonus to Defense in the same round" — the same round,
+   * so it is gone by the next one.
+   */
+  async startTurn() {
+    const had = this.system.turn.stance;
+    await this.update({
+      "system.turn.attack": 0,
+      "system.turn.move": 0,
+      "system.turn.fiveFootStep": 0,
+      "system.turn.stance": ""
+    });
+    if (had) await this.#clearStanceEffects();
+    return this;
+  }
+
+  /**
+   * Take one of the SRD's combat stances, or drop the current one.
+   *
+   * The bonus is an ActiveEffect rather than a note, so the Defense an attack
+   * rolls against is the Defense the stance gives. Passing the stance already
+   * held drops it, which is how a mistaken click is undone.
+   */
+  async takeStance(stanceId) {
+    const stance = STANCES[stanceId];
+    if (!stance) return null;
+
+    await this.#clearStanceEffects();
+
+    if (this.system.turn.stance === stanceId) {
+      await this.update({ "system.turn.stance": "" });
+      ui.notifications.info(game.i18n.format("MODERN20.Stance.Ends", {
+        name: this.name, stance: game.i18n.localize(stance.label)
+      }));
+      return null;
+    }
+
+    if (stance.changes.length) {
+      await this.createEmbeddedDocuments("ActiveEffect", [{
+        name: game.i18n.localize(stance.label),
+        img: stance.icon,
+        changes: stance.changes,
+        // Foundry ends this on its own at the start of the actor's next turn;
+        // startTurn clears it too, for a turn taken outside a combat.
+        duration: { rounds: 1 },
+        flags: { modern20: { stance: stanceId } }
+      }]);
+    }
+
+    await this.update({ "system.turn.stance": stanceId });
+    await this.spendAction(stance.action);
+    ui.notifications.info(game.i18n.format("MODERN20.Stance.Takes", {
+      name: this.name, stance: game.i18n.localize(stance.label)
+    }));
+    return stance;
+  }
+
+  /** Remove whatever effect a stance put on this actor. */
+  async #clearStanceEffects() {
+    const ids = this.effects
+      .filter((effect) => effect.getFlag("modern20", "stance"))
+      .map((effect) => effect.id);
+    if (ids.length) await this.deleteEmbeddedDocuments("ActiveEffect", ids);
+  }
+
+  /**
+   * The attack bonuses a full attack rolls at.
+   *
+   * "If a character gets more than one attack per action because his or her
+   * base attack bonus is high enough... the character must use the full attack
+   * action to get his or her additional attacks."
+   */
+  get attackSequence() {
+    return attackSequence(this.system.attributes?.baseAttack ?? 0);
+  }
+
   /**
    * Spend a spell slot of this level from this list.
    *

@@ -99,6 +99,13 @@
                 {{localize activity.label}}
               </button>
             {{/each}}
+            {{#if item.canFullAttack}}
+              <button type="button" class="m20-icon m20-mode"
+                      data-action="fullAttack" data-activity="shot"
+                      data-tooltip="{{localize 'MODERN20.Attack.FullAttackHint'}} ({{item.attackSequence}})">
+                {{localize "MODERN20.Attack.FullAttack"}}
+              </button>
+            {{/if}}
           {{else}}
             <button type="button" class="m20-icon" data-action="rollItem"><i class="fa-solid fa-dice-d20"></i></button>
           {{/if}}

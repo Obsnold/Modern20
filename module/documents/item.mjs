@@ -2,6 +2,7 @@ import { MODERN20 } from "../config.mjs";
 import { resolveAttack, postAttackCard, postSaveCard, postCastCard, rollItemDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
 import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazineSize } from "../apps/accessories.mjs";
+import { activityAction } from "../apps/actions.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
@@ -52,14 +53,42 @@ export class Modern20Item extends Item {
     if (!activity) return this.toChat();
 
     const card = activity.type === "attack"
-      ? this.rollAttack({ activityId: activity.id })
+      ? this.rollAttack({ activityId: activity.id, spendAction: false })
       : activity.type === "save"
         ? postSaveCard(this, activity)
         : postCastCard(this, activity);
 
     const result = await card;
     await this.#spendCastingResource();
+    await this.actor?.spendAction(activityAction(activity));
     return result;
+  }
+
+  /**
+   * A full attack: every attack a high base attack bonus grants.
+   *
+   * "If a character gets more than one attack per action because his or her
+   * base attack bonus is high enough... the character must use the full attack
+   * action to get his or her additional attacks." Each attack after the first
+   * is at the lower bonus the table gives, applied as a penalty on top of the
+   * character's own attack bonus.
+   */
+  async fullAttack({ activityId = "shot" } = {}) {
+    if (this.type !== "weapon") throw new Error("Only weapons can make a full attack");
+    const sequence = this.actor?.attackSequence ?? [0];
+
+    const results = [];
+    for (const bonus of sequence) {
+      // The sequence is absolute bonuses; resolveAttack already adds the
+      // character's own, so each attack after the first carries the drop from
+      // the first as its situational modifier.
+      results.push(await this.rollAttack({
+        situational: bonus - sequence[0], activityId, spendAction: false
+      }));
+    }
+
+    await this.actor?.spendAction("fullRound");
+    return results;
   }
 
   /**
@@ -130,7 +159,7 @@ export class Modern20Item extends Item {
    * Roll an attack, resolved against the target's Defense where one is
    * targeted, with threats confirmed. The detail lives in apps/attack.mjs.
    */
-  async rollAttack({ situational = 0, activityId = "shot" } = {}) {
+  async rollAttack({ situational = 0, activityId = "shot", spendAction = true } = {}) {
     if (this.type !== "weapon") throw new Error("Only weapons can roll attacks");
 
     if (!this.system.equipped) {
@@ -139,6 +168,11 @@ export class Modern20Item extends Item {
 
     const result = await resolveAttack(this, { situational, activityId });
     await postAttackCard(this, result);
+
+    // A full attack pays once for the whole sequence, so it opts out here.
+    if (spendAction) {
+      await this.actor?.spendAction(activityAction(result.activity));
+    }
 
     // Each mode spends its own amount: one round, five for a burst, ten on
     // autofire.
@@ -266,6 +300,9 @@ export class Modern20Item extends Item {
     });
 
     const action = reloadAction(this);
+    // "Reload a firearm with a box magazine or speed loader" is a move action;
+    // an internal magazine is a full round. reloadAction works out which.
+    await this.actor?.spendAction(action);
     ui.notifications.info(game.i18n.format("MODERN20.Attack.Reloaded", {
       name: this.name,
       rounds: ammo.value + loaded,

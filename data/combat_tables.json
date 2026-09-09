@@ -1,0 +1,307 @@
+{
+  "defenseModifiers": [
+    {
+      "id": "defenderSittingOrKneeling",
+      "circumstance": "Defender sitting or kneeling",
+      "applies": "defense",
+      "melee": -2,
+      "ranged": 2,
+      "losesDex": false
+    },
+    {
+      "id": "defenderProne",
+      "circumstance": "Defender prone",
+      "applies": "defense",
+      "melee": -4,
+      "ranged": 4,
+      "losesDex": false
+    },
+    {
+      "id": "defenderStunnedOrCowering",
+      "circumstance": "Defender stunned or cowering",
+      "applies": "defense",
+      "melee": -2,
+      "ranged": -2,
+      "losesDex": true
+    },
+    {
+      "id": "defenderClimbing",
+      "circumstance": "Defender climbing",
+      "applies": "defense",
+      "melee": -2,
+      "ranged": -2,
+      "losesDex": true
+    },
+    {
+      "id": "defenderFlatFooted",
+      "circumstance": "Defender flat-footed",
+      "applies": "defense",
+      "melee": 0,
+      "ranged": 0,
+      "losesDex": true
+    },
+    {
+      "id": "defenderRunning",
+      "circumstance": "Defender running",
+      "applies": "defense",
+      "melee": 0,
+      "ranged": 2,
+      "losesDex": true
+    },
+    {
+      "id": "defenderGrapplingAttackerNot",
+      "circumstance": "Defender grappling (attacker not)",
+      "applies": "defense",
+      "melee": 0,
+      "ranged": 0,
+      "losesDex": true
+    },
+    {
+      "id": "defenderPinned",
+      "circumstance": "Defender pinned",
+      "applies": "defense",
+      "melee": -4,
+      "ranged": 0,
+      "losesDex": false
+    },
+    {
+      "id": "defenderHelplessSuchAsParalyzedSleepingOrBound",
+      "circumstance": "Defender helpless (such as paralyzed, sleeping, or bound)",
+      "applies": "defense",
+      "melee": 0,
+      "ranged": 0,
+      "losesDex": true
+    }
+  ],
+  "attackModifiers": [
+    {
+      "id": "attackerFlankingDefender",
+      "circumstance": "Attacker flanking defender",
+      "applies": "attack",
+      "melee": 2,
+      "ranged": 0,
+      "losesDex": false
+    },
+    {
+      "id": "attackerOnHigherGround",
+      "circumstance": "Attacker on higher ground",
+      "applies": "attack",
+      "melee": 1,
+      "ranged": 0,
+      "losesDex": false
+    },
+    {
+      "id": "attackerProne",
+      "circumstance": "Attacker prone",
+      "applies": "attack",
+      "melee": -4,
+      "ranged": -2,
+      "losesDex": false
+    },
+    {
+      "id": "attackerInvisible",
+      "circumstance": "Attacker invisible",
+      "applies": "attack",
+      "melee": 2,
+      "ranged": 2,
+      "losesDex": true
+    }
+  ],
+  "cover": [
+    {
+      "id": "oneQuarter",
+      "degree": "One-quarter",
+      "example": "standing behind a 3-ft. high wall",
+      "defense": 2,
+      "reflex": 1
+    },
+    {
+      "id": "oneHalf",
+      "degree": "One-half",
+      "example": "fighting from around a corner or a tree; standing at an open window; behind a creature of same size",
+      "defense": 4,
+      "reflex": 2
+    },
+    {
+      "id": "threeQuarters",
+      "degree": "Three-quarters",
+      "example": "peering around a corner or a big tree",
+      "defense": 7,
+      "reflex": 3
+    },
+    {
+      "id": "nineTenths",
+      "degree": "Nine-tenths",
+      "example": "standing at an arrow slit; behind a door that’s slightly ajar",
+      "defense": 10,
+      "reflex": 4
+    },
+    {
+      "id": "total",
+      "degree": "Total",
+      "example": "on the other side of a solid wall",
+      "defense": 0,
+      "reflex": 0
+    }
+  ],
+  "concealment": [
+    {
+      "id": "oneQuarter",
+      "degree": "One-quarter",
+      "missChance": 10
+    },
+    {
+      "id": "oneHalf",
+      "degree": "One-half",
+      "missChance": 20
+    },
+    {
+      "id": "threeQuarters",
+      "degree": "Three-quarters",
+      "missChance": 30
+    },
+    {
+      "id": "nineTenths",
+      "degree": "Nine-tenths",
+      "missChance": 40
+    },
+    {
+      "id": "total",
+      "degree": "Total",
+      "missChance": 50
+    }
+  ],
+  "extraAttacks": [
+    {
+      "baseAttack": 6,
+      "extra": [
+        1
+      ]
+    },
+    {
+      "baseAttack": 7,
+      "extra": [
+        2
+      ]
+    },
+    {
+      "baseAttack": 8,
+      "extra": [
+        3
+      ]
+    },
+    {
+      "baseAttack": 9,
+      "extra": [
+        4
+      ]
+    },
+    {
+      "baseAttack": 10,
+      "extra": [
+        5
+      ]
+    },
+    {
+      "baseAttack": 11,
+      "extra": [
+        6,
+        1
+      ]
+    },
+    {
+      "baseAttack": 12,
+      "extra": [
+        7,
+        2
+      ]
+    },
+    {
+      "baseAttack": 13,
+      "extra": [
+        8,
+        3
+      ]
+    },
+    {
+      "baseAttack": 14,
+      "extra": [
+        9,
+        4
+      ]
+    },
+    {
+      "baseAttack": 15,
+      "extra": [
+        10,
+        5
+      ]
+    },
+    {
+      "baseAttack": 16,
+      "extra": [
+        11,
+        6,
+        1
+      ]
+    },
+    {
+      "baseAttack": 17,
+      "extra": [
+        12,
+        7,
+        2
+      ]
+    },
+    {
+      "baseAttack": 18,
+      "extra": [
+        13,
+        8,
+        3
+      ]
+    },
+    {
+      "baseAttack": 19,
+      "extra": [
+        14,
+        9,
+        4
+      ]
+    },
+    {
+      "baseAttack": 20,
+      "extra": [
+        15,
+        10,
+        5
+      ]
+    }
+  ],
+  "twoWeapon": [
+    {
+      "id": "normalPenalties",
+      "circumstance": "Normal penalties",
+      "primary": -6,
+      "offHand": -10
+    },
+    {
+      "id": "offHandWeaponIsLight",
+      "circumstance": "Off-hand weapon is light",
+      "primary": -4,
+      "offHand": -8
+    },
+    {
+      "id": "twoWeaponFightingFeat",
+      "circumstance": "Two-Weapon Fighting feat",
+      "primary": -4,
+      "offHand": -4
+    },
+    {
+      "id": "offHandWeaponIsLightAndTwoWeaponFightingFeat",
+      "circumstance": "Off-hand weapon is light and Two-Weapon Fighting feat",
+      "primary": -2,
+      "offHand": -2
+    }
+  ]
+}

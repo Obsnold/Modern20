@@ -44,6 +44,7 @@
       "cast": {
         "type": "utility",
         "name": "MODERN20.Cast.Cast",
+        "actionType": "attack",
         "area": {
           "shape": "radius",
           "size": 30

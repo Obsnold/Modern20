@@ -42,7 +42,8 @@
     "activities": {
       "cast": {
         "type": "utility",
-        "name": "MODERN20.Cast.Cast"
+        "name": "MODERN20.Cast.Cast",
+        "actionType": "none"
       }
     }
   },
