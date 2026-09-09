@@ -15,9 +15,28 @@ const int = (initial = 0, opts = {}) =>
  * New types are registered rather than hard-coded, so a module can add one.
  */
 
+/**
+ * The discriminator TypedSchemaField uses to pick a schema.
+ *
+ * Foundry adds this automatically when a type is declared as a plain schema
+ * object, but not when it is a DataModel class — it wraps those in an
+ * EmbeddedDataField and then requires the field to be present. Declared here
+ * to match the shape Foundry would have generated.
+ */
+function typeField(type) {
+  return new fields.StringField({
+    required: true,
+    blank: false,
+    initial: type,
+    validate: (value) => value === type,
+    validationError: `must be equal to "${type}"`
+  });
+}
+
 /** Fields every activity has, whatever it does. */
-function baseFields() {
+function baseFields(type) {
   return {
+    type: typeField(type),
     name: new fields.StringField({ initial: "" }),
     img: new fields.FilePathField({ categories: ["IMAGE"], initial: "" }),
     // Shown on the button and explained on the card.
@@ -55,7 +74,7 @@ function damageFields() {
 export class AttackActivity extends foundry.abstract.DataModel {
   static defineSchema() {
     return {
-      ...baseFields(),
+      ...baseFields("attack"),
       ...damageFields(),
       attack: new fields.SchemaField({
         // Blank follows the SRD: Strength in melee, Dexterity at range.
@@ -75,7 +94,7 @@ export class AttackActivity extends foundry.abstract.DataModel {
 export class SaveActivity extends foundry.abstract.DataModel {
   static defineSchema() {
     return {
-      ...baseFields(),
+      ...baseFields("save"),
       ...damageFields(),
       save: new fields.SchemaField({
         ability: new fields.StringField({ initial: "ref" }),
@@ -89,14 +108,14 @@ export class SaveActivity extends foundry.abstract.DataModel {
 /** Damage with no roll to hit: a fall, a fire, an explosion already placed. */
 export class DamageActivity extends foundry.abstract.DataModel {
   static defineSchema() {
-    return { ...baseFields(), ...damageFields() };
+    return { ...baseFields("damage"), ...damageFields() };
   }
 }
 
 /** Anything that just happens, described rather than rolled. */
 export class UtilityActivity extends foundry.abstract.DataModel {
   static defineSchema() {
-    return baseFields();
+    return baseFields("utility");
   }
 }
 

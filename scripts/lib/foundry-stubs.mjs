@@ -76,7 +76,14 @@ export class TypedSchemaField extends DataField {
       if (typeof model?.defineSchema !== "function") {
         throw new TypeError(`TypedSchemaField: "${name}" is not a DataModel`);
       }
-      this.types[name] = new SchemaField(model.defineSchema());
+      const schema = model.defineSchema();
+      // Foundry adds the discriminator for a plain schema object but not for a
+      // DataModel class, and then requires it: 'The "attack" field must have a
+      // "type" StringField.'
+      if (!schema.type) {
+        throw new TypeError(`The "${name}" field must have a "type" StringField.`);
+      }
+      this.types[name] = new SchemaField(schema);
     }
   }
 }
