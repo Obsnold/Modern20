@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { placeArea } from "./area.mjs";
 
 const { ChatMessage } = foundry.documents;
 
@@ -105,6 +106,7 @@ function bindAttackDamage(message, html) {
 
   bindSelectTarget(html, attack);
   bindSaveRolls(message, html);
+  bindPlaceArea(message, html, attack);
 
   for (const button of html.querySelectorAll("[data-m20-damage]")) {
     button.addEventListener("click", async () => {
@@ -180,5 +182,22 @@ function bindSaveRolls(message, html) {
         ));
       }
     }
+  });
+}
+
+/** Draw the activity's area on the canvas as a Region. */
+function bindPlaceArea(message, html, attack) {
+  const button = html.querySelector("[data-m20-area]");
+  if (!button) return;
+
+  button.addEventListener("click", async () => {
+    const actor = ChatMessage.getSpeakerActor(message.speaker);
+    const item = actor?.items?.get(attack.itemId);
+    const activity = item?.activities.find((entry) => entry.id === attack.activityId);
+    if (!activity) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Attack.ItemGone"));
+      return;
+    }
+    await placeArea(item, activity);
   });
 }

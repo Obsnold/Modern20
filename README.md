@@ -175,7 +175,19 @@ editor creates and deletes rather than converting.
   the targeted area has an effective Defense of 10"*, affecting everyone in it,
   at -4 without Advanced Firearms Proficiency. The area Defense is an
   activity's `attack.defenseOverride`, not a special case in the resolver.
-- **Explosives** carry a burst radius and a fixed Reflex DC instead of a rate of
+- **Explosives** place their burst radius on the canvas as a **Region**. In v14
+  the MeasuredTemplate document was merged into Region — `Scene#templates` is
+  deprecated until v16, and `MeasuredTemplateDocument.createDocuments` is a shim
+  that creates a Region with `flags.core.MeasuredTemplate` and converts back —
+  so this creates Regions directly rather than using a path with a removal
+  date. Radii convert to pixels the way core does, `grid.size / grid.distance`,
+  and follow the `gridTemplates` setting for whether the shape snaps.
+
+  Auto-targeting whoever stands inside is deliberately not done: that is module
+  territory in every system, and doing it would override targets the player has
+  chosen.
+
+  They carry a burst radius and a fixed Reflex DC instead of a rate of
   fire, so they get a **Detonate** activity in place of a shot: *"An explosive
   ... affects all creatures and objects within its burst radius"*, with *"a
   Reflex save against the DC given in this column for half damage."* The card
