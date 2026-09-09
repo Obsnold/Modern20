@@ -1,6 +1,6 @@
 {
-  "_id": "KAI2Y5hc5kDam3Zn",
-  "name": "Compound bow (Archaic) 2",
+  "_id": "JmX8LL4Se8nc4xKX",
+  "name": "Tonfa",
   "type": "weapon",
   "img": "icons/svg/item-bag.svg",
   "system": {
@@ -8,20 +8,20 @@
     "quantity": 1,
     "equipped": false,
     "category": "simple",
-    "damage": "1d8",
-    "damageType": "piercing",
+    "damage": "1d4",
+    "damageType": "bludgeoning",
     "critical": "20",
-    "rangeIncrement": 40,
-    "rateOfFire": "1",
-    "magazine": "-",
-    "size": "large",
-    "ranged": true,
-    "weight": 3.0,
-    "purchaseDC": 10,
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "med",
+    "ranged": false,
+    "weight": 2.0,
+    "purchaseDC": 6,
     "restriction": "none",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
+    "source": "Simple Weapons (require the Simple Weapons Proficiency feat)",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -33,5 +33,5 @@
       }
     }
   },
-  "_key": "!items!KAI2Y5hc5kDam3Zn"
+  "_key": "!items!JmX8LL4Se8nc4xKX"
 }

@@ -63,6 +63,9 @@ function attributeFields() {
       choices: Object.keys(MODERN20.sizes)
     }),
     speed: int(30),
+    // How far this actor can strike in melee. Five feet for anything
+    // Medium-sized; a creature's stat block may say otherwise.
+    reach: int(5, { min: 0 }),
     initiative: new fields.SchemaField({ misc: int(0) }),
     damageReduction: int(0),
     // Blank means "use the Constitution score", which is the default rule.

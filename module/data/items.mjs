@@ -188,6 +188,12 @@ export class Modern20Weapon extends Modern20ItemBase {
       damageBonus: int(0),
       // Explosives: "the burst radius is the area affected by the explosive.
       // All creatures or objects within the burst radius take damage."
+      // A reach weapon: "A character can strike opponents 10 feet away with
+      // it." Zero means the weapon uses the wielder's own reach.
+      reach: int(0, { min: 0 }),
+      // The spear "can't use it against an adjacent foe"; the chain is the
+      // stated exception and can.
+      reachOnly: new fields.BooleanField({ initial: false }),
       burstRadius: new fields.StringField({ initial: "" }),
       // "Any creature caught within the burst radius may make a Reflex save
       // against the DC given in this column for half damage."

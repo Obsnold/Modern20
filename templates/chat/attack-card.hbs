@@ -39,7 +39,11 @@
     <p class="m20-hint">{{localize "MODERN20.Attack.AutofireArea" }} ({{area}} ft.)</p>
   {{/if}}
 
-  {{#if outOfRange}}
+  {{#if tooClose}}
+    <p class="m20-hint m20-over">
+      {{localize "MODERN20.Attack.TooClose"}}
+    </p>
+  {{else if outOfRange}}
     <p class="m20-hint m20-over">
       {{localize "MODERN20.Attack.OutOfRange"}}
       {{distance}} ft. &gt; {{maxRange}} ft.

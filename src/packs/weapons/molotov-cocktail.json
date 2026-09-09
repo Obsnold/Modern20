@@ -1,27 +1,27 @@
 {
-  "_id": "IGcIbZcwzSCTRJzI",
-  "name": "Sword cane 1",
+  "_id": "72mQewXvl4bMmF7L",
+  "name": "Molotov Cocktail",
   "type": "weapon",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
-    "category": "archaic",
+    "category": "simple",
     "damage": "1d6",
-    "damageType": "piercing",
-    "critical": "18-20",
-    "rangeIncrement": 0,
+    "damageType": "20",
+    "critical": "1",
+    "rangeIncrement": 10,
     "rateOfFire": "",
     "magazine": "",
-    "size": "med",
-    "ranged": false,
-    "weight": 3.0,
-    "purchaseDC": 9,
+    "size": "small",
+    "ranged": true,
+    "weight": 1.0,
+    "purchaseDC": 3,
     "restriction": "none",
-    "burstRadius": "",
+    "burstRadius": "Fire",
     "reflexDC": null,
-    "source": "Archaic Weapons (require the Archaic Weapons Proficiency feat)",
+    "source": "Splash Weapons",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -33,5 +33,5 @@
       }
     }
   },
-  "_key": "!items!IGcIbZcwzSCTRJzI"
+  "_key": "!items!72mQewXvl4bMmF7L"
 }

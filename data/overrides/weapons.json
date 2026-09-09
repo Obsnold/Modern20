@@ -1,0 +1,14 @@
+{
+  "_comment": "Hand corrections merged over weapons built from the SRD's tables, keyed by slug. The tables have no reach column, so reach weapons are recorded here from their own descriptions. Each entry needs a 'why'.",
+
+  "spear": {
+    "why": "weapons.html: 'This primitive device is a reach weapon. A character can strike opponents 10 feet away with it, but can't use it against an adjacent foe.' The melee table has no reach column.",
+    "reach": 10,
+    "reachOnly": true
+  },
+  "chain": {
+    "why": "weapons.html: 'If a character uses the chain as a reach weapon, he or she can strike opponents up to 10 feet away. In addition, unlike other weapons with reach, the character can use it against an adjacent foe.'",
+    "reach": 10,
+    "reachOnly": false
+  }
+}

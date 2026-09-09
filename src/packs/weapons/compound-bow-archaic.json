@@ -1,27 +1,27 @@
 {
-  "_id": "AGeCvids5WQfzyvf",
-  "name": "Chain 1",
+  "_id": "DF70gEKvlXF1K9e0",
+  "name": "Compound bow (Archaic)",
   "type": "weapon",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
-    "category": "archaic",
-    "damage": "1d6/1d6",
-    "damageType": "bludgeoning",
+    "category": "simple",
+    "damage": "1d8",
+    "damageType": "piercing",
     "critical": "20",
-    "rangeIncrement": 0,
-    "rateOfFire": "",
-    "magazine": "",
+    "rangeIncrement": 40,
+    "rateOfFire": "1",
+    "magazine": "-",
     "size": "large",
-    "ranged": false,
-    "weight": 5.0,
-    "purchaseDC": 5,
+    "ranged": true,
+    "weight": 3.0,
+    "purchaseDC": 10,
     "restriction": "none",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Archaic Weapons (require the Archaic Weapons Proficiency feat)",
+    "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -33,5 +33,5 @@
       }
     }
   },
-  "_key": "!items!AGeCvids5WQfzyvf"
+  "_key": "!items!DF70gEKvlXF1K9e0"
 }

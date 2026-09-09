@@ -1,6 +1,6 @@
 {
-  "_id": "urcD6PJ694VfqSvP",
-  "name": "Nunchaku 1",
+  "_id": "NbE0lQMcWr1XS3h7",
+  "name": "Bayonet (fixed)",
   "type": "weapon",
   "img": "icons/svg/item-bag.svg",
   "system": {
@@ -8,16 +8,16 @@
     "quantity": 1,
     "equipped": false,
     "category": "archaic",
-    "damage": "1d6",
-    "damageType": "bludgeoning",
+    "damage": "1d4/1d6",
+    "damageType": "piercing",
     "critical": "20",
     "rangeIncrement": 0,
     "rateOfFire": "",
     "magazine": "",
-    "size": "small",
+    "size": "large",
     "ranged": false,
-    "weight": 2.0,
-    "purchaseDC": 3,
+    "weight": 1.0,
+    "purchaseDC": 7,
     "restriction": "none",
     "burstRadius": "",
     "reflexDC": null,
@@ -33,5 +33,5 @@
       }
     }
   },
-  "_key": "!items!urcD6PJ694VfqSvP"
+  "_key": "!items!NbE0lQMcWr1XS3h7"
 }

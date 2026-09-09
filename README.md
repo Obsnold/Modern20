@@ -132,6 +132,12 @@ something:
 - *"Each full range increment causes a cumulative -2 penalty on the attack
   roll."* Distance comes from the grid when both tokens are placed, and the
   penalty is simply omitted when it cannot be measured.
+- **Melee is measured too**, against reach rather than increments: five feet
+  for anything Medium-sized, or the weapon's own where it has one. The SRD's
+  two reach weapons are recorded in `data/overrides/weapons.json`, since the
+  melee table has no reach column — a Spear strikes at 10 ft but *"can't use
+  it against an adjacent foe"*, and a Chain reaches 10 ft and is the stated
+  exception that can.
 - *"A thrown weapon has a maximum range of five range increments. Ranged
   weapons that fire projectiles can shoot up to ten increments."* A rate of
   fire is what separates the two in the data — a firearm or a bow has one, a

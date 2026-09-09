@@ -43,6 +43,14 @@ export function maxRange(system) {
   return increment ? increment * maxIncrements(system) : 0;
 }
 
+/**
+ * How far a melee attack reaches: the weapon's own reach where it has one,
+ * otherwise the wielder's, which is five feet for anything Medium-sized.
+ */
+export function meleeReach(item, actor) {
+  return item.system.reach || actor?.system?.attributes?.reach || 5;
+}
+
 /** The lowest d20 result that threatens: "19-20" gives 19, "20" gives 20. */
 export function threatRange(critical) {
   const numbers = String(critical ?? "20").match(/\d+/g)?.map(Number) ?? [20];
@@ -117,10 +125,23 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
   const distance = measures ? tokenDistance(attackerToken, targetToken) : null;
   const range = measures ? rangePenalty(distance, item.system.rangeIncrement) : 0;
 
+  // Melee is measured too, against reach rather than range increments.
+  const melee = !ranged;
+  const meleeDistance = melee ? tokenDistance(attackerToken, targetToken) : null;
+  const reachFeet = melee ? meleeReach(item, actor) : 0;
+
   // Beyond its maximum the weapon simply does not reach. Reported rather than
   // refused, so the GM can rule otherwise.
   const reach = maxRange(item.system);
-  const outOfRange = Boolean(measures && reach && distance !== null && distance > reach);
+  const outOfRange = Boolean(measures && reach && distance !== null && distance > reach)
+    || Boolean(melee && meleeDistance !== null && meleeDistance > reachFeet);
+
+  // "A character can strike opponents 10 feet away with it, but can't use it
+  // against an adjacent foe." The chain is the stated exception.
+  const tooClose = Boolean(
+    melee && item.system.reachOnly && meleeDistance !== null
+    && meleeDistance <= (actor.system.attributes.reach || 5)
+  );
 
   const data = {
     bab: actor.system.attributes.baseAttack,
@@ -141,7 +162,7 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
   // An activity may set its own Defense: autofire rolls against the area.
   const defense = activity.attack?.defenseOverride ?? target?.system?.defense?.value ?? null;
   let hit = null;
-  if (outOfRange) hit = false;
+  if (outOfRange || tooClose) hit = false;
   else if (natural === 1) hit = false;
   else if (natural === 20) hit = true;
   else if (defense !== null) hit = roll.total >= defense;
@@ -162,7 +183,9 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     targetName: target?.name ?? null,
     targetTokenId: targetToken?.id ?? null,
     targetSceneId: targetToken?.scene?.id ?? null,
-    distance, range, ranged, outOfRange, maxRange: reach,
+    distance: melee ? meleeDistance : distance,
+    range, ranged, outOfRange, tooClose,
+    maxRange: melee ? reachFeet : reach,
     activity,
     activityId: activity.id,
     area: activity.area?.size || null,

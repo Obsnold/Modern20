@@ -31,6 +31,10 @@ RESTRICTIONS = {
     "lic": "lic", "res": "res", "mil": "mil", "ill": "ill",
 }
 
+# Packs built straight from scraped tables rather than a named dataset. Only
+# these need the slug-keyed override pass; the rest go through load_dataset.
+TABLE_PACKS = {"weapons", "armor", "gear"}
+
 # Which scraped table feeds which pack, keyed by source page.
 SOURCES = {
     "weapons.html": ("weapons", "weapon"),
@@ -66,6 +70,17 @@ def parse_weight(cell: str) -> float:
         return round(int(fraction.group(1)) / int(fraction.group(2)), 3)
     match = re.search(r"\d+(?:\.\d+)?", text)
     return float(match.group()) if match else 0.0
+
+
+# Equipment tables mark footnotes with a trailing number on the name -
+# "Chain 1", "Compound bow (Archaic) 2". Creature and talent names genuinely
+# end in numbers (class levels, talent tiers), so this is applied only to the
+# packs built from those tables.
+FOOTNOTE_MARKER = re.compile(r"\s+\d{1,2}$")
+
+
+def strip_footnote(name: str) -> str:
+    return FOOTNOTE_MARKER.sub("", name).strip()
 
 
 def is_section_row(row: list[str]) -> bool:
@@ -520,6 +535,7 @@ def build() -> dict[str, list[dict]]:
                 continue
             # A variant is only meaningful qualified by its product.
             name = f"{parent} ({label})" if kind == "variant" and parent else label
+            name = strip_footnote(name)
 
             slug = srd.slugify(name)
             bucket = seen.setdefault(pack, set())
@@ -557,6 +573,35 @@ def build() -> dict[str, list[dict]]:
             packs[name] = documents
 
     return packs
+
+
+def apply_pack_overrides(packs: dict[str, list[dict]]) -> None:
+    """Apply data/overrides/<pack>.json to packs built from the SRD's tables.
+
+    The dataset packs go through load_dataset, but the equipment packs are
+    built straight from scraped tables, so they need the same correction layer
+    reaching them here - the melee table has no reach column, for instance.
+    """
+    for pack, documents in packs.items():
+        if pack not in TABLE_PACKS:
+            continue
+        overrides = load_overrides(pack)
+        if not overrides:
+            continue
+
+        by_slug = {srd.slugify(d["name"]): d for d in documents}
+        applied = 0
+        for slug, override in overrides.items():
+            document = by_slug.get(slug)
+            if not document:
+                print(f"  ! override {pack}.{slug} matches no item", file=sys.stderr)
+                continue
+            for key, value in override.items():
+                if key != "why":
+                    document["system"][key] = value
+            applied += 1
+        if applied:
+            print(f"  {applied} override(s) applied to {pack}")
 
 
 def write(packs: dict[str, list[dict]]) -> None:
@@ -616,6 +661,8 @@ def main() -> int:
     if not packs:
         print("No packs built. Run scripts/scrape.py first.", file=sys.stderr)
         return 1
+
+    apply_pack_overrides(packs)
 
     print("Writing pack source...")
     write(packs)
