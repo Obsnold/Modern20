@@ -111,13 +111,4 @@
     </div>
   {{/each}}
 
-  {{#if generatedActivities.length}}
-    <div class="m20-panel">
-      <h3>{{localize "MODERN20.Activity.Generated"}}</h3>
-      <p class="m20-hint">{{localize "MODERN20.Activity.GeneratedHint"}}</p>
-      {{#each generatedActivities as |activity|}}
-        <span class="m20-tag">{{localize activity.label}}</span>
-      {{/each}}
-    </div>
-  {{/if}}
 </section>

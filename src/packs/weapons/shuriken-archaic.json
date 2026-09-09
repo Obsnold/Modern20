@@ -20,7 +20,16 @@
     "purchaseDC": 3,
     "restriction": "none",
     "source": "Other Ranged Weapons (Weapons Proficiency feat needed given in parentheses)",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html"
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    }
   },
   "_key": "!items!ppAz3mhBNGcs7iA6"
 }

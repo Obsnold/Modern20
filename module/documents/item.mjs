@@ -1,11 +1,30 @@
 import { MODERN20 } from "../config.mjs";
 import { resolveAttack, postAttackCard, rollWeaponDamage } from "../apps/attack.mjs";
-import { availableActivities } from "../apps/activities.mjs";
+import { availableActivities, defaultActivities } from "../apps/activities.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
 
 export class Modern20Item extends Item {
+  /**
+   * Seed a new item with the activities its type starts with.
+   *
+   * Compendium items already carry theirs from the build, so this only fires
+   * for items made by hand. Same data either way.
+   */
+  async _preCreate(data, options, user) {
+    const allowed = await super._preCreate(data, options, user);
+    if (allowed === false) return false;
+
+    if (foundry.utils.isEmpty(this.system.activities ?? {})) {
+      const seeded = defaultActivities(this.type, this.system);
+      if (!foundry.utils.isEmpty(seeded)) {
+        this.updateSource({ "system.activities": seeded });
+      }
+    }
+    return allowed;
+  }
+
   getRollData() {
     const data = { ...(this.actor?.getRollData() ?? {}) };
     data.item = { ...this.system };

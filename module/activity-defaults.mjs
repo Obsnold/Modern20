@@ -1,35 +1,25 @@
-{
-  "_id": "x9SH7HNTgkydPrMw",
-  "name": "M16A2 (5.56mm assault rifle)",
-  "type": "weapon",
-  "img": "icons/svg/item-bag.svg",
-  "system": {
-    "description": "",
-    "quantity": 1,
-    "equipped": false,
-    "category": "longarm",
-    "damage": "2d8",
-    "damageType": "ballistic",
-    "critical": "20",
-    "rangeIncrement": 80,
-    "rateOfFire": "S,A",
-    "magazine": "30 box",
-    "size": "large",
-    "ranged": true,
-    "weight": 8.0,
-    "purchaseDC": 16,
-    "restriction": "res",
-    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
-    "activities": {
-      "shot": {
+/**
+ * Default activities by item type, generated from data/activity_defaults.json
+ * by scripts/gen_activity_defaults.py.
+ *
+ * The same data drives the compendium build, so a weapon from a pack and one
+ * created by hand end up with identical activities.
+ */
+export const ACTIVITY_DEFAULTS = {
+  "weapon": {
+    "always": [
+      {
+        "id": "shot",
         "type": "attack",
         "name": "MODERN20.Attack.Single",
         "consume": {
           "ammo": 1
         }
-      },
-      "autofire": {
+      }
+    ],
+    "automatic": [
+      {
+        "id": "autofire",
         "type": "attack",
         "name": "MODERN20.Attack.Autofire",
         "attack": {
@@ -45,7 +35,8 @@
         "requiresAmmo": 10,
         "note": "MODERN20.Attack.AutofireArea"
       },
-      "burst": {
+      {
+        "id": "burst",
         "type": "attack",
         "name": "MODERN20.Attack.Burst",
         "attack": {
@@ -60,7 +51,6 @@
         "requiresAmmo": 5,
         "requiresFeat": "Burst Fire"
       }
-    }
-  },
-  "_key": "!items!x9SH7HNTgkydPrMw"
-}
+    ]
+  }
+};
