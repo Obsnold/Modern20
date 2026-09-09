@@ -1,6 +1,6 @@
 {
-  "_id": "0atI1BuS8KASLnt9",
-  "name": "Bayonet (fixed) 1",
+  "_id": "uQYHyMxsLzo3FU1n",
+  "name": "Sword cane",
   "type": "weapon",
   "img": "icons/svg/item-bag.svg",
   "system": {
@@ -8,16 +8,16 @@
     "quantity": 1,
     "equipped": false,
     "category": "archaic",
-    "damage": "1d4/1d6",
+    "damage": "1d6",
     "damageType": "piercing",
-    "critical": "20",
+    "critical": "18-20",
     "rangeIncrement": 0,
     "rateOfFire": "",
     "magazine": "",
-    "size": "large",
+    "size": "med",
     "ranged": false,
-    "weight": 1.0,
-    "purchaseDC": 7,
+    "weight": 3.0,
+    "purchaseDC": 9,
     "restriction": "none",
     "burstRadius": "",
     "reflexDC": null,
@@ -33,5 +33,5 @@
       }
     }
   },
-  "_key": "!items!0atI1BuS8KASLnt9"
+  "_key": "!items!uQYHyMxsLzo3FU1n"
 }

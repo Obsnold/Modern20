@@ -1,6 +1,6 @@
 {
-  "_id": "SSNc2qenUznAzm5k",
-  "name": "Three-section staff 1",
+  "_id": "PKiq8wK7kR74vFGB",
+  "name": "Nunchaku",
   "type": "weapon",
   "img": "icons/svg/item-bag.svg",
   "system": {
@@ -8,16 +8,16 @@
     "quantity": 1,
     "equipped": false,
     "category": "archaic",
-    "damage": "1d10/1d10",
+    "damage": "1d6",
     "damageType": "bludgeoning",
     "critical": "20",
     "rangeIncrement": 0,
     "rateOfFire": "",
     "magazine": "",
-    "size": "large",
+    "size": "small",
     "ranged": false,
-    "weight": 3.0,
-    "purchaseDC": 4,
+    "weight": 2.0,
+    "purchaseDC": 3,
     "restriction": "none",
     "burstRadius": "",
     "reflexDC": null,
@@ -33,5 +33,5 @@
       }
     }
   },
-  "_key": "!items!SSNc2qenUznAzm5k"
+  "_key": "!items!PKiq8wK7kR74vFGB"
 }

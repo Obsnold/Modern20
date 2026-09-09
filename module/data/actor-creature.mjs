@@ -23,7 +23,6 @@ export class Modern20Creature extends Modern20ActorBase {
       // Fresh field instances: a DataField cannot be shared between schemas.
       attributes: new fields.SchemaField({
         ...attributeFields(),
-        reach: int(5),
         space: int(5)
       }),
       senses: new fields.StringField({ initial: "" }),
