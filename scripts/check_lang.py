@@ -13,12 +13,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEY = re.compile(r"MODERN20\.[A-Za-z0-9_.]+")
 SKIP_DIRS = {".git", ".cache", "node_modules", "packs", ".venv"}
 
-# Keys assembled at runtime from a type or tab id, which the regex cannot see.
-# Keys assembled at runtime: item-type labels, and the tab labels ApplicationV2
-# builds from each sheet's TABS labelPrefix.
+# Keys assembled at runtime from an id the regex cannot see: item-type labels,
+# the tab labels ApplicationV2 builds from each sheet's TABS labelPrefix, and
+# the settings names and hints, which Foundry looks up from the setting key.
+# Settings get a stricter check of their own in scripts/check_models.mjs, which
+# can read the real key list rather than guessing at a prefix.
 DYNAMIC_PREFIXES = ("MODERN20.ItemType.", "MODERN20.Tab.", "MODERN20.Creator.Tab.",
                     "MODERN20.Condition.", "MODERN20.Activity.Type.",
-                    "MODERN20.Activity.OnSuccess.", "MODERN20.Action.")
+                    "MODERN20.Activity.OnSuccess.", "MODERN20.Action.",
+                    "MODERN20.Settings.")
 
 
 def flatten(node, prefix=""):

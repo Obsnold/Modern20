@@ -5,6 +5,7 @@ import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazine
 import { activityAction } from "../apps/actions.mjs";
 import { Modern20AttackDialog } from "../apps/attack-dialog.mjs";
 import { announce, acknowledge, problem } from "../apps/announce.mjs";
+import { setting } from "../settings.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
@@ -18,6 +19,21 @@ export class Modern20Item extends Item {
    * a modifier dialog that people turn off.
    */
   static #lastModifiers = {};
+
+  /**
+   * Whether to ask about circumstance modifiers.
+   *
+   * "always" asks unless shift is held; "shift" inverts that, so a plain click
+   * rolls straight through and shift opens the dialog; "never" never asks.
+   * Client-scoped, since it is a preference about rolling rather than a rule.
+   */
+  static #wantsDialog(shiftKey) {
+    const mode = setting("attackDialog");
+    if (mode === "never") return false;
+    // "shift" inverts the default: a plain click rolls, shift asks.
+    if (mode === "shift") return Boolean(shiftKey);
+    return !shiftKey;
+  }
 
   /**
    * Seed a new item with the activities its type starts with.
@@ -58,13 +74,13 @@ export class Modern20Item extends Item {
    * either forces a save or simply happens, and its card carries its text so
    * the table can apply what the SRD describes in prose.
    */
-  async use(activityId = "", { skipDialog = false } = {}) {
+  async use(activityId = "", { shiftKey = false } = {}) {
     const activity = this.activities.find((entry) => entry.id === activityId)
       ?? this.activities[0];
     if (!activity) return this.toChat();
 
     const card = activity.type === "attack"
-      ? this.rollAttack({ activityId: activity.id, spendAction: false, skipDialog })
+      ? this.rollAttack({ activityId: activity.id, spendAction: false, shiftKey })
       : activity.type === "save"
         ? postSaveCard(this, activity)
         : postCastCard(this, activity);
@@ -86,14 +102,14 @@ export class Modern20Item extends Item {
    * is at the lower bonus the table gives, applied as a penalty on top of the
    * character's own attack bonus.
    */
-  async fullAttack({ activityId = "shot", skipDialog = false } = {}) {
+  async fullAttack({ activityId = "shot", shiftKey = false } = {}) {
     if (this.type !== "weapon") throw new Error("Only weapons can make a full attack");
     const sequence = this.actor?.attackSequence ?? [0];
 
     // Asked once for the whole sequence: the circumstances do not change
     // between attacks made in the same action.
     let modifiers = {};
-    if (!skipDialog) {
+    if (Modern20Item.#wantsDialog(shiftKey)) {
       modifiers = await new Modern20AttackDialog(this, {
         activityId, remembered: Modern20Item.#lastModifiers
       }).prompt();
@@ -189,14 +205,14 @@ export class Modern20Item extends Item {
    * @param {object}  [options]
    * @param {number}  [options.situational]  A flat modifier, added to whatever
    *   the dialog contributes.
-   * @param {boolean} [options.skipDialog]   Roll straight through, applying
-   *   nothing but what was passed. Shift-clicking an attack does this.
+   * @param {boolean} [options.shiftKey]     Whether shift was held, which
+   *   skips or opens the circumstance dialog depending on the setting.
    * @param {object}  [options.modifiers]    Circumstances already chosen, used
    *   by a full attack so the dialog is answered once for the sequence.
    */
   async rollAttack({
     situational = 0, activityId = "shot", spendAction = true,
-    skipDialog = false, modifiers = null
+    shiftKey = false, modifiers = null
   } = {}) {
     if (this.type !== "weapon") throw new Error("Only weapons can roll attacks");
 
@@ -205,7 +221,7 @@ export class Modern20Item extends Item {
     }
 
     let chosen = modifiers;
-    if (!chosen && !skipDialog) {
+    if (!chosen && Modern20Item.#wantsDialog(shiftKey)) {
       chosen = await new Modern20AttackDialog(this, {
         activityId,
         remembered: Modern20Item.#lastModifiers

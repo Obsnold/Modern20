@@ -2,6 +2,7 @@ import { MODERN20 } from "../config.mjs";
 import { rollWealthCheck, commitWealthLoss } from "../dice/wealth.mjs";
 import { ACTION_COST, STANCES, canAfford, attackSequence } from "../apps/actions.mjs";
 import { announce, problem } from "../apps/announce.mjs";
+import { setting } from "../settings.mjs";
 
 // Foundry v14 removed the bare Actor/Item/Roll/ChatMessage globals; only
 // CONFIG, Hooks, game and ui survive. Everything else comes off the namespace.
@@ -105,7 +106,7 @@ export class Modern20Actor extends Actor {
       return null;
     }
 
-    const roll = await new Roll(MODERN20.actionPoints.die).evaluate();
+    const roll = await new Roll(setting("actionPointDie")).evaluate();
     await this.update({ "system.actionPoints.value": ap.value - 1 });
     await roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this }),
@@ -158,19 +159,27 @@ export class Modern20Actor extends Actor {
     await this.update({ "system.hp.value": value, "system.hp.temp": temp });
 
     const threshold = this.system.attributes?.massiveDamage;
+    const reduced = MODERN20.massiveDamage.reducedHitPoints;
     if (ignoreMassive || !threshold || amount < threshold) return { value, massive: false };
+    if (!setting("massiveDamage")) return { value, massive: false };
 
+    // "If the damage would reduce the creature to -1 hit points or fewer
+    // anyway, the massive damage threshold does not apply, and the creature
+    // does not need to make a Fortitude save."
+    if (value <= reduced) return { value, massive: false };
+
+    // "Constructs, elementals, oozes, plants, and undead ignore the effects of
+    // massive damage and do not have massive damage thresholds."
+    if (this.isImmuneToMassiveDamage) return { value, massive: false };
+
+    const dc = setting("massiveDamageDC");
     const save = await this.rollSave("fort", {
-      flavor: game.i18n.format("MODERN20.Chat.MassiveDamage", {
-        dc: MODERN20.massiveDamage.defaultSaveDC
-      })
+      flavor: game.i18n.format("MODERN20.Chat.MassiveDamage", { dc })
     });
 
-    const failed = save.total < MODERN20.massiveDamage.defaultSaveDC;
-    if (failed) {
-      await this.update({ "system.hp.value": MODERN20.massiveDamage.reducedHitPoints });
-    }
-    return { value: failed ? MODERN20.massiveDamage.reducedHitPoints : value, massive: true, failed };
+    const failed = save.total < dc;
+    if (failed) await this.update({ "system.hp.value": reduced });
+    return { value: failed ? reduced : value, massive: true, failed };
   }
 
   /** Creature types the SRD says are "not subject to ... nonlethal damage". */
@@ -189,7 +198,23 @@ export class Modern20Actor extends Actor {
     const cost = ACTION_COST[actionType];
     if (!cost || foundry.utils.isEmpty(cost)) return true;
 
+    const mode = setting("actionBudget");
+    if (mode === "off") return true;
+
     const affordable = canAfford(this.system.turn, actionType);
+    // Blocking refuses without spending: nothing happened, so nothing is used.
+    if (!affordable && mode === "block") {
+      await announce(this, {
+        title: game.i18n.format("MODERN20.Action.Blocked", {
+          name: this.name,
+          action: game.i18n.localize(MODERN20.actionTypes[actionType] ?? actionType)
+        }),
+        lines: [this.#actionsLeft()],
+        warning: true
+      });
+      return false;
+    }
+
     const update = {};
     for (const [pool, amount] of Object.entries(cost)) {
       update[`system.turn.${pool}`] = (this.system.turn[pool] ?? 0) + amount;
@@ -380,8 +405,22 @@ export class Modern20Actor extends Actor {
   }
 
   get isImmuneToNonlethal() {
+    return this.#isCreatureType("construct", "undead", "ooze");
+  }
+
+  /**
+   * "Constructs, elementals, oozes, plants, and undead ignore the effects of
+   * massive damage and do not have massive damage thresholds."
+   *
+   * A different list from the nonlethal one, which is why it is its own.
+   */
+  get isImmuneToMassiveDamage() {
+    return this.#isCreatureType("construct", "elemental", "ooze", "plant", "undead");
+  }
+
+  #isCreatureType(...types) {
     const type = (this.system.details?.creatureType ?? "").toLowerCase();
-    return ["construct", "undead", "ooze"].some((immune) => type.includes(immune));
+    return types.some((immune) => type.includes(immune));
   }
 
   async #d20Roll(modifier, { flavor } = {}) {
