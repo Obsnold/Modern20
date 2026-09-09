@@ -14,6 +14,39 @@
     </div>
   </div>
 
+  {{#if casting.casters.length}}
+    <div class="m20-panel" data-player-allowed>
+      <h3>
+        {{localize "MODERN20.Cast.PerDay"}}
+        <button type="button" class="m20-button m20-button--small" data-action="restCasting"
+                data-tooltip="{{localize 'MODERN20.Cast.RestHint'}}">
+          {{localize "MODERN20.Cast.Rest"}}
+        </button>
+      </h3>
+
+      {{#each casting.pools as |pool|}}
+        <div class="m20-row">
+          <label>{{localize pool.label}}</label>
+          {{#each pool.slots as |slot|}}
+            <span class="m20-tag {{#unless slot.available}}m20-over{{/unless}}"
+                  data-tooltip="{{localize 'MODERN20.Cast.Level'}} {{slot.level}}">
+              {{slot.level}}: {{slot.available}}/{{slot.max}}
+            </span>
+          {{/each}}
+        </div>
+      {{/each}}
+
+      {{#if casting.powerPoints}}
+        <div class="m20-row">
+          <label>{{localize "MODERN20.Cast.PowerPoints"}}</label>
+          <span class="m20-mod {{#unless casting.powerPoints.value}}m20-over{{/unless}}">
+            {{casting.powerPoints.value}} / {{casting.powerPoints.max}}
+          </span>
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+
   {{#each casting.levels as |group|}}
     <div class="m20-itemlist">
       <h3>{{localize "MODERN20.Cast.Level"}} {{group.level}}</h3>

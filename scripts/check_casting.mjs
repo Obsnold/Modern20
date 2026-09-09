@@ -123,5 +123,71 @@ for (const testCase of dcCases) {
 }
 console.log(`${dcCases.length} save DC cases checked`);
 
+/* -- daily casting pools ------------------------------------------------ */
+
+// The four FX advanced classes that grant one, checked against the numbers
+// printed on their own pages.
+const classes = Object.fromEntries(
+  readdirSync(join(ROOT, "src", "packs", "classes"))
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => {
+      const document = JSON.parse(readFileSync(join(ROOT, "src", "packs", "classes", f), "utf8"));
+      return [document.name, document.system];
+    })
+);
+
+const poolCases = [
+  // "Mage Level 5: 4 3 2 1 - -", and an Intelligence of 16 adds "- 1 1 1 - -".
+  { className: "Mage", levels: 5, score: 16, kind: "spells",
+    tradition: "arcane", expected: [4, 4, 3, 2, 0, 0] },
+  // The same Mage with an unremarkable Intelligence gets the printed row.
+  { className: "Mage", levels: 5, score: 10, kind: "spells",
+    tradition: "arcane", expected: [4, 3, 2, 1, 0, 0] },
+  // "Acolyte Level 10: 6 5 5 4 4 3", Wisdom 20-21 adds "- 2 1 1 1 1".
+  { className: "Acolyte", levels: 10, score: 20, kind: "spells",
+    tradition: "divine", expected: [6, 7, 6, 5, 5, 4] },
+  // A score above the last printed bracket holds at that bracket.
+  { className: "Acolyte", levels: 1, score: 30, kind: "spells",
+    tradition: "divine", expected: [3, 4, 2, 1, 1, 1] },
+  // "Telepath Level 6: 15 Pts/Day", Charisma 18-19 adds 7.
+  { className: "Telepath", levels: 6, score: 18, kind: "powers", expected: 22 },
+  // A Battle Mind gets no bonus points from any score.
+  { className: "Battle Mind", levels: 10, score: 22, kind: "powers", expected: 33 }
+];
+
+for (const testCase of poolCases) {
+  const system = classes[testCase.className];
+  if (!system) { fail(`no ${testCase.className} in the classes pack`); continue; }
+
+  const row = system.casting.perDay[testCase.levels - 1] ?? [];
+  const bracket = (table) => table.find((r) => testCase.score >= r.min && testCase.score <= r.max)
+    ?? (testCase.score > (table.at(-1)?.max ?? 0) ? table.at(-1) : null);
+
+  if (testCase.kind === "spells") {
+    const bonus = bracket(system.casting.bonusByScore)?.bonus ?? [];
+    const got = row.map((count, level) => count + (bonus[level] ?? 0));
+    if (JSON.stringify(got) !== JSON.stringify(testCase.expected)) {
+      fail(`${testCase.className} level ${testCase.levels} at ${testCase.score}: `
+        + `expected ${JSON.stringify(testCase.expected)}, got ${JSON.stringify(got)}`);
+    }
+  } else {
+    const points = system.casting.pointsPerDay[testCase.levels - 1] ?? 0;
+    const got = points + (bracket(system.casting.bonusPointsByScore)?.points ?? 0);
+    if (got !== testCase.expected) {
+      fail(`${testCase.className} level ${testCase.levels} at ${testCase.score}: `
+        + `expected ${testCase.expected} power points, got ${got}`);
+    }
+  }
+}
+console.log(`${poolCases.length} daily pool cases checked`);
+
+// A class that grants no casting resource must say so rather than half-fill
+// the block: the Occultist's table is scrolls gained, not spells per day.
+for (const name of ["Occultist", "Shadow Slayer", "Strong Hero", "Soldier"]) {
+  const system = classes[name];
+  if (!system) { fail(`no ${name} in the classes pack`); continue; }
+  if (system.casting.kind) fail(`${name} should grant no casting resource, has "${system.casting.kind}"`);
+}
+
 console.log(problems ? `\n${problems} problems` : "\nall casting checks passed");
 process.exit(problems ? 1 : 0);

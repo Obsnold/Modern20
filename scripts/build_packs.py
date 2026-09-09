@@ -412,6 +412,7 @@ def build_classes() -> list[dict]:
                 "classSkills": entry["classSkills"],
                 "prerequisites": [entry["requirements"]] if entry.get("requirements") else [],
                 "progression": entry["progression"],
+                "casting": entry["casting"],
                 "source": "d20 Modern SRD",
                 "srdUrl": entry["srdUrl"],
             },

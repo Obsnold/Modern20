@@ -4,6 +4,21 @@ import { Modern20ActorBase, int } from "./actor-base.mjs";
 const fields = foundry.data.fields;
 
 /**
+ * The row of an ability-score table that covers a score.
+ *
+ * The SRD prints these as brackets - "16-17", "18-19" - and stops at 22-23,
+ * so a score above the table holds at its last row rather than dropping to
+ * nothing.
+ */
+function bracketFor(table, score) {
+  if (!table?.length || !score) return null;
+  const match = table.find((row) => score >= row.min && score <= row.max);
+  if (match) return match;
+  const last = table[table.length - 1];
+  return score > last.max ? last : null;
+}
+
+/**
  * The skill point budget for a set of class items.
  *
  * A class grants (its per-level points + Intelligence modifier) each level,
@@ -81,6 +96,17 @@ export class Modern20Hero extends Modern20ActorBase {
         { initial: [] }
       ),
 
+      // What has been spent today. The pools themselves are derived from the
+      // class items, so gaining a level or changing an ability score
+      // recomputes them rather than needing the sheet edited.
+      casting: new fields.SchemaField({
+        slotsUsed: new fields.SchemaField({
+          arcane: new fields.ArrayField(int(0, { min: 0 }), { initial: [] }),
+          divine: new fields.ArrayField(int(0, { min: 0 }), { initial: [] })
+        }),
+        powerPointsUsed: int(0, { min: 0 })
+      }),
+
       skillPoints: new fields.SchemaField({
         spentOverride: new fields.NumberField({
           required: false, nullable: true, integer: true, initial: null
@@ -112,9 +138,7 @@ export class Modern20Hero extends Modern20ActorBase {
     this.spellcasting.casterLevel =
       this.spellcasting.casterLevelOverride ?? this.details.level;
 
-    // Character level is only known now, and caster level follows it.
-    this.spellcasting.casterLevel =
-      this.spellcasting.casterLevelOverride ?? this.details.level;
+    this.#prepareCasting(classes);
 
     this.actionPoints.max =
       this.actionPoints.maxOverride ??
@@ -171,6 +195,59 @@ export class Modern20Hero extends Modern20ActorBase {
     this.saves.will.base += will;
     this.defense.classBonus += defense;
     this.reputation.base += reputation;
+  }
+
+  /**
+   * The daily casting pools, summed from every class that grants one.
+   *
+   * "Determine the Mage's total number of spells per day by consulting the two
+   * tables below" - the class level's row plus the bonus spells the ability
+   * score grants. Arcane and divine are separate pools, since a character with
+   * levels in both prepares from two lists.
+   */
+  #prepareCasting(classes) {
+    const slots = { arcane: [], divine: [] };
+    let points = 0;
+    const casters = [];
+
+    for (const cls of classes) {
+      const casting = cls.system.castingAtLevel;
+      if (!casting) continue;
+      casters.push({ name: cls.name, ...casting });
+
+      const score = casting.ability ? this.abilities[casting.ability]?.total ?? 0 : 0;
+
+      if (casting.kind === "spells") {
+        const bonus = bracketFor(casting.bonusByScore, score)?.bonus ?? [];
+        const pool = slots[casting.tradition] ?? slots.arcane;
+        casting.perDay.forEach((count, level) => {
+          // "A 0-level spell gains no bonus spells": the SRD's bonus table
+          // prints a dash in that column, which reads back as a zero.
+          pool[level] = (pool[level] ?? 0) + count + (bonus[level] ?? 0);
+        });
+      } else if (casting.kind === "powers") {
+        points += casting.points + (bracketFor(casting.bonusPointsByScore, score)?.points ?? 0);
+      }
+    }
+
+    const used = this.casting.slotsUsed;
+    this.casting.slots = Object.fromEntries(
+      Object.entries(slots).map(([tradition, pool]) => [
+        tradition,
+        pool.map((max, level) => {
+          const spent = used[tradition]?.[level] ?? 0;
+          return { level, max, used: spent, available: Math.max(0, max - spent) };
+        })
+      ])
+    );
+
+    this.casting.powerPoints = {
+      max: points,
+      used: this.casting.powerPointsUsed,
+      value: Math.max(0, points - this.casting.powerPointsUsed)
+    };
+    this.casting.casters = casters;
+    this.casting.any = casters.length > 0;
   }
 
   /** The starting class is the first class item in sort order. */

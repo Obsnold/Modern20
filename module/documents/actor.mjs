@@ -169,6 +169,70 @@ export class Modern20Actor extends Actor {
   }
 
   /** Creature types the SRD says are "not subject to ... nonlethal damage". */
+  /**
+   * Spend a spell slot of this level from this list.
+   *
+   * Reports whether one was there rather than refusing to cast: the SRD has
+   * spontaneous casting, scrolls, items and a GM, and a sheet that blocks a
+   * cast is worse than one that says the slot is gone. Actors with no slot
+   * table at all - a creature with spell-like abilities, an NPC - spend
+   * nothing and are not warned.
+   */
+  async spendSpellSlot(tradition, level) {
+    const pool = this.system.casting?.slots?.[tradition];
+    if (!pool?.length) return true;
+
+    const slot = pool[level];
+    if (!slot?.max) return true;
+
+    const used = [...(this.system.casting.slotsUsed[tradition] ?? [])];
+    while (used.length <= level) used.push(0);
+    used[level] += 1;
+    await this.update({ [`system.casting.slotsUsed.${tradition}`]: used });
+
+    if (slot.available < 1) {
+      ui.notifications.warn(game.i18n.format("MODERN20.Cast.NoSlots", {
+        name: this.name, level
+      }));
+      return false;
+    }
+    return true;
+  }
+
+  /** Spend power points, reporting whether the pool covered them. */
+  async spendPowerPoints(cost) {
+    const pool = this.system.casting?.powerPoints;
+    if (!pool?.max || cost < 1) return true;
+
+    await this.update({
+      "system.casting.powerPointsUsed": this.system.casting.powerPointsUsed + cost
+    });
+
+    if (pool.value < cost) {
+      ui.notifications.warn(game.i18n.format("MODERN20.Cast.NoPoints", {
+        name: this.name, cost
+      }));
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * A night's rest: spells are prepared again and the power point pool
+   * refills. Prepared counts on individual spells are left alone — what a
+   * caster prepares is a choice, not something to restore automatically.
+   */
+  async restoreCasting() {
+    if (!this.system.casting) return null;
+    await this.update({
+      "system.casting.slotsUsed.arcane": [],
+      "system.casting.slotsUsed.divine": [],
+      "system.casting.powerPointsUsed": 0
+    });
+    ui.notifications.info(game.i18n.format("MODERN20.Cast.Rested", { name: this.name }));
+    return this;
+  }
+
   get isImmuneToNonlethal() {
     const type = (this.system.details?.creatureType ?? "").toLowerCase();
     return ["construct", "undead", "ooze"].some((immune) => type.includes(immune));

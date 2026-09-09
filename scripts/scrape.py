@@ -109,7 +109,11 @@ def labelled_value(lines: list[str], label: str) -> str:
 def class_pages() -> dict[str, str]:
     """Class page -> tier, discovered from the two index pages."""
     pages = {}
-    for index_page, tier in (("basicclasses.html", "basic"), ("advancedclasses.html", "advanced")):
+    # The FX chapter keeps its advanced classes - the ones that cast - on an
+    # index of their own, so they are not reachable from advancedclasses.html.
+    for index_page, tier in (("basicclasses.html", "basic"),
+                             ("advancedclasses.html", "advanced"),
+                             ("fxadvanced.html", "advanced")):
         try:
             html_text = srd.fetch(index_page)
         except Exception:
@@ -149,6 +153,96 @@ def parse_progression(table: dict) -> list[dict]:
 
         rows.append(row)
     return rows
+
+
+def score_range(text: str) -> tuple[int, int] | None:
+    """"12-13" becomes (12, 13); the SRD's last row is open-ended."""
+    numbers = [int(n) for n in re.findall(r"\d+", text or "")]
+    if not numbers:
+        return None
+    return (numbers[0], numbers[1] if len(numbers) > 1 else numbers[0])
+
+
+def cells_to_ints(cells: list[str]) -> list[int]:
+    """A row of table cells as numbers; the SRD writes "none" as a dash."""
+    return [srd.to_int(c.strip(), 0) or 0 for c in cells]
+
+
+def find_table(tables: list[dict], *needles: str) -> dict | None:
+    """The first table whose header mentions all of these words."""
+    for table in tables:
+        header = " ".join(table["header"]).lower()
+        if all(needle.lower() in header for needle in needles):
+            return table
+    return None
+
+
+def parse_casting(page_html: str, lines: list[str]) -> dict:
+    """A class's daily casting resource, read from the tables on its page.
+
+    Four of the FX advanced classes have one. A Mage and an Acolyte prepare a
+    number of spells of each level per day, with bonus spells from an ability
+    score; a Battle Mind and a Telepath spend power points from a daily pool.
+    A class with neither gets an empty block, which is most of them.
+    """
+    tables = srd.annotated_tables(page_html)
+    text = " ".join(lines)
+    empty = {
+        "kind": "", "tradition": "", "ability": "",
+        "perDay": [], "bonusByScore": [],
+        "pointsPerDay": [], "bonusPointsByScore": [], "powersKnown": [],
+    }
+
+    per_day = find_table(tables, "spells per day")
+    powers = find_table(tables, "powers discovered")
+
+    if per_day:
+        # "the Mage receives bonus spells based on his Intelligence score"
+        ability = re.search(
+            r"bonus spells based on (?:his|her|their) (\w+) score", text, re.I)
+        tradition = "divine" if re.search(r"cast divine spells", text, re.I) else "arcane"
+        bonus = find_table(tables, "bonus spells")
+        return {
+            **empty,
+            "kind": "spells",
+            "tradition": tradition,
+            "ability": ABILITY_WORDS.get((ability.group(1) if ability else "").lower(), ""),
+            # The first row of both tables is the spell-level header, which
+            # `annotated_tables` cannot tell from data: the real header cell
+            # spans it.
+            "perDay": [cells_to_ints(row[1:]) for row in per_day["rows"]
+                       if ORDINAL.match(row[0].strip())],
+            "bonusByScore": [
+                {"min": low, "max": high, "bonus": cells_to_ints(row[1:])}
+                for row in (bonus["rows"] if bonus else [])
+                if (score := score_range(row[0])) and (low := score[0]) and (high := score[1])
+            ],
+        }
+
+    if powers:
+        # "This number is improved by bonus points determined by the
+        # Telepath's Charisma score". A Battle Mind has no such table.
+        ability = re.search(
+            r"bonus points determined by the \w+(?: \w+)?[’\']s (\w+) score", text, re.I)
+        bonus = find_table(tables, "bonus power points")
+        rows = [row for row in powers["rows"] if ORDINAL.match(row[0].strip())]
+        return {
+            **empty,
+            "kind": "powers",
+            "ability": ABILITY_WORDS.get((ability.group(1) if ability else "").lower(), ""),
+            # Column order is level, points per day, then powers known by power
+            # level. The header cell for the powers spans them, so position is
+            # the only guide.
+            "pointsPerDay": [srd.to_int(row[1], 0) or 0 for row in rows],
+            "powersKnown": [cells_to_ints(row[2:]) for row in rows],
+            "bonusPointsByScore": [
+                {"min": score[0], "max": score[1], "points": srd.to_int(row[1], 0) or 0}
+                for row in (bonus["rows"] if bonus else [])
+                if (score := score_range(row[0]))
+            ],
+        }
+
+    return empty
 
 
 ABILITY_TOKENS = {"str", "dex", "con", "int", "wis", "cha", "none"}
@@ -248,6 +342,7 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
             "requirements": labelled_value(lines, "Requirements"),
             "actionPoints": labelled_value(lines, "Action Points"),
             "progression": parse_progression(table),
+            "casting": parse_casting(page_html, lines),
             "srdUrl": srd.page_url(page),
         })
 

@@ -409,6 +409,15 @@
           "biography": {
             "label": "Biography"
           },
+          "casting": {
+            "label": "Casting"
+          },
+          "casting.powerPointsUsed": {
+            "label": "Power Points Used"
+          },
+          "casting.slotsUsed": {
+            "label": "Slots Used"
+          },
           "defense": {
             "label": "Defense"
           },
@@ -1034,9 +1043,16 @@
       "Level": "Level",
       "Manifest": "Manifest",
       "Manifests": "manifests {name}",
+      "NoPoints": "{name} does not have {cost} power points left.",
+      "NoSlots": "{name} has no level {level} spells left today.",
       "None": "No spells or psionic powers yet.",
+      "PerDay": "Per Day",
+      "PowerPoints": "Power points",
       "PowerPointsShort": "pp",
       "PreparedHint": "Prepared copies remaining; casting uses one.",
+      "Rest": "Rest",
+      "RestHint": "Regain the day's spells and power points.",
+      "Rested": "{name} regains the day's spells and power points.",
       "Title": "Spells and Powers",
       "TraditionHint": "Which list this was learned from: arcane casting keys off Intelligence, divine off Wisdom."
     },
@@ -1313,6 +1329,33 @@
         "FIELDS": {
           "activities": {
             "label": "Activities"
+          },
+          "casting": {
+            "label": "Casting"
+          },
+          "casting.ability": {
+            "label": "Ability"
+          },
+          "casting.bonusByScore": {
+            "label": "Bonus By Score"
+          },
+          "casting.bonusPointsByScore": {
+            "label": "Bonus Points By Score"
+          },
+          "casting.kind": {
+            "label": "Kind"
+          },
+          "casting.perDay": {
+            "label": "Per Day"
+          },
+          "casting.pointsPerDay": {
+            "label": "Points per Day"
+          },
+          "casting.powersKnown": {
+            "label": "Powers Known"
+          },
+          "casting.tradition": {
+            "label": "Tradition"
           },
           "classSkills": {
             "label": "Class Skills"

@@ -1,0 +1,317 @@
+{
+  "_id": "ioyopN2SA2UkdcnH",
+  "name": "Acolyte",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "The Acolyte gains 1d8 hit points per level. The character’s Constitution modifier applies.",
+    "skillPointsPerLevel": 3,
+    "classSkills": [],
+    "prerequisites": [
+      "To qualify to become an Acolyte, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Divine skills",
+          "divine spells"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Turn or rebuke undead",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Spontaneous cast",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Combat casting",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 7,
+        "features": [
+          "Turn or rebuke magical beast",
+          "divine spells"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 8,
+        "features": [
+          "Turn or rebuke outsider",
+          "divine spells"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 4
+      },
+      {
+        "level": 10,
+        "features": [
+          "Maximize spell",
+          "divine spells"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 5
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "divine",
+      "ability": "wis",
+      "perDay": [
+        [
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          4,
+          3,
+          0,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          3,
+          2
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          4,
+          3
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            0,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            0,
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/acolyte.html"
+  },
+  "_key": "!items!ioyopN2SA2UkdcnH"
+}

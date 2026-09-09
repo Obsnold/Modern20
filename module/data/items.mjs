@@ -47,7 +47,74 @@ export class Modern20Class extends Modern20ItemBase {
           features: new fields.ArrayField(new fields.StringField(), { initial: [] })
         }),
         { initial: [] }
-      )
+      ),
+
+      /**
+       * The daily casting resource this class grants, if any.
+       *
+       * A Mage and an Acolyte prepare a number of spells of each level per
+       * day, plus bonus spells from an ability score. A Battle Mind and a
+       * Telepath spend power points from a daily pool. Everything else leaves
+       * `kind` blank and contributes nothing.
+       */
+      casting: new fields.SchemaField({
+        kind: new fields.StringField({ initial: "", choices: ["", "spells", "powers"] }),
+        tradition: new fields.StringField({ initial: "", choices: ["", "arcane", "divine"] }),
+        // The ability that grants bonus spells or bonus power points. Blank
+        // for a Battle Mind, which the SRD gives neither.
+        ability: new fields.StringField({ initial: "" }),
+        // Spells per day, one row per class level, each a count per spell level.
+        perDay: new fields.ArrayField(
+          new fields.ArrayField(int(0, { min: 0 }), { initial: [] }), { initial: [] }
+        ),
+        // "Int Score 16-17: - 1 1 1 - -": extra spells for a high score.
+        bonusByScore: new fields.ArrayField(
+          new fields.SchemaField({
+            min: int(0, { min: 0 }),
+            max: int(0, { min: 0 }),
+            bonus: new fields.ArrayField(int(0, { min: 0 }), { initial: [] })
+          }),
+          { initial: [] }
+        ),
+        // Power points per day, one per class level.
+        pointsPerDay: new fields.ArrayField(int(0, { min: 0 }), { initial: [] }),
+        bonusPointsByScore: new fields.ArrayField(
+          new fields.SchemaField({
+            min: int(0, { min: 0 }),
+            max: int(0, { min: 0 }),
+            points: int(0, { min: 0 })
+          }),
+          { initial: [] }
+        ),
+        // Powers known, one row per class level. Recorded because the SRD
+        // prints it; nothing enforces it.
+        powersKnown: new fields.ArrayField(
+          new fields.ArrayField(int(0, { min: 0 }), { initial: [] }), { initial: [] }
+        )
+      })
+    };
+  }
+
+  /**
+   * What this class contributes at the number of levels the character has.
+   *
+   * The row for the class level, not the last row: a 4th-level Mage prepares
+   * a 4th-level Mage's spells. Levels past the table's end hold at its last
+   * row, the same rule `bonusesAtLevel` uses for the progression table.
+   */
+  get castingAtLevel() {
+    const casting = this.casting;
+    if (!casting.kind || this.levels < 1) return null;
+
+    const row = (table) => table[Math.min(this.levels, table.length) - 1] ?? null;
+    return {
+      kind: casting.kind,
+      tradition: casting.tradition,
+      ability: casting.ability,
+      perDay: row(casting.perDay) ?? [],
+      points: casting.pointsPerDay[Math.min(this.levels, casting.pointsPerDay.length) - 1] ?? 0,
+      bonusByScore: casting.bonusByScore,
+      bonusPointsByScore: casting.bonusPointsByScore
     };
   }
 

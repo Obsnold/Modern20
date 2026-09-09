@@ -1,0 +1,392 @@
+{
+  "_id": "JbyL1WSGDpbJsVCA",
+  "name": "Mage",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Mage, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Arcane skills",
+          "arcane spells",
+          "summon familiar"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Scribe scroll",
+          "arcane spells"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "arcane spells",
+          "brew potion"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Scribe tattoo",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Spell mastery",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Combat casting",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Spell mastery",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Maximize spell",
+          "arcane spells"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "arcane",
+      "ability": "int",
+      "perDay": [
+        [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          3,
+          2
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            0,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            0,
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/mage.html"
+  },
+  "_key": "!items!JbyL1WSGDpbJsVCA"
+}

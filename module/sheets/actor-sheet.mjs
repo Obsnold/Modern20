@@ -42,7 +42,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       unpackItem: Modern20ActorSheetBase.#onUnpackItem,
       reloadWeapon: Modern20ActorSheetBase.#onReloadWeapon,
       detachItem: Modern20ActorSheetBase.#onDetachItem,
-      useActivity: Modern20ActorSheetBase.#onUseActivity
+      useActivity: Modern20ActorSheetBase.#onUseActivity,
+      restCasting: Modern20ActorSheetBase.#onRestCasting
     }
   };
 
@@ -170,9 +171,26 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       if (!levels.has(row.level)) levels.set(row.level, []);
       levels.get(row.level).push(row);
     }
+    // The daily pools, flattened for display: each list's slots by level, and
+    // the power point pool where a psionic class grants one.
+    const casting = this.document.system.casting ?? {};
+    const pools = [];
+    for (const [tradition, slots] of Object.entries(casting.slots ?? {})) {
+      const used = (slots ?? []).filter((slot) => slot.max > 0);
+      if (used.length) {
+        pools.push({
+          label: MODERN20.traditions[tradition] ?? tradition,
+          slots: used
+        });
+      }
+    }
+
     return {
       any: rows.length > 0,
       casterLevel: this.document.system.spellcasting?.casterLevel ?? 1,
+      pools,
+      powerPoints: casting.powerPoints?.max ? casting.powerPoints : null,
+      casters: casting.casters ?? [],
       levels: [...levels.entries()].map(([level, entries]) => ({ level, entries }))
     };
   }
@@ -336,6 +354,16 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     const item = this._itemFromEvent(target);
     if (!item) return;
     await item.update({ "system.container": "" });
+  }
+
+  /**
+   * Regain the day's spells and power points.
+   *
+   * Deliberately not GM-only: resting is something a character does in play,
+   * like equipping, and the pools it restores are the ones casting spent.
+   */
+  static async #onRestCasting() {
+    await this.document.restoreCasting();
   }
 
   /** Use one of an item's activities. */

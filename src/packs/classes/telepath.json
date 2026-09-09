@@ -1,0 +1,335 @@
+{
+  "_id": "YxUSGYUWI5Yw6W9e",
+  "name": "Telepath",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "The Telepath gains 1d6 hit points per level. The character’s Constitution modifier applies.",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Philosophy And Theology"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Telepath, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Psionic skills",
+          "psionic powers"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 0,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Trigger power",
+          "psionic powers"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Power crystal",
+          "psionic powers"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Trigger power",
+          "psionic powers"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Combat manifestation",
+          "psionic powers"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Trigger power",
+          "psionic powers"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Maximize power",
+          "psionic powers"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 3,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "powers",
+      "tradition": "",
+      "ability": "cha",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [
+        2,
+        3,
+        4,
+        7,
+        10,
+        15,
+        20,
+        27,
+        34,
+        43
+      ],
+      "bonusPointsByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "points": 1
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "points": 3
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "points": 5
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "points": 7
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "points": 9
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "points": 11
+        }
+      ],
+      "powersKnown": [
+        [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          2,
+          0
+        ],
+        [
+          6,
+          4,
+          3,
+          3,
+          2,
+          1
+        ]
+      ]
+    },
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/telepath.html"
+  },
+  "_key": "!items!YxUSGYUWI5Yw6W9e"
+}

@@ -1,5 +1,601 @@
 [
   {
+    "id": "acolyte",
+    "name": "Acolyte",
+    "tier": "advanced",
+    "hitDie": "The Acolyte gains 1d8 hit points per level. The character’s Constitution modifier applies.",
+    "skillPointsPerLevel": 3,
+    "classSkills": [],
+    "requirements": "To qualify to become an Acolyte, a character must fulfill the following criteria.",
+    "actionPoints": "The Acolyte gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Divine skills",
+          "divine spells"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Turn or rebuke undead",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Spontaneous cast",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Combat casting",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 7,
+        "features": [
+          "Turn or rebuke magical beast",
+          "divine spells"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 8,
+        "features": [
+          "Turn or rebuke outsider",
+          "divine spells"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 4
+      },
+      {
+        "level": 10,
+        "features": [
+          "Maximize spell",
+          "divine spells"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 5
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "divine",
+      "ability": "wis",
+      "perDay": [
+        [
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          4,
+          3,
+          0,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          3,
+          2
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          4,
+          3
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            0,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            0,
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/acolyte.html"
+  },
+  {
+    "id": "battleMind",
+    "name": "Battle Mind",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Battle Mind, a character must fulfill the following criteria.",
+    "actionPoints": "The Battle Mind gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Psionic skills",
+          "psionic powers"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Psi-blade",
+          "imprint tattoo",
+          "psionic powers"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Psychic shield",
+          "psionic powers"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Combat manifestation",
+          "psionic powers"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Improved psi-blade",
+          "psionic powers"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Improved psychic shield",
+          "psionic powers"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 2,
+        "defense": 6,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 3,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Ultimate psi-blade",
+          "psionic powers"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 3,
+        "defense": 7,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "powers",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        11,
+        16,
+        21,
+        26,
+        33
+      ],
+      "bonusPointsByScore": [],
+      "powersKnown": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          1,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          3,
+          3,
+          3,
+          1,
+          0
+        ],
+        [
+          3,
+          3,
+          3,
+          2,
+          0
+        ],
+        [
+          3,
+          3,
+          3,
+          2,
+          1
+        ]
+      ]
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/battlemind.html"
+  },
+  {
     "id": "bodyguard",
     "name": "Bodyguard",
     "tier": "advanced",
@@ -199,6 +795,16 @@
         "reputation": 3
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/bodyguard.html"
   },
   {
@@ -445,6 +1051,16 @@
         "reputation": 5
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
   },
   {
@@ -655,6 +1271,16 @@
         "reputation": 3
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/daredevil.html"
   },
   {
@@ -897,6 +1523,16 @@
         "reputation": 4
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
   },
   {
@@ -1095,6 +1731,16 @@
         "reputation": 3
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
   },
   {
@@ -1301,6 +1947,16 @@
         "reputation": 4
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fieldmedic.html"
   },
   {
@@ -1519,6 +2175,16 @@
         "reputation": 3
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fieldscientist.html"
   },
   {
@@ -1725,6 +2391,16 @@
         "reputation": 3
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/gunslinger.html"
   },
   {
@@ -1947,6 +2623,16 @@
         "reputation": 4
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/infiltrator.html"
   },
   {
@@ -2160,7 +2846,399 @@
         "reputation": 4
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/investigator.html"
+  },
+  {
+    "id": "mage",
+    "name": "Mage",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Mage, a character must fulfill the following criteria.",
+    "actionPoints": "The Mage gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Arcane skills",
+          "arcane spells",
+          "summon familiar"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Scribe scroll",
+          "arcane spells"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "arcane spells",
+          "brew potion"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Scribe tattoo",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Spell mastery",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Combat casting",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Spell mastery",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Maximize spell",
+          "arcane spells"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "arcane",
+      "ability": "int",
+      "perDay": [
+        [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          3,
+          2
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            0,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            0,
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/mage.html"
   },
   {
     "id": "martialArtist",
@@ -2358,6 +3436,16 @@
         "reputation": 2
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/martialartist.html"
   },
   {
@@ -2568,7 +3656,210 @@
         "reputation": 4
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/negotiator.html"
+  },
+  {
+    "id": "occultist",
+    "name": "Occultist",
+    "tier": "advanced",
+    "hitDie": "The Occultist gains 1d6 hit points per level. The character’s Constitution modifier applies.",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Occultist, a character must fulfill the following criteria.",
+    "actionPoints": "The Occultist gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Arcane skills",
+          "spell resistance"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 1,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Arcane research (scrolls)"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Shadow contact"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Bind Shadow creature"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Arcane research (items)"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Bind Shadow creature"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Banish"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 5,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/occultist.html"
   },
   {
     "id": "personality",
@@ -2766,7 +4057,221 @@
         "reputation": 5
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/personality.html"
+  },
+  {
+    "id": "shadowSlayer",
+    "name": "Shadow Slayer",
+    "tier": "advanced",
+    "hitDie": "The Shadow Slayer gains 1d8 hit points per level. The character’s Constitution modifier applies.",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Shadow Slayer, a character must fulfill the following criteria.",
+    "actionPoints": "The Shadow Slayer gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Detect Shadow"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Shadow immunity"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Slayer weapon"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Shadow enemy"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Shadow enemy"
+        ],
+        "baseAttack": 7,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Fast healing"
+        ],
+        "baseAttack": 8,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 9,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Word of slaying"
+        ],
+        "baseAttack": 10,
+        "fort": 5,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/shadowslayer.html"
   },
   {
     "id": "smartHero",
@@ -3036,6 +4541,16 @@
         "reputation": 4
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
   },
   {
@@ -3234,6 +4749,16 @@
         "reputation": 2
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/soldier.html"
   },
   {
@@ -3420,6 +4945,16 @@
         "reputation": 2
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
   },
   {
@@ -3626,7 +5161,342 @@
         "reputation": 3
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/techie.html"
+  },
+  {
+    "id": "telepath",
+    "name": "Telepath",
+    "tier": "advanced",
+    "hitDie": "The Telepath gains 1d6 hit points per level. The character’s Constitution modifier applies.",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Philosophy And Theology"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Telepath, a character must fulfill the following criteria.",
+    "actionPoints": "The Telepath gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Psionic skills",
+          "psionic powers"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 0,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Trigger power",
+          "psionic powers"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Power crystal",
+          "psionic powers"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Trigger power",
+          "psionic powers"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Combat manifestation",
+          "psionic powers"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Trigger power",
+          "psionic powers"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "psionic powers"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Maximize power",
+          "psionic powers"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 3,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "powers",
+      "tradition": "",
+      "ability": "cha",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [
+        2,
+        3,
+        4,
+        7,
+        10,
+        15,
+        20,
+        27,
+        34,
+        43
+      ],
+      "bonusPointsByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "points": 1
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "points": 3
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "points": 5
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "points": 7
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "points": 9
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "points": 11
+        }
+      ],
+      "powersKnown": [
+        [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          2,
+          0
+        ],
+        [
+          6,
+          4,
+          3,
+          3,
+          2,
+          1
+        ]
+      ]
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/telepath.html"
   },
   {
     "id": "toughHero",
@@ -3820,6 +5690,16 @@
         "reputation": 3
       }
     ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
   }
 ]

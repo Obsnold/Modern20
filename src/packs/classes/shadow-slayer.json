@@ -1,6 +1,6 @@
 {
-  "_id": "sn2igHzan7RmHU0q",
-  "name": "Negotiator",
+  "_id": "H2d3mkaL0pO70NAh",
+  "name": "Shadow Slayer",
   "type": "class",
   "img": "icons/svg/upgrade.svg",
   "system": {
@@ -8,27 +8,15 @@
     "tier": "advanced",
     "levels": 1,
     "keyAbility": "",
-    "hitDie": "1d8",
+    "hitDie": "The Shadow Slayer gains 1d8 hit points per level. The character’s Constitution modifier applies.",
     "skillPointsPerLevel": 3,
     "classSkills": [
       {
-        "skill": "bluff",
+        "skill": "climb",
         "specialty": ""
       },
       {
-        "skill": "computerUse",
-        "specialty": ""
-      },
-      {
-        "skill": "diplomacy",
-        "specialty": ""
-      },
-      {
-        "skill": "drive",
-        "specialty": ""
-      },
-      {
-        "skill": "gamble",
+        "skill": "concentration",
         "specialty": ""
       },
       {
@@ -40,20 +28,8 @@
         "specialty": ""
       },
       {
-        "skill": "investigate",
+        "skill": "jump",
         "specialty": ""
-      },
-      {
-        "skill": "knowledge",
-        "specialty": "Behavioral Sciences"
-      },
-      {
-        "skill": "knowledge",
-        "specialty": "Business"
-      },
-      {
-        "skill": "knowledge",
-        "specialty": "Civics"
       },
       {
         "skill": "knowledge",
@@ -66,6 +42,10 @@
       {
         "skill": "knowledge",
         "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
       },
       {
         "skill": "profession",
@@ -86,131 +66,135 @@
       {
         "skill": "spot",
         "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
       }
     ],
     "prerequisites": [
-      "To qualify to become a Negotiator, a character must fulfill the following criteria."
+      "To qualify to become a Shadow Slayer, a character must fulfill the following criteria."
     ],
     "progression": [
       {
         "level": 1,
         "features": [
-          "Conceal motigve"
+          "Detect Shadow"
         ],
-        "baseAttack": 0,
+        "baseAttack": 1,
         "fort": 1,
-        "ref": 0,
-        "will": 2,
-        "defense": 0,
-        "reputation": 1
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
       },
       {
         "level": 2,
         "features": [
-          "React first"
+          "Shadow immunity"
         ],
-        "baseAttack": 1,
+        "baseAttack": 2,
         "fort": 2,
-        "ref": 0,
-        "will": 3,
+        "ref": 2,
+        "will": 2,
         "defense": 1,
-        "reputation": 1
+        "reputation": 0
       },
       {
         "level": 3,
         "features": [
           "Bonus feat"
         ],
-        "baseAttack": 2,
+        "baseAttack": 3,
         "fort": 2,
-        "ref": 1,
-        "will": 3,
-        "defense": 1,
-        "reputation": 1
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
       },
       {
         "level": 4,
         "features": [
-          "Talk down one opponent"
+          "Slayer weapon"
         ],
-        "baseAttack": 3,
+        "baseAttack": 4,
         "fort": 2,
-        "ref": 1,
-        "will": 4,
-        "defense": 1,
-        "reputation": 2
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
       },
       {
         "level": 5,
         "features": [
-          "No sweat"
+          "Shadow enemy"
         ],
-        "baseAttack": 3,
+        "baseAttack": 5,
         "fort": 3,
-        "ref": 1,
-        "will": 4,
-        "defense": 2,
-        "reputation": 2
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
       },
       {
         "level": 6,
         "features": [
           "Bonus feat"
         ],
-        "baseAttack": 4,
+        "baseAttack": 6,
         "fort": 3,
-        "ref": 2,
-        "will": 5,
-        "defense": 2,
-        "reputation": 2
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
       },
       {
         "level": 7,
         "features": [
-          "Talk down several opponents"
+          "Shadow enemy"
         ],
-        "baseAttack": 5,
+        "baseAttack": 7,
         "fort": 4,
-        "ref": 2,
-        "will": 5,
-        "defense": 2,
-        "reputation": 3
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 1
       },
       {
         "level": 8,
         "features": [
-          "Sow distrust"
+          "Fast healing"
         ],
-        "baseAttack": 6,
+        "baseAttack": 8,
         "fort": 4,
-        "ref": 2,
-        "will": 6,
-        "defense": 3,
-        "reputation": 3
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 1
       },
       {
         "level": 9,
         "features": [
           "Bonus feat"
         ],
-        "baseAttack": 6,
+        "baseAttack": 9,
         "fort": 4,
-        "ref": 3,
-        "will": 6,
-        "defense": 3,
-        "reputation": 3
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 2
       },
       {
         "level": 10,
         "features": [
-          "Talk down all opponents"
+          "Word of slaying"
         ],
-        "baseAttack": 7,
+        "baseAttack": 10,
         "fort": 5,
-        "ref": 3,
-        "will": 7,
-        "defense": 3,
-        "reputation": 4
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 2
       }
     ],
     "casting": {
@@ -224,7 +208,7 @@
       "powersKnown": []
     },
     "source": "d20 Modern SRD",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/negotiator.html"
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/shadowslayer.html"
   },
-  "_key": "!items!sn2igHzan7RmHU0q"
+  "_key": "!items!H2d3mkaL0pO70NAh"
 }
