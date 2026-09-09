@@ -938,6 +938,28 @@ def scrape_carrying_capacity() -> dict:
     }
 
 
+def scrape_conditions() -> list[dict]:
+    """The condition summary: a name, then its rules text."""
+    lines = text_lines(srd.fetch(srd.PAGES["conditions"]))
+    try:
+        start = next(i for i, l in enumerate(lines) if l == "CONDITION SUMMARY")
+    except StopIteration:
+        return []
+
+    conditions = []
+    for index in range(start, len(lines) - 1):
+        name, description = lines[index], lines[index + 1]
+        if not is_value(description) or is_value(name) or not (2 < len(name) < 32):
+            continue
+        conditions.append({
+            "id": camel(name),
+            "name": name,
+            "description": value_of(description),
+            "srdUrl": srd.page_url(srd.PAGES["conditions"]),
+        })
+    return conditions
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -1018,6 +1040,8 @@ def main() -> int:
     specialties = scrape_skill_specialties()
     write("skill_specialties.json", specialties)
     write("carrying.json", scrape_carrying_capacity())
+    conditions = scrape_conditions()
+    write("conditions.json", conditions)
     classes = scrape_classes(skills)
     write("classes.json", classes)
     feats = scrape_feats()
@@ -1042,6 +1066,7 @@ def main() -> int:
           f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
           f"{len(creatures)} creatures, {len(spells)} spells, "
           f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "
+          f"{len(conditions)} conditions, "
           f"{sum(len(v) for v in tables.values())} tables")
     return 0
 

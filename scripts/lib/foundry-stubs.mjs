@@ -68,7 +68,12 @@ export function installStubs() {
   const registeredSheets = [];
 
   globalThis.Hooks = { once: (event, fn) => hooks.push([event, fn]), on: () => {}, callAll: () => {} };
-  globalThis.CONFIG = { Actor: {}, Item: {}, Combat: {} };
+  globalThis.CONFIG = {
+    Actor: {}, Item: {}, Combat: {},
+    statusEffects: [],
+    // Foundry maps a few effects to engine behaviour (defeated, blind, ...).
+    specialStatusEffects: {},
+  };
   globalThis.game = { i18n: { localize: (k) => k, format: (k) => k }, system: { id: "modern20" } };
   globalThis.ui = { notifications: { warn: () => {}, error: () => {} } };
   globalThis.Handlebars = { registerHelper: () => {} };

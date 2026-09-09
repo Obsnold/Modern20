@@ -33,11 +33,13 @@ export class Modern20Item extends Item {
       : actor.system.abilities.str.mod;
     const size = MODERN20.sizes[actor.system.attributes.size]?.mod ?? 0;
 
-    const roll = await new Roll("1d20 + @bab + @ability + @size + @weapon + @situational", {
+    const roll = await new Roll("1d20 + @bab + @ability + @size + @weapon + @condition + @situational", {
       bab: actor.system.attributes.baseAttack,
       ability: abilityMod,
       size,
       weapon: this.system.attackBonus,
+      // Conditions such as shaken and entangled penalise attacks.
+      condition: actor.system.attributes.attackMisc ?? 0,
       situational
     }).evaluate();
 
