@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>A fireball spell detonates with a low roar and deals 1d6 points of fire damage per caster level (maximum 10d6) to all creatures within the area. Unattended objects also take this damage. The explosion creates no concussive force.</p><p>The caster points his or her finger and determines the range (distance and height) at which the fireball is to burst. A glowing, pea-sized bead streaks from the caster and, unless it impacts upon a material body or solid barrier prior to attaining the prescribed range, bursts into the fireball at that point (an early impact results in an early detonation). If the caster attempts to send the bead through a narrow passage the caster must “hit” the opening with a successful ranged touch attack or else the bead strikes the barrier and detonates prematurely.</p><p>The fireball sets fire to combustibles and damages objects in the area. It can melt metals with a low melting point. If the damage caused to an interposing barrier shatters or breaks through it, the fireball may continue beyond the barrier if the area permits; otherwise it stops at the barrier just as any other spell effect does.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 3,
@@ -22,7 +22,48 @@
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 3,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "1d6",
+    "damageType": "fire",
+    "scaling": {
+      "per": 1,
+      "max": 10
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "radius",
+      "size": 20
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "area": {
+          "shape": "radius",
+          "size": 20
+        },
+        "damage": {
+          "formula": "1d6",
+          "type": "fire",
+          "scaling": {
+            "per": 1,
+            "max": 10
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!tHmMDWTjcJQNEv8b"
 }

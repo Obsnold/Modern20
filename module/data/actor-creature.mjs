@@ -29,4 +29,13 @@ export class Modern20Creature extends Modern20ActorBase {
       specialQualities: new fields.StringField({ initial: "" })
     };
   }
+
+  /**
+   * "Manifester level 10th" is printed in the stat block and belongs in the
+   * override; without one a creature casts at its Hit Dice, which is the
+   * SRD's default for a creature's spell-like abilities.
+   */
+  get defaultCasterLevel() {
+    return Number(String(this.details.hitDice ?? "").match(/^\s*(\d+)/)?.[1]) || 1;
+  }
 }

@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The caster detoxifies any sort of venom in the creature or object touched. A poisoned creature suffers no additional damage or effects from the poison, and any temporary effects are ended, but the spell does not reverse instantaneous effects, such as hit point damage, temporary ability damage, or effects that don’t go away on their own.</p><p>The creature is immune to any poison it is exposed to during the duration of the spell. Unlike with delay poison, such effects aren’t postponed until after the duration—the creature is simply immune to all poison effects for the length of the spell.</p><p>This spell can instead neutralize the poison in a poisonous creature or object for the duration of the spell, at the caster’s option.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 4,
@@ -22,7 +22,30 @@
     "duration": "10 minutes/level",
     "savingThrow": "Will negates (harmless, object)",
     "spellResistance": "Yes (harmless, object)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 4
+    },
+    "tradition": "divine",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "harmless",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!N8zks3Qqqp2B3XuI"
 }

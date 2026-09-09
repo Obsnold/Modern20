@@ -1,0 +1,53 @@
+{
+  "_id": "5q515vVgQSlKqPMF",
+  "name": "Telekinesis",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The manifester moves objects or creatures by concentrating on them. The power can provide either a gentle, sustained force or a single short, violent thrust (manifester’s choice).</p><p><strong>Sustained Force</strong>: A sustained force moves a creature or object weighing up to 25 pounds per manifester level up to 20 feet per round. A creature can negate the effect against itself or against an object it possesses with a successful Will save or with power resistance.</p><p>This power lasts up to 1 round per manifester level, but it ends if the manifester ceases concentration. The weight can be moved vertically, horizontally, or both. An object can’t be moved beyond the range. The power ends if the object is forced beyond the range. If the manifester ceases concentration for any reason, the object falls or stops.</p><p>An object can be telekinetically manipulated as if with one hand, if the force required is within the weight limitation.</p><p><strong>Violent Thrust</strong>: Alternatively, the telekinetic power can be expended in a single round. The manifester can hurl one or more objects or creatures that are within range and all within 10 feet of each other toward any target within 10 feet/level of all the objects. A manifester can hurl up to a total weight of 25 pounds per manifester level.</p><p>The manifester must succeed at attack rolls (one per creature or object thrown) to hit the target with the items, using his or her base attack plus Intelligence modifier. Weapons cause standard damage (with no Strength bonus). Other objects cause damage ranging from 1 point per 25 pounds (for less dangerous objects) to 1d6 points of damage per 25 pounds for hard, dense objects.</p><p>Creatures who fall within the weight capacity of the power can be hurled, but they are allowed Will saves to negate the effect, as are those whose held possessions are targeted by the power. If creatures are telekinetically hurled against solid surfaces, they take damage as if they had fallen 10 feet (1d6 points).</p>",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "level": 4,
+    "display": "Visual",
+    "powerPoints": 7,
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "target": "",
+    "duration": "Concentration, up to 1 round/level, or instantaneous (see text)",
+    "savingThrow": "Will negates (object) (see text)",
+    "keyAbility": "con",
+    "damage": "1d6",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "1d6",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
+  },
+  "_key": "!items!5q515vVgQSlKqPMF"
+}

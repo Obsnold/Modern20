@@ -179,6 +179,9 @@
           "hp.max": {
             "label": "Max"
           },
+          "hp.nonlethal": {
+            "label": "Nonlethal"
+          },
           "hp.temp": {
             "label": "Temp"
           },
@@ -328,6 +331,13 @@
           },
           "specialQualities": {
             "label": "Special Qualities"
+          },
+          "spellcasting": {
+            "label": "Spellcasting"
+          },
+          "spellcasting.casterLevelOverride": {
+            "label": "Caster level",
+            "hint": "Blank derives it from character level."
           }
         }
       },
@@ -443,6 +453,9 @@
           },
           "hp.max": {
             "label": "Max"
+          },
+          "hp.nonlethal": {
+            "label": "Nonlethal"
           },
           "hp.temp": {
             "label": "Temp"
@@ -603,6 +616,13 @@
           "skills.tumble": {
             "label": "Tumble"
           },
+          "spellcasting": {
+            "label": "Spellcasting"
+          },
+          "spellcasting.casterLevelOverride": {
+            "label": "Caster level",
+            "hint": "Blank derives it from character level."
+          },
           "wealth": {
             "label": "Wealth"
           },
@@ -702,6 +722,9 @@
           },
           "hp.max": {
             "label": "Max"
+          },
+          "hp.nonlethal": {
+            "label": "Nonlethal"
           },
           "hp.temp": {
             "label": "Temp"
@@ -856,6 +879,13 @@
           "skills.tumble": {
             "label": "Tumble"
           },
+          "spellcasting": {
+            "label": "Spellcasting"
+          },
+          "spellcasting.casterLevelOverride": {
+            "label": "Caster level",
+            "hint": "Blank derives it from character level."
+          },
           "wealth": {
             "label": "Wealth"
           },
@@ -975,7 +1005,9 @@
       "SaveAgainst": "Save against DC {dc}",
       "SaveFailed": "{name} failed ({total} vs {dc}) — full damage.",
       "SaveForHalf": "Everyone in the radius takes the damage; a successful save halves it.",
+      "SaveNegates": "A successful save avoids it entirely.",
       "SavePassed": "{name} saved ({total} vs {dc}) — half damage.",
+      "SaveSeeText": "See the description for what a successful save does.",
       "SelectTarget": "Select and pan to this token",
       "Single": "Shot",
       "TargetElsewhere": "That token is on a different scene.",
@@ -990,6 +1022,24 @@
     "BuyHint": "Buy with a Wealth check. Shift-click to use the black market.",
     "CR": "CR",
     "Cargo": "Cargo",
+    "Cast": {
+      "Arcane": "Arcane",
+      "Cast": "Cast",
+      "CasterLevel": "Caster level",
+      "CasterLevelHint": "Defaults to character level; the SRD sets it from levels in the casting class.",
+      "CasterLevelOverride": "Override",
+      "Casting": "Casting",
+      "Casts": "casts {name}",
+      "Divine": "Divine",
+      "Level": "Level",
+      "Manifest": "Manifest",
+      "Manifests": "manifests {name}",
+      "None": "No spells or psionic powers yet.",
+      "PowerPointsShort": "pp",
+      "PreparedHint": "Prepared copies remaining; casting uses one.",
+      "Title": "Spells and Powers",
+      "TraditionHint": "Which list this was learned from: arcane casting keys off Intelligence, divine off Wisdom."
+    },
     "CharacterLevel": "Level",
     "Chat": {
       "ActionPoint": "Spends an action point",
@@ -1215,6 +1265,9 @@
           "armorType": {
             "label": "Armor Type"
           },
+          "attachedTo": {
+            "label": "Attached to"
+          },
           "container": {
             "label": "Container"
           },
@@ -1301,6 +1354,9 @@
           "activities": {
             "label": "Activities"
           },
+          "attachedTo": {
+            "label": "Attached to"
+          },
           "capacity": {
             "label": "Capacity"
           },
@@ -1375,6 +1431,12 @@
           "activities": {
             "label": "Activities"
           },
+          "attachedTo": {
+            "label": "Attached to"
+          },
+          "caliber": {
+            "label": "Caliber"
+          },
           "category": {
             "label": "Category"
           },
@@ -1398,6 +1460,9 @@
           },
           "source": {
             "label": "Source"
+          },
+          "special": {
+            "label": "Special"
           },
           "srdUrl": {
             "label": "SRD Reference"
@@ -1452,8 +1517,25 @@
           "activities": {
             "label": "Activities"
           },
+          "areaShape": {
+            "label": "Area Shape"
+          },
+          "areaShape.shape": {
+            "label": "Shape"
+          },
+          "areaShape.size": {
+            "label": "Area radius (ft.)",
+            "hint": "Drawn on the canvas when the spell is cast. 0 for a spell with no measured area."
+          },
           "castingTime": {
             "label": "Casting Time"
+          },
+          "damage": {
+            "label": "Damage",
+            "hint": "The expression before caster level scaling, e.g. 1d6."
+          },
+          "damageType": {
+            "label": "Damage Type"
           },
           "description": {
             "label": "Description"
@@ -1464,6 +1546,9 @@
           "duration": {
             "label": "Duration"
           },
+          "keyAbility": {
+            "label": "Key Ability"
+          },
           "level": {
             "label": "Level"
           },
@@ -1473,8 +1558,27 @@
           "range": {
             "label": "Range"
           },
+          "saveAbility": {
+            "label": "Saving throw",
+            "hint": "fort, ref or will. Blank for a spell that allows none."
+          },
+          "saveEffect": {
+            "label": "A successful save",
+            "hint": "half, negate, partial, harmless or none."
+          },
           "savingThrow": {
             "label": "Saving Throw"
+          },
+          "scaling": {
+            "label": "Scaling"
+          },
+          "scaling.max": {
+            "label": "Maximum dice",
+            "hint": "The cap the SRD prints, e.g. 10 for \"(maximum 10d6)\". 0 for no cap."
+          },
+          "scaling.per": {
+            "label": "Extra die per N caster levels",
+            "hint": "1 for \"per caster level\", 2 for \"per two caster levels\", 0 for damage that does not scale."
           },
           "source": {
             "label": "Source"
@@ -1495,11 +1599,28 @@
           "area": {
             "label": "Area"
           },
+          "areaShape": {
+            "label": "Area Shape"
+          },
+          "areaShape.shape": {
+            "label": "Shape"
+          },
+          "areaShape.size": {
+            "label": "Area radius (ft.)",
+            "hint": "Drawn on the canvas when the spell is cast. 0 for a spell with no measured area."
+          },
           "castingTime": {
             "label": "Casting Time"
           },
           "components": {
             "label": "Components"
+          },
+          "damage": {
+            "label": "Damage",
+            "hint": "The expression before caster level scaling, e.g. 1d6."
+          },
+          "damageType": {
+            "label": "Damage Type"
           },
           "description": {
             "label": "Description"
@@ -1510,14 +1631,44 @@
           "level": {
             "label": "Level"
           },
+          "lists": {
+            "label": "Lists"
+          },
+          "lists.arcane": {
+            "label": "Arcane list level",
+            "hint": "Blank if the spell is not on the arcane list."
+          },
+          "lists.divine": {
+            "label": "Divine list level",
+            "hint": "Blank if the spell is not on the divine list."
+          },
           "prepared": {
             "label": "Prepared"
           },
           "range": {
             "label": "Range"
           },
+          "saveAbility": {
+            "label": "Saving throw",
+            "hint": "fort, ref or will. Blank for a spell that allows none."
+          },
+          "saveEffect": {
+            "label": "A successful save",
+            "hint": "half, negate, partial, harmless or none."
+          },
           "savingThrow": {
             "label": "Saving Throw"
+          },
+          "scaling": {
+            "label": "Scaling"
+          },
+          "scaling.max": {
+            "label": "Maximum dice",
+            "hint": "The cap the SRD prints, e.g. 10 for \"(maximum 10d6)\". 0 for no cap."
+          },
+          "scaling.per": {
+            "label": "Extra die per N caster levels",
+            "hint": "1 for \"per caster level\", 2 for \"per two caster levels\", 0 for damage that does not scale."
           },
           "school": {
             "label": "School"
@@ -1536,6 +1687,10 @@
           },
           "target": {
             "label": "Target"
+          },
+          "tradition": {
+            "label": "Cast as",
+            "hint": "Which list this caster learned it from; it sets the save DC's ability."
           }
         }
       },
@@ -1568,6 +1723,9 @@
         "FIELDS": {
           "activities": {
             "label": "Activities"
+          },
+          "attachedTo": {
+            "label": "Attached to"
           },
           "container": {
             "label": "Container"
@@ -1618,11 +1776,17 @@
           "ammo.value": {
             "label": "Value"
           },
+          "attachedTo": {
+            "label": "Attached to"
+          },
           "attackBonus": {
             "label": "Attack Bonus"
           },
           "burstRadius": {
             "label": "Burst Radius"
+          },
+          "caliber": {
+            "label": "Caliber"
           },
           "category": {
             "label": "Category"
@@ -1648,8 +1812,14 @@
           "equipped": {
             "label": "Equipped"
           },
+          "loadedAmmo": {
+            "label": "Loaded Ammo"
+          },
           "magazine": {
             "label": "Magazine"
+          },
+          "nonlethal": {
+            "label": "Nonlethal"
           },
           "purchaseDC": {
             "label": "Purchase DC"
@@ -1876,6 +2046,7 @@
     "Success": "Success",
     "Tab": {
       "biography": "Biography",
+      "casting": "Spells",
       "description": "Description",
       "details": "Details",
       "gear": "Gear",

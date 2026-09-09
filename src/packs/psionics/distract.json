@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester causes the target’s mind to wander, distracting him or her. Subjects of distract make all Listen, Spot, Search, and Sense Motive checks at a –1 penalty.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 0,
@@ -14,7 +14,31 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "target": "One living creature",
     "duration": "Concentration, up to 1 minute/level (D)",
-    "savingThrow": "Will negates"
+    "savingThrow": "Will negates",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!JjaAYuM5wm31V48v"
 }

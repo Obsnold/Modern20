@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>A bolt of fire shoots from the manifester. He or she must succeed at a ranged touch attack to deal damage to a target. The bolt deals 1d6+1 points of fire damage and the target may catch on fire.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 1,
@@ -14,7 +14,35 @@
     "range": "60 ft.",
     "target": "Bolt",
     "duration": "Instantaneous",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "int",
+    "damage": "1d6+1",
+    "damageType": "fire",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "1d6+1",
+          "type": "fire",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!mOWBF6plV64eojXd"
 }

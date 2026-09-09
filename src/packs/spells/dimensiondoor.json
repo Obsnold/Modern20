@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The caster instantly transfers him or herself from his or her current location to any other spot within range. The caster always arrives at exactly the spot desired—whether by simply visualizing the area or by stating direction. After using this spell, the caster can’t take any other actions until his or her next turn.</p><p>If the caster arrives in a place that is already occupied by a solid body, he or she is transported to a random open space on a suitable surface within 100 feet of the intended location. If there is no free space within 100 feet, the caster appears in a free space within 1,000 feet. If there’s no free space within 1,000 feet, the spell fails and the caster remains where he or she is.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 4,
@@ -20,7 +20,35 @@
     "duration": "Instantaneous",
     "savingThrow": "None and Will negates (object)",
     "spellResistance": "No and Yes (object)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 4,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!Pa9J4uVlkWb3KZdB"
 }

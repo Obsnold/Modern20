@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>A ray of flame projects from the manifester. The manifester must succeed at a ranged touch attack to deal damage to a target.</p><p>The flame deals 1d3 points of fire damage. This flame isn’t powerful enough to cause combustion.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 0,
@@ -14,7 +14,35 @@
     "range": ": Close (25 ft. + 5 ft./2 levels)",
     "target": "Ray",
     "duration": "Instantaneous",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "int",
+    "damage": "1d3",
+    "damageType": "fire",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "1d3",
+          "type": "fire",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!aWzoGN3owuwb2ICc"
 }

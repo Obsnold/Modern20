@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>Your unarmed attacks cause additional pain. When you make a successful unarmed attack that deals damage (or in conjunction with any bite or claw powers), you deal an additional 1d6 points of nonlethal damage to the target. The total amount of damage dealt is used to determine the effects of massive damage.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 2,
@@ -14,7 +14,35 @@
     "range": "Personal",
     "target": "You",
     "duration": "1 round/level (D)",
-    "savingThrow": ""
+    "savingThrow": "",
+    "keyAbility": "str",
+    "damage": "1d6",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "1d6",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!DxXCBsDuP9prUuJZ"
 }

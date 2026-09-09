@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The target’s higher mind is locked away. He or she stands mentally paralyzed, unable to take any actions. The brain locked subject is not stunned (so attackers get no special advantage). He or she can defend him or herself against physical attacks (Dexterity bonus to Defense still applies), but otherwise can’t move, and can’t use psionic powers.</p><p>A brain locked flyer can’t flap its wings and falls. A swimmer can’t swim and may drown.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 2,
@@ -14,7 +14,31 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "target": "One creature of Medium-size or smaller",
     "duration": "1 round/level (D)",
-    "savingThrow": "Will negates"
+    "savingThrow": "Will negates",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!ov1bctf62M7Gw4uZ"
 }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>You surround yourself with a sphere of power with a radius of 5 feet per manifester level that negates all forms of nvisibility.</p><p>Anything invisible becomes visible while in the area.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 3,
@@ -14,7 +14,26 @@
     "range": "Personal",
     "target": "You",
     "duration": "1 minute/level (D)",
-    "savingThrow": ""
+    "savingThrow": "",
+    "keyAbility": "wis",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!dEhBdNl3P07zYkMj"
 }

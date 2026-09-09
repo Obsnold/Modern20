@@ -1,0 +1,39 @@
+{
+  "_id": "fQR1be8T0IpTCp7o",
+  "name": "Biofeedback",
+  "type": "psiPower",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>You can constrict bleeding around wounds, lessening their impact. You take a portion of any attack that deals damage as points of nonlethal damage, equal to your Strength modifier. Thus, a character with a Strength score of 15 who is dealt 10 points of damage actually takes 8 points of lethal damage and 2 points of nonlethal damage. This power is not retroactive to damage received prior to manifesting biofeedback. The total damage is still used to determine the effects of massive damage.</p>",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
+    "level": 1,
+    "display": "Material, Visual",
+    "powerPoints": 1,
+    "castingTime": "Attack action",
+    "range": "Personal",
+    "target": "You",
+    "duration": "1 minute/level (D)",
+    "savingThrow": "",
+    "keyAbility": "str",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
+  },
+  "_key": "!items!fQR1be8T0IpTCp7o"
+}

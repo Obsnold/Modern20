@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>With catapsi [kat-ah-sigh], you generate psychic static, making it more difficult for other psionic characters to manifest their powers (you are not affected by your own catapsi manifestation). All psionic activity within the area requires twice as many power points to manifest, unless opponents make a successful Will save each time they manifest a power. Freely manifesting 0-level powers takes 1 full round, instead of 1 action, in a catapsi field. If two or more fields of catapsi overlap, one field cancels out the other (determine randomly).</p><p>Catapsi affects psionic abilities that require power points only, and have no effect on magical abilities or natural psionics abilities.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 5,
@@ -14,7 +14,35 @@
     "range": "Medium 100 feet.",
     "target": "",
     "duration": "1 minute/level",
-    "savingThrow": "Will negates (see text)"
+    "savingThrow": "Will negates (see text)",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "radius",
+      "size": 100
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "area": {
+          "shape": "radius",
+          "size": 100
+        },
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!vjMl3vkEMe0rANC5"
 }

@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>When you cast the via negativa spell, your right hand is covered with crackling black energy that causes intense pain to any living creature that comes into prolonged contact with it. Meanwhile, it imbues you with necromantic power.</p><p>The via negativa spell affects any living creature that you grapple, dealing 4d6 points of damage on round the grapple is initiated and each round the grapple is maintained. If your foe escapes the grapple, you can attempt to attain another hold. Furthermore, the via negativa spell grants a +5 enhancement bonus to Strength as long as you’re grappling.</p><p>The somatic component for the via negativa spell begins with a handshake motion. If you use an innocuous handshake with someone to start an via negativa spell, your melee touch attack automatically succeeds and you don’t provoke an attack of opportunity to start the grapple.</p><p><strong>Arcane Focus</strong>: A ring with a black pearl (purchase DC 22).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 4,
@@ -21,7 +21,44 @@
     "duration": "1 round/level",
     "savingThrow": "Fortitude half",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 4,
+      "divine": 4
+    },
+    "tradition": "arcane",
+    "damage": "4d6",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "fort",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "4d6",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "fort",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!NYmy1HNmAN1fXT83"
 }

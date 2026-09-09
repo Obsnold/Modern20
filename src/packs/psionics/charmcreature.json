@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>As charm person, except that the power is not restricted by creature type or size, and you need not speak the creature’s language.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 3,
@@ -14,7 +14,31 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "target": "One living creature",
     "duration": "1 day/level",
-    "savingThrow": "Will negates"
+    "savingThrow": "Will negates",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!RSFEIQA5121mbJdm"
 }

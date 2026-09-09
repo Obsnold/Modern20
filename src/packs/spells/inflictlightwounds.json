@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The caster lays his or her hand upon a creature and channels negative energy that deals 1d8 points of damage +1 point per caster level (maximum +5).</p><p>Since undead are powered by negative energy, this spell cures them of a like amount of damage rather than harming them.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 1,
@@ -21,7 +21,44 @@
     "duration": "Instantaneous",
     "savingThrow": "Will half",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 1
+    },
+    "tradition": "divine",
+    "damage": "1d8",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "1d8",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!uRxs1vLATSPcach7"
 }

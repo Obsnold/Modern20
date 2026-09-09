@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>You create up to four lights that resemble lanterns or flashlights (and cast that amount of light), or up to four glowing spheres of light, or one faintly glowing, vaguely humanoid shape. The dancing lights must stay within a 10-foot-radius area in relation to each other but otherwise move as you desire (no concentration required): forward or back, up or down, straight or turning corners, and so forth. The lights can move up to 100 feet per round. A light winks out if the distance between you and the nearest light exceeds the spell’s range.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 0,
@@ -21,7 +21,34 @@
     "duration": "1 minute (D)",
     "savingThrow": "None",
     "spellResistance": "No",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 0,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "radius",
+      "size": 10
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast",
+        "area": {
+          "shape": "radius",
+          "size": 10
+        }
+      }
+    }
   },
   "_key": "!items!nuW1A0Z6MU0RNa53"
 }

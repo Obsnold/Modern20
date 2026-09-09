@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>You channel a burst of electromagnetic radiation into a target object or creature. The shock delivers 2d10 points of nonlethal damage. More importantly, this power destroys electronic devices, fries motherboards, erases electronic data such as hard disks, and fogs chemical media such as photographic film (but not final prints) on a successful manifester level check (DC 15). Shielded or otherwise protected electronics may require higher DCs.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 4,
@@ -14,7 +14,40 @@
     "range": "Touch",
     "target": "One object or creature",
     "duration": "Instantaneous",
-    "savingThrow": "Fortitude half"
+    "savingThrow": "Fortitude half",
+    "keyAbility": "con",
+    "damage": "2d10",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "fort",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "2d10",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "fort",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!dM2k38RztjMwCasP"
 }

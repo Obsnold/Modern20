@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>You turn ammunition (such as arrows, bolts, bullets, and shuriken) into incorporeal projectiles that damage only their intended targets.</p><p>Phantom projectiles pass through intervening obstacles (including armor) and thus ignore cover bonuses and equipment bonuses to Defense. Barriers of magical force, such as a wall of force, stops them. Phantom bullets count as having a +3 enhancement bonus for the purpose of overcoming damage reduction, although they don’t actually receive the enhancement bonus on attacks or damage. Additionally, the phantom bullets disappear 1d4 rounds after being fired, making it impossible to gather ballistic evidence.</p><p><strong>Material Component</strong>: In addition to the bullets, the caster needs a small chunk of lithium.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 5,
@@ -22,7 +22,30 @@
     "duration": "1 hour/level",
     "savingThrow": "Will negates (harmless, object)",
     "spellResistance": "Yes (harmless, object)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 5,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "harmless",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!C3IhYr6TIQaMbCYF"
 }

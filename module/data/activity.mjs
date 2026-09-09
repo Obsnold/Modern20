@@ -69,7 +69,17 @@ function damageFields() {
       extraDice: int(0),
       // Overrides the item's own setting where an activity differs.
       nonlethal: new fields.BooleanField({ initial: false }),
-      addAbility: new fields.BooleanField({ initial: true })
+      addAbility: new fields.BooleanField({ initial: true }),
+      // Damage that grows with caster level: "1d6 points of fire damage per
+      // caster level (maximum 10d6)". Held as the rule rather than as a roll
+      // expression so the sheet and the card can both show what it resolves
+      // to, and so a formula never has to embed a cap.
+      scaling: new fields.SchemaField({
+        // Caster levels per extra die. 0 means the damage does not scale.
+        per: int(0, { min: 0 }),
+        // The most dice it reaches. 0 means no cap.
+        max: int(0, { min: 0 })
+      })
     })
   };
 }
@@ -102,8 +112,18 @@ export class SaveActivity extends foundry.abstract.DataModel {
       ...damageFields(),
       save: new fields.SchemaField({
         ability: new fields.StringField({ initial: "ref" }),
+        // The DC when the calculation is flat: an explosive's is printed on
+        // the weapon and does not depend on who threw it.
         dc: int(10),
-        onSuccess: new fields.StringField({ initial: "half", choices: ["half", "negate", "none"] })
+        // "flat" uses the DC above. "caster" is the SRD's spell and power
+        // rule: "10 + the spell's level + the caster's key ability modifier",
+        // which depends on who is casting and so is resolved at use.
+        calculation: new fields.StringField({
+          initial: "flat", choices: ["flat", "caster"]
+        }),
+        onSuccess: new fields.StringField({
+          initial: "half", choices: ["half", "negate", "partial", "harmless", "none"]
+        })
       })
     };
   }

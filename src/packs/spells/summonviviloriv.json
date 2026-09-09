@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>As summon vivilor I, except you can summon one 4th-level vivilor, 1d3 3rd-level vivilors, or 1d4+1 2nd-level vivilors. If you create more than one vivilor, you can choose their forms separately; they need not be identical.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 4,
@@ -21,7 +21,30 @@
     "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 4,
+      "divine": 4
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!L2MtUxPVLMuRSoY6"
 }

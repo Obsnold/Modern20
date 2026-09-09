@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>This spell summons a 1st-level vivilor, a strange creature from the edge of Shadow. The caster chooses the form the vivilor will take when it appears, and the vivilor maintains that shape for the duration of the spell. The vivilor appears where you designate and acts immediately, attacking your enemies unless you give it other orders. You can mentally direct it not to attack, to attack particular enemies, or to perform other actions. The vivilor acts normally on the last round of the spell and dissipates into nothingness at the end of its turn.</p><p>You choose the form the vivilor will take.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 1,
@@ -21,7 +21,30 @@
     "duration": "1 round/level",
     "savingThrow": "None",
     "spellResistance": "No",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 1,
+      "divine": 1
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!eYhOio8HLBmdivaF"
 }

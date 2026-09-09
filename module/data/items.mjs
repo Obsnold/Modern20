@@ -283,6 +283,39 @@ export class Modern20VehicleMod extends Modern20ItemBase {
 }
 
 /** Arcane spells from the FX chapter. */
+/**
+ * What a spell or power does, read from the SRD's own wording.
+ *
+ * These drive the activity an item starts with, so a spell typed in by hand
+ * and one imported from the compendium end up with the same activity from the
+ * same fields — the weapon rule, applied to casting.
+ */
+function castingFields() {
+  return {
+    // "1d6", "1d4+1". Blank for a spell that deals none.
+    damage: new fields.StringField({ initial: "" }),
+    damageType: new fields.StringField({ initial: "" }),
+    // "1d6 points of fire damage per caster level (maximum 10d6)".
+    scaling: new fields.SchemaField({
+      per: int(0, { min: 0 }),
+      max: int(0, { min: 0 })
+    }),
+    // The save the SRD's "Saving Throw" line allows, structured. Blank means
+    // none, which is also what the line says for most spells.
+    saveAbility: new fields.StringField({ initial: "" }),
+    saveEffect: new fields.StringField({ initial: "" }),
+    // The prose "Area" line as something the canvas can draw. Only the areas
+    // the SRD states as a radius are here; the rest are described rather than
+    // measured ("Quarter-circle emanating from you"), and a wrong shape on the
+    // map is worse than none.
+    areaShape: new fields.SchemaField({
+      shape: new fields.StringField({ initial: "" }),
+      size: int(0, { min: 0 })
+    })
+  };
+}
+
+
 export class Modern20Spell extends Modern20ItemBase {
   static LOCALIZATION_PREFIXES = ["MODERN20.Item.Spell"];
 
@@ -300,8 +333,46 @@ export class Modern20Spell extends Modern20ItemBase {
       duration: new fields.StringField({ initial: "" }),
       savingThrow: new fields.StringField({ initial: "" }),
       spellResistance: new fields.StringField({ initial: "" }),
-      prepared: new fields.NumberField({ required: true, integer: true, initial: 0, min: 0 })
+      ...castingFields(),
+      prepared: new fields.NumberField({ required: true, integer: true, initial: 0, min: 0 }),
+
+      // The level this spell sits at on each list. A spell can be on both and
+      // at different levels - animate dead is Acolyte 3 and Mage 4 - and the
+      // save DC counts the level of the list it was cast from, so both are
+      // kept and `tradition` picks between them.
+      lists: new fields.SchemaField({
+        arcane: new fields.NumberField({
+          required: false, nullable: true, integer: true, initial: null, min: 0
+        }),
+        divine: new fields.NumberField({
+          required: false, nullable: true, integer: true, initial: null, min: 0
+        })
+      }),
+      // Which list this caster learned it from. Arcane spellcasting keys off
+      // Intelligence, divine off Wisdom, which is what sets the save DC.
+      tradition: new fields.StringField({
+        initial: "arcane", choices: ["arcane", "divine"]
+      })
     };
+  }
+
+  /**
+   * Fill in the list levels for spells stored before they were split out.
+   *
+   * Older documents carry only the lowest level printed, which is the level on
+   * one of the two lists; without knowing which, the same number is the best
+   * available answer for both.
+   */
+  static migrateData(source) {
+    if (source.lists === undefined && source.level !== undefined) {
+      source.lists = { arcane: source.level, divine: source.level };
+    }
+    // A spell stored before spells could be cast has no activity, and without
+    // one there is no button to cast it.
+    if (foundry.utils.isEmpty(source.activities ?? {})) {
+      source.activities = defaultActivities("spell", source);
+    }
+    return super.migrateData(source);
   }
 }
 
@@ -319,7 +390,19 @@ export class Modern20PsiPower extends Modern20ItemBase {
       range: new fields.StringField({ initial: "" }),
       target: new fields.StringField({ initial: "" }),
       duration: new fields.StringField({ initial: "" }),
-      savingThrow: new fields.StringField({ initial: "" })
+      savingThrow: new fields.StringField({ initial: "" }),
+      // "Each psionic power is tied to a specific ability, which is the key
+      // ability for that psionic power." It sets the save DC, so unlike a
+      // spell's it is a property of the power rather than of the manifester.
+      keyAbility: new fields.StringField({ initial: "cha" }),
+      ...castingFields()
     };
+  }
+
+  static migrateData(source) {
+    if (foundry.utils.isEmpty(source.activities ?? {})) {
+      source.activities = defaultActivities("psiPower", source);
+    }
+    return super.migrateData(source);
   }
 }

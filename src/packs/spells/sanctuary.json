@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>Any opponent attempting to strike or otherwise directly attack the warded creature, even with a targeted spell, must attempt a Will save. If the save succeeds, the opponent can attack normally and is unaffected by that casting of the spell. If the save fails, the opponent can’t follow through with the attack, that part of the attacker’s action is lost, and the attacker can’t directly attack the warded creature for the duration of the spell. Those not attempting to attack the subject remain unaffected.</p><p>This spell does not prevent the warded creature from being attacked or affected by area or effect spells. The subject cannot attack without breaking the spell but may use nonattack spells or otherwise act. This allows a warded acolyte to heal wounds, for example, or to bless, perform an augury, summon creatures, and so on.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 1,
@@ -22,7 +22,35 @@
     "duration": "1 round/level",
     "savingThrow": "Will negates",
     "spellResistance": "No",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 1
+    },
+    "tradition": "divine",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!aHgfONBlQYOUM8ac"
 }

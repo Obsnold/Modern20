@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>A pale glow surrounds and outlines the subjects. Outlined subjects shed light as candles. Outlined creatures do not benefit from the concealment normally caused by darkness (but not magical darkness), blur, displacement, invisibility, or similar effects.</p><p>The light is too dim to have any special effect on undead or darkdwelling creatures. The faerie fire can be blue, green, or violet, according to your word at the time of casting. The faerie fire does not cause any harm to the objects or creatures thus outlined.</p><p><strong>Material Component</strong>: </p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 1,
@@ -22,7 +22,34 @@
     "duration": "1 minute/level (D)",
     "savingThrow": "None",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 1
+    },
+    "tradition": "divine",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "radius",
+      "size": 5
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast",
+        "area": {
+          "shape": "radius",
+          "size": 5
+        }
+      }
+    }
   },
   "_key": "!items!0e3EaN8yV6pkc6RS"
 }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>Your posture becomes stooped forward, and you grow a tigerlike muzzle complete with rending fangs. The power grants you a bite attack (which does not draw an attack of opportunity) with 2d8 points of slashing damage. You can use this power in conjunction with feats, powers, or spells allowing additional attacks in one round, and it can be used with multiple attacks gained through level advancement.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 3,
@@ -14,7 +14,35 @@
     "range": "Personal",
     "target": "You",
     "duration": "1 hour/level",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "str",
+    "damage": "2d8",
+    "damageType": "slashing",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "2d8",
+          "type": "slashing",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!J0zp5oXdhF8lfFJK"
 }

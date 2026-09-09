@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The knock spell opens stuck, barred, locked, or magically held or sealed doors. It opens secret doors, as well as locked or trick-opening boxes or chests. It also loosens welds, shackles, or chains (provided they serve to hold closures shut). In all other cases, the door does not relock itself or become stuck again on its own. Knock does not raise barred gates or similar impediments, nor does it affect ropes, vines, and the like. Note that the effect is limited by the area. Each spell can undo up to two means of preventing egress.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 2,
@@ -20,7 +20,30 @@
     "duration": "Instantaneous (see text)",
     "savingThrow": "None",
     "spellResistance": "No",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 2,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!wDoe1wCR8jLtqkw4"
 }

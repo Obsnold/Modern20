@@ -34,6 +34,8 @@ export function isAutomatic(rateOfFire) {
  * weapon from a pack and one made by hand are identical.
  */
 export function defaultActivities(type, system = {}) {
+  if (type === "spell" || type === "psiPower") return castingActivity(type, system);
+
   const defaults = ACTIVITY_DEFAULTS[type];
   if (!defaults) return {};
 
@@ -57,6 +59,65 @@ export function defaultActivities(type, system = {}) {
     }
     return [id, activity];
   }));
+}
+
+/**
+ * The single activity a spell or psionic power starts with.
+ *
+ * The SRD gives each one a saving throw line and, where it deals damage, a
+ * sentence stating it; between them they decide what the activity is. A save
+ * that only lets an unwilling ally refuse a beneficial spell — the SRD's
+ * "(harmless)" — is not something to roll against, so those cast as utilities.
+ *
+ * The DC is not stored: "10 + the spell's level + the caster's key ability
+ * modifier" depends on who casts it, so it is resolved at use.
+ */
+function castingActivity(type, system) {
+  const id = type === "spell" ? "cast" : "manifest";
+  const name = type === "spell" ? "MODERN20.Cast.Cast" : "MODERN20.Cast.Manifest";
+  const rolled = system.saveAbility && system.saveEffect !== "harmless";
+  const area = system.areaShape?.size
+    ? { area: { shape: system.areaShape.shape, size: system.areaShape.size } }
+    : {};
+
+  const damage = system.damage
+    ? {
+      damage: {
+        formula: system.damage,
+        type: system.damageType ?? "",
+        scaling: { per: system.scaling?.per ?? 0, max: system.scaling?.max ?? 0 },
+        // A spell's damage is its own; nothing adds Strength to a fireball.
+        addAbility: false
+      }
+    }
+    : {};
+
+  if (rolled) {
+    return {
+      [id]: {
+        type: "save",
+        name,
+        ...area,
+        ...damage,
+        save: {
+          ability: system.saveAbility,
+          calculation: "caster",
+          // "Partial" and "none" both mean the target still takes something;
+          // the spell's text says what, so the card shows it rather than
+          // halving a number the SRD never halves.
+          onSuccess: system.saveEffect === "half" ? "half"
+            : system.saveEffect === "negate" ? "negate" : "none"
+        }
+      }
+    };
+  }
+
+  // No save to roll: damage lands, or the spell simply happens.
+  return {
+    [id]: system.damage
+      ? { type: "damage", name, ...area, ...damage }
+      : { type: "utility", name, ...area }
+  };
 }
 
 /** "20 ft." becomes 20; "See text" becomes 0. */
@@ -130,10 +191,29 @@ export function activityById(item, id) {
 export function activityDamageFormula(item, activity) {
   const damage = activity.damage ?? {};
   const base = damage.formula || item.system.damage;
-  if (!damage.extraDice) return base;
+  const extra = (damage.extraDice ?? 0) + scalingDice(item, damage);
+  if (!extra) return base;
 
   const match = String(base).match(/^(\d+)d(\d+)/);
   if (!match) return base;
   const [whole, count, faces] = match;
-  return String(base).replace(whole, `${Number(count) + damage.extraDice}d${faces}`);
+  return String(base).replace(whole, `${Number(count) + extra}d${faces}`);
+}
+
+/**
+ * Extra dice from caster level.
+ *
+ * "1d6 points of fire damage per caster level (maximum 10d6)" is one die per
+ * level up to ten, and the printed expression is already the first — so a 5th
+ * level caster adds four. Resolved here rather than written into the formula
+ * so the cap never has to survive a round trip through a roll expression.
+ */
+export function scalingDice(item, damage) {
+  const per = damage?.scaling?.per ?? 0;
+  if (!per) return 0;
+
+  const casterLevel = item.actor?.system?.spellcasting?.casterLevel ?? 1;
+  const cap = damage.scaling.max || Infinity;
+  const dice = Math.min(Math.max(1, Math.floor(casterLevel / per)), cap);
+  return dice - 1;
 }

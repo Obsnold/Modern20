@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The caster emits an ear-splitting yell that deafens and damages creatures in its path. Any creature within the area is deafened for 2d6 rounds and takes 2d6 points of damage. A successful save negates the deafness and reduces the damage by half. Any exposed brittle or crystalline object takes 1d6 points of damage per caster level. Creatures holding fragile objects can negate damage to them with successful Reflex saves.</p><p>A deafened character, in addition to the obvious effects, suffers a –4 penalty on initiative checks, automatically fails Listen checks, and has a 20% chance to miscast and lose any spell with a verbal component that he or she tries to cast.</p><p>The shout spell cannot penetrate the spell silence.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 4,
@@ -20,7 +20,44 @@
     "duration": "Instantaneous",
     "savingThrow": "Fortitude partial (see text) (object)",
     "spellResistance": "Yes (object)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 4,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "2d6",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "fort",
+    "saveEffect": "partial",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "2d6",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "fort",
+          "calculation": "caster",
+          "onSuccess": "none"
+        }
+      }
+    }
   },
   "_key": "!items!FF7MjdA9vpvoZZ27"
 }

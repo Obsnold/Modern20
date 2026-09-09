@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { resolveAttack, postAttackCard, postSaveCard, rollWeaponDamage } from "../apps/attack.mjs";
+import { resolveAttack, postAttackCard, postSaveCard, postCastCard, rollItemDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
 import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazineSize } from "../apps/accessories.mjs";
 
@@ -32,22 +32,84 @@ export class Modern20Item extends Item {
     return data;
   }
 
-  /** Post the item to chat, or roll an attack if it is a weapon. */
+  /** Post the item to chat, or use its first activity if it has one. */
   async roll() {
-    if (this.type === "weapon") return this.rollAttack();
+    const first = this.activities[0];
+    if (first) return this.use(first.id);
     return this.toChat();
   }
 
   /**
-   * Use one of this item's activities, dispatching on its type. A weapon fires
-   * an attack; an explosive detonates against a save.
+   * Use one of this item's activities, dispatching on its type.
+   *
+   * A weapon fires an attack; an explosive detonates against a save; a spell
+   * either forces a save or simply happens, and its card carries its text so
+   * the table can apply what the SRD describes in prose.
    */
-  async use(activityId = "shot") {
-    const activity = this.activities.find((entry) => entry.id === activityId);
-    if (!activity) return null;
+  async use(activityId = "") {
+    const activity = this.activities.find((entry) => entry.id === activityId)
+      ?? this.activities[0];
+    if (!activity) return this.toChat();
 
-    if (activity.type === "save") return postSaveCard(this, activity);
-    return this.rollAttack({ activityId });
+    const card = activity.type === "attack"
+      ? this.rollAttack({ activityId: activity.id })
+      : activity.type === "save"
+        ? postSaveCard(this, activity)
+        : postCastCard(this, activity);
+
+    const result = await card;
+    await this.#spendPreparation();
+    return result;
+  }
+
+  /**
+   * Expend a prepared spell.
+   *
+   * A Mage "must prepare spells ahead of time" and casting uses one up. Only
+   * counted down where a count was set: the imported spell list has none, and
+   * warning on every cast that a spell nobody prepared is unprepared would be
+   * noise rather than help. Never blocks the cast — the GM rules on that.
+   */
+  async #spendPreparation() {
+    if (this.type !== "spell" || !(this.system.prepared > 0)) return;
+    await this.update({ "system.prepared": this.system.prepared - 1 });
+  }
+
+  /**
+   * The DC of a save this item's activity imposes.
+   *
+   * "The Difficulty Class for saving throws to resist the effects of a Mage's
+   * spells is 10 + the spell's level + the Mage's Intelligence modifier", and
+   * a psionic power reads the same with the power's own key ability. An
+   * explosive's DC is printed on the weapon instead and needs no caster.
+   */
+  saveDC(activity) {
+    const save = activity?.save;
+    if (!save) return null;
+    if (save.calculation !== "caster") return save.dc;
+
+    const ability = this.castingAbility;
+    const mod = ability ? this.actor?.system?.abilities?.[ability]?.mod ?? 0 : 0;
+    return 10 + this.castingLevel + mod;
+  }
+
+  /**
+   * The ability that sets this item's save DC.
+   *
+   * A spell's comes from its tradition — arcane casting keys off Intelligence,
+   * divine off Wisdom — while a power's is a property of the power itself:
+   * "Each psionic power is tied to a specific ability".
+   */
+  get castingAbility() {
+    if (this.type === "psiPower") return this.system.keyAbility || "cha";
+    if (this.type !== "spell") return "";
+    return this.system.tradition === "divine" ? "wis" : "int";
+  }
+
+  /** The level this counts as: a spell's is the level on the list it was cast from. */
+  get castingLevel() {
+    if (this.type !== "spell") return this.system.level ?? 0;
+    return this.system.lists?.[this.system.tradition] ?? this.system.level ?? 0;
   }
 
   /**
@@ -78,11 +140,9 @@ export class Modern20Item extends Item {
     return result;
   }
 
-  /** Weapon damage, doubled by rolling twice when a critical is confirmed. */
-  async rollDamage({ critical = false, activityId = "shot" } = {}) {
-    if (this.type !== "weapon") throw new Error("Only weapons can roll damage");
-
-    const roll = await rollWeaponDamage(this, { critical, activityId });
+  /** Damage from any item that deals it, doubled by rolling twice on a critical. */
+  async rollDamage({ critical = false, activityId = "" } = {}) {
+    const roll = await rollItemDamage(this, { critical, activityId });
     await roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: game.i18n.format(
@@ -118,6 +178,10 @@ export class Modern20Item extends Item {
    */
   isNonlethal(activityId = "shot") {
     if (this.system.nonlethal) return true;
+    // Only a weapon has a magazine, so only a weapon's rounds can change this.
+    if (this.type !== "weapon") {
+      return Boolean(this.activities.find((entry) => entry.id === activityId)?.damage?.nonlethal);
+    }
 
     const activity = this.activities.find((entry) => entry.id === activityId);
     if (activity?.damage?.nonlethal) return true;

@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The warded creature gains resistance to ranged weapons that fire arrows, bullets, or crossbow bolts. The subject gains damage reduction 10/+1 against those ranged weapons. The damage reduction increases with the caster level to 10/+2 at 5th and 10/+3 at 10th. Once the spell has prevented a total of 10 points of damage per caster level (maximum 100 points), it is discharged.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 2,
@@ -22,7 +22,30 @@
     "duration": "10 minutes/level or until discharged",
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 2,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "harmless",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!35fkLPg2ObEMv64B"
 }

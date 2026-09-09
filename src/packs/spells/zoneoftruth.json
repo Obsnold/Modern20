@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>Creatures within the emanation area (or those who enter it) can’t speak any deliberate and intentional lies. Creatures are allowed a save to avoid the effects when the spell is cast or when they first enter the emanation area. Affected creatures are aware of this enchantment. Creatures who leave the area are free to speak as they choose.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 2,
@@ -22,7 +22,39 @@
     "duration": "1 minute/level",
     "savingThrow": "Will negates",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 2
+    },
+    "tradition": "divine",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "radius",
+      "size": 5
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "area": {
+          "shape": "radius",
+          "size": 5
+        },
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!xHG1WWnrGk5NM9Zp"
 }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>This power enables a manifester to concentrate on some locale and hear or see (manifester’s choice) almost as if he or she were there. Distance is not a factor, but the locale must be known—either a place familiar to the manifester or an obvious place.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 2,
@@ -14,7 +14,26 @@
     "range": "See text",
     "target": "",
     "duration": "1 minute/level (D)",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "wis",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!xr69XxA6p6UBZgYV"
 }

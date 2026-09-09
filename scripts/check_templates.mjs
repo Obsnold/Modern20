@@ -31,10 +31,43 @@ function walk(dir) {
 /** Field names present in a schema, one level deep. */
 function schemaFieldNames(cls) {
   try {
-    return new Set(Object.keys(cls.defineSchema()));
+    return new Set(fieldPaths(cls.defineSchema()));
   } catch {
     return null;
   }
+}
+
+/**
+ * Every field a schema offers, including those inside nested SchemaFields.
+ *
+ * A template reaches a nested field as `fields.lists.fields.arcane`, so both
+ * "lists" and "lists.arcane" have to count as real.
+ */
+function fieldPaths(schema, prefix = "") {
+  const paths = [];
+  for (const [name, field] of Object.entries(schema)) {
+    const path = prefix ? `${prefix}.${name}` : name;
+    paths.push(path);
+    const nested = field?.fields;
+    if (nested && typeof nested === "object") paths.push(...fieldPaths(nested, path));
+  }
+  return paths;
+}
+
+/**
+ * The schema path a template reference names.
+ *
+ * Handlebars reaches a nested field through the parent's own `fields` map -
+ * `fields.lists.fields.arcane` - and a trailing `.value` or `.label` reads a
+ * property of the field rather than naming another one.
+ */
+function fieldPath(reference) {
+  return reference
+    .split(".")
+    .filter((part) => part !== "fields")
+    .filter((part, index, parts) => !(index === parts.length - 1
+      && ["value", "label", "hint", "name", "options"].includes(part) && parts.length > 1))
+    .join(".");
 }
 
 /**
@@ -57,8 +90,8 @@ function scan(source) {
       depth += opens;
       typeStack.push(typeOpen[1]);
       openedTypeAt.set(typeStack.length, depth);
-      for (const m of line.matchAll(/\bfields\.(\w+)/g)) {
-        refs.push({ line: index + 1, field: m[1], type: typeOpen[1] });
+      for (const m of line.matchAll(/\bfields\.([\w.]+)/g)) {
+        refs.push({ line: index + 1, field: fieldPath(m[1]), type: typeOpen[1] });
       }
       depth -= closes;
       if (typeStack.length && depth < openedTypeAt.get(typeStack.length)) {
@@ -69,8 +102,8 @@ function scan(source) {
     }
 
     depth += opens;
-    for (const m of line.matchAll(/\bfields\.(\w+)/g)) {
-      refs.push({ line: index + 1, field: m[1], type: typeStack.at(-1) ?? null });
+    for (const m of line.matchAll(/\bfields\.([\w.]+)/g)) {
+      refs.push({ line: index + 1, field: fieldPath(m[1]), type: typeStack.at(-1) ?? null });
     }
     depth -= closes;
     while (typeStack.length && depth < openedTypeAt.get(typeStack.length)) {

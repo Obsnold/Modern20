@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>You determine whether a creature, object, or area has been poisoned or is poisonous. You can determine the exact type of poison with a successful Wisdom check (DC 20). A character with the Craft (chemical) skill may additionally try an Craft (chemical) check, DC 20.</p><p>Note:</p><p>The power can penetrate barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt blocks it.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 0,
@@ -14,7 +14,26 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "target": "One creature, one object, or a 5-foot cube",
     "duration": "Instantaneous",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "wis",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!aqzxOF0vmcbpPAgT"
 }

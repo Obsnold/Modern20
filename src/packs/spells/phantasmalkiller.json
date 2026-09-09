@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>You create the phantasmal image of the most fearsome creature imaginable to the subject simply by forming the fears of the subject’s subconscious mind into something that its conscious mind can visualize: this most horrible beast. Only the spell’s subject can perceive the phantasmal killer. You see only a shadowy shape. The subject first gets a Will save to recognize the image as unreal. If the subject fails the Will save, the phantasm touches him, and he must succeed at a Fortitude save or die from fear. Even if the Fortitude save is successful, the subject takes 3d6 points of damage.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 4,
@@ -21,7 +21,44 @@
     "duration": "Instantaneous",
     "savingThrow": "Will disbelief (if interacted with), then Fortitude partial",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 4,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "3d6",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "fort",
+    "saveEffect": "partial",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "3d6",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "fort",
+          "calculation": "caster",
+          "onSuccess": "none"
+        }
+      }
+    }
   },
   "_key": "!items!KTFWim3NC3GnDvaF"
 }

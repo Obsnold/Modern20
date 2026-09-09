@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>Energy trap creates an explosion of one energy type (acid, cold, electricity, fire, or sonic/concussion) when an intruder opens the item that the trap wards. The energy trap can ward any closeable item. When casting energy trap, the caster selects the energy type and a point on the item as the spell’s center. When someone other than the caster opens the item, the resulting explosion fills the area within a 5-foot radius around the spell’s center. The energy blast deals 1d4 points of damage (of the given energy type) +1 point per caster level. The item protected by the trap is not harmed by this explosion.</p><p>The warded item cannot have a second closure or warding spell placed on it.</p><p>An unsuccessful dispel magic spell does not detonate the spell.</p><p>Underwater, the acid and fire versions of this spell deal half damage.</p><p>The caster can use the trapped object without discharging it, as can any individual to whom the spell was specifically attuned when cast. “Attuning” to an individual usually involves denoting a password that the caster can share with friends.</p><p>A successful Search check (DC 29) finds an energy trap, and a successful Disable Device check (DC 29) safely removes it.</p><p><strong>Material Component</strong>: Purchase DC 10.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 4,
@@ -22,7 +22,44 @@
     "duration": "Permanent until discharged (D)",
     "savingThrow": "Reflex half (see text)",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 4,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "1d4",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "1d4",
+          "type": "",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!niaIqpppEo0og5i1"
 }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>This power grants the manifester a claw attack (which does not provoke attacks of opportunity) that deals 1d12 points of slashing damage (plus Strength modifier). The manifester is considered armed. The manifester cannot grasp or manipulate objects (including weapons) as long as this power remains in effect. This power can be used in conjunction with feats, powers, or spells allowing additional attacks on the manifester’s turn, and it can be used with multiple attacks gained through level advancement.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 2,
@@ -14,7 +14,35 @@
     "range": "Personal",
     "target": "You",
     "duration": "1 hour/level",
-    "savingThrow": ""
+    "savingThrow": "",
+    "keyAbility": "str",
+    "damage": "1d12",
+    "damageType": "slashing",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "1d12",
+          "type": "slashing",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!mlvCZIwoK91CLzgJ"
 }

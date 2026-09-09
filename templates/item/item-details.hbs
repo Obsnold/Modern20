@@ -147,6 +147,19 @@
     {{formField fields.savingThrow value=system.savingThrow}}
     {{formField fields.spellResistance value=system.spellResistance}}
     {{formField fields.prepared value=system.prepared}}
+    <fieldset>
+      <legend>{{localize "MODERN20.Cast.Casting"}}</legend>
+      {{formField fields.tradition value=system.tradition}}
+      {{formField fields.lists.fields.arcane value=system.lists.arcane}}
+      {{formField fields.lists.fields.divine value=system.lists.divine}}
+      {{formField fields.damage value=system.damage}}
+      {{formField fields.damageType value=system.damageType}}
+      {{formField fields.scaling.fields.per value=system.scaling.per}}
+      {{formField fields.scaling.fields.max value=system.scaling.max}}
+      {{formField fields.saveAbility value=system.saveAbility}}
+      {{formField fields.saveEffect value=system.saveEffect}}
+      {{formField fields.areaShape.fields.size value=system.areaShape.size}}
+    </fieldset>
   {{/if}}
 
   {{#if (eq document.type "psiPower")}}
@@ -157,6 +170,17 @@
     {{formField fields.range value=system.range}}
     {{formField fields.duration value=system.duration}}
     {{formField fields.savingThrow value=system.savingThrow}}
+    <fieldset>
+      <legend>{{localize "MODERN20.Cast.Casting"}}</legend>
+      {{formField fields.keyAbility value=system.keyAbility}}
+      {{formField fields.damage value=system.damage}}
+      {{formField fields.damageType value=system.damageType}}
+      {{formField fields.scaling.fields.per value=system.scaling.per}}
+      {{formField fields.scaling.fields.max value=system.scaling.max}}
+      {{formField fields.saveAbility value=system.saveAbility}}
+      {{formField fields.saveEffect value=system.saveEffect}}
+      {{formField fields.areaShape.fields.size value=system.areaShape.size}}
+    </fieldset>
   {{/if}}
 
   {{#if isPurchasable}}

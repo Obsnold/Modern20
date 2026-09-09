@@ -5,14 +5,26 @@
   </header>
 
   <p class="m20-chat__result">
-    {{damage}}
+    {{#if damage}}{{damage}}{{/if}}
     {{#if activity.area.size}}
       &middot; {{activity.area.size}} ft. {{localize "MODERN20.Attack.BurstRadius"}}
     {{/if}}
-    &middot; {{saveLabel}} {{localize "MODERN20.Activity.DC"}} {{activity.save.dc}}
+    &middot; {{saveLabel}} {{localize "MODERN20.Activity.DC"}} {{dc}}
   </p>
 
-  <p class="m20-hint">{{localize "MODERN20.Attack.SaveForHalf"}}</p>
+  <p class="m20-hint">
+    {{#if (eq activity.save.onSuccess "negate")}}
+      {{localize "MODERN20.Attack.SaveNegates"}}
+    {{else if (eq activity.save.onSuccess "half")}}
+      {{localize "MODERN20.Attack.SaveForHalf"}}
+    {{else}}
+      {{localize "MODERN20.Attack.SaveSeeText"}}
+    {{/if}}
+  </p>
+
+  {{#if description}}
+    <div class="m20-chat__text">{{{description}}}</div>
+  {{/if}}
 
   {{#if targets.length}}
     <p class="m20-hint">
@@ -22,7 +34,9 @@
   {{/if}}
 
   <div class="m20-damage-buttons">
-    <button type="button" data-m20-damage="normal">{{localize "MODERN20.Attack.RollDamage"}}</button>
+    {{#if damage}}
+      <button type="button" data-m20-damage="normal">{{localize "MODERN20.Attack.RollDamage"}}</button>
+    {{/if}}
     <button type="button" data-m20-save>{{localize "MODERN20.Attack.RollSaves"}}</button>
     {{#if activity.area.size}}
       <button type="button" data-m20-area>{{localize "MODERN20.Area.Place"}}</button>

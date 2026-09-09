@@ -18,6 +18,15 @@ MODERN20.abilities = {
   cha: "MODERN20.Ability.Cha.long"
 };
 
+/**
+ * The two spell lists. Arcane casting keys off Intelligence and divine off
+ * Wisdom, which is what sets a spell's save DC.
+ */
+MODERN20.traditions = {
+  arcane: "MODERN20.Cast.Arcane",
+  divine: "MODERN20.Cast.Divine"
+};
+
 MODERN20.saves = {
   fort: { label: "MODERN20.Save.Fort", ability: "con" },
   ref: { label: "MODERN20.Save.Ref", ability: "dex" },
