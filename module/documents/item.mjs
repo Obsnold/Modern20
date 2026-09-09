@@ -3,11 +3,21 @@ import { resolveAttack, postAttackCard, postSaveCard, postCastCard, rollItemDama
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
 import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazineSize } from "../apps/accessories.mjs";
 import { activityAction } from "../apps/actions.mjs";
+import { Modern20AttackDialog } from "../apps/attack-dialog.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
 
 export class Modern20Item extends Item {
+  /**
+   * The circumstances chosen for the last attack, offered again on the next.
+   *
+   * A fight rarely changes what applies from one round to the next — the same
+   * cover, the same flanking — and re-ticking them every attack is the part of
+   * a modifier dialog that people turn off.
+   */
+  static #lastModifiers = {};
+
   /**
    * Seed a new item with the activities its type starts with.
    *
@@ -47,18 +57,20 @@ export class Modern20Item extends Item {
    * either forces a save or simply happens, and its card carries its text so
    * the table can apply what the SRD describes in prose.
    */
-  async use(activityId = "") {
+  async use(activityId = "", { skipDialog = false } = {}) {
     const activity = this.activities.find((entry) => entry.id === activityId)
       ?? this.activities[0];
     if (!activity) return this.toChat();
 
     const card = activity.type === "attack"
-      ? this.rollAttack({ activityId: activity.id, spendAction: false })
+      ? this.rollAttack({ activityId: activity.id, spendAction: false, skipDialog })
       : activity.type === "save"
         ? postSaveCard(this, activity)
         : postCastCard(this, activity);
 
     const result = await card;
+    // A cancelled attack dialog costs nothing and consumes nothing.
+    if (result === null && activity.type === "attack") return null;
     await this.#spendCastingResource();
     await this.actor?.spendAction(activityAction(activity));
     return result;
@@ -73,9 +85,20 @@ export class Modern20Item extends Item {
    * is at the lower bonus the table gives, applied as a penalty on top of the
    * character's own attack bonus.
    */
-  async fullAttack({ activityId = "shot" } = {}) {
+  async fullAttack({ activityId = "shot", skipDialog = false } = {}) {
     if (this.type !== "weapon") throw new Error("Only weapons can make a full attack");
     const sequence = this.actor?.attackSequence ?? [0];
+
+    // Asked once for the whole sequence: the circumstances do not change
+    // between attacks made in the same action.
+    let modifiers = {};
+    if (!skipDialog) {
+      modifiers = await new Modern20AttackDialog(this, {
+        activityId, remembered: Modern20Item.#lastModifiers
+      }).prompt();
+      if (!modifiers) return null;
+      Modern20Item.#lastModifiers = modifiers;
+    }
 
     const results = [];
     for (const bonus of sequence) {
@@ -83,7 +106,7 @@ export class Modern20Item extends Item {
       // character's own, so each attack after the first carries the drop from
       // the first as its situational modifier.
       results.push(await this.rollAttack({
-        situational: bonus - sequence[0], activityId, spendAction: false
+        situational: bonus - sequence[0], activityId, spendAction: false, modifiers
       }));
     }
 
@@ -159,14 +182,40 @@ export class Modern20Item extends Item {
    * Roll an attack, resolved against the target's Defense where one is
    * targeted, with threats confirmed. The detail lives in apps/attack.mjs.
    */
-  async rollAttack({ situational = 0, activityId = "shot", spendAction = true } = {}) {
+  /**
+   * Roll an attack.
+   *
+   * @param {object}  [options]
+   * @param {number}  [options.situational]  A flat modifier, added to whatever
+   *   the dialog contributes.
+   * @param {boolean} [options.skipDialog]   Roll straight through, applying
+   *   nothing but what was passed. Shift-clicking an attack does this.
+   * @param {object}  [options.modifiers]    Circumstances already chosen, used
+   *   by a full attack so the dialog is answered once for the sequence.
+   */
+  async rollAttack({
+    situational = 0, activityId = "shot", spendAction = true,
+    skipDialog = false, modifiers = null
+  } = {}) {
     if (this.type !== "weapon") throw new Error("Only weapons can roll attacks");
 
     if (!this.system.equipped) {
       ui.notifications.warn(game.i18n.format("MODERN20.Equip.NotEquipped", { name: this.name }));
     }
 
-    const result = await resolveAttack(this, { situational, activityId });
+    let chosen = modifiers;
+    if (!chosen && !skipDialog) {
+      chosen = await new Modern20AttackDialog(this, {
+        activityId,
+        remembered: Modern20Item.#lastModifiers
+      }).prompt();
+      // Dismissed rather than rolled: cancel, do not roll a set of ticks the
+      // player was still looking at.
+      if (!chosen) return null;
+      Modern20Item.#lastModifiers = chosen;
+    }
+
+    const result = await resolveAttack(this, { situational, activityId, modifiers: chosen });
     await postAttackCard(this, result);
 
     // A full attack pays once for the whole sequence, so it opts out here.

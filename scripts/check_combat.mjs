@@ -170,5 +170,54 @@ if (STANCES.charge.changes.length) {
 }
 console.log("3 stance definitions checked");
 
+/* -- which side a circumstance lands on --------------------------------- */
+
+// "Any situational modifier created by the attacker's position or tactics
+// applies to the attack roll, while any situational modifier created by the
+// defender's position, state, or tactics applies to the defender's Defense."
+const { resolveModifiers } = await import(join(ROOT, "module", "apps", "attack-dialog.mjs"));
+
+const modifierCases = [
+  // Flanking is the attacker's tactics, so it lifts the roll, and only in melee.
+  { choices: { attack: ["attackerFlankingDefender"] }, ranged: false, attack: 2, defense: 0 },
+  { choices: { attack: ["attackerFlankingDefender"] }, ranged: true, attack: 0, defense: 0 },
+  // Prone is worth different things to each side of the same attack.
+  { choices: { attack: ["attackerProne"] }, ranged: false, attack: -4, defense: 0 },
+  { choices: { attack: ["attackerProne"] }, ranged: true, attack: -2, defense: 0 },
+  // A prone defender is easier to reach in melee and harder to shoot.
+  { choices: { defense: ["defenderProne"] }, ranged: false, attack: 0, defense: -4 },
+  { choices: { defense: ["defenderProne"] }, ranged: true, attack: 0, defense: 4 },
+  // Cover is a Defense bonus, and stacks with the defender's own circumstances.
+  { choices: { cover: "oneHalf" }, ranged: true, attack: 0, defense: 4 },
+  { choices: { defense: ["defenderProne"], cover: "oneHalf" }, ranged: true,
+    attack: 0, defense: 8 },
+  // Both sides at once: higher ground lifts the roll, cover lifts Defense.
+  { choices: { attack: ["attackerOnHigherGround"], cover: "oneQuarter" }, ranged: false,
+    attack: 1, defense: 2 },
+  // Concealment is never a modifier — it is a miss chance rolled after a hit.
+  { choices: { concealment: "oneHalf" }, ranged: true, attack: 0, defense: 0, missChance: 20 },
+  { choices: {}, ranged: false, attack: 0, defense: 0, missChance: 0 }
+];
+
+for (const testCase of modifierCases) {
+  const got = resolveModifiers(testCase.choices, testCase.ranged);
+  for (const key of ["attack", "defense", "missChance"]) {
+    if (testCase[key] === undefined) continue;
+    if (got[key] !== testCase[key]) {
+      fail(`${JSON.stringify(testCase.choices)} ${testCase.ranged ? "ranged" : "melee"}: `
+        + `expected ${key} ${testCase[key]}, got ${got[key]}`);
+    }
+  }
+}
+
+// "The defender loses any Dexterity bonus to Defense" travels with the row.
+if (!resolveModifiers({ defense: ["defenderFlatFooted"] }).losesDex) {
+  fail("a flat-footed defender should lose their Dexterity bonus");
+}
+if (resolveModifiers({ defense: ["defenderProne"] }).losesDex) {
+  fail("a prone defender keeps their Dexterity bonus");
+}
+console.log(`${modifierCases.length + 2} circumstance cases checked`);
+
 console.log(problems ? `\n${problems} problems` : "\nall combat checks passed");
 process.exit(problems ? 1 : 0);

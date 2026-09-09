@@ -1,0 +1,87 @@
+{{!--
+  "The GM judges what bonuses and penalties apply, using Table: Defense
+  Modifiers and Table: Attack Roll Modifiers as guides." So these are offered,
+  never worked out from where the tokens happen to be standing.
+--}}
+<div class="m20-dialog">
+  <header class="m20-dialog__header">
+    <img src="{{item.img}}" alt="{{item.name}}">
+    <span class="m20-dialog__title">{{item.name}}</span>
+    <span class="m20-hint">
+      {{#if ranged}}{{localize "MODERN20.Attack.Ranged"}}{{else}}{{localize "MODERN20.Attack.Melee"}}{{/if}}
+    </span>
+  </header>
+
+  {{#if attackModifiers.length}}
+    <fieldset>
+      <legend>{{localize "MODERN20.Attack.YourPosition"}}</legend>
+      {{#each attackModifiers as |row|}}
+        <label class="m20-check">
+          <input type="checkbox" name="attack" value="{{row.id}}" {{checked row.checked}}>
+          <span>{{row.label}}</span>
+          <span class="m20-mod">{{modern20Signed row.value}}</span>
+        </label>
+      {{/each}}
+    </fieldset>
+  {{/if}}
+
+  <fieldset>
+    <legend>{{localize "MODERN20.Attack.TargetsPosition"}}</legend>
+    {{#each defenseModifiers as |row|}}
+      <label class="m20-check">
+        <input type="checkbox" name="defense" value="{{row.id}}" {{checked row.checked}}>
+        <span>{{row.label}}</span>
+        <span class="m20-mod">
+          {{#if row.value}}{{modern20Signed row.value}} {{localize "MODERN20.Def"}}{{/if}}
+          {{#if row.losesDex}}<em>{{localize "MODERN20.Attack.LosesDex"}}</em>{{/if}}
+        </span>
+      </label>
+    {{/each}}
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "MODERN20.Attack.Cover"}}</legend>
+    <select name="cover" id="m20-cover">
+      <option value="">{{localize "MODERN20.Attack.NoCover"}}</option>
+      {{#each cover as |row|}}
+        <option value="{{row.id}}" {{#if row.selected}}selected{{/if}}>
+          {{row.degree}} (+{{row.defense}} {{localize "MODERN20.Def"}})
+        </option>
+      {{/each}}
+    </select>
+
+    <label for="m20-concealment">{{localize "MODERN20.Attack.Concealment"}}</label>
+    <select name="concealment" id="m20-concealment">
+      <option value="">{{localize "MODERN20.Attack.NoConcealment"}}</option>
+      {{#each concealment as |row|}}
+        <option value="{{row.id}}" {{#if row.selected}}selected{{/if}}>
+          {{row.degree}} ({{row.missChance}}%)
+        </option>
+      {{/each}}
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "MODERN20.Attack.Situational"}}</legend>
+    <input type="number" name="situational" id="m20-situational" value="{{situational}}">
+  </fieldset>
+
+  <div class="m20-dialog__total">
+    <span class="m20-tag">{{localize "MODERN20.Attack.ToHit"}} {{modern20Signed attackTotal}}</span>
+    <span class="m20-tag">{{localize "MODERN20.Def"}} {{modern20Signed defenseTotal}}</span>
+    {{#if missChance}}
+      <span class="m20-tag">{{localize "MODERN20.Attack.MissChance"}} {{missChance}}%</span>
+    {{/if}}
+  </div>
+
+  <p class="m20-hint">{{localize "MODERN20.Attack.SkipHint"}}</p>
+
+  <footer class="m20-dialog__buttons">
+    <button type="button" class="m20-button" data-action="clear" {{#unless any}}disabled{{/unless}}>
+      {{localize "MODERN20.Attack.ClearModifiers"}}
+    </button>
+    <button type="button" class="m20-button m20-button--primary" data-action="roll">
+      {{localize "MODERN20.Attack.Roll"}}
+    </button>
+  </footer>
+</div>

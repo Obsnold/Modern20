@@ -430,14 +430,22 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
 
   static async #onFullAttack(event, target) {
     const item = this._itemFromEvent(target);
-    await item?.fullAttack({ activityId: target.dataset.activity || "shot" });
+    await item?.fullAttack({
+      activityId: target.dataset.activity || "shot",
+      skipDialog: event.shiftKey
+    });
   }
 
-  /** Use one of an item's activities. */
+  /**
+   * Use one of an item's activities.
+   *
+   * Shift skips the circumstance dialog and rolls straight through, which is
+   * the convention players already know from other systems.
+   */
   static async #onUseActivity(event, target) {
     const item = this._itemFromEvent(target);
     if (!item) return;
-    await item.use(target.dataset.activity);
+    await item.use(target.dataset.activity, { skipDialog: event.shiftKey });
   }
 
   static async #onAdjustHealth(event, target) {
