@@ -116,13 +116,35 @@ export class Modern20Actor extends Actor {
    * Apply damage, then check massive damage: a single hit at or above the
    * threshold forces a Fortitude save or the character drops to -1 hit points.
    */
-  async applyDamage(amount, { ignoreMassive = false } = {}) {
+  async applyDamage(amount, { ignoreMassive = false, nonlethal = false } = {}) {
     const hp = this.system.hp;
     if (!hp) return null;
+
+    // "They are not subject to critical hits, nonlethal damage, ability
+    // damage..." — constructs and their kind simply ignore it.
+    if (nonlethal && this.isImmuneToNonlethal) {
+      ui.notifications.info(game.i18n.format("MODERN20.Damage.ImmuneNonlethal", {
+        name: this.name
+      }));
+      return { value: hp.value, immune: true };
+    }
 
     // Damage reduction was stored on every actor but never subtracted.
     const reduction = this.system.attributes?.damageReduction ?? 0;
     amount = Math.max(0, amount - reduction);
+
+    if (nonlethal) {
+      const total = hp.nonlethal + amount;
+      await this.update({ "system.hp.nonlethal": total });
+      // The SRD never states the threshold, so this reports rather than
+      // applying a condition the GM may not want.
+      if (total >= hp.value) {
+        ui.notifications.warn(game.i18n.format("MODERN20.Damage.NonlethalExceeds", {
+          name: this.name, total, hp: hp.value
+        }));
+      }
+      return { value: hp.value, nonlethal: total };
+    }
 
     const afterTemp = Math.max(0, amount - hp.temp);
     const temp = Math.max(0, hp.temp - amount);
@@ -144,6 +166,12 @@ export class Modern20Actor extends Actor {
       await this.update({ "system.hp.value": MODERN20.massiveDamage.reducedHitPoints });
     }
     return { value: failed ? MODERN20.massiveDamage.reducedHitPoints : value, massive: true, failed };
+  }
+
+  /** Creature types the SRD says are "not subject to ... nonlethal damage". */
+  get isImmuneToNonlethal() {
+    const type = (this.system.details?.creatureType ?? "").toLowerCase();
+    return ["construct", "undead", "ooze"].some((immune) => type.includes(immune));
   }
 
   async #d20Roll(modifier, { flavor } = {}) {

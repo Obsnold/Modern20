@@ -171,7 +171,8 @@ def build_weapon(row, columns, category, url):
     ranged = bool(cell(row, columns, "rate of fire")) or cell(row, columns, "range increment") not in ("", "-")
     weapon = {
         "category": weapon_category(category),
-        "damage": cell(row, columns, "damage", default="1d4"),
+        # Footnote markers leak into the damage cell: "10d6 2", "Varies 2".
+        "damage": strip_footnote(cell(row, columns, "damage", default="1d4")),
         "damageType": cell(row, columns, "damage type").lower(),
         "critical": cell(row, columns, "critical", default="20"),
         "rangeIncrement": int(re.search(r"\d+", cell(row, columns, "range increment") or "0").group()) if re.search(r"\d+", cell(row, columns, "range increment") or "") else 0,
@@ -180,6 +181,8 @@ def build_weapon(row, columns, category, url):
         "magazine": cell(row, columns, "magazine"),
         "size": cell(row, columns, "size").lower() or "medium",
         "ranged": ranged,
+        # Set by override for the sap; the SRD's melee table has no column.
+        "nonlethal": False,
         "weight": parse_weight(cell(row, columns, "weight")),
         "purchaseDC": int(re.search(r"\d+", cell(row, columns, "purchase dc") or "0").group()) if re.search(r"\d+", cell(row, columns, "purchase dc") or "") else 0,
         "restriction": parse_restriction(cell(row, columns, "restriction")),

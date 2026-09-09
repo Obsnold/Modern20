@@ -53,5 +53,19 @@
   "flamethrower-no-feat-needed": {
     "why": "Fuel rather than rounds; the SRD names no ammunition entry.",
     "caliber": ""
+  },
+  "sap": {
+    "why": "weapons.html: 'This weapon, essentially a smaller version of a club, deals nonlethal damage instead of lethal damage.' The melee table has no nonlethal column.",
+    "nonlethal": true
+  },
+  "acid-mild": {
+    "why": "The SRD's row for this splash weapon does not line up with its own header: the critical and damage type columns hold '1' and '20', putting a number where the damage type belongs. Corrected from the row's own remaining cells.",
+    "critical": "-",
+    "damageType": "acid"
+  },
+  "molotov-cocktail": {
+    "why": "Same malformed row shape as Acid, mild - '20' lands in the damage type column.",
+    "critical": "-",
+    "damageType": "fire"
   }
 }

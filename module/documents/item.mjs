@@ -89,7 +89,13 @@ export class Modern20Item extends Item {
         critical ? "MODERN20.Chat.CriticalDamage" : "MODERN20.Chat.Damage",
         { weapon: this.name }
       ),
-      flags: { modern20: { damage: roll.total } }
+      flags: {
+        modern20: {
+          damage: roll.total,
+          // Carried so the apply buttons know which pool it belongs in.
+          nonlethal: this.isNonlethal(activityId)
+        }
+      }
     });
     return roll;
   }
@@ -101,6 +107,24 @@ export class Modern20Item extends Item {
    */
   get activities() {
     return availableActivities(this);
+  }
+
+  /**
+   * Does this weapon deal nonlethal damage, for this activity?
+   *
+   * A sap always does, an activity may override, and beanbag rounds make an
+   * otherwise lethal weapon nonlethal: "It deals the same amount of damage as
+   * a normal load, but the damage dealt is nonlethal."
+   */
+  isNonlethal(activityId = "shot") {
+    if (this.system.nonlethal) return true;
+
+    const activity = this.activities.find((entry) => entry.id === activityId);
+    if (activity?.damage?.nonlethal) return true;
+
+    const loaded = this.actor?.items?.get(this.system.loadedAmmo);
+    const special = loaded?.system?.special;
+    return Boolean(special && MODERN20.specialAmmunition[special]?.effect?.nonlethal);
   }
 
   /** Accessories fitted to this item. */

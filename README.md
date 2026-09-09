@@ -292,6 +292,23 @@ DC only, so its rows are two cells wide and were being dropped by a
 three-cell minimum meant to skip malformed rows. All eighteen types are now in
 the gear pack with their box quantity read from the name.
 
+## Nonlethal damage
+
+Tracked as its own pool beside hit points. A sap *"deals nonlethal damage
+instead of lethal damage"*, an unarmed strike deals it by default, beanbag
+rounds make an otherwise lethal weapon nonlethal, and constructs and their kind
+are *"not subject to ... nonlethal damage"* and ignore it entirely. An
+activity can override the item, so one weapon can do both.
+
+Damage rolls carry which kind they are, so the apply buttons put it in the
+right pool without being told twice. Healing clears nonlethal damage first,
+being the lighter wound.
+
+**What the SRD does not say** is how nonlethal damage accumulates or what
+happens when it reaches your hit points — it defines no *staggered* condition
+and states no threshold. So reaching that point reports and leaves the call to
+the GM, rather than applying a condition the rules never describe.
+
 ## Conditions
 
 The SRD's 24 conditions are registered as Foundry status effects, so they
