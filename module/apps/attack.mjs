@@ -70,13 +70,13 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
   const ranged = item.system.ranged;
   // An activity may name its ability; otherwise the SRD's own rule applies —
   // Strength in melee, Dexterity at range.
-  const abilityKey = activity.attack.ability || (ranged ? "dex" : "str");
+  const abilityKey = activity.attack?.ability || (ranged ? "dex" : "str");
   const abilityMod = actor.system.abilities[abilityKey]?.mod ?? 0;
   const size = MODERN20.sizes[actor.system.attributes.size]?.mod ?? 0;
 
   const { token: targetToken, actor: target } = currentTarget();
   const attackerToken = actor.getActiveTokens?.()[0] ?? null;
-  const measures = ranged && activity.attack.usesRange;
+  const measures = ranged && (activity.attack?.usesRange ?? true);
   const distance = measures ? tokenDistance(attackerToken, targetToken) : null;
   const range = measures ? rangePenalty(distance, item.system.rangeIncrement) : 0;
 
@@ -97,7 +97,7 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
   const natural = roll.dice[0]?.results?.[0]?.result ?? 0;
 
   // An activity may set its own Defense: autofire rolls against the area.
-  const defense = activity.attack.defenseOverride ?? target?.system?.defense?.value ?? null;
+  const defense = activity.attack?.defenseOverride ?? target?.system?.defense?.value ?? null;
   let hit = null;
   if (natural === 1) hit = false;
   else if (natural === 20) hit = true;
@@ -119,8 +119,8 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
     distance, range, ranged,
     activity,
     activityId: activity.id,
-    area: activity.area.size || null,
-    ammoSpent: activity.consume.ammo
+    area: activity.area?.size || null,
+    ammoSpent: activity.consume?.ammo ?? 0
   };
 }
 
@@ -134,7 +134,7 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
 export async function rollWeaponDamage(item, { critical = false, activityId = "shot" } = {}) {
   const actor = item.actor;
   const activity = activityById(item, activityId) ?? activityById(item, "shot");
-  const addAbility = activity?.damage.addAbility ?? true;
+  const addAbility = activity?.damage?.addAbility ?? true;
 
   const strMod = (addAbility && !item.system.ranged && actor)
     ? actor.system.abilities.str.mod : 0;

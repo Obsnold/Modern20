@@ -148,9 +148,20 @@ authored 200 times, and a weapon with no stored activities falls back to those
 same defaults — so a hand-made weapon works, and a stored activity wins when
 there is one. Unavailable activities are shown disabled with the reason.
 
-This is the shape dnd5e reached with per-item activities. It is lighter here:
-plain schema entries rather than pseudo-documents, since nothing yet needs
-them to be individually addressable.
+Activities are typed sub-documents, stored as a `TypedObjectField` of
+`TypedSchemaField` — Foundry's own machinery for *"a union of schema-constrained
+objects discriminable via a type property"*, keyed by id. Each type declares its
+own schema and its own class, so an attack validates attack fields and a saving
+throw validates a DC, and one item can hold several of different types.
+
+Four types ship — attack, save, damage, utility — registered on
+`CONFIG.MODERN20.activityTypes` at init, so a module can add its own before any
+item is prepared. The item sheet has an **Activities** tab to add, edit and
+delete them, which is what makes a magic item or a one-off gadget authorable
+in play rather than in JSON.
+
+A `TypedSchemaField` will not let an entry change type after creation, so the
+editor creates and deletes rather than converting.
 
 - **Autofire**: *"targets a 10-foot-by-10-foot area and makes an attack roll;
   the targeted area has an effective Defense of 10"*, affecting everyone in it,

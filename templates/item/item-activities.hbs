@@ -1,0 +1,123 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <p class="m20-hint">{{localize "MODERN20.Activity.Hint"}}</p>
+
+  <div class="m20-row">
+    <select name="newActivityType">
+      {{#each activityTypes as |type|}}
+        <option value="{{type}}">{{localize (modern20Concat "MODERN20.Activity.Type." type)}}</option>
+      {{/each}}
+    </select>
+    <button type="button" class="m20-button m20-button--small" data-action="addActivity">
+      {{localize "MODERN20.Activity.Add"}}
+    </button>
+  </div>
+
+  {{#each activities as |activity|}}
+    <div class="m20-panel m20-activity" data-activity-id="{{activity.id}}">
+      <h3>
+        <span class="m20-tag">{{localize (modern20Concat "MODERN20.Activity.Type." activity.type)}}</span>
+        <input type="text" name="system.activities.{{activity.id}}.name"
+               value="{{activity.data.name}}"
+               placeholder="{{localize 'MODERN20.Activity.Unnamed'}}">
+        <button type="button" class="m20-icon" data-action="deleteActivity"
+                data-tooltip="{{localize 'MODERN20.Activity.Delete'}}">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </h3>
+
+      {{#if (eq activity.type "attack")}}
+        <div class="m20-row">
+          <label>{{localize "MODERN20.Activity.Ability"}}</label>
+          <select name="system.activities.{{activity.id}}.attack.ability">
+            <option value="">{{localize "MODERN20.Activity.AbilityAuto"}}</option>
+            {{#each ../config.abilities as |label key|}}
+              <option value="{{key}}" {{#if (eq key activity.data.attack.ability)}}selected{{/if}}>
+                {{localize label}}
+              </option>
+            {{/each}}
+          </select>
+          <label>{{localize "MODERN20.Activity.AttackBonus"}}</label>
+          <input type="number" name="system.activities.{{activity.id}}.attack.bonus"
+                 value="{{activity.data.attack.bonus}}">
+        </div>
+        <div class="m20-row">
+          <label>{{localize "MODERN20.Activity.DefenseOverride"}}</label>
+          <input type="number" name="system.activities.{{activity.id}}.attack.defenseOverride"
+                 value="{{activity.data.attack.defenseOverride}}"
+                 placeholder="{{localize 'MODERN20.Activity.TargetDefense'}}">
+          <label>{{localize "MODERN20.Activity.UsesRange"}}</label>
+          <input type="checkbox" name="system.activities.{{activity.id}}.attack.usesRange"
+                 {{#if activity.data.attack.usesRange}}checked{{/if}}>
+        </div>
+      {{/if}}
+
+      {{#if (eq activity.type "save")}}
+        <div class="m20-row">
+          <label>{{localize "MODERN20.Activity.Save"}}</label>
+          <select name="system.activities.{{activity.id}}.save.ability">
+            {{#each ../config.saves as |save key|}}
+              <option value="{{key}}" {{#if (eq key activity.data.save.ability)}}selected{{/if}}>
+                {{localize save.label}}
+              </option>
+            {{/each}}
+          </select>
+          <label>{{localize "MODERN20.Activity.DC"}}</label>
+          <input type="number" name="system.activities.{{activity.id}}.save.dc"
+                 value="{{activity.data.save.dc}}">
+          <select name="system.activities.{{activity.id}}.save.onSuccess">
+            {{#each (array "half" "negate" "none") as |option|}}
+              <option value="{{option}}" {{#if (eq option activity.data.save.onSuccess)}}selected{{/if}}>
+                {{localize (modern20Concat "MODERN20.Activity.OnSuccess." option)}}
+              </option>
+            {{/each}}
+          </select>
+        </div>
+      {{/if}}
+
+      {{#unless (eq activity.type "utility")}}
+        <div class="m20-row">
+          <label>{{localize "MODERN20.Activity.Damage"}}</label>
+          <input type="text" name="system.activities.{{activity.id}}.damage.formula"
+                 value="{{activity.data.damage.formula}}"
+                 placeholder="{{localize 'MODERN20.Activity.DamageAuto'}}">
+          <label>{{localize "MODERN20.Activity.ExtraDice"}}</label>
+          <input type="number" name="system.activities.{{activity.id}}.damage.extraDice"
+                 value="{{activity.data.damage.extraDice}}">
+          <label>{{localize "MODERN20.Activity.AddAbility"}}</label>
+          <input type="checkbox" name="system.activities.{{activity.id}}.damage.addAbility"
+                 {{#if activity.data.damage.addAbility}}checked{{/if}}>
+        </div>
+      {{/unless}}
+
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Activity.Ammo"}}</label>
+        <input type="number" name="system.activities.{{activity.id}}.consume.ammo"
+               value="{{activity.data.consume.ammo}}">
+        <label>{{localize "MODERN20.ActionPoints"}}</label>
+        <input type="number" name="system.activities.{{activity.id}}.consume.actionPoints"
+               value="{{activity.data.consume.actionPoints}}">
+        <label>{{localize "MODERN20.Activity.RequiresFeat"}}</label>
+        <input type="text" name="system.activities.{{activity.id}}.requiresFeat"
+               value="{{activity.data.requiresFeat}}">
+      </div>
+
+      <div class="m20-row">
+        <label>{{localize "MODERN20.Activity.Area"}}</label>
+        <input type="text" name="system.activities.{{activity.id}}.area.shape"
+               value="{{activity.data.area.shape}}">
+        <input type="number" name="system.activities.{{activity.id}}.area.size"
+               value="{{activity.data.area.size}}">
+      </div>
+    </div>
+  {{/each}}
+
+  {{#if generatedActivities.length}}
+    <div class="m20-panel">
+      <h3>{{localize "MODERN20.Activity.Generated"}}</h3>
+      <p class="m20-hint">{{localize "MODERN20.Activity.GeneratedHint"}}</p>
+      {{#each generatedActivities as |activity|}}
+        <span class="m20-tag">{{localize activity.label}}</span>
+      {{/each}}
+    </div>
+  {{/if}}
+</section>

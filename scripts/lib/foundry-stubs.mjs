@@ -59,6 +59,40 @@ export class TypeDataModel {
   prepareDerivedData() {}
 }
 
+/** Sub-documents that are not a document subtype extend DataModel directly. */
+export class DataModel {
+  static defineSchema() { return {}; }
+}
+
+/**
+ * A union of schemas discriminated by a `type` property. The stub builds each
+ * member's schema so a broken activity schema fails here rather than at load.
+ */
+export class TypedSchemaField extends DataField {
+  constructor(types, options) {
+    super(options);
+    this.types = {};
+    for (const [name, model] of Object.entries(types)) {
+      if (typeof model?.defineSchema !== "function") {
+        throw new TypeError(`TypedSchemaField: "${name}" is not a DataModel`);
+      }
+      this.types[name] = new SchemaField(model.defineSchema());
+    }
+  }
+}
+
+/** A mapping of arbitrary keys to one field type. */
+export class TypedObjectField extends DataField {
+  constructor(element, options) {
+    super(options);
+    if (!(element instanceof DataField)) {
+      throw new TypeError("TypedObjectField element must be a DataField");
+    }
+    this.element = element;
+    element.parent = this;
+  }
+}
+
 /**
  * Install the stubs as globals and return the recorders, so a caller can see
  * what the system registered during its init hook.
@@ -81,12 +115,12 @@ export function installStubs() {
   globalThis.foundry = {
     data: {
       fields: {
-        SchemaField, ArrayField,
+        SchemaField, ArrayField, TypedSchemaField, TypedObjectField,
         NumberField: leaf(), StringField: leaf(), BooleanField: leaf(),
         HTMLField: leaf(), ObjectField: leaf(), FilePathField: leaf(),
       },
     },
-    abstract: { TypeDataModel },
+    abstract: { TypeDataModel, DataModel },
     documents: { Actor: class {}, Item: class {}, ChatMessage: class {} },
     dice: { Roll: class {} },
     applications: {

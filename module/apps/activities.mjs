@@ -77,10 +77,22 @@ export function defaultWeaponActivities(system) {
   return activities;
 }
 
-/** An item's activities: its own, or the defaults its type implies. */
+/**
+ * An item's activities as a list, its own or the defaults its type implies.
+ *
+ * Stored activities are a map of id to activity, so the id is carried back
+ * onto each entry for the sheet and the chat card to address it by.
+ */
 export function activitiesOf(item) {
-  const stored = item.system.activities ?? [];
-  if (stored.length) return stored;
+  const stored = item.system.activities ?? {};
+  const entries = Object.entries(stored);
+  if (entries.length) {
+    return entries.map(([id, activity]) => ({
+      ...(activity.toObject?.() ?? activity),
+      id,
+      type: activity.type ?? "attack"
+    }));
+  }
   if (item.type === "weapon") return defaultWeaponActivities(item.system);
   return [];
 }
@@ -95,8 +107,9 @@ export function availableActivities(item) {
   const tracksAmmo = Boolean(item.system.ammo?.max);
 
   return activitiesOf(item).map((activity) => {
-    const missingFeat = !hasFeat(actor, activity.requiresFeat);
-    const shortAmmo = tracksAmmo && activity.requiresAmmo > 0 && loaded < activity.requiresAmmo;
+    const missingFeat = !hasFeat(actor, activity.requiresFeat ?? "");
+    const shortAmmo = tracksAmmo && (activity.requiresAmmo ?? 0) > 0
+      && loaded < activity.requiresAmmo;
 
     let reason = "";
     if (missingFeat) reason = "MODERN20.Attack.NeedsFeat";
@@ -106,12 +119,16 @@ export function availableActivities(item) {
     const unskilledAutofire = activity.id === "autofire"
       && !hasFeat(actor, AUTOFIRE.proficiency);
 
+    // A type that does not roll to hit still needs a button.
+    const rolls = activity.type === "attack";
+
     return {
       ...activity,
+      rolls,
       label: activity.name || activity.id,
       available: !missingFeat && !shortAmmo,
       reason,
-      penalty: activity.attack.bonus + (unskilledAutofire ? AUTOFIRE.unskilledPenalty : 0),
+      penalty: (activity.attack?.bonus ?? 0) + (unskilledAutofire ? AUTOFIRE.unskilledPenalty : 0),
       unskilled: unskilledAutofire
     };
   });
@@ -127,11 +144,12 @@ export function activityById(item, id) {
  * overrides it, with any extra dice folded into the weapon's die.
  */
 export function activityDamageFormula(item, activity) {
-  const base = activity.damage.formula || item.system.damage;
-  if (!activity.damage.extraDice) return base;
+  const damage = activity.damage ?? {};
+  const base = damage.formula || item.system.damage;
+  if (!damage.extraDice) return base;
 
   const match = String(base).match(/^(\d+)d(\d+)/);
   if (!match) return base;
   const [whole, count, faces] = match;
-  return String(base).replace(whole, `${Number(count) + activity.damage.extraDice}d${faces}`);
+  return String(base).replace(whole, `${Number(count) + damage.extraDice}d${faces}`);
 }

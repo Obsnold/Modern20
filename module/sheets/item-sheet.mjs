@@ -16,7 +16,9 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     form: { submitOnChange: true },
     actions: {
       addPrerequisite: Modern20ItemSheet.#onAddPrerequisite,
-      removePrerequisite: Modern20ItemSheet.#onRemovePrerequisite
+      removePrerequisite: Modern20ItemSheet.#onRemovePrerequisite,
+      addActivity: Modern20ItemSheet.#onAddActivity,
+      deleteActivity: Modern20ItemSheet.#onDeleteActivity
     }
   };
 
@@ -24,6 +26,7 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     header: { template: "systems/modern20/templates/item/item-header.hbs" },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     details: { template: "systems/modern20/templates/item/item-details.hbs", scrollable: [""] },
+    activities: { template: "systems/modern20/templates/item/item-activities.hbs", scrollable: [""] },
     description: { template: "systems/modern20/templates/item/item-description.hbs", scrollable: [""] }
   };
 
@@ -31,6 +34,7 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     primary: {
       tabs: [
         { id: "details", icon: "fa-solid fa-sliders" },
+        { id: "activities", icon: "fa-solid fa-bolt" },
         { id: "description", icon: "fa-solid fa-align-left" }
       ],
       initial: "details",
@@ -82,6 +86,19 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     context.isPurchasable = item.system.purchaseDC !== undefined;
     context.hasPrerequisites = Array.isArray(item.system.prerequisites);
 
+    // Stored activities, and the generated defaults shown when there are none
+    // so it is clear what adding one would replace.
+    const stored = item.system.activities ?? {};
+    context.activities = Object.entries(stored).map(([id, activity]) => ({
+      id,
+      type: activity.type,
+      data: activity,
+      fields: item.system.schema.fields.activities.element.getField?.(activity.type)?.fields ?? null
+    }));
+    context.hasStoredActivities = context.activities.length > 0;
+    context.generatedActivities = context.hasStoredActivities ? [] : item.activities;
+    context.activityTypes = Object.keys(CONFIG.MODERN20?.activityTypes ?? {});
+
     context.enrichedDescription =
       await foundry.applications.ux.TextEditor.implementation.enrichHTML(
         item.system.description,
@@ -89,6 +106,35 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       );
 
     return context;
+  }
+
+  /**
+   * Add an activity of the chosen type.
+   *
+   * A TypedSchemaField will not let an entry change type after the fact, so
+   * the editor creates and deletes rather than converting.
+   */
+  static async #onAddActivity(event, target) {
+    const type = target.dataset.type
+      ?? this.element.querySelector("select[name=newActivityType]")?.value
+      ?? "attack";
+    const id = foundry.utils.randomID();
+
+    await this.document.update({
+      [`system.activities.${id}`]: {
+        type,
+        name: game.i18n.format("MODERN20.Activity.NewName", {
+          type: game.i18n.localize(`MODERN20.Activity.Type.${type}`)
+        })
+      }
+    });
+  }
+
+  static async #onDeleteActivity(event, target) {
+    const id = target.closest("[data-activity-id]")?.dataset.activityId;
+    if (!id) return;
+    // The -= prefix is how a key is removed from a stored object.
+    await this.document.update({ [`system.activities.-=${id}`]: null });
   }
 
   static async #onAddPrerequisite() {
