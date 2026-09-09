@@ -2,6 +2,7 @@ import { MODERN20 } from "../config.mjs";
 import { Modern20LevelUpScreen } from "../apps/level-up-screen.mjs";
 import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
 import { STANCES } from "../apps/actions.mjs";
+import { setting } from "../settings.mjs";
 
 const { Item } = foundry.documents;
 
@@ -70,7 +71,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    */
   _onRender(context, options) {
     super._onRender(context, options);
-    if (game.user.isGM) return;
+    if (game.user.isGM || !setting("lockPlayerSheets")) return;
 
     const form = this.element;
     for (const field of form.querySelectorAll("input, select, textarea, prose-mirror")) {
@@ -100,6 +101,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     context.editable = this.isEditable;
     // Drives the lock indicator; the actual locking happens in _onRender.
     context.isGM = game.user.isGM;
+    context.locked = !game.user.isGM && setting("lockPlayerSheets");
 
     context.enrichedBiography =
       await foundry.applications.ux.TextEditor.implementation.enrichHTML(
@@ -432,20 +434,21 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     const item = this._itemFromEvent(target);
     await item?.fullAttack({
       activityId: target.dataset.activity || "shot",
-      skipDialog: event.shiftKey
+      shiftKey: event.shiftKey
     });
   }
 
   /**
    * Use one of an item's activities.
    *
-   * Shift skips the circumstance dialog and rolls straight through, which is
-   * the convention players already know from other systems.
+   * Shift skips the circumstance dialog, or opens it, depending on the
+   * "Attack modifiers" setting. Shift-to-skip is the convention players
+   * already know from other systems, so it is the default.
    */
   static async #onUseActivity(event, target) {
     const item = this._itemFromEvent(target);
     if (!item) return;
-    await item.use(target.dataset.activity, { skipDialog: event.shiftKey });
+    await item.use(target.dataset.activity, { shiftKey: event.shiftKey });
   }
 
   static async #onAdjustHealth(event, target) {

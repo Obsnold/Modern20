@@ -1,4 +1,5 @@
 import { MODERN20 } from "./config.mjs";
+import { registerSettings, setting } from "./settings.mjs";
 
 import { Modern20Hero } from "./data/actor-hero.mjs";
 import { Modern20Ordinary } from "./data/actor-ordinary.mjs";
@@ -61,6 +62,10 @@ Hooks.once("init", () => {
   // Initiative is a straight Dexterity-based check in d20 Modern.
   CONFIG.Combat.initiative = { formula: "1d20 + @attributes.initiative.value", decimals: 0 };
 
+  // Registered before anything reads one: data preparation falls back to the
+  // default when a key is missing, but a world should never need that.
+  registerSettings();
+
   registerSheets();
   registerHandlebarsHelpers();
   registerPartials();
@@ -119,12 +124,14 @@ Hooks.on("renderChatMessageHTML", (message, html) => bindDamageControls(message,
  * update happens once rather than once per connected client.
  */
 Hooks.on("combatTurnChange", async (combat, previous, current) => {
-  if (!game.user.isGM) return;
+  if (!game.user.isGM || !setting("autoTurnReset")) return;
   const actor = combat.combatants.get(current?.combatantId)?.actor;
   if (!actor) return;
   await actor.startTurn();
   // The character has now had a chance to act, so is no longer flat-footed.
-  await actor.toggleStatusEffect("flatfooted", { active: false });
+  if (setting("autoFlatFooted")) {
+    await actor.toggleStatusEffect("flatfooted", { active: false });
+  }
 });
 
 /**
@@ -138,11 +145,12 @@ Hooks.on("combatTurnChange", async (combat, previous, current) => {
  */
 Hooks.on("combatStart", async (combat) => {
   if (!game.user.isGM) return;
+  const flatFooted = setting("autoFlatFooted");
   for (const combatant of combat.combatants) {
     const actor = combatant.actor;
     if (!actor) continue;
-    await actor.startTurn();
-    await actor.toggleStatusEffect("flatfooted", { active: true });
+    if (setting("autoTurnReset")) await actor.startTurn();
+    if (flatFooted) await actor.toggleStatusEffect("flatfooted", { active: true });
   }
 });
 

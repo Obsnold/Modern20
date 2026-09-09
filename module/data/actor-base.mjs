@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { setting } from "../settings.mjs";
 
 const fields = foundry.data.fields;
 
@@ -258,9 +259,13 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
 
     const base = this.attributes.speed;
     let speed = base;
-    if (level === "medium") speed = MODERN20.carrying.mediumSpeed[base] ?? base;
-    else if (level === "heavy") speed = MODERN20.carrying.heavySpeed[base] ?? base;
-    else if (level === "over") speed = 0;
+    // The load is always shown; whether it slows the character is the table's
+    // call, since carrying capacity is one of the rules groups most often drop.
+    if (setting("encumbranceSpeed")) {
+      if (level === "medium") speed = MODERN20.carrying.mediumSpeed[base] ?? base;
+      else if (level === "heavy") speed = MODERN20.carrying.heavySpeed[base] ?? base;
+      else if (level === "over") speed = 0;
+    }
 
     this.attributes.encumbrance = {
       carried: Math.round(carried * 10) / 10,

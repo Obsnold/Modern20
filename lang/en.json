@@ -33,6 +33,7 @@
     },
     "Acquisition": "Acquisition",
     "Action": {
+      "Blocked": "{name} has no {action} left this turn.",
       "Costs": "Costs {action}",
       "EndTurn": "End turn",
       "FiveFootStep": "5-foot step",
@@ -2088,6 +2089,50 @@
       "Will": "Will"
     },
     "SavingThrows": "Saving Throws",
+    "Settings": {
+      "massiveDamage": {
+        "name": "Massive damage",
+        "hint": "Damage at or above a character's threshold forces a Fortitude save or a drop to -1 hit points. The SRD's rule; turn it off for a less lethal game."
+      },
+      "massiveDamageDC": {
+        "name": "Massive damage save DC",
+        "hint": "The SRD's is 15."
+      },
+      "actionBudget": {
+        "name": "Action budget",
+        "hint": "What happens when a character has already spent the action something costs. The SRD leaves five actions as \"varies\", so warning is the default.",
+        "warn": "Warn, but allow it",
+        "block": "Refuse the action",
+        "off": "Do not track actions"
+      },
+      "autoFlatFooted": {
+        "name": "Flat-footed at the start of a battle",
+        "hint": "Apply the condition to everyone when combat begins, clearing it as each combatant's first turn arrives."
+      },
+      "autoTurnReset": {
+        "name": "Refill actions each turn",
+        "hint": "Reset the action budget and drop any stance when a combatant's turn comes round."
+      },
+      "lockPlayerSheets": {
+        "name": "Lock player sheets",
+        "hint": "Players build characters in the creator and the level-up screen, which apply the rules. Unlock to let them edit their sheets directly."
+      },
+      "encumbranceSpeed": {
+        "name": "Encumbrance slows characters",
+        "hint": "A medium or heavy load reduces speed. The load is always shown either way."
+      },
+      "actionPointDie": {
+        "name": "Action point die",
+        "hint": "The die an action point adds to a roll. The SRD's is 1d6."
+      },
+      "attackDialog": {
+        "name": "Attack modifiers",
+        "hint": "When to ask which circumstances apply — flanking, cover, concealment — before rolling an attack. Your own preference; it does not affect anyone else.",
+        "always": "Ask, unless shift is held",
+        "shift": "Only when shift is held",
+        "never": "Never ask"
+      }
+    },
     "SheetLabel": {
       "Creature": "Modern20 Creature Sheet",
       "Hero": "Modern20 Actor Sheet",
@@ -2174,6 +2219,22 @@
     "SpecialtySkill": "Choose a subject",
     "Speed": "Speed",
     "Spend": "Spend",
+    "Stance": {
+      "Charge": "Charge",
+      "ChargeEffect": "Move at least 10 feet in a straight line, then one attack.",
+      "Ends": "{name} drops the {stance} stance.",
+      "FightDefensively": "Fight defensively",
+      "FightDefensivelyEffect": "-4 attack, +2 Defense for the round.",
+      "None": "No stance.",
+      "Run": "Run",
+      "RunEffect": "Four times speed in a straight line; loses the Dexterity bonus to Defense, +2 against ranged.",
+      "Takes": "{name}: {stance}.",
+      "Title": "Stance",
+      "TotalDefense": "Total defense",
+      "TotalDefenseEffect": "+4 Defense for 1 round; no attack or other activity.",
+      "Withdraw": "Withdraw",
+      "WithdrawEffect": "Twice speed; the starting square is not threatened."
+    },
     "Success": "Success",
     "Tab": {
       "biography": "Biography",
@@ -2211,22 +2272,6 @@
       "Longarm": "Longarm",
       "Simple": "Simple Weapon",
       "Unarmed": "Unarmed"
-    },
-    "Stance": {
-      "Charge": "Charge",
-      "ChargeEffect": "Move at least 10 feet in a straight line, then one attack.",
-      "Ends": "{name} drops the {stance} stance.",
-      "FightDefensively": "Fight defensively",
-      "FightDefensivelyEffect": "-4 attack, +2 Defense for the round.",
-      "None": "No stance.",
-      "Run": "Run",
-      "RunEffect": "Four times speed in a straight line; loses the Dexterity bonus to Defense, +2 against ranged.",
-      "Takes": "{name}: {stance}.",
-      "Title": "Stance",
-      "TotalDefense": "Total defense",
-      "TotalDefenseEffect": "+4 Defense for 1 round; no attack or other activity.",
-      "Withdraw": "Withdraw",
-      "WithdrawEffect": "Twice speed; the starting square is not threatened."
     }
   },
   "TYPES": {

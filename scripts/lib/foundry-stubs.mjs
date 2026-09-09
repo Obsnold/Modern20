@@ -132,11 +132,31 @@ export function installStubs() {
     // Foundry maps a few effects to engine behaviour (defeated, blind, ...).
     specialStatusEffects: {},
   };
+  const registeredSettings = new Map();
+
   globalThis.game = {
     i18n: { localize: (k) => k, format: (k) => k },
     system: { id: "modern20" },
     keybindings: { get: () => [] },
-    settings: { get: () => false },
+    // A real registry rather than a stub that answers everything: Foundry
+    // throws on an unregistered key, and reading a setting returns its
+    // default until someone changes it. Checks that exercise behaviour then
+    // see the defaults the system actually ships with.
+    settings: {
+      register(namespace, key, definition) {
+        registeredSettings.set(`${namespace}.${key}`, definition);
+      },
+      get(namespace, key) {
+        const definition = registeredSettings.get(`${namespace}.${key}`);
+        if (!definition) throw new Error(`"${namespace}.${key}" is not a registered game setting`);
+        return definition.default;
+      },
+      set(namespace, key, value) {
+        const definition = registeredSettings.get(`${namespace}.${key}`);
+        if (!definition) throw new Error(`"${namespace}.${key}" is not a registered game setting`);
+        definition.default = value;
+      },
+    },
   };
   globalThis.ui = { notifications: { warn: () => {}, error: () => {} } };
   globalThis.Handlebars = { registerHelper: () => {} };
@@ -182,7 +202,7 @@ export function installStubs() {
     utils: { mergeObject: (a, b) => ({ ...a, ...b }) },
   };
 
-  return { hooks, registeredSheets };
+  return { hooks, registeredSheets, registeredSettings };
 }
 
 /** Import the system and run its init hook. Returns the recorders. */
