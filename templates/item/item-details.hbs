@@ -94,6 +94,21 @@
 
   {{#if (eq document.type "gear")}}
     {{formField fields.category value=system.category}}
+    {{#if weapons.length}}
+      <div class="form-group">
+        <label>{{localize "MODERN20.Accessory.FittedTo"}}</label>
+        <div class="form-fields">
+          <select name="system.attachedTo">
+            <option value="">{{localize "MODERN20.Creator.None"}}</option>
+            {{#each weapons as |weapon|}}
+              <option value="{{weapon.id}}" {{#if (eq weapon.id ../system.attachedTo)}}selected{{/if}}>
+                {{weapon.name}}
+              </option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    {{/if}}
   {{/if}}
 
   {{#if (eq document.type "container")}}

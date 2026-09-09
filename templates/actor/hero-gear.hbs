@@ -61,6 +61,15 @@
           <img src="{{item.img}}" alt="{{item.name}}">
           <span class="m20-itemrow__name">{{item.name}}</span>
           {{#if item.system.damage}}<span class="m20-tag">{{item.system.damage}}</span>{{/if}}
+          {{#if item.system.ammo.max}}
+            <span class="m20-tag {{#unless item.system.ammo.value}}m20-over{{/unless}}">
+              {{item.system.ammo.value}}/{{item.system.ammo.max}}
+            </span>
+            <button type="button" class="m20-icon" data-action="reloadWeapon"
+                    data-tooltip="{{localize 'MODERN20.Attack.Reload'}}">
+              <i class="fa-solid fa-rotate"></i>
+            </button>
+          {{/if}}
           {{#if item.system.equipmentBonus}}<span class="m20-tag">+{{item.system.equipmentBonus}} {{localize "MODERN20.Def"}}</span>{{/if}}
           <span class="m20-tag m20-tag--dc">{{localize "MODERN20.PurchaseDCShort"}} {{item.system.purchaseDC}}</span>
           {{#unless (eq item.type "gear")}}
@@ -88,6 +97,15 @@
           <button type="button" class="m20-icon" data-action="editItem"><i class="fa-solid fa-pen"></i></button>
           <button type="button" class="m20-icon" data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
         </div>
+        {{#each item.fitted as |accessory|}}
+          <div class="m20-itemrow m20-itemrow--packed" data-item-id="{{accessory.id}}">
+            <span class="m20-itemrow__name">{{accessory.name}}</span>
+            <button type="button" class="m20-icon" data-action="detachItem"
+                    data-tooltip="{{localize 'MODERN20.Accessory.Detach'}}">
+              <i class="fa-solid fa-link-slash"></i>
+            </button>
+          </div>
+        {{/each}}
       {{else}}
         <p class="m20-hint">{{localize "MODERN20.NoneYet"}}</p>
       {{/each}}

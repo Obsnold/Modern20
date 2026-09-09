@@ -34,7 +34,11 @@ export function purchasableFields() {
     // The container this is packed inside, by item id. Empty means carried
     // loose. Contents are still carried, so encumbrance is unaffected — the
     // SRD has no container that reduces weight.
-    container: new fields.StringField({ initial: "" })
+    container: new fields.StringField({ initial: "" }),
+    // A weapon accessory fitted to another item, by item id. The ecosystem has
+    // no settled model for this — PF2e has it as an open request — so it uses
+    // the same shape as `container`, which is one mechanism rather than two.
+    attachedTo: new fields.StringField({ initial: "" })
   };
 }
 
