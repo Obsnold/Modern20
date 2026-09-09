@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester sends a telepathic message of up to ten words to any living creature within range. This is strictly a one-way exchange from the manifester to the target. The manifester and the target must share a common language for the communication to be meaningful.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 0,
@@ -14,7 +14,31 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "target": "One living creature",
     "duration": "Instantaneous",
-    "savingThrow": "Will negates"
+    "savingThrow": "Will negates",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!A7YMdDBFxQlQOcyy"
 }

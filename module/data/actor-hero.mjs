@@ -108,6 +108,14 @@ export class Modern20Hero extends Modern20ActorBase {
     const summed = classes.reduce((total, c) => total + c.system.levels, 0);
     this.details.level = this.details.levelOverride ?? Math.max(summed, 1);
 
+    // Character level is only known now, and caster level follows it.
+    this.spellcasting.casterLevel =
+      this.spellcasting.casterLevelOverride ?? this.details.level;
+
+    // Character level is only known now, and caster level follows it.
+    this.spellcasting.casterLevel =
+      this.spellcasting.casterLevelOverride ?? this.details.level;
+
     this.actionPoints.max =
       this.actionPoints.maxOverride ??
       MODERN20.actionPoints.startingBase +

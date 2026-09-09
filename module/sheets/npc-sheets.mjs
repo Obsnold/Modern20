@@ -20,6 +20,7 @@ export class Modern20OrdinarySheet extends Modern20ActorSheetBase {
     main: { template: "systems/modern20/templates/actor/hero-main.hbs", scrollable: [""] },
     skills: { template: "systems/modern20/templates/actor/hero-skills.hbs", scrollable: [""] },
     gear: { template: "systems/modern20/templates/actor/hero-gear.hbs", scrollable: [""] },
+    casting: { template: "systems/modern20/templates/actor/hero-casting.hbs", scrollable: [""] },
     biography: { template: "systems/modern20/templates/actor/hero-biography.hbs", scrollable: [""] }
   };
 
@@ -29,6 +30,7 @@ export class Modern20OrdinarySheet extends Modern20ActorSheetBase {
         { id: "main", icon: "fa-solid fa-user" },
         { id: "skills", icon: "fa-solid fa-list-check" },
         { id: "gear", icon: "fa-solid fa-box-open" },
+        { id: "casting", icon: "fa-solid fa-wand-sparkles" },
         { id: "biography", icon: "fa-solid fa-book" }
       ],
       initial: "main",
@@ -54,6 +56,7 @@ export class Modern20CreatureSheet extends Modern20ActorSheetBase {
     main: { template: "systems/modern20/templates/actor/hero-main.hbs", scrollable: [""] },
     skills: { template: "systems/modern20/templates/actor/hero-skills.hbs", scrollable: [""] },
     gear: { template: "systems/modern20/templates/actor/hero-gear.hbs", scrollable: [""] },
+    casting: { template: "systems/modern20/templates/actor/hero-casting.hbs", scrollable: [""] },
     biography: { template: "systems/modern20/templates/actor/creature-biography.hbs", scrollable: [""] }
   };
 
@@ -63,6 +66,7 @@ export class Modern20CreatureSheet extends Modern20ActorSheetBase {
         { id: "main", icon: "fa-solid fa-paw" },
         { id: "skills", icon: "fa-solid fa-list-check" },
         { id: "gear", icon: "fa-solid fa-box-open" },
+        { id: "casting", icon: "fa-solid fa-wand-sparkles" },
         { id: "biography", icon: "fa-solid fa-book" }
       ],
       initial: "main",

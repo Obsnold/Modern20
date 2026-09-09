@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The clean spell completely eliminates grime, dirt, and bacterial contaminants from the target. Smooth surfaces gain a faint shine, as if they had been polished.</p><p>If cast on a room or object, the clean spell destroys dirt, dust, and anything else that would ordinarily be wiped away with a thorough mundane cleaning. The room or object retains no fingerprints, and even the smallest hairs, skin cells, and garment fibers are cleaned away—rendering most evidence collection impossible, for example.</p><p>If cast on a creature, the clean spell disinfects wounds (doubling the natural healing rate for that day) and renders the creature scentless for 1 minute. This means that creatures with the scent extraordinary ability won’t be able to detect the subject by scent alone.</p><p><strong>Material Component</strong>: Bar of soap.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 1,
@@ -22,7 +22,30 @@
     "duration": "Instantaneous",
     "savingThrow": "Fortitude negates (harmless)",
     "spellResistance": "Yes (harmless)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 1,
+      "divine": 1
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "fort",
+    "saveEffect": "harmless",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!nKeNAImKxXYwP6cL"
 }

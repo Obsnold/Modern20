@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester inserts a memory of his or her own choosing in the target’s mind. The manifester can insert a memory of up to 1 round duration per four manifester levels. The manifester chooses when the fake event occurred any time within the last week. The manifester can’t read the target’s memory with this power.</p><p>Tailoring a memory is tricky, because if it is not done right the target’s mind recognizes it as false. Dissonance occurs if a manifester inserts a memory that is out of context with the target’s past experience. The target gains a bonus of +1 to +4 on his or her saving throw, depending on the magnitude of dissonance create by an out-of-context memory, as determined by the GM. Likewise, inserting a memory of the target taking an action against his or her nature grants a +1 to +4 bonus, depending on the type of memory inserted. Inserting a memory that couldn’t possibly be true causes the power to fail automatically.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 4,
@@ -14,7 +14,31 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "target": "One target of Medium-size or smaller",
     "duration": "Instantaneous",
-    "savingThrow": "Will negates (see text)"
+    "savingThrow": "Will negates (see text)",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!dldeHGhx5DtCWjBB"
 }

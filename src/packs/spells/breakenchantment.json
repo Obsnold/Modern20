@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>This spell frees creatures from enchantments, transmutations, curses, and petrification (as well as other magical transformations). Break enchantment can reverse even an instantaneous effect. For each such effect, the caster makes a check of 1d20 + caster level (maximum +10) against a DC of 11 + caster level of the effect. Success means that the creature is free of the spell, curse, or effect. For cursed magic items, the DC is 25.</p><p>If the effect comes from some permanent magic item break enchantment does not remove the curse from the item but merely frees the victim from the item’s effects, leaving the item cursed.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 5,
@@ -18,10 +18,33 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "area": "",
     "target": "",
-    "duration": "",
-    "savingThrow": "",
-    "spellResistance": "",
-    "prepared": 0
+    "duration": "Instantaneous",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 5
+    },
+    "tradition": "divine",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!j4JXfYR5jiUUGpNk"
 }

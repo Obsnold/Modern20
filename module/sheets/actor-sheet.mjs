@@ -110,8 +110,12 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     // templates, which have no way to express an ordered list of types.
     context.sections = {
       character: this._section(grouped, ["class", "occupation", "talent", "feat"]),
-      gear: this._section(grouped, ["weapon", "armor", "gear"])
+      gear: this._section(grouped, ["weapon", "armor", "gear"]),
+      casting: this._section(grouped, ["spell", "psiPower"])
     };
+    // Every spell and power a caster has, with the DC each one imposes: the
+    // number a player is asked for most often at the table.
+    context.casting = this._prepareCasting(grouped);
     context.containers = this._containers(actor, grouped);
     // Accessories hang off the weapon they are fitted to.
     for (const weapon of grouped.weapon ?? []) {
@@ -124,6 +128,53 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     context.advancement = [...(actor.system.advancement ?? [])].reverse();
 
     return context;
+  }
+
+  /**
+   * Spells and powers, grouped by level with their save DCs resolved.
+   *
+   * The DC is "10 + the spell's level + the caster's key ability modifier", so
+   * it is a property of this character casting this spell and cannot be
+   * printed on the item.
+   */
+  _prepareCasting(grouped) {
+    const rows = [];
+    for (const type of ["spell", "psiPower"]) {
+      for (const item of grouped[type] ?? []) {
+        const activity = item.activities[0] ?? null;
+        const save = activity?.save?.ability;
+        rows.push({
+          item,
+          type,
+          level: item.castingLevel,
+          activities: item.activities,
+          // Flattened rather than reached for in the template: a Handlebars
+          // block parameter is lexically scoped, so `../` inside nested each
+          // blocks resolves somewhere other than where it reads as pointing.
+          school: item.system.school ?? "",
+          damage: item.system.damage ?? "",
+          powerPoints: type === "psiPower" ? item.system.powerPoints : 0,
+          prepared: type === "spell" ? item.system.prepared : 0,
+          traditionLabel: type === "spell"
+            ? MODERN20.traditions[item.system.tradition] ?? "" : "",
+          saveLabel: save
+            ? game.i18n.localize(MODERN20.saves[save]?.label ?? "") : "",
+          dc: save ? item.saveDC(activity) : null
+        });
+      }
+    }
+    rows.sort((a, b) => a.level - b.level || a.item.name.localeCompare(b.item.name));
+
+    const levels = new Map();
+    for (const row of rows) {
+      if (!levels.has(row.level)) levels.set(row.level, []);
+      levels.get(row.level).push(row);
+    }
+    return {
+      any: rows.length > 0,
+      casterLevel: this.document.system.spellcasting?.casterLevel ?? 1,
+      levels: [...levels.entries()].map(([level, entries]) => ({ level, entries }))
+    };
   }
 
   _section(grouped, types) {
@@ -385,6 +436,7 @@ export class Modern20HeroSheet extends Modern20ActorSheetBase {
     skills: { template: "systems/modern20/templates/actor/hero-skills.hbs", scrollable: [""] },
     talents: { template: "systems/modern20/templates/actor/hero-talents.hbs", scrollable: [""] },
     gear: { template: "systems/modern20/templates/actor/hero-gear.hbs", scrollable: [""] },
+    casting: { template: "systems/modern20/templates/actor/hero-casting.hbs", scrollable: [""] },
     biography: { template: "systems/modern20/templates/actor/hero-biography.hbs", scrollable: [""] }
   };
 
@@ -395,6 +447,7 @@ export class Modern20HeroSheet extends Modern20ActorSheetBase {
         { id: "skills", icon: "fa-solid fa-list-check" },
         { id: "talents", icon: "fa-solid fa-star" },
         { id: "gear", icon: "fa-solid fa-box-open" },
+        { id: "casting", icon: "fa-solid fa-wand-sparkles" },
         { id: "biography", icon: "fa-solid fa-book" }
       ],
       initial: "main",

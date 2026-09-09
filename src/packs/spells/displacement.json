@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The subject appears to be about 2 feet away from his or her true location. The subject benefits from a 50% miss chance as if he or she had total concealment. However, unlike actual total concealment, displacement does not prevent enemies from targeting the subject normally. True seeing reveals the subject’s true location.</p><p><strong>Material Component</strong>: Purchase DC 9.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 3,
@@ -21,7 +21,30 @@
     "duration": "1 round/level (D)",
     "savingThrow": "Will negates (harmless)",
     "spellResistance": "Yes (harmless)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 3,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "harmless",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!SMTvk96HTl7VLLvM"
 }

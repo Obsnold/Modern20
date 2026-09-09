@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>Once cast, the prestidigitation spell enables the caster to perform simple magical effects for 1 hour. The effects are minor and have severe limitations. Prestidigitations can slowly lift 1 pound of material. They can color, clean, or soil items in a 1-foot cube each round. They can chill, warm, or flavor 1 pound of nonliving material. They cannot deal damage or affect the concentration of spellcasters. Prestidigitation can create small objects, but they look crude and artificial. The materials created by a prestidigitation spell are extremely fragile, and they cannot be used as tools, weapons, or spell components.</p><p>Finally, a prestidigitation spell lacks the power to duplicate any other spell effects. Any actual change to an object (beyond just moving, cleaning, or soiling it) persists only 1 hour.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 0,
@@ -18,10 +18,33 @@
     "range": "10 ft.",
     "area": "",
     "target": "",
-    "duration": "",
-    "savingThrow": "",
-    "spellResistance": "",
-    "prepared": 0
+    "duration": "1 hour",
+    "savingThrow": "See text",
+    "spellResistance": "No",
+    "prepared": 0,
+    "lists": {
+      "arcane": 0,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!ZmQWMV4Wa1bOegFB"
 }

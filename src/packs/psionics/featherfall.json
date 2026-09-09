@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The targeted creatures or objects affected fall slowly. The rate of fall is instantly changed to a mere 60 feet per round (equivalent to the end of a fall from a few feet), with no damage incurred upon landing while the power is in effect. However, when the duration expires, a normal rate of fall occurs.</p><p>You can manifest this power instantly, quickly enough to save yourself if you unexpectedly fall. Manifesting the power is a free action, like manifesting a quickened power, and it counts toward the normal limit of one quickened power per round.</p><p>This power has no special effect on ranged weapons unless they are falling quite a distance. If manifested on a falling item, the item does half normal damage based on weight (1d6 per 400 pounds) with no bonus for the height of the drop.</p><p>The power works only upon free-falling objects. It does not affect a sword blow or a charging or flying creature.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 1,
@@ -14,7 +14,31 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "target": "Any free-falling objects or creatures in a 10-ft. radius whose weight does not total more than 300 lb./level",
     "duration": "Until landing or 1 round/level",
-    "savingThrow": "Will negates (object)"
+    "savingThrow": "Will negates (object)",
+    "keyAbility": "dex",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!9jl51fMsAy0qjkx3"
 }

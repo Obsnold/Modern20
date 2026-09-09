@@ -1,0 +1,34 @@
+{{!--
+  A spell or power that rolls against nothing: most of the list. The SRD
+  describes the effect in prose and leaves applying it to the table, so the
+  card's job is to put that prose where everyone can read it.
+--}}
+<div class="m20-chat m20-chat--cast">
+  <header class="m20-chat__header">
+    <img src="{{item.img}}" alt="{{item.name}}">
+    <span class="m20-chat__title">{{item.name}}</span>
+  </header>
+
+  <p class="m20-chat__result">
+    {{#if damage}}
+      {{damage}}{{#if damageType}} {{damageType}}{{/if}}
+    {{else}}
+      {{item.system.duration}}
+    {{/if}}
+    {{#if item.system.range}}&middot; {{item.system.range}}{{/if}}
+    {{#if casterLevel}}&middot; {{localize "MODERN20.Cast.CasterLevel"}} {{casterLevel}}{{/if}}
+  </p>
+
+  {{#if description}}
+    <div class="m20-chat__text">{{{description}}}</div>
+  {{/if}}
+
+  <div class="m20-damage-buttons">
+    {{#if damage}}
+      <button type="button" data-m20-damage="normal">{{localize "MODERN20.Attack.RollDamage"}}</button>
+    {{/if}}
+    {{#if activity.area.size}}
+      <button type="button" data-m20-area>{{localize "MODERN20.Area.Place"}}</button>
+    {{/if}}
+  </div>
+</div>

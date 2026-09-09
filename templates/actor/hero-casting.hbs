@@ -1,0 +1,67 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Cast.Title"}}</h3>
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Cast.CasterLevel"}}</label>
+      <span class="m20-mod">{{casting.casterLevel}}</span>
+      <span class="m20-hint">{{localize "MODERN20.Cast.CasterLevelHint"}}</span>
+    </div>
+    <div class="m20-row">
+      <label for="m20-caster-level-override">{{localize "MODERN20.Cast.CasterLevelOverride"}}</label>
+      <input id="m20-caster-level-override" type="number"
+             name="system.spellcasting.casterLevelOverride"
+             value="{{system.spellcasting.casterLevelOverride}}" placeholder="&mdash;">
+    </div>
+  </div>
+
+  {{#each casting.levels as |group|}}
+    <div class="m20-itemlist">
+      <h3>{{localize "MODERN20.Cast.Level"}} {{group.level}}</h3>
+      {{#each group.entries as |row|}}
+        <div class="m20-itemrow" data-item-id="{{row.item.id}}">
+          <img src="{{row.item.img}}" alt="{{row.item.name}}">
+          <span class="m20-itemrow__name">{{row.item.name}}</span>
+          {{#if row.school}}<span class="m20-hint">{{row.school}}</span>{{/if}}
+          {{#if row.traditionLabel}}
+            <span class="m20-tag" data-tooltip="{{localize 'MODERN20.Cast.TraditionHint'}}">
+              {{localize row.traditionLabel}}
+            </span>
+          {{/if}}
+          {{#if row.powerPoints}}
+            <span class="m20-tag">{{row.powerPoints}} {{localize "MODERN20.Cast.PowerPointsShort"}}</span>
+          {{/if}}
+          {{#if row.damage}}<span class="m20-tag">{{row.damage}}</span>{{/if}}
+          {{#if row.prepared}}
+            <span class="m20-tag" data-tooltip="{{localize 'MODERN20.Cast.PreparedHint'}}">
+              &times;{{row.prepared}}
+            </span>
+          {{/if}}
+          {{#if row.dc}}
+            <span class="m20-tag m20-tag--dc">{{row.saveLabel}} {{localize "MODERN20.Activity.DC"}} {{row.dc}}</span>
+          {{/if}}
+          {{#each row.activities as |activity|}}
+            <button type="button" class="m20-icon m20-mode"
+                    data-action="useActivity" data-activity="{{activity.id}}"
+                    {{#unless activity.available}}disabled{{/unless}}
+                    data-tooltip="{{localize activity.label}}">
+              {{localize activity.label}}
+            </button>
+          {{/each}}
+          <button type="button" class="m20-icon" data-action="editItem"><i class="fa-solid fa-pen"></i></button>
+          <button type="button" class="m20-icon" data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="m20-hint">{{localize "MODERN20.Cast.None"}}</p>
+  {{/each}}
+
+  <div class="m20-row">
+    {{#each sections.casting as |section|}}
+      <button type="button" class="m20-button m20-button--small"
+              data-action="createItem" data-type="{{section.type}}">
+        + {{section.label}}
+      </button>
+    {{/each}}
+  </div>
+</section>

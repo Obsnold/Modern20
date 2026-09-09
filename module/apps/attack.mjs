@@ -202,21 +202,26 @@ export async function resolveAttack(item, { situational = 0, activityId = "shot"
 }
 
 /**
- * Weapon damage.
+ * The damage an item's activity deals.
  *
  * A critical is two full damage rolls: "roll damage twice, as if hitting the
  * target two times". That is deliberately not a x2 multiplier, which would
  * treat a flat bonus and the dice differently from the way the SRD describes.
+ *
+ * Not weapon-specific: a spell, a psionic power or a piece of gear rolls the
+ * damage its own activity declares. Strength is added only where the SRD adds
+ * it — a melee weapon — so nothing is added to a fireball.
  */
-export async function rollWeaponDamage(item, { critical = false, activityId = "shot" } = {}) {
+export async function rollItemDamage(item, { critical = false, activityId = "" } = {}) {
   const actor = item.actor;
-  const activity = activityById(item, activityId) ?? activityById(item, "shot");
+  const activity = activityById(item, activityId) ?? item.activities[0] ?? null;
   const addAbility = activity?.damage?.addAbility ?? true;
 
-  const strMod = (addAbility && !item.system.ranged && actor)
-    ? actor.system.abilities.str.mod : 0;
-  const data = { str: strMod, bonus: item.system.damageBonus };
+  const melee = item.type === "weapon" && !item.system.ranged;
+  const strMod = (addAbility && melee && actor) ? actor.system.abilities.str.mod : 0;
+  const data = { str: strMod, bonus: item.system.damageBonus ?? 0 };
   const damage = activity ? activityDamageFormula(item, activity) : item.system.damage;
+  if (!damage) throw new Error(`${item.name} has no damage to roll`);
   const single = `${damage} + @str + @bonus`;
 
   const formula = critical ? `${single} + ${single}` : single;
@@ -268,27 +273,78 @@ export async function postAttackCard(item, result) {
 export async function postSaveCard(item, activity) {
   const actor = item.actor;
   const targets = [...(game.user.targets ?? [])].map((token) => token.actor).filter(Boolean);
+  const dc = item.saveDC(activity);
 
   const content = await foundry.applications.handlebars.renderTemplate(
     "systems/modern20/templates/chat/save-card.hbs",
     {
       item,
       activity,
+      dc,
       saveLabel: game.i18n.localize(MODERN20.saves[activity.save.ability]?.label ?? ""),
-      damage: activityDamageFormula(item, activity),
+      damage: item.system.damage || activity.damage?.formula
+        ? activityDamageFormula(item, activity) : "",
+      description: await enrichDescription(item),
       targets: targets.map((target) => target.name)
     }
   );
 
   return ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
-    flavor: game.i18n.format("MODERN20.Attack.Detonates", { name: item.name }),
+    flavor: game.i18n.format(saveFlavor(item), { name: item.name }),
     content,
     flags: {
       modern20: {
         attack: { itemId: item.id, critical: false, activityId: activity.id },
-        save: { ability: activity.save.ability, dc: activity.save.dc }
+        save: { ability: activity.save.ability, dc }
       }
     }
+  });
+}
+
+/** A grenade detonates; a spell is cast at someone. */
+function saveFlavor(item) {
+  if (item.type === "spell") return "MODERN20.Cast.Casts";
+  if (item.type === "psiPower") return "MODERN20.Cast.Manifests";
+  return "MODERN20.Attack.Detonates";
+}
+
+/** An item's description, ready to drop into a chat card. */
+export function enrichDescription(item) {
+  return foundry.applications.ux.TextEditor.implementation.enrichHTML(
+    item.system.description ?? "",
+    { secrets: false, relativeTo: item }
+  );
+}
+
+/**
+ * Post a spell or power that does not roll against anything: the card carries
+ * its description, and its damage where it deals any.
+ *
+ * "Utility" covers most of the spell list — the SRD describes the effect in
+ * prose and leaves applying it to the table — so the card's job is to put that
+ * prose in front of everyone rather than to compute a result.
+ */
+export async function postCastCard(item, activity) {
+  const damage = activity.damage?.formula || item.system.damage
+    ? activityDamageFormula(item, activity) : "";
+
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/modern20/templates/chat/cast-card.hbs",
+    {
+      item,
+      activity,
+      damage,
+      damageType: activity.damage?.type ?? "",
+      casterLevel: item.actor?.system?.spellcasting?.casterLevel ?? null,
+      description: await enrichDescription(item)
+    }
+  );
+
+  return ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: item.actor }),
+    flavor: game.i18n.format(saveFlavor(item), { name: item.name }),
+    content,
+    flags: { modern20: { attack: { itemId: item.id, critical: false, activityId: activity.id } } }
   });
 }

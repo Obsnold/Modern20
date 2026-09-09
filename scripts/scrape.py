@@ -286,6 +286,42 @@ def collect_labels(lines: list[str], start: int, end: int, labels: set[str]) -> 
     return found
 
 
+def trailing_prose(lines: list[str], start: int, end: int, labels: set[str]) -> str:
+    """The description printed after an entry's label block, as HTML.
+
+    An SRD entry is a name, a header line, a run of label/value pairs, then the
+    rules text. This returns that text: everything after the last label the
+    caller recognises. Sub-headings inside the prose ("Skeletons", "Material
+    Component") are written the same way as labels but are not in the label
+    set, so they arrive as a line followed by one starting with ":" and are
+    rendered bold rather than dropped.
+    """
+    last = None
+    for i in range(start, min(end, len(lines) - 1)):
+        if is_label(lines[i], labels) and is_value(lines[i + 1]):
+            last = i + 1
+    if last is None:
+        return ""
+
+    paragraphs = []
+    i = last + 1
+    while i < min(end, len(lines)):
+        line = lines[i]
+        # A sub-heading and its text are two lines; join them.
+        if i + 1 < len(lines) and is_value(lines[i + 1]) and not is_value(line):
+            paragraphs.append(f"<p><strong>{esc(line)}</strong>: {esc(value_of(lines[i + 1]))}</p>")
+            i += 2
+            continue
+        paragraphs.append(f"<p>{esc(line)}</p>")
+        i += 1
+    return "".join(paragraphs)
+
+
+def esc(text: str) -> str:
+    """Escape for embedding in the HTML description field."""
+    return html.escape(text, quote=False)
+
+
 def entry_starts(lines: list[str], labels: set[str], lookahead: int = 3,
                  min_gap: int = 3) -> list[int]:
     """Indices of lines that name an entry: a plain line shortly followed by a label.
@@ -304,6 +340,17 @@ def entry_starts(lines: list[str], labels: set[str], lookahead: int = 3,
         # punctuation, which is what distinguishes a heading from a trailing
         # line of the previous entry's description.
         if line.endswith((".", ",", ";", ":", "?", "!")):
+            continue
+        # A page banner - "SPELLS - AID TO INSECT PLAGUE" - sits within the
+        # lookahead of the first entry's labels and, being the earlier
+        # candidate, would win and swallow that entry. Entry names are printed
+        # in title case; only the banners are shouted.
+        if line.isupper():
+            continue
+        # A line directly followed by a value is a label, even when it is
+        # misspelled - the SRD prints "Areat" for bless - and treating one as
+        # an entry name truncates the real entry's description.
+        if i + 1 < len(lines) and is_value(lines[i + 1]):
             continue
         window = lines[i + 1: i + 1 + lookahead]
         if any(is_label(w, labels) for w in window):
@@ -567,6 +614,98 @@ def scrape_creatures(pages: list[str]) -> list[dict]:
     return [creatures[k] for k in sorted(creatures)]
 
 
+# "20-ft.-radius spread", "20-ft. burst", "Cylinder (10-ft. radius, 40 ft.
+# high)". Every area the SRD states as a radius can be drawn; the rest are
+# described in prose ("Quarter-circle emanating from you") and are left to the
+# GM, since a wrong shape on the canvas is worse than none.
+AREA_PATTERN = re.compile(
+    r"(\d+)\s*-?\s*ft\.?\s*-?\s*(?:radius|burst|spread)"
+    r"|radius[ ,]+(?:of )?(?:up to )?(\d+)\s*ft",
+    re.I,
+)
+
+
+def parse_area(text: str) -> dict:
+    """A spell's area as a shape the canvas can draw, or nothing."""
+    match = AREA_PATTERN.search(text or "")
+    if not match:
+        return {"shape": "", "size": 0}
+    return {"shape": "radius", "size": int(match.group(1) or match.group(2))}
+
+
+# "1d6 points of fire damage per caster level (maximum 10d6)". The SRD writes
+# every spell's damage this way, so the expression, the energy type and the
+# scaling can be read out of the prose rather than transcribed by hand.
+DAMAGE_PATTERN = re.compile(
+    r"(?P<dice>\d+d\d+(?:\s*[+-]\s*\d+)?)\s*points?\s+of\s+"
+    r"(?P<kind>[a-z/ ]*?)\s*damage"
+    r"(?:\s+per\s+(?P<per>two\s+|)caster\s+levels?)?"
+    r"(?:\s*\(maximum\s+(?P<max>\d+)d\d+)?",
+    re.I,
+)
+
+# Energy types the SRD names in a damage line. Anything else - "temporary
+# ability damage" - is not hit point damage and is left alone.
+DAMAGE_TYPES = {
+    "acid", "cold", "electricity", "fire", "sonic", "poison", "force",
+    "bludgeoning", "piercing", "slashing", "negative energy",
+}
+
+
+def parse_damage(name: str, description: str) -> dict | None:
+    """The damage a spell or power deals, read from its description.
+
+    Returns None where the description states none, or states something that
+    is not hit point damage: a cure spell restores hit points and ability
+    damage is a different track entirely. Both would otherwise be picked up by
+    the same sentence pattern.
+    """
+    text = html.unescape(re.sub(r"<[^>]+>", " ", description))
+    match = DAMAGE_PATTERN.search(text)
+    if not match:
+        return None
+
+    kind = (match.group("kind") or "").strip().lower()
+    if "abilit" in kind:
+        return None
+    # A cure spell is written as damage it removes: "channels positive energy
+    # that cures 1d8 points of damage".
+    sentence = text[max(0, text.rfind(".", 0, match.start()) + 1): match.end()]
+    if re.search(r"\bcure|\bheal|positive energy", sentence, re.I) or name.lower().startswith(("cure ", "mass cure")):
+        return None
+
+    per = 0
+    if match.group("per") is not None:
+        per = 2 if match.group("per").strip() else 1
+
+    return {
+        "formula": re.sub(r"\s+", "", match.group("dice")),
+        "type": kind if kind in DAMAGE_TYPES else "",
+        # Dice added per this many caster levels, and the most the expression
+        # reaches. Both zero for damage that does not scale.
+        "scaling": {"per": per, "max": int(match.group("max") or 0)},
+    }
+
+
+# The classes that cast from each list. "Arcane 2" and "Divine 2" appear in the
+# Urban Arcana spells, which name the tradition rather than a class.
+SPELL_LIST_CLASSES = {
+    "arcane": ("Mage", "Arcane", "Techno Mage"),
+    "divine": ("Acolyte", "Divine", "Mystic"),
+}
+
+
+def spell_lists(level_text: str) -> dict:
+    """Split "Acolyte 3, Mage 4" into the level on each list."""
+    found = {"arcane": None, "divine": None}
+    for caster, level in re.findall(r"([A-Z][A-Za-z ]*?)\s+(\d+)", level_text):
+        caster = caster.strip()
+        for tradition, names in SPELL_LIST_CLASSES.items():
+            if caster in names and found[tradition] is None:
+                found[tradition] = int(level)
+    return found
+
+
 def scrape_spells(pages: list[str]) -> list[dict]:
     """Spells: a name, a school line, then label/value pairs."""
     spells = {}
@@ -613,6 +752,15 @@ def scrape_spells(pages: list[str]) -> list[dict]:
                 "duration": fields.get("duration", ""),
                 "savingThrow": fields.get("saving throw", ""),
                 "spellResistance": fields.get("spell resistance", ""),
+                # Which list the spell is on and at what level. A spell on both
+                # lists is a different level for each - animate dead is Acolyte
+                # 3 and Mage 4 - and the save DC counts the level of the list it
+                # was cast from, so both are kept.
+                "save": parse_saving_throw(fields.get("saving throw", "")),
+                "damage": parse_damage(name, trailing_prose(lines, start, end, SPELL_LABELS)),
+                "areaShape": parse_area(fields.get("area", "") or fields.get("effect", "")),
+                "lists": spell_lists(level_text),
+                "description": trailing_prose(lines, start, end, SPELL_LABELS),
                 "srdUrl": srd.page_url(page),
             })
 
@@ -634,6 +782,53 @@ VEHICLE_SIZES = {
     "F": "fine", "D": "diminutive", "T": "tiny", "S": "small", "M": "medium",
     "L": "large", "H": "huge", "G": "gargantuan", "C": "colossal",
 }
+
+
+# The abbreviations ABILITY_KEYS holds, plus the full names the FX chapter
+# prints for a power's key ability.
+ABILITY_WORDS = {
+    **{abbrev.lower(): key for abbrev, key in ABILITY_KEYS.items() if key},
+    "strength": "str", "dexterity": "dex", "constitution": "con",
+    "intelligence": "int", "wisdom": "wis", "charisma": "cha",
+}
+
+
+def ability_key(text: str) -> str:
+    """The ability a power keys off, as an ability key.
+
+    The key ability is printed as its own line under the power's name, usually
+    as a bare ability - "Charisma" - but charm creature prints its discipline
+    and abbreviates: "Telepathy (Cha)".
+    """
+    for word in re.findall(r"[A-Za-z]+", text):
+        key = ABILITY_WORDS.get(word.lower())
+        if key:
+            return key
+    return ""
+
+
+# "Will negates", "Reflex half", "Fortitude partial (see text)". The save and
+# what a successful one does are the two parts that matter mechanically.
+SAVE_NAMES = {"fortitude": "fort", "reflex": "ref", "will": "will"}
+
+
+def parse_saving_throw(text: str) -> dict:
+    """Which save a spell or power allows, and what succeeding at it does."""
+    lowered = (text or "").lower()
+    save = next((key for name, key in SAVE_NAMES.items() if name in lowered), "")
+    if not save:
+        return {"save": "", "onSuccess": ""}
+    # "(harmless)" marks a spell whose save exists only so an unwilling ally
+    # can refuse it; it is not an attack and needs no DC prompt.
+    if "harmless" in lowered:
+        return {"save": save, "onSuccess": "harmless"}
+    if "half" in lowered:
+        return {"save": save, "onSuccess": "half"}
+    if "partial" in lowered:
+        return {"save": save, "onSuccess": "partial"}
+    if "negates" in lowered or "disbelief" in lowered:
+        return {"save": save, "onSuccess": "negate"}
+    return {"save": save, "onSuccess": "none"}
 
 
 def scrape_psionics(pages: list[str]) -> list[dict]:
@@ -666,7 +861,8 @@ def scrape_psionics(pages: list[str]) -> list[dict]:
             powers.setdefault(name, {
                 "id": camel(name),
                 "name": name,
-                "keyAbility": key_ability.split("[")[0].strip(),
+                "keyAbility": ability_key(key_ability),
+                "keyAbilityText": key_ability.split("[")[0].strip(),
                 "level": int(level_match.group(1)) if level_match else 0,
                 "levelText": fields.get("level", ""),
                 "display": fields.get("display", ""),
@@ -676,6 +872,10 @@ def scrape_psionics(pages: list[str]) -> list[dict]:
                 "target": fields.get("target", "") or fields.get("targets", "") or fields.get("effect", ""),
                 "duration": fields.get("duration", ""),
                 "savingThrow": fields.get("saving throw", ""),
+                "save": parse_saving_throw(fields.get("saving throw", "")),
+                "damage": parse_damage(name, trailing_prose(lines, start, end, PSIONIC_LABELS)),
+                "areaShape": parse_area(fields.get("area", "") or fields.get("effect", "")),
+                "description": trailing_prose(lines, start, end, PSIONIC_LABELS),
                 "srdUrl": srd.page_url(page),
             })
 

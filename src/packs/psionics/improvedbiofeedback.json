@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>As biofeedback, except you take a portion of each damaging attack as nonlethal damage equal to twice your Strength modifier, and the duration is extended.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 3,
@@ -14,7 +14,26 @@
     "range": "Personal",
     "target": "You",
     "duration": "1 hour/level (D)",
-    "savingThrow": ""
+    "savingThrow": "",
+    "keyAbility": "str",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!b0GIEeTAbMnRqUVV"
 }

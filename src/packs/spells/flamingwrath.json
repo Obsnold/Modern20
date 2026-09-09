@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>This spell produces a vertical column of divine fire roaring downward. The spell deals 1d6 points of fire damage per caster level (maximum 10d6).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 5,
@@ -22,7 +22,48 @@
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 5
+    },
+    "tradition": "divine",
+    "damage": "1d6",
+    "damageType": "fire",
+    "scaling": {
+      "per": 1,
+      "max": 10
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "radius",
+      "size": 10
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "area": {
+          "shape": "radius",
+          "size": 10
+        },
+        "damage": {
+          "formula": "1d6",
+          "type": "fire",
+          "scaling": {
+            "per": 1,
+            "max": 10
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!9kS4ShlVI8Ri5qXL"
 }

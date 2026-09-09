@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The caster can understand words spoken or written in a language he or she does not know (including the unique languages of some creatures). In either case, the caster must touch the speaker or the writing. Note that the ability to read does not necessarily impart insight into the material, merely its literal meaning. The spell enables the caster to understand or read an unknown language, not speak or write it.</p><p>Written material can be read at the rate of one page (250 words) per minute. Magical writing cannot be read, other than to know it is magical. This spell can be foiled by certain warding magic. It does not decipher codes or reveal messages concealed in</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 1,
@@ -22,7 +22,30 @@
     "duration": "10 minutes/level",
     "savingThrow": "",
     "spellResistance": "",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 1,
+      "divine": 1
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!idaPxORBJiItWIKT"
 }

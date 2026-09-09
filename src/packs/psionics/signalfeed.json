@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>You can create false images or sounds on an electronic device. The spell affects those that are watching or listening the device at the time of the power’s manifestation— those who arrive later or make their saving throw see or hear the what is really there. Recordings of the signal feed will show distortion, as well as the “real” image. Other powers may not be used through a signal feed.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 5,
@@ -14,7 +14,31 @@
     "range": "Close (25 ft. +5 ft./2 levels)",
     "target": "One communication device",
     "duration": "1 round/level",
-    "savingThrow": "Will negates"
+    "savingThrow": "Will negates",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!GXb6v6G9f5F27Ls4"
 }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>You surround yourself with a bubble of low-level electromagnetic radiation, not enough to be detected by normal individuals but sufficient to defeat most electronic transmissions (like cell phones, radio broadcasts, and television signals). Hardwired effects such as cable TV or telephones, or self-contained devices such as video cameras are unaffected by this power. Those using the affected devices get scrambled signals and white noise, and are aware that they are being jammed.</p><p><strong>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</strong>: </p><p>spike_fightwicky@yahoo.ca</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 1,
@@ -14,7 +14,30 @@
     "range": "Personal",
     "target": "",
     "duration": "1 minute/level",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "con",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "radius",
+      "size": 5
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest",
+        "area": {
+          "shape": "radius",
+          "size": 5
+        }
+      }
+    }
   },
   "_key": "!items!0ZEEZoxtUdCrq9eS"
 }

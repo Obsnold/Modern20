@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The target gains the ability to see 60 feet even in total darkness. This provides black-and-white vision only, but is otherwise like normal sight and it doesn’t allow the target to see in magical darkness (if such a thing exists in the campaign).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 2,
@@ -14,7 +14,26 @@
     "range": "Touch",
     "target": "Individual touched",
     "duration": "1 hour/level",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "wis",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!K4LAHkS2ttmKyTbK"
 }

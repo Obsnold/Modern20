@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>An augury can tell the caster whether a particular action will bring good or bad results for him or her in the immediate future.</p><p>The base chance for receiving a meaningful reply is 70% + 1% per caster level; the GM makes the roll secretly. The GM may determine that the question is so straightforward that a successful result is automatic, or so vague as to have no chance of success. If the augury succeeds, the caster gets one of four results:</p><p>“Weal” (if the action will probably bring good results).</p><p>“Woe” (for bad results).</p><p>“Weal and woe” (for both).</p><p>“Nothing” (for actions that don’t have especially good or bad results).</p><p>If the spell fails, the caster gets the “nothing” result. A divine caster who gets the “nothing” result has no way to tell whether it was the consequence of a failed or successful augury.</p><p>The augury can see into the future only about half an hour, so anything that might happen after that does not affect the augury. All augury spells cast by the same person about the same topic use the same result as the first augury.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 2,
@@ -22,7 +22,30 @@
     "duration": "Instantaneous",
     "savingThrow": "",
     "spellResistance": "",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 2
+    },
+    "tradition": "divine",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!83u2FYyp5BENQjFy"
 }

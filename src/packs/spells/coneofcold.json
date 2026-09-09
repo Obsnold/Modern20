@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>Cone of cold creates an area of extreme cold, originating at the caster’s hand and extending outward in a cone. It drains heat, causing 1d6 points of cold damage per caster level (maximum 10d6).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 5,
@@ -22,7 +22,44 @@
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 5,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "1d6",
+    "damageType": "cold",
+    "scaling": {
+      "per": 1,
+      "max": 10
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "1d6",
+          "type": "cold",
+          "scaling": {
+            "per": 1,
+            "max": 10
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!Mo7pbz5vG9aOBsKj"
 }

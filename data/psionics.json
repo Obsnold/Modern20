@@ -1,8 +1,61 @@
 [
   {
+    "id": "attraction",
+    "name": "Attraction",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
+    "level": 1,
+    "levelText": "Telepath 1",
+    "display": "Audible",
+    "powerPoints": 1,
+    "castingTime": "Attack action",
+    "range": "Close (25 ft. + 5 ft./2 levels)",
+    "target": "One living creature",
+    "duration": "1 hour/level",
+    "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester plants a compelling attraction in the mind of the target. The attraction can be toward a particular person, an object, an action, or an event. The power’s target takes reasonable steps to meet, get close to, attend, find, or perform the object of its implanted attraction. For the purposes of this power, “reasonable” means that while fascinated, the target doesn’t suffer from blind obsession. The target will not undertake obviously self-destructive actions. The subject can still recognize danger, but will not flee unless the threat is immediate. If the manifester makes the target feel an attraction to the manifester, the manifester can’t command the subject indiscriminately, although he or she will be willing to listen to the manifester (even if the subject disagrees). This power grants the manifester a +4 bonus to his or her Charisma modifier when dealing with the subject.</p>",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
+  },
+  {
+    "id": "biofeedback",
+    "name": "Biofeedback",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
+    "level": 1,
+    "levelText": "Battle Mind 1",
+    "display": "Material, Visual",
+    "powerPoints": 1,
+    "castingTime": "Attack action",
+    "range": "Personal",
+    "target": "You",
+    "duration": "1 minute/level (D)",
+    "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You can constrict bleeding around wounds, lessening their impact. You take a portion of any attack that deals damage as points of nonlethal damage, equal to your Strength modifier. Thus, a character with a Strength score of 15 who is dealt 10 points of damage actually takes 8 points of lethal damage and 2 points of nonlethal damage. This power is not retroactive to damage received prior to manifesting biofeedback. The total damage is still used to determine the effects of massive damage.</p>",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
+  },
+  {
     "id": "biteOfTheTiger",
     "name": "Bite of the Tiger",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 3,
     "levelText": "Battle Mind 3",
     "display": "Material, Visual",
@@ -12,12 +65,30 @@
     "target": "You",
     "duration": "1 hour/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "2d8",
+      "type": "slashing",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Your posture becomes stooped forward, and you grow a tigerlike muzzle complete with rending fangs. The power grants you a bite attack (which does not draw an attack of opportunity) with 2d8 points of slashing damage. You can use this power in conjunction with feats, powers, or spells allowing additional attacks in one round, and it can be used with multiple attacks gained through level advancement.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "brainLock",
     "name": "Brain Lock",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Visual, Material",
@@ -27,12 +98,23 @@
     "target": "One creature of Medium-size or smaller",
     "duration": "1 round/level (D)",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The target’s higher mind is locked away. He or she stands mentally paralyzed, unable to take any actions. The brain locked subject is not stunned (so attackers get no special advantage). He or she can defend him or herself against physical attacks (Dexterity bonus to Defense still applies), but otherwise can’t move, and can’t use psionic powers.</p><p>A brain locked flyer can’t flap its wings and falls. A swimmer can’t swim and may drown.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "burst",
     "name": "Burst",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 0,
     "levelText": "Telepath 0",
     "display": "Audible",
@@ -42,12 +124,23 @@
     "target": "One living creature",
     "duration": "1 round",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The target increases his or her base speed by +10 feet on his or her next turn.</p><p>The manifester can manifest this power instantly on his or herself, gaining the benefit of the speed increase in the same round. Manifesting the power is a free action. If manifested on another creature, the manifestation time is an attack action.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "callWeaponry",
     "name": "Call Weaponry",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 1,
     "levelText": "Telepath 1/Psionic Agent 1",
     "display": "Audible, Material",
@@ -57,12 +150,23 @@
     "target": "1 unattended weapon (see text)",
     "duration": "1 hour/level (see text) (D)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You call a weapon “from thin air” into your waiting hand (actually, it is a real weapon hailing from some other random location) as a free action. You don’t have to see or know of a weapon to call it—in fact, you can’t ever call a specific weapon. You just specify the type. If the specified weapon type is one you can call at your level, it appears. If you call a projectile weapon, it comes loaded with a clip, box, or chamber of ammunition, as appropriate (the ammunition does not have an enhancement bonus, even at 10th level and above). If you relinquish your grip on the weapon you called for 2 or more rounds, it automatically returns to wherever it originally came from.</p><p>As your level increases, you can summon better weapons, although the power point cost is also greater.</p><p>Level</p><p>Weapons</p><p>Example</p><p>Power Points</p><p>1-3</p><p>Simple melee</p><p>Knife</p><p>1</p><p>4-6</p><p>Handgun</p><p>Colt Python</p><p>3</p><p>7-9</p><p>SMG, rifle, shotgun</p><p>Winchester 94</p><p>7</p><p>10</p><p>Exotic or Archaic melee</p><p>Katana</p><p>11</p><p>Weapons gained by call weaponry are distinctive due to the low hum they emit.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "catapsi",
     "name": "Catapsi",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 5,
     "levelText": "Telepath 5",
     "display": "Mental, Visual",
@@ -72,12 +176,23 @@
     "target": "",
     "duration": "1 minute/level",
     "savingThrow": "Will negates (see text)",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "radius",
+      "size": 100
+    },
+    "description": "<p>With catapsi [kat-ah-sigh], you generate psychic static, making it more difficult for other psionic characters to manifest their powers (you are not affected by your own catapsi manifestation). All psionic activity within the area requires twice as many power points to manifest, unless opponents make a successful Will save each time they manifest a power. Freely manifesting 0-level powers takes 1 full round, instead of 1 action, in a catapsi field. If two or more fields of catapsi overlap, one field cancels out the other (determine randomly).</p><p>Catapsi affects psionic abilities that require power points only, and have no effect on magical abilities or natural psionics abilities.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "chameleon",
     "name": "Chameleon",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Olfactory",
@@ -87,12 +202,23 @@
     "target": "You",
     "duration": "10 minutes/level (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Your skin and equipment take on the color and texture of nearby objects, including floors and walls. You receive a +10 enhancement bonus on Hide checks.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "charmCreature",
     "name": "Charm Creature",
-    "keyAbility": "Telepathy (Cha)",
+    "keyAbility": "cha",
+    "keyAbilityText": "Telepathy (Cha)",
     "level": 3,
     "levelText": "Telepath 3",
     "display": "Mental",
@@ -102,12 +228,23 @@
     "target": "One living creature",
     "duration": "1 day/level",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>As charm person, except that the power is not restricted by creature type or size, and you need not speak the creature’s language.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "charmPerson",
     "name": "Charm Person",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 1,
     "levelText": "Telepath 1",
     "display": "Mental",
@@ -117,12 +254,23 @@
     "target": "One person",
     "duration": "1 hour/level",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power makes a Medium-size or smaller person regard the manifester as his or her trusted friend and ally. If the target is currently being threatened or attacked by the manifester or allies, however, the subject receives a +5 bonus on his or her saving throw.</p><p>The power does not enable the manifester to control the charmed person as if he or she was an automaton, but he or she does perceive the manifester’s words and actions in the most favorable way. The manifester can try to give the subject orders, but the manifester must win an opposed Charisma check to convince the subject to do anything he or she would not ordinarily do. (The manifester can’t try again.) A charmed person never obeys suicidal or obviously harmful orders. Any act by the manifester or his or her apparent allies that threatens the charmed person breaks the power. Note also that the manifester must speak the person’s language to communicate his or her commands.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "clairaudienceClairvoyance",
     "name": "Clairaudience/Clairvoyance",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Visual, Audible",
@@ -132,12 +280,23 @@
     "target": "",
     "duration": "1 minute/level (D)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power enables a manifester to concentrate on some locale and hear or see (manifester’s choice) almost as if he or she were there. Distance is not a factor, but the locale must be known—either a place familiar to the manifester or an obvious place.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "clawsOfTheBear",
     "name": "Claws of the Bear",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 2,
     "levelText": "Battle Mind 2",
     "display": "Visual, Material",
@@ -147,12 +306,30 @@
     "target": "You",
     "duration": "1 hour/level",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "1d12",
+      "type": "slashing",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power grants the manifester a claw attack (which does not provoke attacks of opportunity) that deals 1d12 points of slashing damage (plus Strength modifier). The manifester is considered armed. The manifester cannot grasp or manipulate objects (including weapons) as long as this power remains in effect. This power can be used in conjunction with feats, powers, or spells allowing additional attacks on the manifester’s turn, and it can be used with multiple attacks gained through level advancement.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "combatFocus",
     "name": "Combat Focus",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 2,
     "levelText": "Battle Mind 2",
     "display": "Visual",
@@ -162,12 +339,23 @@
     "target": "You",
     "duration": "1 hour",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester gains a +4 insight bonus on his or her next initiative check, provided the manifester makes that check before the duration expires.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "combatPrecognition",
     "name": "Combat Precognition",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 1,
     "levelText": "Battle Mind 1",
     "display": "Visual, Material",
@@ -177,12 +365,23 @@
     "target": "",
     "duration": "You",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester gains a +1 insight bonus to Defense. If he or she is caught flat-footed, this bonus to Defense doesn’t apply.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "combatPrescience",
     "name": "Combat Prescience",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 2,
     "levelText": "Battle Mind 2",
     "display": "Visual",
@@ -192,12 +391,23 @@
     "target": "You",
     "duration": "1 minute/level (D)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester gains a +2 insight bonus on his or her attack rolls for the duration of the power.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "concealThoughts",
     "name": "Conceal Thoughts",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 1,
     "levelText": "Telepath 1",
     "display": "Visual",
@@ -207,12 +417,23 @@
     "target": "One living creature",
     "duration": "1 hour/level",
     "savingThrow": "Yes (harmless)",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You protect your thoughts from analysis. While the duration lasts, you gain a +20 circumstance bonus on Bluff checks against those attempting to discern your true intentions with Sense Motive. You also gain a +4 bonus on your saving throw against any power used to read your mind (such as detect thoughts or mind probe).</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "concussion",
     "name": "Concussion",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 2,
     "levelText": "Battle Mind 2",
     "display": "Audible",
@@ -222,12 +443,30 @@
     "target": "One individual",
     "duration": "Instantaneous",
     "savingThrow": "Fortitude half",
+    "save": {
+      "save": "fort",
+      "onSuccess": "half"
+    },
+    "damage": {
+      "formula": "3d6",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The target is pummeled with telekinetic force for 3d6 points of damage. The manifester may choose to have the power deal only nonlethal damage instead of lethal damage.</p><p>Concussion always affects a target within range that the manifester can see, even if the subject is in melee or has partial cover or concealment. Inanimate objects can’t be damaged by this power.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "controlObject",
     "name": "Control Object",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 1,
     "levelText": "Telepath 1",
     "display": "Material",
@@ -237,12 +476,30 @@
     "target": "One unattended object weighing up to 100 pounds",
     "duration": "Concentration, up to 1 round/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "1d4",
+      "type": "bludgeoning",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester telekinetically animates an inanimate object, making it move under his or her control. The controlled object moves with jerky and clumsy movements. The object can move at a speed of 10 feet. A controlled object can make a slam attack with an attack bonus of +0, dealing 1d4 points of bludgeoning damage.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "darkvision",
     "name": "Darkvision",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 2,
     "levelText": "Battle Mind 2",
     "display": "Visual",
@@ -252,12 +509,23 @@
     "target": "Individual touched",
     "duration": "1 hour/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The target gains the ability to see 60 feet even in total darkness. This provides black-and-white vision only, but is otherwise like normal sight and it doesn’t allow the target to see in magical darkness (if such a thing exists in the campaign).</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "daze",
     "name": "Daze",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 0,
     "levelText": "Telepath 0",
     "display": "Mental, Material",
@@ -267,12 +535,23 @@
     "target": "One person",
     "duration": "1 round",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power clouds the mind of a Medium-size or smaller target so that he or she takes no actions. Creatures of 5 or more HD or levels are not affected. The dazed subject is not stunned (so attackers get no special advantage against him or her), but the subject can’t move or take actions.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "detectPoison",
     "name": "Detect Poison",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 0,
     "levelText": "Psionic Agent 0",
     "display": "Olfactory",
@@ -282,12 +561,23 @@
     "target": "One creature, one object, or a 5-foot cube",
     "duration": "Instantaneous",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You determine whether a creature, object, or area has been poisoned or is poisonous. You can determine the exact type of poison with a successful Wisdom check (DC 20). A character with the Craft (chemical) skill may additionally try an Craft (chemical) check, DC 20.</p><p>Note:</p><p>The power can penetrate barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt blocks it.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "detectPsionics",
     "name": "Detect Psionics",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 0,
     "levelText": "Telepath 0/Battle Mind 0",
     "display": "Visual, Audible",
@@ -297,12 +587,23 @@
     "target": "",
     "duration": "Concentration, up to 1 minute/_level (D)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester detects psionic auras. The amount of information revealed depends on how long the manifester studies a particular area or subject.</p><p><strong>1st Round</strong>: Presence or absence of psionic auras.</p><p><strong>2nd Round</strong>: Number of different psionic auras and the strength of the strongest aura.</p><p><strong>3rd Round</strong>: The strength and location of each aura. If the items or creatures bearing the auras are in line of sight, the manifester can make Psicraft checks to determine the discipline involved in each. (Make one check per aura; DC 15 + power level, or 15 + half manifester level for a nonpower effect.)</p><p>Psionic areas, multiple disciplines, or strong local psionic emanations may confuse or conceal weaker auras.</p><p><strong>Aura Strength</strong>: An aura’s psionic power and strength depend on a power’s functioning power level or an item’s manifester level.</p><p>Functioning Power Level</p><p>Item Manifester Level</p><p>Aura Power</p><p>0-level or lingering aura</p><p>Lingering aura</p><p>Dim</p><p>1st–3rd</p><p>1st–5th</p><p>Faint</p><p>4th–5th</p><p>-</p><p>Moderate</p><p>If an aura falls into more than one category, detect psionics indicates the stronger of the two.</p><p>Length Aura Lingers: How long the aura lingers after the source has vacated the area depends on the aura’s original strength.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "detectThoughts",
     "name": "Detect Thoughts",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Visual, Mental",
@@ -312,12 +613,23 @@
     "target": "",
     "duration": "Concentration, up to 1 minute/level (D)",
     "savingThrow": "Will negates (see text)",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester detects surface thoughts. The amount of information revealed depends on how long the manifester studies a particular area or subject.</p><p><strong>1st Round</strong>: Presence or absence of thoughts (from conscious creatures with Intelligence scores of 1 or higher).</p><p><strong>2nd Round</strong>: Number of thinking minds and the mental strength of each.</p><p><strong>3rd Round</strong>: Surface thoughts of any mind in the area. A target’s Will save prevents the manifester from reading its thoughts, and the manifester must manifest detect thoughts again to have another chance. Creatures of animal intelligence have simple, instinctual thoughts that the manifester can pick up.</p><p>Each round, the manifester can turn to detect thoughts in a new area. The power can penetrate barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt blocks it.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "dimensionDoor",
     "name": "Dimension Door",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 4,
     "levelText": "Psionic Agent 4",
     "display": "Visual",
@@ -327,12 +639,23 @@
     "target": "You and touched objects or other touched willing creatures (see text)",
     "duration": "Instantaneous",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You instantly transfer yourself from your current location to any other spot within range. You always arrive at exactly the spot desired—whether by simply visualizing the area or by stating direction, such as “900 feet straight downward,” or “upward to the northwest, 45-degree angle, 1,200 feet.” You can bring along up to 500 pounds of nonliving matter or 250 pounds of living matter. After using this power, you can’t take any other actions until your next turn.</p><p>If you arrive in a place that is already occupied by a solid body, the power does not function.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "dimensionSlide",
     "name": "Dimension Slide",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 3,
     "levelText": "Psionic Agent 3",
     "display": "Visual",
@@ -342,12 +665,23 @@
     "target": "You (see text)",
     "duration": "Instantaneous",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You instantly transfer yourself from your current location to any other spot within range that you can see directly. You arrive at exactly the spot desired, if you can see it. You cannot dimension slide through solid objects; even a curtain blocks you. You cannot bring along more than your medium load carrying capacity, nor can you bring along any living matter that weighs more than 20 pounds. After using this power, you can’t take any other actions until your next turn.</p><p>If you somehow attempt to transfer yourself to a location occupied by a solid body (perhaps your perceptions are being controlled by a telepath), the power simply fails to function.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "distract",
     "name": "Distract",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 0,
     "levelText": "Telepath 0",
     "display": "Audible",
@@ -357,12 +691,23 @@
     "target": "One living creature",
     "duration": "Concentration, up to 1 minute/level (D)",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester causes the target’s mind to wander, distracting him or her. Subjects of distract make all Listen, Spot, Search, and Sense Motive checks at a –1 penalty.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "domination",
     "name": "Domination",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 4,
     "levelText": "Telepath 4",
     "display": "Mental",
@@ -372,12 +717,23 @@
     "target": "One Medium-size or smaller creature",
     "duration": "1 day/level",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester can control the actions of a Medium-size or smaller creature. The manifester establishes a telepathic link with the target’s mind. If the manifester and his or her subject share a common language, the manifester can generally force the subject to perform as he or she desires, within the limits of the subject’s abilities. If no common language is shared, the manifester can only communicate basic commands. The manifester knows what the target is experiencing but does not receive direct sensory input from him or her.</p><p>The target resists this control, and if forced to take an action that goes against his or her nature he or she receives a new saving throw with a bonus of +1 to +4, depending on the type of action required. Obviously self-destructive orders are ignored, regardless of the result of the saving throw.</p><p>Once control is established, the range at which it can be exercised is unlimited. The manifester need not see the target to control him or her.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "electricCharge",
     "name": "Electric Charge",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 2,
     "levelText": "Battle Mind 2",
     "display": "Visual (see text)",
@@ -387,12 +743,30 @@
     "target": "Shocking damage",
     "duration": "Instantaneous",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "2d6",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester creates a static charge that deals 2d6 points of electrical damage with his or her touch.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "electronicFog",
     "name": "Electronic Fog",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "None",
@@ -402,12 +776,23 @@
     "target": "",
     "duration": "1 minute/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "radius",
+      "size": 5
+    },
+    "description": "<p>An intensified version of white noise, this bubble of low-level electromagnetic radiation is still below the detection level of most humans but will jam electronic communication devices, including those that rely upon cables or other hard-wired transmissions, including televisions, video cameras, and monitors. It will also cause photographic film to fog and magnetic tape to blur. It does not cause electronic devices to malfunction, only to report scrambled signals and white noise.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "falseSensoryInput",
     "name": "False Sensory Input",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 3,
     "levelText": "Telepath 3",
     "display": "Mental",
@@ -417,12 +802,23 @@
     "target": "One living creature",
     "duration": "Concentration, up to 1 minute/level (D)",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester has a limited ability to falsify one of the target’s senses. The subject thinks he or she sees, hears, smells, tastes, or feels something other than what his or her senses actually report. The manifester can’t fabricate a sensation where none exists, nor make the target completely oblivious to a sensation, but the manifester can falsify the specifics of one sensation for different specifics. The manifester can switch between senses he or she falsifies round by round. A manifester can’t alter a sensation’s “intensity” by more than 50%. If this power is used to distract an enemy psionic character who is attempting to manifest a power, the enemy must make a Concentration check as if against a non-damaging power (the DC equals the distracting power’s save DC + 3 in this case).</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "farHand",
     "name": "Far Hand",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 0,
     "levelText": "Telepath 0",
     "display": "Visual",
@@ -432,12 +828,23 @@
     "target": "An unattended object weighing up to 5 pounds",
     "duration": "Concentration",
     "savingThrow": "None/p>",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester can lift and move an object at will from a distance. After manifestation, as a move action the manifester can move the object up to 15 feet in any direction. The power ends if the distance between the manifester and the object ever exceeds the power’s range.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "farPunch",
     "name": "Far Punch",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 0,
     "levelText": "Battle Mind 0",
     "display": "Visual, Mental",
@@ -447,12 +854,23 @@
     "target": "One individual",
     "duration": "Instantaneous",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester strikes the target with a telekinetic punch that deals 1 point of damage. Inanimate objects can’t be damaged by this power.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "fateOfOne",
     "name": "Fate of One",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 4,
     "levelText": "Telepath 4",
     "display": "Mental, Visual",
@@ -462,12 +880,23 @@
     "target": "You",
     "duration": "Instantaneous",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Your limited omniscience allows you to reroll a saving throw, attack roll, or skill check, and use the better of the two rolls for your result.</p><p>You can manifest this power instantly, quickly enough to gain its benefits in a clutch situation. Manifesting the power is a free action, like manifesting a quickened power, and it counts toward the normal limit of one quickened power per round.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "featherFall",
     "name": "Feather Fall",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 1,
     "levelText": "Psionic Agent 1",
     "display": "Audible",
@@ -477,12 +906,23 @@
     "target": "Any free-falling objects or creatures in a 10-ft. radius whose weight does not total more than 300 lb./level",
     "duration": "Until landing or 1 round/level",
     "savingThrow": "Will negates (object)",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The targeted creatures or objects affected fall slowly. The rate of fall is instantly changed to a mere 60 feet per round (equivalent to the end of a fall from a few feet), with no damage incurred upon landing while the power is in effect. However, when the duration expires, a normal rate of fall occurs.</p><p>You can manifest this power instantly, quickly enough to save yourself if you unexpectedly fall. Manifesting the power is a free action, like manifesting a quickened power, and it counts toward the normal limit of one quickened power per round.</p><p>This power has no special effect on ranged weapons unless they are falling quite a distance. If manifested on a falling item, the item does half normal damage based on weight (1d6 per 400 pounds) with no bonus for the height of the drop.</p><p>The power works only upon free-falling objects. It does not affect a sword blow or a charging or flying creature.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "fingerOfFire",
     "name": "Finger of Fire",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 0,
     "levelText": "Telepath 0/ Battle Mind 0",
     "display": "Visual",
@@ -492,12 +932,30 @@
     "target": "Ray",
     "duration": "Instantaneous",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "1d3",
+      "type": "fire",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>A ray of flame projects from the manifester. The manifester must succeed at a ranged touch attack to deal damage to a target.</p><p>The flame deals 1d3 points of fire damage. This flame isn’t powerful enough to cause combustion.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "fireBolt",
     "name": "Fire Bolt",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 1,
     "levelText": "Battle Mind 1",
     "display": "Visual",
@@ -507,12 +965,30 @@
     "target": "Bolt",
     "duration": "Instantaneous",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "1d6+1",
+      "type": "fire",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>A bolt of fire shoots from the manifester. He or she must succeed at a ranged touch attack to deal damage to a target. The bolt deals 1d6+1 points of fire damage and the target may catch on fire.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "fireStorm",
     "name": "Fire Storm",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 4,
     "levelText": "Battle Mind 4",
     "display": "Visual (see text)",
@@ -522,12 +998,30 @@
     "target": "",
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
+    "save": {
+      "save": "ref",
+      "onSuccess": "half"
+    },
+    "damage": {
+      "formula": "5d6",
+      "type": "fire",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "radius",
+      "size": 30
+    },
+    "description": "<p>The manifester generates a storm of fire that fills an area he or she designates and deals 5d6 points of fire damage to all creatures (the manifester must be able to see the target area or a portion of it). Unattended objects also take damage.</p><p>This power sets fire to combustibles and damages objects in the area. It can melt metals with a low melting point.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "fly",
     "name": "Fly",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 3,
     "levelText": "Psionic Agent 3",
     "display": "Visual",
@@ -537,12 +1031,23 @@
     "target": "Creature touched",
     "duration": "10 minutes/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The power’s subject can fly at a speed of 90 feet (60 feet if the creature wears medium or heavy armor). The subject can fly up at half speed and descend at double speed. The flying subject’s maneuverability is good. Using the fly power requires as much concentration as walking, so the subject can attack or manifest powers normally. The subject of fly can charge but not run, and it cannot carry aloft more weight than its maximum load, plus any armor it wears.</p><p>Should the duration expire while the subject is still aloft, the psionic effect fails slowly. The subject drops 60 feet per round for 1d6 rounds. If it reaches the ground in this time, it is safe. If not, it falls the rest of the distance (falling damage is 1d6 per 10 feet of fall). Since negating a power effectively ends it, the subject falls immediately if fly is negated.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "forcedMindlink",
     "name": "Forced Mindlink",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 4,
     "levelText": "Telepath 4",
     "display": "Material",
@@ -552,12 +1057,23 @@
     "target": "You and one other creature who is initially no more than 30 ft. away",
     "duration": "10 minutes/level",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester forges a telepathic bond with another person or creature, which must have an Intelligence score of 6 or higher.</p><p>The manifester can communicate telepathically through the bond even if he or she does not share a common language with the subject. No special power or influence is established as a result of the bond and the target is not compelled to communicate with the manifester. Once the bond is formed, it works over any distance.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "freedomOfMovement",
     "name": "Freedom of Movement",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 4,
     "levelText": "Psionic Agent 4",
     "display": "Audible",
@@ -567,12 +1083,23 @@
     "target": "You or creature touched",
     "duration": "10 minutes/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power enables you or the creature you touch to move and attack normally for the duration of the power, even under the influence of psionics that usually impedes movement. The power also allows a character to move and attack normally while underwater, even with cutting weapons such as axes and swords and with smashing weapons such as flails, hammers, and maces, provided that the weapon is wielded in the hand rather than hurled. The power does not, however, allow water breathing without further appropriate psionic adaptation.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "ghostShot",
     "name": "Ghost Shot",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 4,
     "levelText": "Psionic Agent 4",
     "display": "Visual",
@@ -582,12 +1109,23 @@
     "target": "One firearm",
     "duration": "1 minute/level",
     "savingThrow": "Will negates (harmless, object)",
+    "save": {
+      "save": "will",
+      "onSuccess": "harmless"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power makes bullets intangible to nonliving material, negating cover, equipment, and shield bonuses to the target. It affects all bullets in the magazine for the duration of the spell, or until they are expended.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "greaterBioweapon",
     "name": "Greater Bioweapon",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 4,
     "levelText": "Battle Mind 4",
     "display": "Visual, Material",
@@ -597,12 +1135,30 @@
     "target": "You",
     "duration": "4 rounds + 1 round/level",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "2d8",
+      "type": "bludgeoning",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester generates a shaft of biokinetic energy that can be used as a melee weapon. It deals 2d8 points of bludgeoning damage on a successful attack. The shaft maintains its form for the duration or until the manifester drops it (or otherwise stop touching it with at least one hand), at which point it dissipates.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "identify",
     "name": "Identify",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 1,
     "levelText": "Psionic Agent 1",
     "display": "Material, Mental",
@@ -612,12 +1168,23 @@
     "target": "Up to 1 touched object per leve",
     "duration": "Instantaneous",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power determines the single most basic function of a psionic item, including how to activate that function (if appropriate), and how many charges are left (if any). In campaigns where psionics and magical energies are similar, magical properties may be identified.</p><p>If a psionic item has multiple different functions that are equally basic, identify determines the lowest-level function. If these functions are also of equal level, the DM decides randomly which is identified.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "immovability",
     "name": "Immovability",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 4,
     "levelText": "Psionic Agent 4",
     "display": "Visual",
@@ -627,12 +1194,23 @@
     "target": "You",
     "duration": "1 hour/level (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You are almost impossible to move. Your weight does not vary; instead, you mentally attach yourself to the underlying fabric of reality. Thus, you could conceivably anchor yourself in midair. You oppose any attempt to move you by a Strength check modified by a bonus equal to three times your manifester level. Once immovable, you can’t move to a new location unless you first dismiss the power or its duration expires.</p><p>While you are immovable, you lose all Dexterity bonuses to Defense. Neither can you attack or make any other movement. However, your anchored body gains DR 10/+3.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "improvedBiofeedback",
     "name": "Improved Biofeedback",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 3,
     "levelText": "Battle Mind 3",
     "display": "Material, Visual",
@@ -642,12 +1220,23 @@
     "target": "You",
     "duration": "1 hour/level (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>As biofeedback, except you take a portion of each damaging attack as nonlethal damage equal to twice your Strength modifier, and the duration is extended.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "inertialBarrier",
     "name": "Inertial Barrier",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 4,
     "levelText": "Telepath 4",
     "display": "Audible, Mental",
@@ -657,12 +1246,23 @@
     "target": "Creature touched",
     "duration": "10 minutes/level or until discharged",
     "savingThrow": "Will negates (harmless)",
+    "save": {
+      "save": "will",
+      "onSuccess": "harmless"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You create a psychokinetic barrier around the subject that resists blows, cuts, stabs, and slashes, as well as providing some protection against falling. The subject gains DR 10/—. Once the power has prevented a total of 10 points of damage per manifester level (maximum 150 points), it is discharged. Inertial barrier also absorbs up to half the damage from a fall. Damage absorbed from a fall counts toward discharging the effect. The psychokinetic barrier delays the effects of gases in the atmosphere for 2d4 rounds.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "inflictPain",
     "name": "Inflict Pain",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Audible",
@@ -672,12 +1272,30 @@
     "target": "One living creature",
     "duration": "Concentration, up to 5 rounds",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": {
+      "formula": "3d6",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester telepathically attacks the target’s mind, dealing 3d6 points of damage.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "instantReload",
     "name": "Instant Reload",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 3,
     "levelText": "Psionic Agent 3",
     "display": "Audible, Material",
@@ -687,12 +1305,23 @@
     "target": "One ranged weapon with ammunition",
     "duration": "1 hour/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You can reload your weapon as an attack action, calling the ammunition from another location in the same manner as call weaponry. The ammunition and its location must be designated at the time the spell is case, but it may be any distance away.</p><p>Any amount may designated, but only one type of ammunition (as far as caliber is concerned) may be used per manifestation.</p><p>When activated, the power automatically reloads the clip, chamber, or action of the weapon with the full number of shots that it can hold.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "invisibilityPurge",
     "name": "Invisibility Purge",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 3,
     "levelText": "Psionic Agent 3",
     "display": "Visual",
@@ -702,12 +1331,23 @@
     "target": "You",
     "duration": "1 minute/level (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You surround yourself with a sphere of power with a radius of 5 feet per manifester level that negates all forms of nvisibility.</p><p>Anything invisible becomes visible while in the area.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "knock",
     "name": "Knock",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Material",
@@ -717,12 +1357,23 @@
     "target": "One door, box, or chest with an area of up to 10 sq. ft./level",
     "duration": "Instantaneous (see text)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The knock power opens stuck, barred, locked, or mechanically or electronically sealed doors, as well at those with hidden mechanisms. It also loosens welds, shackles, or chains (provided they serve to hold closures shut). In all other cases, the door does not relock itself or becomes stuck again on its own. Knock does not raise barred gates or similar impediments, nor does it affect ropes, vines, and the like. Note that the effect is limited by the area. Each power can undo up to two means of preventing egress through a portal.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "lesserBioweapon",
     "name": "Lesser Bioweapon",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 1,
     "levelText": "Battle Mind 1",
     "display": "Visual, Material",
@@ -732,12 +1383,30 @@
     "target": "You",
     "duration": "4 rounds + 1 round/level",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "1d4",
+      "type": "bludgeoning",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester generates a shaft of biokinetic energy that can be used as a melee weapon. It deals 1d4 points of bludgeoning damage on a successful attack. The shaft maintains its form for the duration or until the manifester drops it (or otherwise stop touching it with at least one hand), at which point it dissipates.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "lesserBodyAdjustment",
     "name": "Lesser Body Adjustment",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 1,
     "levelText": "Telepath 1",
     "display": "Audible, Material",
@@ -747,12 +1416,23 @@
     "target": "You",
     "duration": "Instantaneous",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester recovers 1d8 hit points, or gains a +1 bonus on his or her next Fortitude save against poison or disease, or heals 1 point of temporary ability damage. The manifester chooses one benefit for a single manifestation.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "lesserConcussion",
     "name": "Lesser Concussion",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 1,
     "levelText": "Battle Mind 1",
     "display": "Audible",
@@ -762,12 +1442,30 @@
     "target": "One individual",
     "duration": "Instantaneous",
     "savingThrow": "Fortitude half",
+    "save": {
+      "save": "fort",
+      "onSuccess": "half"
+    },
+    "damage": {
+      "formula": "1d6",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The target is pummeled with telekinetic force for 1d6 points of damage. The manifester may choose to have the power deal only nonlethal damage instead of lethal damage.</p><p>Concussion always affects a target within range that the manifester can see, even if the subject is in melee or has partial cover or concealment. Inanimate objects can’t be damaged by this power.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "lesserDomination",
     "name": "Lesser Domination",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 3,
     "levelText": "Telepath 3",
     "display": "Mental",
@@ -777,12 +1475,23 @@
     "target": "One Medium-size or smaller creature",
     "duration": "1 day/level",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester can control the actions of a Medium-size or smaller creature. The manifester establishes a telepathic link with the target’s mind. If the manifester and his or her subject share a common language, the manifester can generally force the subject to perform as he or she desires, within the limits of the subject’s abilities. The power fails if no common language is shared. The manifester knows what the target is experiencing but does not receive direct sensory input from him or her.</p><p>The target resists this control, and if forced to take an action that goes against his or her nature he or she receives a new saving throw with a bonus of +1 to +4, depending on the type of action required. Obviously self-destructive orders are ignored, regardless of the result of the saving throw.</p><p>Once control is established, the range at which it can be exercised is unlimited. The manifester need not see the target to control him or her.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "lesserMindlink",
     "name": "Lesser Mindlink",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 1,
     "levelText": "Telepath 1",
     "display": "Material",
@@ -792,12 +1501,23 @@
     "target": "You and one other creature who is initially no more than 30 ft. away",
     "duration": "10 minutes/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>he manifester forges a telepathic bond with another person or creature, which must have an Intelligence score of 6 or higher.</p><p>The bond can be established only with a willing subject, who therefore receives no saving throw and gains no benefit from power resistance. The manifester can communicate telepathically through the bond even if he or she does not share a common language with the subject. No special power or influence is established as a result of the bond. Once the bond is formed, it works over any distance.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "lesserNaturalArmor",
     "name": "Lesser Natural Armor",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 0,
     "levelText": "Battle Mind 0",
     "display": "Material, Olefactory",
@@ -807,12 +1527,23 @@
     "target": "You",
     "duration": "1 minute",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Your skin grows thick ridges, providing a +1 natural armor bonus to your Defense. Unlike mundane armor, natural armor entails no armor penalty or speed reduction.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "levitate",
     "name": "Levitate",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Olfactory",
@@ -822,12 +1553,23 @@
     "target": "You or one willing creature or one object (total weight up to 100 lb./level)",
     "duration": "10 minutes/level (D)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Levitate allows the manifester to move him or herself, another creature, or an object up and down as the manifester wishes. A creature must be willing to be levitated, and an object must be unattended or possessed by a willing creature. The manifester can mentally direct the recipient to move up or down up to 20 feet each round; doing so is a move action. The manifester can’t move the recipient horizontally, but the subject could push or pull his or her way provided there is a surface to grasp (generally at half its base speed). A levitating creature who attacks with a melee or ranged weapon finds him or herself increasingly unstable; the first attack has an attack roll penalty of –1, the second –2, and so on, up to a maximum penalty of –5. A full round spent stabilizing allows the creature to begin again at –1.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "lightningStrike",
     "name": "Lightning Strike",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 3,
     "levelText": "Battle Mind 3",
     "display": "Visual",
@@ -837,12 +1579,30 @@
     "target": "",
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
+    "save": {
+      "save": "ref",
+      "onSuccess": "half"
+    },
+    "damage": {
+      "formula": "3d6",
+      "type": "electricity",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "radius",
+      "size": 30
+    },
+    "description": "<p>The manifester deals 3d6 points of electricity damage to all creatures within the area he or she designates (the manifester must be able to see the target area or a portion of it).</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "mentalBlast",
     "name": "Mental Blast",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 3,
     "levelText": "Telepath 3",
     "display": "Visual",
@@ -852,12 +1612,23 @@
     "target": "One living creature",
     "duration": "Instantaneous",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester delivers a telepathic strike that stuns the target for 3d4 rounds.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "metaphysicalWeapon",
     "name": "Metaphysical Weapon",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 3,
     "levelText": "Battle Mind 3",
     "display": "Visual",
@@ -867,12 +1638,23 @@
     "target": "One weapon or 50 projectiles (all of which must be in contact with each other at the time of manifestation)",
     "duration": "1 hour/level",
     "savingThrow": "Will negates (harmless, object)",
+    "save": {
+      "save": "will",
+      "onSuccess": "harmless"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>A weapon gains a +3 enhancement bonus on attack and damage rolls. Alternatively, the manifester can affect up to 50 arrows, bolts, or bullets. The projectiles must all be of the same type, and they have to be together in one group. Projectiles (but not thrown weapons) lose their enhancement when used.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "mindDarts",
     "name": "Mind Darts",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 3,
     "levelText": "Battle Mind 3",
     "display": "Visual (see text)",
@@ -882,12 +1664,30 @@
     "target": "One living creature",
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
+    "save": {
+      "save": "ref",
+      "onSuccess": "half"
+    },
+    "damage": {
+      "formula": "5d6",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester creates a flurry of mental bursts that deal 5d6 points of damage to a single target within range.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "mindProbe",
     "name": "Mind Probe",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 5,
     "levelText": "Telepath 5",
     "display": "Visual, Material, Audible",
@@ -897,12 +1697,23 @@
     "target": "One living creature",
     "duration": "1 minute/level",
     "savingThrow": "Fortitude negates",
+    "save": {
+      "save": "fort",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>All the target’s memories and knowledge are accessible to the manifester. The manifester can learn the answer to one question per round, to the best of the target’s knowledge. The manifester can also probe a sleeping target, though the target may make a Will save against the DC of the mind probe to wake after each question. Targets who do not wish to be probed can attempt to move beyond the power’s range, unless somehow hindered. The manifester poses the questions telepathically, and the answers to those questions are imparted directly to his or her mind. The manifester and the target do not need to speak the same language, though less intelligent creatures may yield up only appropriate visual images in answer to the manifester’s questions.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "mindlink",
     "name": "Mindlink",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 3,
     "levelText": "Telepath 3",
     "display": "Material",
@@ -912,12 +1723,23 @@
     "target": "One creature/level, no two of which are initially more than 30 ft. apart",
     "duration": "10 minutes/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester forges a telepathic bond with one or more people or creatures, which must have Intelligence scores of 6 or higher. The bond can be established only with willing subjects, who therefore receive no saving throw and gain no benefit from power resistance. The manifester can communicate telepathically through the bond even if he or she does not share a common language with the subjects. No special power or influence is established as a result of the bond. Once the bond is formed, it works over any distance.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "mindwipe",
     "name": "Mindwipe",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 4,
     "levelText": "Telepath 4",
     "display": "Audible, Material, Visual",
@@ -927,12 +1749,23 @@
     "target": "One living creature",
     "duration": "Instantaneous",
     "savingThrow": "Fortitude negates",
+    "save": {
+      "save": "fort",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You partially wipe your victim’s mind of past experiences, bestowing one negative level per two manifester levels (maximum five negative levels).</p><p>If the subject has at least as many negative levels as HD, he dies. Each negative level gives a creature the following penalties: –1 penalty on attack rolls, saving throws, skill checks, ability checks, and effective level (for determining the power, duration, DC, and other details of power, spells, or special abilities). The creature also loses 5 hit points. Additionally, a psionic character or creature loses one power from her highest available level (spellcaster loses one spell or spell slot from her highest available level). Negative levels stack. Assuming the subject survives, he regains lost levels after a number of hours equal to your manifester level. Usually, negative levels have a chance of permanently draining the subject’s levels, but the negative levels from mindwipe don’t last long enough to do so.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "missive",
     "name": "Missive",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 0,
     "levelText": "Telepath 0",
     "display": "Visual",
@@ -942,12 +1775,23 @@
     "target": "One living creature",
     "duration": "Instantaneous",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester sends a telepathic message of up to ten words to any living creature within range. This is strictly a one-way exchange from the manifester to the target. The manifester and the target must share a common language for the communication to be meaningful.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "naturalArmor",
     "name": "Natural Armor",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 4,
     "levelText": "Battle Mind 4",
     "display": "Olfactory, Material",
@@ -957,12 +1801,49 @@
     "target": "You",
     "duration": "1 minute/level",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power provides a +4 natural armor bonus to the manifester’s Defense. Natural armor does not carry an armor penalty and does not reduce speed. This power’s effect does not stack with other natural armor bonuses.</p>",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
+  },
+  {
+    "id": "negatePsionics",
+    "name": "Negate Psionics",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
+    "level": 3,
+    "levelText": "Telepath 3/Battle Mind 3",
+    "display": "Visual",
+    "powerPoints": 5,
+    "castingTime": "Attack action",
+    "range": "Medium (100 ft. + 10 ft./level)",
+    "target": "",
+    "duration": "Instantaneous",
+    "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Negate psionics can be used to end ongoing powers that are manifested on a creature or object, to temporarily suppress the psionic abilities of a psionic item, or to end ongoing power (or at least their effects) within an area. A negated power ends as if its duration had expired. Negate psionics can negate (but not counter) the ongoing effects of supernatural abilities as well as psionic powers. Negate psionics affects spell-like abilities just as it affects powers (and spells). A manifester can’t use negate psionics to undo the effects of any power with instantaneous duration.</p><p>The manifester chooses to use negate psionics in one of two ways: a targeted negation or an area negation:</p><p><strong>Targeted Negation</strong>: One object, creature, or power is the target of the power. The manifester makes a negation check against the power or against each ongoing power currently in effect on the object or creature. A negation check is 1d20 + 1 per manifester level against a DC of 11 + the manifester level of the power to be negated.</p><p>If the object that targeted is a psionic item, the manifester makes a negation check against the item’s manifester level. If the manifester succeeds, all the item’s psionic properties are suppressed for 1d4 rounds, after which the item recovers on its own.</p><p>A suppressed item becomes nonpsionic for the duration of the effect.</p><p>The manifester automatically succeed on the negation check against any power that he or she manifested his or herself.</p><p><strong>Area Negation</strong>: The power affects everything within a 30-foot radius.</p><p>For each creature that is the target of one or more powers, the manifester makes a negation check against the power with the highest manifester level. If that fails, he or she makes negation checks against progressively weaker powers until he or she negates one power (which discharges the negate psionics so far as that target is concerned) or fails all his or her checks. The creature’s psionic items are not affected.</p><p>For each object that is the target of one or more powers, the manifester makes negation checks as with creatures. Psionic items are not affected by area negations.</p><p>For each ongoing power with an area centered within the negate psionics target area, the manifester makes a negation check to negate the power.</p><p>For each ongoing power whose area overlaps with that of the negation, the manifester makes a negation check to end the effect, but only within the area of the negate psionics.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "objectReading",
     "name": "Object Reading",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 1,
     "levelText": "Telepath 1",
     "display": "Audible, Material",
@@ -972,42 +1853,23 @@
     "target": "One object",
     "duration": "Concentration, up to 10 minutes/level (D)",
     "savingThrow": "None",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
-  },
-  {
-    "id": "psionicsNewPowerDescriptions",
-    "name": "PSIONICS - NEW POWER DESCRIPTIONS",
-    "keyAbility": "Biofeedback",
-    "level": 1,
-    "levelText": "Battle Mind 1",
-    "display": "Material, Visual",
-    "powerPoints": 1,
-    "castingTime": "Attack action",
-    "range": "Personal",
-    "target": "You",
-    "duration": "1 minute/level (D)",
-    "savingThrow": "",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
-  },
-  {
-    "id": "psionicsPsionicPowerDescriptions",
-    "name": "PSIONICS - PSIONIC POWER DESCRIPTIONS",
-    "keyAbility": "Attraction",
-    "level": 1,
-    "levelText": "Telepath 1",
-    "display": "Audible",
-    "powerPoints": 1,
-    "castingTime": "Attack action",
-    "range": "Close (25 ft. + 5 ft./2 levels)",
-    "target": "One living creature",
-    "duration": "1 hour/level",
-    "savingThrow": "Will negates",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>This power provides information about an object’s previous owner. The amount of information revealed depends on how long the manifester studies a particular object.</p><p><strong>1st Round</strong>: Last owner’s gender.</p><p><strong>2nd Round</strong>: Last owner’s age.</p><p><strong>3rd Round</strong>: Last owner’s appearance.</p><p><strong>4th Round</strong>: Last owner’s primary allegiance (if any).</p><p><strong>5th Round</strong>: How last owner gained and lost the object.</p><p><strong>6th Round</strong>: Previous-to-last owner’s gender, and so on.</p><p>An object without any previous owners reveals no information. A manifester can continue to run down the list of previous owners and learn details about them as long as the power’s duration lasts. If the manifester reads the same object again, he or she doesn’t pick up where he or she left off in the list of previous owners.</p><p>Power Resistance</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "painfulTouch",
     "name": "Painful Touch",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 2,
     "levelText": "Battle Mind 2",
     "display": "Material, Visual",
@@ -1017,12 +1879,30 @@
     "target": "You",
     "duration": "1 round/level (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": {
+      "formula": "1d6",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Your unarmed attacks cause additional pain. When you make a successful unarmed attack that deals damage (or in conjunction with any bite or claw powers), you deal an additional 1d6 points of nonlethal damage to the target. The total amount of damage dealt is used to determine the effects of massive damage.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "prowess",
     "name": "Prowess",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 3,
     "levelText": "Psionic Agent 3",
     "display": "Mental",
@@ -1032,12 +1912,23 @@
     "target": "You",
     "duration": "",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>If an enemy provokes an attack of opportunity, you can take it, even if you’ve already taken your allotted number of attacks of opportunity this round (usually one). You may not make two attacks of opportunity against the same target in one round even if using this power, unless the target provokes two separate attacks.</p><p>You can manifest this power instantly, quickly enough to gain an extra attack of opportunity in the same round. Manifesting the power is a free action, like manifesting a quickened power, and it counts toward the normal limit of one quickened power per round.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "psychofeedback",
     "name": "Psychofeedback",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 4,
     "levelText": "Battle Mind 4",
     "display": "Visual",
@@ -1047,12 +1938,23 @@
     "target": "You",
     "duration": "1 minute (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester can use power points to boost his or her Strength, Dexterity, and Constitution modifiers as a free action.</p><p>While the duration lasts, the manifester can use power points on a round-by-round basis to boost any or all of his or her physical ability score modifiers (not the actual ability score) by a number equal to half the power points he or she expends for that round as a free action. The manifester doesn’t have to boost an ability modifier every round to keep the power in effect—as long as the duration lasts, he or she has the potential to boost his or her ability modifiers on any round.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "sending",
     "name": "Sending",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 5,
     "levelText": "Telepath 5",
     "display": "Mental",
@@ -1062,12 +1964,23 @@
     "target": "One creature",
     "duration": "1 round",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester contacts a particular individual with whom he or she is familiar and sends a short message of twenty-five words or less. The target recognizes the manifester if it knows him or her. It can answer in like manner immediately. The target is not obliged to act on the message in any way.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "sensitivityToPsychicImpressions",
     "name": "Sensitivity to Psychic Impressions",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Audible, Material",
@@ -1077,12 +1990,23 @@
     "target": "Area within a 25-ft. + 5 ft./2 levels-radius spread, centered on you",
     "duration": "Concentration, up to 10 minutes/level (D)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester gains historical vision in a given location. The types of events most likely to leave psychic impressions are those that elicited strong emotions. Everyday occurrences leave no residue for a manifester to detect. The vision of the event is dreamlike and shadowy. The manifester does not gain special knowledge of those involved in the vision. A manifester can sense one distinct event per round of concentration, if any exist at all. This sensitivity extends into the past a number of years equal to 100 x the manifester’s level.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "shortSharpShock",
     "name": "Short Sharp Shock",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 4,
     "levelText": "Battle Mind 4",
     "display": "Visual, Olfactory",
@@ -1092,12 +2016,30 @@
     "target": "One object or creature",
     "duration": "Instantaneous",
     "savingThrow": "Fortitude half",
+    "save": {
+      "save": "fort",
+      "onSuccess": "half"
+    },
+    "damage": {
+      "formula": "2d10",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You channel a burst of electromagnetic radiation into a target object or creature. The shock delivers 2d10 points of nonlethal damage. More importantly, this power destroys electronic devices, fries motherboards, erases electronic data such as hard disks, and fogs chemical media such as photographic film (but not final prints) on a successful manifester level check (DC 15). Shielded or otherwise protected electronics may require higher DCs.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "signalFeed",
     "name": "Signal Feed",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 5,
     "levelText": "Telepath 5",
     "display": "Visual",
@@ -1107,12 +2049,23 @@
     "target": "One communication device",
     "duration": "1 round/level",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You can create false images or sounds on an electronic device. The spell affects those that are watching or listening the device at the time of the power’s manifestation— those who arrive later or make their saving throw see or hear the what is really there. Recordings of the signal feed will show distortion, as well as the “real” image. Other powers may not be used through a signal feed.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "spiderClimb",
     "name": "Spider Climb",
-    "keyAbility": "Dexterity",
+    "keyAbility": "dex",
+    "keyAbilityText": "Dexterity",
     "level": 1,
     "levelText": "Telepath 1",
     "display": "Material",
@@ -1122,12 +2075,23 @@
     "target": "Creature touched",
     "duration": "10 minutes/level",
     "savingThrow": "Will negates (harmless)",
+    "save": {
+      "save": "will",
+      "onSuccess": "harmless"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The subject can climb and travel on vertical surfaces or even traverse ceilings as well as a spider does. The affected creature must have bare hands and feet to climb in this manner. The subject climbs at half its speed. A creature with a Strength score of at least 20 +1 per manifester level can pull the subject off a wall.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "steadfastPerception",
     "name": "Steadfast Perception",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 4,
     "levelText": "Psionic Agent 4",
     "display": "Visual",
@@ -1137,12 +2101,23 @@
     "target": "You",
     "duration": "1 hour/level (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>Your gaze suffers no distractions, granting you a +4 enhancement bonus on your saving throw to resist all illusory effects. Moreover, your Search and Spot skills receive a +2 enhancement bonus while this power remains in effect.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "suggestion",
     "name": "Suggestion",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 2,
     "levelText": "Telepath 2",
     "display": "Audible",
@@ -1152,12 +2127,23 @@
     "target": "One living creature",
     "duration": "1 hour/level or until completed",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester influences the actions of the target by suggesting a course of action (limited to a sentence or two). The suggestion must be worded in such a manner as to make the action sound reasonable. The suggested course of action can continue for the entire duration. If the suggested action can be completed in a shorter time, the power ends when the subject finishes what he or she was asked to do. The manifester can instead specify conditions that will trigger a special action during the duration. If the condition is not met before the power expires, the action is not performed.</p><p>A very reasonable suggestion causes the saving throw to be made with a penalty at the discretion of the GM.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "tailorMemory",
     "name": "Tailor Memory",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 4,
     "levelText": "Telepath 4",
     "display": "Audible",
@@ -1167,12 +2153,56 @@
     "target": "One target of Medium-size or smaller",
     "duration": "Instantaneous",
     "savingThrow": "Will negates (see text)",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester inserts a memory of his or her own choosing in the target’s mind. The manifester can insert a memory of up to 1 round duration per four manifester levels. The manifester chooses when the fake event occurred any time within the last week. The manifester can’t read the target’s memory with this power.</p><p>Tailoring a memory is tricky, because if it is not done right the target’s mind recognizes it as false. Dissonance occurs if a manifester inserts a memory that is out of context with the target’s past experience. The target gains a bonus of +1 to +4 on his or her saving throw, depending on the magnitude of dissonance create by an out-of-context memory, as determined by the GM. Likewise, inserting a memory of the target taking an action against his or her nature grants a +1 to +4 bonus, depending on the type of memory inserted. Inserting a memory that couldn’t possibly be true causes the power to fail automatically.</p>",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
+  },
+  {
+    "id": "telekinesis",
+    "name": "Telekinesis",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
+    "level": 4,
+    "levelText": "Telepath 4",
+    "display": "Visual",
+    "powerPoints": 7,
+    "castingTime": "Attack action",
+    "range": "Long (400 ft. + 40 ft./level)",
+    "target": "",
+    "duration": "Concentration, up to 1 round/level, or instantaneous (see text)",
+    "savingThrow": "Will negates (object) (see text)",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": {
+      "formula": "1d6",
+      "type": "",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester moves objects or creatures by concentrating on them. The power can provide either a gentle, sustained force or a single short, violent thrust (manifester’s choice).</p><p><strong>Sustained Force</strong>: A sustained force moves a creature or object weighing up to 25 pounds per manifester level up to 20 feet per round. A creature can negate the effect against itself or against an object it possesses with a successful Will save or with power resistance.</p><p>This power lasts up to 1 round per manifester level, but it ends if the manifester ceases concentration. The weight can be moved vertically, horizontally, or both. An object can’t be moved beyond the range. The power ends if the object is forced beyond the range. If the manifester ceases concentration for any reason, the object falls or stops.</p><p>An object can be telekinetically manipulated as if with one hand, if the force required is within the weight limitation.</p><p><strong>Violent Thrust</strong>: Alternatively, the telekinetic power can be expended in a single round. The manifester can hurl one or more objects or creatures that are within range and all within 10 feet of each other toward any target within 10 feet/level of all the objects. A manifester can hurl up to a total weight of 25 pounds per manifester level.</p><p>The manifester must succeed at attack rolls (one per creature or object thrown) to hit the target with the items, using his or her base attack plus Intelligence modifier. Weapons cause standard damage (with no Strength bonus). Other objects cause damage ranging from 1 point per 25 pounds (for less dangerous objects) to 1d6 points of damage per 25 pounds for hard, dense objects.</p><p>Creatures who fall within the weight capacity of the power can be hurled, but they are allowed Will saves to negate the effect, as are those whose held possessions are targeted by the power. If creatures are telekinetically hurled against solid surfaces, they take damage as if they had fallen 10 feet (1d6 points).</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "telempathicProjection",
     "name": "Telempathic Projection",
-    "keyAbility": "Charisma",
+    "keyAbility": "cha",
+    "keyAbilityText": "Charisma",
     "level": 0,
     "levelText": "Telepath 0",
     "display": "Visual",
@@ -1182,12 +2212,23 @@
     "target": "",
     "duration": "1 minute/level",
     "savingThrow": "Will negates",
+    "save": {
+      "save": "will",
+      "onSuccess": "negate"
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You can alter the subject’s mood. An affected creature feels the new emotion, but telempathic projection cannot radically change its emotional state. Instead, you adjust its emotions by one step. For instance, an unfriendly creature might be made indifferent, or a hostile creature simply unfriendly. You can grant up to a +1 bonus on your own (or others’) attempts at Bluff, Diplomacy, Intimidate, and Perform actions with affected creatures, assuming you adjust the subject’s emotions in the proper direction (you could also cause a –1 penalty on similar interactions, if you so choose).</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "ubiquitousVision",
     "name": "Ubiquitous Vision",
-    "keyAbility": "Wisdom",
+    "keyAbility": "wis",
+    "keyAbilityText": "Wisdom",
     "level": 3,
     "levelText": "Psionic Agent 3",
     "display": "Visual",
@@ -1197,12 +2238,23 @@
     "target": "You",
     "duration": "2 rounds/level (D)",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>You have “eyes in the back of your head,” and in the sides and top as well (though only in effect, not literally). In effect, you have a 360-degree sphere of sight, allowing you perfect view of creatures that might otherwise flank you. Thus, flanking opponents gain no bonus on their attack rolls, and you do not lose your bonus to Dexterity unless you are caught flat-footed.</p><p>Your Spot checks gain a +3 enhancement bonus, and your Search checks gain a +1 enhancement bonus. Concurrently, you suffer a –4 enhancement penalty on saves against all gaze attacks and visual attacks during the power’s duration.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "valor",
     "name": "Valor",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 0,
     "levelText": "Battle Mind 0",
     "display": "Audible",
@@ -1212,12 +2264,23 @@
     "target": "You",
     "duration": "",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester can immediately apply a +1 morale bonus on a saving throw.</p><p>A manifester can manifest this power instantly, quickly enough to gain the +1 morale bonus on a saving throw in the same round. Manifesting the power is a free action.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "verve",
     "name": "Verve",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 0,
     "levelText": "Telepath 0/Battle Mind 0",
     "display": "Material, Olfactory",
@@ -1227,12 +2290,23 @@
     "target": "You",
     "duration": "1 minute (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester gains 1 temporary hit point for the duration of the power.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "vigor",
     "name": "Vigor",
-    "keyAbility": "Strength",
+    "keyAbility": "str",
+    "keyAbilityText": "Strength",
     "level": 1,
     "levelText": "Battle Mind 1",
     "display": "Material, Olfactory",
@@ -1242,12 +2316,23 @@
     "target": "You",
     "duration": "1 minute/level (D)",
     "savingThrow": "",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "description": "<p>The manifester gains 3 temporary hit points.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   },
   {
     "id": "whiteNoise",
     "name": "White Noise",
-    "keyAbility": "Constitution",
+    "keyAbility": "con",
+    "keyAbilityText": "Constitution",
     "level": 1,
     "levelText": "Battle Mind 1, Telepath 1",
     "display": "None",
@@ -1257,12 +2342,23 @@
     "target": "",
     "duration": "1 minute/level",
     "savingThrow": "None",
+    "save": {
+      "save": "",
+      "onSuccess": ""
+    },
+    "damage": null,
+    "areaShape": {
+      "shape": "radius",
+      "size": 5
+    },
+    "description": "<p>You surround yourself with a bubble of low-level electromagnetic radiation, not enough to be detected by normal individuals but sufficient to defeat most electronic transmissions (like cell phones, radio broadcasts, and television signals). Hardwired effects such as cable TV or telephones, or self-contained devices such as video cameras are unaffected by this power. Those using the affected devices get scrambled signals and white noise, and are aware that they are being jammed.</p><p><strong>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</strong>: </p><p>spike_fightwicky@yahoo.ca</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
     "id": "whitefire",
     "name": "Whitefire",
-    "keyAbility": "Intelligence",
+    "keyAbility": "int",
+    "keyAbilityText": "Intelligence",
     "level": 3,
     "levelText": "Battle Mind 3",
     "display": "Visual",
@@ -1272,6 +2368,23 @@
     "target": "",
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
+    "save": {
+      "save": "ref",
+      "onSuccess": "half"
+    },
+    "damage": {
+      "formula": "5d4",
+      "type": "fire",
+      "scaling": {
+        "per": 0,
+        "max": 0
+      }
+    },
+    "areaShape": {
+      "shape": "radius",
+      "size": 20
+    },
+    "description": "<p>The manifester generates fire that deals 5d4 points of fire damage to all creatures within the area he or she designates (the manifester must be able to see the target area or a portion of it). Unattended objects also take damage.</p><p>This power sets fire to combustibles and damages objects in the area. It can melt metals with a low melting point.</p>",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html"
   }
 ]

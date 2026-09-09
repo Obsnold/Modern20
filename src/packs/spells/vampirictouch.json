@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>You must succeed at a melee touch attack. Your touch deals 1d6 points of damage per two caster levels (maximum 5d6). You gain temporary hit points equal to the damage you deal. However, you can’t gain more than the target’s current hit points +10, which is enough to kill the target. The temporary hit points disappear 1 hour later.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 3,
@@ -21,7 +21,39 @@
     "duration": "Instantaneous and 1 hour (see text)",
     "savingThrow": "None",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 3,
+      "divine": 3
+    },
+    "tradition": "arcane",
+    "damage": "1d6",
+    "damageType": "",
+    "scaling": {
+      "per": 2,
+      "max": 5
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "1d6",
+          "type": "",
+          "scaling": {
+            "per": 2,
+            "max": 5
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!zvVEgDjMDHRWDhAT"
 }

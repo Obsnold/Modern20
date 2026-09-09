@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>Remove disease cures all treatable diseases afflicting the subject. It does not rid the subject of a disease for which no cure exists. Since the spell’s duration is instantaneous, it does not prevent reinfection after a new exposure to the same disease at a later date.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 3,
@@ -21,7 +21,30 @@
     "duration": "Instantaneous",
     "savingThrow": "Fortitude negates (harmless)",
     "spellResistance": "Yes (harmless)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": null,
+      "divine": 3
+    },
+    "tradition": "divine",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "fort",
+    "saveEffect": "harmless",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!XbHRVhhJgX4GzAQk"
 }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester detects surface thoughts. The amount of information revealed depends on how long the manifester studies a particular area or subject.</p><p><strong>1st Round</strong>: Presence or absence of thoughts (from conscious creatures with Intelligence scores of 1 or higher).</p><p><strong>2nd Round</strong>: Number of thinking minds and the mental strength of each.</p><p><strong>3rd Round</strong>: Surface thoughts of any mind in the area. A target’s Will save prevents the manifester from reading its thoughts, and the manifester must manifest detect thoughts again to have another chance. Creatures of animal intelligence have simple, instinctual thoughts that the manifester can pick up.</p><p>Each round, the manifester can turn to detect thoughts in a new area. The power can penetrate barriers, but 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt blocks it.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 2,
@@ -14,7 +14,31 @@
     "range": "60 ft.",
     "target": "",
     "duration": "Concentration, up to 1 minute/level (D)",
-    "savingThrow": "Will negates (see text)"
+    "savingThrow": "Will negates (see text)",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!t5qgGjofqs9mdrWF"
 }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>You can alter the subject’s mood. An affected creature feels the new emotion, but telempathic projection cannot radically change its emotional state. Instead, you adjust its emotions by one step. For instance, an unfriendly creature might be made indifferent, or a hostile creature simply unfriendly. You can grant up to a +1 bonus on your own (or others’) attempts at Bluff, Diplomacy, Intimidate, and Perform actions with affected creatures, assuming you adjust the subject’s emotions in the proper direction (you could also cause a –1 penalty on similar interactions, if you so choose).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 0,
@@ -14,7 +14,31 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "target": "",
     "duration": "1 minute/level",
-    "savingThrow": "Will negates"
+    "savingThrow": "Will negates",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!HhJrznRZjDTWsh8c"
 }

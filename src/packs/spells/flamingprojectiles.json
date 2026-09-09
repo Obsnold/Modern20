@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>The caster turns ammunition (such as arrows, bolts, bullets, and shuriken) into fiery projectiles. Each projectile deals an extra 1d6 points of fire damage to any target it hits. The flaming projectiles can easily ignite flammable materials or structures, but won’t ignite creatures struck.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 3,
@@ -22,7 +22,39 @@
     "duration": "10 minutes/level",
     "savingThrow": "None",
     "spellResistance": "No",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 3,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "1d6",
+    "damageType": "fire",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "1d6",
+          "type": "fire",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!GWtuhCM1PYj3jWkr"
 }

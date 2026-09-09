@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>A weapon gains a +3 enhancement bonus on attack and damage rolls. Alternatively, the manifester can affect up to 50 arrows, bolts, or bullets. The projectiles must all be of the same type, and they have to be together in one group. Projectiles (but not thrown weapons) lose their enhancement when used.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 3,
@@ -14,7 +14,26 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "target": "One weapon or 50 projectiles (all of which must be in contact with each other at the time of manifestation)",
     "duration": "1 hour/level",
-    "savingThrow": "Will negates (harmless, object)"
+    "savingThrow": "Will negates (harmless, object)",
+    "keyAbility": "int",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "harmless",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!5BflfCIP7WDXbm9P"
 }

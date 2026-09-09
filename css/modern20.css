@@ -348,6 +348,20 @@
 .m20-chat__result--failure { color: #8c2f1e; }
 .m20-chat__body { font-size: 0.82rem; }
 
+/* A spell's rules text, which is often several paragraphs, so it scrolls
+   rather than pushing the buttons off the bottom of a long card. */
+.m20-chat__text {
+  font-size: 0.82rem;
+  max-height: 14rem;
+  overflow-y: auto;
+  margin: 0.3rem 0;
+  padding-right: 0.3rem;
+  border-left: 2px solid rgba(0, 0, 0, 0.12);
+  padding-left: 0.5rem;
+}
+.m20-chat__text p { margin: 0 0 0.4rem; }
+.m20-chat__text p:last-child { margin-bottom: 0; }
+
 /* --- Character creator ------------------------------------------------- */
 
 .m20-creator .m20-panel { margin-bottom: 0.7rem; }

@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester deals 3d6 points of electricity damage to all creatures within the area he or she designates (the manifester must be able to see the target area or a portion of it).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 3,
@@ -14,7 +14,44 @@
     "range": "Medium (100 ft. + 10 ft./level)",
     "target": "",
     "duration": "Instantaneous",
-    "savingThrow": "Reflex half"
+    "savingThrow": "Reflex half",
+    "keyAbility": "int",
+    "damage": "3d6",
+    "damageType": "electricity",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "radius",
+      "size": 30
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "area": {
+          "shape": "radius",
+          "size": 30
+        },
+        "damage": {
+          "formula": "3d6",
+          "type": "electricity",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!wfRSMt3QovoGAWgy"
 }

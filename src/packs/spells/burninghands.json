@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>A thin sheet of flame shoots from the caster’s outspread fingertips. The caster must hold his or her hands with the thumbs touching and fingers spread. The sheet of flame is about as thick as the caster’s thumbs. Any creature in the area of the flames takes 1d4 points of fire damage per caster level (maximum 5d4). Flammable materials such as cloth, paper, parchment, and thin wood burn if the flames touch them. A character can extinguish burning items as a full-round action.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html",
     "level": 1,
@@ -21,7 +21,44 @@
     "duration": "Instantaneous",
     "savingThrow": "Reflex half",
     "spellResistance": "Yes",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 1,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "1d4",
+    "damageType": "fire",
+    "scaling": {
+      "per": 1,
+      "max": 5
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "damage": {
+          "formula": "1d4",
+          "type": "fire",
+          "scaling": {
+            "per": 1,
+            "max": 5
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!5YsjFmgmhdiGrbw7"
 }

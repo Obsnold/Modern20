@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester generates a shaft of biokinetic energy that can be used as a melee weapon. It deals 2d8 points of bludgeoning damage on a successful attack. The shaft maintains its form for the duration or until the manifester drops it (or otherwise stop touching it with at least one hand), at which point it dissipates.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 4,
@@ -14,7 +14,35 @@
     "range": "Personal",
     "target": "You",
     "duration": "4 rounds + 1 round/level",
-    "savingThrow": ""
+    "savingThrow": "",
+    "keyAbility": "str",
+    "damage": "2d8",
+    "damageType": "bludgeoning",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "damage",
+        "name": "MODERN20.Cast.Manifest",
+        "damage": {
+          "formula": "2d8",
+          "type": "bludgeoning",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        }
+      }
+    }
   },
   "_key": "!items!KnRu91ImooMPO0ak"
 }

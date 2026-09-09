@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester generates fire that deals 5d4 points of fire damage to all creatures within the area he or she designates (the manifester must be able to see the target area or a portion of it). Unattended objects also take damage.</p><p>This power sets fire to combustibles and damages objects in the area. It can melt metals with a low melting point.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 3,
@@ -14,7 +14,44 @@
     "range": "Long (400 ft. + 40 ft./level)",
     "target": "",
     "duration": "Instantaneous",
-    "savingThrow": "Reflex half"
+    "savingThrow": "Reflex half",
+    "keyAbility": "int",
+    "damage": "5d4",
+    "damageType": "fire",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "radius",
+      "size": 20
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "area": {
+          "shape": "radius",
+          "size": 20
+        },
+        "damage": {
+          "formula": "5d4",
+          "type": "fire",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!d1WRvDmj5U1pHLfE"
 }

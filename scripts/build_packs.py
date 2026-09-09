@@ -167,6 +167,61 @@ def weapon_activities(system: dict) -> dict:
     return out
 
 
+def casting_activity(item_type: str, system: dict) -> dict:
+    """The single activity a spell or psionic power ships with.
+
+    Mirrors castingActivity in module/apps/activities.mjs: same inputs, same
+    output, so a spell dragged out of the compendium and one typed in by hand
+    behave identically.
+    """
+    key = "cast" if item_type == "spell" else "manifest"
+    name = "MODERN20.Cast.Cast" if item_type == "spell" else "MODERN20.Cast.Manifest"
+    rolled = system["saveAbility"] and system["saveEffect"] != "harmless"
+    area = {"area": system["areaShape"]} if system["areaShape"]["size"] else {}
+
+    damage = {}
+    if system["damage"]:
+        damage = {"damage": {
+            "formula": system["damage"],
+            "type": system["damageType"],
+            "scaling": system["scaling"],
+            # Nothing adds Strength to a fireball.
+            "addAbility": False,
+        }}
+
+    if rolled:
+        effect = system["saveEffect"]
+        return {key: {
+            "type": "save",
+            "name": name,
+            **area,
+            **damage,
+            "save": {
+                "ability": system["saveAbility"],
+                "calculation": "caster",
+                "onSuccess": effect if effect in ("half", "negate") else "none",
+            },
+        }}
+
+    if system["damage"]:
+        return {key: {"type": "damage", "name": name, **area, **damage}}
+    return {key: {"type": "utility", "name": name, **area}}
+
+
+def casting_fields(entry: dict) -> dict:
+    """The parsed damage and saving throw a spell or power carries."""
+    damage = entry.get("damage") or {}
+    save = entry.get("save") or {}
+    return {
+        "damage": damage.get("formula", ""),
+        "damageType": damage.get("type", ""),
+        "scaling": damage.get("scaling") or {"per": 0, "max": 0},
+        "saveAbility": save.get("save", ""),
+        "saveEffect": save.get("onSuccess", ""),
+        "areaShape": entry.get("areaShape") or {"shape": "", "size": 0},
+    }
+
+
 def build_weapon(row, columns, category, url):
     ranged = bool(cell(row, columns, "rate of fire")) or cell(row, columns, "range increment") not in ("", "-")
     weapon = {
@@ -494,8 +549,10 @@ def build_creatures() -> list[dict]:
                        system, document_class="Actor")
 
 
-def build_spells() -> list[dict]:
-    return simple_pack("spells", "spell", "spells", "icons/svg/book.svg", lambda e: {
+def spell_system(e: dict) -> dict:
+    casting = casting_fields(e)
+    lists = e["lists"]
+    system = {
         "level": e["level"],
         "school": e["school"],
         "subschool": e["subschool"],
@@ -508,7 +565,18 @@ def build_spells() -> list[dict]:
         "savingThrow": e["savingThrow"],
         "spellResistance": e["spellResistance"],
         "prepared": 0,
-    })
+        "lists": lists,
+        # A spell on only one list is cast from that one; a spell on both
+        # defaults to arcane and the sheet can switch it.
+        "tradition": "divine" if lists["arcane"] is None and lists["divine"] is not None else "arcane",
+        **casting,
+    }
+    system["activities"] = casting_activity("spell", system)
+    return system
+
+
+def build_spells() -> list[dict]:
+    return simple_pack("spells", "spell", "spells", "icons/svg/book.svg", spell_system)
 
 
 def build_feats() -> list[dict]:
@@ -544,8 +612,8 @@ def build_occupations() -> list[dict]:
     })
 
 
-def build_psionics() -> list[dict]:
-    return simple_pack("psionics", "psiPower", "psionics", "icons/svg/daze.svg", lambda e: {
+def psionic_system(e: dict) -> dict:
+    system = {
         "level": e["level"],
         "display": e["display"],
         "powerPoints": e["powerPoints"],
@@ -554,7 +622,15 @@ def build_psionics() -> list[dict]:
         "target": e["target"],
         "duration": e["duration"],
         "savingThrow": e["savingThrow"],
-    })
+        "keyAbility": e["keyAbility"] or "cha",
+        **casting_fields(e),
+    }
+    system["activities"] = casting_activity("psiPower", system)
+    return system
+
+
+def build_psionics() -> list[dict]:
+    return simple_pack("psionics", "psiPower", "psionics", "icons/svg/daze.svg", psionic_system)
 
 
 def build_vehicles() -> list[dict]:
@@ -716,6 +792,14 @@ def write(packs: dict[str, list[dict]]) -> None:
             with open(os.path.join(directory, f"{slug}.json"), "w", encoding="utf-8") as handle:
                 json.dump(document, handle, indent=2, ensure_ascii=False)
                 handle.write("\n")
+
+        # An entry the scrape no longer produces - a fragment that turned out
+        # not to be a real feat - must go, or it stays in the compendium
+        # forever and trips the count check below.
+        for stale in os.listdir(directory):
+            if stale.endswith(".json") and stale[:-5] not in seen:
+                os.remove(os.path.join(directory, stale))
+                print(f"  - removed stale {pack}/{stale}")
 
         on_disk = len([f for f in os.listdir(directory) if f.endswith(".json")])
         if on_disk != len(documents):

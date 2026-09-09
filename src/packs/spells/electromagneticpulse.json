@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>When you cast electromagnetic pulse, you send a powerful burst of energy that ruins electronic circuitry within the spell’s area. Any computer, telephone, television, or other device with a computer processor inside ceases to function immediately, and the contents of hard drives and other storage media are scrambled.</p><p>The electromagnetic pulse affects only devices with extensive circuitry, not everything that uses electricity. Ordinarily the lights stay on, although their electronic switches might not function. Automobiles continue to run, although their engines will run more roughly without electronic guidance. Most cars manufactured after the 1980s won’t start after an electromagnetic pulse because they have electronic ignition systems.</p><p>Devices affected by an electromagnetic pulse can be fixed according to the following table.</p><p>Repair Task (Example)</p><p>Relevant Skill</p><p>Purchase DC</p><p>Repair DC</p><p>Time</p><p>Simple processors (cars, elevator controls)</p><p>Repair</p><p>7</p><p>15</p><p>10 min.</p><p>Complex processors (computers, home theaters)</p><p>Repair</p><p>10</p><p>20</p><p>1 hr.</p><p>Data recovery (scrambled hard drive)</p><p>Computer Use</p><p>4</p><p>25</p><p>2 hr.</p><p>You can jury-rig repairs more quickly and cheaply, but the repairs may not last. See the description of the Repair skill for details.</p><p>Some military gear is immune to energy effects such as electromagnetic pulse thanks to a process called tempest hardening.</p><p>Tempest hardening adds +1 to the purchase DC of an item and makes it Restricted (+2).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
     "level": 3,
@@ -21,7 +21,39 @@
     "duration": "Instantaneous",
     "savingThrow": "Will negates (object)",
     "spellResistance": "Yes (object)",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 3,
+      "divine": null
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "radius",
+      "size": 20
+    },
+    "activities": {
+      "cast": {
+        "type": "save",
+        "name": "MODERN20.Cast.Cast",
+        "area": {
+          "shape": "radius",
+          "size": 20
+        },
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
   },
   "_key": "!items!fkPVl1tzxEqsBUix"
 }

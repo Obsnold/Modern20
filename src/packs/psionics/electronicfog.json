@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>An intensified version of white noise, this bubble of low-level electromagnetic radiation is still below the detection level of most humans but will jam electronic communication devices, including those that rely upon cables or other hard-wired transmissions, including televisions, video cameras, and monitors. It will also cause photographic film to fog and magnetic tape to blur. It does not cause electronic devices to malfunction, only to report scrambled signals and white noise.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 2,
@@ -14,7 +14,30 @@
     "range": "Personal",
     "target": "",
     "duration": "1 minute/level",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "con",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "radius",
+      "size": 5
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest",
+        "area": {
+          "shape": "radius",
+          "size": 5
+        }
+      }
+    }
   },
   "_key": "!items!GEyvxp0jgtGJDGEY"
 }

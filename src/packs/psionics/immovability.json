@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>You are almost impossible to move. Your weight does not vary; instead, you mentally attach yourself to the underlying fabric of reality. Thus, you could conceivably anchor yourself in midair. You oppose any attempt to move you by a Strength check modified by a bonus equal to three times your manifester level. Once immovable, you can’t move to a new location unless you first dismiss the power or its duration expires.</p><p>While you are immovable, you lose all Dexterity bonuses to Defense. Neither can you attack or make any other movement. However, your anchored body gains DR 10/+3.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "level": 4,
@@ -14,7 +14,26 @@
     "range": "Personal",
     "target": "You",
     "duration": "1 hour/level (D)",
-    "savingThrow": ""
+    "savingThrow": "",
+    "keyAbility": "str",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!CyHy9DPuawrPpb7I"
 }

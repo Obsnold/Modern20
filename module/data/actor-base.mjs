@@ -135,6 +135,20 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
         { initial: [] }
       ),
 
+      /**
+       * Casting, for anyone who does any.
+       *
+       * The SRD sets caster level from levels in the casting class, which the
+       * FX classes are not in the imported set, so this defaults to character
+       * level and is overridable — which is also how a creature's "caster
+       * level 10th" is recorded.
+       */
+      spellcasting: new fields.SchemaField({
+        casterLevelOverride: new fields.NumberField({
+          required: false, nullable: true, integer: true, initial: null, min: 0
+        })
+      }),
+
       biography: new fields.HTMLField({ initial: "" })
     };
   }
@@ -167,6 +181,17 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
 
     const grapple = MODERN20.sizes[this.attributes.size]?.grapple ?? 0;
     this.attributes.grapple = this.attributes.baseAttack + this.abilities.str.mod + grapple;
+
+    this.spellcasting.casterLevel =
+      this.spellcasting.casterLevelOverride ?? this.defaultCasterLevel;
+  }
+
+  /**
+   * Caster level when nothing overrides it. Subtypes that know their own level
+   * say so; the base is a single level, which is what an unlevelled sheet is.
+   */
+  get defaultCasterLevel() {
+    return this.details?.level ?? 1;
   }
 
   /**

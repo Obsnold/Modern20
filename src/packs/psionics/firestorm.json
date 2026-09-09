@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>The manifester generates a storm of fire that fills an area he or she designates and deals 5d6 points of fire damage to all creatures (the manifester must be able to see the target area or a portion of it). Unattended objects also take damage.</p><p>This power sets fire to combustibles and damages objects in the area. It can melt metals with a low melting point.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 4,
@@ -14,7 +14,44 @@
     "range": "Long (400 ft. + 40 ft./level)",
     "target": "",
     "duration": "Instantaneous",
-    "savingThrow": "Reflex half"
+    "savingThrow": "Reflex half",
+    "keyAbility": "int",
+    "damage": "5d6",
+    "damageType": "fire",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "ref",
+    "saveEffect": "half",
+    "areaShape": {
+      "shape": "radius",
+      "size": 30
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "area": {
+          "shape": "radius",
+          "size": 30
+        },
+        "damage": {
+          "formula": "5d6",
+          "type": "fire",
+          "scaling": {
+            "per": 0,
+            "max": 0
+          },
+          "addAbility": false
+        },
+        "save": {
+          "ability": "ref",
+          "calculation": "caster",
+          "onSuccess": "half"
+        }
+      }
+    }
   },
   "_key": "!items!K6kYwmUUpklnngWr"
 }

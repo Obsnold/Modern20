@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "",
+    "description": "<p>This spell allows the caster to read magical inscriptions on objects that would otherwise be unintelligible. This deciphering does not invoke the magic contained in the writing. Furthermore, once the spell is cast and the caster has read the magical inscription, he or she is thereafter able to read that particular writing without recourse to the use of read magic. The caster can read at the rate of one page (250 words) per minute.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "level": 0,
@@ -22,7 +22,30 @@
     "duration": "10 minutes/level",
     "savingThrow": "",
     "spellResistance": "",
-    "prepared": 0
+    "prepared": 0,
+    "lists": {
+      "arcane": 0,
+      "divine": 0
+    },
+    "tradition": "arcane",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "cast": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Cast"
+      }
+    }
   },
   "_key": "!items!1glvvWazp3qR5tCF"
 }

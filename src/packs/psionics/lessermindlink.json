@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "",
+    "description": "<p>he manifester forges a telepathic bond with another person or creature, which must have an Intelligence score of 6 or higher.</p><p>The bond can be established only with a willing subject, who therefore receives no saving throw and gains no benefit from power resistance. The manifester can communicate telepathically through the bond even if he or she does not share a common language with the subject. No special power or influence is established as a result of the bond. Once the bond is formed, it works over any distance.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "level": 1,
@@ -14,7 +14,26 @@
     "range": "Close (25 ft. + 5 ft./2 levels)",
     "target": "You and one other creature who is initially no more than 30 ft. away",
     "duration": "10 minutes/level",
-    "savingThrow": "None"
+    "savingThrow": "None",
+    "keyAbility": "cha",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "utility",
+        "name": "MODERN20.Cast.Manifest"
+      }
+    }
   },
   "_key": "!items!KdQDifT7LZwVxGO0"
 }
