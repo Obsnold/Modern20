@@ -55,6 +55,8 @@ function skillField() {
 function attributeFields() {
   return {
     baseAttack: int(0),
+    // A flat modifier on attack rolls, which several conditions impose.
+    attackMisc: int(0),
     size: new fields.StringField({
       required: true,
       initial: "medium",
@@ -94,7 +96,10 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
       defense: new fields.SchemaField({
         classBonus: int(0),
         naturalArmor: int(0),
-        misc: int(0)
+        misc: int(0),
+        // Set by conditions that say a character "loses his or her Dexterity
+        // bonus to Defense" — flat-footed, cowering, stunned, pinned.
+        loseDex: new fields.BooleanField({ initial: false })
       }),
 
       saves: new fields.SchemaField(
@@ -225,6 +230,7 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
 
   /** Dex contribution to Defense, capped by armor. */
   get dexToDefense() {
+    if (this.defense.loseDex) return 0;
     const dex = this.abilities.dex.mod;
     return this.attributes.maxDex === null ? dex : Math.min(dex, this.attributes.maxDex);
   }

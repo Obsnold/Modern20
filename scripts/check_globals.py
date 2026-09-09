@@ -32,7 +32,17 @@ REMOVED = {
     "Dialog": "foundry.applications.api.DialogV2",
 }
 
-STILL_GLOBAL = {"CONFIG", "Hooks", "game", "ui", "Handlebars", "foundry"}
+STILL_GLOBAL = {"CONFIG", "Hooks", "game", "ui", "Handlebars", "foundry", "CONST"}
+
+# APIs that still resolve but log a compatibility warning and are scheduled for
+# removal. Verified against the installed client bundle.
+DEPRECATED = {
+    "CONST.ACTIVE_EFFECT_MODES":
+        'removed in v16 — changes take a string `type` now, one of '
+        'custom/multiply/add/subtract/downgrade/upgrade/override',
+    "renderChatMessage":
+        "removed in v15 — use renderChatMessageHTML, which passes an HTMLElement",
+}
 
 # A name is fine when it is a property access, a key, a string, or locally bound
 # by a destructuring line such as `const { Actor } = foundry.documents;`.
@@ -75,6 +85,26 @@ def check(path: str) -> list[str]:
     return problems
 
 
+def deprecated_uses() -> list[str]:
+    found = []
+    for dirpath, dirnames, filenames in os.walk(MODULE):
+        for name in sorted(filenames):
+            if not name.endswith(".mjs"):
+                continue
+            path = os.path.join(dirpath, name)
+            for number, line in enumerate(open(path, encoding="utf-8").read().splitlines(), 1):
+                if line.lstrip().startswith(("//", "*", "/*")):
+                    continue
+                for api, note in DEPRECATED.items():
+                    # Word-bounded: renderChatMessageHTML contains
+                    # renderChatMessage and is the replacement, not the problem.
+                    if re.search(re.escape(api) + r"(?![\w.])", line):
+                        found.append(
+                            f"{os.path.relpath(path, ROOT)}:{number}: {api} is deprecated — {note}"
+                        )
+    return found
+
+
 def main() -> int:
     problems = []
     files = 0
@@ -87,8 +117,13 @@ def main() -> int:
     for problem in problems:
         print(problem)
 
-    print(f"\n{files} modules scanned, {len(problems)} removed-global references")
-    return 1 if problems else 0
+    deprecated = deprecated_uses()
+    for line in deprecated:
+        print(line)
+
+    print(f"\n{files} modules scanned, {len(problems)} removed-global references, "
+          f"{len(deprecated)} deprecated APIs")
+    return 1 if (problems or deprecated) else 0
 
 
 if __name__ == "__main__":

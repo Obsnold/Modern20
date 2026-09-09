@@ -50,7 +50,9 @@ jobs:
 
       # Foundry v14 removed the Actor/Item/Roll/ChatMessage globals. Referencing
       # one in a class heritage clause takes the whole UI down as a black screen.
-      - name: no globals Foundry v14 removed
+      # Also flags APIs that still resolve but log a compatibility warning and
+      # are scheduled for removal.
+      - name: no globals Foundry v14 removed, no deprecated APIs
         run: python3 scripts/check_globals.py
 
       # ApplicationV2 has twelve read-only getters; assigning over one throws

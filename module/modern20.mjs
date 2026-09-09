@@ -20,6 +20,8 @@ import { Modern20ItemSheet } from "./sheets/item-sheet.mjs";
 import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
 import { bindDamageControls } from "./apps/damage.mjs";
+import { registerConditions } from "./conditions.mjs";
+import { CONDITIONS } from "./condition-list.mjs";
 
 const SYSTEM_ID = "modern20";
 
@@ -57,6 +59,8 @@ Hooks.once("init", () => {
   registerSheets();
   registerHandlebarsHelpers();
   registerPartials();
+  // After config: several conditions enumerate the skill list.
+  registerConditions(CONDITIONS);
 
   // Exposed so macros and companion modules can reach the system without
   // reaching into module internals.

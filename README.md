@@ -114,6 +114,31 @@ The SRD does not state how to generate ability scores, so the creator offers the
 conventional options — standard array, 4d6 drop lowest, or entry by hand —
 rather than presenting one as official.
 
+## Conditions
+
+The SRD's 24 conditions are registered as Foundry status effects, so they
+appear in the token HUD and apply real ActiveEffect changes. Names and rules
+text are generated from the scrape into `lang/en.json`; the changes each one
+applies are hand-authored in `module/conditions.mjs`, because mapping prose to
+an effect is a judgement call. Every entry cites the phrase it encodes.
+
+Twelve of the 24 have mechanical effects the data model can express — blinded
+sets an effective Dexterity of 3 and a -4 on Strength- and Dexterity-based
+skills, shaken applies -2 to attacks, saves and every skill, exhausted halves
+speed. The rest carry their text and nothing else: "can take no actions", a 50%
+miss chance, and a Defense penalty that applies only against melee are left to
+the GM rather than approximated, since a wrong number on a sheet is worse than
+a rule someone is reading anyway.
+
+Two schema fields exist for them: `defense.loseDex`, for the conditions that
+say a character loses their Dexterity bonus to Defense, and
+`attributes.attackMisc`, which attack rolls add.
+
+Note that v14 replaced the numeric `CONST.ACTIVE_EFFECT_MODES` with string
+change types — `custom`, `multiply`, `add`, `subtract`, `downgrade`, `upgrade`,
+`override` — and `check_globals.py` now flags the old constant along with other
+deprecated APIs.
+
 ## Field labels
 
 Every document subtype declares `LOCALIZATION_PREFIXES`, and Foundry reads each
