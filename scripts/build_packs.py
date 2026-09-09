@@ -719,12 +719,136 @@ UNDEFINED_FEAT = (
 )
 
 
+UNDEFINED_ABILITY = (
+    "<p>Printed in this creature's stat block, but described neither in the "
+    "creature's own species traits nor in the SRD's Special Abilities list.</p>"
+)
+
+
+def paragraphs(text: str) -> str:
+    """Scraped prose as HTML, one paragraph per blank-line-separated block."""
+    return "".join(f"<p>{part}</p>" for part in (text or "").split("\n\n") if part.strip())
+
+
+def creature_abilities(entry: dict, glossary: dict) -> list[dict]:
+    """The creature's special qualities and species traits, as items.
+
+    The SRD prints each ability twice: once in the SQ line of the stat block -
+    "Cold subtype, constrict, darkvision 60 ft., improved grab" - and once as
+    prose under SPECIES TRAITS. The import kept the line as one string and
+    dropped the prose, so a GM running a yeti had four ability names and no
+    rules for any of them.
+
+    Each printed quality takes its rules from the creature's own traits where
+    they are given, since those say what this creature does with the ability,
+    and from the SRD's Special Abilities list otherwise. A trait the SQ line
+    does not name - a skill bonus, an automatic language - is an item too:
+    the SRD prints it, so the sheet shows it.
+    """
+    traits = {srd.slugify(trait["key"]): trait
+              for trait in entry.get("speciesTraits", [])}
+    items = []
+    used = set()
+
+    for quality in entry.get("specialQualityEntries", []):
+        slug = described(quality["key"], traits, glossary)
+        trait = traits.get(slug)
+        defined = glossary.get(slug)
+        used.add(slug)
+        source = trait or defined
+        # "darkvision 60 ft." is Darkvision with this creature's range: the
+        # name the SRD gives the ability, and the detail the block prints. The
+        # detail is only added where the name does not already carry it, since
+        # a traits section that describes "Damage Reduction 15/+1" has put the
+        # rating in the name itself.
+        printed = quality["printed"]
+        extra = printed[len(quality["key"]):].strip() \
+            if printed.lower().startswith(quality["key"]) else ""
+        name = source["name"] if source else title_case(printed)
+        if source and extra and not name.lower().endswith(extra.lower()):
+            name = f"{name} {extra}"
+        items.append(ability_item(entry, name, quality["sense"], trait, defined))
+
+    for slug, trait in traits.items():
+        if slug not in used:
+            items.append(ability_item(entry, trait["name"], False, trait, glossary.get(slug)))
+    return items
+
+
+def described(key: str, traits: dict, glossary: dict) -> str:
+    """The slug under which a printed quality's rules are filed.
+
+    The SQ line and the traits section do not always agree on number: a stat
+    block prints "webs" and the traits describe "Web". Singular and plural are
+    tried before the ability is called undescribed.
+    """
+    slug = srd.slugify(key)
+    singular = slug[:-1] if slug.endswith("s") else slug
+    for candidate in (slug, singular, f"{slug}s"):
+        if candidate in traits or candidate in glossary:
+            return candidate
+    return slug
+
+
+def ability_item(entry: dict, name: str, sense: bool, trait: dict | None,
+                 defined: dict | None) -> dict:
+    """One special ability item, described by the SRD or declared undescribed."""
+    description = paragraphs((trait or {}).get("description", "")) \
+        or paragraphs((defined or {}).get("description", ""))
+    return {
+        "_id": document_id("creature-abilities", srd.slugify(f"{entry['id']}-{name}")),
+        "name": name,
+        "type": "specialAbility",
+        "img": "icons/svg/aura.svg",
+        "system": {
+            "description": description or UNDEFINED_ABILITY,
+            "source": "d20 Modern SRD",
+            # The creature's own traits are on its page; a shared definition
+            # is on the Special Abilities page.
+            "srdUrl": entry["srdUrl"] if trait or not defined else defined["srdUrl"],
+            "abilityType": (trait or {}).get("kind") or (defined or {}).get("kind", ""),
+            "sense": sense,
+        },
+    }
+
+
+# Words the SRD leaves lowercase inside a name, and the units a printed range
+# is measured in - "darkvision 60 ft.", which three blocks print without the
+# full stop, so the abbreviation cannot be recognised by its punctuation.
+MINOR_WORDS = {"a", "and", "of", "or", "the", "to", "in", "with"}
+UNITS = {"ft", "feet", "in", "sq"}
+
+
+def title_case(text: str) -> str:
+    """A printed quality as a name, keeping what is already capitalised.
+
+    "improved grab" becomes Improved Grab. A word the SRD already capitalised,
+    a number, and an abbreviation - the "ft." of "darkvision 60 ft." - are left
+    exactly as printed, and a preposition stays lowercase.
+    """
+    def cased(word, index):
+        if any(c.isupper() or c.isdigit() or c == "." for c in word):
+            return word
+        if word in UNITS or (index and word in MINOR_WORDS):
+            return word
+        # "Low-Light Vision": the SRD capitalises both halves of a hyphenated
+        # name, so this is not one word to capitalise but two.
+        return "-".join(part.capitalize() for part in word.split("-"))
+
+    return " ".join(cased(word, index) for index, word in enumerate(text.split()))
+
+
 def build_creatures() -> list[dict]:
     """Creature actors. Derived values are stored as the offset that
     reproduces the printed total, so the sheet shows what the SRD prints."""
     feats_by_name = {f["name"].lower(): f for f in load_dataset("feats")}
+    glossary = {srd.slugify(a["key"]): a for a in load_dataset("special_abilities")}
+    # Built once per creature: the senses line is made of the same abilities,
+    # under the names the SRD gives them rather than the stat block's spelling.
+    abilities: dict[str, list[dict]] = {}
 
     def system(e):
+        abilities[e["id"]] = creature_abilities(e, glossary)
         return {
             "abilities": {k: {"value": v, "tempMod": 0, "damage": 0}
                           for k, v in e["abilities"].items()},
@@ -755,7 +879,10 @@ def build_creatures() -> list[dict]:
             },
             "skills": creature_skills(e),
             "allegiances": [{"name": a, "strength": "none"} for a in e["allegiances"]],
-            "senses": e["specialQualities"],
+            # The senses line held the whole SQ line, so a creature's senses
+            # read "Cold subtype, constrict, darkvision 60 ft., improved grab".
+            "senses": ", ".join(item["name"] for item in abilities[e["id"]]
+                                if item["system"]["sense"]),
             "specialQualities": e["specialQualities"],
             # The SRD prints skills and feats as prose with situational notes;
             # kept verbatim rather than guessed into structured fields.
@@ -770,6 +897,7 @@ def build_creatures() -> list[dict]:
                        system, document_class="Actor",
                        extra=lambda e: {
                            "items": creature_weapons(e) + creature_feats(e, feats_by_name)
+                                    + abilities[e["id"]]
                        })
 
 

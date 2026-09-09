@@ -135,7 +135,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Breath weapon (DC 12), damage reduction 10/silver, darkvision 60 ft., immunities, prodigious leap",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Breath weapon (DC 12), damage reduction 10/silver, darkvision 60 ft., immunities, prodigious leap",
     "biography": "<p><strong>Attack:</strong> +2 melee (1d4+1, claw)</p><p><strong>Full Attack:</strong> +2 melee (1d4+1, 2 claws) or +6 ranged)</p><p><strong>Skills:</strong> Intimidate +4, Jump +8, Read/Write English, Speak English, Tumble +8.</p><p><strong>Feats:</strong> Acrobatic</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -187,6 +187,71 @@
         "normal": "",
         "special": "Remember that the Tumble skill can’t be used untrained.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "iSwrKLX0D79xlvxH",
+      "name": "Breath Weapon (DC 12)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful Reflex save (DC 10 + 1/2 the jumping jack’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "tiQWSViSkKttfugj",
+      "name": "Damage Reduction 10/Silver",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A jumping jack ignores the first 10 points of damage dealt by any unsilvered weapon.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "RtDaGCipAz7ngeag",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "gq9f1oYfbgyebiUT",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The jumping jack is immune to fire and poison.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "nmruOybodshtEYyb",
+      "name": "Prodigious Leap",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The jumping jack can ignore the 20-foot move requirement for making long and high jumps. If it does move 20 feet before attempting a jump, the distance jumped is doubled.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

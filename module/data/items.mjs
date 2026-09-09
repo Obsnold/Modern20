@@ -217,6 +217,33 @@ export class Modern20Feat extends Modern20ItemBase {
   }
 }
 
+/**
+ * A creature's special quality or special attack: darkvision, improved grab,
+ * a breath weapon, the traits its type confers.
+ *
+ * The SRD prints these twice - once as a comma-separated line in the stat
+ * block, once as prose under SPECIES TRAITS - and the import kept only the
+ * line, as a single string no part of the sheet could read. One item per
+ * printed ability puts the rules where the creature is.
+ */
+export class Modern20SpecialAbility extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.SpecialAbility"];
+
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      // (Ex), (Su), (Sp) or (Ps), which decides what suppresses it - an
+      // antimagic field stops a supernatural ability and not an extraordinary
+      // one. Left blank where the SRD prints no category, which is most of the
+      // traits a creature's type confers.
+      abilityType: new fields.StringField({ initial: "" }),
+      // Whether the ability is a way of perceiving - darkvision, scent - which
+      // is what the creature's senses line is made of.
+      sense: new fields.BooleanField({ initial: false })
+    };
+  }
+}
+
 export class Modern20Weapon extends Modern20ItemBase {
   static LOCALIZATION_PREFIXES = ["MODERN20.Item.Weapon"];
 

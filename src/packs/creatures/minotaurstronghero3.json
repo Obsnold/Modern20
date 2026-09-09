@@ -153,7 +153,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Charge 4d6+6, scent, natural cunning, darkvision 60 ft",
+    "senses": "Scent, Darkvision 60 ft",
     "specialQualities": "Charge 4d6+6, scent, natural cunning, darkvision 60 ft",
     "biography": "<p><strong>Attack:</strong> +13 melee (3d6+9, chain saw)</p><p><strong>Full Attack:</strong> +13/+8 melee (3d6+7, chain saw), +8 melee (1d8+4, gore, or +13/+8 melee (1d4+7, slam), +8 melee (1d8+4, gore), or +8 ranged</p><p><strong>Skills:</strong> Intimidate +5, Jump +8, Knowledge (streetwise) +3, Listen +8, Search +6, Speak English (or other local language), Speak Giant, Spot +8</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Combat Reflexes, Exotic Weapon Proficiency (chain saw), Great Fortitude, Power Attack, Simple Weapons Proficiency</p><p><strong>Talents:</strong> (Strong Hero): Melee smash, improved melee smash</p>"
   },
@@ -323,6 +323,97 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "vaeqeyxmB2F4zRRn",
+      "name": "Charge 4d6+6",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A minotaur typically begins a battle by charging at an opponent. In addition to the normal benefits and hazards of a charge, the beast can make a single gore attack that deals 4d6+6 points of damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Y2ksZgdk6bjVRkjL",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows the minotaur to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "Pfj1UaPbMdmDXvam",
+      "name": "Natural Cunning",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Although minotaurs are not especially intelligent, they possess innate cunning and logical reasoning ability. This prevents them from ever becoming lost. Further, they are never caught flat-footed.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "FEChQwxPQlT2EP2Z",
+      "name": "Darkvision 60 ft",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "RBDFBf5buBNVfPvx",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Minotaurs receive a +4 species bonus on Search, Spot, and Listen checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "ydFbHDuq2nclpkrz",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A minotaur gains the bonus feat Archaic Weapons Proficiency or Simple Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "a6FkGGOSwzpogvYf",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Minotaurs speak (but neither read nor write) Giant or one other language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -137,7 +137,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Charge 4d6+6, scent, natural cunning, darkvision 60 ft",
+    "senses": "Scent, Darkvision 60 ft",
     "specialQualities": "Charge 4d6+6, scent, natural cunning, darkvision 60 ft",
     "biography": "<p><strong>Attack:</strong> +9 melee (2d6+6, Huge lead pipe)</p><p><strong>Full Attack:</strong> +9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p><p><strong>Skills:</strong> Intimidate +5, Jump +8, Listen +8, Search +6, Speak Giant, Spot +8</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Great Fortitude, Power Attack</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -287,6 +287,97 @@
         "normal": "",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "8vFn5SoVAsNW5PqF",
+      "name": "Charge 4d6+6",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A minotaur typically begins a battle by charging at an opponent. In addition to the normal benefits and hazards of a charge, the beast can make a single gore attack that deals 4d6+6 points of damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "9tDp1W56qmuqV4uW",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows the minotaur to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "lR12DlTtyKeCOLxJ",
+      "name": "Natural Cunning",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Although minotaurs are not especially intelligent, they possess innate cunning and logical reasoning ability. This prevents them from ever becoming lost. Further, they are never caught flat-footed.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "URCpOLtFORoyyuxF",
+      "name": "Darkvision 60 ft",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "GEherN1iTiEaEBwm",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Minotaurs receive a +4 species bonus on Search, Spot, and Listen checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "73t7n0Tp66LKYpeo",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A minotaur gains the bonus feat Archaic Weapons Proficiency or Simple Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "xVeyvVhB48p0KnQq",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Minotaurs speak (but neither read nor write) Giant or one other language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

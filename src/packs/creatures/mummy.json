@@ -141,7 +141,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Undead, despair, mummy rot, fire vulnerability, resistant to blows, damage reduction 5/+1, darkvision 60 ft.",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Undead, despair, mummy rot, fire vulnerability, resistant to blows, damage reduction 5/+1, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d6+4 plus mummy rot, slam)</p><p><strong>Full Attack:</strong> +6 melee (1d6+4 plus mummy rot, slam), or +2 ranged</p><p><strong>Skills:</strong> Hide +8, Listen +9, Move Silently +8, Read/Write Egyptian, Speak Egyptian, Spot +9</p><p><strong>Feats:</strong> Alertness, Archaic Weapons Proficiency, Toughness</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -227,6 +227,123 @@
         "normal": "",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "DSPwEYRFByqJTvbg",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mummies have the traits and immunities common to undead.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "2SmwiBk9nO7O0xM3",
+      "name": "Despair",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At the mere sight of a mummy, the viewer must succeed on a Will save (DC 15) or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that mummy’s despair ability for one day.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "xDqmoWhwFV6PDcO5",
+      "name": "Mummy Rot",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A mummy’s touch carries a horrible rotting disease (Fort save DC 20 negates; incubation period 1 day; damage 1d6 temporary Constitution). The GM may allow characters to create medicine to treat the disease using the Craft (pharmaceutical) skill. In a campaign that uses magic, a remove disease spell can cure this disease. The only other way to halt the disease’s advance is to amputate whatever appendage the mummy touched (usually a hand, arm, leg, or foot). Amputating a limb deals 1d4+1 points of temporary Constitution damage, although a successful Treat Injury check (DC 25) reduces the temporary Constitution damage to 1 point.</p><p>An afflicted creature that dies of mummy rot shrivels away and turns to dust.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "jWy3dKci6q8kV3EX",
+      "name": "Fire Vulnerability",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A mummy takes double damage from fire attacks unless a save is allowed for half damage. A successful save halves the damage, and a failure doubles it.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "580XQ14K8N3MEW4d",
+      "name": "Resistant to Blows",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Physical attacks deal only half damage to mummies. Apply this effect before damage reduction.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "41Fk6iidRg0aYxgr",
+      "name": "Damage Reduction 5/+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>In campaigns without magic weapons, the GM can either disregard the mummy’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "rqLPEW7OHpPJQ9uY",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "efNxDsqdxngReSig",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mummies receive the bonus feat Archaic Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "AAcNF6BnEoNevDrp",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mummies read, write, and speak one language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

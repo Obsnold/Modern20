@@ -157,7 +157,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Captivating song (DC 15)",
+    "senses": "",
     "specialQualities": "Captivating song (DC 15)",
     "biography": "<p><strong>Attack:</strong> +7 melee (1d8, metal baton)</p><p><strong>Full Attack:</strong> +7/+2 melee (1d8, metal baton) or +7 melee (1d4, 2 claws) or +9/+4 ranged (2d6, S&W M29)</p><p><strong>Skills:</strong> Bluff +6, Listen +5, Perform (act) +8, Perform (sing) +8, Perform (stand-up) +6, Read/Write English, Speak English, Spot +6.</p><p><strong>Feats:</strong> Flyby Attack, Personal Weapon Proficiency, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -305,6 +305,110 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "gn1OKTuftk8r3Mdd",
+      "name": "Captivating Song (DC 15)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "lrdpAgkgpBtfbQ7U",
+      "name": "Darkvision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A half-fiend has darkvision with a range of 60 feet.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "EWenaVUGMyYTpkRm",
+      "name": "Damage Reduction",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has damage reduction. If the result is less than 1, the half-fiend has no damage reduction. If the campaign includes few or no magic weapons, the GM should consider allowing specific types of weapons to ignore a half-fiend’s damage reduction or contrive some other special vulnerability.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "TEDVq1XJdxlyCY6o",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has any immunities. If the result is less than 1, the half-fiend has no immunities.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "9pXKbEBgBhCfom1g",
+      "name": "Outsider",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A half-fiend has the traits common to outsiders.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "q8kQUj5rbZJt5yFj",
+      "name": "Resistance to Energy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has any resistances. If the result is less than 1, the half-fiend has no resistances.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "9XKaj2B1vvaZuLSW",
+      "name": "Spell-Like Abilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A half-fiend with an Intelligence or Wisdom score of 8 or higher possesses spell-like abilities according to its character level, as given on the table below. Unless otherwise indicated, each ability is usable once per day.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Z0YNDXelj8iV1cdo",
+      "name": "Telepathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A half-fiend with an Intelligence score of 12 or higher can communicate telepathically with any living creature within 100 feet that has a language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false
       }
     }
   ]

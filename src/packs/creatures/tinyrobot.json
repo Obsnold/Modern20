@@ -92,10 +92,63 @@
         "strength": "none"
       }
     ],
-    "senses": "Construct",
+    "senses": "",
     "specialQualities": "Construct",
     "biography": "<p><strong>Attack:</strong> +0 melee or +3 ranged</p><p><strong>Full Attack:</strong> )</p><p><strong>Skills:</strong> None (unless programmed by a Techie)</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
   "_key": "!actors!jsLwZxBp6403AH1o",
-  "items": []
+  "items": [
+    {
+      "_id": "FVOEB3pw9TbVazPf",
+      "name": "Construct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Robots have the traits and immunities common to constructs.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "yilokZHdQHZXzPBj",
+      "name": "Speed",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A robot’s speed depends on its size and method of locomotion (bipedal, quadrupedal, tracked, or wheeled). The different speeds are given with each robot’s statistics (below).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "6aCfdHezsUld7lw4",
+      "name": "Attacks",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A robot is not normally equipped with weapons. Robots fitted with arms or similar manipulators can attempt to grapple things, but the manipulators are too small to deal damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "hzkKBoIkFcYNCtlC",
+      "name": "Skills",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A character with four or more levels in the Techie advanced class can program one or more ranks of a single skill into a Diminutive or Tiny robot. Otherwise, a robot has no skills.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    }
+  ]
 }

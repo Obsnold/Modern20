@@ -139,7 +139,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Breath weapon (8d10; DC 23), darkvision 60 ft., fear aura (DC 20), improved grab, immunities, lowlight vision",
+    "senses": "Darkvision 60 ft., Low-Light Vision",
     "specialQualities": "Breath weapon (8d10; DC 23), darkvision 60 ft., fear aura (DC 20), improved grab, immunities, lowlight vision",
     "biography": "<p><strong>Attack:</strong> +23 melee (2d6+8, bite)</p><p><strong>Full Attack:</strong> +23 melee (2d6+8, bite) and +21 melee (2d4+4, 2 claws)</p><p><strong>Skills:</strong> Hide -2, Intimidate +10, Listen +12, Move Silently +6, Speak Auran, Speak Language (any one), Spot +12.</p><p><strong>Feats:</strong> Cleave, Multiattack, Power Attack, Weapon Focus (bite), Weapon Focus (claw)</p><p><strong>Talents:</strong> </p>"
   },
@@ -301,6 +301,97 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "p3hqSR46sC4JZoOn",
+      "name": "Breath Weapon (8d10; DC 23)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Every 1d4 rounds, a thunderbird can breathe a 60-foot-long cone of sonic energy as an attack action. Any creature in the cone takes 1d10 points of sonic damage per 2 Hit Dice of the thunderbird (8d10 for the typical adult specimen). A successful Reflex save (DC 10 + 1/2 the thunderbird’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "R3GQltlei6Wnfr1O",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "LM4NyeY9Pkoxxpg7",
+      "name": "Fear Aura (DC 20)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any creature within 60 feet of a thunderbird must succeed on a Will save (DC 10 + 1/2 the thunderbird’s Hit Dice + its Charisma modifier) or be shaken for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that thunderbird’s fear aura for 24 hours.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "ofFTK5zzzhrJahVK",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the thunderbird must hit a single opponent at least two size categories smaller than itself with both claw attacks in the same round. If it gets a hold, it automatically deals damage for two claw attacks and a bite attack each round that the hold is maintained.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "S02TZu1UB4bsMn12",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Thunderbirds are immune to electricity and sonic damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "bbJWq0XMgfFZFa95",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "2kH0PkT4LrMLNtM0",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A thunderbird can speak Auran (the language of avian creatures).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

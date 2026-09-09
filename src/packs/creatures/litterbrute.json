@@ -92,7 +92,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Construct, darkvision 60 ft., dimension door, engulf, fast healing 5, garbage growth, sharp implements",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Construct, darkvision 60 ft., dimension door, engulf, fast healing 5, garbage growth, sharp implements",
     "biography": "<p><strong>Attack:</strong> +5 melee (1d8+2, slam)</p><p><strong>Full Attack:</strong> +5 melee (1d8+2, 2 slams)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -127,6 +127,110 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "ShJ7P43KIfkjrbBL",
+      "name": "Construct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "2wHkhUsDGMHEN6qW",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "AIjqjugLrZR7ZSdZ",
+      "name": "Dimension Door",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will, a litter brute can remove its essence from the objects that form its body, dropping them wherever they happen to land, then reappear up to 500 feet away, reconstructing its body from garbage and refuse there (assuming enough raw material exists in the target location). The litter brute cannot use its dimension door ability to transport other objects or creatures.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "spellLike",
+        "sense": false
+      }
+    },
+    {
+      "_id": "8Utvv5l4nIPnopvE",
+      "name": "Engulf",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A litter brute can simply bowl over opponents up to one size category smaller than itself as a free attack during its move action. This attack affects as many opponents as the monster’s body can cover. Each target can make either an attack of opportunity against the litter brute or a Reflex save (DC 10 + 1/2 the litter brute’s Hit Dice + its Strength modifier) to avoid being engulfed. A successful saving throw indicates that the target has been pushed back or aside (target’s choice) as the litter brute surges forward.</p><p>An engulfed creature is considered grappled. A litter brute cannot make a slam attack during a round in which it attempts to engulf, but each engulfed creature takes slam damage (half bludgeoning, half slashing) on that round and every round that it remains trapped.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "9VghMBWoQuNzr588",
+      "name": "Fast Healing 1 5",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>So long as there is some sort of litter or refuse within 60 feet of it, a litter brute heals 1 point of damage per round unless it is reduced to –10 or fewer hit points. This ability does not enable the litter brute to regrow or reattach severed body parts.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "0oVTzcAAosEaCxOU",
+      "name": "Garbage Growth",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A litter brute can stuff objects inside itself to add to its bulk, if desired. Given enough time and a large enough supply of refuse, it can increase its Hit Dice by 1 per 24 hours, provided that it does nothing else. See Advancement (below) for changes in size category based on Hit Dice.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Ui6Sq5otaNxOreRW",
+      "name": "Sharp Implements",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Within a litter brute’s body are countless sharp implements, which protrude from its form in various places. Because of these protrusions, half of the damage a litterfolk deals with a slam attack is slashing damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "UsWtuLpxSGBv6AG3",
+      "name": "Electricity Immunity",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A litter brute takes no damage from electricity. In fact, a litter brute struck by an electrical attack uses the residual energy to deal +1d6 points of electricity damage on its slam attacks the following round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

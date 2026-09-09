@@ -155,7 +155,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Low-light vision",
+    "senses": "Low-Light Vision",
     "specialQualities": "Low-light vision",
     "biography": "<p><strong>Attack:</strong> +13 melee (1d4+9, slam)</p><p><strong>Full Attack:</strong> +13 melee (1d4+9, 2 slams) or +6 ranged (1d10/19-20, crossbow)</p><p><strong>Skills:</strong> Climb +8, Hide +0, Intimidate +4, Knowledge (tactics) +1, Listen +5, Move Silently +3, Speak Weren, Spot +5, Survival +2.</p><p><strong>Feats:</strong> Cleave, Combat Martial Arts, Great Cleave, Improved Combat Martial Arts, Improved Damage Threshold, Power Attack, Simple Weapons Proficiency, Weapon Focus (slam), Weapon Specialization (slam).</p><p><strong>Talents:</strong> (Strong Hero): Ignore hardness, melee smash</p>"
   },
@@ -392,6 +392,45 @@
         "normal": "",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "EEGlOkpFWcFnXM0F",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "wG6aDDwNDCUOjBIV",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Sasquatches speak Weren—a language of growls, rumbles, and snorts.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "GvYqRM6506wNcAt3",
+      "name": "Species Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Because of its size and ferocious appearance, a sasquatch gains a +4 species bonus on Intimidate checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -175,7 +175,7 @@
         "strength": "none"
       }
     ],
-    "senses": "darkvision 60 ft., scent",
+    "senses": "Darkvision 60 ft., Scent",
     "specialQualities": "darkvision 60 ft., scent",
     "biography": "<p><strong>Attack:</strong> +4 melee (1d3+2, slam or 1d6+2/19-20, metal baton), or +3 ranged (2d6, Colt Python)</p><p><strong>Full Attack:</strong> +6 melee (1d3+2, slam or 1d6+2/_19-20, metal baton)</p><p><strong>Skills:</strong> Climb +2*, Drive +3, Escape Artist +3*, Hide +5*, Knowledge (streetwise) +2, Listen +3, Move Silently +8*, Read/Write Goblin, Speak Goblin, Spot +3, Tumble +3*. *Includes the -2 armor penalty for wearing an undercover vest.</p><p><strong>Feats:</strong> Alertness, Armor Proficiency (light), Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> Evasion, uncanny dodge 1.</p>"
   },
@@ -326,6 +326,71 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "UvSDWbnRLbmF2xJi",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "5v6FpHLp9cA1gA7C",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows the bugbear to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "16K0hblRwMQVLRrw",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bugbears receive a +4 species bonus on Move Silently checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "eueO97V5PEwSITmK",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bugbears gain the bonus feat Simple Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "2ZKBsXadmceHy0sT",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bugbears read, write, and speak Goblin.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

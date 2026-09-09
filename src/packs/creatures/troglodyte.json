@@ -109,7 +109,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Stench, darkvision 90 ft.",
+    "senses": "Darkvision 90 ft.",
     "specialQualities": "Stench, darkvision 90 ft.",
     "biography": "<p><strong>Attack:</strong> +1 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +1 melee (1d4, 2 claws), -1 melee (1d4, bite), or +1 melee (1d6 nonlethal, sap), -4 melee (1d4, bite), or +0 ranged (1d6, javelin)</p><p><strong>Skills:</strong> Hide +6, Listen +3</p><p><strong>Feats:</strong> Multiattack, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -302,6 +302,71 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "J9BMQQxaGKKyVTSc",
+      "name": "Stench",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When a troglodyte is angry or frightened, it secretes an oily, musklike chemical that most animal life finds offensive. All living creatures (except troglodytes) within 30 feet of the troglodyte must succeed on a Fortitude save (DC 13) or take a –2 morale penalty on attack rolls, weapon damage rolls, ability checks, skill checks, and saving throws for 10 rounds. Characters subjected to stench from multiple troglodytes make only one saving throw. Characters affected by a troglodyte’s stench cannot be affected again by any troglodyte’s stench until the current effect expires.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Eg15vzJVnqA61D2O",
+      "name": "Darkvision 90 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "6VUrMgYnFuE5vCdd",
+      "name": "Species Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A troglodyte’s skin changes color somewhat, allowing it to blend in with its surroundings like a chameleon. A troglodyte gains a +4 species bonus on Hide checks (+8 in a rocky or subterranean setting).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "4SRyoP1lUqfZEIjY",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Troglodytes receive the bonus feat Simple Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "thpMV1icLeePyxOp",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Troglodytes read, write, and speak Draconic.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -157,7 +157,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Darkvision 60 ft., light sensitivity",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Darkvision 60 ft., light sensitivity",
     "biography": "<p><strong>Attack:</strong> -1 melee (1d2-2, slam or 1d3-2, knife)</p><p><strong>Full Attack:</strong> -1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p><p><strong>Skills:</strong> Craft (mechanical) +2, Hide +8, Listen +2, Move Silently +4, Read/Write Draconic, Search +2, Speak Draconic, Spot +2</p><p><strong>Feats:</strong> Alertness, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -288,6 +288,71 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "EsNGQsAajYkGCq5I",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "w5FfmOmhsifvdF2l",
+      "name": "Light Sensitivity",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Kobolds take a –1 penalty on attack rolls in sunlight or in brightly lit areas.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "gWrKy5IkjDVyIViQ",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Kobolds receive a +2 species bonus on Craft (mechanical) and Search checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "gqbkKfCnRH6FSban",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Kobolds are keenly aware of their surroundings and receive the bonus feat Alertness.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "xjTX1z2L0GYJAmx4",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Kobolds read, write, and speak Draconic.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -141,7 +141,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Body glow, darkvision 60 ft., immolation",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Body glow, darkvision 60 ft., immolation",
     "biography": "<p><strong>Attack:</strong> +2 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +2 melee (1d4, 2 claws) or +3 ranged (2d6, Colt Python)</p><p><strong>Skills:</strong> Bluff +4, Intimidate +4, Knowledge (arcane lore) +6, Read/Write Aramaic, Speak Aramaic, Speak English.</p><p><strong>Feats:</strong> Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -224,6 +224,71 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "HuaFkLeBhNNxxGv2",
+      "name": "Body Glow",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A luciferan’s skin constantly emits a pale red glow that is imperceptible in lighted conditions, but the effect reduces any concealment the luciferan may have due to darkness by one step.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "biQPoqE1ATPi5ZYb",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "AKGD46jqp31MZXse",
+      "name": "Immolation",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A luciferan can increase the glow from its skin into a raging inferno. The flame so generated deal 6d6 points of fire damage to each object and creature within a 10-foot radius of the luciferan. A successful Reflex save (10 + 1/2 the luciferan’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "wkxBsbFRoseFNbA9",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Luciferans read, write, and speak Aramaic.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "p2UpxU178q0EIhYG",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A luciferan gains a +2 species bonus on Bluff and Intimidate checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

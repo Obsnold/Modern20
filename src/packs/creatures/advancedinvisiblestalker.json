@@ -117,7 +117,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Elemental, natural invisibility, improved tracking, darkvision 60 ft.",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Elemental, natural invisibility, improved tracking, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +15 melee (2d6+12, slam)</p><p><strong>Full Attack:</strong> +15/+10 melee (2d6+12, slam), or +10 ranged</p><p><strong>Skills:</strong> Listen +13, Move Silently +17, Search +13, Spot +15</p><p><strong>Feats:</strong> Combat Reflexes, Dodge, Improved Initiative, Weapon Focus (slam)</p><p><strong>Talents:</strong> </p>"
   },
@@ -225,6 +225,71 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "fqQGgaSflCJDD2FF",
+      "name": "Elemental (Air)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Invisible stalkers have the traits and immunities common to elementals.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "uFwR3Vc0s0ivm2gQ",
+      "name": "Natural Invisibility",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An invisible stalker remains invisible even when attacking. Creatures that correctly discern the stalker’s location despite being unable to see it have a 50% miss chance on melee and ranged attacks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "tVCpVntOhjmvqjk7",
+      "name": "Improved Tracking",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Invisible stalkers are consummate trackers and make Spot checks instead of Survival checks to track a creature’s passage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "NU6ogc4SkHuT12Qf",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "bhRTCed9z8nU9iL7",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Invisible stalkers speak (but neither read nor write) Auran. They understand (but do not speak, read, or write) two other languages.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

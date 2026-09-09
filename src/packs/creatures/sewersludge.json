@@ -92,7 +92,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Blindsight 30 ft., disease, camouflage, constrict 1d6+1, immunities, improved grab, ooze, stench (DC 13)",
+    "senses": "Blindsight 30 ft.",
     "specialQualities": "Blindsight 30 ft., disease, camouflage, constrict 1d6+1, immunities, improved grab, ooze, stench (DC 13)",
     "biography": "<p><strong>Attack:</strong> +4 melee (1d6+1 plus disease, slam)</p><p><strong>Full Attack:</strong> +4 melee (1d6+1 plus disease, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -127,6 +127,110 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "7VzauS7ZGD72crWq",
+      "name": "Blindsight 30 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sewer sludge is blind but can ascertain all creatures and objects within 30 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the sewer sludge.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "8if4E4LHfxttfLNC",
+      "name": "Disease",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The touch of a sewer sludge carries typhoid bacillus (Fort DC 13 negates; incubation period 1d3 weeks; initial 1d4 Con; secondary 1d4 Con).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "lggf8cA1WyK1fzzb",
+      "name": "Camouflage",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A motionless sewer sludge looks like nothing more than a pile of rotting garbage. A successful Spot check (DC 15) is required to recognize it as a creature.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "gxBkCWqWjSk01BOH",
+      "name": "Constrict 1d6+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sewer sludge deals slam damage (1d6+1 for a typical specimen) with a successful grapple check against a target at least one size category smaller than itself.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "mqdFxTJptnZfjPUB",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sewer sludge is immune to electricity and cold damage. If a cold attack deals damage equal to or greater than the sewer sludge’s Constitution score, the creature is affected as though by a slow spell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "M4KH2WGAldDMv4Ka",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the sewer sludge must hit an opponent at least one size category smaller than itself with its slam attack. If it gets a hold, it automatically deals slam damage each round that the hold is maintained, and it can constrict in the same round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "MCvJytJpTM92Uoo2",
+      "name": "Ooze",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sewer sludge has the traits and immunities common to oozes.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "pYKDxOxW7DzgFRGT",
+      "name": "Stench (DC 13)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature within 10 feet of a sewer sludge must make a successful Fortitude save (DC 10 + 1/2 the sludge’s Hit Dice + its Constitution modifier) or be nauseated. The nausea persists for as long as the creature remains within 10 feet of the sewer sludge. A creature that leaves and reenters the area must make another save.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

@@ -169,7 +169,7 @@
         "strength": "none"
       }
     ],
-    "senses": "electricity immunity, low-light vision, natural invisibility, rending claws, spider climb",
+    "senses": "Low-Light Vision",
     "specialQualities": "electricity immunity, low-light vision, natural invisibility, rending claws, spider climb",
     "biography": "<p><strong>Attack:</strong> +5 melee (1d3-2, claw)</p><p><strong>Full Attack:</strong> +5 melee (1d3-2, 2 claws) or +4 ranged</p><p><strong>Skills:</strong> Balance +8, Climb +2, Disable Device +10, Escape Artist +8, Hide +8, Jump +2, Listen +7, Move Silently +8, Pilot +8; Repair +3, Search +6, Spot +7.</p><p><strong>Feats:</strong> Dodge, Mobility, Weapon Finesse (claw)</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -263,6 +263,84 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "9Xr6RHl3h2PMweeV",
+      "name": "Electricity Immunity",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A jynx is immune to electricity damage, though a successful attack that deals such damage causes it to become visible (see below).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "xEN0Ob2x7c55ohGa",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "I7aveO6ZICB9FXLP",
+      "name": "Natural Invisibility",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A jynx remains invisible even when attacking. Any creature that correctly discerns its location despite being unable to see it has a 50% miss chance on melee and ranged attacks. This ability is always active, but the jynx can suppress or resume it at will as a free action.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "WND6BTPHr4FCr9AC",
+      "name": "Rending Claws",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A jynx’s claws ignore the hardness of items made of wood, metal, or plastic.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "nnPIjkuwr70hI4Ux",
+      "name": "Spider Climb",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A jynx can travel on any surface as though affected by a spider climb spell. This ability is always active.</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "spellLike",
+        "sense": false
+      }
+    },
+    {
+      "_id": "LeMVY3UM351qC44N",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A jynx gains a +4 species bonus on Disable Device checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

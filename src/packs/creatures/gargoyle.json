@@ -125,7 +125,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Freeze, keen sight, damage reduction 15/+1",
+    "senses": "Keen Sight",
     "specialQualities": "Freeze, keen sight, damage reduction 15/+1",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p><p><strong>Skills:</strong> Hide +9 (+17 when concealed against worked stone), Listen +4, Speak Terran, Spot +4</p><p><strong>Feats:</strong> Multiattack, Weapon Finesse (bite), Weapon Finesse (claw), Weapon Finesse (gore)</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -299,6 +299,84 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "At2Yng4idMpMpexi",
+      "name": "Freeze",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A gargoyle can hold itself so still it appears to be a statue. An observer must succeed on a Spot check (DC 20) to notice the gargoyle is alive.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "tRrMLu4A1hOTcOE3",
+      "name": "Keen Sight",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gargoyles have darkvision with a range of 60 feet and low-light vision.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "DsdMxSCWbSJ64Dr7",
+      "name": "Damage Reduction 15/+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>In campaigns without magic weapons, the GM can either disregard the gargoyle’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "R2IkNDnOrxtfOikT",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A gargoyle receives a +8 species bonus on Hide checks when concealed against a background of worked stone.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "StKnvxRL8PMOPZeX",
+      "name": "Bonus Feats",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gargoyles receive the bonus feats Weapon Finesse (bite), Weapon Finesse (claw), and Weapon Finesse (gore).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "SfJu3ADC98KBSTGR",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gargoyles speak (but neither read nor write) Terran.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

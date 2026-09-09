@@ -347,5 +347,78 @@ for (const creature of creatures) {
 }
 console.log(`${skillTotals} skill totals and ${featItems} feats checked against the SRD`);
 
+/* -- special qualities and species traits -------------------------------- */
+
+// The SQ line was stored as one string and the SPECIES TRAITS prose was not
+// read at all, so "Cold subtype, constrict, darkvision 60 ft., improved grab"
+// was four abilities with no rules and a senses field holding all four.
+const glossary = new Map(
+  JSON.parse(readFileSync(join(ROOT, "data", "special_abilities.json"), "utf8"))
+    .map((ability) => [slugify(ability.key), ability])
+);
+
+let abilityItems = 0;
+let described = 0;
+for (const creature of creatures) {
+  const document = readCreatureDocument(creature.id);
+  if (!document) continue;
+
+  const abilities = (document.items ?? []).filter((item) => item.type === "specialAbility");
+  abilityItems += abilities.length;
+  const traits = new Map(
+    (creature.speciesTraits ?? []).map((trait) => [slugify(trait.key), trait])
+  );
+
+  // Every printed quality is an item, and so is every trait the SQ line does
+  // not already name. Matched on the slug both sides are filed under, since
+  // the item's name carries this creature's own range: "Darkvision 60 ft.".
+  const expected = new Set([
+    ...creature.specialQualityEntries.map((quality) => slugify(quality.key)),
+    ...traits.keys()
+  ]);
+  if (abilities.length < creature.specialQualityEntries.length) {
+    fail(`${creature.name}: ${creature.specialQualityEntries.length} qualities printed, `
+      + `${abilities.length} items built`);
+  }
+  if (!expected.size && abilities.length) {
+    fail(`${creature.name}: ${abilities.length} abilities built from nothing printed`);
+  }
+
+  for (const item of abilities) {
+    if (!item.system.description) fail(`${creature.name}: "${item.name}" has no description`);
+    else if (!item.system.description.includes("described neither")) described++;
+  }
+
+  // An ability the SRD's own Special Abilities list defines must carry that
+  // definition: the join between the printed name and the glossary is the
+  // whole point, and a broken one looks like a normal empty description.
+  for (const quality of creature.specialQualityEntries) {
+    const defined = glossary.get(slugify(quality.key));
+    if (!defined) continue;
+    const item = abilities.find((entry) => slugify(entry.name).startsWith(slugify(quality.key)));
+    if (!item) {
+      fail(`${creature.name}: nothing built for "${quality.printed}"`);
+    } else if (item.system.description.includes("described neither")) {
+      fail(`${creature.name}: "${item.name}" is defined in the SRD's list but was not joined to it`);
+    }
+  }
+
+  // The senses field held the whole SQ line. It holds the senses now, and
+  // nothing that is not one.
+  const senses = document.system.senses ? document.system.senses.split(", ") : [];
+  const printedSenses = creature.specialQualityEntries.filter((quality) => quality.sense);
+  if (senses.length !== printedSenses.length) {
+    fail(`${creature.name}: ${printedSenses.length} senses printed, `
+      + `${senses.length} in the senses field ("${document.system.senses}")`);
+  }
+  for (const sense of senses) {
+    if (!/darkvision|low-light|blindsight|blindsense|scent|sight|tremorsense|all-around/i
+      .test(sense)) {
+      fail(`${creature.name}: "${sense}" is not a sense`);
+    }
+  }
+}
+console.log(`${abilityItems} special abilities checked, ${described} with rules text`);
+
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);

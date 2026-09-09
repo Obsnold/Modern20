@@ -181,7 +181,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Fey rod, invisibility, anyspeak, low-light vision",
+    "senses": "Low-Light Vision",
     "specialQualities": "Fey rod, invisibility, anyspeak, low-light vision",
     "biography": "<p><strong>Attack:</strong> +0 melee (1d4, knife)</p><p><strong>Full Attack:</strong> +0 melee (1d4, knife), or +1 ranged</p><p><strong>Skills:</strong> Bluff +4, Craft (any one) +3, Decipher Script +4, Disguise +4, Escape Artist +4, Hide +4, Intimidate +4, Listen +4, Move Silently +4, Search +4, Sense Motive +4, Sleight of Hand +4, Spot +4, Tumble +4</p><p><strong>Feats:</strong> Improved Initiative, Renown, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -267,6 +267,71 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "IWduRdMclfdIiGJE",
+      "name": "Fey Rod",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A tooth fairy’s preferred weapon is a 1-foot-long rod of ash wood. A fey rod allows its wielder to cast the following spells as a 3rd-level Mage (save DC 10 + spell level): daze (DC 10), knock, light, magic missile, and sleep (DC 11). Using any of the rod’s powers is an attack action. The fey rod can cast seven spells per day and has a hardness of 5, 1 hit point, and a break DC of 11. A tooth fairy that loses its fey rod fights to the death to retrieve it or takes 1d4 points of temporary Wisdom damage every 24 hours the fairy and the rod remain separated. Destroying the rod instantly slays the tooth fairy, turning both to dust.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "spellLike",
+        "sense": false
+      }
+    },
+    {
+      "_id": "vyLxj8ZXmVYtV0sS",
+      "name": "Invisibility",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A tooth fairy can turn itself invisible at will, as a move action. This ability works only after sunset and before sunrise, but the duration of the invisibility is otherwise unlimited. An invisible tooth fairy becomes visible when it attacks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "spellLike",
+        "sense": false
+      }
+    },
+    {
+      "_id": "ZAkzI15UsqkQXchZ",
+      "name": "Anyspeak",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A tooth fairy can speak, read, and write any spoken language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "spellLike",
+        "sense": false
+      }
+    },
+    {
+      "_id": "DXfnc108drBXi28U",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "j85ssu3WAFZWym5Z",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Tooth fairies gain the bonus feat Simple Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

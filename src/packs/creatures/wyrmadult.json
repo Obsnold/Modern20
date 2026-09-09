@@ -117,7 +117,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Breath weapon, improved grab, fling, poison, scent, immunities, darkvision 60 ft.",
+    "senses": "Scent, Darkvision 60 ft.",
     "specialQualities": "Breath weapon, improved grab, fling, poison, scent, immunities, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +28 melee (1d8+10 plus poison, sting)</p><p><strong>Full Attack:</strong> +28 melee (1d8+10 plus poison, sting), +26 melee (2d8+5, bite), +26 melee (2d6+5, 2 claws)</p><p><strong>Skills:</strong> Listen +22, Move Silently +17, Search +17, Spot +22 (+25 during daylight)</p><p><strong>Feats:</strong> Alertness, Cleave (bite), Multiattack, Power Attack, Weapon Focus (sting)</p><p><strong>Talents:</strong> </p>"
   },
@@ -307,6 +307,110 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "HGXqTg51UGntc6bq",
+      "name": "Breath Weapon",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A wyrm can breathe a 60-foot-long, 5-foot-wide line of fire every 1d4 rounds as an attack action. Any creature in the line of fire takes 10d10 points of damage, or half damage if a Reflex save (DC 25) succeeds.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "x5bi1isosEUA5H1O",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, a wyrm must hit with both claw attacks. If it gets a hold, it hangs on and stings. If a wyrm grabs a creature two or more size categories smaller, it automatically deals damage with both claws and its sting each round the hold is maintained. See Improved Grab.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Eij4CoyaoyOPt3op",
+      "name": "Fling",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A wyrm can drop a creature it has grabbed or use an attack action to fling it aside. A flung creature travels 30 feet and takes 3d6 points of damage. If the wyrm flings it while flying, the creature takes this amount or falling damage, whichever is greater.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "x9Ww4Ccexf8GgSbZ",
+      "name": "Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature stung by a wyrm must succeed on a Fortitude save (DC 25) or take 2d6 points of temporary Constitution damage. After 1 minute has elapsed, the creature must succeed on a second save (DC 25) or take another 2d6 points of temporary Constitution damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "H1ASc0G1Xiv4VjE5",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a wyrm to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "MfxITDEXCvTCACRJ",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Wyrms are immune to sleep, hold, and paralysis effects.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Dr93rtuKqDMAlmLI",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "eUixxUYr1vTBasxL",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Wyrms receive a +3 species bonus on Spot checks during daylight hours.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -1313,6 +1313,7 @@
       "NaturalAttacks": "Natural attacks: {attacks}",
       "NoType": "No type",
       "PickType": "Pick a creature type and set its Hit Dice first.",
+      "SensesHint": "Darkvision 60 ft., scent",
       "bite": "bite",
       "claw": "claw",
       "gore": "gore",
@@ -1739,6 +1740,28 @@
           }
         }
       },
+      "SpecialAbility": {
+        "FIELDS": {
+          "abilityType": {
+            "label": "Ability Type"
+          },
+          "activities": {
+            "label": "Activities"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "sense": {
+            "label": "Sense"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          }
+        }
+      },
       "Spell": {
         "FIELDS": {
           "activities": {
@@ -2019,6 +2042,7 @@
       "gear": "Gear",
       "occupation": "Occupation",
       "psiPower": "Psionic Powers",
+      "specialAbility": "Special Abilities",
       "spell": "Spells",
       "talent": "Talents",
       "vehicleMod": "Vehicle Modifications",
@@ -2105,6 +2129,7 @@
       "Will": "Will"
     },
     "SavingThrows": "Saving Throws",
+    "Senses": "Senses",
     "Settings": {
       "actionBudget": {
         "name": "Action budget",
@@ -2235,6 +2260,12 @@
       "LogTitle": "Advancement log",
       "Milestone": "Character level {level}"
     },
+    "SpecialAbilityType": {
+      "Extraordinary": "Extraordinary (Ex)",
+      "PsiLike": "Psi-Like (Ps)",
+      "SpellLike": "Spell-Like (Sp)",
+      "Supernatural": "Supernatural (Su)"
+    },
     "SpecialQualities": "Special Qualities",
     "SpecialtySkill": "Choose a subject",
     "Speed": "Speed",
@@ -2257,6 +2288,7 @@
     },
     "Success": "Success",
     "Tab": {
+      "abilities": "Abilities",
       "biography": "Biography",
       "casting": "Spells",
       "description": "Description",
