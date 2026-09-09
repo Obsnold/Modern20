@@ -221,6 +221,38 @@ automates these — in the Foundry ecosystem that is module territory
 (Midi-QOL, PF2e Flank Helper) and GM adjudication. The situational modifier on
 an attack covers them.
 
+## Accessories and reloading
+
+Item-modifies-item has no settled convention: PF2e has [attaching items to
+items](https://github.com/foundryvtt/pf2e/issues/21370) as an open request,
+dnd5e leaves it to modules, and Starfinder 2e calls them installed upgrades.
+So accessories use the same shape as containers — an `attachedTo` id — which is
+one mechanism rather than two.
+
+Only two of the SRD's fourteen accessories carry numbers, and both are applied:
+
+- **Laser sight**: *"+1 equipment bonus on all attack rolls made against
+  targets no farther than 30 feet away."* Checkable because attacks already
+  measure distance; with no measurable distance it is not applied. The daylight
+  caveat stays a note.
+- **Scope**: *"increases the range increment for a ranged weapon by one-half"*,
+  which lengthens both the penalty steps and the weapon's reach.
+
+The other twelve attach and modify nothing. A suppressor changes Listen DCs, an
+illuminator frees a hand, a holster conceals — none of which this system
+models, and inventing numbers for them would be worse than the text.
+
+**Reloading** refills the magazine and reports what it costs: *"Reloading a
+firearm with an already filled box magazine or speed loader is a move action.
+Refilling a box magazine or a speed loader, or reloading a revolver without a
+speed loader or any weapon with an internal magazine, is a full-round action."*
+The Quick Reload feat improves each by one step, and a fitted speed loader is
+what moves a revolver into the quicker case — which is the one accessory whose
+rules the system can act on directly.
+
+The cost is reported rather than spent: there is no action economy to deduct
+from, so it is something the table needs told, not enforced.
+
 ## Containers and ammunition
 
 Bags and cases are their own item type rather than general gear, since a

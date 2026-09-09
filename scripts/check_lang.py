@@ -18,7 +18,7 @@ SKIP_DIRS = {".git", ".cache", "node_modules", "packs", ".venv"}
 # builds from each sheet's TABS labelPrefix.
 DYNAMIC_PREFIXES = ("MODERN20.ItemType.", "MODERN20.Tab.", "MODERN20.Creator.Tab.",
                     "MODERN20.Condition.", "MODERN20.Activity.Type.",
-                    "MODERN20.Activity.OnSuccess.")
+                    "MODERN20.Activity.OnSuccess.", "MODERN20.Action.")
 
 
 def flatten(node, prefix=""):

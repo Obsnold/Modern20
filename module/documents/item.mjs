@@ -1,6 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { resolveAttack, postAttackCard, postSaveCard, rollWeaponDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
+import { accessoriesOf, reloadAction } from "../apps/accessories.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
@@ -100,6 +101,41 @@ export class Modern20Item extends Item {
    */
   get activities() {
     return availableActivities(this);
+  }
+
+  /** Accessories fitted to this item. */
+  get accessories() {
+    return accessoriesOf(this);
+  }
+
+  /**
+   * Reload the magazine.
+   *
+   * Reports the action it costs rather than spending it: the system tracks no
+   * action economy, so the cost is something the table needs told, not
+   * enforced. A carried box of the right calibre is not consumed, because the
+   * SRD's weapon tables name no ammunition type to match against.
+   */
+  async reload() {
+    if (this.type !== "weapon") return null;
+    const ammo = this.system.ammo;
+    if (!ammo?.max) {
+      ui.notifications.warn(game.i18n.format("MODERN20.Attack.NoMagazine", { name: this.name }));
+      return null;
+    }
+    if (ammo.value >= ammo.max) {
+      ui.notifications.info(game.i18n.format("MODERN20.Attack.AlreadyLoaded", { name: this.name }));
+      return null;
+    }
+
+    await this.update({ "system.ammo.value": ammo.max });
+    const action = reloadAction(this);
+    ui.notifications.info(game.i18n.format("MODERN20.Attack.Reloaded", {
+      name: this.name,
+      rounds: ammo.max,
+      action: game.i18n.localize(`MODERN20.Action.${action}`)
+    }));
+    return action;
   }
 
   /** Buy this item through the owning actor's Wealth bonus. */

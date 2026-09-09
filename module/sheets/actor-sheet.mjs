@@ -40,6 +40,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       toggleEquipped: Modern20ActorSheetBase.#onToggleEquipped,
       adjustHealth: Modern20ActorSheetBase.#onAdjustHealth,
       unpackItem: Modern20ActorSheetBase.#onUnpackItem,
+      reloadWeapon: Modern20ActorSheetBase.#onReloadWeapon,
+      detachItem: Modern20ActorSheetBase.#onDetachItem,
       useActivity: Modern20ActorSheetBase.#onUseActivity
     }
   };
@@ -111,6 +113,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       gear: this._section(grouped, ["weapon", "armor", "gear"])
     };
     context.containers = this._containers(actor, grouped);
+    // Accessories hang off the weapon they are fitted to.
+    for (const weapon of grouped.weapon ?? []) weapon.fitted = weapon.accessories;
     context.skills = this._prepareSkillRows(actor.system.skills);
 
     // Newest first: what happened most recently is what a player checks.
@@ -258,6 +262,17 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * rather than a text field, because an unnamed input cannot survive the
    * re-render that submitOnChange triggers when it loses focus.
    */
+  /** Refill a weapon's magazine. */
+  static async #onReloadWeapon(event, target) {
+    await this._itemFromEvent(target)?.reload();
+  }
+
+  /** Remove an accessory from the weapon it is fitted to. */
+  static async #onDetachItem(event, target) {
+    const item = this._itemFromEvent(target);
+    if (item) await item.update({ "system.attachedTo": "" });
+  }
+
   /** Take an item back out of the container it is packed in. */
   static async #onUnpackItem(event, target) {
     const item = this._itemFromEvent(target);

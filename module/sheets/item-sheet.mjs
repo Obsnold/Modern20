@@ -87,6 +87,10 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     context.isPurchasable = item.system.purchaseDC !== undefined;
     context.hasPrerequisites = Array.isArray(item.system.prerequisites);
     context.maxRange = item.type === "weapon" ? maxRange(item.system) : 0;
+    // Accessories are fitted from their own sheet, so they need the list.
+    context.weapons = item.parent && item.type === "gear"
+      ? item.parent.items.filter((other) => other.type === "weapon")
+      : [];
     context.maxIncrements = item.type === "weapon" ? maxIncrements(item.system) : 0;
 
     // Stored activities, and the generated defaults shown when there are none

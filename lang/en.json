@@ -27,7 +27,16 @@
         "long": "Wisdom"
       }
     },
+    "Accessory": {
+      "Detach": "Remove from the weapon",
+      "FittedTo": "Fitted to"
+    },
     "Acquisition": "Acquisition",
+    "Action": {
+      "free": "free action",
+      "fullRound": "full-round action",
+      "move": "move action"
+    },
     "ActionPoints": "Action Points",
     "Activity": {
       "Ability": "Ability",
@@ -925,6 +934,7 @@
       "Shield": "Shield"
     },
     "Attack": {
+      "AlreadyLoaded": "{name} is already full.",
       "Autofire": "Auto",
       "AutofireArea": "Autofire: 10-foot square, effective Defense 10, everyone in it",
       "AutofireUnskilled": "-4 without Advanced Firearms Proficiency",
@@ -946,9 +956,12 @@
       "NeedsAmmo": "not enough rounds loaded",
       "NeedsFeat": "requires a feat you do not have",
       "NoAmmo": "{name} is empty.",
+      "NoMagazine": "{name} has no magazine to reload.",
       "NotConfirmed": "not confirmed",
       "OutOfRange": "Out of range:",
       "RangePenalty": "Range penalty",
+      "Reload": "Reload",
+      "Reloaded": "{name} reloaded to {rounds} rounds ({action}).",
       "RollCritical": "Critical damage",
       "RollDamage": "Damage",
       "RollSaves": "Saves",
