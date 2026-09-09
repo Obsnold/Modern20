@@ -112,6 +112,12 @@ def strip_notes(value):
     return value
 
 
+def parse_feet(text: str) -> int:
+    """"20 ft." becomes 20; "See text" becomes 0."""
+    match = re.search(r"\d+", text or "")
+    return int(match.group()) if match else 0
+
+
 def weapon_activities(system: dict) -> dict:
     """The activities a weapon ships with, keyed by id.
 
@@ -119,15 +125,22 @@ def weapon_activities(system: dict) -> dict:
     same shape; module/activity-defaults.mjs is generated from the same JSON.
     """
     defaults = strip_notes(ACTIVITY_DEFAULTS.get("weapon", {}))
-    entries = list(defaults.get("always", []))
+
+    # An explosive is thrown and detonates; it has no shot to fire.
+    explosive = bool(system.get("reflexDC"))
+    entries = list(defaults.get("explosive" if explosive else "always", []))
     # "Only weapons with the automatic rate of fire can be set on autofire."
-    if re.search(r"\bA\b", system.get("rateOfFire") or ""):
+    if not explosive and re.search(r"\bA\b", system.get("rateOfFire") or ""):
         entries.extend(defaults.get("automatic", []))
 
     out = {}
     for entry in entries:
-        entry = dict(entry)
-        out[entry.pop("id")] = entry
+        entry = json.loads(json.dumps(entry))
+        key = entry.pop("id")
+        if explosive:
+            entry.setdefault("save", {})["dc"] = system.get("reflexDC") or 0
+            entry["area"] = {"shape": "radius", "size": parse_feet(system.get("burstRadius"))}
+        out[key] = entry
     return out
 
 
@@ -146,6 +159,10 @@ def build_weapon(row, columns, category, url):
         "weight": parse_weight(cell(row, columns, "weight")),
         "purchaseDC": int(re.search(r"\d+", cell(row, columns, "purchase dc") or "0").group()) if re.search(r"\d+", cell(row, columns, "purchase dc") or "") else 0,
         "restriction": parse_restriction(cell(row, columns, "restriction")),
+        # Explosives carry a burst radius and a fixed Reflex save instead of
+        # a rate of fire.
+        "burstRadius": cell(row, columns, "burst radius"),
+        "reflexDC": to_int(cell(row, columns, "reflex dc")) or None,
         "source": category,
         "srdUrl": url,
     }

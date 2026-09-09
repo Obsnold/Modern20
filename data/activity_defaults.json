@@ -1,13 +1,14 @@
 {
-  "_comment": "Default activities generated onto weapons, by rate of fire. One source of truth: scripts/build_packs.py writes these into the compendium, and scripts/gen_activity_defaults.py generates module/activity-defaults.mjs so new and legacy items get the same thing. Each entry cites the SRD phrase it encodes.",
-
+  "_comment": "Default activities generated onto weapons, by rate of fire, plus the detonation an explosive gets in place of a shot. One source of truth: scripts/build_packs.py writes these into the compendium, and scripts/gen_activity_defaults.py generates module/activity-defaults.mjs so new and legacy items get the same thing. Each entry cites the SRD phrase it encodes.",
   "weapon": {
     "always": [
       {
         "id": "shot",
         "type": "attack",
         "name": "MODERN20.Attack.Single",
-        "consume": { "ammo": 1 }
+        "consume": {
+          "ammo": 1
+        }
       }
     ],
     "automatic": [
@@ -16,9 +17,16 @@
         "type": "attack",
         "name": "MODERN20.Attack.Autofire",
         "_cites": "The character targets a 10-foot-by-10-foot area and makes an attack roll; the targeted area has an effective Defense of 10. Autofire uses ten bullets.",
-        "attack": { "defenseOverride": 10 },
-        "area": { "shape": "square", "size": 10 },
-        "consume": { "ammo": 10 },
+        "attack": {
+          "defenseOverride": 10
+        },
+        "area": {
+          "shape": "square",
+          "size": 10
+        },
+        "consume": {
+          "ammo": 10
+        },
         "requiresAmmo": 10,
         "note": "MODERN20.Attack.AutofireArea"
       },
@@ -27,11 +35,33 @@
         "type": "attack",
         "name": "MODERN20.Attack.Burst",
         "_cites": "When using an automatic firearm with at least five bullets loaded ... a -4 penalty on the attack roll, but deal +2 dice of damage.",
-        "attack": { "bonus": -4 },
-        "damage": { "extraDice": 2 },
-        "consume": { "ammo": 5 },
+        "attack": {
+          "bonus": -4
+        },
+        "damage": {
+          "extraDice": 2
+        },
+        "consume": {
+          "ammo": 5
+        },
         "requiresAmmo": 5,
         "requiresFeat": "Burst Fire"
+      }
+    ],
+    "explosive": [
+      {
+        "id": "detonate",
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "_cites": "An explosive ... affects all creatures and objects within its burst radius. Any creature caught within the burst radius may make a Reflex save against the DC given in this column for half damage.",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half"
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote"
       }
     ]
   }

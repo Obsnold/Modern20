@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { resolveAttack, postAttackCard, rollWeaponDamage } from "../apps/attack.mjs";
+import { resolveAttack, postAttackCard, postSaveCard, rollWeaponDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
@@ -35,6 +35,18 @@ export class Modern20Item extends Item {
   async roll() {
     if (this.type === "weapon") return this.rollAttack();
     return this.toChat();
+  }
+
+  /**
+   * Use one of this item's activities, dispatching on its type. A weapon fires
+   * an attack; an explosive detonates against a save.
+   */
+  async use(activityId = "shot") {
+    const activity = this.activities.find((entry) => entry.id === activityId);
+    if (!activity) return null;
+
+    if (activity.type === "save") return postSaveCard(this, activity);
+    return this.rollAttack({ activityId });
   }
 
   /**

@@ -1,0 +1,99 @@
+{
+  "_id": "3EV9UjYBc2Jibl1U",
+  "name": "Huge animal",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+    "abilities": {
+      "str": {
+        "value": 32,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 114,
+      "max": 114,
+      "temp": 0,
+      "formula": "12d8+60"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 7,
+      "misc": -2
+    },
+    "saves": {
+      "fort": {
+        "base": 8,
+        "misc": 0
+      },
+      "ref": {
+        "base": 8,
+        "misc": 0
+      },
+      "will": {
+        "base": 4,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 9,
+      "size": "medium",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": 0,
+      "massiveDamageThreshold": 21,
+      "reach": 15,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "9",
+      "subtype": "",
+      "challengeRating": "9",
+      "hitDice": "12d8+60",
+      "advancement": "13-23 HD (Huge); 24-36 HD (Gargantuan)",
+      "organization": "",
+      "treasure": ""
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "constrict (1d6+16), improved grab, low-light vision, scent, swallow whole",
+    "specialQualities": "constrict (1d6+16), improved grab, low-light vision, scent, swallow whole",
+    "biography": "<p><strong>Attack:</strong> +18 melee (1d6+11, tail slap)</p><p><strong>Full Attack:</strong> +18 melee (1d6+11, tail slap) and +13 melee (2d6+5, bite)</p><p><strong>Skills:</strong> Balance +9, Climb +19, Hide +12, Listen +5, Spot +5, Swim +19</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!3EV9UjYBc2Jibl1U"
+}

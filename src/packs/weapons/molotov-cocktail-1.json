@@ -1,0 +1,37 @@
+{
+  "_id": "xSYC6zESUyIYkNlF",
+  "name": "Molotov Cocktail 1",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d6",
+    "damageType": "20",
+    "critical": "1",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": true,
+    "weight": 1.0,
+    "purchaseDC": 3,
+    "restriction": "none",
+    "burstRadius": "Fire",
+    "reflexDC": null,
+    "source": "Splash Weapons",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    }
+  },
+  "_key": "!items!xSYC6zESUyIYkNlF"
+}

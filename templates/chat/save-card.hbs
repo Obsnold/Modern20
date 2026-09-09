@@ -1,0 +1,28 @@
+<div class="m20-chat m20-chat--attack">
+  <header class="m20-chat__header">
+    <img src="{{item.img}}" alt="{{item.name}}">
+    <span class="m20-chat__title">{{item.name}}</span>
+  </header>
+
+  <p class="m20-chat__result">
+    {{damage}}
+    {{#if activity.area.size}}
+      &middot; {{activity.area.size}} ft. {{localize "MODERN20.Attack.BurstRadius"}}
+    {{/if}}
+    &middot; {{saveLabel}} {{localize "MODERN20.Activity.DC"}} {{activity.save.dc}}
+  </p>
+
+  <p class="m20-hint">{{localize "MODERN20.Attack.SaveForHalf"}}</p>
+
+  {{#if targets.length}}
+    <p class="m20-hint">
+      {{localize "MODERN20.Attack.InBlast"}}:
+      {{#each targets}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+    </p>
+  {{/if}}
+
+  <div class="m20-damage-buttons">
+    <button type="button" data-m20-damage="normal">{{localize "MODERN20.Attack.RollDamage"}}</button>
+    <button type="button" data-m20-save>{{localize "MODERN20.Attack.RollSaves"}}</button>
+  </div>
+</div>
