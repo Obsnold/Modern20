@@ -1,0 +1,23 @@
+// Type checking without a build step: `tsc --noEmit` reads the .mjs as they
+// ship, using the JSDoc the code already carries. Nothing is compiled and no
+// TypeScript is written — Foundry loads exactly these files.
+//
+// Deliberately not strict. The point is to catch a misspelled property, a call
+// with the wrong number of arguments, and a function that returns nothing where
+// a value is used — not to model Foundry's type surface, which is declared as
+// `any` in types/foundry.d.ts.
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "types": []
+  },
+  "include": ["module/**/*.mjs", "scripts/**/*.mjs", "types/**/*.d.ts"]
+}

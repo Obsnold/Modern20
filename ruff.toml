@@ -1,0 +1,11 @@
+# Ruff's own defaults, stated rather than assumed: the pycodestyle errors that
+# matter (E4 imports, E7 statements, E9 syntax) and all of pyflakes (F), which
+# is where the real bugs are — an unused import, a name used before it exists,
+# a function redefined further down the file.
+#
+# No style rules. The scraper is written to be read as prose about the SRD, and
+# a formatter that reflows it would cost more than it returns.
+target-version = "py311"
+
+[lint]
+select = ["E4", "E7", "E9", "F"]

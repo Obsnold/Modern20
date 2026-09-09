@@ -1,9 +1,11 @@
 # Checks that would have caught every bug this system has shipped so far.
 #
 # Runs on the `docker` label, which the runner maps to node:20-bookworm (see
-# the runner's label configuration in the runner's own configuration). That image already
-# ships git, curl, python3 and node, so there is no install step: verified as
-# node 20.20.2 / python 3.11.2 by running these checks inside the image.
+# the runner's label configuration in the runner's own configuration). That image ships
+# git, curl, python3 and node — verified as node 20.20.2 / python 3.11.2 by
+# running these checks inside it. The one install step brings in the linters
+# and the type checker, ruff included: its npm package ships the binary, so
+# there is no pip and no virtualenv to keep working.
 on:
   push:
   pull_request:
@@ -21,6 +23,25 @@ jobs:
           git remote add origin "${FORGEJO_SERVER_URL}/${FORGEJO_REPOSITORY}.git"
           git fetch --quiet --no-tags --depth=1 origin "${FORGEJO_SHA}"
           git checkout --quiet FETCH_HEAD
+
+      - name: install the linters and the type checker
+        run: npm install --no-audit --no-fund
+
+      # A second definition of a name that already exists silently wins. That
+      # shipped twice in one week in the scraper, so both languages check it:
+      # ESLint's no-redeclare here, check_shadowing.py further down.
+      - name: modules lint
+        run: npx eslint module scripts
+
+      - name: scripts lint
+        run: npx ruff check scripts
+
+      # Advisory until the first clean pass, then make it blocking: the code
+      # was not written against a type checker, and a red build on day one
+      # would say nothing that reading the output does not.
+      - name: types check
+        run: npx tsc --noEmit
+        continue-on-error: true
 
       - name: manifest and data files are valid JSON
         run: |
@@ -79,3 +100,17 @@ jobs:
       # so template field references are checked against the real schemas.
       - name: template field references resolve
         run: node scripts/check_templates.mjs
+
+      # The rest of the suite, which until now only ran on deploy: the arithmetic
+      # of casting, of the combat round, and of every imported creature.
+      - name: casting, combat and creature arithmetic
+        run: |
+          set -eu
+          node scripts/check_casting.mjs
+          node scripts/check_combat.mjs
+          node scripts/check_creatures.mjs
+
+      # Ruff's default rules flag a redefined function but not a reassigned
+      # constant, which is the half that bit.
+      - name: no shadowed definitions in the scripts
+        run: python3 scripts/check_shadowing.py
