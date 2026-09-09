@@ -96,6 +96,21 @@
   {{#if (eq document.type "gear")}}
     {{formField fields.category value=system.category}}
     {{formField fields.caliber value=system.caliber}}
+    {{#if system.caliber}}
+      <div class="form-group">
+        <label>{{localize "MODERN20.Ammunition.Special"}}</label>
+        <div class="form-fields">
+          <select name="system.special">
+            <option value="">{{localize "MODERN20.Ammunition.Ordinary"}}</option>
+            {{#each config.specialAmmunition as |type key|}}
+              <option value="{{key}}" {{#if (eq key ../system.special)}}selected{{/if}}>
+                {{type.name}} ({{localize "MODERN20.PurchaseDCShort"}} {{type.purchaseDCModifier}})
+              </option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    {{/if}}
     {{#if weapons.length}}
       <div class="form-group">
         <label>{{localize "MODERN20.Accessory.FittedTo"}}</label>

@@ -1,3 +1,4 @@
+import { MODERN20 } from "../config.mjs";
 import { hasFeat } from "./activities.mjs";
 
 /**
@@ -89,12 +90,58 @@ export function magazineSize(item) {
  * lists no ammunition entry for them.
  */
 export function ammunitionFor(item) {
-  const caliber = item.system.caliber;
-  if (!caliber || !item.actor) return null;
+  return carriedAmmunition(item)[0] ?? null;
+}
 
-  return item.actor.items.find((other) =>
-    other.type === "gear"
-    && other.system?.caliber === caliber
-    && (other.system.quantity ?? 0) > 0
-  ) ?? null;
+/**
+ * Every carried box this weapon can use, ordinary first.
+ *
+ * A character may carry several types for one calibre — plain rounds and
+ * armour-piercing — so reloading has to be told which, rather than taking
+ * whichever the collection happens to yield first.
+ */
+export function carriedAmmunition(item) {
+  const caliber = item.system.caliber;
+  if (!caliber || !item.actor) return [];
+
+  return item.actor.items
+    .filter((other) => other.type === "gear"
+      && other.system?.caliber === caliber
+      && (other.system.quantity ?? 0) > 0)
+    .sort((a, b) => (a.system.special ? 1 : 0) - (b.system.special ? 1 : 0));
+}
+
+/** The exotic type loaded in this weapon, if any. */
+export function loadedSpecial(item) {
+  const box = item.actor?.items?.get(item.system.loadedAmmo);
+  const key = box?.system?.special;
+  return key ? MODERN20.specialAmmunition[key] ?? null : null;
+}
+
+/**
+ * The attack bonus the loaded ammunition gives.
+ *
+ * Armour-piercing applies only against an armoured target; tracer only on
+ * autofire. Both are conditions the resolver already knows.
+ */
+export function ammunitionAttackBonus(item, { target, activityId }) {
+  const special = loadedSpecial(item);
+  if (!special) return 0;
+
+  let bonus = 0;
+  if (special.effect.vsArmored && targetIsArmored(target)) {
+    bonus += special.effect.vsArmored;
+  }
+  if (special.effect.autofireAttack && activityId === "autofire") {
+    bonus += special.effect.autofireAttack;
+  }
+  return bonus;
+}
+
+/** Is the target wearing armor that gives them an equipment bonus? */
+function targetIsArmored(target) {
+  return Boolean(target?.items?.some(
+    (item) => item.type === "armor" && item.system.equipped
+      && (item.system.equipmentBonus ?? 0) > 0
+  ));
 }

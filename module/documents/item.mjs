@@ -1,7 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { resolveAttack, postAttackCard, postSaveCard, rollWeaponDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
-import { accessoriesOf, reloadAction, ammunitionFor, magazineSize } from "../apps/accessories.mjs";
+import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazineSize } from "../apps/accessories.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
@@ -116,7 +116,19 @@ export class Modern20Item extends Item {
    * rounds left fills eight of a fifteen-round magazine — because refusing
    * would be worse than the SRD, which simply assumes you have rounds.
    */
-  async reload() {
+  /** Carried ammunition this weapon can load, for the sheet to offer. */
+  get ammunitionChoices() {
+    return carriedAmmunition(this);
+  }
+
+  /**
+   * Reload the magazine.
+   *
+   * @param {string} [ammoId] Which carried box to load. Defaults to the
+   *   ordinary rounds, so choosing an exotic type is deliberate rather than
+   *   whichever the collection happened to yield first.
+   */
+  async reload(ammoId = "") {
     if (this.type !== "weapon") return null;
     const ammo = this.system.ammo;
     if (!ammo?.max) {
@@ -129,7 +141,7 @@ export class Modern20Item extends Item {
     }
 
     const wanted = ammo.max - ammo.value;
-    const box = ammunitionFor(this);
+    const box = (ammoId && this.actor?.items?.get(ammoId)) || ammunitionFor(this);
 
     // A weapon with a calibre needs rounds; one without - a flamethrower, a
     // rocket launcher - has no ammunition entry in the SRD and just refills.
@@ -145,14 +157,19 @@ export class Modern20Item extends Item {
       await box.update({ "system.quantity": box.system.quantity - loaded });
     }
 
-    await this.update({ "system.ammo.value": ammo.value + loaded });
+    await this.update({
+      "system.ammo.value": ammo.value + loaded,
+      // Remember what is in the magazine, so its effects apply when fired.
+      "system.loadedAmmo": box?.id ?? ""
+    });
 
     const action = reloadAction(this);
     ui.notifications.info(game.i18n.format("MODERN20.Attack.Reloaded", {
       name: this.name,
       rounds: ammo.value + loaded,
       max: ammo.max,
-      action: game.i18n.localize(`MODERN20.Action.${action}`)
+      action: game.i18n.localize(`MODERN20.Action.${action}`),
+      ammo: box?.name ?? game.i18n.localize("MODERN20.Attack.OrdinaryRounds")
     }));
     return action;
   }

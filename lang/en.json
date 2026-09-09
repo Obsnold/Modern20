@@ -921,6 +921,10 @@
       "None": "No Allegiance"
     },
     "Allegiances": "Allegiances",
+    "Ammunition": {
+      "Ordinary": "Ordinary",
+      "Special": "Type"
+    },
     "Area": {
       "NoArea": "This activity has no area.",
       "NoScene": "No scene is active.",
@@ -940,6 +944,7 @@
       "AutofireUnskilled": "-4 without Advanced Firearms Proficiency",
       "Burst": "Burst",
       "BurstRadius": "burst radius",
+      "ChooseRounds": "Which rounds to load",
       "Confirm": "Confirmation",
       "Critical": "Critical hit",
       "Defense": "Defense",
@@ -959,10 +964,11 @@
       "NoMagazine": "{name} has no magazine to reload.",
       "NoRounds": "No {caliber} rounds carried for {name}.",
       "NotConfirmed": "not confirmed",
+      "OrdinaryRounds": "ordinary rounds",
       "OutOfRange": "Out of range:",
       "RangePenalty": "Range penalty",
       "Reload": "Reload",
-      "Reloaded": "{name} reloaded to {rounds}/{max} ({action}).",
+      "Reloaded": "{name} reloaded to {rounds}/{max} with {ammo} ({action}).",
       "RollCritical": "Critical damage",
       "RollDamage": "Damage",
       "RollSaves": "Saves",

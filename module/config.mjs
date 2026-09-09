@@ -208,6 +208,36 @@ MODERN20.loadLevels = {
   over: "MODERN20.Load.Over"
 };
 
+/**
+ * Exotic ammunition.
+ *
+ * The SRD prices these as a purchase DC modifier on an ordinary purchase, so
+ * a special type is a variant of a calibre rather than a product of its own:
+ * armour-piercing .45 is a .45 item with `special` set, not a separate entry.
+ *
+ * Only the effects this system can express carry numbers. Nonlethal damage and
+ * silver's damage reduction bypass are recorded as flags for the sheet to show,
+ * since neither a nonlethal track nor a creature vulnerability exists yet.
+ */
+MODERN20.specialAmmunition = {
+  // "When fired at an opponent wearing any type of armor, the attack receives a +2 bonus."
+  armorPiercing: { name: "Armor Piercing", purchaseDCModifier: "+3", restriction: "Res (+2)", effect: { vsArmored: 2 } },
+  // "It deals the same amount of damage as a normal load, but the damage dealt is nonlethal."
+  beanbag: { name: "Beanbag", purchaseDCModifier: "+2", restriction: "Res (+2)", effect: { nonlethal: true } },
+  birdshot: { name: "Birdshot", purchaseDCModifier: "-1", restriction: "Lic (+1)", effect: {} },
+  flechette: { name: "Flechette", purchaseDCModifier: "+4", restriction: "Mil (+3)", effect: {} },
+  frangible: { name: "Frangible", purchaseDCModifier: "+2", restriction: "Res (+2)", effect: {} },
+  highExplosive: { name: "High Explosive", purchaseDCModifier: "+5", restriction: "Mil (+3)", effect: {} },
+  rubberRound: { name: "Rubber Round", purchaseDCModifier: "+1", restriction: "Res (+2)", effect: {} },
+  // "Silvered ammunition ... bypasses the damage reduction of any creature that is vulnerable to silver."
+  silver: { name: "Silver", purchaseDCModifier: "+6", restriction: "-", effect: { bypassesDamageReduction: true } },
+  subsonic: { name: "Subsonic", purchaseDCModifier: "+4", restriction: "Mil (+3)", effect: {} },
+  // "Tracer ammunition provides a +1 bonus to attack rolls made with a weapon when fired on autofire only."
+  tracer: { name: "Tracer", purchaseDCModifier: "+1", restriction: "Mil (+3)", effect: { autofireAttack: 1 } },
+  tranquilizer: { name: "Tranquilizer", purchaseDCModifier: "7*", restriction: "Res (+2)", effect: {} },
+  whitePhosphorousWp: { name: "White Phosphorous (WP)", purchaseDCModifier: "+5", restriction: "Mil (+3)", effect: {} },
+};
+
 /** Action points: a starting hero has 5, and gains more as they level. */
 MODERN20.actionPoints = {
   startingBase: 5,

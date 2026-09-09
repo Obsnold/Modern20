@@ -960,6 +960,39 @@ def scrape_conditions() -> list[dict]:
     return conditions
 
 
+def scrape_special_ammunition() -> list[dict]:
+    """Exotic ammunition types, which modify a calibre rather than replace it.
+
+    The SRD prices them as a purchase DC modifier on an ordinary purchase, so
+    they are a variant of a calibre and not a product in their own right.
+    """
+    try:
+        page_html = srd.fetch("urbanweapons.html")
+    except Exception:
+        return []
+
+    for table in srd.annotated_tables(page_html):
+        header = [c.strip().lower() for c in table["header"]]
+        if header[:1] != ["ammunition type"]:
+            continue
+
+        out = []
+        for row in table["rows"]:
+            name = row[0].strip()
+            # The table ends with a footnote about the tranquilizer's pricing.
+            if not name or name.startswith("*") or len(row) < 2:
+                continue
+            out.append({
+                "id": camel(name),
+                "name": name,
+                "purchaseDCModifier": row[1].strip(),
+                "restriction": row[2].strip() if len(row) > 2 else "",
+                "srdUrl": srd.page_url("urbanweapons.html"),
+            })
+        return out
+    return []
+
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -1040,6 +1073,7 @@ def main() -> int:
     specialties = scrape_skill_specialties()
     write("skill_specialties.json", specialties)
     write("carrying.json", scrape_carrying_capacity())
+    write("special_ammunition.json", scrape_special_ammunition())
     conditions = scrape_conditions()
     write("conditions.json", conditions)
     classes = scrape_classes(skills)

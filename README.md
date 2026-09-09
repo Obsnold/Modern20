@@ -264,6 +264,21 @@ Partial reloads are allowed — a box with eight rounds left fills eight of a
 fifteen-round magazine — because refusing would be stricter than the SRD, which
 simply assumes you have rounds.
 
+**Exotic ammunition** is a variant of a calibre rather than a product of its
+own, because the SRD prices the twelve types as a purchase DC modifier on an
+ordinary purchase. So an ammunition item carries a `special` type, and a weapon
+remembers which box is loaded, so what is in the magazine decides what applies
+when it is fired. Where several types are carried for one calibre the weapon
+row offers a choice, ordinary rounds first, so loading an exotic type is
+deliberate.
+
+Two of the twelve have effects this system can express, and both are
+conditional on something the resolver already knows: armour-piercing gives
+*"a +2 bonus"* only *"when fired at an opponent wearing any type of armor"*,
+and tracer gives *"+1 ... when fired on autofire only"*. Beanbag's nonlethal
+damage and silver's damage reduction bypass are recorded but not applied, since
+neither a nonlethal track nor a creature vulnerability exists yet.
+
 ## Containers and ammunition
 
 Bags and cases are their own item type rather than general gear, since a
