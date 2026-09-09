@@ -131,7 +131,9 @@ export class Modern20Actor extends Actor {
    * Apply damage, then check massive damage: a single hit at or above the
    * threshold forces a Fortitude save or the character drops to -1 hit points.
    */
-  async applyDamage(amount, { ignoreMassive = false, nonlethal = false } = {}) {
+  async applyDamage(amount, {
+    ignoreMassive = false, nonlethal = false, damageType = "", bypasses = []
+  } = {}) {
     const hp = this.system.hp;
     if (!hp) return null;
 
@@ -144,9 +146,19 @@ export class Modern20Actor extends Actor {
       return { value: hp.value, immune: true };
     }
 
-    // Damage reduction was stored on every actor but never subtracted.
-    const reduction = this.system.attributes?.damageReduction ?? 0;
-    amount = Math.max(0, amount - reduction);
+    // Immunity, vulnerability, energy resistance and damage reduction, in the
+    // order the SRD applies them. What each step did is reported: a number
+    // that arrives smaller than the roll with no explanation is the thing
+    // people distrust about automated damage.
+    const ignored = this.ignoredDamage(amount, { damageType, bypasses });
+    amount = ignored.amount;
+    if (ignored.lines.length) {
+      await announce(this, {
+        title: game.i18n.format("MODERN20.Damage.Reduced", { name: this.name }),
+        lines: ignored.lines
+      });
+    }
+    if (ignored.immune) return { value: hp.value, immune: true };
 
     if (nonlethal) {
       const total = hp.nonlethal + amount;
@@ -192,6 +204,88 @@ export class Modern20Actor extends Actor {
     const failed = save.total < dc;
     if (failed) await this.update({ "system.hp.value": reduced });
     return { value: failed ? reduced : value, massive: true, failed };
+  }
+
+  /**
+   * What this actor ignores of an incoming hit, and how it was decided.
+   *
+   * The order is the SRD's: immunity removes the damage entirely, a
+   * vulnerability adds half again, energy resistance is subtracted, and
+   * damage reduction is subtracted from anything that gets past it.
+   *
+   * @param {number} amount            The damage rolled.
+   * @param {string} [damageType]      What the damage is. Blank is unknown,
+   *                                   which reduces nothing but the reduction.
+   * @param {string[]} [bypasses]      What the damage counts as for the
+   *                                   purpose of damage reduction: "silver".
+   * @returns {{amount: number, immune: boolean, lines: string[]}}
+   */
+  ignoredDamage(amount, { damageType = "", bypasses = [] } = {}) {
+    const attributes = this.system.attributes ?? {};
+    const type = Modern20Actor.damageType(damageType);
+    const lines = [];
+    const named = (key, data) => lines.push(game.i18n.format(key, data));
+
+    if (type && (attributes.immunities ?? []).some((i) => Modern20Actor.damageType(i) === type)) {
+      named("MODERN20.Damage.Immune", { type });
+      return { amount: 0, immune: true, lines };
+    }
+
+    if (type && (attributes.vulnerabilities ?? []).some((v) => Modern20Actor.damageType(v) === type)) {
+      // "It takes 50% more damage from fire attacks."
+      const increased = Math.floor(amount * 1.5);
+      named("MODERN20.Damage.Vulnerable", { type, from: amount, to: increased });
+      amount = increased;
+    }
+
+    const resistance = (attributes.resistances ?? [])
+      .find((entry) => type && Modern20Actor.damageType(entry.type) === type);
+    if (resistance?.value) {
+      named("MODERN20.Damage.Resisted", { type, value: resistance.value });
+      amount = Math.max(0, amount - resistance.value);
+    }
+
+    const reduction = attributes.damageReduction ?? {};
+    if (reduction.value) {
+      const bypassed = Modern20Actor.bypassesReduction(reduction.bypass, bypasses, type);
+      // "The creature takes normal damage from energy attacks (even
+      // nonmagical ones), spells, spell-like abilities, and supernatural
+      // abilities." An unknown type is still reduced: that is the behaviour
+      // the sheet's own damage steps have always had.
+      const energy = MODERN20.energyDamageTypes.includes(type);
+      if (bypassed) {
+        named("MODERN20.Damage.Bypassed", { bypass: reduction.bypass, value: reduction.value });
+      } else if (energy) {
+        named("MODERN20.Damage.NotReducedEnergy", { type, value: reduction.value });
+      } else {
+        named("MODERN20.Damage.Reduction", { value: reduction.value });
+        amount = Math.max(0, amount - reduction.value);
+      }
+    }
+
+    return { amount, immune: false, lines };
+  }
+
+  /** A damage type as the one word the system matches on. */
+  static damageType(text) {
+    const type = String(text ?? "").trim().toLowerCase();
+    return MODERN20.damageTypeAliases[type] ?? type;
+  }
+
+  /**
+   * Whether damage gets past a printed reduction.
+   *
+   * "damage reduction 15/silver" is bypassed by a silver bullet, and
+   * "10/ballistic" by anything that deals ballistic damage. "15/+1" wants a
+   * magic weapon, which this system does not model at all, so it is never
+   * bypassed and the card says the reduction applied — a wrong number is
+   * worse than an unautomated one.
+   */
+  static bypassesReduction(bypass, bypasses = [], damageType = "") {
+    const wanted = Modern20Actor.damageType(bypass);
+    if (!wanted) return false;
+    if (wanted === damageType) return true;
+    return bypasses.some((entry) => Modern20Actor.damageType(entry) === wanted);
   }
 
   /** Creature types the SRD says are "not subject to ... nonlethal damage". */

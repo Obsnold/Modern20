@@ -190,6 +190,21 @@ MODERN20.featTypes = {
   class: "MODERN20.FeatType.Class"
 };
 
+/**
+ * The damage types the SRD names, split by what damage reduction does to them.
+ *
+ * "The creature takes normal damage from energy attacks (even nonmagical
+ * ones), spells, spell-like abilities, and supernatural abilities" — so
+ * damage reduction is subtracted from a weapon's damage and not from a fire
+ * spell's, which is why the two lists are kept apart rather than as one set.
+ */
+MODERN20.energyDamageTypes = ["acid", "cold", "electricity", "fire", "sonic", "poison"];
+MODERN20.physicalDamageTypes = ["ballistic", "bludgeoning", "piercing", "slashing"];
+
+// "sonic/concussion": one type, written one way in the weapon tables and the
+// other in the spell descriptions.
+MODERN20.damageTypeAliases = { concussion: "sonic" };
+
 // What a creature's special ability is, which is what decides how it can be
 // stopped: an antimagic field ends a supernatural ability, a spell-like one is
 // subject to spell resistance, and an extraordinary one is neither.

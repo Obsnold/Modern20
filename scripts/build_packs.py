@@ -861,9 +861,20 @@ def build_creatures() -> list[dict]:
                 "size": e["size"],
                 "speed": e["speed"],
                 "initiative": {"misc": e["initiativeMisc"]},
-                # "damage reduction 15/silver" was printed and never read, so
-                # applyDamage subtracted nothing for any imported creature.
-                "damageReduction": e["damageReduction"]["value"],
+                # "damage reduction 15/silver": the bypass was scraped from
+                # the start and dropped here, so silvered rounds were stopped
+                # by the werewolf they are sold for.
+                "damageReduction": {
+                    "value": e["damageReduction"]["value"],
+                    "bypass": e["damageReduction"]["bypass"],
+                },
+                # Typed resistances, immunities and vulnerabilities, which
+                # applyDamage now consults. Anything the SRD states without a
+                # damage type - "immunities", "resistant to blows" - stays as
+                # the ability text it already is.
+                "resistances": e["damageTraits"]["resistances"],
+                "immunities": e["damageTraits"]["immunities"],
+                "vulnerabilities": e["damageTraits"]["vulnerabilities"],
                 "massiveDamageThreshold": e["massiveDamageThreshold"],
                 "reach": srd.to_int(e["reach"], 5) or 5,
                 "space": 5,

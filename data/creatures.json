@@ -115,6 +115,15 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "cold"
+      ],
+      "vulnerabilities": [
+        "fire"
+      ]
+    },
     "feats": "Power Attack, Track",
     "talents": "",
     "possessions": "",
@@ -265,6 +274,16 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 10
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Power Attack",
     "talents": "",
@@ -431,6 +450,16 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 10
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Combat Reflexes, Lightning Reflexes, Power Attack, Stealthy",
     "talents": "",
@@ -600,6 +629,22 @@
     "damageReduction": {
       "value": 15,
       "bypass": "silver"
+    },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 20
+        },
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": []
     },
     "feats": "Dodge, Improved Initiative",
     "talents": "",
@@ -791,6 +836,15 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ]
+    },
     "feats": "Iron Will, Lightning Reflexes, Weapon Focus (incorporeal touch)",
     "talents": "",
     "possessions": "",
@@ -925,6 +979,11 @@
     "damageReduction": {
       "value": 15,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -1074,6 +1133,15 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "piercing"
+      ],
+      "vulnerabilities": [
+        "sonic"
+      ]
     },
     "feats": "None",
     "talents": "",
@@ -1233,6 +1301,11 @@
     "damageReduction": {
       "value": 10,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Alertness, Improved Initiative",
     "talents": "",
@@ -1434,6 +1507,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Cleave, Multiattack, Power Attack, Track",
     "talents": "",
     "possessions": "",
@@ -1584,6 +1662,13 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [
+        "fire"
+      ]
     },
     "feats": "None",
     "talents": "",
@@ -1758,6 +1843,16 @@
       "value": 10,
       "bypass": "+1"
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire",
+        "electricity"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ]
+    },
     "feats": "Heroic Surge (2/day)",
     "talents": "",
     "possessions": "",
@@ -1901,6 +1996,11 @@
     "damageReduction": {
       "value": 15,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -2053,6 +2153,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2204,6 +2309,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Combat Reflexes, Dodge, Improved Initiative, Weapon Focus (slam)",
     "talents": "",
     "possessions": "",
@@ -2332,6 +2442,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -2466,6 +2581,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -2602,6 +2722,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -2735,6 +2860,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -2865,6 +2995,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -3021,6 +3156,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Cleave, Great Cleave, Improved Initiative, Power Attack",
     "talents": "",
     "possessions": "",
@@ -3155,6 +3295,14 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity",
+        "cold"
+      ],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -3335,6 +3483,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Agile Riposte, Dodge, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -3478,6 +3631,13 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "acid"
+      ],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -3598,6 +3758,19 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "electricity",
+        "fire"
+      ],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -3776,6 +3949,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -3953,6 +4131,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -4115,6 +4298,22 @@
     "damageReduction": {
       "value": 15,
       "bypass": "silver"
+    },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 20
+        },
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": []
     },
     "feats": "Dodge, Improved Initiative",
     "talents": "",
@@ -4306,6 +4505,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Alertness, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "N/A",
@@ -4500,6 +4704,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Armor Proficiency (light), Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency.",
     "talents": "Evasion, uncanny dodge 1.",
     "possessions": "Undercover vest, metal baton, Mossberg (12-gauge shotgun), 20 rounds of 12-gauge ammunition, fatigues, fatigue jacket, car opening kit, climbing gear.",
@@ -4693,6 +4902,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Alertness, Improved Initiative, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "N/A",
@@ -4943,6 +5157,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Dodge, Improved Initiative, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "",
     "possessions": "Glock 17 (9mm autoloader), 50 rounds of ammunition, formal outfit, concealed carry holster, cell phone.",
@@ -5132,6 +5351,15 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ]
+    },
     "feats": "Lightning Reflexes, Weapon Focus (incorporeal touch)",
     "talents": "",
     "possessions": "",
@@ -5267,6 +5495,11 @@
       "value": 15,
       "bypass": "+1"
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -5393,6 +5626,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -5555,6 +5793,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -5719,6 +5962,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -5865,6 +6113,15 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "piercing"
+      ],
+      "vulnerabilities": [
+        "sonic"
+      ]
     },
     "feats": "None",
     "talents": "",
@@ -6021,6 +6278,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -6161,6 +6423,11 @@
     "damageReduction": {
       "value": 10,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Alertness, Improved Initiative",
     "talents": "",
@@ -6360,6 +6627,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Multiattack, Track",
     "talents": "",
     "possessions": "",
@@ -6442,6 +6714,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -6591,6 +6868,13 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [
+        "fire"
+      ]
     },
     "feats": "None",
     "talents": "",
@@ -6840,6 +7124,15 @@
     "damageReduction": {
       "value": 10,
       "bypass": "+1 (fire form only)"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ]
     },
     "feats": "Archaic Weapons Proficiency, Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "N/A",
@@ -7110,6 +7403,15 @@
       "value": 10,
       "bypass": "+1 (fire form only)"
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ]
+    },
     "feats": "Archaic Weapons Proficiency, Burst Fire, Personal Firearms Proficiency, Renown, Simple Weapons Proficiency, Trustworthy.",
     "talents": "(Charismatic Hero): Coordinate, fast-talk",
     "possessions": "Light undercover shirt, HK MP5, 60 rounds of 9mm ammunition (2 magazines), cell phone, PDA, briefcase",
@@ -7317,6 +7619,13 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": []
     },
     "feats": "Builder, Cautious, Gearhead, Surgery, Weapon Finesse (pincer)",
     "talents": "N/A",
@@ -7558,6 +7867,13 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": []
+    },
     "feats": "Builder, Cautious, Defensive Martial Arts, Educated (Knowledge [physical sciences], Knowledge [technology]), Gearhead, Surgery, Weapon Finesse (pincer)",
     "talents": "(Techie): Build robot, extreme machine, jury-rig +2, mastercraft.",
     "possessions": "Tiny robot (wheeled, 10 ranks in Disable Device), Diminutive robot (wheeled, 10 ranks in Demolitions).",
@@ -7723,6 +8039,16 @@
       "value": 10,
       "bypass": "+1"
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire",
+        "electricity"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ]
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -7866,6 +8192,11 @@
     "damageReduction": {
       "value": 15,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -8119,6 +8450,19 @@
       "value": 10,
       "bypass": "ballistic"
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "slashing",
+        "piercing"
+      ],
+      "vulnerabilities": []
+    },
     "feats": "Archaic Weapons Proficiency, Dodge, Improved Initiative, Simple Weapons Proficiency, Weapon Finesse (knife), Weapon Focus (knife).",
     "talents": "(Fast Hero): Evasion, uncanny dodge 1",
     "possessions": "Leather jacket, casual outfit, hat, 12 knives",
@@ -8353,6 +8697,19 @@
       "value": 10,
       "bypass": "ballistic"
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "slashing",
+        "piercing"
+      ],
+      "vulnerabilities": []
+    },
     "feats": "Archaic Weapons Proficiency, Simple Weapons Proficiency, Weapon Finesse (knife), Weapon Focus (knife).",
     "talents": "N/A",
     "possessions": "Leather jacket, casual outfit, hat, 12 knives",
@@ -8473,6 +8830,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -8635,6 +8997,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -8817,6 +9184,11 @@
     "damageReduction": {
       "value": 15,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Multiattack, Weapon Finesse (bite), Weapon Finesse (claw), Weapon Finesse (gore)",
     "talents": "N/A",
@@ -9015,6 +9387,11 @@
       "value": 15,
       "bypass": "+1"
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Multiattack, Power Attack, Simple Weapons Proficiency, Stealthy, Weapon Finesse (bite), Weapon Finesse (claw), Weapon Finesse (gore)",
     "talents": "(Tough) Robust, stamina",
     "possessions": "-",
@@ -9185,6 +9562,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "Metal baton, TEC-9 (9mm machine pistol), 50 rounds of 9mm ammunition, fatigues, fatigue jacket.",
@@ -9345,6 +9727,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Combat Martial Arts, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency",
     "talents": "(Strong Hero) Melee smash",
     "possessions": "Metal baton, TEC-9 (9mm machine pistol), 50 rounds of 9mm ammunition, fatigues, fatigue jacket, climbing gear.",
@@ -9487,6 +9874,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Alertness, Simple Weapons Proficiency",
     "talents": "N/A",
@@ -9666,6 +10058,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Dodge, Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "(Fast Hero) Evasion, increased speed",
     "possessions": "Metal baton, Desert Eagle (.50AE autoloader), 25 rounds of .50AE ammunition, windbreaker, concealed carry holster, basic walkie-talkie",
@@ -9832,6 +10229,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Archaic Weapons Proficiency, Brawl",
     "talents": "N/A",
@@ -10029,6 +10431,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Archaic Weapons Proficiency, Athletic, Brawl, Improved Brawl, Simple Weapons Proficiency, Track, Weapon Focus (spear)",
     "talents": "Improved Melee Smash, Melee Smash",
     "possessions": "Spear, compound bow with 12 arrows",
@@ -10219,6 +10626,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Flyby Attack, Personal Weapon Proficiency, Simple Weapons Proficiency.",
     "talents": "N/A",
@@ -10432,6 +10844,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Flyby Attack, Personal Weapon Proficiency, Point Blank Shot, Renown, Simple Weapons Proficiency, Weapon Focus (S&W M29).",
     "talents": "(Charismatic): Charm, fast-talk",
     "possessions": "Leather jacket, S&W M29 (.44 magnum revolver), 50 rounds of ammunition, metal baton.",
@@ -10595,6 +11012,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -10709,6 +11131,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -10865,6 +11292,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -10994,6 +11426,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Toughness",
     "talents": "",
@@ -11126,6 +11563,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -11407,6 +11849,16 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 10
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Athletic, Builder, Cleave, Great Cleave, Power Attack, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -11562,6 +12014,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Improved Initiative, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -11649,6 +12106,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Toughness",
     "talents": "",
@@ -11779,6 +12241,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -11940,6 +12407,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -12096,6 +12568,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Combat Reflexes, Improved Initiative, Weapon Focus (slam)",
     "talents": "",
     "possessions": "",
@@ -12248,6 +12725,14 @@
     "damageReduction": {
       "value": 10,
       "bypass": "silver"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire",
+        "poison"
+      ],
+      "vulnerabilities": []
     },
     "feats": "Acrobatic",
     "talents": "N/A",
@@ -12431,6 +12916,14 @@
     "damageReduction": {
       "value": 10,
       "bypass": "silver"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire",
+        "poison"
+      ],
+      "vulnerabilities": []
     },
     "feats": "Acrobatic, Archaic Weapons Proficiency, Defensive Martial Arts, Dodge, Elusive Target, Heroic Surge, Improved Initiative, Mobility, Simple Weapons Proficiency, Spring Attack.",
     "talents": "Evasion, defensive roll, increased speed, uncanny dodge 1, uncanny dodge 2",
@@ -12628,6 +13121,13 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": []
     },
     "feats": "Dodge, Mobility, Weapon Finesse (claw)",
     "talents": "N/A",
@@ -12854,6 +13354,13 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": []
+    },
     "feats": "Acrobatic, Aircraft Operation (heavy aircraft), Aircraft Operation (jet fighters), Dodge, Mobility, Personal Firearms Proficiency, Weapon Finesse (claws)",
     "talents": "Evasion, uncanny dodge 1",
     "possessions": "None",
@@ -13036,6 +13543,16 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 20
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Archaic Weapons Proficiency, Multiattack, Simple Weapons Proficiency.",
     "talents": "N/A",
@@ -13230,6 +13747,16 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 20
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Archaic Weapons Proficiency, Multiattack, Personal Firearms Proficiency, Simple Weapons Proficiency.",
     "talents": "(Strong Hero): Melee smash",
     "possessions": "Colt Desert Eagle, 20 rounds of 10mm ammunition",
@@ -13416,6 +13943,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Alertness, Simple Weapons Proficiency",
     "talents": "N/A",
@@ -13670,6 +14202,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Cautious, Personal Firearms Proficiency, Simple Weapons Proficiency, Studious",
     "talents": "(Smart Hero): Plan, savant (Repair)",
     "possessions": "Leather jacket, stun gun, Pathfinder (.22 revolver), 20 rounds of .22 ammunition, 3 sticks of dynamite, tool belt, lockpick set, basic electrical toolkit, basic mechanical toolkit, demolitions kit",
@@ -13778,6 +14315,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -13940,6 +14482,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -14219,6 +14766,16 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 10
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Athletic, Builder, Power Attack, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -14396,6 +14953,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -14570,6 +15132,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Simple Weapons Proficiency",
     "talents": "N/A",
@@ -14838,6 +15405,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alien Weapons Proficiency, Archaic Weapons Proficiency, Combat Expertise, Iron Will, Low Profile, Simple Weapons Proficiency.",
     "talents": "Savant (research), trick",
     "possessions": "Colt Python (.357 revolver), 12 rounds of .357 ammunition, 1d4 scrolls, 1d4 potions",
@@ -14960,6 +15532,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -15078,6 +15655,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -15174,6 +15756,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -15338,6 +15925,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
@@ -15616,6 +16208,16 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 10
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Athletic, Builder, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -15860,6 +16462,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Weapon Finesse (snakes)",
     "talents": "N/A",
     "possessions": "Knife, Glock 17 (9mm autoloader), 50 rounds of 9mm ammunition, concealed carry holster, firearms license, casual clothing, overcoat",
@@ -16075,6 +16682,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Deceptive, Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Weapon Finesse (snakes)",
     "talents": "(Charismatic Hero): Coordinate",
     "possessions": "Knife, Glock 17 (9mm autoloader), 50 rounds of 9mm ammunition, concealed carry holster, firearms license, casual clothing, overcoat, cell phone, PDA (with addresses of various contacts and acquaintances), disguise kit",
@@ -16221,6 +16833,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -16418,6 +17035,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Archaic Weapons Proficiency, Great Fortitude, Power Attack",
     "talents": "N/A",
@@ -16633,6 +17255,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Archaic Weapons Proficiency, Combat Reflexes, Exotic Weapon Proficiency (chain saw), Great Fortitude, Power Attack, Simple Weapons Proficiency",
     "talents": "(Strong Hero): Melee smash, improved melee smash",
     "possessions": "Chain saw, bloodstained smock",
@@ -16784,6 +17411,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -16912,6 +17544,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -17037,6 +17674,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -17215,6 +17857,16 @@
     "damageReduction": {
       "value": 20,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "fire",
+        "electricity"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ]
     },
     "feats": "Alertness, Lightning Reflexes",
     "talents": "",
@@ -17407,6 +18059,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Simple Weapons Proficiency, Stealthy.",
     "talents": "N/A",
@@ -17602,6 +18259,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Iron Will, Lightning Reflexes, Mobility, Simple Weapons Proficiency, Stealthy, Track.",
     "talents": "(Dedicated Hero): Aware, skill emphasis (Survival).",
     "possessions": "Various personal items.",
@@ -17766,6 +18428,13 @@
     "damageReduction": {
       "value": 5,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [
+        "fire"
+      ]
     },
     "feats": "Alertness, Archaic Weapons Proficiency, Toughness",
     "talents": "N/A",
@@ -17985,6 +18654,13 @@
     "damageReduction": {
       "value": 5,
       "bypass": "+1"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [
+        "fire"
+      ]
     },
     "feats": "Alertness, Archaic Weapons Proficiency, Blind-Fight, Simple Weapons Proficiency, Toughness, Track",
     "talents": "(Dedicated Hero): Skill emphasis (Survival), aware",
@@ -18230,6 +18906,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Improved Initiative, Renown, Simple Weapons Proficiency.",
     "talents": "N/A",
@@ -18512,6 +19193,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Dodge, Improved Initiative, Point Blank Shot, Personal Firearms Proficiency, Renown, Simple Weapon Proficiency.",
     "talents": "(Dedicated Hero): Empathy (Charismatic Hero): Fast-talk, dazzle",
     "possessions": "Colt M1911 (.45 autoloader), cleaver, talking clown doll.",
@@ -18679,6 +19365,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Simple Weapons Proficiency, Weapon Focus (Huge club)",
     "talents": "N/A",
     "possessions": "Huge club (6 feet long, 8 inches thick)",
@@ -18788,6 +19479,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Improved Initiative, Simple Weapons Proficiency",
     "talents": "",
@@ -18944,6 +19640,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Armor Proficiency (light), Brawl, Knockout Punch, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Focus (great club)",
     "talents": "(Tough Hero): Damage reduction 1/-, 2/-, and Second Wind. (Bodyguard): Harm’s way",
     "possessions": "Huge club (6 feet long, 8 inches thick), undercover vest, overcoat, Browning BPS 10-gauge shotgun, 20 10-gauge shotgun shells, standard flashlight",
@@ -19084,6 +19785,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -19323,6 +20029,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Trustworthy",
     "talents": "",
     "possessions": "Business clothes, cell phone, PDA, briefcase, stun gun, Beretta 92F (9mm autoloader)†, 15 rounds of 9mm ammunition†, firearms license†, wallet with ID and credit cards, BMW M3 sports coupe with car alarm, car alarm keychain. †These items are stored in the BMW’s glove compartment.",
@@ -19538,6 +20249,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Cleave, Combat Martial Arts, Great Cleave, Improved Combat Martial Arts, Improved Damage Threshold, Power Attack, Simple Weapons Proficiency, Weapon Focus (slam), Weapon Specialization (slam).",
     "talents": "(Strong Hero): Ignore hardness, melee smash",
     "possessions": "Crossbow, 20 bolts",
@@ -19659,6 +20375,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Simple Weapons Proficiency",
     "talents": "N/A",
     "possessions": "N/A",
@@ -19770,6 +20491,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -19924,6 +20650,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Improved Initiative, Power Attack",
     "talents": "",
     "possessions": "",
@@ -20057,6 +20788,14 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity",
+        "cold"
+      ],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -20235,6 +20974,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -20355,6 +21099,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -20498,6 +21247,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -20637,6 +21391,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
@@ -20915,6 +21674,16 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 10
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Athletic, Builder, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -21151,6 +21920,14 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity",
+        "sonic"
+      ],
+      "vulnerabilities": []
+    },
     "feats": "Cleave, Multiattack, Power Attack, Weapon Focus (bite), Weapon Focus (claw)",
     "talents": "",
     "possessions": "",
@@ -21335,6 +22112,14 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "electricity",
+        "sonic"
+      ],
+      "vulnerabilities": []
+    },
     "feats": "Weapon Focus (bite)",
     "talents": "",
     "possessions": "",
@@ -21449,6 +22234,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -21614,6 +22404,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Weapon Finesse (bite)",
     "talents": "",
     "possessions": "",
@@ -21708,6 +22503,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -21974,6 +22774,16 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 10
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Athletic, Builder, Simple Weapons Proficiency",
     "talents": "",
     "possessions": "",
@@ -22169,6 +22979,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Weapon Finesse (bite).",
     "talents": "",
@@ -22390,6 +23205,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Improved Initiative, Renown, Simple Weapons Proficiency",
     "talents": "N/A",
@@ -22630,6 +23450,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Heroic Surge, Improved Initiative, Personal Firearms Proficiency, Renown, Simple Weapons Proficiency, Stealthy",
     "talents": "(Fast Hero): Evasion, uncanny dodge 1 (Smart Hero): Savant (Research)",
     "possessions": "Colt Double Eagle (10mm autoloader), 18 rounds of 10mm ammunition, hip holster, fey rod, knife, day pack, bag of 25 caltrops, 3 sticks of dynamite, lighter, disguise kit, steel handcuffs",
@@ -22763,6 +23588,13 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "acid"
+      ],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -22962,6 +23794,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Multiattack, Simple Weapons Proficiency",
     "talents": "N/A",
@@ -23165,6 +24002,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Armor Proficiency (light), Multiattack, Simple Weapons Proficiency, Surgery, Weapon Focus (taser)",
     "talents": "(Dedicated Hero): Healing knack, healing touch 1 (Field Medic): Medical specialist +1",
     "possessions": "Sap, taser, medical kit, first aid kit, backpack containing food and assorted items",
@@ -23314,6 +24156,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Alertness, Multiattack, Simple Weapons Proficiency",
     "talents": "N/A",
@@ -23522,6 +24369,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Advanced Firearms Proficiency, Alertness, Heroic Surge, Improved Bull Rush, Multiattack, Power Attack, Simple Weapons Proficiency, Vehicle Expert",
     "talents": "(Tough Hero): Acid resistance 7, fire resistance 7, robust, second wind",
     "possessions": "M16A2 (5.56mm assault rifle), 200 rounds of 5.56mm ammunition, mesh vest, 8-person dome tent in backpack",
@@ -23636,6 +24488,19 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "electricity",
+        "fire"
+      ],
+      "vulnerabilities": []
     },
     "feats": "None",
     "talents": "",
@@ -23866,6 +24731,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Athletic, Heroic Surge, Iron Will, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Finesse (bite)",
     "talents": "(Strong Hero): Melee smash, improved melee smash, advanced melee smash",
     "possessions": "Mossberg (12-gauge shotgun), 12 rounds of 12-gauge ammunition, cleaver, casual clothes",
@@ -24058,6 +24928,11 @@
     "damageReduction": {
       "value": 15,
       "bypass": "silver"
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Athletic, Heroic Surge, Iron Will, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Finesse (bite)",
     "talents": "(Strong Hero): Melee smash, improved melee smash, advanced melee smash",
@@ -24267,6 +25142,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Cleave (bite), Multiattack, Power Attack, Weapon Focus (sting)",
     "talents": "",
     "possessions": "",
@@ -24467,6 +25347,11 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
+    },
     "feats": "Alertness, Weapon Focus (sting)",
     "talents": "",
     "possessions": "",
@@ -24630,6 +25515,15 @@
       "value": 0,
       "bypass": ""
     },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [
+        "cold"
+      ],
+      "vulnerabilities": [
+        "fire"
+      ]
+    },
     "feats": "None",
     "talents": "",
     "possessions": "",
@@ -24781,6 +25675,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Improved Initiative, Simple Weapons Proficiency",
     "talents": "N/A",
@@ -24986,6 +25885,11 @@
     "damageReduction": {
       "value": 0,
       "bypass": ""
+    },
+    "damageTraits": {
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": []
     },
     "feats": "Improved Initiative, Lightning Reflexes, Personal Firearms Proficiency, Simple Weapons Proficiency",
     "talents": "(Smart Hero): Savant (Computer Use)",

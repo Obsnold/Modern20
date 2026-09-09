@@ -68,7 +68,30 @@ function attributeFields() {
     // Medium-sized; a creature's stat block may say otherwise.
     reach: int(5, { min: 0 }),
     initiative: new fields.SchemaField({ misc: int(0) }),
-    damageReduction: int(0),
+    /**
+     * "Damage reduction 15/silver": the amount every hit is reduced by, and
+     * what gets through it undiminished. The bypass was scraped from every
+     * stat block that prints one and then dropped, so a silver bullet was
+     * stopped by the werewolf it was bought for.
+     */
+    damageReduction: new fields.SchemaField({
+      value: int(0),
+      bypass: new fields.StringField({ initial: "" })
+    }),
+    // What this actor ignores, by damage type. The SRD prints these on a
+    // creature; nothing stops a hero acquiring one.
+    resistances: new fields.ArrayField(
+      new fields.SchemaField({
+        type: new fields.StringField({ required: true, blank: false }),
+        value: int(0, { min: 0 })
+      }),
+      { initial: [] }
+    ),
+    immunities: new fields.ArrayField(new fields.StringField({ blank: false }), { initial: [] }),
+    // "It takes 50% more damage from fire attacks."
+    vulnerabilities: new fields.ArrayField(
+      new fields.StringField({ blank: false }), { initial: [] }
+    ),
     // Blank means "use the Constitution score", which is the default rule.
     massiveDamageThreshold: new fields.NumberField({
       required: false, nullable: true, integer: true, initial: null
@@ -81,6 +104,19 @@ function attributeFields() {
  * `creature` all extend this; `vehicle` does not.
  */
 export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
+
+  /**
+   * Damage reduction was a bare number before it could say what bypasses it.
+   * An actor stored by an earlier version still holds one, and a schema that
+   * expects an object reads it as zero — a werewolf silently losing its 15.
+   */
+  static migrateData(source) {
+    const reduction = source.attributes?.damageReduction;
+    if (typeof reduction === "number") {
+      source.attributes.damageReduction = { value: reduction, bypass: "" };
+    }
+    return super.migrateData(source);
+  }
 
   static defineSchema() {
     return {

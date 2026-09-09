@@ -71,7 +71,13 @@
       "initiative": {
         "misc": 0
       },
-      "damageReduction": 0,
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
       "massiveDamageThreshold": 11,
       "reach": 2,
       "space": 5

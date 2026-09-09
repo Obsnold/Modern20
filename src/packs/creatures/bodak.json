@@ -71,7 +71,24 @@
       "initiative": {
         "misc": 4
       },
-      "damageReduction": 15,
+      "damageReduction": {
+        "value": 15,
+        "bypass": "silver"
+      },
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 20
+        },
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": [],
       "massiveDamageThreshold": null,
       "reach": 5,
       "space": 5

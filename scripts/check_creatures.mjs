@@ -338,11 +338,16 @@ for (const creature of creatures) {
       + `${feats.length} items built`);
   }
 
-  // "damage reduction 15/silver" was printed and never read.
+  // "damage reduction 15/silver" was printed and never read, and then the
+  // number was read and the bypass thrown away.
   const reduction = document.system.attributes.damageReduction;
-  if (reduction !== creature.damageReduction.value) {
-    fail(`${creature.name}: damage reduction ${reduction}, `
+  if (reduction.value !== creature.damageReduction.value) {
+    fail(`${creature.name}: damage reduction ${reduction.value}, `
       + `the SRD prints ${creature.damageReduction.value}`);
+  }
+  if (reduction.bypass !== creature.damageReduction.bypass) {
+    fail(`${creature.name}: damage reduction bypassed by "${reduction.bypass}", `
+      + `the SRD prints "${creature.damageReduction.bypass}"`);
   }
 }
 console.log(`${skillTotals} skill totals and ${featItems} feats checked against the SRD`);
@@ -419,6 +424,55 @@ for (const creature of creatures) {
   }
 }
 console.log(`${abilityItems} special abilities checked, ${described} with rules text`);
+
+/* -- what a creature ignores -------------------------------------------- */
+
+// Damage reduction, energy resistance, immunity and vulnerability all end in
+// the same place: a number applyDamage subtracts, or does not. Getting one of
+// these wrong is invisible — the damage is simply the wrong size.
+const { MODERN20: CONFIG20 } = await import(join(ROOT, "module", "config.mjs"));
+const damageTypes = new Set([
+  ...CONFIG20.energyDamageTypes, ...CONFIG20.physicalDamageTypes
+]);
+
+let traitEntries = 0;
+for (const creature of creatures) {
+  const document = readCreatureDocument(creature.id);
+  if (!document) continue;
+  const attributes = document.system.attributes;
+  const printed = creature.damageTraits;
+
+  for (const [key, built] of [
+    ["resistances", attributes.resistances],
+    ["immunities", attributes.immunities],
+    ["vulnerabilities", attributes.vulnerabilities]
+  ]) {
+    if (built.length !== printed[key].length) {
+      fail(`${creature.name}: ${printed[key].length} ${key} parsed, ${built.length} built`);
+    }
+    traitEntries += built.length;
+    // Only a type the damage code can match on is worth storing: an immunity
+    // to "nannite infection" would silently never apply.
+    for (const entry of built) {
+      const type = typeof entry === "string" ? entry : entry.type;
+      if (!damageTypes.has(type)) {
+        fail(`${creature.name}: "${type}" in ${key} is not a damage type`);
+      }
+      if (typeof entry !== "string" && !(entry.value > 0)) {
+        fail(`${creature.name}: ${type} resistance is ${entry.value}`);
+      }
+    }
+  }
+
+  // A creature immune to a type does not also resist it, which would read as
+  // two rules disagreeing on the sheet.
+  for (const resistance of attributes.resistances) {
+    if (attributes.immunities.includes(resistance.type)) {
+      fail(`${creature.name}: both immune to and resistant to ${resistance.type}`);
+    }
+  }
+}
+console.log(`${traitEntries} resistances, immunities and vulnerabilities checked`);
 
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);

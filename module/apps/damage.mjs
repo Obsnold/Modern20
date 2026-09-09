@@ -30,7 +30,9 @@ export function damageRecipients() {
  * Healing is a plain hit point restore rather than a call to applyDamage,
  * which would run damage reduction and the massive damage save against it.
  */
-export async function applyAmount(amount, { multiplier = 1, nonlethal = false } = {}) {
+export async function applyAmount(amount, {
+  multiplier = 1, nonlethal = false, damageType = "", bypasses = []
+} = {}) {
   const recipients = damageRecipients();
   if (!recipients.length) {
     problem(game.i18n.localize("MODERN20.Damage.NoTarget"));
@@ -49,7 +51,7 @@ export async function applyAmount(amount, { multiplier = 1, nonlethal = false } 
     if (!hp) continue;
 
     if (scaled >= 0) {
-      await actor.applyDamage(scaled, { nonlethal });
+      await actor.applyDamage(scaled, { nonlethal, damageType, bypasses });
     } else {
       const healed = Math.min(hp.max, hp.value - scaled);
       await actor.update({ "system.hp.value": healed });
@@ -93,8 +95,11 @@ export function bindDamageControls(message, html) {
     button.addEventListener("click", () => {
       applyAmount(total, {
         multiplier: Number(button.dataset.m20Apply),
-        // The roll knows whether it was nonlethal; the button need not repeat it.
-        nonlethal: Boolean(message.getFlag("modern20", "nonlethal"))
+        // The roll knows whether it was nonlethal, what type it dealt and what
+        // it bypasses; the button need not repeat any of it.
+        nonlethal: Boolean(message.getFlag("modern20", "nonlethal")),
+        damageType: message.getFlag("modern20", "damageType") ?? "",
+        bypasses: message.getFlag("modern20", "bypasses") ?? []
       });
     });
   }

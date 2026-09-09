@@ -129,6 +129,9 @@
           "attributes.damageReduction": {
             "label": "Damage Reduction"
           },
+          "attributes.immunities": {
+            "label": "Immunities"
+          },
           "attributes.initiative": {
             "label": "Initiative"
           },
@@ -138,6 +141,9 @@
           "attributes.reach": {
             "label": "Reach"
           },
+          "attributes.resistances": {
+            "label": "Resistances"
+          },
           "attributes.size": {
             "label": "Size"
           },
@@ -146,6 +152,9 @@
           },
           "attributes.speed": {
             "label": "Speed"
+          },
+          "attributes.vulnerabilities": {
+            "label": "Vulnerabilities"
           },
           "biography": {
             "label": "Biography"
@@ -425,6 +434,9 @@
           "attributes.damageReduction": {
             "label": "Damage Reduction"
           },
+          "attributes.immunities": {
+            "label": "Immunities"
+          },
           "attributes.initiative": {
             "label": "Initiative"
           },
@@ -434,11 +446,17 @@
           "attributes.reach": {
             "label": "Reach"
           },
+          "attributes.resistances": {
+            "label": "Resistances"
+          },
           "attributes.size": {
             "label": "Size"
           },
           "attributes.speed": {
             "label": "Speed"
+          },
+          "attributes.vulnerabilities": {
+            "label": "Vulnerabilities"
           },
           "biography": {
             "label": "Biography"
@@ -727,6 +745,9 @@
           "attributes.damageReduction": {
             "label": "Damage Reduction"
           },
+          "attributes.immunities": {
+            "label": "Immunities"
+          },
           "attributes.initiative": {
             "label": "Initiative"
           },
@@ -736,11 +757,17 @@
           "attributes.reach": {
             "label": "Reach"
           },
+          "attributes.resistances": {
+            "label": "Resistances"
+          },
           "attributes.size": {
             "label": "Size"
           },
           "attributes.speed": {
             "label": "Speed"
+          },
+          "attributes.vulnerabilities": {
+            "label": "Vulnerabilities"
           },
           "biography": {
             "label": "Biography"
@@ -1310,6 +1337,7 @@
       "ApplyHint": "Set base attack and saves from the type and Hit Dice, and show the ability ranges and natural attacks for this size.",
       "Applied": "{type}, {hitDice} — attacks at {attack}",
       "Abilities": "Str {str} · Dex {dex} · Con {con} for this size",
+      "BypassHint": "silver",
       "NaturalAttacks": "Natural attacks: {attacks}",
       "NoType": "No type",
       "PickType": "Pick a creature type and set its Hit Dice first.",
@@ -1326,25 +1354,33 @@
     "Damage": {
       "Applied": "{amount} damage applied to {names}.",
       "Apply": "Apply",
+      "Bypassed": "Damage reduction {value}/{bypass} bypassed",
       "Half": "Half",
       "Heal": "Heal",
       "Heal1": "Heal 1",
       "Heal5": "Heal 5",
       "Healed": "{names} healed {amount}.",
+      "Immune": "Immune to {type} damage",
       "ImmuneNonlethal": "{name} is not subject to nonlethal damage.",
       "NoTarget": "Target or select a token first.",
       "Nonlethal": "Nonlethal.",
       "NonlethalExceeds": "{name}'s nonlethal damage ({total}) has reached their hit points ({hp}).",
       "NonlethalShort": "nonlethal",
+      "NotReducedEnergy": "Damage reduction {value} does not apply to {type} damage",
       "NotYours": "You do not own {name}.",
+      "Reduced": "{name} ignores some of it",
+      "Reduction": "Damage reduction {value}",
+      "Resisted": "{type} resistance {value}",
       "Take1": "Take 1 damage",
-      "Take5": "Take 5 damage"
+      "Take5": "Take 5 damage",
+      "Vulnerable": "Vulnerable to {type}: {from} becomes {to}"
     },
     "Death": {
       "Bleeds": "{name} is bleeding out — down to {hp} hit points."
     },
     "Def": "Def",
     "Defense": "Defense",
+    "Defenses": "Defenses",
     "Durability": "Durability",
     "Equip": {
       "NotEquipped": "{name} is not equipped.",
@@ -1371,6 +1407,7 @@
     },
     "HitDice": "Hit Dice",
     "HitPoints": "Hit Points",
+    "Immunities": "Immunities",
     "Info": {
       "OccupationWealth": "{name} increases the Wealth bonus by {bonus}."
     },
@@ -2100,6 +2137,7 @@
     "NoAllegiances": "No allegiances declared.",
     "NoClasses": "No class",
     "NoWealthLost": "The purchase does not reduce your Wealth bonus.",
+    "NoneStated": "None stated",
     "NoneYet": "None yet.",
     "Occupation": {
       "Chosen": "Class skills chosen",
@@ -2116,6 +2154,7 @@
     "PurchaseDCShort": "DC",
     "Ranks": "Ranks",
     "Reputation": "Reputation",
+    "Resistances": "Resistances",
     "Restriction": {
       "Illegal": "Illegal (+4)",
       "Licensed": "Licensed (+1)",
@@ -2304,6 +2343,7 @@
     "Total": "Total",
     "Touch": "Touch",
     "ViewSRD": "View in the SRD",
+    "Vulnerabilities": "Vulnerabilities",
     "Warning": {
       "NoActionPoints": "This actor does not use action points.",
       "NoActionPointsLeft": "No action points remaining.",
