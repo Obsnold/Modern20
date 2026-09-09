@@ -1,0 +1,24 @@
+{
+  "name": "modern20",
+  "private": true,
+  "type": "module",
+  "description": "Tooling for the Modern20 Foundry system. The system itself ships as plain ES modules and needs no build step; this manifest exists so the checks, the linters and the type checker are one command rather than nine.",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:py",
+    "lint:js": "eslint module scripts",
+    "lint:py": "ruff check scripts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run check:python && npm run check:node",
+    "check:python": "python3 scripts/check_globals.py && python3 scripts/check_app_props.py && python3 scripts/check_lang.py && python3 scripts/check_config.py && python3 scripts/check_shadowing.py",
+    "check:node": "node scripts/check_models.mjs && node scripts/check_templates.mjs && node scripts/check_casting.mjs && node scripts/check_combat.mjs && node scripts/check_creatures.mjs",
+    "test": "npm run lint && npm run check"
+  },
+  "devDependencies": {
+    "@astral-sh/ruff": ">=0.6",
+    "eslint": "^9.0.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

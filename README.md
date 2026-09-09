@@ -490,17 +490,43 @@ rather than duplicating them.
 ## Checks
 
 ```bash
+npm install     # eslint, ruff and typescript; the system itself needs none
+npm test        # lint, then every check below
+```
+
+The system ships as plain ES modules and has no build step. `package.json`
+exists only so the tooling is one command rather than nine, and so a machine
+without Node says so instead of silently skipping half the suite.
+
+```bash
+npm run lint                         # eslint over module/ and scripts/, ruff over scripts/
+npm run typecheck                    # tsc --noEmit, using the JSDoc already in the code
 python3 scripts/check_globals.py     # no globals Foundry v14 removed
 python3 scripts/check_lang.py        # every referenced i18n key exists
 python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
+python3 scripts/check_shadowing.py   # no module-level name defined twice
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
+node    scripts/check_creatures.mjs  # every creature's arithmetic against the SRD
 ```
 
-`.forgejo/workflows/ci.yml` runs all five on every push, plus JSON validation
-and `node --check` on every module. It uses the `docker` runner label, which
-maps to `node:20-bookworm` — that image already ships git, curl, python3 and
-node, so there is no install step.
+`.forgejo/workflows/ci.yml` runs all of them on every push, plus JSON
+validation and `node --check` on every module. It uses the `docker` runner
+label, which maps to `node:20-bookworm`; ruff arrives through npm rather than
+pip, since its package ships the binary and that is one fewer toolchain to
+keep working.
+
+The linters are deliberately correctness-only — no style rules, no formatter.
+The scraper is written to be read as prose about the SRD, and reflowing it
+would cost more than it returns. `no-unused-vars` is a warning rather than an
+error for the same reason: it is worth seeing and not worth failing a build
+over.
+
+`tsc --checkJs` is **advisory in CI until its first clean pass**, then it
+should be made blocking. The code was not written against a type checker, so
+a red build on the day it lands would say nothing that reading its output does
+not. Foundry's own globals are declared as `any` in `types/foundry.d.ts`:
+what is checked is the code in this repository, not Foundry's type surface.
 
 Every one of these was written after a real failure, which is the only reason
 to trust any of them:
@@ -512,6 +538,7 @@ to trust any of them:
 | `check_globals.py` | `class Modern20Actor extends Actor` — v14 removed that global, so the world loaded as a black page |
 | `check_models.mjs` | a DataField shared between two schemas; an earlier permissive version of this harness passed the broken code |
 | `check_templates.mjs` | `{{formField fields.typo}}` renders as nothing with no console error — a blank row, not a crash |
+| `check_shadowing.py` / `no-redeclare` | two parsers in one week were named over an existing definition — `ability_key` over the psionics one, `DAMAGE_TYPES` over the spells one — and the later definition silently won |
 
 Two of these bugs took a black screen to find. The Node checks enforce
 Foundry's *real* invariants rather than merely resolving names, because a
