@@ -1,13 +1,14 @@
 {
   "_id": "6SjBSfdx4hkM0CKS",
   "name": "Aluminum travel case (75 lb. capacity)",
-  "type": "gear",
+  "type": "container",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
     "category": "Bags and Boxes",
+    "capacity": 75.0,
     "weight": 15.0,
     "purchaseDC": 12,
     "restriction": "none",

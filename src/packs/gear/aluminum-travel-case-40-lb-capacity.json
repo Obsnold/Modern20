@@ -1,13 +1,14 @@
 {
   "_id": "8VHDTEuLxCfKkX6M",
   "name": "Aluminum travel case (40 lb. Capacity)",
-  "type": "gear",
+  "type": "container",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
     "category": "Bags and Boxes",
+    "capacity": 40.0,
     "weight": 10.0,
     "purchaseDC": 11,
     "restriction": "none",

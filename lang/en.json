@@ -92,6 +92,9 @@
           "attributes": {
             "label": "Attributes"
           },
+          "attributes.attackMisc": {
+            "label": "Attack Misc"
+          },
           "attributes.baseAttack": {
             "label": "Base Attack Bonus"
           },
@@ -124,6 +127,9 @@
           },
           "defense.classBonus": {
             "label": "Class Defense Bonus"
+          },
+          "defense.loseDex": {
+            "label": "Lose Dex"
           },
           "defense.misc": {
             "label": "Misc"
@@ -348,11 +354,17 @@
           "actionPoints.value": {
             "label": "Value"
           },
+          "advancement": {
+            "label": "Advancement"
+          },
           "allegiances": {
             "label": "Allegiances"
           },
           "attributes": {
             "label": "Attributes"
+          },
+          "attributes.attackMisc": {
+            "label": "Attack Misc"
           },
           "attributes.baseAttack": {
             "label": "Base Attack Bonus"
@@ -365,6 +377,9 @@
           },
           "attributes.massiveDamageThreshold": {
             "label": "Massive Damage Threshold"
+          },
+          "attributes.reach": {
+            "label": "Reach"
           },
           "attributes.size": {
             "label": "Size"
@@ -380,6 +395,9 @@
           },
           "defense.classBonus": {
             "label": "Class Defense Bonus"
+          },
+          "defense.loseDex": {
+            "label": "Lose Dex"
           },
           "defense.misc": {
             "label": "Misc"
@@ -581,9 +599,6 @@
           },
           "wealth.bonus": {
             "label": "Bonus"
-          },
-          "wealth.pendingPurchases": {
-            "label": "Pending Purchases"
           }
         }
       },
@@ -616,6 +631,9 @@
           "attributes": {
             "label": "Attributes"
           },
+          "attributes.attackMisc": {
+            "label": "Attack Misc"
+          },
           "attributes.baseAttack": {
             "label": "Base Attack Bonus"
           },
@@ -627,6 +645,9 @@
           },
           "attributes.massiveDamageThreshold": {
             "label": "Massive Damage Threshold"
+          },
+          "attributes.reach": {
+            "label": "Reach"
           },
           "attributes.size": {
             "label": "Size"
@@ -642,6 +663,9 @@
           },
           "defense.classBonus": {
             "label": "Class Defense Bonus"
+          },
+          "defense.loseDex": {
+            "label": "Lose Dex"
           },
           "defense.misc": {
             "label": "Misc"
@@ -1068,6 +1092,11 @@
         "name": "Unconscious"
       }
     },
+    "Container": {
+      "CapacityHint": "Weight this can hold. Zero means the SRD states no limit; contents are carried either way, so encumbrance is unchanged.",
+      "Items": "items",
+      "Unpack": "Take out of the container"
+    },
     "Creator": {
       "AbilitiesHint": "The SRD does not specify how to generate ability scores. These are the conventional options; enter the values by hand if your table uses something else.",
       "Callout": "This character has no class yet. The creator walks through abilities, occupation and class, then hands off to the usual prompts.",
@@ -1154,11 +1183,17 @@
     "Item": {
       "Armor": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "armorPenalty": {
             "label": "Armor Penalty"
           },
           "armorType": {
             "label": "Armor Type"
+          },
+          "container": {
+            "label": "Container"
           },
           "description": {
             "label": "Description"
@@ -1200,6 +1235,9 @@
       },
       "Class": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "classSkills": {
             "label": "Class Skills"
           },
@@ -1235,8 +1273,51 @@
           }
         }
       },
+      "Container": {
+        "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
+          "capacity": {
+            "label": "Capacity"
+          },
+          "category": {
+            "label": "Category"
+          },
+          "container": {
+            "label": "Container"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "equipped": {
+            "label": "Equipped"
+          },
+          "purchaseDC": {
+            "label": "Purchase DC"
+          },
+          "quantity": {
+            "label": "Quantity"
+          },
+          "restriction": {
+            "label": "Restriction"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "weight": {
+            "label": "Weight"
+          }
+        }
+      },
       "Feat": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "benefit": {
             "label": "Benefit"
           },
@@ -1268,8 +1349,14 @@
       },
       "Gear": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "category": {
             "label": "Category"
+          },
+          "container": {
+            "label": "Container"
           },
           "description": {
             "label": "Description"
@@ -1299,6 +1386,9 @@
       },
       "Occupation": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "bonusFeatChosen": {
             "label": "Bonus Feat Chosen"
           },
@@ -1313,6 +1403,9 @@
           },
           "reputationBonus": {
             "label": "Reputation Bonus"
+          },
+          "skillChoiceCount": {
+            "label": "Skill Choice Count"
           },
           "skillOptions": {
             "label": "Skill Options"
@@ -1333,6 +1426,9 @@
       },
       "PsiPower": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "castingTime": {
             "label": "Casting Time"
           },
@@ -1370,6 +1466,9 @@
       },
       "Spell": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "area": {
             "label": "Area"
           },
@@ -1419,6 +1518,9 @@
       },
       "Talent": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "description": {
             "label": "Description"
           },
@@ -1441,6 +1543,12 @@
       },
       "VehicleMod": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
+          "container": {
+            "label": "Container"
+          },
           "description": {
             "label": "Description"
           },
@@ -1475,6 +1583,9 @@
       },
       "Weapon": {
         "FIELDS": {
+          "activities": {
+            "label": "Activities"
+          },
           "ammo": {
             "label": "Ammo"
           },
@@ -1487,8 +1598,14 @@
           "attackBonus": {
             "label": "Attack Bonus"
           },
+          "burstRadius": {
+            "label": "Burst Radius"
+          },
           "category": {
             "label": "Category"
+          },
+          "container": {
+            "label": "Container"
           },
           "critical": {
             "label": "Critical"
@@ -1526,6 +1643,15 @@
           "rateOfFire": {
             "label": "Rate of Fire"
           },
+          "reach": {
+            "label": "Reach"
+          },
+          "reachOnly": {
+            "label": "Reach Only"
+          },
+          "reflexDC": {
+            "label": "Reflex DC"
+          },
           "restriction": {
             "label": "Restriction"
           },
@@ -1547,6 +1673,7 @@
     "ItemType": {
       "armor": "Armor",
       "class": "Classes",
+      "container": "Containers",
       "feat": "Feats",
       "gear": "Gear",
       "occupation": "Occupation",
@@ -1771,6 +1898,7 @@
     "Item": {
       "armor": "Armor",
       "class": "Class",
+      "container": "Container",
       "feat": "Feat",
       "gear": "Gear",
       "occupation": "Occupation",

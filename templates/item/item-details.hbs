@@ -96,6 +96,12 @@
     {{formField fields.category value=system.category}}
   {{/if}}
 
+  {{#if (eq document.type "container")}}
+    {{formField fields.category value=system.category}}
+    {{formField fields.capacity value=system.capacity}}
+    <p class="m20-hint">{{localize "MODERN20.Container.CapacityHint"}}</p>
+  {{/if}}
+
   {{#if (eq document.type "spell")}}
     {{formField fields.level value=system.level}}
     {{formField fields.school value=system.school}}

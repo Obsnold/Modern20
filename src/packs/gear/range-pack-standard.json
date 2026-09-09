@@ -1,13 +1,14 @@
 {
   "_id": "WSBt7p3j1Xuy19jy",
   "name": "Range Pack (Standard)",
-  "type": "gear",
+  "type": "container",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
     "category": "Bags and Boxes",
+    "capacity": 0,
     "weight": 2.0,
     "purchaseDC": 7,
     "restriction": "none",

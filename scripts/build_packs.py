@@ -35,6 +35,14 @@ RESTRICTIONS = {
 # these need the slug-keyed override pass; the rest go through load_dataset.
 TABLE_PACKS = {"weapons", "armor", "gear"}
 
+# The SRD lists ammunition as a name and a purchase DC only, so its rows are
+# two cells wide and were being dropped by the three-cell minimum. Routed by
+# its own header rather than by page, since it shares weapons.html.
+AMMUNITION_HEADER = "ammunit"
+
+# "Bags and Boxes" are containers rather than general gear.
+CONTAINER_CATEGORY = "bags and boxes"
+
 # Which scraped table feeds which pack, keyed by source page.
 SOURCES = {
     "weapons.html": ("weapons", "weapon"),
@@ -230,6 +238,40 @@ def armor_type(section: str) -> str:
     return "light"
 
 
+QUANTITY_IN_NAME = re.compile(r"\((\d+)\)\s*$")
+CAPACITY_IN_NAME = re.compile(r"([\d.]+)\s*lb", re.I)
+
+
+def build_ammunition(row, columns, category, url):
+    """A box of rounds: a name, a count in brackets, and a purchase DC."""
+    name = row[0].strip()
+    match = QUANTITY_IN_NAME.search(name)
+    return {
+        "category": "Ammunition",
+        "weight": 0.0,
+        "quantity": int(match.group(1)) if match else 1,
+        "purchaseDC": to_int(cell(row, columns, "purchase dc")),
+        "restriction": parse_restriction(cell(row, columns, "restriction")),
+        "source": category or "Ammunition",
+        "srdUrl": url,
+    }
+
+
+def build_container(row, columns, category, url):
+    """A bag or case. Capacity is stated in the name where the SRD gives one."""
+    name = row[0].strip()
+    match = CAPACITY_IN_NAME.search(name)
+    return {
+        "category": category or "Bags and Boxes",
+        "capacity": float(match.group(1)) if match else 0,
+        "weight": parse_weight(cell(row, columns, "weight")),
+        "purchaseDC": to_int(cell(row, columns, "purchase dc")),
+        "restriction": parse_restriction(cell(row, columns, "restriction")),
+        "source": category,
+        "srdUrl": url,
+    }
+
+
 def build_gear(row, columns, category, url):
     return {
         "category": category or "general",
@@ -246,7 +288,13 @@ def to_int(text: str, default: int = 0) -> int:
     return int(match.group()) if match else default
 
 
-BUILDERS = {"weapon": build_weapon, "armor": build_armor, "gear": build_gear}
+BUILDERS = {
+    "weapon": build_weapon, "armor": build_armor, "gear": build_gear,
+    "ammunition": build_ammunition, "container": build_container,
+}
+
+# Item types these builders produce, where it differs from the builder name.
+ITEM_TYPE = {"ammunition": "gear", "container": "container"}
 
 
 # Basic classes are keyed to an ability score; advanced classes are not.
@@ -511,6 +559,11 @@ def build() -> dict[str, list[dict]]:
         if "purchase dc" not in columns:
             continue
 
+        # Ammunition shares the weapons page but is gear, not a weapon.
+        ammunition = any(AMMUNITION_HEADER in c.lower() for c in table["header"][:1])
+        if ammunition:
+            pack, item_type = "gear", "ammunition"
+
         category = ""
         parent = ""
         kinds = table.get("kinds") or ["item"] * len(table["rows"])
@@ -531,11 +584,16 @@ def build() -> dict[str, list[dict]]:
                 parent = ""
 
             label = row[0].strip()
-            if not label or len(row) < 3:
+            if not label or len(row) < (2 if ammunition else 3):
                 continue
             # A variant is only meaningful qualified by its product.
             name = f"{parent} ({label})" if kind == "variant" and parent else label
             name = strip_footnote(name)
+
+            # Bags and boxes are containers, wherever they appear.
+            builder = item_type
+            if category.strip().lower() == CONTAINER_CATEGORY:
+                builder = "container"
 
             slug = srd.slugify(name)
             bucket = seen.setdefault(pack, set())
@@ -546,13 +604,13 @@ def build() -> dict[str, list[dict]]:
             packs.setdefault(pack, []).append({
                 "_id": document_id(pack, slug),
                 "name": name,
-                "type": item_type,
+                "type": ITEM_TYPE.get(builder, builder),
                 "img": "icons/svg/item-bag.svg",
                 "system": {
                     "description": "",
                     "quantity": 1,
                     "equipped": False,
-                    **BUILDERS[item_type](row, columns, category, table["srdUrl"]),
+                    **BUILDERS[builder](row, columns, category, table["srdUrl"]),
                 },
                 "_key": f"!items!{document_id(pack, slug)}",
                 "_slug": slug,

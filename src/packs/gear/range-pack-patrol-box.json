@@ -1,13 +1,14 @@
 {
   "_id": "b1QQVsM33UkJTV1p",
   "name": "Range Pack (Patrol box)",
-  "type": "gear",
+  "type": "container",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
     "category": "Bags and Boxes",
+    "capacity": 0,
     "weight": 4.0,
     "purchaseDC": 9,
     "restriction": "none",

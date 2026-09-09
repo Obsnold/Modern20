@@ -1,13 +1,14 @@
 {
   "_id": "B248I5wzLAgJQggl",
   "name": "Contractor's field bag",
-  "type": "gear",
+  "type": "container",
   "img": "icons/svg/item-bag.svg",
   "system": {
     "description": "",
     "quantity": 1,
     "equipped": false,
     "category": "Bags and Boxes",
+    "capacity": 0,
     "weight": 2.0,
     "purchaseDC": 6,
     "restriction": "none",
