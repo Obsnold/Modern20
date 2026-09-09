@@ -99,5 +99,69 @@
     "specialQualities": "Charge 4d6+6, scent, natural cunning, darkvision 60 ft",
     "biography": "<p><strong>Attack:</strong> +13 melee (3d6+9, chain saw)</p><p><strong>Full Attack:</strong> +13/+8 melee (3d6+7, chain saw), +8 melee (1d8+4, gore, or +13/+8 melee (1d4+7, slam), +8 melee (1d8+4, gore), or +8 ranged</p><p><strong>Skills:</strong> Intimidate +5, Jump +8, Knowledge (streetwise) +3, Listen +8, Search +6, Speak English (or other local language), Speak Giant, Spot +8</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Combat Reflexes, Exotic Weapon Proficiency (chain saw), Great Fortitude, Power Attack, Simple Weapons Proficiency</p><p><strong>Talents:</strong> (Strong Hero): Melee smash, improved melee smash</p>"
   },
-  "_key": "!actors!0obMeMZHbUVYHI2A"
+  "_key": "!actors!0obMeMZHbUVYHI2A",
+  "items": [
+    {
+      "_id": "0aUfQXki4zMiNJqO",
+      "name": "Chain saw",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13/+8 melee (3d6+7, chain saw), +8 melee (1d8+4, gore, or +13/+8 melee (1d4+7, slam), +8 melee (1d8+4, gore), or +8 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "3d6+7",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -1,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "AH0vNlEbzcF3H2Xa",
+      "name": "Gore",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13/+8 melee (3d6+7, chain saw), +8 melee (1d8+4, gore, or +13/+8 melee (1d4+7, slam), +8 melee (1d8+4, gore), or +8 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d8+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -6,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

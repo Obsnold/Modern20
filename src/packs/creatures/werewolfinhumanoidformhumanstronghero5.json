@@ -99,5 +99,69 @@
     "specialQualities": "Alternate form, trip, scent, wolf empathy",
     "biography": "<p><strong>Attack:</strong> +8 melee (1d6+6/19-20, cleaver)</p><p><strong>Full Attack:</strong> +8 melee (1d6+6/19-20, cleaver), or +7 ranged (2d8, Mossberg)</p><p><strong>Skills:</strong> Climb +9, Handle Animal +3, Hide +3, Jump +7, Knowledge (current events) +5, Knowledge (popular culture) +5, Knowledge (streetwise) +5, Listen +6, Move Silently +4, Profession +5, Read/Write Language (any two), Speak Language (any two), Spot +4, Swim +9</p><p><strong>Feats:</strong> Athletic, Heroic Surge, Iron Will, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Finesse (bite)</p><p><strong>Talents:</strong> (Strong Hero): Melee smash, improved melee smash, advanced melee smash</p>"
   },
-  "_key": "!actors!MC0kTTw6DndV2Y75"
+  "_key": "!actors!MC0kTTw6DndV2Y75",
+  "items": [
+    {
+      "_id": "pxdKmRqXZw3CNckR",
+      "name": "Cleaver",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d6+6/19-20, cleaver), or +7 ranged (2d8, Mossberg)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "simple",
+        "damage": "1d6+6",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "uPlgzVZ0okybqov1",
+      "name": "Mossberg",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d6+6/19-20, cleaver), or +7 ranged (2d8, Mossberg)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "simple",
+        "damage": "2d8",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

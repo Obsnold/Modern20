@@ -99,5 +99,38 @@
     "specialQualities": "Darkvision 60 ft., device operation, electric shock, electricity immunity, elemental, mechanical healing, nannite infection (DC 16), telepathy",
     "biography": "<p><strong>Attack:</strong> +7 melee (1d3-2 plus 1d6 electricity, pincer)</p><p><strong>Full Attack:</strong> +7 melee (1d3-2 plus 1d6 electricity, 3 pincers)</p><p><strong>Skills:</strong> Computer Use +13, Craft (electrical) +13, Craft (mechanical) +13, Demolitions +9, Disable Device +13, Knowledge (technology) +11; Repair +13, Treat Injury +7.</p><p><strong>Feats:</strong> Builder, Cautious, Gearhead, Surgery, Weapon Finesse (pincer)</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!gC1yySDw7N6ToAUM"
+  "_key": "!actors!gC1yySDw7N6ToAUM",
+  "items": [
+    {
+      "_id": "vApRIVU4fc9OglAh",
+      "name": "Pincer (x3)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+7 melee (1d3-2 plus 1d6 electricity, 3 pincers)</p><p><strong>Plus:</strong> 1d6 electricity</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d3-2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 5,
+        "size": "tiny",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

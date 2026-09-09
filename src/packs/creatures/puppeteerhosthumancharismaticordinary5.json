@@ -95,5 +95,69 @@
     "specialQualities": "Blindsight 60 ft., immune to mind-influencing effects, resistance to massive damage",
     "biography": "<p><strong>Attack:</strong> +1 melee (1d3 electricity plus paralysis, stun gun)</p><p><strong>Full Attack:</strong> +1 melee (1d3 electricity plus paralysis, stun gun), or +3 ranged (2d6, Beretta 92F)</p><p><strong>Skills:</strong> Bluff +10, Computer Use +4, Diplomacy +12, Disguise +6, Gather Information +12, Intimidate +10, Knowledge (business) +8, Knowledge (current events) +8, Listen +3**, Read/_Write English (or other language), Speak English (or other language), Spot +3**. **Skill bonus conferred by puppeteer.</p><p><strong>Feats:</strong> Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Trustworthy</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!AwzCb0NL4Zht4qOo"
+  "_key": "!actors!AwzCb0NL4Zht4qOo",
+  "items": [
+    {
+      "_id": "Pt9PMecInlth0blU",
+      "name": "Stun gun",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d3 electricity plus paralysis, stun gun), or +3 ranged (2d6, Beretta 92F)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "1d3",
+        "damageType": "electricity",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "Anc7lxJDHClv776h",
+      "name": "Beretta 92F",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d3 electricity plus paralysis, stun gun), or +3 ranged (2d6, Beretta 92F)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

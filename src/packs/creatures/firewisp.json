@@ -95,5 +95,38 @@
     "specialQualities": "Blindsight 60 ft., damage reduction 10/+1, elemental, fiery leap, fire subtype, gaseous, ignite, immunities",
     "biography": "<p><strong>Attack:</strong> +9 melee touch (1d6 fire, touch)</p><p><strong>Full Attack:</strong> +9 melee touch (1d6 fire, touch)</p><p><strong>Skills:</strong> Listen +3, Spot +3</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!sDwnA4DgCcBCYKxB"
+  "_key": "!actors!sDwnA4DgCcBCYKxB",
+  "items": [
+    {
+      "_id": "1m9xsWXq7ABZwO1F",
+      "name": "Touch",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee touch (1d6 fire, touch)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d6",
+        "damageType": "fire",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 4,
+        "size": "diminutive",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

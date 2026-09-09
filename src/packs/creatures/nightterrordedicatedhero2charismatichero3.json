@@ -95,5 +95,100 @@
     "specialQualities": "Chosen victim, fear aura (DC 17), immune to fear, low-light vision, selective invisibility, terrify (DC 17), vulnerability (laughter of children)",
     "biography": "<p><strong>Attack:</strong> +4 melee (1d4+1, claw) or +4 melee (1d6+1/19-20, cleaver)</p><p><strong>Full Attack:</strong> +4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p><p><strong>Skills:</strong> Bluff +10, Climb +3, Disguise +9, Escape Artist +2, Hide +4, Intimidate +17, Knowledge (behavioral science) +12, Knowledge (popular culture) +7, Listen +11, Move Silently +5, Read/ Write English, Search +3, Sense Motive +13, Speak English, Spot +11.</p><p><strong>Feats:</strong> Dodge, Improved Initiative, Point Blank Shot, Personal Firearms Proficiency, Renown, Simple Weapon Proficiency.</p><p><strong>Talents:</strong> (Dedicated Hero): Empathy (Charismatic Hero): Fast-talk, dazzle</p>"
   },
-  "_key": "!actors!rCWfGXL8OCMIC2fl"
+  "_key": "!actors!rCWfGXL8OCMIC2fl",
+  "items": [
+    {
+      "_id": "SAGQ4apcmoAFRZ1c",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "wW1GFmPtSMzlzZJZ",
+      "name": "Cleaver",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "1d6+1",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "bPdaSgvno8fh4fUu",
+      "name": "Colt M1911",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

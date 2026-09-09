@@ -99,5 +99,69 @@
     "specialQualities": "Undead, despair, mummy rot, fire vulnerability, resistant to blows, damage reduction 5/+1, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +8 melee (1d6+4 plus mummy rot, slam)</p><p><strong>Full Attack:</strong> +8 melee (1d6+4 plus mummy rot, slam), or +4 ranged (1d10/19-20, crossbow)</p><p><strong>Skills:</strong> Hide +8, Listen +12, Move Silently +8, Read/Write Egyptian, Speak Egyptian, Spot +12, Survival +11</p><p><strong>Feats:</strong> Alertness, Archaic Weapons Proficiency, Blind-Fight, Simple Weapons Proficiency, Toughness, Track</p><p><strong>Talents:</strong> (Dedicated Hero): Skill emphasis (Survival), aware</p>"
   },
-  "_key": "!actors!cOE3c9wIa3gP1Uql"
+  "_key": "!actors!cOE3c9wIa3gP1Uql",
+  "items": [
+    {
+      "_id": "18tEqvHwuSn7vIyr",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d6+4 plus mummy rot, slam), or +4 ranged (1d10/19-20, crossbow)</p><p><strong>Plus:</strong> mummy rot</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "iI8PX9XhepfHXJhN",
+      "name": "Crossbow",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d6+4 plus mummy rot, slam), or +4 ranged (1d10/19-20, crossbow)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "1d10",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

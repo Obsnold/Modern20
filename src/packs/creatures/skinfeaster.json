@@ -95,5 +95,38 @@
     "specialQualities": "Flesh weakness, necrotizing touch (DC 13), skin regrowth, undead",
     "biography": "<p><strong>Attack:</strong> +2 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +2 melee (1d4, claw) or +5 ranged</p><p><strong>Skills:</strong> Climb +6, Jump +6, Listen +8, Read/Write Language (any one), Speak Language (any one), Spot +8</p><p><strong>Feats:</strong> Simple Weapons Proficiency</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!6hAZHH0351zY1J9o"
+  "_key": "!actors!6hAZHH0351zY1J9o",
+  "items": [
+    {
+      "_id": "kyFj9c1Di45b1Oan",
+      "name": "Claw",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4, claw) or +5 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

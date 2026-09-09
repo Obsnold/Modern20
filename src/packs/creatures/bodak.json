@@ -95,5 +95,38 @@
     "specialQualities": "acid and fire resistance 20, damage reduction 15/silver, death gaze (DC 15), electricity immunity, flashbacks, sunlight vulnerability, undead",
     "biography": "<p><strong>Attack:</strong> +7 melee (1d4+1, slam)</p><p><strong>Full Attack:</strong> +7 melee (1d4+1, slam)</p><p><strong>Skills:</strong> Hide +11, Listen +9, Move Silently +11, Spot +9</p><p><strong>Feats:</strong> Dodge, Improved Initiative</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!13Uok5JNqfppKpxf"
+  "_key": "!actors!13Uok5JNqfppKpxf",
+  "items": [
+    {
+      "_id": "Kmcorqyl43wfhQeT",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+7 melee (1d4+1, slam)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

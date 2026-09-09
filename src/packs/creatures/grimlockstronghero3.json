@@ -95,5 +95,100 @@
     "specialQualities": "Blindsight 40 ft., immunities, scent",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear)</p><p><strong>Full Attack:</strong> +9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear) or +6 ranged (1d8+2, compound bow)</p><p><strong>Skills:</strong> Climb +11, Hide +6 (+16 in rocky terrain or underground), Jump +7, Listen +4, Search +5, Survival +5, Swim +5.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Athletic, Brawl, Improved Brawl, Simple Weapons Proficiency, Track, Weapon Focus (spear)</p><p><strong>Talents:</strong> Improved Melee Smash, Melee Smash</p>"
   },
-  "_key": "!actors!aF65nKApnyN5CYB0"
+  "_key": "!actors!aF65nKApnyN5CYB0",
+  "items": [
+    {
+      "_id": "DtpALbNKZHKvrujq",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear) or +6 ranged (1d8+2, compound bow)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d8+4",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 2,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "HYjMs6YDGkNZLLsx",
+      "name": "Spear",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear) or +6 ranged (1d8+2, compound bow)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d8+4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "HBJd4luck7v9vtv7",
+      "name": "Compound bow",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear) or +6 ranged (1d8+2, compound bow)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d8+2",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

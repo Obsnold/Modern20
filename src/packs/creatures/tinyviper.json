@@ -95,5 +95,38 @@
     "specialQualities": "Poison, scent, low-light vision",
     "biography": "<p><strong>Attack:</strong> +5 melee (1d3-2 plus poison, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d3-2 plus poison, bite)</p><p><strong>Skills:</strong> Balance +11, Climb +12, Hide +18, Listen +8, Spot +8, Swim +11.</p><p><strong>Feats:</strong> Weapon Finesse (bite).</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!ZkRedoZYKJMYhl8i"
+  "_key": "!actors!ZkRedoZYKJMYhl8i",
+  "items": [
+    {
+      "_id": "9qSd1qUJXFr7xhqa",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3-2 plus poison, bite)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "category": "unarmed",
+        "damage": "1d3-2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 5,
+        "size": "tiny",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

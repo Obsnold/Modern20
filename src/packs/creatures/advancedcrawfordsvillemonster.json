@@ -95,5 +95,38 @@
     "specialQualities": "acidic enzymes, blindsight 60 ft., engulf, immune to piercing weapons, natural invisibility, ooze, sonic/concussion vulnerability",
     "biography": "<p><strong>Attack:</strong> +23 melee (2d8+13 plus 1d6 acid, slam)</p><p><strong>Full Attack:</strong> +23/+18/+13 melee (2d8+13 plus 1d6 acid, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!zYgJPnoWyTQfGwqm"
+  "_key": "!actors!zYgJPnoWyTQfGwqm",
+  "items": [
+    {
+      "_id": "fXV3D803ZC3iEHaR",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+23/+18/+13 melee (2d8+13 plus 1d6 acid, slam)</p><p><strong>Plus:</strong> 1d6 acid</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d8+13",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

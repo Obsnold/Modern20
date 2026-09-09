@@ -99,5 +99,100 @@
     "specialQualities": "Cold resistance 20, darkvision 120 ft., easy breathing, light sensitivity",
     "biography": "<p><strong>Attack:</strong> +4 melee (1d4+2, claw or bite) or +4 ranged (2d6, Colt Desert Eagle)</p><p><strong>Full Attack:</strong> +4 melee (1d4+2, 2 claws) and +2 melee (1d4+1, bite) or +4 ranged (2d6, Colt Desert Eagle)</p><p><strong>Skills:</strong> Climb +6, Hide +5 (+9 when concealed against a white background), Listen +3, Move Silently +5, Spot +3, Survival +5, Swim +11.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Multiattack, Personal Firearms Proficiency, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> (Strong Hero): Melee smash</p>"
   },
-  "_key": "!actors!HT8e3aBiWXL1aOZU"
+  "_key": "!actors!HT8e3aBiWXL1aOZU",
+  "items": [
+    {
+      "_id": "6OrE0froW5PxekCE",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d4+2, 2 claws) and +2 melee (1d4+1, bite) or +4 ranged (2d6, Colt Desert Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4+2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "8zDvksnUELzofhxZ",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d4+2, 2 claws) and +2 melee (1d4+1, bite) or +4 ranged (2d6, Colt Desert Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -2,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "khfGlNf3wKzsPdz6",
+      "name": "Colt Desert Eagle",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d4+2, 2 claws) and +2 melee (1d4+1, bite) or +4 ranged (2d6, Colt Desert Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

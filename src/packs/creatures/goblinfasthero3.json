@@ -99,5 +99,100 @@
     "specialQualities": "Darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +0 melee (1d2-1, slam or 1d4-1, knife), or -2 ranged (2d6, Colt Python)</p><p><strong>Full Attack:</strong> +2 melee (1d2-1, slam or 1d6-1/19-20, metal baton), or +5 ranged (2d8, Desert Eagle)</p><p><strong>Skills:</strong> Hide +8, Knowledge (streetwise) +2, Listen +3, Move Silently +6, Read/Write Goblin, Sleight of Hand +5, Speak Goblin, Spot +3, Tumble +5.</p><p><strong>Feats:</strong> Alertness, Dodge, Personal Firearms Proficiency, Simple Weapons Proficiency</p><p><strong>Talents:</strong> (Fast Hero) Evasion, increased speed</p>"
   },
-  "_key": "!actors!ofPV242X4FPFKFDB"
+  "_key": "!actors!ofPV242X4FPFKFDB",
+  "items": [
+    {
+      "_id": "PIqGyOFaCs2wEtjA",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton), or +5 ranged (2d8, Desert Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "1d2-1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "mu22F60iy2kIP8S9",
+      "name": "Metal baton",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton), or +5 ranged (2d8, Desert Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "1d6-1",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "HE5X0tOd3Unkqe2W",
+      "name": "Desert Eagle",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton), or +5 ranged (2d8, Desert Eagle)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "2d8",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

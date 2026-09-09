@@ -95,5 +95,38 @@
     "specialQualities": "Blindsight 120 ft., corrupt the mind, immunities, traits, telepathy, vessel of flesh",
     "biography": "<p><strong>Attack:</strong> +1 melee touch (1d4-1 plus special, slam)</p><p><strong>Full Attack:</strong> +1 melee touch (1d4-1 plus special, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!17HqbrpXqkXqt7qi"
+  "_key": "!actors!17HqbrpXqkXqt7qi",
+  "items": [
+    {
+      "_id": "EjigYoAwbA8PVEj8",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee touch (1d4-1 plus special, slam)</p><p><strong>Plus:</strong> special</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d4-1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

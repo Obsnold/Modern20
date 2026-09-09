@@ -95,5 +95,38 @@
     "specialQualities": "Darkvision 60 ft., hazy outline, improved grab, low-light vision, swallow whole",
     "biography": "<p><strong>Attack:</strong> +15 melee (2d6+8, tail slap)</p><p><strong>Full Attack:</strong> +15 melee (2d6+8, bite or tail slap)</p><p><strong>Skills:</strong> Hide +0 (+10 in water), Listen +7, Spot +7</p><p><strong>Feats:</strong> Improved Initiative, Power Attack</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!t2M56XYnuFwBrgas"
+  "_key": "!actors!t2M56XYnuFwBrgas",
+  "items": [
+    {
+      "_id": "PAi0WvAXOAU2Y6AH",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+15 melee (2d6+8, bite or tail slap)</p><p><strong>Also called:</strong> tail slap</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "2d6+8",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -99,5 +99,69 @@
     "specialQualities": "Darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +0 melee (1d2-1, slam or 1d4-1, knife)</p><p><strong>Full Attack:</strong> +2 melee (1d2-1, slam or 1d6-1/19-20, metal baton)</p><p><strong>Skills:</strong> Hide +6, Listen +3, Move Silently +4, Read/Write Goblin, Speak Goblin, Spot +3</p><p><strong>Feats:</strong> Alertness, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!9HkXK7lz3He80tbd"
+  "_key": "!actors!9HkXK7lz3He80tbd",
+  "items": [
+    {
+      "_id": "V7cCet7M1uMYqrvv",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "1d2-1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 2,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "vuiKQo8e0SiO56zW",
+      "name": "Metal baton",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "1d6-1",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 2,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

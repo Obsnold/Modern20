@@ -99,5 +99,100 @@
     "specialQualities": "Darkvision 60 ft., gaze, poison",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d4, knife)</p><p><strong>Full Attack:</strong> +6/+1 melee (1d4, knife), +3 melee (1d4 plus poison, snakes), or +9/+4 ranged (2d6, Glock 17)</p><p><strong>Skills:</strong> Bluff+11, Disguise +11, Move Silently +9, Read/_Write English, Read/Write Spanish, Speak English, Speak Spanish, Spot +10</p><p><strong>Feats:</strong> Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Weapon Finesse (snakes)</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!SD77k567txWFVnv2"
+  "_key": "!actors!SD77k567txWFVnv2",
+  "items": [
+    {
+      "_id": "hfQi7XE99JxA2fzz",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6/+1 melee (1d4, knife), +3 melee (1d4 plus poison, snakes), or +9/+4 ranged (2d6, Glock 17)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "iCuPuYg1aWPcMIWL",
+      "name": "Snakes",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6/+1 melee (1d4, knife), +3 melee (1d4 plus poison, snakes), or +9/+4 ranged (2d6, Glock 17)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -3,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "ZJzxVRhPSfBiubef",
+      "name": "Glock 17",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6/+1 melee (1d4, knife), +3 melee (1d4 plus poison, snakes), or +9/+4 ranged (2d6, Glock 17)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

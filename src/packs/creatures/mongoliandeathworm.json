@@ -95,5 +95,38 @@
     "specialQualities": "Darkvision 60 ft., death touch (DC 14), l o w - l i g h t vision, poison (DC 14), poison spray, tremorsense",
     "biography": "<p><strong>Attack:</strong> +5 melee (1d4-1 plus poison, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d4-1 plus poison, bite)</p><p><strong>Skills:</strong> Listen +3, Spot +6</p><p><strong>Feats:</strong> Weapon Finesse (bite)</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!6qw38HA7DPlh53b5"
+  "_key": "!actors!6qw38HA7DPlh53b5",
+  "items": [
+    {
+      "_id": "ctnnFr1PjW27kvw5",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d4-1 plus poison, bite)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4-1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 3,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

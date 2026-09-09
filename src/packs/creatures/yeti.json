@@ -95,5 +95,38 @@
     "specialQualities": "Cold subtype, constrict, darkvision 60 ft., improved grab",
     "biography": "<p><strong>Attack:</strong> +7 melee (1d6+4, claw)</p><p><strong>Full Attack:</strong> +7 melee (1d6+4, 2 claws)</p><p><strong>Skills:</strong> Climb +10, Hide +2 (+17 in snowy conditions), Move Silently +6, Speak Giant, Survival +7</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!4ZOOXyTx21laHT8x"
+  "_key": "!actors!4ZOOXyTx21laHT8x",
+  "items": [
+    {
+      "_id": "pAK0A0GjmRYKEXEc",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+7 melee (1d6+4, 2 claws)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

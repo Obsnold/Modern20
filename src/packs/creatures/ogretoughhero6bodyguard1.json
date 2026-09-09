@@ -103,5 +103,100 @@
     "specialQualities": "Low-light vision",
     "biography": "<p><strong>Attack:</strong> +12 melee (2d6+7, Huge club), or +12 melee (1d6+5, slam)</p><p><strong>Full Attack:</strong> +12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p><p><strong>Skills:</strong> Climb +2*, Concentration +9, Listen +2, Speak Giant, Spot +3. *Includes armor check penalty for undercover vest.</p><p><strong>Feats:</strong> Armor Proficiency (light), Brawl, Knockout Punch, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Focus (great club)</p><p><strong>Talents:</strong> (Tough Hero): Damage reduction 1/-, 2/-, and Second Wind. (Bodyguard): Harm’s way</p>"
   },
-  "_key": "!actors!fH0HjegvNXVvLgtu"
+  "_key": "!actors!fH0HjegvNXVvLgtu",
+  "items": [
+    {
+      "_id": "Ook2ZXIxRxFwfKNb",
+      "name": "Huge club",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d6+7",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "o7tUcYreXBdTikzr",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d6+5",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "DYyS71kxJ5o6QPZq",
+      "name": "Browning BPS",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d10",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

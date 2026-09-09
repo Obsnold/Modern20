@@ -99,5 +99,100 @@
     "specialQualities": "Charge 4d6+6, scent, natural cunning, darkvision 60 ft",
     "biography": "<p><strong>Attack:</strong> +9 melee (2d6+6, Huge lead pipe)</p><p><strong>Full Attack:</strong> +9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p><p><strong>Skills:</strong> Intimidate +5, Jump +8, Listen +8, Search +6, Speak Giant, Spot +8</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Great Fortitude, Power Attack</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!0uoK6TqHMToMntdF"
+  "_key": "!actors!0uoK6TqHMToMntdF",
+  "items": [
+    {
+      "_id": "FgNwoCutM3wzLEXy",
+      "name": "Huge lead pipe",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d6+4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "Gzz4TesfnqvipDNb",
+      "name": "Gore",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d8+2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "nSo2HcH8woEfSgCJ",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d4+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

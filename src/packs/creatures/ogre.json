@@ -99,5 +99,69 @@
     "specialQualities": "Low-light vision",
     "biography": "<p><strong>Attack:</strong> +8 melee (2d6+7, Huge club), or +7 melee (1d4+5, slam)</p><p><strong>Full Attack:</strong> +8 melee (2d6+7, Huge club), or +7 melee (1d4+5, slam), or +1 ranged</p><p><strong>Skills:</strong> Climb +6, Listen +3, Speak Giant, Spot +3</p><p><strong>Feats:</strong> Simple Weapons Proficiency, Weapon Focus (Huge club)</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!35E6WEq9sBpYE3ql"
+  "_key": "!actors!35E6WEq9sBpYE3ql",
+  "items": [
+    {
+      "_id": "FV4GBIbdhb0t5rrP",
+      "name": "Huge club",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (2d6+7, Huge club), or +7 melee (1d4+5, slam), or +1 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d6+7",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "VjJkwY8Rmr1gXRY1",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (2d6+7, Huge club), or +7 melee (1d4+5, slam), or +1 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d4+5",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

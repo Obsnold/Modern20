@@ -99,5 +99,38 @@
     "specialQualities": "Alternate form, curse of lycanthropy, trip, scent, damage reduction 15/silver, wolf empathy, darkvision 60 ft",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d6+7, bite)</p><p><strong>Full Attack:</strong> +9 melee (1d6+7, bite), or +9 ranged</p><p><strong>Skills:</strong> Adjusted skills: Climb +10, Hide +5, Jump +8, Move Silently +6, Swim +10, Survival +5 (when tracking by scent)</p><p><strong>Feats:</strong> Athletic, Heroic Surge, Iron Will, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Finesse (bite)</p><p><strong>Talents:</strong> (Strong Hero): Melee smash, improved melee smash, advanced melee smash</p>"
   },
-  "_key": "!actors!laxCd5AYeKdqMqsT"
+  "_key": "!actors!laxCd5AYeKdqMqsT",
+  "items": [
+    {
+      "_id": "KmYBCDLj0JTZTMvy",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d6+7, bite), or +9 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "unarmed",
+        "damage": "1d6+7",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

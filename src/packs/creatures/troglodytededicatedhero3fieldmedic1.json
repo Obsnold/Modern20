@@ -99,5 +99,162 @@
     "specialQualities": "Stench, darkvision 90 ft.",
     "biography": "<p><strong>Attack:</strong> +3 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +3 melee (1d4, 2 claws), +1 melee (1d4, bite), or +3 melee (1d6 nonlethal, sap), -2 melee (1d4, bite), or +4 ranged (1d4 electricity plus paralysis, taser)</p><p><strong>Skills:</strong> Craft (pharmaceutical) +1, Hide +7, Listen +3, Spot +3, Treat Injury +10</p><p><strong>Feats:</strong> Armor Proficiency (light), Multiattack, Simple Weapons Proficiency, Surgery, Weapon Focus (taser)</p><p><strong>Talents:</strong> (Dedicated Hero): Healing knack, healing touch 1 (Field Medic): Medical specialist +1</p>"
   },
-  "_key": "!actors!muRwAns9gtypb5NQ"
+  "_key": "!actors!muRwAns9gtypb5NQ",
+  "items": [
+    {
+      "_id": "ZFX28O0Nd4NEL7H1",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d4, 2 claws), +1 melee (1d4, bite), or +3 melee (1d6 nonlethal, sap), -2 melee (1d4, bite), or +4 ranged (1d4 electricity plus paralysis, taser)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "6MvT38lNpHFWskrC",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d4, 2 claws), +1 melee (1d4, bite), or +3 melee (1d6 nonlethal, sap), -2 melee (1d4, bite), or +4 ranged (1d4 electricity plus paralysis, taser)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -2,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "SWXmgEbwx4y3FAT4",
+      "name": "Sap",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d4, 2 claws), +1 melee (1d4, bite), or +3 melee (1d6 nonlethal, sap), -2 melee (1d4, bite), or +4 ranged (1d4 electricity plus paralysis, taser)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "1d6",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "6MvT38lNpHFWskrC",
+      "name": "Bite (-2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d4, 2 claws), +1 melee (1d4, bite), or +3 melee (1d6 nonlethal, sap), -2 melee (1d4, bite), or +4 ranged (1d4 electricity plus paralysis, taser)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "uhDy0XPgiuTXaPXN",
+      "name": "Taser",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d4, 2 claws), +1 melee (1d4, bite), or +3 melee (1d6 nonlethal, sap), -2 melee (1d4, bite), or +4 ranged (1d4 electricity plus paralysis, taser)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "electricity",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -95,5 +95,69 @@
     "specialQualities": "Damage reduction 10/+1 (fire form only), darkvision 60 ft., elemental, fear aura (DC 17), fire form (DC 17), fire subtype, flame shield (DC 17), flame sword, telepathy",
     "biography": "<p><strong>Attack:</strong> +6 melee (2d6+1 and 3d6 fire, flame sword) or +6 ranged touch (3d6 fire, flame shield)</p><p><strong>Full Attack:</strong> +6 melee (2d6+1 and 3d6 fire, flame sword) or +6 ranged touch (3d6 fire, flame shield)</p><p><strong>Skills:</strong> Bluff +10, Diplomacy +10, Gather Information +10, Intimidate +10, Investigate +8, Read/Write English, Read/ Write Language (any two), Research +8, Search +4, Speak English, Speak Language (any two).</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Personal Firearms Proficiency, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!IGpiWEfjeknjdvEg"
+  "_key": "!actors!IGpiWEfjeknjdvEg",
+  "items": [
+    {
+      "_id": "PeYXqq6sgpdQ6Wmh",
+      "name": "Flame sword",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (2d6+1 and 3d6 fire, flame sword) or +6 ranged touch (3d6 fire, flame shield)</p><p><strong>Plus:</strong> 3d6 fire</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "2d6+1",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "JHE0pGWdaR6o0MBQ",
+      "name": "Flame shield",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (2d6+1 and 3d6 fire, flame sword) or +6 ranged touch (3d6 fire, flame shield)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "3d6",
+        "damageType": "fire",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

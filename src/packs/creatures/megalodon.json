@@ -95,5 +95,38 @@
     "specialQualities": "darkvision 60 ft., improved grab, keen scent, low-light vision, swallow whole",
     "biography": "<p><strong>Attack:</strong> +24 melee (4d6+10, bite)</p><p><strong>Full Attack:</strong> +24/+19/+14/+9 melee (4d6+10, bite)</p><p><strong>Skills:</strong> Hide -10, Listen +6, Spot +6, Swim +15</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!Da75Yhx7kEnihprM"
+  "_key": "!actors!Da75Yhx7kEnihprM",
+  "items": [
+    {
+      "_id": "o2LF26QIltBLF5cu",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+24/+19/+14/+9 melee (4d6+10, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "4d6+10",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

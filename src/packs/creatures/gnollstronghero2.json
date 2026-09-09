@@ -99,5 +99,100 @@
     "specialQualities": "Darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d4+4, unarmed or 1d6+4/_19-20, metal baton)</p><p><strong>Full Attack:</strong> +6 melee (1d4+4, unarmed or 1d6+4/19-20, metal baton), or +3 ranged (2d6, TEC-9)</p><p><strong>Skills:</strong> Climb +4, Jump +4, Listen +3, Read/Write Gnoll, Speak Gnoll, Spot +3</p><p><strong>Feats:</strong> Combat Martial Arts, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency</p><p><strong>Talents:</strong> (Strong Hero) Melee smash</p>"
   },
-  "_key": "!actors!PlpeW8YoC3BS9Q42"
+  "_key": "!actors!PlpeW8YoC3BS9Q42",
+  "items": [
+    {
+      "_id": "27uXvhd5i2KYlhYR",
+      "name": "Unarmed",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4+4, unarmed or 1d6+4/19-20, metal baton), or +3 ranged (2d6, TEC-9)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "1d4+4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "H2UVzWAUk9A4ug10",
+      "name": "Metal baton",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4+4, unarmed or 1d6+4/19-20, metal baton), or +3 ranged (2d6, TEC-9)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "1d6+4",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "jHPfUWbjxvW9I68x",
+      "name": "TEC-9",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4+4, unarmed or 1d6+4/19-20, metal baton), or +3 ranged (2d6, TEC-9)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

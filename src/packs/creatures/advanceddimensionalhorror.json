@@ -95,5 +95,69 @@
     "specialQualities": "blindsight 30 ft., darkvision 60 ft., improved grab, scent, shift dimension (DC 19)",
     "biography": "<p><strong>Attack:</strong> +23 melee (2d6+19, claw)</p><p><strong>Full Attack:</strong> +23 melee (2d6+13, 2 claws) and +21 melee (2d8+6, 2 bites)</p><p><strong>Skills:</strong> Listen +19, Navigate +16, Search +15, Sense Motive +16, Spot +19, Survival +19</p><p><strong>Feats:</strong> Cleave, Multiattack, Power Attack, Track</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!mmhJ4EEoE5IcdnhO"
+  "_key": "!actors!mmhJ4EEoE5IcdnhO",
+  "items": [
+    {
+      "_id": "ctvayPFvJBafElAB",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+23 melee (2d6+13, 2 claws) and +21 melee (2d8+6, 2 bites)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d6+13",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "3spp9YcOERZuAygN",
+      "name": "Bite (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+23 melee (2d6+13, 2 claws) and +21 melee (2d8+6, 2 bites)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d8+6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -2,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -99,5 +99,131 @@
     "specialQualities": "Darkvision 60 ft., light sensitivity",
     "biography": "<p><strong>Attack:</strong> +1 melee (1d2-2, slam or 1d3 electricity plus paralysis, stun gun)</p><p><strong>Full Attack:</strong> +1 melee (1d2-2, slam or 1d3 electricity plus paralysis, stun gun), or +4 ranged (2d4, Pathfinder), or +4 ranged (2d6, dynamite)</p><p><strong>Skills:</strong> Craft (electronic) +7, Craft (mechanical) +8, Decipher Script +9, Demolitions +9, Disable Device +9, Knowledge (streetwise) +7, Knowledge (tactics) +7, Listen +2, Read/_Write Draconic, Read/Write English, Repair +11, Research +9, Search +9, Speak Draconic, Speak English, Spot +2</p><p><strong>Feats:</strong> Alertness, Cautious, Personal Firearms Proficiency, Simple Weapons Proficiency, Studious</p><p><strong>Talents:</strong> (Smart Hero): Plan, savant (Repair)</p>"
   },
-  "_key": "!actors!0WoHRElHL03INbRT"
+  "_key": "!actors!0WoHRElHL03INbRT",
+  "items": [
+    {
+      "_id": "kDRdBukIlqJDBvk8",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d2-2, slam or 1d3 electricity plus paralysis, stun gun), or +4 ranged (2d4, Pathfinder), or +4 ranged (2d6, dynamite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "unarmed",
+        "damage": "1d2-2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "2RbWKsNZC9jXPf6R",
+      "name": "Stun gun",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d2-2, slam or 1d3 electricity plus paralysis, stun gun), or +4 ranged (2d4, Pathfinder), or +4 ranged (2d6, dynamite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "1d3",
+        "damageType": "electricity",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "dzG9fWnRYdsO6K7L",
+      "name": "Pathfinder",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d2-2, slam or 1d3 electricity plus paralysis, stun gun), or +4 ranged (2d4, Pathfinder), or +4 ranged (2d6, dynamite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "unQsgyhs2nY1087g",
+      "name": "Dynamite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d2-2, slam or 1d3 electricity plus paralysis, stun gun), or +4 ranged (2d4, Pathfinder), or +4 ranged (2d6, dynamite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

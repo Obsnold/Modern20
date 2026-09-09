@@ -99,5 +99,100 @@
     "specialQualities": "Freeze, keen sight, damage reduction 15/+1",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p><p><strong>Skills:</strong> Hide +9 (+17 when concealed against worked stone), Listen +4, Speak Terran, Spot +4</p><p><strong>Feats:</strong> Multiattack, Weapon Finesse (bite), Weapon Finesse (claw), Weapon Finesse (gore)</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!KSGQZ5O6Us5K2Jpk"
+  "_key": "!actors!KSGQZ5O6Us5K2Jpk",
+  "items": [
+    {
+      "_id": "uZkalkhMSzMDVIZt",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 2,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "yCSuCt5LDj1HTw53",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "1d6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "6V4pJFaCrjo83mOi",
+      "name": "Gore",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "1d6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

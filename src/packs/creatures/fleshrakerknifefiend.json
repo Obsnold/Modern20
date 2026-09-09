@@ -99,5 +99,38 @@
     "specialQualities": "Damage reduction 10/ballistic, darkvision 60 ft., fire resistance 20, immunities, wounding weapon",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d4+1/19-20, knife)</p><p><strong>Full Attack:</strong> +11 melee (1d4+1/19-20, knife)</p><p><strong>Skills:</strong> Balance +8, Bluff +4, Disguise +4, Escape Artist +8, Hide +8, Knowledge (arcane lore) +6, Knowledge (behavioral science) +6, Listen +5, Move Silently +8, Read/Write Abyssal, Read/Write English, Read/Write Latin, Speak English, Speak Abyssal, Speak Latin, Spot +5.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Simple Weapons Proficiency, Weapon Finesse (knife), Weapon Focus (knife).</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!svs8YMm3bKPOIayX"
+  "_key": "!actors!svs8YMm3bKPOIayX",
+  "items": [
+    {
+      "_id": "GKxva8xMVIijVW32",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+11 melee (1d4+1/19-20, knife)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d4+1",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 6,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

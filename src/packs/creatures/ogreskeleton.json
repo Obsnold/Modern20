@@ -95,5 +95,69 @@
     "specialQualities": "Undead, skeleton immunities",
     "biography": "<p><strong>Attack:</strong> +4 melee (1d6+5, claw)</p><p><strong>Full Attack:</strong> +4 melee (1d6+5, 2 claws), or +4 melee (2d6+7, great club)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> Improved Initiative, Simple Weapons Proficiency</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!apeohRl3szvh2aCZ"
+  "_key": "!actors!apeohRl3szvh2aCZ",
+  "items": [
+    {
+      "_id": "1eQ5sAm3MI6gDGx4",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d6+5, 2 claws), or +4 melee (2d6+7, great club)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1d6+5",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "XcSRtWjurOifs2Lm",
+      "name": "Great club",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d6+5, 2 claws), or +4 melee (2d6+7, great club)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "2d6+7",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

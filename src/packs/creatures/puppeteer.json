@@ -95,5 +95,38 @@
     "specialQualities": "Glide, psionics, thrall, shared host, blindsight 60 ft., host protection, immune to mind-influencing effects, resistance to massive damage",
     "biography": "<p><strong>Attack:</strong> +3 melee (1, bite)</p><p><strong>Full Attack:</strong> +3 melee (1, bite)</p><p><strong>Skills:</strong> Hide +20, Listen +7, Spot +7</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!QW8IsDOEFOC04Gag"
+  "_key": "!actors!QW8IsDOEFOC04Gag",
+  "items": [
+    {
+      "_id": "xH4uzTrJzVIuF9l1",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "fine",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

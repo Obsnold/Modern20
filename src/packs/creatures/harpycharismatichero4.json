@@ -99,5 +99,100 @@
     "specialQualities": "Captivating song (DC 16)",
     "biography": "<p><strong>Attack:</strong> )</p><p><strong>Full Attack:</strong> +9/+4 melee (1d8, metal baton) or +9 melee (1d4, 2 claws) or +12/+7 ranged (2d6, S&W M29)</p><p><strong>Skills:</strong> Bluff +10, Knowledge (any two) +2, Listen +5, Perform (act) +11, Perform (sing) +11, Perform (stand-up) +9, Read/Write English, Speak English, Spot +9.</p><p><strong>Feats:</strong> Flyby Attack, Personal Weapon Proficiency, Point Blank Shot, Renown, Simple Weapons Proficiency, Weapon Focus (S&W M29).</p><p><strong>Talents:</strong> (Charismatic): Charm, fast-talk</p>"
   },
-  "_key": "!actors!nlKXkSDm6BjRjRk6"
+  "_key": "!actors!nlKXkSDm6BjRjRk6",
+  "items": [
+    {
+      "_id": "2v89FJSkCdO84FvJ",
+      "name": "Metal baton",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9/+4 melee (1d8, metal baton) or +9 melee (1d4, 2 claws) or +12/+7 ranged (2d6, S&W M29)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d8",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "f0EW4FCqQfblrSlF",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9/+4 melee (1d8, metal baton) or +9 melee (1d4, 2 claws) or +12/+7 ranged (2d6, S&W M29)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "hfK7r0oPKPNst7q5",
+      "name": "S&W M29",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9/+4 melee (1d8, metal baton) or +9 melee (1d4, 2 claws) or +12/+7 ranged (2d6, S&W M29)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

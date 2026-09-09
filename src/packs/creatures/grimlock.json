@@ -95,5 +95,100 @@
     "specialQualities": "Blindsight 40 ft., immunities, scent",
     "biography": "<p><strong>Attack:</strong> +5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear)</p><p><strong>Full Attack:</strong> +5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear) or +3 ranged (1d8+2, spear)</p><p><strong>Skills:</strong> Climb +7, Hide +6 (+16 in rocky terrain or underground), Listen +4, Search +5, Speak English, Survival +2.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Brawl</p><p><strong>Talents:</strong> N/A</p>"
   },
-  "_key": "!actors!MVn4Uu9P43hpyg72"
+  "_key": "!actors!MVn4Uu9P43hpyg72",
+  "items": [
+    {
+      "_id": "PsPgBcf9UphKrtg1",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear) or +3 ranged (1d8+2, spear)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d6+2",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "b7tqr8ExWBZUhKa2",
+      "name": "Spear",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear) or +3 ranged (1d8+2, spear)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d8+2",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "b7tqr8ExWBZUhKa2",
+      "name": "Spear (+3)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear) or +3 ranged (1d8+2, spear)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d8+2",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -95,5 +95,100 @@
     "specialQualities": "Breath weapon, improved grab, fling, poison, scent, immunities, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +28 melee (1d8+10 plus poison, sting)</p><p><strong>Full Attack:</strong> +28 melee (1d8+10 plus poison, sting), +26 melee (2d8+5, bite), +26 melee (2d6+5, 2 claws)</p><p><strong>Skills:</strong> Listen +22, Move Silently +17, Search +17, Spot +22 (+25 during daylight)</p><p><strong>Feats:</strong> Alertness, Cleave (bite), Multiattack, Power Attack, Weapon Focus (sting)</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!OJOC5b8vtyD7iAv3"
+  "_key": "!actors!OJOC5b8vtyD7iAv3",
+  "items": [
+    {
+      "_id": "PdPOLdlMYP2qjdJ4",
+      "name": "Sting",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+28 melee (1d8+10 plus poison, sting), +26 melee (2d8+5, bite), +26 melee (2d6+5, 2 claws)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "unarmed",
+        "damage": "1d8+10",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "LwEEfsTw2Hbt3JDS",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+28 melee (1d8+10 plus poison, sting), +26 melee (2d8+5, bite), +26 melee (2d6+5, 2 claws)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "unarmed",
+        "damage": "2d8+5",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -1,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "YDW3u7EB0XY7bjUh",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+28 melee (1d8+10 plus poison, sting), +26 melee (2d8+5, bite), +26 melee (2d6+5, 2 claws)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "unarmed",
+        "damage": "2d6+5",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -1,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

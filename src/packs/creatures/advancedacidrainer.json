@@ -95,5 +95,38 @@
     "specialQualities": "acid resistance 10, acid spray (DC 27), acid touch, darkvision 60 ft., elemental, improved grab",
     "biography": "<p><strong>Attack:</strong> +20 melee (1d8+9 plus 1d6 acid, tentacle)</p><p><strong>Full Attack:</strong> +20 melee (1d8+9 plus 1d6 acid, 6 tentacles) or +9 ranged)</p><p><strong>Skills:</strong> Hide +11, Listen +12, Move Silently +16, Spot +12</p><p><strong>Feats:</strong> Combat Reflexes, Lightning Reflexes, Power Attack, Stealthy</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!LEQChrxP0XHypfnC"
+  "_key": "!actors!LEQChrxP0XHypfnC",
+  "items": [
+    {
+      "_id": "ntqTaKTaiy1Zb6AD",
+      "name": "Tentacle (x6)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+20 melee (1d8+9 plus 1d6 acid, 6 tentacles) or +9 ranged)</p><p><strong>Plus:</strong> 1d6 acid</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "1d8+9",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

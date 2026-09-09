@@ -95,5 +95,38 @@
     "specialQualities": "low-light vision, scent, stench",
     "biography": "<p><strong>Attack:</strong> +19 melee (2d4+10, slam)</p><p><strong>Full Attack:</strong> +19 melee (2d4+10, 2 slams)</p><p><strong>Skills:</strong> Climb +14, Listen +5</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!j8YmPJrh2e80DJwb"
+  "_key": "!actors!j8YmPJrh2e80DJwb",
+  "items": [
+    {
+      "_id": "LAFl0D3QtATUShv6",
+      "name": "Slam (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+19 melee (2d4+10, 2 slams)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "2d4+10",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

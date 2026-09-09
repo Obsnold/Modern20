@@ -95,5 +95,38 @@
     "specialQualities": "improved grab, grind (4d4+9); SQ construct, damage reduction 10/+1, improved grab, grind, possession",
     "biography": "<p><strong>Attack:</strong> +13 melee (2d4+9, claw)</p><p><strong>Full Attack:</strong> +13 melee (2d4+9, 2 claws)</p><p><strong>Skills:</strong> Bluff +11, Listen +16, Sense Motive +14, Spot +16.</p><p><strong>Feats:</strong> Alertness, Improved Initiative</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!Xqa5bQGQZepLID8g"
+  "_key": "!actors!Xqa5bQGQZepLID8g",
+  "items": [
+    {
+      "_id": "d7fOqFXC4zGT28Is",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (2d4+9, 2 claws)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d4+9",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

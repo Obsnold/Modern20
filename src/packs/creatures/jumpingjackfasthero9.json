@@ -99,5 +99,69 @@
     "specialQualities": "Breath weapon (DC 17), damage reduction 10/silver, darkvision 60 ft., immunities, prodigious leap;",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d4+2, claw)</p><p><strong>Full Attack:</strong> +9 melee (1d4+2, 2 claws) or +13 ranged (2d6, Colt Python)</p><p><strong>Skills:</strong> Hide +14, Intimidate +13, Jump +17, Read/Write English, Speak English, Tumble +17.</p><p><strong>Feats:</strong> Acrobatic, Archaic Weapons Proficiency, Defensive Martial Arts, Dodge, Elusive Target, Heroic Surge, Improved Initiative, Mobility, Simple Weapons Proficiency, Spring Attack.</p><p><strong>Talents:</strong> Evasion, defensive roll, increased speed, uncanny dodge 1, uncanny dodge 2</p>"
   },
-  "_key": "!actors!Fc8PZpRycqVoq6cY"
+  "_key": "!actors!Fc8PZpRycqVoq6cY",
+  "items": [
+    {
+      "_id": "35imkXkUr8RVy0Xj",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d4+2, 2 claws) or +13 ranged (2d6, Colt Python)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d4+2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "_id": "o8zH4Qlcx9xJblVc",
+      "name": "Colt Python",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d4+2, 2 claws) or +13 ranged (2d6, Colt Python)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }

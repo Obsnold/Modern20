@@ -18,6 +18,23 @@
       "cha": 11
     },
     "baseAttack": 12,
+    "attacks": [
+      {
+        "bonus": 18,
+        "sequence": [
+          18
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4+8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 7,
@@ -61,6 +78,23 @@
       "cha": 11
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d6 acid",
+        "name": "tentacle",
+        "count": 6
+      }
+    ],
     "speed": 5,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -104,6 +138,23 @@
       "cha": 11
     },
     "baseAttack": 15,
+    "attacks": [
+      {
+        "bonus": 20,
+        "sequence": [
+          20
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+9",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d6 acid",
+        "name": "tentacle",
+        "count": 6
+      }
+    ],
     "speed": 5,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -147,6 +198,23 @@
       "cha": 12
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 5,
     "naturalArmor": 3,
@@ -190,6 +258,23 @@
       "cha": 13
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d10",
+        "critical": "20",
+        "damageType": "fire",
+        "extra": "",
+        "name": "incorporeal touch",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -234,6 +319,23 @@
       "cha": 1
     },
     "baseAttack": 14,
+    "attacks": [
+      {
+        "bonus": 22,
+        "sequence": [
+          22
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 13,
@@ -277,6 +379,25 @@
       "cha": 1
     },
     "baseAttack": 14,
+    "attacks": [
+      {
+        "bonus": 23,
+        "sequence": [
+          23,
+          18,
+          13
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+13",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d6 acid",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 5,
     "initiativeMisc": 0,
     "naturalArmor": 9,
@@ -320,6 +441,23 @@
       "cha": 5
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 13,
+        "sequence": [
+          13
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4+9",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 3,
     "naturalArmor": 8,
@@ -363,6 +501,38 @@
       "cha": 14
     },
     "baseAttack": 14,
+    "attacks": [
+      {
+        "bonus": 23,
+        "sequence": [
+          23
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+13",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 21,
+        "sequence": [
+          21
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 2
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 14,
@@ -406,6 +576,25 @@
       "cha": 12
     },
     "baseAttack": 12,
+    "attacks": [
+      {
+        "bonus": 25,
+        "sequence": [
+          25,
+          20,
+          15
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+17",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 17,
@@ -449,6 +638,23 @@
       "cha": 6
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": true,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "fire",
+        "extra": "",
+        "name": "touch",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": -1,
     "naturalArmor": 0,
@@ -492,6 +698,23 @@
       "cha": 1
     },
     "baseAttack": 15,
+    "attacks": [
+      {
+        "bonus": 22,
+        "sequence": [
+          22
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "4d6+9",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 13,
@@ -535,6 +758,23 @@
       "cha": 2
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 2
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -578,6 +818,24 @@
       "cha": 11
     },
     "baseAttack": 9,
+    "attacks": [
+      {
+        "bonus": 15,
+        "sequence": [
+          15,
+          10
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+12",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 7,
@@ -621,6 +879,23 @@
       "cha": 6
     },
     "baseAttack": 9,
+    "attacks": [
+      {
+        "bonus": 13,
+        "sequence": [
+          13
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 11,
@@ -664,6 +939,23 @@
       "cha": 8
     },
     "baseAttack": 11,
+    "attacks": [
+      {
+        "bonus": 19,
+        "sequence": [
+          19
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4+10",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 9,
@@ -707,6 +999,26 @@
       "cha": 10
     },
     "baseAttack": 43,
+    "attacks": [
+      {
+        "bonus": 58,
+        "sequence": [
+          58,
+          53,
+          48,
+          43
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "5d6+15",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 120,
     "initiativeMisc": 0,
     "naturalArmor": 17,
@@ -750,6 +1062,23 @@
       "cha": 4
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -793,6 +1122,24 @@
       "cha": 18
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9,
+          4
+        ],
+        "ranged": false,
+        "touch": true,
+        "alternateName": "",
+        "damage": "1d6+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "special",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 10,
     "initiativeMisc": 1,
     "naturalArmor": 2,
@@ -836,6 +1183,23 @@
       "cha": 9
     },
     "baseAttack": 19,
+    "attacks": [
+      {
+        "bonus": 27,
+        "sequence": [
+          27
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "tail slap",
+        "damage": "4d6+16",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 60,
     "initiativeMisc": 4,
     "naturalArmor": 13,
@@ -879,6 +1243,24 @@
       "cha": 1
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 10,
+        "sequence": [
+          10,
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "disease",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 1,
     "naturalArmor": 2,
@@ -922,6 +1304,23 @@
       "cha": 12
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -965,6 +1364,25 @@
       "cha": 1
     },
     "baseAttack": 15,
+    "attacks": [
+      {
+        "bonus": 21,
+        "sequence": [
+          21,
+          16,
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+10",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d4 acid",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 1,
     "naturalArmor": 7,
@@ -1008,6 +1426,7 @@
       "cha": 9
     },
     "baseAttack": 12,
+    "attacks": [],
     "speed": 0,
     "initiativeMisc": 0,
     "naturalArmor": 10,
@@ -1051,6 +1470,38 @@
       "cha": 2
     },
     "baseAttack": 22,
+    "attacks": [
+      {
+        "bonus": 33,
+        "sequence": [
+          33
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+15",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "tail slap",
+        "count": 1
+      },
+      {
+        "bonus": 28,
+        "sequence": [
+          28
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 11,
@@ -1094,6 +1545,38 @@
       "cha": 2
     },
     "baseAttack": 9,
+    "attacks": [
+      {
+        "bonus": 18,
+        "sequence": [
+          18
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+11",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "tail slap",
+        "count": 1
+      },
+      {
+        "bonus": 13,
+        "sequence": [
+          13
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 7,
@@ -1137,6 +1620,23 @@
       "cha": 12
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 4,
     "naturalArmor": 3,
@@ -1180,6 +1680,38 @@
       "cha": 9
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+2",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -1224,6 +1756,38 @@
       "cha": 9
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+2",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -1268,6 +1832,38 @@
       "cha": 16
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Glock 17",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 1,
@@ -1311,6 +1907,38 @@
       "cha": 16
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claws",
+        "count": 1
+      },
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Glock 17",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 1,
@@ -1354,6 +1982,23 @@
       "cha": 13
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d10",
+        "critical": "20",
+        "damageType": "fire",
+        "extra": "",
+        "name": "incorporeal touch",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -1398,6 +2043,23 @@
       "cha": 1
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 10,
@@ -1441,6 +2103,23 @@
       "cha": 1
     },
     "baseAttack": 24,
+    "attacks": [
+      {
+        "bonus": 25,
+        "sequence": [
+          25
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "4d6+13",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 12,
@@ -1484,6 +2163,23 @@
       "cha": 2
     },
     "baseAttack": 36,
+    "attacks": [
+      {
+        "bonus": 36,
+        "sequence": [
+          36
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "4d6+12",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 15,
@@ -1527,6 +2223,23 @@
       "cha": 2
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -1570,6 +2283,23 @@
       "cha": 1
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 13,
+        "sequence": [
+          13
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+9",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d6 acid",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 5,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -1613,6 +2343,38 @@
       "cha": 2
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d12+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "tail slap",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -1656,6 +2418,23 @@
       "cha": 5
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 5,
@@ -1699,6 +2478,38 @@
       "cha": 14
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 2
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 7,
@@ -1742,6 +2553,7 @@
       "cha": 10
     },
     "baseAttack": 0,
+    "attacks": [],
     "speed": 10,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -1785,6 +2597,23 @@
       "cha": 12
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 12,
+        "sequence": [
+          12
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+13",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 13,
@@ -1828,6 +2657,38 @@
       "cha": 19
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "3d6 fire",
+        "name": "flame sword",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": true,
+        "touch": true,
+        "alternateName": "",
+        "damage": "3d6",
+        "critical": "20",
+        "damageType": "fire",
+        "extra": "",
+        "name": "flame shield",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -1871,6 +2732,55 @@
       "cha": 20
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 8,
+        "sequence": [
+          8,
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "3d6 fire",
+        "name": "flame sword",
+        "count": 1
+      },
+      {
+        "bonus": 9,
+        "sequence": [
+          9,
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "HK MP5",
+        "count": 1
+      },
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": true,
+        "touch": true,
+        "alternateName": "",
+        "damage": "3d6",
+        "critical": "20",
+        "damageType": "fire",
+        "extra": "",
+        "name": "flame shield",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -1914,6 +2824,23 @@
       "cha": 11
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d6 electricity",
+        "name": "pincer",
+        "count": 3
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -1958,6 +2885,23 @@
       "cha": 11
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d6 electricity",
+        "name": "pincer",
+        "count": 3
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -2002,6 +2946,23 @@
       "cha": 6
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": true,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "fire",
+        "extra": "",
+        "name": "touch",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -2045,6 +3006,23 @@
       "cha": 1
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 10,
+        "sequence": [
+          10
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 10,
@@ -2088,6 +3066,40 @@
       "cha": 10
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11,
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      },
+      {
+        "bonus": 11,
+        "sequence": [
+          11,
+          6
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 9,
@@ -2132,6 +3144,23 @@
       "cha": 10
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 9,
@@ -2176,6 +3205,23 @@
       "cha": 1
     },
     "baseAttack": 12,
+    "attacks": [
+      {
+        "bonus": 15,
+        "sequence": [
+          15
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+10",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -2219,6 +3265,23 @@
       "cha": 2
     },
     "baseAttack": 18,
+    "attacks": [
+      {
+        "bonus": 20,
+        "sequence": [
+          20
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+9",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 9,
@@ -2262,6 +3325,53 @@
       "cha": 7
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      }
+    ],
     "speed": 45,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -2306,6 +3416,53 @@
       "cha": 7
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      }
+    ],
     "speed": 45,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -2350,6 +3507,53 @@
       "cha": 8
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "unarmed",
+        "count": 1
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+2",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      },
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "TEC-9",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -2394,6 +3598,53 @@
       "cha": 8
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "unarmed",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+4",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "TEC-9",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -2438,6 +3689,38 @@
       "cha": 8
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d2-1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6-1",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -2482,6 +3765,53 @@
       "cha": 8
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d2-1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6-1",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      },
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Desert Eagle",
+        "count": 1
+      }
+    ],
     "speed": 35,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -2526,6 +3856,53 @@
       "cha": 6
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+2",
+        "critical": "20",
+        "damageType": "nonlethal",
+        "extra": "",
+        "name": "unarmed strike",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "spear",
+        "count": 1
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "spear",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -2569,6 +3946,53 @@
       "cha": 6
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+4",
+        "critical": "20",
+        "damageType": "nonlethal",
+        "extra": "",
+        "name": "unarmed strike",
+        "count": 1
+      },
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "spear",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "compound bow",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -2612,6 +4036,55 @@
       "cha": 15
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7,
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      },
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 9,
+        "sequence": [
+          9,
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "S&W M29",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -2656,6 +4129,55 @@
       "cha": 16
     },
     "baseAttack": 9,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9,
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "metal baton",
+        "count": 1
+      },
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 12,
+        "sequence": [
+          12,
+          7
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "S&W M29",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -2700,6 +4222,23 @@
       "cha": 2
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 2
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -2743,6 +4282,23 @@
       "cha": 1
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 6,
@@ -2786,6 +4342,38 @@
       "cha": 2
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+12",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d12+12",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "tail slap",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 7,
@@ -2829,6 +4417,38 @@
       "cha": 1
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 12,
+        "sequence": [
+          12
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+13",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 12,
+        "sequence": [
+          12
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+13",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "tail slap",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 7,
@@ -2872,6 +4492,23 @@
       "cha": 2
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -2915,6 +4552,68 @@
       "cha": 10
     },
     "baseAttack": 12,
+    "attacks": [
+      {
+        "bonus": 22,
+        "sequence": [
+          22
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+12",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 17,
+        "sequence": [
+          17
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      },
+      {
+        "bonus": 17,
+        "sequence": [
+          17
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 1
+      },
+      {
+        "bonus": 17,
+        "sequence": [
+          17
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 9,
@@ -2958,6 +4657,23 @@
       "cha": 1
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 0,
+        "sequence": [
+          0
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 2,
@@ -3001,6 +4717,23 @@
       "cha": 1
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -3044,6 +4777,23 @@
       "cha": 5
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 0,
+        "sequence": [
+          0
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -3087,6 +4837,23 @@
       "cha": 5
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": -3,
     "naturalArmor": 0,
@@ -3130,6 +4897,24 @@
       "cha": 11
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 10,
+        "sequence": [
+          10,
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 4,
@@ -3173,6 +4958,23 @@
       "cha": 12
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 35,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -3217,6 +5019,38 @@
       "cha": 12
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 13,
+        "sequence": [
+          13
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Colt Python",
+        "count": 1
+      }
+    ],
     "speed": 35,
     "initiativeMisc": 4,
     "naturalArmor": 3,
@@ -3261,6 +5095,23 @@
       "cha": 14
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -3305,6 +5156,23 @@
       "cha": 14
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -3349,6 +5217,38 @@
       "cha": 11
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -3393,6 +5293,53 @@
       "cha": 11
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Colt Desert Eagle",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -3437,6 +5384,53 @@
       "cha": 10
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": -1,
+        "sequence": [
+          -1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d2-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": -1,
+        "sequence": [
+          -1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      },
+      {
+        "bonus": -2,
+        "sequence": [
+          -2
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Pathfinder",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -3481,6 +5475,68 @@
       "cha": 10
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d2-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3",
+        "critical": "20",
+        "damageType": "electricity",
+        "extra": "",
+        "name": "stun gun",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Pathfinder",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "dynamite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -3525,6 +5581,23 @@
       "cha": 1
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -3568,6 +5641,23 @@
       "cha": 2
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -3611,6 +5701,68 @@
       "cha": 10
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 13,
+        "sequence": [
+          13
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      },
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 1
+      },
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 6,
@@ -3654,6 +5806,23 @@
       "cha": 6
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -3697,6 +5866,38 @@
       "cha": 14
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Colt Python",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -3740,6 +5941,38 @@
       "cha": 15
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Colt Python revolver",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -3783,6 +6016,23 @@
       "cha": 8
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 6,
@@ -3826,6 +6076,23 @@
       "cha": 0
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -3869,6 +6136,23 @@
       "cha": 1
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -3912,6 +6196,23 @@
       "cha": 2
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 1,
@@ -3955,6 +6256,68 @@
       "cha": 10
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      },
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 1
+      },
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -3998,6 +6361,55 @@
       "cha": 15
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6,
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "snakes",
+        "count": 1
+      },
+      {
+        "bonus": 9,
+        "sequence": [
+          9,
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Glock 17",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -4042,6 +6454,55 @@
       "cha": 16
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7,
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "snakes",
+        "count": 1
+      },
+      {
+        "bonus": 10,
+        "sequence": [
+          10,
+          5
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Glock 17",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -4086,6 +6547,26 @@
       "cha": 10
     },
     "baseAttack": 18,
+    "attacks": [
+      {
+        "bonus": 24,
+        "sequence": [
+          24,
+          19,
+          14,
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "4d6+10",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 120,
     "initiativeMisc": 0,
     "naturalArmor": 12,
@@ -4129,6 +6610,70 @@
       "cha": 8
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9,
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Huge lead pipe",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      },
+      {
+        "bonus": 9,
+        "sequence": [
+          9,
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -4173,6 +6718,54 @@
       "cha": 8
     },
     "baseAttack": 10,
+    "attacks": [
+      {
+        "bonus": 13,
+        "sequence": [
+          13,
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "3d6+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "chain saw",
+        "count": 1
+      },
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+4",
+        "critical": "20",
+        "damageType": ",",
+        "extra": "",
+        "name": "",
+        "count": 1
+      },
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -4217,6 +6810,23 @@
       "cha": 4
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4-1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -4260,6 +6870,26 @@
       "cha": 14
     },
     "baseAttack": 16,
+    "attacks": [
+      {
+        "bonus": 25,
+        "sequence": [
+          25,
+          20,
+          15,
+          10
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+19",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 12,
@@ -4303,6 +6933,24 @@
       "cha": 14
     },
     "baseAttack": 8,
+    "attacks": [
+      {
+        "bonus": 16,
+        "sequence": [
+          16,
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+13",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -4346,6 +6994,23 @@
       "cha": 12
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 11,
+        "sequence": [
+          11
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "1d6 fire plus 1d6 electricity",
+        "name": "energy claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -4389,6 +7054,23 @@
       "cha": 10
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -4432,6 +7114,23 @@
       "cha": 10
     },
     "baseAttack": 6,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -4475,6 +7174,23 @@
       "cha": 15
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "mummy rot",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -4519,6 +7235,38 @@
       "cha": 15
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "mummy rot",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d10",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "crossbow",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -4563,6 +7311,38 @@
       "cha": 17
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "cleaver",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 1,
@@ -4606,6 +7386,53 @@
       "cha": 18
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "cleaver",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Colt M1911",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 1,
@@ -4649,6 +7476,38 @@
       "cha": 7
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Huge club",
+        "count": 1
+      },
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -4693,6 +7552,38 @@
       "cha": 1
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "great club",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 3,
@@ -4736,6 +7627,56 @@
       "cha": 7
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 12,
+        "sequence": [
+          12,
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Huge club",
+        "count": 1
+      },
+      {
+        "bonus": 12,
+        "sequence": [
+          12,
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      },
+      {
+        "bonus": 5,
+        "sequence": [
+          5,
+          0
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d10",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Browning BPS",
+        "count": 1
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 5,
@@ -4781,6 +7722,23 @@
       "cha": 14
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 5,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -4824,6 +7782,38 @@
       "cha": 14
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3",
+        "critical": "20",
+        "damageType": "electricity",
+        "extra": "",
+        "name": "stun gun",
+        "count": 1
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Beretta 92F",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": -1,
     "naturalArmor": 0,
@@ -4867,6 +7857,38 @@
       "cha": 10
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 13,
+        "sequence": [
+          13
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+9",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d10",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "crossbow",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -4910,6 +7932,23 @@
       "cha": 10
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 1,
     "naturalArmor": 3,
@@ -4953,6 +7992,23 @@
       "cha": 18
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": true,
+        "alternateName": "",
+        "damage": "1d4-1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "special",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 10,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -4996,6 +8052,23 @@
       "cha": 9
     },
     "baseAttack": 9,
+    "attacks": [
+      {
+        "bonus": 15,
+        "sequence": [
+          15
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "tail slap",
+        "damage": "2d6+8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 60,
     "initiativeMisc": 4,
     "naturalArmor": 4,
@@ -5039,6 +8112,23 @@
       "cha": 1
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "disease",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5082,6 +8172,23 @@
       "cha": 12
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 3,
@@ -5125,6 +8232,23 @@
       "cha": 1
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -5168,6 +8292,23 @@
       "cha": 6
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5211,6 +8352,23 @@
       "cha": 2
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5254,6 +8412,68 @@
       "cha": 10
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": -1,
+        "sequence": [
+          -1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      },
+      {
+        "bonus": -1,
+        "sequence": [
+          -1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 1
+      },
+      {
+        "bonus": -1,
+        "sequence": [
+          -1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d2+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -5297,6 +8517,38 @@
       "cha": 14
     },
     "baseAttack": 16,
+    "attacks": [
+      {
+        "bonus": 23,
+        "sequence": [
+          23
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 21,
+        "sequence": [
+          21
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 14,
@@ -5340,6 +8592,38 @@
       "cha": 12
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 9,
@@ -5383,6 +8667,23 @@
       "cha": 1
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5426,6 +8727,23 @@
       "cha": 2
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5469,6 +8787,7 @@
       "cha": 10
     },
     "baseAttack": 0,
+    "attacks": [],
     "speed": 20,
     "initiativeMisc": 1,
     "naturalArmor": 0,
@@ -5512,6 +8831,68 @@
       "cha": 10
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": -3,
+        "sequence": [
+          -3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "gore",
+        "count": 1
+      },
+      {
+        "bonus": -3,
+        "sequence": [
+          -3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 1
+      },
+      {
+        "bonus": -3,
+        "sequence": [
+          -3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -5555,6 +8936,23 @@
       "cha": 2
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d3-2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 15,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -5598,6 +8996,23 @@
       "cha": 13
     },
     "baseAttack": 0,
+    "attacks": [
+      {
+        "bonus": 0,
+        "sequence": [
+          0
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 4,
     "naturalArmor": 0,
@@ -5641,6 +9056,38 @@
       "cha": 13
     },
     "baseAttack": 2,
+    "attacks": [
+      {
+        "bonus": 2,
+        "sequence": [
+          2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "knife",
+        "count": 1
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Colt Double Eagle",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5684,6 +9131,23 @@
       "cha": 1
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 5,
+        "sequence": [
+          5
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "slam plus 1d4 acid",
+        "count": 1
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5727,6 +9191,83 @@
       "cha": 10
     },
     "baseAttack": 1,
+    "attacks": [
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": -1,
+        "sequence": [
+          -1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "nonlethal",
+        "extra": "",
+        "name": "sap",
+        "count": 1
+      },
+      {
+        "bonus": -4,
+        "sequence": [
+          -4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 0,
+        "sequence": [
+          0
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "javelin",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 6,
@@ -5771,6 +9312,83 @@
       "cha": 10
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 1,
+        "sequence": [
+          1
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6",
+        "critical": "20",
+        "damageType": "nonlethal",
+        "extra": "",
+        "name": "sap",
+        "count": 1
+      },
+      {
+        "bonus": -2,
+        "sequence": [
+          -2
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4",
+        "critical": "20",
+        "damageType": "electricity",
+        "extra": "",
+        "name": "taser",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 6,
@@ -5815,6 +9433,38 @@
       "cha": 6
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 7,
@@ -5861,6 +9511,54 @@
       "cha": 6
     },
     "baseAttack": 9,
+    "attacks": [
+      {
+        "bonus": 14,
+        "sequence": [
+          14
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      },
+      {
+        "bonus": 12,
+        "sequence": [
+          12
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+3",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 10,
+        "sequence": [
+          10,
+          5
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "M16A2",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 7,
@@ -5907,6 +9605,7 @@
       "cha": 9
     },
     "baseAttack": 4,
+    "attacks": [],
     "speed": 0,
     "initiativeMisc": 0,
     "naturalArmor": 6,
@@ -5950,6 +9649,38 @@
       "cha": 8
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 8,
+        "sequence": [
+          8
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+6",
+        "critical": "19-20",
+        "damageType": "",
+        "extra": "",
+        "name": "cleaver",
+        "count": 1
+      },
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Mossberg",
+        "count": 1
+      }
+    ],
     "speed": 30,
     "initiativeMisc": 0,
     "naturalArmor": 0,
@@ -5994,6 +9725,23 @@
       "cha": 8
     },
     "baseAttack": 5,
+    "attacks": [
+      {
+        "bonus": 9,
+        "sequence": [
+          9
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+7",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 50,
     "initiativeMisc": 0,
     "naturalArmor": 2,
@@ -6038,6 +9786,53 @@
       "cha": 10
     },
     "baseAttack": 19,
+    "attacks": [
+      {
+        "bonus": 28,
+        "sequence": [
+          28
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+10",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "sting",
+        "count": 1
+      },
+      {
+        "bonus": 26,
+        "sequence": [
+          26
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d8+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 26,
+        "sequence": [
+          26
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6+5",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 15,
@@ -6081,6 +9876,53 @@
       "cha": 10
     },
     "baseAttack": 7,
+    "attacks": [
+      {
+        "bonus": 10,
+        "sequence": [
+          10
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d4+2",
+        "critical": "20",
+        "damageType": "",
+        "extra": "poison",
+        "name": "sting",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d8+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+1",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 20,
     "initiativeMisc": 0,
     "naturalArmor": 8,
@@ -6124,6 +9966,23 @@
       "cha": 11
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 7,
+        "sequence": [
+          7
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "1d6+4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "claw",
+        "count": 2
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 0,
     "naturalArmor": 4,
@@ -6167,6 +10026,23 @@
       "cha": 16
     },
     "baseAttack": 3,
+    "attacks": [
+      {
+        "bonus": 3,
+        "sequence": [
+          3
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 4,
     "naturalArmor": 4,
@@ -6210,6 +10086,38 @@
       "cha": 16
     },
     "baseAttack": 4,
+    "attacks": [
+      {
+        "bonus": 4,
+        "sequence": [
+          4
+        ],
+        "ranged": false,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d4",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "bite",
+        "count": 1
+      },
+      {
+        "bonus": 6,
+        "sequence": [
+          6
+        ],
+        "ranged": true,
+        "touch": false,
+        "alternateName": "",
+        "damage": "2d6",
+        "critical": "20",
+        "damageType": "",
+        "extra": "",
+        "name": "Ruger Service-Six",
+        "count": 1
+      }
+    ],
     "speed": 40,
     "initiativeMisc": 4,
     "naturalArmor": 4,

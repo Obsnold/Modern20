@@ -95,5 +95,38 @@
     "specialQualities": "Blindsight 30 ft., double damage against objects, fire vulnerability, intoxicating fruit (DC 14), plant, smash 2d6+13",
     "biography": "<p><strong>Attack:</strong> +12 melee (2d6+13, slam)</p><p><strong>Full Attack:</strong> +12 melee (2d6+13, slam)</p><p><strong>Skills:</strong> Hide -6 (+10 in forested areas), Intimidate +4, Listen +5, Spot +5</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
-  "_key": "!actors!pd6k9banx6B6GGfg"
+  "_key": "!actors!pd6k9banx6B6GGfg",
+  "items": [
+    {
+      "_id": "Mm3mjK563J38RYgm",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+12 melee (2d6+13, slam)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d6+13",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      }
+    }
+  ]
 }
