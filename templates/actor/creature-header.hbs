@@ -24,6 +24,17 @@
       <span class="m20-stat__value">
         <input type="number" name="system.hp.value" value="{{system.hp.value}}"> / {{system.hp.max}}
       </span>
+      {{!-- An action, so it stays with the player who owns the sheet. --}}
+      <span class="m20-hpsteps" data-player-allowed>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="5"
+                data-tooltip="{{localize 'MODERN20.Damage.Take5'}}">-5</button>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="1"
+                data-tooltip="{{localize 'MODERN20.Damage.Take1'}}">-1</button>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="-1"
+                data-tooltip="{{localize 'MODERN20.Damage.Heal1'}}">+1</button>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="-5"
+                data-tooltip="{{localize 'MODERN20.Damage.Heal5'}}">+5</button>
+      </span>
       <span class="m20-stat__sub">{{localize "MODERN20.Massive"}} {{system.attributes.massiveDamage}}</span>
     </div>
 

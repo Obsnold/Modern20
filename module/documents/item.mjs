@@ -67,7 +67,9 @@ export class Modern20Item extends Item {
       flavor: game.i18n.format(
         critical ? "MODERN20.Chat.CriticalDamage" : "MODERN20.Chat.Damage",
         { weapon: this.name }
-      )
+      ),
+      // Read back by the chat card to offer apply controls.
+      flags: { modern20: { damage: roll.total } }
     });
     return roll;
   }

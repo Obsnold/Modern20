@@ -37,7 +37,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       deleteItem: Modern20ActorSheetBase.#onDeleteItem,
       adjustClassLevel: Modern20ActorSheetBase.#onAdjustClassLevel,
       openCreator: Modern20ActorSheetBase.#onOpenCreator,
-      toggleEquipped: Modern20ActorSheetBase.#onToggleEquipped
+      toggleEquipped: Modern20ActorSheetBase.#onToggleEquipped,
+      adjustHealth: Modern20ActorSheetBase.#onAdjustHealth
     }
   };
 
@@ -215,6 +216,29 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
 
   static async #onEditItem(event, target) {
     this._itemFromEvent(target)?.sheet.render(true);
+  }
+
+  /**
+   * Take damage or heal by a step.
+   *
+   * Health changes through an action rather than by typing into the sheet, so
+   * this stays with the player: damage routes through applyDamage and so
+   * carries damage reduction and the massive damage save with it. Buttons
+   * rather than a text field, because an unnamed input cannot survive the
+   * re-render that submitOnChange triggers when it loses focus.
+   */
+  static async #onAdjustHealth(event, target) {
+    const delta = Number(target.dataset.delta) || 0;
+    if (!delta) return;
+
+    const actor = this.document;
+    if (delta > 0) {
+      await actor.applyDamage(delta);
+      return;
+    }
+
+    const hp = actor.system.hp;
+    await actor.update({ "system.hp.value": Math.min(hp.max, hp.value - delta) });
   }
 
   /**

@@ -187,6 +187,22 @@
 
 .modern20 .m20-encumbrance { margin-bottom: 0.8rem; }
 
+.modern20 .m20-hpsteps { display: flex; gap: 0.1rem; }
+.modern20 .m20-hpsteps .m20-icon { width: 1.5rem; font-size: 0.66rem; font-weight: 600; }
+
+/* Damage controls sit under the roll they apply. */
+.m20-damage-buttons {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.m20-damage-buttons button {
+  flex: 1;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
 /* --- Tags -------------------------------------------------------------- */
 
 .modern20 .m20-tag {
