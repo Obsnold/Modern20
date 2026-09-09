@@ -127,7 +127,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Cold subtype, constrict, darkvision 60 ft., improved grab",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Cold subtype, constrict, darkvision 60 ft., improved grab",
     "biography": "<p><strong>Attack:</strong> +18 melee (2d4+8, claw)</p><p><strong>Full Attack:</strong> +18 melee (2d4+8, 2 claws)</p><p><strong>Skills:</strong> Climb +14, Hide +3 (+18 in snowy conditions), Move Silently +10, Speak Giant, Survival +12</p><p><strong>Feats:</strong> Power Attack, Track</p><p><strong>Talents:</strong> </p>"
   },
@@ -198,6 +198,71 @@
         "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "1urRsyV3NwAXB3JB",
+      "name": "Cold Subtype",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A yeti is immune to cold damage. It takes 50% more damage from fire attacks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "6XwxO0Eaqhsvn5S5",
+      "name": "Constrict",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A yeti deals normal claw damage (treat as bludgeoning damage) plus 2d6 points of cold damage with a successful grapple check against a target at least one size category smaller than itself.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "T6HuKtLzNu7FjatC",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "0b6d2PR6mSNX7gdg",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the yeti must hit an opponent at least one size category smaller than itself with its claw attack. If it gets a hold, it automatically deals claw damage each round that the hold is maintained, and it can constrict in the same round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "ZqLyoRguHIcOzkT8",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The yeti’s white fur grants it a +15 species bonus on Hide checks made in snowy conditions.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

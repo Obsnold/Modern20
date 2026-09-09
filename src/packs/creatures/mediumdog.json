@@ -159,6 +159,32 @@
           }
         }
       }
+    },
+    {
+      "_id": "HnvOCk6puEX9njbb",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a dog to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "hgUFa4piue1TGakS",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dogs gain a +2 species bonus on Jump checks. Dogs also gain a +4 species bonus on Survival checks when tracking by scent.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false
+      }
     }
   ]
 }

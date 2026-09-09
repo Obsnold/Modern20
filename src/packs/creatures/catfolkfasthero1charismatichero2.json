@@ -189,7 +189,7 @@
         "strength": "none"
       }
     ],
-    "senses": "alternate form, claws, feline aversion (DC 15), mesmerizing gaze (DC 15), scent",
+    "senses": "Scent",
     "specialQualities": "alternate form, claws, feline aversion (DC 15), mesmerizing gaze (DC 15), scent",
     "biography": "<p><strong>Attack:</strong> +3 melee (1d4+1, claws)</p><p><strong>Full Attack:</strong> +3 melee (1d4+1, claws) or +7 ranged (2d6, Glock 17)</p><p><strong>Skills:</strong> Balance +10, Bluff +6, Disguise +8, Gather Information +7, Hide +11, Knowledge (behavioral science) +5, Knowledge (streetwise) +5, Listen +10, Read/ Write English, Read/Write Cat Folk, Speak English, Speak Cat Folk, Spot +10, Tumble +8.</p><p><strong>Feats:</strong> Alertness, Dodge, Improved Initiative, Personal Firearms Proficiency, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> </p>"
   },
@@ -342,6 +342,123 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "pK7bD8p2AvfMTkn6",
+      "name": "Alternate Form",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>As an attack or move action, a cat folk can assume the form of a normal-sized cat or revert to its natural form. In cat form, the creature has the same physical statistics and attributes as a normal cat but retains its normal Intelligence, Wisdom, and Charisma scores, as well as its normal hit points. A cat folk can remain in either form indefinitely.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "lQKZxmkqeqdfFL5f",
+      "name": "Claws",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A cat folk has retractable claws that function as natural weapons. Each claw deals 1d4 points of slashing damage (plus the creature’s Strength bonus) and threatens a critical hit on a natural 20.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "rkns62IS2GiZV9px",
+      "name": "Feline Aversion (DC 15)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "FDUZ4pBVFdzQ9FS0",
+      "name": "Mesmerizing Gaze (DC 15)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any mammalian creature within 30 feet of a cat folk that meets its gaze must make a successful Will save (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or be dazed.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "GKJkGtNEltDsnVtT",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a cat folk, regardless of its form, to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "PcGqKePZcVINZphx",
+      "name": "Automatic Languages",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A cat folk reads, writes, and speaks Cat Folk. It can also speak the language of other felines (cats, panthers, tigers, and the like).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "H8CoOjm3cIqOdN9l",
+      "name": "Bonus Feats",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A cat folk receives Alertness as a bonus feat.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "CuENC8wSulBFDg3g",
+      "name": "Feline Aversion (Ex",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any normal feline that can smell or see a cat folk must make a successful Will save (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or flee in fear. A successful save means the feline is shaken but does not flee. In either case, the feline attacks the cat folk only if cornered. A cat folk is immune to its own feline aversion effect and to those of other cat folk.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "LKKfch4F1NYdPmKa",
+      "name": "Slow Fall",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A cat folk ignores falling damage from heights of 30 feet or less. When falling from a greater height, it can attempt a Reflex save (DC 15) to halve the damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

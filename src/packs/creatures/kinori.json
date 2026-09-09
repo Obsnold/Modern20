@@ -139,7 +139,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Cold resistance 20, darkvision 120 ft., easy breathing, light sensitivity",
+    "senses": "Darkvision 120 ft.",
     "specialQualities": "Cold resistance 20, darkvision 120 ft., easy breathing, light sensitivity",
     "biography": "<p><strong>Attack:</strong> +3 melee (1d4+1, claw or bite)</p><p><strong>Full Attack:</strong> +3 melee (1d4+1, 2 claws) and +1 melee (1d4, bite) or +3 ranged)</p><p><strong>Skills:</strong> Climb +5, Hide +5 (+9 when concealed against a white background), Listen +3, Move Silently +5, Spot +3, Survival +5, Swim +10.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Multiattack, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -256,6 +256,71 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "cDxk1SORYkFwDPsy",
+      "name": "Cold Resistance 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kinori ignores the first 20 points of cold damage from any single attack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Vowa5PlNLf1eBZoG",
+      "name": "Darkvision 120 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "oDYDvNAg3hed7WiZ",
+      "name": "Easy Breathing",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Since a kinori requires much less oxygen to breathe than a human does, the creature can hold its breath for up to an hour. If exposed to a dangerous inhaled effect, a kinori gains a +5 species bonus on any required saving throw.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "NIUHMBcFwjNW44sg",
+      "name": "Light Sensitivity",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kinori takes a –2 penalty on attack rolls, checks, and saves in sunlight or other bright light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "NdxdcsbDVveH9TX3",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kinori can turn its skin white as a free action, much as a chameleon changes its color. It gains a +4 species bonus on Hide checks when concealed against a white background, such as snow and ice.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -205,7 +205,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Damage reduction 10/ballistic, darkvision 60 ft., death hunger, fire resistance 20, immunities, wounding weapon",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Damage reduction 10/ballistic, darkvision 60 ft., death hunger, fire resistance 20, immunities, wounding weapon",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d4+1/19-20, knife) or +9 ranged (1d4+1/19-20, knife)</p><p><strong>Full Attack:</strong> +11/+6 melee (1d4+1/19-20, knife) or +11/+6 ranged (1d4+1/19-20, knife)</p><p><strong>Skills:</strong> Balance +10, Bluff +7, Disguise +7, Escape Artist +10, Hide +11, Knowledge (arcane lore) +6, Knowledge (behavioral science) +6, Listen +6, Move Silently +11, Read/Write Abyssal, Read/Write English, Read/Write Latin, Speak English, Speak Abyssal, Speak Latin, Spot +6.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Dodge, Improved Initiative, Simple Weapons Proficiency, Weapon Finesse (knife), Weapon Focus (knife).</p><p><strong>Talents:</strong> (Fast Hero): Evasion, uncanny dodge 1</p>"
   },
@@ -350,6 +350,97 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "Py6Z9UoBdFTM4V6v",
+      "name": "Damage Reduction 10/Ballistic",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A fleshraker ignores the first 10 points of damage dealt by any nonballistic weapon.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "lGdrkTLqezuI16qe",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "YRveZ5QIJGppu9nN",
+      "name": "Death Hunger",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A fleshraker that goes 24 hours without killing a human suffers 1d4 points of Constitution damage. This damage cannot be restored until the fleshraker kills a human, at which point the ability damage heals normally.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "mumD9DDPOcTdJjXE",
+      "name": "Fire Resistance 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A fleshraker ignores the first 20 points of damage from any attack that deals fire damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "a8E3S7gac0s1GY1T",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A fleshraker is immune to slashing and piercing weapons.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "3U4AErA3M1E8iSh1",
+      "name": "Wounding Weapon",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any slashing weapon wielded by a fleshraker can inflict terrible wounds that bleed profusely. In addition to the normal damage the weapon deals, the target takes 1 point of damage that round and each subsequent round from bleeding. Multiple wounds from a wounding weapon result in cumulative bleeding loss (two wounds for 2 points of damage per round, and so on). A successful Treat Injury check (DC 15) or the application of any cure spell stops the bleeding. The weapon does not retain this ability outside the grasp of a knife fiend, although any bleeding wounds it has inflicted continue to bleed if the fleshraker is disarmed.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "VBVorCfBKy80Ija0",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A fleshraker gains Archaic Weapons Proficiency as a bonus feat.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

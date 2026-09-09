@@ -183,7 +183,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Darkvision 60 ft., divine spells, fear aura (DC 14), turn undead",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Darkvision 60 ft., divine spells, fear aura (DC 14), turn undead",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d6+1, claw)</p><p><strong>Full Attack:</strong> +6 melee (1d6+1, 2 claws) or +7 ranged)</p><p><strong>Skills:</strong> Balance +7, Climb +7, Concentration +6, Hide +5, Knowledge (theology and philosophy) +4, Listen +8, Move Silently +7, Read/Write Mothfolk, Sense Motive +4, Speak Mothfolk, Spellcraft +6, Spot +4, Survival +6, Treat Injury +6.</p><p><strong>Feats:</strong> Iron Will, Lightning Reflexes, Mobility, Simple Weapons Proficiency, Stealthy, Track.</p><p><strong>Talents:</strong> (Dedicated Hero): Aware, skill emphasis (Survival).</p>"
   },
@@ -323,6 +323,84 @@
         "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "qd0jrZ3580Dg7tzH",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "GvWZnfxiDurIxBgN",
+      "name": "Divine Spells",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "eygmfUY5bGOA6ltO",
+      "name": "Fear Aura (DC 14)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A mothfolk projects an aura of fear around itself in a 20-foot radius. Creatures within this area that wish to remain must attempt a Will save (DC 10 + ½ the mothman’s Hit Dice + its Charisma modifier) or be affected as by a fear spell. A mothfolk is immune to the fear auras of other mothfolk.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "6l33akEaViDPbGq4",
+      "name": "Turn Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "R1M8qOcDrpVoihiF",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mothfolk read, write, and speak a language of whistles, squeaks, and clicks (called Mothfolk, for lack of a better name).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "tyFo5J65rTzbppID",
+      "name": "Skill Bonuses)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mothfolk gain a +4 species bonus on Balance, Climb, Listen, and Move Silently checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -117,7 +117,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Darkvision 60 ft., improved grab, liquefaction, power resistance 17, psionics, siphon fluids",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Darkvision 60 ft., improved grab, liquefaction, power resistance 17, psionics, siphon fluids",
     "biography": "<p><strong>Attack:</strong> +3 melee (2d4, bite)</p><p><strong>Full Attack:</strong> +3 melee (2d4, bite) or +5 ranged)</p><p><strong>Skills:</strong> Hide +9, Listen +8, Move Silently +9, Spot +8.</p><p><strong>Feats:</strong> Improved Initiative, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -186,6 +186,84 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "Fn07tg6k4UQF4Tlt",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "Fzpk0UYVyJf3duUn",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the zeikune must hit an opponent with its bite attack. If it gets a hold, it automatically deals bite damage and liquefaction damage (see below) each round that the hold is maintained.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "hnRyhxkxIEJn4LGr",
+      "name": "Liquefaction",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once the zeikune gets a hold of its opponent (see Improved Grab above), it begins injecting fluids that dissolve the victim’s organs, dealing 1d4 points of Constitution damage per round. If the creature dies or its Constitution score drops to 0 as a result of this process, the creature’s organs turn to slush, and the ability damage becomes ability drain. The victim dies, at which point the zeikune can begin sucking the liquefied organs from the creature’s body (see Siphon Fluids, below).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "i55ElL3rhAiip5AJ",
+      "name": "Power Resistance 17",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with power resistance can avoid the effects of psionic powers that directly affect it. To determine whether a spell or spell-like ability works, the psionic power manifester must make a level check (1d20 + manifester’s level). If the result equals or exceeds the creature’s power resistance, the power works normally, although the creature is still allowed a saving throw.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Oy57uM1R0NgBrcys",
+      "name": "Psionics",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will—combat precognition (always active), mental blast, object reading; 3/day—inflict pain, levitate. Manifester level 5th; save DC 10 + zeikune’s key ability modifier + power level.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "spellLike",
+        "sense": false
+      }
+    },
+    {
+      "_id": "pSbard8rfz7epCN8",
+      "name": "Siphon Fluids",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once a zeikune liquefies the internal organs of a creature, it can spend a fullround action siphoning the fluids from the dead creature’s body, leaving behind a shriveled husk. The fluid not only provides sustenance but also heals the zeikune of 3d6 points of damage and 1d6 points of ability damage (per ability).</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

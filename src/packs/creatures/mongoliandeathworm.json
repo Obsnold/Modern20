@@ -105,7 +105,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Darkvision 60 ft., death touch (DC 14), l o w - l i g h t vision, poison (DC 14), poison spray, tremorsense",
+    "senses": "Darkvision 60 ft., Low-Light Vision, Tremorsense",
     "specialQualities": "Darkvision 60 ft., death touch (DC 14), l o w - l i g h t vision, poison (DC 14), poison spray, tremorsense",
     "biography": "<p><strong>Attack:</strong> +5 melee (1d4-1 plus poison, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d4-1 plus poison, bite)</p><p><strong>Skills:</strong> Listen +3, Spot +6</p><p><strong>Feats:</strong> Weapon Finesse (bite)</p><p><strong>Talents:</strong> </p>"
   },
@@ -160,6 +160,97 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "gErlPF0RFv2SQ69s",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "W0eE4H0YQ94GXWm2",
+      "name": "Death Touch (DC 14)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any creature grappling with a Mongolian death worm must make a successful Fortitude save (DC 10 + 1/2 the worm’s Hit Dice + its Constitution modifier) each round or gain one negative level that lasts only until the grapple ends (no saving throw needed for removal).</p><p>Most Mongolian death worms use this ability purely in self-defense, but some of the larger ones learn that it can be a swift means of killing prey.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "6OR1sXp46PK5SiNa",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "A2jPwWyhY4JWoM35",
+      "name": "Poison (DC 14)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bite—Fortitude negates; save DC 10 + 1/2 the worm’s Hit Dice + its Constitution modifier; 1d6 Con/1d6 Con.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "LvYooQNMKHo95RrX",
+      "name": "Poison Spray",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once every 1d4 rounds, the Mongolian death worm can spray poison in a 15-foot cone. See above for the effects of the poison.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "CdMdgvUPe2i6zx20",
+      "name": "Tremorsense",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A Mongolian death worm can automatically sense the location of anything within 60 feet that is in contact with the ground.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "IgInjxuVCqquMpyR",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A Mongolian death worm gains Weapon Finesse (bite) as a bonus feat.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

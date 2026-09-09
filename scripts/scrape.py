@@ -803,6 +803,340 @@ def parse_damage_reduction(text: str) -> dict:
     return {"value": int(match.group(1)), "bypass": match.group(2).strip()}
 
 
+# The senses a stat block names. Held apart from the rest of the special
+# qualities because the creature model has a field for them, and the import put
+# the whole SQ line in it — so every creature's senses read "Cold subtype,
+# constrict, darkvision 60 ft., improved grab".
+SENSES = (
+    "darkvision", "low-light vision", "blindsight", "blindsense", "scent",
+    "keen scent", "keen sight", "tremorsense", "all-around vision",
+)
+
+# The labels a template's traits table uses for the stat-block line it changes.
+# They sit inside a TEMPLATE TRAITS section in the same run-in shape an ability
+# does, so without this a skeleton would gain an ability called "Ability Scores".
+STAT_BLOCK_LABELS = {
+    "cr", "challenge rating", "combined challenge rating", "hd", "hit dice",
+    "mas", "massive damage threshold", "init", "initiative", "spd", "speed",
+    "defense", "bab", "bab/grap", "grapple", "grapple bonus", "atk", "attack",
+    "attacks", "full atk", "full attack", "dmg", "damage", "fs/reach", "reach",
+    "face/reach", "sq", "special qualities", "al", "allegiances", "allegiance",
+    "sv", "saves", "saving throws", "ap", "rep", "ap/rep", "action points",
+    "reputation", "ability scores", "abilities", "skills", "adjusted skills",
+    "feats", "talents", "possessions", "advancement", "type", "size",
+    "hp", "hit points", "special attacks", "organization", "treasure",
+}
+
+
+def quality_key(text: str) -> str:
+    """The name a printed special quality and its description share.
+
+    "Darkvision 60 ft.", "Darkvision (Ex)" and the glossary's "Darkvision" are
+    one ability written three ways: the stat block prints the range, the
+    creature's own text prints the category, and the glossary prints neither.
+    Matching them is what lets a printed quality find its rules.
+    """
+    text = re.sub(r"\([^)]*\)", " ", (text or "").lower())
+    # One heading is letter-spaced in the source and another runs the word
+    # together, so "l o w - l i g h t vision" and "lowlight vision" are the
+    # same sense as "low-light vision".
+    text = re.sub(r"\bl\s?o\s?w\s?[\s-]\s?l\s?i\s?g\s?h\s?t\b", "low-light", text)
+    text = re.sub(r"\blowlight\b", "low-light", text)
+    text = re.sub(r"\s+", " ", text).strip(" .,;:")
+    # A trailing range, rating or amount belongs to this creature rather than
+    # to the ability: "darkvision 60 ft.", "damage reduction 15/+1".
+    text = re.sub(r"\s+\d[\d/+.'’a-z-]*(\s+(?:ft|feet|foot)\.?)?$", "", text)
+    return text.strip(" .,;:")
+
+
+def parse_special_qualities(text: str) -> list[dict]:
+    """The printed SQ line, as the abilities it names.
+
+    "Cold subtype, constrict, darkvision 60 ft., improved grab" is four
+    abilities that a GM has to look up one at a time. The line was stored as
+    one string and read by nothing.
+    """
+    entries = []
+    seen = set()
+    for part in split_outside_brackets(text or ""):
+        printed = part.strip().strip(",; ")
+        # One block prints its special attacks and qualities in the same cell,
+        # keeping the SRD's own labels: "improved grab, grind (4d4+9); SQ
+        # construct, damage reduction 10/+1". The label is not part of the name.
+        printed = re.sub(r"^(?:SQ|SA)\b[:.]?\s*", "", printed, flags=re.I)
+        # A full stop that ends the line goes; the one in "60 ft." stays.
+        if re.search(r"[A-Za-z]{4,}\.$", printed):
+            printed = printed[:-1]
+        if not printed or printed.lower() in ("none", "n/a", "-"):
+            continue
+        key = quality_key(printed)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        entries.append({
+            "printed": printed,
+            "key": key,
+            "sense": any(key == sense or key.startswith(sense + " ") for sense in SENSES),
+        })
+    return entries
+
+
+# "SPECIES TRAITS" heads the prose that describes what a stat block's SQ line
+# names. "TEMPLATE TRAITS" is the same for a template — a werewolf, a skeleton —
+# and is printed above the blocks it applies to rather than below them.
+TRAIT_HEADING = re.compile(r"^(species|template) traits$", re.I)
+
+# "Improved Grab (Ex):" — a run-in heading, with or without the category the
+# SRD puts in brackets. Bounded in length and free of sentence punctuation, so
+# a line of prose that happens to end in a colon is not read as an ability.
+TRAIT_LABEL = re.compile(r"^(?P<name>[A-Z][^:.!?]{0,58}?)\s*(?:\((?P<kind>Ex|Su|Sp|Ps)\))?\s*:?$")
+
+ABILITY_KINDS = {"ex": "extraordinary", "su": "supernatural",
+                 "sp": "spellLike", "ps": "psiLike"}
+
+
+def is_section_end(line: str) -> bool:
+    """A line that ends a traits section: the next heading printed after it.
+
+    A section runs to the next stat block, which on one page is a long way
+    down - past a whole "New Equipment" section, whose text was being read as
+    the last trait's description. The end is recognised the way the creature
+    headings already are: a short line that is not a sentence.
+    """
+    line = line.strip()
+    return bool(line) and len(line) < 46 and not line.endswith((".", ":", ";", ",", "-"))
+
+
+def is_rating(line: str) -> bool:
+    """Whether a value under "CR:" is a rating rather than a sentence.
+
+    A stat block prints "3" or "1/4"; a template's traits table prints "Same as
+    the character +2" under the same label. One infester block prints its Hit
+    Dice there — an SRD slip — so this asks whether the value reads like a
+    rating rather than requiring a bare number.
+    """
+    line = line.strip()
+    return bool(line) and len(line) <= 40 and not re.search(r"[A-Za-z]{4,}", line)
+
+
+def parse_trait_entries(lines: list[str], *, fold_untagged: bool = False,
+                        skip_stat_block: bool = False) -> list[dict]:
+    """One traits section, as the abilities it describes.
+
+    The SRD writes a run-in heading two ways: "Improved Grab (Ex):" with the
+    text following it, and "Improved Grab (Ex)" with the text starting at the
+    colon on the next line. Both shapes appear on the same page.
+
+    `fold_untagged` is for the Special Abilities glossary, where a heading with
+    no (Ex)/(Su)/(Sp) category — "Permanent Ability Drain" under Ability Score
+    Reduction — is a part of the entry above it rather than an entry of its own.
+    In a creature's own traits section an untagged heading is a real ability:
+    "Skill Bonus", "Automatic Language", "Construct".
+
+    `skip_stat_block` is for a template's traits, which are a table of the
+    stat-block lines the template changes - "HD:", "Ability Scores:" - written
+    in the same run-in shape. A species section uses those words for real
+    traits, and "Speed: Hunting spiders are speedier than their web-spinning
+    counterparts" is an ability rather than a stat-block row.
+    """
+    entries = []
+    index = 0
+    while index < len(lines):
+        line = lines[index].strip()
+        match = TRAIT_LABEL.match(line)
+        starts_value = index + 1 < len(lines) and lines[index + 1].strip().startswith(":")
+        if not match or not (line.endswith(":") or starts_value):
+            index += 1
+            continue
+
+        name = match.group("name").strip().rstrip(":").strip()
+        if not name or (skip_stat_block and name.lower() in STAT_BLOCK_LABELS):
+            index += 1
+            continue
+
+        body = []
+        index += 1
+        while index < len(lines):
+            following = lines[index].strip()
+            next_match = TRAIT_LABEL.match(following)
+            if next_match and (following.endswith(":") or (
+                    index + 1 < len(lines) and lines[index + 1].strip().startswith(":"))):
+                break
+            # A label always has a value, so only a line past the first can end
+            # the section. Where the traits resume past an interruption they
+            # are picked up again; where they do not, the section is over.
+            if body and is_section_end(following):
+                resumed = resumes_below(lines, index)
+                if resumed is None:
+                    index = len(lines)
+                    break
+                index = resumed
+                continue
+            body.append(following.lstrip(":").strip())
+            index += 1
+
+        kind = ABILITY_KINDS.get((match.group("kind") or "").lower(), "")
+        description = "\n\n".join(p for p in body if p)
+        if fold_untagged and not kind and entries:
+            # A sub-heading of the entry above: kept as a run-in so the
+            # definition stays whole rather than being split in two.
+            entries[-1]["description"] += f"\n\n{name}: {description}".rstrip()
+            continue
+        # The key is what joins a described trait to the SQ line that names it
+        # and to the glossary's definition of the same ability.
+        entries.append({"name": name, "key": quality_key(name),
+                        "kind": kind, "description": description})
+    return entries
+
+
+def is_run_in(lines: list[str], index: int) -> bool:
+    """Whether a line is a run-in heading: "Improved Grab (Ex):" or its label."""
+    line = lines[index].strip()
+    return bool(TRAIT_LABEL.match(line)) and (
+        line.endswith(":")
+        or (index + 1 < len(lines) and lines[index + 1].strip().startswith(":")))
+
+
+def resumes_below(lines: list[str], index: int) -> int | None:
+    """Where a traits section continues past an interruption, or nothing.
+
+    A section can be interrupted by a table - the monstrous spiders' poison
+    DCs, the harpy's spell-like abilities by character level - whose cells are
+    short lines rather than sentences, and the traits carry on below it. A
+    paragraph of prose under a heading is not an interruption: "New Equipment"
+    and the two pages of gear under it belong to something other than the
+    dimensional horror's traits, and the section ends there.
+    """
+    for ahead in range(index, len(lines)):
+        if is_run_in(lines, ahead):
+            return ahead
+        if len(lines[ahead].strip()) >= 46:
+            return None
+    return None
+
+
+def creature_runs(lines: list[str]) -> list[tuple[str, int, int]]:
+    """A creature page as an ordered run of stat blocks and traits sections."""
+    marks = []
+    for index, line in enumerate(lines):
+        heading = TRAIT_HEADING.match(line.strip())
+        if heading:
+            marks.append((index, heading.group(1).lower()))
+        elif line.strip() == "CR:" and index + 1 < len(lines) and is_rating(lines[index + 1]):
+            marks.append((index, "block"))
+    return [(kind, start, marks[n + 1][0] if n + 1 < len(marks) else len(lines))
+            for n, (start, kind) in enumerate(marks)]
+
+
+# Words in a creature's name that do not identify it: a size, a variant, or the
+# character class levels a stat block adds on top.
+UNDISTINCTIVE = SIZE_WORDS | {
+    "advanced", "hero", "ordinary", "form", "adult", "grub", "hatchling",
+    "giant", "human", "template",
+}
+
+
+def names_creature(section: str, name: str) -> bool:
+    """Whether a traits section's own prose names this creature.
+
+    "An animated object has the traits and immunities common to constructs."
+    The SRD describes a creature by name in its traits, which is what makes it
+    safe to give one stat block the section printed after a later one — the
+    seven monstrous spiders are one entry with one set of traits.
+    """
+    words = [w for w in re.findall(r"[a-z]{4,}", name.lower()) if w not in UNDISTINCTIVE]
+    return any(word in section.lower() for word in words)
+
+
+def attach_special_abilities(page_html: str, creatures: list[dict]) -> None:
+    """Give each creature the traits section printed with its stat block.
+
+    A species traits section follows its stat block and a template's traits
+    precede it, so adjacency decides the ordinary case. Where a creature's own
+    block has neither — the SRD prints the seven monstrous spiders, and the
+    animated objects, as several blocks sharing one set of traits — the nearest
+    section across intervening blocks is used, but only if its prose names the
+    creature. That check is what keeps a chemical golem from inheriting the
+    acid rainer's traits, which is what position alone gives you.
+    """
+    lines = text_lines(page_html)
+    runs = creature_runs(lines)
+    body = {n: lines[start + 1:end] for n, (kind, start, end) in enumerate(runs)
+            if kind != "block"}
+
+    adjacent = {}
+    for n, (kind, _, _) in enumerate(runs):
+        if kind == "species" and n and runs[n - 1][0] == "block":
+            adjacent.setdefault(n - 1, n)
+        elif kind == "template" and n + 1 < len(runs) and runs[n + 1][0] == "block":
+            adjacent.setdefault(n + 1, n)
+
+    for creature in creatures:
+        creature["speciesTraits"] = []
+        block = block_of(creature, lines, runs)
+        if block is None:
+            continue
+        section = adjacent.get(block)
+        if section is None:
+            section = shared_section(block, runs, adjacent, body, creature["name"])
+        if section is None:
+            continue
+        creature["speciesTraits"] = parse_trait_entries(
+            body[section], skip_stat_block=runs[section][0] == "template")
+
+
+def block_of(creature: dict, lines: list[str], runs: list[tuple[str, int, int]]) -> int | None:
+    """Which stat block on the page a scraped creature came out of.
+
+    Matched on the creature's own printed lines rather than on the order the
+    tables were parsed in, since a page nests tables inside its layout. "None"
+    is not an anchor: every third block prints it for skills or feats.
+    """
+    anchors = [text for text in (creature["skills"], creature["specialQualities"],
+                                 creature["fullAttack"], creature["attack"])
+               if text and len(text) > 12]
+    for n, (kind, start, end) in enumerate(runs):
+        if kind != "block":
+            continue
+        printed = {line.rstrip(".") for line in lines[start:end]}
+        if any(anchor.rstrip(".") in printed for anchor in anchors):
+            return n
+    return None
+
+
+def shared_section(block: int, runs, adjacent: dict, body: dict, name: str) -> int | None:
+    """The traits section a block shares with another block of the same creature."""
+    for step in (1, -1):
+        other = block + step
+        while 0 <= other < len(runs) and runs[other][0] == "block":
+            section = adjacent.get(other)
+            if section is not None:
+                return section if names_creature(" ".join(body[section]), name) else None
+            other += step
+    return None
+
+
+def scrape_special_abilities() -> list[dict]:
+    """The SRD's Special Abilities glossary: what a printed quality means.
+
+    A stat block prints "improved grab" and leaves the rules to this page. The
+    creature's own traits describe what is specific to it; this is the shared
+    definition for everything it does not say.
+    """
+    page = "specialabilities.html"
+    lines = text_lines(srd.fetch(page))
+    start = next((i for i, line in enumerate(lines)
+                  if line.strip().upper() == "SPECIAL ABILITIES"), 0)
+    entries = parse_trait_entries(lines[start + 1:], fold_untagged=True)
+    return [{
+        "id": camel(entry["name"]),
+        "name": entry["name"],
+        "key": entry["key"],
+        "kind": entry["kind"],
+        "description": entry["description"],
+        "srdUrl": srd.page_url(page),
+    } for entry in entries]
+
 # "+23/+18/+13 melee (2d8+13 plus 1d6 acid, slam)" — a bonus or a sequence of
 # them, the mode, and a bracket holding damage and the weapon's name. A few
 # lines carry two weapons in one bracket, joined by "or".
@@ -891,6 +1225,40 @@ def parse_attacks(text: str) -> list[dict]:
 ATTACK_SIZE_MODIFIER = {size: modifier for modifier, size in SIZE_BY_MODIFIER.items()}
 
 
+def looks_like_allegiance(text: str) -> bool:
+    """Whether a printed AL line names a side rather than something else.
+
+    Every allegiance in the SRD's 144 stat blocks is a word or two - "Evil",
+    "None or owner", "Chaos" - and none of them carries a number. That is what
+    makes the troll's "Rend 2d6+9, regeneration 5 (cannot regenerate acid or
+    fire damage), scent, darkvision 90 ft." recognisable as the wrong line.
+    """
+    if re.search(r"\d", text or ""):
+        return False
+    return all(len(part.split()) <= 3 for part in text.split(","))
+
+
+def repair_shifted_rows(rows: dict[str, str]) -> dict[str, str]:
+    """The one stat block whose rows read from the wrong column.
+
+    creatures3.html gives the troll's SQ row one cell where the block has two,
+    so the special qualities are printed under AL and the face-and-reach line
+    is repeated under SQ. Both trolls lost regeneration, scent and darkvision
+    90 ft., and took "Rend 2d6+9" as an allegiance.
+
+    Recognised by what the values are rather than by the creature's name: a
+    special quality is not a face-and-reach measurement, and an allegiance is
+    not a damage expression.
+    """
+    reach = rows.get("fs/reach", "")
+    allegiance = rows.get("al", "")
+    if rows.get("sq", "") and rows["sq"] == reach:
+        rows["sq"] = ""
+    if allegiance and not looks_like_allegiance(allegiance) and not rows.get("sq"):
+        rows["sq"], rows["al"] = allegiance, ""
+    return rows
+
+
 def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: str,
                           skill_names: list[tuple[str, str]] | None = None) -> dict:
     """One column of a stat block into the fields the creature model stores.
@@ -900,6 +1268,7 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
     the misc slots - the sheet then shows the number the SRD prints.
     """
     skill_names = skill_names or []
+    rows = repair_shifted_rows(rows)
     abilities = {}
     for key in ("str", "dex", "con", "int", "wis", "cha"):
         match = re.search(key + r":\s*(\d+)", rows.get("ability scores", ""), re.I)
@@ -960,6 +1329,9 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
         "fullAttack": rows.get("full atk", ""),
         "reach": rows.get("fs/reach", ""),
         "specialQualities": rows.get("sq", ""),
+        # The SQ line as the abilities it names, so each one can find its
+        # rules and the senses can be told apart from the rest.
+        "specialQualityEntries": parse_special_qualities(rows.get("sq", "")),
         "allegiances": [a.strip() for a in rows.get("al", "").split(",") if a.strip()],
         "skills": rows.get("skills", ""),
         # The printed lines, structured: skills the sheet can roll, feats it
@@ -990,6 +1362,7 @@ def scrape_creatures(pages: list[str], skills: list[dict] | None = None) -> list
             page_html = srd.fetch(page)
         except Exception:
             continue
+        on_page = []
 
         for table in srd.annotated_tables(page_html):
             labels = [r[0].rstrip(":").strip().lower() for r in table["rows"] if r]
@@ -1050,7 +1423,12 @@ def scrape_creatures(pages: list[str], skills: list[dict] | None = None) -> list
                 entry = parse_creature_column(rows, name, size_type, srd.page_url(page),
                                               skill_names)
                 # Later pages repeat a few creatures; first definition wins.
-                creatures.setdefault(entry["id"], entry)
+                if creatures.setdefault(entry["id"], entry) is entry:
+                    on_page.append(entry)
+
+        # The prose under SPECIES TRAITS describes what the SQ line names, and
+        # is printed once per stat block rather than once per column.
+        attach_special_abilities(page_html, on_page)
 
     return [creatures[k] for k in sorted(creatures)]
 
@@ -2094,6 +2472,8 @@ def main() -> int:
     write("creatures.json", creatures)
     creature_types = scrape_creature_types()
     write("creature_types.json", creature_types)
+    special_abilities = scrape_special_abilities()
+    write("special_abilities.json", special_abilities)
 
     combat_actions = scrape_combat_actions()
     write("combat_actions.json", combat_actions)
@@ -2114,6 +2494,7 @@ def main() -> int:
           f"{len(feats)} feats, {len(occupations)} occupations, {len(talents)} talents, "
           f"{len(combat_actions)} combat actions, "
           f"{len(creature_types['types'])} creature types, "
+          f"{len(special_abilities)} special abilities, "
           f"{len(creatures)} creatures, {len(spells)} spells, "
           f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "
           f"{len(conditions)} conditions, "

@@ -92,7 +92,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Undead, move or attack action only, aquatic, improved grab, low-light vision",
+    "senses": "Low-Light Vision",
     "specialQualities": "Undead, move or attack action only, aquatic, improved grab, low-light vision",
     "biography": "<p><strong>Attack:</strong> +12 melee (2d8+13, bite), or +12 melee (1d6+13, tail slap)</p><p><strong>Full Attack:</strong> +12 melee (2d8+13, bite), or +12 melee (1d6+13, tail slap)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> Toughness</p><p><strong>Talents:</strong> </p>"
   },
@@ -175,6 +175,71 @@
         "normal": "",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "Y4wylyOwq6RXfdlW",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "34Jl3X2zvfVALxFb",
+      "name": "Move or Attack Action Only",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A zombie has poor reflexes and can perform only a single move action or attack action on its turn. It can only move and attack if it charges.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "ylkd5c8bwh94nHys",
+      "name": "Aquatic",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "1vcO009m2GJt9GxJ",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If the creature hits with a melee weapon it deals normal damage and attempts to start a grapple as a free action, doing so without provoking attacks of opportunity. No initial touch attack is required. Unless otherwise stated, improved grab works only against opponents at least one size category smaller than the creature. A Small or smaller creature using improved grab does not apply its grapple modifier to its grapple check.</p><p>The creature has the option to conduct the grapple normally, or simply use the part of its body it used in the improved grab to hold the opponent. If it chooses to do the latter, it takes a –20 penalty on grapple checks but is not considered grappled itself; the creature does not lose its Dexterity bonus to Defense, still threatens an area, and can use its remaining attacks against other opponents.</p><p>A successful hold does not deal additional damage unless the creature also has the constrict ability (see above). If the creature does not constrict, each successful grapple check it makes during successive rounds automatically deals the damage given for the attack that established the hold.</p><p>When a creature gets a hold after an improved grab attack, it pulls the opponent into its space. This act does not provoke attacks of opportunity. The creature is not considered grappled while it holds the opponent, so it still threatens adjacent squares and retains its Dexterity bonus. It can even move, provided it can drag the opponent’s weight.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "7GHYEthpggkWJyEv",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
       }
     }
   ]

@@ -129,7 +129,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Improved grab, constrict 1d6+4, scent, low-light vision",
+    "senses": "Scent, Low-Light Vision",
     "specialQualities": "Improved grab, constrict 1d6+4, scent, low-light vision",
     "biography": "<p><strong>Attack:</strong> Atk +5 melee (1d6+4, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d6+4, bite)</p><p><strong>Skills:</strong> Balance +11, Climb +14, Hide +11, Listen +9, Spot +9, Swim +11.</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -164,6 +164,110 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "JlmD3qOwhAdM2dI6",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Only constrictor snakes have this ability. To use this ability, a constrictor snake must hit with its bite attack. If it gets a hold, it can constrict (see below). See Improved Grab.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "NmivohGZjnwkG9HN",
+      "name": "Constrict 1d6+4",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>With a successful grapple check against a creature of its size or smaller, a constrictor snake deals damage equal to its bite damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "8CQMxIuXVfXzTgFf",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a snake to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "uTIecnk1FSyf2NHP",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "GQw6z2S4wz1mgpZT",
+      "name": "Variable Size",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>See Table: Creature Sizes for attack and Defense modifiers based on size, as well as for a snake’s fighting space (assuming the creature is coiled) and reach.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "27QNdSyHwngcrbty",
+      "name": "Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A viper injects venom with a successful bite. The victim must succeed on a Fortitude save or take 1d6 points of temporary Constitution damage; a second Fortitude save must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). The save DC is equal to 11 + 1/2 the snake’s Hit Dice + the snake’s Constitution modifier (DC 11 for a Tiny viper).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "PRn4vV1gzvzigsIK",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Snakes receive a +8 species bonus on Balance checks and a +4 species bonus on Hide, Listen, and Spot checks. Snakes apply either their Strength or Dexterity modifier, whichever is higher, to Climb checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "07R2mZuNvMxoxmxS",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Vipers gain the bonus feat Weapon Finesse (bite).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

@@ -190,6 +190,16 @@ MODERN20.featTypes = {
   class: "MODERN20.FeatType.Class"
 };
 
+// What a creature's special ability is, which is what decides how it can be
+// stopped: an antimagic field ends a supernatural ability, a spell-like one is
+// subject to spell resistance, and an extraordinary one is neither.
+MODERN20.specialAbilityTypes = {
+  extraordinary: "MODERN20.SpecialAbilityType.Extraordinary",
+  supernatural: "MODERN20.SpecialAbilityType.Supernatural",
+  spellLike: "MODERN20.SpecialAbilityType.SpellLike",
+  psiLike: "MODERN20.SpecialAbilityType.PsiLike"
+};
+
 MODERN20.weaponCategories = {
   simple: "MODERN20.WeaponCategory.Simple",
   archaic: "MODERN20.WeaponCategory.Archaic",

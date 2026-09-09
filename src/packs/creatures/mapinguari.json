@@ -105,7 +105,7 @@
         "strength": "none"
       }
     ],
-    "senses": "low-light vision, scent, stench",
+    "senses": "Low-Light Vision, Scent",
     "specialQualities": "low-light vision, scent, stench",
     "biography": "<p><strong>Attack:</strong> +11 melee (1d6+6, slam)</p><p><strong>Full Attack:</strong> +11 melee (1d6+6, 2 slams)</p><p><strong>Skills:</strong> Climb +10, Listen +5</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -140,6 +140,45 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "TQVLSqlji7gXYgtm",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "Uo28DK8ZhVYs5guc",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a mapinguari to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "YYk53VQkcpzlBrRG",
+      "name": "Stench",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The odor of a mapinguari is overpoweringly offensive. Anyone approaching within 60 feet of the creature must make a successful Fortitude save (DC 18) or become nauseated. The nausea persists for as long as the creature remains in the area and for 1 round thereafter.</p><p>If a creature leaves and reenters the area, a new save is required.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

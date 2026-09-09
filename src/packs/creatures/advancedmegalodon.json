@@ -117,7 +117,7 @@
         "strength": "none"
       }
     ],
-    "senses": "darkvision 60 ft., improved grab, keen scent, low-light vision, swallow whole",
+    "senses": "Darkvision 60 ft., Keen Scent, Low-Light Vision",
     "specialQualities": "darkvision 60 ft., improved grab, keen scent, low-light vision, swallow whole",
     "biography": "<p><strong>Attack:</strong> +58 melee (5d6+15, bite)</p><p><strong>Full Attack:</strong> +58/+53/+48/+43 melee (5d6+15, bite)</p><p><strong>Skills:</strong> Hide -10, Listen +6, Spot +6, Swim +20</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -152,6 +152,71 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "hz4RxxsRbV0GCXDS",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "b4cy6vEFEBXKhIUj",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the megalodon must hit an opponent at least one size category smaller than itself with its bite attack. If it gets a hold, it automatically deals bite damage each round that the hold is maintained, and it can swallow in the next round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "0hteLhqtM213RKXg",
+      "name": "Keen Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A megalodon notices creatures by scent within a 180-foot radius. It can detect blood in the water at a range of up to 1 mile.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "ou1uuIzidDCbN6vw",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "IFDz60pjfxEF3MsM",
+      "name": "Swallow Whole",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a megalodon begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the megalodon, the opponent takes bludgeoning damage equal to the megalodon’s bite attack plus 1d6 points of acid damage per round from the monster’s gullet. A successful grapple check allows the swallowed creature to climb out of the gullet and return to the megalodon’s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gullet using claws or a Small or Tiny slashing weapon. Dealing at least 25 points of damage to the gizzard (Defense 20) in this way creates an opening large enough to permit escape. Once a single swallowed creature exits, muscular action closes the hole; thus, another swallowed creature must cut its own way out. A Gargantuan megalodon’s gullet can hold 2 Huge, 8 Large, 32 Medium-size, or 128 Small or smaller opponents.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

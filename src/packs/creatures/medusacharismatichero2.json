@@ -171,7 +171,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Darkvision 60 ft., gaze, poison",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "Darkvision 60 ft., gaze, poison",
     "biography": "<p><strong>Attack:</strong> +7 melee (1d4, knife)</p><p><strong>Full Attack:</strong> +7/+2 melee (1d4, knife), +4 melee (1d4 plus poison, snakes), or +10/+5 ranged (2d6, Glock 17)</p><p><strong>Skills:</strong> Bluff+15, Diplomacy +7, Disguise +15, Gather Information +7, Intimidate +7, Move Silently +9, Read/_Write English, Read/Write Spanish, Speak English, Speak Spanish, Spot +10</p><p><strong>Feats:</strong> Deceptive, Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency, Weapon Finesse (snakes)</p><p><strong>Talents:</strong> (Charismatic Hero): Coordinate</p>"
   },
@@ -356,6 +356,71 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "L9FgMBBfjQubad2x",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "SBHT5KLQyfhxsYwu",
+      "name": "Gaze",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A medusa’s gaze permanently turns to stone any creature within 30 feet that fails its Fortitude save (DC 15). See Special Qualities for more information on gaze attacks. A break enchantment spell can remove the effect of petrification. In a campaign where heroes have limited access to spells, the GM can make the petrification a temporary effect (lasting 1d6 hours).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "supernatural",
+        "sense": false
+      }
+    },
+    {
+      "_id": "WXUinup2Nsx6BgRU",
+      "name": "Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any creature bitten by the medusa’s snaky hair must succeed on a Fortitude save (DC 14) or succumb to the poison (initial damage 1d6 temporary Strength, secondary damage 2d6 temporary Strength).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "Q8I2ZzwwyqPebAjo",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Medusas receive the bonus feat Simple Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "6Mv9BX7kly2n7RDN",
+      "name": "Automatic Languages",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Medusas read, write, and speak any two languages.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

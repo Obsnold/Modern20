@@ -111,7 +111,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Anesthetic bite, attach, blindsight 60 ft., boost host, host protection, infestation, vermin",
+    "senses": "Blindsight 60 ft.",
     "specialQualities": "Anesthetic bite, attach, blindsight 60 ft., boost host, host protection, infestation, vermin",
     "biography": "<p><strong>Attack:</strong> +0 melee (1d3-2, bite)</p><p><strong>Full Attack:</strong> +0 melee (1d3-2, bite)</p><p><strong>Skills:</strong> Hide +14, Move Silently +6, Spot +6</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -146,6 +146,97 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "IuqYSHc7tRzTKd2y",
+      "name": "Anesthetic Bite",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The bite of an infester grub releases an anesthetic that numbs nerves. An opponent that does not actually witness the attack must make a successful Wisdom check (DC 20) to notice it.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "hMa6Pn2pXQjwLPBJ",
+      "name": "Attach",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If an infester grub successfully deals damage to a warm-blooded opponent, it latches onto the latter’s body in the same round and begins to burrow inside. The burrowing process takes 1 round to complete, during which the grub is flat-footed (Defense 16). Once the grub has finished burrowing into the host, only a tiny wound is left to indicate that anything is amiss.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "W7SIi1JNqdbZBC9i",
+      "name": "Blindsight 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or Listen checks to notice creatures within range of its blindsight ability.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "5vKdoHoOtTMwPK6L",
+      "name": "Boost Host",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An attached infester constantly pumps endorphins and other chemicals into the host’s body, increasing its strength and instilling a sense of euphoria and indestructibility. The host gains a +2 bonus to both Strength and Constitution but takes a –2 penalty to Wisdom. These adjustments begin within 1d6 rounds of attachment and remain in effect as long as the infester is within the host’s body.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "JTmEajmshvRrrnZk",
+      "name": "Host Protection",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An attached infester uses its host’s base saving throw bonuses if those are better than its own. Effects that target vermin can’t affect an infester inside a host of another type.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "83q8Z4BlQoXAnG2n",
+      "name": "Infestation",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once inside its host, an infester grub slowly makes its way through the bloodstream until it reaches the torso, where it takes up residence and begins drawing nutrients from the host’s body. During this period, its boost host ability (see above) is constantly in effect.</p><p>Because of the infester’s unique nutritional needs, even a normally herbivorous host gains an insatiable appetite for raw meat—particularly that of its own species. Some instances of cannibalism are the result of infesters that drove their hosts beyond the brink of sanity with their lust for meat.</p><p>After one month of incubation, the infester reaches its full adult size and starts chewing its way out of the host’s torso. This process takes 1d6 minutes, during which the host experiences excruciating pain. The victim must make a Fortitude save (DC 20) or die when the infester bursts from its torso. Even on a successful save, the host still takes 6d6 points of damage.</p><p>Once freed from the host, the adult infester seeks out a pool of filth and mud in which to live. It defends itself against any attacks but otherwise avoids conflict. After 1d6 days, the infester gives birth to thousands of grubs and then perishes, its body providing nourishment for its brood. Only a few of these offspring survive beyond the first few hours. The remaining grubs wait patiently until another unsuspecting creature comes along to repeat the cycle.</p><p>A successful Treat Injury check (DC 25) reveals the presence of an infester inside a host. The parasite can be removed with surgery (Treat Injury DC 30). A failure by 5 or more irritates the infester, which begins burrowing out of the host prematurely, dealing 2d6 points of damage to its host (Fortitude DC 20 half).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "py6IfvwFVP8rwqgg",
+      "name": "Vermin",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Infesters have blindsight out to a range of 60 feet. They are immune to mind-affecting effects and gain a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

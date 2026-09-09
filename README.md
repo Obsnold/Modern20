@@ -33,6 +33,7 @@ fighting it forever, so this is a standalone game system.
 | Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 671 items, built from the SRD |
 | Ammunition and containers | 18 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles | 202 actors, built from the SRD |
+| Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
@@ -333,6 +334,64 @@ Note that v14 replaced the numeric `CONST.ACTIVE_EFFECT_MODES` with string
 change types — `custom`, `multiply`, `add`, `subtract`, `downgrade`, `upgrade`,
 `override` — and `check_globals.py` now flags the old constant along with other
 deprecated APIs.
+
+## Creatures
+
+The 144 stat blocks in the SRD's Creatures, Animals and Menace pages import as
+actors. Everything the SRD prints as a total — attack bonuses, Defense, saves,
+initiative, skill totals — is stored as the offset that reproduces it, because
+the data model derives the same number from ability scores and Hit Dice. A
+creature that rolls Hide at the wrong bonus looks perfectly normal on a sheet,
+so `check_creatures.mjs` adds the 659 skill totals and 236 attacks back up and
+asserts each one comes to the printed figure.
+
+**Special abilities.** A stat block prints its abilities twice: once as the SQ
+line — *"Cold subtype, constrict, darkvision 60 ft., improved grab"* — and once
+as prose under SPECIES TRAITS that says what each one does. The import kept the
+line as a single string, which nothing could read, and dropped the prose
+entirely. Both are now parsed: 696 printed qualities and 793 described traits
+become 944 items, 906 of them carrying rules text.
+
+Each printed quality takes its rules from the creature's own traits where they
+are given, since those say what *this* creature does with the ability, and from
+the SRD's own Special Abilities glossary otherwise — 23 shared definitions for
+darkvision, improved grab, swallow whole and the rest. The two are joined on a
+normalised name, so `darkvision 60 ft.`, `Darkvision (Ex)` and the glossary's
+`Darkvision` are recognised as one ability, and the printed range stays in the
+item's name. An ability neither source describes says so rather than being
+given an invented benefit — the same rule the imported feats follow.
+
+Which prose belongs to which stat block is decided by adjacency: species traits
+follow their block, and a template's traits are printed above the blocks they
+apply to. Where a block has neither — the SRD prints the seven monstrous
+spiders, and the animated objects, as several blocks sharing one set of traits —
+the nearest section across intervening blocks is used, but only if its prose
+names the creature. That check is what stops a chemical golem inheriting the
+acid rainer's traits, which is what position alone gives you.
+
+**Senses** are now a field of their own rather than a copy of the whole SQ line,
+which is what put "Cold subtype, constrict, darkvision 60 ft., improved grab"
+in every yeti's senses. Names come from the ability items, so the SRD's two
+mangled headings — one letter-spaced as `l o w - l i g h t vision`, one run
+together as `lowlight vision` — both read as Low-Light Vision.
+
+One stat block is repaired on the way in. The troll's SQ row has one cell where
+its block has two, so creatures3.html prints the special qualities under AL and
+repeats the face-and-reach line under SQ: both trolls lost regeneration, scent
+and darkvision 90 ft., and took "Rend 2d6+9" as an allegiance. It is recognised
+by what the values are rather than by the creature's name — a special quality
+is not a face-and-reach measurement, and no allegiance in the 144 blocks
+contains a number.
+
+The creature sheet has an **Abilities tab** to show all this, which is also
+where its feats finally appear: the feat list lives on the hero sheet's
+Character tab, and a creature sheet does not have one, so the 341 feats
+imported with the creatures had nowhere to be seen.
+
+What is *not* automated: an ability is text on an item. Nothing rolls a breath
+weapon's save DC or tracks a grapple started by improved grab. The SRD writes
+these as instructions to a GM, and the useful thing was to put them where the
+creature is rather than to guess at a mechanism for 253 different abilities.
 
 ## Field labels
 

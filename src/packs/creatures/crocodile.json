@@ -111,7 +111,7 @@
         "strength": "none"
       }
     ],
-    "senses": "aquatic, improved grab, low-light vision",
+    "senses": "Low-Light Vision",
     "specialQualities": "aquatic, improved grab, low-light vision",
     "biography": "<p><strong>Attack:</strong> +6 melee (1d8+6, bite), or +6 melee (1d12+6, tail slap)</p><p><strong>Full Attack:</strong> +6 melee (1d8+6, bite), or +6 melee (1d12+6, tail slap)</p><p><strong>Skills:</strong> Hide +7 (+19 when submerged), Listen +5, Spot +5</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -177,6 +177,58 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "xzVD25OuE4NitXm0",
+      "name": "Aquatic",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Crocodiles can move in water without making Swim checks and cannot drown in water.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "FOcUAnCoTlGhx6tb",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, a crocodile must hit an opponent of its size or smaller with its bite attack. If it gets a hold, the crocodile grabs the opponent with its mouth and drags it into deep water, attempting to pin it to the bottom.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "3zvq4S84ucMcMIyE",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "lhEczV34l9pxhvSg",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Crocodiles gain a +12 species bonus on Hide checks when submerged.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

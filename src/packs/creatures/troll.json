@@ -109,26 +109,9 @@
         "classSkill": false
       }
     },
-    "allegiances": [
-      {
-        "name": "Rend 2d6+9",
-        "strength": "none"
-      },
-      {
-        "name": "regeneration 5 (cannot regenerate acid or fire damage)",
-        "strength": "none"
-      },
-      {
-        "name": "scent",
-        "strength": "none"
-      },
-      {
-        "name": "darkvision 90 ft.",
-        "strength": "none"
-      }
-    ],
-    "senses": "",
-    "specialQualities": "",
+    "allegiances": [],
+    "senses": "Scent, Darkvision 90 ft.",
+    "specialQualities": "Rend 2d6+9, regeneration 5 (cannot regenerate acid or fire damage), scent, darkvision 90 ft.",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d6+6, claw)</p><p><strong>Full Attack:</strong> +9 melee (1d6+6, 2 claws), +7 melee (1d6+3 bite), or +5 ranged</p><p><strong>Skills:</strong> Listen +5, Speak Giant, Spot +5</p><p><strong>Feats:</strong> Alertness, Multiattack, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
   "_key": "!actors!F8MMV3VjVOncukAg",
@@ -244,6 +227,84 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "F43Ulc1INC9czAff",
+      "name": "Rend 2d6+9",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a troll hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. This attack automatically deals an additional 2d6+9 points of damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "T0nD6etPejfscwPD",
+      "name": "Regeneration 5 (cannot regenerate acid or fire damage)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A troll regenerates 5 points of damage each round but cannot regenerate acid or fire damage. If a troll loses a limb or body part, the lost portion regrows in 3d6 minutes. The creature can reattach the severed member instantly by holding it to the stump.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "kcdES3QHKsJuQAUa",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a troll to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "ji6AIJBjQ5KSYFhC",
+      "name": "Darkvision 90 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Instead of the low-light vision normally possessed by creatures of the giant type, trolls have darkvision with a range of 90 feet.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "2JkpN4yTUphTACkq",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A troll gains either Archaic Weapons Proficiency or Simple Weapons Proficiency as a bonus feat.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "uoOLFtioh2rFBntg",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Trolls speak (but neither read nor write) Giant or one other language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

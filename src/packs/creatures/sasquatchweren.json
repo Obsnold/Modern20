@@ -127,7 +127,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Low-light vision",
+    "senses": "Low-Light Vision",
     "specialQualities": "Low-light vision",
     "biography": "<p><strong>Attack:</strong> +7 melee (1d4+6, slam)</p><p><strong>Full Attack:</strong> +7 melee (1d4+6, 2 slams)</p><p><strong>Skills:</strong> Climb +8, Intimidate +4, Listen +5, Speak Weren, Spot +5.</p><p><strong>Feats:</strong> Alertness, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>"
   },
@@ -196,6 +196,45 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "67IRRwlsnJ7YIHkE",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "YogKYCszV4f2UFBl",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Sasquatches speak Weren—a language of growls, rumbles, and snorts.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "CAtRjTesAYP6dy4f",
+      "name": "Species Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Because of its size and ferocious appearance, a sasquatch gains a +4 species bonus on Intimidate checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

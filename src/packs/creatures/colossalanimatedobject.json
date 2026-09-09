@@ -92,7 +92,7 @@
         "strength": "none"
       }
     ],
-    "senses": "by object, construct, darkvision 60 ft.",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "by object, construct, darkvision 60 ft.",
     "biography": "<p><strong>Attack:</strong> +25 melee (4d6+13, slam)</p><p><strong>Full Attack:</strong> +25 melee (4d6+13, slam) or +13 ranged)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -127,6 +127,110 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "HfqRS5TnWJufX2gF",
+      "name": "By Object",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "6WpwoYTeQ06VRcUR",
+      "name": "Construct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An animated object has the traits and immunities common to constructs.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "MKSnaRXoFJJvHonO",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "ogs2OTLceBjS0tPq",
+      "name": "Blind",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sheetlike animated object (such as a carpet or a drape) can use this ability against an opponent up to three size categories larger than itself. The animated object makes a normal grapple check. If it gets a hold, it wraps itself around the opponent’s head, blinding that creature until removed. The blinded creature cannot make Search, Spot, or Survival checks to track, and it takes a –6 circumstance penalty on all other checks related to perception (such as Listen).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "qU2NdsNTwlpmmTjh",
+      "name": "Constrict",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A flexible animated object (such as a rope or chain) deals automatic slam damage with a successful grapple check against a target up to one size category larger than itself.</p><p>A Large or larger animated object (flexible or not) can make constrict attacks against multiple creatures at once. Each of the targets of such an attack must be at least two size categories smaller than the animated object and able to fit underneath it.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "CeZcrEx7mNb9olDh",
+      "name": "Hardness",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An animated object has the same hardness it had before it was animated.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "VdHzWYkqekuFGfV7",
+      "name": "Improved Speed",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The base speeds given in the statistics blocks below assume that the animated objects lurch, rock, or slither along the ground. An object with two legs (a statue or a ladder, for example) or some other feature that allows faster movement has a bonus of +10 feet to its speed. An object with multiple legs (such as a table, chair, or statue of a quadrupedal creature) has a bonus of +20 feet, and a wheeled object has a bonus of +40 feet.</p><p>Certain objects might also have other modes of movement. A wooden object can float, so it has a swim speed equal to one-half its land speed. A rope or similar sinuous object has a climb speed equal to one-half its land speed. A sheetlike object can fly (clumsy maneuverability) at one-half its land speed.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "K6Pua1wzeNjpF7p7",
+      "name": "Trample",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>As a standard action during its turn each round, a Large or larger animated object with a hardness of at least 10 can trample opponents at least two size categories smaller than itself. This attack deals bludgeoning damage equal to the object’s slam damage plus 1.5 times its Strength modifier. A trampled opponent can attempt either an attack of opportunity at a –4 penalty or a Reflex save (DC 10 + 1/2 object’s HD + object’s Strength bonus) for half damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

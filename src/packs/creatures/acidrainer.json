@@ -117,7 +117,7 @@
         "strength": "none"
       }
     ],
-    "senses": "acid resistance 10, acid spray (DC 19), acid touch, darkvision 60 ft., elemental, improved grab",
+    "senses": "Darkvision 60 ft.",
     "specialQualities": "acid resistance 10, acid spray (DC 19), acid touch, darkvision 60 ft., elemental, improved grab",
     "biography": "<p><strong>Attack:</strong> +9 melee (1d4+5 plus 1d6 acid, tentacle)</p><p><strong>Full Attack:</strong> +9 melee (1d4+5 plus 1d6 acid, 6 tentacles) or +2 ranged)</p><p><strong>Skills:</strong> Hide +6, Listen +6, Move Silently +8, Spot +6</p><p><strong>Feats:</strong> Power Attack</p><p><strong>Talents:</strong> </p>"
   },
@@ -171,6 +171,97 @@
         "normal": "",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "DaQLeeDFRi6la8uC",
+      "name": "Acid Resistance 10",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An acid rainer ignores the first 10 points of acid damage from any single attack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "YR6mIVz9OIJKZy62",
+      "name": "Acid Spray (DC 19)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once every 1d4 rounds, an acid rainer can spray out a cloud of caustic mist that fills a 30-foot radius spread centered on itself. Each creature within this area takes 2d6 points of acid damage, or half damage if a Reflex save succeeds (DC 10 + 1/2 the acid rainer’s Hit Dice + its Constitution modifier).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "ksYgLJDUxHfnI8K2",
+      "name": "Acid Touch",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An acid rainer’s tentacles are coated with a caustic secretion that deals 1d6 points of acid damage on a successful hit.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "bHAyh7KKjcIuZPnt",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "zxDKIp5ZFHpuwmpL",
+      "name": "Elemental",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An acid rainer has the traits and immunities common to elementals.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "3jExOdaJ8huNPAED",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the acid rainer must hit a single opponent at least one size category smaller than itself with two tentacle attacks during the same round. If it gets a hold, it automatically deals damage for two tentacle attacks (including acid) each round that the hold is maintained.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "qemnROcdFq6ZNkye",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An acid rainer gains a +8 species bonus on Hide checks and a +4 species bonus on Move Silently checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

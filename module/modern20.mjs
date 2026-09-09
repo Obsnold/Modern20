@@ -8,7 +8,7 @@ import { Modern20Vehicle } from "./data/actor-vehicle.mjs";
 import {
   Modern20Class, Modern20Occupation, Modern20Talent, Modern20Feat,
   Modern20Weapon, Modern20Armor, Modern20Gear, Modern20Container, Modern20VehicleMod,
-  Modern20Spell, Modern20PsiPower
+  Modern20Spell, Modern20PsiPower, Modern20SpecialAbility
 } from "./data/items.mjs";
 
 import { Modern20Actor } from "./documents/actor.mjs";
@@ -56,7 +56,8 @@ Hooks.once("init", () => {
     container: Modern20Container,
     vehicleMod: Modern20VehicleMod,
     spell: Modern20Spell,
-    psiPower: Modern20PsiPower
+    psiPower: Modern20PsiPower,
+    specialAbility: Modern20SpecialAbility
   };
 
   // Initiative is a straight Dexterity-based check in d20 Modern.

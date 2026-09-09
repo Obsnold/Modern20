@@ -135,7 +135,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Low-light vision",
+    "senses": "Low-Light Vision",
     "specialQualities": "Low-light vision",
     "biography": "<p><strong>Attack:</strong> +12 melee (2d6+7, Huge club), or +12 melee (1d6+5, slam)</p><p><strong>Full Attack:</strong> +12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p><p><strong>Skills:</strong> Climb +2*, Concentration +9, Listen +2, Speak Giant, Spot +3. *Includes armor check penalty for undercover vest.</p><p><strong>Feats:</strong> Armor Proficiency (light), Brawl, Knockout Punch, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Focus (great club)</p><p><strong>Talents:</strong> (Tough Hero): Damage reduction 1/-, 2/-, and Second Wind. (Bodyguard): Harm’s way</p>"
   },
@@ -359,6 +359,45 @@
         "normal": "",
         "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "GarGMB4iBSxfOUCx",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "ZGYppz08CRI2pfzg",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An ogre gains the bonus feat Archaic Weapons Proficiency or Simple Weapons Proficiency.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "NZwro6EsYPhqKelm",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Ogres speak (but neither read nor write) Giant or one other language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]

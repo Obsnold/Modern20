@@ -56,6 +56,25 @@
     {{formField fields.special value=system.special toggled=true}}
   {{/if}}
 
+  {{#if (eq document.type "specialAbility")}}
+    {{!-- Most abilities a creature's type confers print no category, so the
+          blank option is a real answer rather than an unset field. --}}
+    <div class="form-group">
+      <label>{{localize "MODERN20.Item.SpecialAbility.FIELDS.abilityType.label"}}</label>
+      <div class="form-fields">
+        <select name="system.abilityType">
+          <option value="">{{localize "MODERN20.Creator.None"}}</option>
+          {{#each config.specialAbilityTypes as |label key|}}
+            <option value="{{key}}" {{#if (eq key ../system.abilityType)}}selected{{/if}}>
+              {{localize label}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    {{formField fields.sense value=system.sense}}
+  {{/if}}
+
   {{#if (eq document.type "weapon")}}
     {{formField fields.category value=system.category}}
     {{formField fields.damage value=system.damage}}

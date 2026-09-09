@@ -121,6 +121,9 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     // templates, which have no way to express an ordered list of types.
     context.sections = {
       character: this._section(grouped, ["class", "occupation", "talent", "feat"]),
+      // A creature's own abilities and the feats it was printed with. Both
+      // were being imported onto creatures that had nowhere to show them.
+      abilities: this._section(grouped, ["specialAbility", "feat"]),
       gear: this._section(grouped, ["weapon", "armor", "gear"]),
       casting: this._section(grouped, ["spell", "psiPower"])
     };
@@ -290,12 +293,17 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     const groups = {
       class: [], occupation: [], talent: [], feat: [],
       weapon: [], armor: [], gear: [], container: [],
-      spell: [], psiPower: [], vehicleMod: []
+      spell: [], psiPower: [], vehicleMod: [], specialAbility: []
     };
     for (const item of items) {
       if (!groups[item.type]) continue;
       // Attached rather than stored, so the sheet can show where it came from.
       item.grantSource = this._sourceOf(item);
+      // Flattened for the same reason the casting rows are: a block parameter
+      // is lexically scoped, so `../` inside nested each blocks resolves
+      // somewhere other than where it reads as pointing.
+      const abilityType = MODERN20.specialAbilityTypes[item.system?.abilityType];
+      item.abilityTypeLabel = abilityType ? game.i18n.localize(abilityType) : "";
       groups[item.type].push(item);
     }
     for (const list of Object.values(groups)) list.sort((a, b) => a.sort - b.sort);

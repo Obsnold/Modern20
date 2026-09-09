@@ -92,7 +92,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Undead, skeleton immunities",
+    "senses": "",
     "specialQualities": "Undead, skeleton immunities",
     "biography": "<p><strong>Attack:</strong> +0 melee (1d4, claw)</p><p><strong>Full Attack:</strong> +0 melee (1d4, 2 claws)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> Improved Initiative, Simple Weapons Proficiency</p><p><strong>Talents:</strong> </p>"
   },
@@ -161,6 +161,32 @@
         "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
+      }
+    },
+    {
+      "_id": "qzugXlkYevr24k3h",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "hhOpG58qssTIJ5o3",
+      "name": "Skeleton Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A skeleton has cold immunity. Because it lacks flesh and internal organs, a skeleton takes only half damage from ballistic, piercing, or slashing weapons.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false
       }
     }
   ]

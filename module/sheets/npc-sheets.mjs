@@ -54,6 +54,7 @@ export class Modern20CreatureSheet extends Modern20ActorSheetBase {
     header: { template: "systems/modern20/templates/actor/creature-header.hbs" },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     main: { template: "systems/modern20/templates/actor/hero-main.hbs", scrollable: [""] },
+    abilities: { template: "systems/modern20/templates/actor/creature-abilities.hbs", scrollable: [""] },
     skills: { template: "systems/modern20/templates/actor/hero-skills.hbs", scrollable: [""] },
     gear: { template: "systems/modern20/templates/actor/hero-gear.hbs", scrollable: [""] },
     casting: { template: "systems/modern20/templates/actor/hero-casting.hbs", scrollable: [""] },
@@ -64,6 +65,7 @@ export class Modern20CreatureSheet extends Modern20ActorSheetBase {
     primary: {
       tabs: [
         { id: "main", icon: "fa-solid fa-paw" },
+        { id: "abilities", icon: "fa-solid fa-bolt" },
         { id: "skills", icon: "fa-solid fa-list-check" },
         { id: "gear", icon: "fa-solid fa-box-open" },
         { id: "casting", icon: "fa-solid fa-wand-sparkles" },

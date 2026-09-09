@@ -92,7 +92,7 @@
         "strength": "none"
       }
     ],
-    "senses": "Plant, improved grab, swallow whole, blood drain 1d8+19, blindsight 60 ft.",
+    "senses": "Blindsight 60 ft.",
     "specialQualities": "Plant, improved grab, swallow whole, blood drain 1d8+19, blindsight 60 ft.",
     "biography": "<p><strong>Attack:</strong> +25 melee (1d8+19, bite)</p><p><strong>Full Attack:</strong> +25/+20/+15/+10 melee (1d8+19, bite), or +9 ranged</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
   },
@@ -127,6 +127,84 @@
             }
           }
         }
+      }
+    },
+    {
+      "_id": "IlHHecTeYrCnoTm8",
+      "name": "Plant",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Monstrous flytraps have the traits and immunities common to plants.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
+      }
+    },
+    {
+      "_id": "V2sukqSq7ubc3up0",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, a monstrous flytrap must hit with its bite attack. If it gets a hold, it can attempt to swallow its opponent (see below), provided its opponent is at least two size categories smaller than it. See Improved Grab.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "cQviy98jl24Petyy",
+      "name": "Swallow Whole",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A monstrous flytrap can swallow a grabbed opponent two size categories smaller than it by making a successful grapple check. The swallowed creature can attack the flytrap from inside its mouth using claws or a Small or Tiny slashing weapon. The flytrap does not release its opponent until it is slain or its swallowed prey is completely drained of blood (that is, dead). A monstrous flytrap’s mouth can swallow only one opponent at a time and cannot attack while it drains a creature’s blood.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "NbCHq1DVGgLubxMe",
+      "name": "Blood Drain 1d8+19",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature swallowed by a monstrous flytrap takes 1d6+13 points of damage every round due to blood loss. For every 3 hit points it drains, the monstrous flytrap heals 1 hit point of damage. After draining its swallowed prey to death, it expectorates the lifeless husk and seeks out its next meal.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "extraordinary",
+        "sense": false
+      }
+    },
+    {
+      "_id": "ssqghHS2bdL6TBLY",
+      "name": "Blindsight 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or Listen checks to notice creatures within range of its blindsight ability.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true
+      }
+    },
+    {
+      "_id": "RLPFmaOUptGbOESm",
+      "name": "Automatic Language",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Monstrous flytraps raised from seedlings can be taught to speak (but neither read nor write) one language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
+        "abilityType": "",
+        "sense": false
       }
     }
   ]
