@@ -642,8 +642,44 @@ def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extr
         }
         if extra:
             document.update(extra(entry))
+        key_embedded(collection, doc_id, document)
         documents.append(document)
     return documents
+
+
+# The embedded collections the Foundry CLI stores as entries of their own, by
+# the collection its parent lives in. An actor's items and a journal entry's
+# pages are documents in the compiled pack, not fields of their parent.
+EMBEDDED = {"actors": "items", "journal": "pages"}
+
+
+def key_embedded(collection: str, doc_id: str, document: dict) -> None:
+    """Give every embedded document its own id and compendium key.
+
+    The CLI stores them keyed "!actors.items!<actor id>.<item id>" and refuses
+    a document with no key: "Key cannot be null or undefined". Ours had none,
+    so neither the creatures nor the rules would compile at all.
+
+    The ids have to be unique within the parent, since the key is built from
+    them, and seven creatures print the same feat or attack twice - a gargoyle
+    with Weapon Finesse three times, a troglodyte that bites at two different
+    bonuses. A repeat is re-derived from its own position rather than dropped:
+    the SRD prints it twice because the creature has it twice.
+    """
+    embedded = EMBEDDED.get(collection)
+    if not embedded:
+        return
+
+    used = set()
+    for position, child in enumerate(document.get(embedded) or []):
+        child_id = child["_id"]
+        attempt = 0
+        while child_id in used:
+            attempt += 1
+            child_id = document_id("embedded", f"{doc_id}-{position}-{attempt}-{child['name']}")
+        child["_id"] = child_id
+        used.add(child_id)
+        child["_key"] = f"!{collection}.{embedded}!{doc_id}.{child_id}"
 
 
 # A creature's own weapons: the words the SRD's per-type tables use for a
@@ -1334,6 +1370,7 @@ def build_rules() -> list[dict]:
             "_key": f"!journal!{doc_id}",
             "_slug": slug,
         })
+        key_embedded("journal", doc_id, documents[-1])
 
     # The rules know their own book; everything else is told by its page.
     return add_book_folders("rules", documents, "journal",
