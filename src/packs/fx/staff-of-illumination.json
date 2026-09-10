@@ -1,0 +1,29 @@
+{
+  "_id": "LzMTKxFsfdV3vEu8",
+  "name": "Staff of Illumination",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The staff has three uses, each identical to the corresponding divine spell. Each time the staff is used, it depletes a certain number of charges.</p><p>Light; uses no charges.</p><p>Searing light (4d8 points of damage, or 9d6 points of damage to undead; Reflex save DC 15); uses 1 charge.</p><p>True seeing (lasts 9 minutes; Will save DC 17); uses 2 charges.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Staffs",
+    "weight": 5.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 41,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!LzMTKxFsfdV3vEu8",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "41",
+      "weight": "5 lb",
+      "casterLevel": "9th (divine)",
+      "itemType": "Staff (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

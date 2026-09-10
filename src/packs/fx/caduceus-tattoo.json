@@ -1,0 +1,29 @@
+{
+  "_id": "nJUBxkqe6OyQOGhk",
+  "name": "Caduceus Tattoo",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This tattoo is usually shaped like a medical caduceus (a pair of serpents entwined around a staff). Activating the tattoo triggers a caduceus incantation that affects a single target: the bearer or another creature touched by the bearer. The effects are instantaneous, and once the tattoo is successfully created, no skill checks are required to activate the spell and there is no chance of the incantation failing.</p><p>The magic of the caduceus tattoo immediately ends any and all of the following adverse conditions affecting the target: temporary ability damage (but not permanent ability drain), blindness (including dazzled effects), confusion or insanity, daze, deafness, fatigue, exhaustion, feeblemindedness, nausea, and poison. It also cures up to 150 points of damage. A single tattoo is enough to simultaneously achieve all these effects. The tattoo’s magic also removes negative levels, but it does not restore permanently drained levels.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Tattoos",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 26,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!nJUBxkqe6OyQOGhk",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "26",
+      "weight": "—",
+      "casterLevel": "11th*",
+      "itemType": "Tattoo (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

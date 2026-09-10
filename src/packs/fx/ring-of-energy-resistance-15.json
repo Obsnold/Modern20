@@ -1,0 +1,29 @@
+{
+  "_id": "AG2ULk2qkvneGtU5",
+  "name": "Ring of Energy Resistance 15",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This ring absorbs one type of energy damage: acid, cold, electricity, fire, or sonic/concussion. Each time the wearer takes damage of the specified energy type, subtract 15 points of damage from the total. If the total damage is 15 points or less, the wearer takes no damage from the attack.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Rings",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 30,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!AG2ULk2qkvneGtU5",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "30",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Ring (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

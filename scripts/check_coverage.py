@@ -48,6 +48,12 @@ def imported_names() -> set[str]:
             continue
         if document.get("name"):
             names.add(document["name"].lower())
+        # A section can be covered by documents that name it as their category
+        # rather than by one document per section: the SRD heads a page
+        # "Potions" and prints twelve of them inside it.
+        category = (document.get("system") or {}).get("category")
+        if isinstance(category, str) and category:
+            names.add(category.lower())
         for child in (document.get("items") or []) + (document.get("pages") or []):
             if child.get("name"):
                 names.add(child["name"].lower())

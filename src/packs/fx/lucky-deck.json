@@ -1,0 +1,29 @@
+{
+  "_id": "jdvLuW6352yjgB0x",
+  "name": "Lucky Deck",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This ordinary looking deck of playing cards usually features a stylized genie or similar image on the backs of its cards, The lucky deck grants its owner a +5 luck bonus on Gamble checks involving card games (such as poker or single-deck blackjack). To become the owner, a person must keep the deck on his or her person for 24 continuous hours.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 31,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!jdvLuW6352yjgB0x",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "31",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

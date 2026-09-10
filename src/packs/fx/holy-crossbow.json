@@ -1,0 +1,29 @@
+{
+  "_id": "vB9A01tTJkjGd9MS",
+  "name": "Holy Crossbow",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Any bolt fired from this magic crossbow is blessed with holy power. It deals +2d6 points of bonus holy damage against any creature with the evil allegiance and bestows one negative level on any such creature that attempts to wield it. The negative level remains for as long as the weapon is in hand and disappears when the weapon is no longer wielded. This negative level never results in actual level loss, but it cannot be overcome in any way (including restoration spells) while the weapon is wielded.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Weapons",
+    "weight": 7.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 34,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!vB9A01tTJkjGd9MS",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "34 (+1), 39 (+2), 44 (+3)",
+      "weight": "7 lb",
+      "casterLevel": "7th (+1 or +2), 10th (+3)",
+      "itemType": "Weapon (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

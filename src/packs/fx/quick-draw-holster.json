@@ -1,0 +1,29 @@
+{
+  "_id": "LTlTrNmktbyJZwgP",
+  "name": "Quick-Draw Holster",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Any handgun placed in this hip holster fits perfectly. The quick-draw holster allows its wearer to draw or holster the weapon as a free action (as though the wearer had the Quick Draw feat).</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 1.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 31,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!LTlTrNmktbyJZwgP",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "31",
+      "weight": "1 lb",
+      "casterLevel": "3rd",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

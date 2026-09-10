@@ -1,0 +1,29 @@
+{
+  "_id": "yfbeyiMTPFdLb7hL",
+  "name": "Wand of Animate Dead",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This wand allows its user to cast animate dead.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Wands",
+    "weight": 1.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 32,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!yfbeyiMTPFdLb7hL",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "32",
+      "weight": "1 lb",
+      "casterLevel": "5th (divine)",
+      "itemType": "Wand (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

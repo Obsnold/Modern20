@@ -1,0 +1,29 @@
+{
+  "_id": "rbwFFj1HMF1CNDe0",
+  "name": "Decoder Ring",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This cheap-looking tin ring has a small dial adorned with letters of the alphabet. It grants its wearer a +10 equipment bonus on Decipher Script checks. Note that understanding does not necessarily imply spell use.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Rings",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 30,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!rbwFFj1HMF1CNDe0",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "30",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Ring (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

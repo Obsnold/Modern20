@@ -1,0 +1,29 @@
+{
+  "_id": "z6bULPZNILyc1ErG",
+  "name": "Tattoo of Natural Armor",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This tattoo, when activated, covers the bearer’s skin in hard ridges that provide a +4 natural armor bonus to Defense. The effect lasts 7 minutes.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Tattoos",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 26,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!z6bULPZNILyc1ErG",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "26",
+      "weight": "—",
+      "casterLevel": "7th",
+      "itemType": "Tattoo (psionic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

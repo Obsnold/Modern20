@@ -1,0 +1,29 @@
+{
+  "_id": "aqUm8FhanfO9nZE4",
+  "name": "Windbreaker of Resistance",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This garment offers magic protection in the form of a +1 to +3 resistance bonus on all saving throws.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Wondrous",
+    "weight": 1.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 22,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!aqUm8FhanfO9nZE4",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "22 (+1), 25 (+2), 28 (+3)",
+      "weight": "1 lb",
+      "casterLevel": "4th (+1), 7th (+2), 10th (+3)",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

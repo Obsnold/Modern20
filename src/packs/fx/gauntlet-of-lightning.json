@@ -1,0 +1,29 @@
+{
+  "_id": "meMk4PdTyUxUVpfs",
+  "name": "Gauntlet of Lightning",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This gauntlet allows its wearer to cast lightning bolt 3 times per day. Each bolt deals 5d6 points of electricity damage, or half if a Reflex save (DC 14) succeeds. Using the gauntlet is an attack action and does not provoke attacks of opportunity.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Wondrous",
+    "weight": 1.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 32,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!meMk4PdTyUxUVpfs",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "32",
+      "weight": "1 lb",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

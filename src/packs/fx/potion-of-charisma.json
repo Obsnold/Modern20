@@ -1,0 +1,29 @@
+{
+  "_id": "3du0TJTD1tJ0mTew",
+  "name": "Potion of Charisma",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This potion adds a +5 enhancement bonus to the drinker’s Charisma score for 5 minutes.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Potions",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 23,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!3du0TJTD1tJ0mTew",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "23",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Potion"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

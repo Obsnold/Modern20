@@ -1,0 +1,29 @@
+{
+  "_id": "aoCtKs2dhT9qNYUm",
+  "name": "Ablative Paint Job",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>A vehicle coated in this nigh unscratchable silvery-gray paint gains 5 points of hardness. It has no effect on any vehicle with a hardness of 10 or higher.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 28,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!aoCtKs2dhT9qNYUm",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "28",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

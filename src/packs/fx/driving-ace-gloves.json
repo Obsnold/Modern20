@@ -1,0 +1,29 @@
+{
+  "_id": "xmfyNnu9T2aAPqER",
+  "name": "Driving Ace Gloves",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>These snug, leather racing gloves provide a +5 equipment bonus on all Drive checks while operating a land vehicle (no benefit for boats, planes, or helicopters). Both gloves must be worn for the magic to be effective.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 33,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!xmfyNnu9T2aAPqER",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "33",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

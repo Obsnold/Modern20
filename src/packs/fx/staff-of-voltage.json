@@ -1,0 +1,29 @@
+{
+  "_id": "zj0PO4kpGEcZ9iiW",
+  "name": "Staff of Voltage",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This staff is made from a solid piece of copper and etched with lightning bolts or electrical symbols resembling circuitry. It requires that the user hold it forth in at least one hand. A fully-charged staff holds 50 charges. The staff has a number of uses, some identical to the corresponding arcane spell. Each time the staff is used, it depletes a certain number of charges.</p><p>• Degauss (by touch); uses 1 charge.</p><p>• Electromagnetic pulse (DC 15); uses 1 charge.</p><p>• Lightning bolt (9d6 points of electricity damage; Reflex save DC 15); uses 1 charge.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Weapons",
+    "weight": 5.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 40,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!zj0PO4kpGEcZ9iiW",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "40",
+      "weight": "5 lb",
+      "casterLevel": "9th (arcane)",
+      "itemType": "Staff (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

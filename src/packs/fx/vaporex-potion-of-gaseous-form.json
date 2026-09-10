@@ -1,0 +1,29 @@
+{
+  "_id": "gca5hZiLocK8Jz71",
+  "name": "Vaporex (Potion of Gaseous Form)",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This potent elixir or capsule renders the imbiber gaseous, as per the gaseous form spell. The effect lasts 5 minutes.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Potions",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 25,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!gca5hZiLocK8Jz71",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "25",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Potion (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

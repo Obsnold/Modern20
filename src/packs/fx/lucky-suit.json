@@ -1,0 +1,29 @@
+{
+  "_id": "Oq5XrSPMieSom85p",
+  "name": "Lucky Suit",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>A polyester suit consisting of a garish plaid jacket and lime green pants, the lucky suit protects the wearer from ranged attacks as though he had total concealment (50% miss chance). The suit doesn’t actually conceal or displace the wearer, but helps the wearer avoid range attacks that might normally hit. The concealment doesn’t apply to melee attacks. The wearer also gains a +2 luck bonus on Reflex saves.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 3.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 38,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!Oq5XrSPMieSom85p",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "38",
+      "weight": "3 lb",
+      "casterLevel": "7th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

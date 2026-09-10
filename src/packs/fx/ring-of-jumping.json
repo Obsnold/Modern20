@@ -1,0 +1,29 @@
+{
+  "_id": "zTSIaYLnJn5TDsMX",
+  "name": "Ring of Jumping",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This ring continually provides a +30 bonus to the wearer’s Jump checks and eliminates the wearer’s usual maximum distance limit.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Rings",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 26,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!zTSIaYLnJn5TDsMX",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "26",
+      "weight": "—",
+      "casterLevel": "1st",
+      "itemType": "Ring (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

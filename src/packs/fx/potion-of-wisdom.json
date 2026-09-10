@@ -1,0 +1,29 @@
+{
+  "_id": "545w5Z5c4sRST8R2",
+  "name": "Potion of Wisdom",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This potion adds a +5 enhancement bonus to the drinker’s Wisdom score for 5 minutes.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Potions",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 23,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!545w5Z5c4sRST8R2",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "23",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Potion"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

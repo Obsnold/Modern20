@@ -1,0 +1,29 @@
+{
+  "_id": "G1XtPzRDuBtfyZ24",
+  "name": "Potion of See Invisibility",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This potion allows its drinker to see objects and beings that are invisible as if they were normally visible. It does not reveal illusions or allow the imbiber to see through opaque objects, nor does it reveal creatures that are simply hiding, concealed, or otherwise hard to see. The effect lasts 30 minutes.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Potions",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 22,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!G1XtPzRDuBtfyZ24",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "22",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Potion"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

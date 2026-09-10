@@ -1,0 +1,29 @@
+{
+  "_id": "xzKsK39FXj3wJ5Kv",
+  "name": "Fuzzy Dice of Luck",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>These gaudy, hot-pink fuzzy dice must be hung from the rearview mirror of the vehicle to be activated. Once per day, the driver of the vehicle can reroll any Drive check, but must take the new result regardless of the outcome.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 25,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!xzKsK39FXj3wJ5Kv",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "25",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

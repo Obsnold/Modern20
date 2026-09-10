@@ -1,0 +1,29 @@
+{
+  "_id": "TJaupdps48IUEIi5",
+  "name": "Shrinking Paint Job",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This paint job allows the vehicle to “shrink” to a matchboxsized version small enough to fit in the palm of one’s hand. Shrinking or enlarging the vehicle requires a command word, and the vehicle takes a full-round action to shrink or return to full size. The vehicle will not shrink if it contains any living beings, but can be shrunk with up to 50 pounds of cargo stored in its trunk. The vehicle will not unfold if it is in an area that will not allow it to expand to its full size. A vehicle in its toy size has a hardness of 5 and 5 hit points. The vehicle is destroyed and cannot be repaired if reduced to 0 hit points in its toy form.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 30,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!TJaupdps48IUEIi5",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "30",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "7th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

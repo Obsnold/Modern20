@@ -1,0 +1,29 @@
+{
+  "_id": "xvGR7ewmvw5oSOHP",
+  "name": "Flaming Machete",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>In addition to its enhancement bonus, this machete becomes sheathed in flames when the wielder utters a command word. The fire does not harm the hand that holds the weapon, and the machete deals +1d6 points of fire damage on a successful hit.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Weapons",
+    "weight": 3.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 25,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!xvGR7ewmvw5oSOHP",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "25 (+1), 30 (+2), 35 (+3)",
+      "weight": "3 lb",
+      "casterLevel": "10th",
+      "itemType": "Weapon (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

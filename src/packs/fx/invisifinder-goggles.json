@@ -1,0 +1,29 @@
+{
+  "_id": "bATY76Mbi41ART7F",
+  "name": "Invisifinder Goggles",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>These military-grade night vision goggles are carved with runes and other occult symbols. In addition to the benefits of regular night-vision goggles, they also allow the wearer to see invisibility as the spell.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 3.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 31,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!bATY76Mbi41ART7F",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "31",
+      "weight": "3 lb",
+      "casterLevel": "3rd",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

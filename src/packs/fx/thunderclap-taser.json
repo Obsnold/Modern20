@@ -1,0 +1,29 @@
+{
+  "_id": "m0YFJpMdeq4iqjUW",
+  "name": "Thunderclap Taser",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This taser releases a deafening blast of thunder when it strikes an opponent. It deals normal damage (1d4 electrical) plus an additional 2d6 points of sonic/concussion damage. The taser’s battery is exhausted after a successful hit and must be replaced after each use.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Weapons",
+    "weight": 1.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 20,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!m0YFJpMdeq4iqjUW",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "20",
+      "weight": "1 lb",
+      "casterLevel": "5th",
+      "itemType": "Weapon (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

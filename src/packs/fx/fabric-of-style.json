@@ -1,0 +1,29 @@
+{
+  "_id": "OwRGHpF7ys2kqtQI",
+  "name": "Fabric of Style",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This bolt of fine, silky fabric is wrapped around a person’s body. On command, fabric of style turns into a any sort of outfit of excellent quality, but does not include accessories like jewelry, watches, and so forth. Fabric of style also grants a +2 equipment bonus on Charisma checks and Charisma-based skill checks while worn. The style of outfit can be changed, but the fabric of style must be removed and donned again, requiring a full-round action. If any part of the outfit is removed, the fabric of style turns back into the bolt of cloth.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 3.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 36,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!OwRGHpF7ys2kqtQI",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "36",
+      "weight": "3 lb",
+      "casterLevel": "7th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

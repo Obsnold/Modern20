@@ -1,0 +1,29 @@
+{
+  "_id": "0awS1SwBOvcytr7i",
+  "name": "Seat of Hold Monster",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Once per day, when the driver utters the proper command word, this seat (usually a passenger seat in the front or back of the vehicle) holds the creature seated in it, as the hold monster spell cast by a 10th-level Acolyte. The target creature gets a Will save (DC 17) to negate the effect, which lasts for 10 rounds.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 32,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!0awS1SwBOvcytr7i",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "32 (per seat)",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "10th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

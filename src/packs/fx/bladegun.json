@@ -1,0 +1,29 @@
+{
+  "_id": "idovZeJROmbhu2FJ",
+  "name": "Bladegun",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>A bladegun is a magic pistol that transforms into a magic short sword (and back again) upon command. Each bladegun is a specific make of handgun. The handgun and short sword versions of the weapon possess the same enhancement bonus (+1 to +3). Turning the handgun into a short sword—and vice versa— takes a move action. A bladegun in handgun form must be loaded with ammunition to fire (as any gun).</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Weapons",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 16,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!idovZeJROmbhu2FJ",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "16 + pistol’s purchase DC (+1), 21 + pistol’s purchase DC (+2), 26 + pistol’s purchase DC (+3)",
+      "weight": "Varies (as pistol or short sword)",
+      "casterLevel": "9th",
+      "itemType": "Weapon (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

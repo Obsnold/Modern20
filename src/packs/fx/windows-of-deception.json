@@ -1,0 +1,29 @@
+{
+  "_id": "Cs4168NX5C8HZxqJ",
+  "name": "Windows of Deception",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The driver of this vehicle can alter his or her appearance to viewers on the outside of the vehicle, as if by change self cast by a 3rd-level Mage. If the one or more of the vehicle’s windows are destroyed, the effect ends and the windows of deception cease to function.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 26,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!Cs4168NX5C8HZxqJ",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "26",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

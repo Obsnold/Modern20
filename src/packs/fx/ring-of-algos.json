@@ -1,0 +1,29 @@
+{
+  "_id": "UhTvqoEVXFkruL7X",
+  "name": "Ring of Algos",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This iron signet ring has a sigil of Algos (see Incantations) carved into its setting. Any time the wearer shakes hands with another living creature, he may activate the ring’s power (as an attack action). The two parties shaking hands make opposed Will saves, although the ring’s wearer gets to add his Charisma bonus to his save. Whoever has the lower result receives a –4 penalty to all attack rolls, skill checks, and saving throws for the next 12 hours.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Rings",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 36,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!UhTvqoEVXFkruL7X",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "36",
+      "weight": "—",
+      "casterLevel": "11th*",
+      "itemType": "Ring (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

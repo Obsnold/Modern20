@@ -35,6 +35,7 @@ fighting it forever, so this is a standalone game system.
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
 | Rules reference | 63 journal entries, 1,202 pages — the SRD's own text, in four books |
+| FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
@@ -517,6 +518,29 @@ Ten documents open on a section rather than a title — the file names are one
 lowercase run, `msrdequipmentweaponsandarmor`, and cannot be split back into
 words — so those are named in `data/overrides/rules.json` with a stated reason,
 the same correction layer the scraped datasets use.
+
+## FX items
+
+Magic and psionic items are the one body of SRD content priced in prose rather
+than in a table, which is why the purchase-table pipeline never saw them: a
+potion of Charisma is a paragraph, and its purchase DC is in the sentence after
+it. They come out of the rules text instead — 134 of them, from potions, rings,
+scrolls, staffs, tattoos, wands and wondrous items through to Urban Arcana's
+artifacts and its magic vehicle accessories.
+
+Both books print the same stat line and neither prints the same thing around
+it: Urban Arcana bolds the item's name on a line of its own, d20 Modern runs
+it into the description behind a colon. So the stat line — *"Type: Weapon
+(magic); Caster Level: 10th; Purchase DC: 25 (+1), 30 (+2), 35 (+3); Weight: 3
+lb."* — is what the parser looks for, and the name is whatever precedes it.
+
+They build as **gear**, not as weapons and armor. A magic weapon in the SRD is
+not a weapon entry: it is "a +1 to +3 machete that deals fire damage", priced
+against the mundane one it enhances. Gear keeps what the SRD states — a name, a
+description, a caster level, a purchase DC — instead of inventing the damage
+and critical a weapon item would demand. The printed DC is the cheapest
+version, and the sentence it came from is kept on the item, since the rest of
+it is the rule.
 
 ## Objects
 

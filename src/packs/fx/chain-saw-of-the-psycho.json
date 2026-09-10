@@ -1,0 +1,29 @@
+{
+  "_id": "qpkzEBcrhs7LHIX4",
+  "name": "Chain Saw of the Psycho",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This battered chain saw has a +1 to +3 enhancement bonus. It constantly drips oil and small amounts of blood, and it does not require gas to activate. The chain saw deals x 3 damage (instead of x 2 damage) on a successful critical hit.</p><p>Any creature with a good allegiance who handles a chain saw of the psycho gains two negative levels. These negative levels remain so long as the chain saw is in hand and disappear when it is no longer wielded. These negative levels never result in actual level loss, but they cannot be overcome in any way while the chain saw is wielded.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Weapons",
+    "weight": 10.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 25,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!qpkzEBcrhs7LHIX4",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "25 (+1), 30 (+2), 35 (+3)",
+      "weight": "10 lb",
+      "casterLevel": "10th",
+      "itemType": "Weapon (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}
