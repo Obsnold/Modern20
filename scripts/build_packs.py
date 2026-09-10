@@ -35,6 +35,10 @@ RESTRICTIONS = {
 # these need the slug-keyed override pass; the rest go through load_dataset.
 TABLE_PACKS = {"weapons", "armor", "gear"}
 
+# Packs of actors rather than items, which decides the LevelDB key prefix and
+# what kind of folder can hold them.
+ACTOR_PACKS = {"creatures", "vehicles", "objects"}
+
 # The SRD lists ammunition as a name and a purchase DC only, so its rows are
 # two cells wide and were being dropped by the three-cell minimum. Routed by
 # its own header rather than by page, since it shares weapons.html.
@@ -1212,8 +1216,75 @@ def build_psionics() -> list[dict]:
     return simple_pack("psionics", "psiPower", "psionics", "icons/svg/daze.svg", psionic_system)
 
 
-# The four books, in the order the compendium lists them.
-RULE_FOLDERS = ["d20 Modern", "Urban Arcana", "d20 Future", "Menace Manual"]
+# The four books, in the order a compendium lists them.
+BOOKS = ["d20 Modern", "Urban Arcana", "d20 Future", "Menace Manual"]
+
+# Which book an SRD page belongs to, by the prefix its file name carries.
+BOOK_PREFIXES = (
+    ("menace", "Menace Manual"),
+    ("urban", "Urban Arcana"),
+    ("arcana", "Urban Arcana"),
+    ("future", "d20 Future"),
+)
+
+
+def book_of(url: str) -> str:
+    """The book a document came from, from the page it was scraped off.
+
+    Everything the pipeline reads is one of four books, and the mirror names
+    its pages for them: menacecreat3.html is the Menace Manual, futurepl6.html
+    is d20 Future. Anything else is d20 Modern's own.
+    """
+    page = (url or "").rsplit("/", 1)[-1]
+    if not page:
+        return ""
+    for prefix, book in BOOK_PREFIXES:
+        if page.startswith(prefix):
+            return book
+    return "d20 Modern"
+
+
+def add_book_folders(pack: str, documents: list[dict], collection: str,
+                     book_for) -> list[dict]:
+    """Group a pack into a folder per book, where it holds more than one.
+
+    A d20 Modern game should not have to read past the laser rifles to find a
+    Colt. The expansions share these packs - splitting them into modules would
+    break every @UUID link into them the moment one was not installed - so what
+    separates them is a folder, which is a document in the pack like any other.
+
+    A pack that holds one book is left alone: a single folder wrapping
+    everything is a click, not a grouping.
+    """
+    kinds = {"actors": "Actor", "items": "Item", "journal": "JournalEntry"}
+    present = {book_for(document) for document in documents}
+    present.discard("")
+    if len(present) < 2:
+        return documents
+
+    folders, ids = [], {}
+    for index, book in enumerate(BOOKS):
+        if book not in present:
+            continue
+        slug = f"folder-{srd.slugify(book)}"
+        folder_id = document_id(pack, slug)
+        ids[book] = folder_id
+        folders.append({
+            "_id": folder_id,
+            "name": book,
+            "type": kinds[collection],
+            "sorting": "a",
+            "folder": None,
+            "color": None,
+            "sort": index * 100000,
+            "flags": {},
+            "_key": f"!folders!{folder_id}",
+            "_slug": slug,
+        })
+
+    for document in documents:
+        document["folder"] = ids.get(book_for(document))
+    return folders + documents
 
 
 def build_rules() -> list[dict]:
@@ -1228,23 +1299,6 @@ def build_rules() -> list[dict]:
     than !journal!, which is how a compendium ships with its own structure.
     """
     documents = []
-    folders = {}
-    for index, book in enumerate(RULE_FOLDERS):
-        folder_id = document_id("rules", f"folder-{srd.slugify(book)}")
-        folders[book] = folder_id
-        documents.append({
-            "_id": folder_id,
-            "name": book,
-            "type": "JournalEntry",
-            "sorting": "m",
-            "folder": None,
-            "color": None,
-            "sort": index * 100000,
-            "flags": {},
-            "_key": f"!folders!{folder_id}",
-            "_slug": f"folder-{srd.slugify(book)}",
-        })
-
     entries = json.load(open(os.path.join(srd.DATA, "rules.json"), encoding="utf-8"))
     # Three titles appear in two books each - Psionics, Advanced Classes and
     # Vehicles - and two identical rows in a search result help nobody, so
@@ -1275,13 +1329,15 @@ def build_rules() -> list[dict]:
             "_id": doc_id,
             "name": name,
             "pages": pages,
-            "folder": folders.get(entry["book"]),
             "sort": (index + 1) * 1000,
             "flags": {"modern20": {"book": entry["book"], "source": entry["source"]}},
             "_key": f"!journal!{doc_id}",
             "_slug": slug,
         })
-    return documents
+
+    # The rules know their own book; everything else is told by its page.
+    return add_book_folders("rules", documents, "journal",
+                            lambda document: document["flags"]["modern20"]["book"])
 
 
 def build_objects() -> list[dict]:
@@ -1461,6 +1517,16 @@ def build() -> dict[str, list[dict]]:
         if documents:
             packs[name] = documents
 
+    # Seven packs hold more than one book: the equipment three, the creatures,
+    # the spells, the powers and the vehicles. Each gets a folder per book.
+    for pack, documents in packs.items():
+        if pack == "rules":
+            continue
+        collection = "actors" if pack in ACTOR_PACKS else "items"
+        packs[pack] = add_book_folders(
+            pack, documents, collection,
+            lambda document: book_of(document["system"].get("srdUrl", "")))
+
     return packs
 
 
@@ -1544,7 +1610,7 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
             "name": pack,
             "label": labels.get(pack, pack.title()),
             "path": f"packs/{pack}",
-            "type": "Actor" if pack in ("creatures", "vehicles", "objects")
+            "type": "Actor" if pack in ACTOR_PACKS
             else "JournalEntry" if pack == "rules" else "Item",
             "system": "modern20",
             "ownership": {"PLAYER": "OBSERVER", "ASSISTANT": "OWNER"},
