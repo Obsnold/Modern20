@@ -67,8 +67,14 @@ HEADING = re.compile(r"<h([1-6])[^>]*>(.*?)</h\1>", re.S | re.I)
 # A heading that names the shape of the page rather than a piece of content.
 STRUCTURAL = re.compile(r"^(?:table:|sidebar:|new |the following)", re.I)
 
-# A heading used in this many pages is a sub-head every entry carries -
-# "Hit Points", "Talents", "Level" - not a thing to be imported.
+# A heading used on this many pages of one document is a sub-head every entry
+# in it carries - "Prerequisite" under each of ninety-five feats, "Special
+# Qualities" under each creature - not a thing to be imported.
+#
+# Counted per document rather than across the whole SRD, because the whole SRD
+# is not a fixed quantity: splitting the equipment chapters into a page each
+# pushed names that were nowhere near the limit over it, and the coverage of
+# skills and feats fell without either being touched.
 BOILERPLATE = 8
 
 
@@ -96,9 +102,9 @@ def sections(rules: list[dict]) -> dict[str, list[str]]:
     counting those as content to import would put a floor under the figure
     that never moves.
     """
-    seen = collections.Counter()
     found = {}
     for entry in rules:
+        pages_with = collections.Counter()
         names = []
         for page in entry["pages"]:
             # The page's own name counts too, and counts once. Where a page
@@ -106,12 +112,13 @@ def sections(rules: list[dict]) -> dict[str, list[str]]:
             # each - the name and the heading are the same thing, and reading
             # only the headings while skipping the ones that match the page
             # name counted the acid rainer zero times.
-            names += list(dict.fromkeys(headings(page["html"]) + [page["name"]]))
-        found[entry["id"]] = names
-        seen.update({name.lower() for name in names})
+            on_page = list(dict.fromkeys(headings(page["html"]) + [page["name"]]))
+            names += on_page
+            pages_with.update({name.lower() for name in on_page})
+        found[entry["id"]] = [name for name in names
+                              if pages_with[name.lower()] <= BOILERPLATE]
 
-    return {entry_id: [name for name in names if seen[name.lower()] <= BOILERPLATE]
-            for entry_id, names in found.items()}
+    return found
 
 
 def section_name(name: str) -> str:
