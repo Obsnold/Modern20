@@ -579,36 +579,60 @@ grapple.
 
 ## Editing in Foundry, and keeping the edit
 
-The compendia belong to the system, so anything corrected on a sheet in
-Foundry is thrown away by the next `deploy.sh --packs`, which recompiles every
-pack from `src/packs`. The way to keep an edit is to capture it:
+Foundry is the editor. Content is corrected on the sheet, where the fields are
+labelled and the numbers are the ones the game uses, and then brought back into
+`src/packs` — the same round trip dnd5e and pf2e run, under the same names.
 
 ```bash
 # unlock the pack in Foundry (right-click it, Toggle Edit Lock), fix the sheet
-scripts/capture_edits.py            # reads the live packs back off the host
-# fill in the "why" it wrote, then
-python3 scripts/build_packs.py
+npm run extract:dry                 # what the live packs hold that src/packs does not
+npm run extract                     # bring it home
+git diff src/packs                  # read it, fill in each "why", commit
+npm run deploy:packs                # recompile and install
 ```
 
-It unpacks the live compendia with the Foundry CLI, compares them with what
-the build produces, and writes the differences into
-`data/overrides/packs/<pack>.json`, keyed by slug. Those are applied to the
-built documents, so an edit survives every re-scrape and rebuild — and each
-one asks for a reason, the same as every other correction here.
+`npm run extract` (`scripts/capture_edits.py`) unpacks the live compendia with
+the Foundry CLI and compares them with the pack source. It handles four things,
+and each one is a way an afternoon in Foundry actually ends:
 
-Two kinds of noise had to be ignored to make that work, and both were found by
-running it. Foundry fills in every default a document does not carry — a
-prototype token, empty effects, an entire light configuration — so only fields
-the build actually sets are compared. And the editor rewrites `<br />` as
-`<br>` and reflows whitespace on any page it opens, so HTML is compared
-normalised. Without the second one, opening a page to read it counts as
-editing it.
+- **An edited document.** The changed fields are written into
+  `src/packs/<pack>/<slug>.json` and recorded in
+  `data/overrides/packs/<pack>.json` with a `why`, so
+  `check_creatures.mjs` reports a deliberate divergence as a decision rather
+  than a regression.
+- **A document made in Foundry.** Written into the pack source as its own file,
+  keyed for the compiler, with the bookkeeping Foundry owns — who touched it
+  last, who may see it — dropped. Documents are matched by id first, so
+  renaming a creature on its sheet is an edit rather than a second creature.
+- **A folder made in Foundry.** A compendium folder is a document in the pack
+  like any other, and without it every creature filed into it lands in the
+  compendium root. New folders come home too, and a new document left outside
+  the folders is named, because `check_packs.py` fails on it.
+- **A document deleted in Foundry.** Reported, never acted on. A pack that
+  failed to unpack, or a host pulled before it was deployed, would otherwise
+  read as every document in it having been deleted.
+
+Packing rewrites the compendia from `src/packs`, so an uncaptured edit is gone
+the moment `deploy.sh --packs` runs. Now that this is where content is edited,
+that is the easiest way to lose the afternoon, so `--packs` checks the host
+first and refuses; `--overwrite-live` says the live packs really are the ones
+to throw away.
+
+Two kinds of noise had to be ignored to make any of this work, and both were
+found by running it. Foundry fills in every default a document does not carry —
+a prototype token, empty effects, an entire light configuration — so only
+fields the build actually sets are compared. And the editor rewrites `<br />`
+as `<br>` and reflows whitespace on any page it opens, so HTML is compared
+normalised. Without the second one, opening a page to read it counts as editing
+it.
 
 There are two override layers, and the distinction matters. `data/overrides/`
 holds corrections to the *scraped data*, keyed by entry id — the right place
-for a number the SRD prints wrongly. `data/overrides/packs/` holds corrections
-to the *built documents*, keyed by slug, which is where a captured edit lands
-and the only layer that can reach a journal page.
+for a number the SRD prints wrongly, because the fix then reaches every
+document built from that entry, including ones imported later.
+`data/overrides/packs/` holds the record of which *built documents*
+deliberately differ from the book, keyed by the pack file's stem, which is
+where a captured edit is accounted for.
 
 ## Field labels
 

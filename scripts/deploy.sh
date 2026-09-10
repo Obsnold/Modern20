@@ -2,7 +2,7 @@
 #
 # Build, verify and install the system on the Foundry host.
 #
-#   scripts/deploy.sh [user@host] [--packs]
+#   scripts/deploy.sh [user@host] [--packs] [--overwrite-live]
 #
 # The flag may come in either order, or on its own. It used to have to be the
 # second argument, so `deploy.sh --packs` set the host to "--packs" and the
@@ -16,9 +16,11 @@ set -euo pipefail
 
 HOST=""
 PACKS=""
+OVERWRITE=""
 for argument in "$@"; do
   case "$argument" in
     --packs) PACKS="--packs" ;;
+    --overwrite-live) OVERWRITE="yes" ;;
     -*) echo "unknown option: $argument" >&2; exit 2 ;;
     *) HOST="$argument" ;;
   esac
@@ -40,6 +42,28 @@ python3 scripts/check_config.py
 python3 scripts/check_shadowing.py
 python3 scripts/check_packs.py
 python3 scripts/check_coverage.py
+
+# Packing rewrites the compendia from src/packs, so anything edited on a sheet
+# and not yet captured is gone. Foundry is where this system's content is
+# edited now, which makes that the easiest way to lose an afternoon's work, so
+# --packs looks first.
+if [ -n "$PACKS" ] && [ -z "$OVERWRITE" ]; then
+  echo "==> Looking for edits made in Foundry"
+  if ! python3 scripts/capture_edits.py "$HOST" --dry-run --exit-code; then
+    cat >&2 <<'MESSAGE'
+
+The live compendia hold something src/packs does not. Packing would overwrite
+it. Bring it home first:
+
+    python3 scripts/capture_edits.py       # then read the diff and commit
+
+or, if the live packs really are the ones to throw away:
+
+    scripts/deploy.sh --packs --overwrite-live
+MESSAGE
+    exit 1
+  fi
+fi
 
 echo "==> Packaging"
 TARBALL="$(mktemp -d)/modern20.tgz"
