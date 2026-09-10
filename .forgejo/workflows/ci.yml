@@ -122,3 +122,8 @@ jobs:
       # says nothing about it.
       - name: compendium shape
         run: python3 scripts/check_packs.py
+
+      # Every other check compares the import against itself. This one walks
+      # the SRD's own documents, so a whole format going unread is visible.
+      - name: SRD coverage has not regressed
+        run: python3 scripts/check_coverage.py
