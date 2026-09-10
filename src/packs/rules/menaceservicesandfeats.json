@@ -1,0 +1,60 @@
+{
+  "_id": "n2t43rySIkyJyNOc",
+  "name": "Services & Feats",
+  "pages": [
+    {
+      "_id": "fjsjs63XA1Cz5ZXB",
+      "name": "Overview",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>This material is Open Game Content, and is licensed for public use\nunder the terms of the Open Game License v1.0a.</p>"
+      },
+      "sort": 100000,
+      "flags": {}
+    },
+    {
+      "_id": "P7HhZeDAXWnEhxi6",
+      "name": "Buying Services",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>BUYING SERVICES</h1>\n<p>When a hero buys services, use these rules to arrive at an asking\nprice and a bare minimum price. In most cases, the arrived-at cost is\nper task performed on the hero’s behalf, regardless of how many skill\nchecks are involved.</p>\n<p>These rules are specifically for buying services, as opposed to labor\nthat results in tangible merchandise.</p>\n<h2>Determining Cost</h2>\n<p>Every service has an asking price and a bare minimum price. The\nperson providing the service starts by asking the highest price he\nthinks his services are worth, expressed as a Purchase DC. This number\nis equal to his total skill modifier for the appropriate skill,\nmultiplied by 1.5, rounded down. If two or more skills apply, multiply\nthe average of the skill modifiers by 1.5 to arrive at the Purchase DC.\nIf no particular skill seems to apply, use the character’s Profession\nskill modifier. If the Purchase DC is fewer than 2, the character\nrefuses to take the job—or takes it, then badly bungles it.</p>\n<p>A hero can attempt to negotiate a lower price with an opposed\nDiplomacy check. For each point by which the hero beats the supporting\ncharacter’s Diplomacy check, the Purchase DC drops by 1. But for each\npoint by which the supporting character’s Diplomacy check beats the\nhero’s, the Purchase DC goes up by 1. You can take 10 or take 20 on this\ncheck (as can your opponent). No retries are allowed. Haggling the price\nin this fashion can never reduce the Purchase DC to fewer than the\nsupporting character’s skill ranks in the relevant skill (or average\nranks in the relevant skills), multiplied by 1.5, rounded down. This is\nthe bare minimum price; doing the job for less starts costing the\ncharacter money.</p>"
+      },
+      "sort": 200000,
+      "flags": {}
+    },
+    {
+      "_id": "kwDYBu9nddXRP4T2",
+      "name": "New Feats",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>NEW FEATS</h1>\n<h2>Alien Craft Operation</h2>\n<p>The creature is proficient at operating one type of spacecraft\nutilized by certain alien species.</p>\n<p><strong>Prerequisite: </strong>Pilot 4 ranks.</p>\n<p><strong>Benefit: </strong>The creature takes no penalty on Pilot\nchecks or attack rolls made to operate a craft of the selected type.</p>\n<p><strong>Normal: </strong>A creature without this feat takes a –4\npenalty on Pilot checks made to operate a spacecraft that falls into any\nof these types, and on attack rolls made when using the weapons of such\na spacecraft.</p>\n<p><strong>Special: </strong>A creature can gain this feat multiple\ntimes. Each time the feat is taken, select a different type of alien\ncraft.</p>\n<p>Alien Weapons Proficiency</p>\n<p>The creature is proficient with alien weapons.</p>\n<p><strong>Benefit: </strong>The creature takes no penalty on attack\nrolls when using any kind of alien weapon.</p>\n<p><strong>Normal: </strong>A creature without this feat takes the –4\nnonproficient penalty when making attacks with an alien weapon.</p>\n<p>Flyby Attack</p>\n<p>The creature can attack on the wing.</p>\n<p><strong>Prerequisite: </strong>Fly speed.</p>\n<p><strong>Benefit: </strong>When flying, the creature can take a move\naction (including a dive) and another partial action at any point during\nthe move. The creature cannot take a second move action during a round\nwhen it makes a flyby attack.</p>\n<p><strong>Normal: </strong>Without this feat, a creature can take a\npartial action either before or after its move.</p>"
+      },
+      "sort": 300000,
+      "flags": {}
+    }
+  ],
+  "folder": "DfOSfQkuEGmhb8Vr",
+  "sort": 63000,
+  "flags": {
+    "modern20": {
+      "book": "Menace Manual",
+      "source": "MenaceServicesandFeats.rtf"
+    }
+  },
+  "_key": "!journal!n2t43rySIkyJyNOc"
+}

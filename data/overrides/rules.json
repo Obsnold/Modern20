@@ -1,0 +1,44 @@
+{
+  "_comment": "Titles for the SRD documents whose own first heading is a section rather than a title, keyed by file name. The file names are one lowercase run - msrdequipmentweaponsandarmor - so they cannot be split back into words, and the document has to be read to name it. Each entry needs a 'why' so the next reader can tell a fix from an opinion.",
+
+  "msrdadvancedclassesI": {
+    "why": "Opens on 'Qualifying for an Advanced Class', which is the first section of twelve.",
+    "title": "Advanced Classes I"
+  },
+  "msrdadvancedclassesII": {
+    "why": "Titled 'CAMPAIGN ADVANCE CLASSES' in the document; named for its companion file.",
+    "title": "Advanced Classes II"
+  },
+  "msrdbasicclasses": {
+    "why": "Opens on a table column called 'Ability'.",
+    "title": "Basic Classes"
+  },
+  "msrdequipmentbasics": {
+    "why": "Opens on 'On-Hand Objects', the first of eight sections.",
+    "title": "Equipment Basics"
+  },
+  "msrdequipmentweaponsandarmor": {
+    "why": "Opens on 'Weapons', which is one of sixteen sections rather than the title.",
+    "title": "Weapons and Armor"
+  },
+  "msrdlegal": {
+    "why": "Has no headings at all.",
+    "title": "Legal Information"
+  },
+  "msrdpsionics": {
+    "why": "Opens on 'How to Read a Power Description'.",
+    "title": "Psionics"
+  },
+  "msrdskillsi": {
+    "why": "Opens on 'Computer Hacking'; the companion file titles itself SKILLS II.",
+    "title": "Skills I"
+  },
+  "msrdskillsii": {
+    "why": "Titled 'SKILLS II' in the document; matched to its companion.",
+    "title": "Skills II"
+  },
+  "msrdskillsoverview": {
+    "why": "Opens on 'Getting Skills', the first of fifteen sections.",
+    "title": "Skills Overview"
+  }
+}
