@@ -1,0 +1,29 @@
+{
+  "_id": "jdZvv86tWFK1CQbD",
+  "name": "Doppler Staff",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This staff is unusual in that it performs only one function— albeit a considerable one. Crafted from sandalwood carved with cloud patterns spiraling up its shaft, the doppler staff requires that the user hold it above her head using both hands. The staff enables its user to cast a control weather incantation without secondary casters. The staff also grants a +4 equipment bonus on all Knowledge (arcane lore) checks to successfully complete the incantation. Each attempted use costs one charge, even if the incantation fails.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Weapons",
+    "weight": 5.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 41,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!jdZvv86tWFK1CQbD",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "41",
+      "weight": "5 lb",
+      "casterLevel": "11th (arcane)",
+      "itemType": "Staff (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

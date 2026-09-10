@@ -1,0 +1,29 @@
+{
+  "_id": "yCOLJVP4cRpDMNwm",
+  "name": "Headlights of Blinding",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Three times per day, these headlights can emit a blinding 50- foot cone of light projecting from the front of the vehicle. Any creatures caught in the area must succeed at a Fortitude save (DC 15) or be blinded for 2d6 rounds.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 27,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!yCOLJVP4cRpDMNwm",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "27",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

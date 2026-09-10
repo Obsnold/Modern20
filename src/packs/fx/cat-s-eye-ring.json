@@ -1,0 +1,29 @@
+{
+  "_id": "0kVG2eizSaiokdr9",
+  "name": "Cat’s Eye Ring",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This ring grants the wearer continuous low-light vision. In addition, once per day, the wearer may transform into a cat (as the baleful polymorph incantation, but with no skill checks or additional components required). The wearer can turn back into her own form at any time. Either way, the transformation takes a move action to complete.</p><p>The wearer retains her Intelligence, Wisdom, and Charisma scores in cat form, during which the ring takes the form of a handsome collar.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Rings",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 37,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!0kVG2eizSaiokdr9",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "37",
+      "weight": "—",
+      "casterLevel": "12th*",
+      "itemType": "Ring (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

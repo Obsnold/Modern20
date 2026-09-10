@@ -1,0 +1,29 @@
+{
+  "_id": "YbyEWm3UEuXM6QgG",
+  "name": "Flame Job",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This paint job covers the front of the vehicle in wicked-looking flames. Once per day, on the owner’s command, the vehicle can burst into flames for 3 rounds, dealing 5d6 points of fire damage to any creature or object touched or struck by the vehicle. In addition, any creature standing adjacent to the flaming vehicle takes 2d6 points of fire damage; a successful Reflex save (DC 15) halves the damage. The flames automatically set fire to combustibles. Neither the vehicle nor its occupants suffer any ill effects from the fire so long as they remain completely inside the vehicle.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 27,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!YbyEWm3UEuXM6QgG",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "27",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

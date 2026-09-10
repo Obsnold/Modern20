@@ -1,0 +1,29 @@
+{
+  "_id": "15D0sbMgyyGy7Nue",
+  "name": "Ring of Lyssa",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>A ring is made of delicate silver threads forged in a pattern of thorny brambles with a single blood-red ruby set in the center. Anyone who puts on this cursed ring is suffers the effects of a sigil of Lyssa incantation for as long as the ring is worn (Will save, DC 28, negates). When the ring is removed, the victim must make a second Will save (DC 28) or suffer the effects for an additional 16 minutes.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Rings",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 37,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!15D0sbMgyyGy7Nue",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "37",
+      "weight": "—",
+      "casterLevel": "12th*",
+      "itemType": "Ring (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

@@ -2804,6 +2804,99 @@ def scrape_advancement() -> dict:
 
     return {"sizes": sizes, "types": types, "srdUrl": url}
 
+# A magic item's stat line, which is what marks the end of one entry: "Type:
+# Weapon (magic); Caster Level: 9th; Purchase DC: 25 (+1); Weight: 10 lb."
+FX_STATS = re.compile(r"^type:\s", re.I)
+FX_FIELD = re.compile(r"(type|caster level|manifester level|purchase dc|weight)\s*:\s*"
+                      r"([^;]*?)(?=;|$)", re.I)
+FX_PARAGRAPH = re.compile(r"<p>(.*?)</p>", re.S)
+
+
+def fx_text(markup: str) -> str:
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", markup))).strip()
+
+
+def scrape_fx_items(rules: list[dict]) -> list[dict]:
+    """The magic and psionic items, out of the rules text.
+
+    These are the one body of content the SRD prices in prose rather than in a
+    table, which is why the purchase-table pipeline never saw them: a potion of
+    Charisma is a paragraph, and its purchase DC is in the sentence after it.
+
+    Both books print the same stat line and neither prints it the same way
+    around it - Urban Arcana bolds the item's name on a line of its own, d20
+    Modern runs it into the description with a colon - so the stat line is what
+    is searched for, and the name is whatever precedes it.
+    """
+    # The rules text carries no page of its own, so each book's FX chapter is
+    # pointed at the mirror page that prints the same thing.
+    sources = {"msrdFXitems": "fxitems.html", "ArcanaFXItems": "urbanfx.html"}
+
+    items, seen = [], set()
+    for entry in rules:
+        if entry["id"] not in sources:
+            continue
+
+        for page in entry["pages"]:
+            category = re.sub(r"\s*(and Shields|Magic Items|Items)$", "", page["name"]).strip()
+            paragraphs = [(fx_text(m.group(1)), m.group(1))
+                          for m in FX_PARAGRAPH.finditer(page["html"])]
+
+            for index, (text, _) in enumerate(paragraphs):
+                if not FX_STATS.match(text) or "purchase dc" not in text.lower():
+                    continue
+
+                name, description = fx_entry(paragraphs, index)
+                if not name or name.lower() in seen:
+                    continue
+                seen.add(name.lower())
+
+                fields = {key.lower(): value.strip(" .")
+                          for key, value in FX_FIELD.findall(text)}
+                items.append({
+                    "id": camel(name),
+                    "name": name,
+                    "category": category or page["name"],
+                    "book": entry["book"],
+                    "description": description,
+                    "itemType": fields.get("type", ""),
+                    "casterLevel": fields.get("caster level") or fields.get("manifester level", ""),
+                    # "25 (+1), 30 (+2)" and "16 + pistol's purchase DC" are both
+                    # printed; the number is the first one, and the sentence is
+                    # kept because the rest of it is the rule.
+                    "purchaseDC": srd.to_int(fields.get("purchase dc", "")),
+                    "purchaseDCText": fields.get("purchase dc", ""),
+                    "weight": parse_fx_weight(fields.get("weight", "")),
+                    "weightText": fields.get("weight", ""),
+                    "srdUrl": srd.page_url(sources[entry["id"]]),
+                })
+    return items
+
+
+def fx_entry(paragraphs: list[tuple[str, str]], index: int) -> tuple[str, str]:
+    """The name and description belonging to a stat line."""
+    description = []
+    for position in range(index - 1, max(-1, index - 8), -1):
+        text, markup = paragraphs[position]
+        if not text:
+            continue
+        # Urban Arcana: the name alone, in bold, on its own line.
+        if re.fullmatch(r"<strong>.*?</strong>\s*", markup, re.S):
+            return fx_text(markup), "".join(f"<p>{p}</p>" for p in reversed(description))
+        # d20 Modern: "Potion of Charisma: This potion adds..."
+        head, _, rest = text.partition(":")
+        if rest and len(head.split()) <= 6 and head[:1].isupper():
+            description.append(rest.strip())
+            return head.strip(), "".join(f"<p>{p}</p>" for p in reversed(description))
+        description.append(text)
+    return "", ""
+
+
+def parse_fx_weight(printed: str) -> float:
+    """"6 lb." is six pounds; "-" and "Varies" are no weight this can state."""
+    match = re.search(r"([\d.]+)\s*lb", printed or "", re.I)
+    return float(match.group(1)) if match else 0.0
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -2917,6 +3010,12 @@ def main() -> int:
     write("objects.json", objects)
     advancement = scrape_advancement()
     write("advancement.json", advancement)
+    # The magic items come out of the rules text rather than off the mirror:
+    # the SRD prices them in prose, so no purchase table carries them.
+    rules_path = os.path.join(srd.DATA, "rules.json")
+    fx_items = scrape_fx_items(json.load(open(rules_path, encoding="utf-8"))
+                               if os.path.exists(rules_path) else [])
+    write("fx_items.json", fx_items)
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 
@@ -2931,6 +3030,7 @@ def main() -> int:
           f"{len(conditions)} conditions, "
           f"{len(objects['objects'])} objects, "
           f"{len(advancement['sizes'])} advancement steps, "
+          f"{len(fx_items)} FX items, "
           f"{sum(len(v) for v in tables.values())} tables")
     return 0
 

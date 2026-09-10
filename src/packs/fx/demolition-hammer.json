@@ -1,0 +1,29 @@
+{
+  "_id": "uejCom2j4qWbthPt",
+  "name": "Demolition Hammer",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This weapon resembles a standard sledgehammer (use the warhammer statistics) with runes carved into its wooden handle. Besides its enhancement bonus (+1 to +3), the hammer has a destroy seed incantation bound into it that the wielder may activate once per day after a successful melee attack. The target must succeed at a Fortitude save (DC 20) or take 10d6 points of damage. If the target is reduced to –10 hit points or less (or a construct, object, or undead is reduced to 0 hit points), it is destroyed as if disintegrated, leaving behind only a trace of fine dust.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Weapons",
+    "weight": 8.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 30,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!uejCom2j4qWbthPt",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "30 (+1), 35 (+2), 40 (+3)",
+      "weight": "8 lb",
+      "casterLevel": "11th*",
+      "itemType": "Weapon (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

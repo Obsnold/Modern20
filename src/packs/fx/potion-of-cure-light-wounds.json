@@ -1,0 +1,29 @@
+{
+  "_id": "tqxsFMrDfoeyAyz7",
+  "name": "Potion of Cure Light Wounds",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>A character who drinks this potion heals 1d8+1 points of damage. More potent versions of this potion (with effects similar to the cure moderate wounds and cure serious wounds spells) are rumored to exist.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Potions",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 19,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!tqxsFMrDfoeyAyz7",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "19",
+      "weight": "—",
+      "casterLevel": "1st",
+      "itemType": "Potion"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

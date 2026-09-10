@@ -1,0 +1,29 @@
+{
+  "_id": "VQ9WHO0G5z5uHUT9",
+  "name": "Ring of Lockpicking",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>On command, this ring releases several lockpicks, tongs, and tiny mechanical arms designed to fit into any Fine or Diminutive lock. The ring grants a +5 equipment bonus on Disable Device checks when picking or disabling mechanical or electronic locks.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Rings",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 28,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!VQ9WHO0G5z5uHUT9",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "28",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Ring (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

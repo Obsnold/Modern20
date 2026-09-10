@@ -1,0 +1,29 @@
+{
+  "_id": "l2rPsY4mRyNvUWDJ",
+  "name": "Potion of Darkvision",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The imbibing character can see in the dark for 3 hours, although everything he or she sees appears in shades of black and white.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Potions",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 22,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!l2rPsY4mRyNvUWDJ",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "22",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Potion"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

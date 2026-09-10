@@ -1,0 +1,29 @@
+{
+  "_id": "acfo4toWAKYADXau",
+  "name": "Muse Statuette",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This six-inch-tall statuette of a beautiful woman animates and provides suggestions to the controller on ways to improve whatever art form they are working on (provided the user knows the appropriate verbal command). The statue grants a +5 circumstance bonus on any Craft (visual art or writing) skill check. The statue has a hardness of 5 and 5 hit points. If the muse statuette is destroyed, its owner takes a –10 penalty on Craft (visual art) and Craft (writing) checks for the next year. A remove curse spell negates this penalty.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 2.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 31,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!acfo4toWAKYADXau",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "31",
+      "weight": "2 lb",
+      "casterLevel": "3rd",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

@@ -1377,6 +1377,51 @@ def build_rules() -> list[dict]:
                             lambda document: document["flags"]["modern20"]["book"])
 
 
+def build_fx_items() -> list[dict]:
+    """Magic and psionic items, as gear that carries its own rules.
+
+    A magic weapon in the SRD is not a weapon entry: it is "a +1 to +3 machete
+    that deals fire damage", priced against the mundane one and described in
+    prose. Building them as gear keeps what the SRD actually states - a name, a
+    description, a caster level and a purchase DC - rather than inventing the
+    damage and critical a weapon item would demand.
+    """
+    documents = []
+    for entry in load_dataset("fx_items"):
+        slug = srd.slugify(entry["name"])
+        doc_id = document_id("fx", slug)
+        documents.append({
+            "_id": doc_id,
+            "name": entry["name"],
+            "type": "gear",
+            "img": "icons/svg/daze.svg",
+            "system": {
+                "description": entry["description"],
+                "source": entry["book"],
+                "srdUrl": entry["srdUrl"],
+                "category": entry["category"],
+                "weight": entry["weight"],
+                "quantity": 1,
+                "equipped": False,
+                # The printed DC is the cheapest version; the sentence it came
+                # from carries the rest - "25 (+1), 30 (+2), 35 (+3)".
+                "purchaseDC": entry["purchaseDC"],
+                "restriction": "none",
+                "progressLevel": 0,
+            },
+            "_key": f"!items!{doc_id}",
+            "_slug": slug,
+            "flags": {"modern20": {
+                "book": entry["book"],
+                "purchaseDC": entry["purchaseDCText"],
+                "weight": entry["weightText"],
+                "casterLevel": entry["casterLevel"],
+                "itemType": entry["itemType"],
+            }},
+        })
+    return documents
+
+
 def build_objects() -> list[dict]:
     """The objects the SRD names, as actors a GM can drop on the canvas.
 
@@ -1548,6 +1593,7 @@ def build() -> dict[str, list[dict]]:
         ("creatures", build_creatures),
         ("vehicles", build_vehicles),
         ("objects", build_objects),
+        ("fx", build_fx_items),
         ("rules", build_rules),
     ):
         documents = builder()
@@ -1562,7 +1608,8 @@ def build() -> dict[str, list[dict]]:
         collection = "actors" if pack in ACTOR_PACKS else "items"
         packs[pack] = add_book_folders(
             pack, documents, collection,
-            lambda document: book_of(document["system"].get("srdUrl", "")))
+            lambda document: (document.get("flags", {}).get("modern20", {}).get("book")
+                              or book_of(document["system"].get("srdUrl", ""))))
 
     return packs
 

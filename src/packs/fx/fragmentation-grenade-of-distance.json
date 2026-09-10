@@ -1,0 +1,29 @@
+{
+  "_id": "nrV9JqdE3ndZjmdO",
+  "name": "Fragmentation Grenade of Distance",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The range increment of this fragmentation grenade is double normal (20 feet instead of 10 feet).</p><p>The purchase DC given below is for a box of six grenades.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Weapons",
+    "weight": 3.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 35,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!nrV9JqdE3ndZjmdO",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "35 (+1), 40 (+2), 45 (+3)",
+      "weight": "3 lb",
+      "casterLevel": "7th (+1 or +2), 10th (+3)",
+      "itemType": "Weapon (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

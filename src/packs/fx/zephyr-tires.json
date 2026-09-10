@@ -1,0 +1,29 @@
+{
+  "_id": "JwLHHHIvNxjhFHtI",
+  "name": "Zephyr Tires",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Zephyr tires (sold in sets of two or four) are emblazoned with large white wings on the side. When placed on any car, van, or motorcycle (they resize to fit any of these vehicles), they allow the vehicle to fly.</p><p>Once per day, the vehicle’s driver can command the vehicle to fly. While flying, the vehicle follows all the normal rules for piloting a flying vehicle, but otherwise retains the same speed, initiative, and other statistics. The vehicle can maintain flight for 10 rounds. When performing aerial stunts, the driver makes Pilot checks instead of Drive checks. Should the effect’s duration expire while the vehicle is still aloft, the magic fails slowly. The vehicle drops 60 feet per round for 1d6 rounds. If it reaches the ground in that amount of time, it lands safely. If not, it falls the remaining distance.</p><p>Zephyr tires have a hardness of 5 and 2 hit points (which also count toward the hit points of the vehicle). If one or more of the tires are destroyed, the zephyr tires lose their magic and cease to function, and the vehicle (if airborne) plunges from the sky.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 32,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!JwLHHHIvNxjhFHtI",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "32 (per set)",
+      "weight": "—",
+      "casterLevel": "9th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "Vsqozsc5o8O0NFNr",
+  "name": "Replay Mirror",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This 3-foot-by-3-foot mirror has an attractive, modern frame. Uttering a command word causes the mirror to “record” anything within its field of view, exactly like a video recorder, for 1 hour. One can also speak a command word instructing the mirror to begin recording anywhere up to 1 hour in the future. On command, the mirror can “replay” the images that it has captured (visual only, no audio).</p><p>The viewer can move back and forth to change viewing angles, just like looking in a regular mirror. The mirror recording can move in reverse, pause, and fast forward, just like a normal, high-quality VCR. The mirror can remember up to 3 hours of recordings, “erasing” the oldest images first.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 20.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 35,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!Vsqozsc5o8O0NFNr",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "35",
+      "weight": "20 lb",
+      "casterLevel": "7th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

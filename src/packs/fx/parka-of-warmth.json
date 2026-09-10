@@ -1,0 +1,29 @@
+{
+  "_id": "NZTa4MSmcHkVGY84",
+  "name": "Parka of Warmth",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This winter parka grants cold resistance 10 to the wearer. Unless the wearer takes actual damage, the parka of warmth keeps him at a constant comfortable temperature. This ability overlaps (does not stack) with any other cold resistance the wearer might have.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 3.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 33,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!NZTa4MSmcHkVGY84",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "33",
+      "weight": "3 lb",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "v1CSyCyhlQhtOpia",
+  "name": "Staff of Fire",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The staff has three uses, each identical to the corresponding arcane spell. Each time the staff is used, it depletes a certain number of charges.</p><p>Burning hands (5d4 points of fire damage; DC 13); uses 1 charge.</p><p>Fireball (9d6 points of fire damage; DC 15); uses 1 charge.</p><p>Wall of fire (DC 17); uses 2 charges.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Staffs",
+    "weight": 5.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 43,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!v1CSyCyhlQhtOpia",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "43",
+      "weight": "5 lb",
+      "casterLevel": "9th (arcane)",
+      "itemType": "Staff (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

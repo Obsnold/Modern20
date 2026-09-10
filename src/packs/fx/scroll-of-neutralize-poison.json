@@ -1,0 +1,29 @@
+{
+  "_id": "QJyeFx8wvw0ZDnjO",
+  "name": "Scroll of Neutralize Poison",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Reading the scroll activates a neutralize poison spell. The spell functions exactly like a spell prepared and cast the normal way, except that no components are required.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Scrolls",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 26,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!QJyeFx8wvw0ZDnjO",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "26",
+      "weight": "—",
+      "casterLevel": "7th",
+      "itemType": "Scroll"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

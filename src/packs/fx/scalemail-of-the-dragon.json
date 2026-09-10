@@ -1,0 +1,29 @@
+{
+  "_id": "Cl1r03B3QXMbk6u7",
+  "name": "Scalemail of the Dragon",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This suit, which weighs half as much as a normal suit of scalemail, provides an enhancement bonus to Defense (+1 to +3). In addition, the armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor penalty. Speed while wearing scalemail of the dragon is 30 feet for Medium creatures and 20 feet for Small creatures.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Armor",
+    "weight": 15.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 33,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!Cl1r03B3QXMbk6u7",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "33 (+1), 38 (+2), 43 (+3)",
+      "weight": "15 lb",
+      "casterLevel": "7th",
+      "itemType": "Armor (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

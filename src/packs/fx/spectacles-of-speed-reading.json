@@ -1,0 +1,29 @@
+{
+  "_id": "cLc7XsRBABj6G3gO",
+  "name": "Spectacles of Speed Reading",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>These octagonal-framed spectacles resemble ordinary reading glasses, but they have been enchanted with a version of the bibliolalia incantation. While wearing these glasses, a character increases her reading speed to 10 pages per minute (or reduces required reading time to 20% of the listed time) and, for the 30 minutes following the completion of a book, has perfect recall of everything she read. After that, she must make a Research check (DC = one-fifth of the book’s page count) to remember more than general information.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 39,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!cLc7XsRBABj6G3gO",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "39",
+      "weight": "—",
+      "casterLevel": "11th*",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

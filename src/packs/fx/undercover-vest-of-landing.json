@@ -1,0 +1,29 @@
+{
+  "_id": "2fQspAa7iToCMikz",
+  "name": "Undercover Vest of Landing",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The wearer of this undercover vest gains a +1 to +3 enhancement bonus to Defense. The wearer also ignores the first 20 feet of damage from any fall. Regardless of the height of the fall, the wearer always lands on his or her feet.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Armor",
+    "weight": 3.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 30,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!2fQspAa7iToCMikz",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "30 (+1), 35 (+2), 40 (+3)",
+      "weight": "3 lb",
+      "casterLevel": "4th (+1), 7th (+2), 10th (+3)",
+      "itemType": "Armor (psionic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

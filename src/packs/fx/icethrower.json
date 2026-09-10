@@ -1,0 +1,29 @@
+{
+  "_id": "Posy1OYZKW9UWkQs",
+  "name": "Icethrower",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This backpack and spray nozzle looks similar to a flamethrower but shoots a 45-foot-long cone of cold that deals 9d6 points of cold damage to creatures and objects in the area. A successful Reflex save (DC 17) halves the damage. Using the icethrower is an attack action and provokes attacks of opportunity.</p><p>The cold fuel stored in the icethrower’s backpack is drained after 10 shots but can be replenished (at the cost of the item’s purchase DC).</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Wondrous",
+    "weight": 50.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 35,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!Posy1OYZKW9UWkQs",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "35",
+      "weight": "50 lb",
+      "casterLevel": "9th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

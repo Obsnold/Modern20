@@ -1,0 +1,29 @@
+{
+  "_id": "JEbPhUwPWUVAAQFM",
+  "name": "Watch of Speed",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This modern looking wristwatch improves the wearer’s concept of time, granting a +2 equipment bonus on initiative checks. This bonus stacks with other abilities that improve initiative, such as the Improved Initiative feat.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 33,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!JEbPhUwPWUVAAQFM",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "33",
+      "weight": "—",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

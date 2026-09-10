@@ -1,0 +1,29 @@
+{
+  "_id": "H746x3uBN316MhWa",
+  "name": "Potion of Invisibility",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The drinker and any gear he or she is carrying vanish from sight. Even creatures with darkvision cannot see the invisible creature. Any object picked up by the invisible creature remains visible unless tucked into clothing or a carrying item. Objects dropped or put down by the drinker become visible.</p><p>The potion does not silence the drinker, and certain conditions can render the affected creature visible. The drinker becomes visible if he or she attacks any creature; otherwise, the effect lasts for 3 minutes.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Potions",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 22,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!H746x3uBN316MhWa",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "22",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Potion"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

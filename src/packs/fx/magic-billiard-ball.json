@@ -1,0 +1,29 @@
+{
+  "_id": "XgMqkZBQXeh8mGBN",
+  "name": "Magic Billiard-Ball",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Once per day, this otherwise normal looking toy Magic Billiard-ball can be used to cast augury (as by a 5th-level Acolyte). To activate this ability, the user must state the question out loud and shake the Magic Billiard-ball. It provides no answers whatsoever if used more than once in a 24-hour period.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 30,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!XgMqkZBQXeh8mGBN",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "30",
+      "weight": "—",
+      "casterLevel": "3rd",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

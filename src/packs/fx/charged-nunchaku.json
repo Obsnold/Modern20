@@ -1,0 +1,29 @@
+{
+  "_id": "nCI5cQPG5ELTOSMt",
+  "name": "Charged Nunchaku",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This weapon pulses with psionic energy and deals +1d4 points of damage with each successful strike.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Weapons",
+    "weight": 2.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 23,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!nCI5cQPG5ELTOSMt",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "23 (+1), 28 (+2), 33 (+3)",
+      "weight": "2 lb",
+      "casterLevel": "10th",
+      "itemType": "Weapon (psionic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "a23gN2jGBATsXlJ7",
+  "name": "Scroll of Raise Dead",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Reading the scroll activates a raise dead spell. The spell functions exactly like a spell prepared and cast the normal way, except that no components are required.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Scrolls",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 29,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!a23gN2jGBATsXlJ7",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "29",
+      "weight": "—",
+      "casterLevel": "9th (divine)",
+      "itemType": "Scroll"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

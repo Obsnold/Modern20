@@ -1,0 +1,29 @@
+{
+  "_id": "WdINibxaw3qeDLR9",
+  "name": "Animated Tools",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Two different sets of animated tools exist: the “mechanoset” is designed for mechanical devices, while the “electroset” is intended for electrical devices. When used like ordinary tools, animated tools operate as a deluxe tool kit of the appropriate type (+2 equipment bonus on Repair checks), although they have the same size and weight as a basic kit.</p><p>On command, the tool animate and begin repairing a single damaged item of the appropriate type. The animated tools must be placed within 5 feet of the item to be repaired, and the user must remain within 30 feet for the duration of the repairs. When used in this manner, the animated tools act as though they have 10 ranks in the Repair skill (Repair +10). The animated tools have a hardness of 10 and 10 hit points (total). They cannot be commanded to attack.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 12.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 34,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!WdINibxaw3qeDLR9",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "34",
+      "weight": "12 lb. (electronic) or 22 lb.(mechanical)",
+      "casterLevel": "9th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

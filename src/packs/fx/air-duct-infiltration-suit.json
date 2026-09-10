@@ -1,0 +1,29 @@
+{
+  "_id": "NnzlWvdw6poE4jy7",
+  "name": "Air Duct Infiltration Suit",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This is a pale blue pair of coveralls, like the kind worn by many janitors, that are favored by corporate spies. Four times per day, the wearer can use the suit to trigger a gaseous form spell, allowing him to travel through a building’s air ducts.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 2.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 32,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!NnzlWvdw6poE4jy7",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "32",
+      "weight": "2 lb",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

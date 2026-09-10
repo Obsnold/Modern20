@@ -1,0 +1,29 @@
+{
+  "_id": "SBwaNUqEvz9ypXWP",
+  "name": "Illusory Concealable Vest",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>The wearer of this concealable vest gains a +1 to +3 enchantment bonus to Defense. Upon command, the protective garment changes shape and form to assume the appearance of a sweater or other normal piece of clothing. The vest retains all its properties (including weight) when its illusion ability is in effect. Only a true seeing spell reveals the true nature of the armor.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Armor",
+    "weight": 4.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 31,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!SBwaNUqEvz9ypXWP",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "31 (+1), 36 (+2), 41 (+3)",
+      "weight": "4 lb",
+      "casterLevel": "10th",
+      "itemType": "Armor (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

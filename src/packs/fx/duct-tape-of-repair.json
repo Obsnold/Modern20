@@ -1,0 +1,29 @@
+{
+  "_id": "VgJHTRoraS3gocpS",
+  "name": "Duct Tape of Repair",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This magic brand of duct tape can repair damaged objects and vehicles. When a 5-foot strip of the duct tape is applied to the damaged area, the duct tape disappears and the object regains 1d8+5 hit points instantly.</p><p>Duct tape of repair comes in a standard-size roll and can be used 14 times before the roll is exhausted. Applying duct tape of repair is a full-round action that provokes attacks of opportunity.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Wondrous",
+    "weight": 1.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 31,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!VgJHTRoraS3gocpS",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "31",
+      "weight": "1 lb",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}

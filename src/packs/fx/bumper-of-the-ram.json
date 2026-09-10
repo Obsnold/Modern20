@@ -1,0 +1,29 @@
+{
+  "_id": "maJmnKNRKgoBMRWo",
+  "name": "Bumper of the Ram",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This vicious looking spiked bumper must be bolted to the front or back of the vehicle. Any time the driver of the vehicle uses the bumper to ram another vehicle or object, damage to the opposed vehicle is increased by one speed and size increment, while damage to the vehicle with the bumper of the ram is reduced by one speed and one size increment. The bumper of the ram’s effects do not apply to sideswipes.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 32,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!maJmnKNRKgoBMRWo",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "32",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "9th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

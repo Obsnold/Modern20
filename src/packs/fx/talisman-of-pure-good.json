@@ -1,0 +1,29 @@
+{
+  "_id": "95jSNqdAupTbI84s",
+  "name": "Talisman of Pure Good",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>A divine spellcaster with an allegiance to good who possesses this item can cause a flaming crack to open at the feet of a divine spellcaster with an allegiance to evil who is up to 100 feet away. The intended victim is swallowed up forever and sent hurtling to the center of the earth. The wielder of the talisman must have an allegiance to good, and if he is not exceptionally pure in thought and deed (GM’s discretion), the evil character gains a Reflex saving throw (DC 19) to leap away from the crack. Obviously, the target must be standing on solid ground for this item to function. (In the air, in a highrise building, or on a boat or airplane are all places of safety against this otherwise potent item.)</p><p>A talisman of pure good has 7 charges. If a divine spellcaster without an allegiance to good touches one of these medallions, he takes 6d6 points of damage. If a divine spellcaster with an allegiance to evil touches one, he takes 8d6 points of damage.</p><p>All other characters are unaffected by this item.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Artifacts",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 35,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!95jSNqdAupTbI84s",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "35",
+      "weight": "—",
+      "casterLevel": "—",
+      "itemType": "Artifact (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

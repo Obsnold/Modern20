@@ -1,0 +1,29 @@
+{
+  "_id": "5IVdsUeqB5Qb6ITA",
+  "name": "Umbrella of Feather Falling",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>If this umbrella is open, the user can jump from any height and drift to the ground as though affected by a feather fall spell. The umbrella does not function if it is not open, although the user can attempt to do so while falling by succeeding at a Dexterity check (DC 10), taking no damage if successful. Failure indicates that the umbrella does not open in time, and the user takes the full damage from the fall.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 2.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 30,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!5IVdsUeqB5Qb6ITA",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "30",
+      "weight": "2 lb",
+      "casterLevel": "1st",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

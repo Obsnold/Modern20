@@ -1,0 +1,29 @@
+{
+  "_id": "pVtwv7e6x3R7BFPE",
+  "name": "Staff of the Mind’s Eye",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This staff has three uses, each identical to the corresponding psionic power. Each time the staff is used, it depletes a certain number of charges.</p><p>Brain lock (lasts 5 rounds; Will save DC 13); uses 1 charge.</p><p>Inflict pain (3d6 points of psychic damage; DC 15); uses 1 charge.</p><p>Whitefire (5d4 points of fire damage; Reflex save DC 17); uses 1 charge.</p>",
+    "source": "d20 Modern",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
+    "category": "Staffs",
+    "weight": 5.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 40,
+    "restriction": "none",
+    "progressLevel": 0
+  },
+  "_key": "!items!pVtwv7e6x3R7BFPE",
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "purchaseDC": "40",
+      "weight": "5 lb",
+      "casterLevel": "9th",
+      "itemType": "Staff (psionic)"
+    }
+  },
+  "folder": "csfgGKhQsxewIaz4"
+}
