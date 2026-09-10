@@ -1380,13 +1380,18 @@
       "WealthBonus": "Wealth bonus"
     },
     "Creature": {
+      "Advance": "Advance a size",
+      "AdvanceHint": "Step up one size category and apply the SRD's ability and natural armor adjustments.",
+      "Advanced": "{from} to {to}: Str {str}, Dex {dex}, Con {con}, natural armor {natural}",
       "Apply": "Apply type",
       "ApplyHint": "Set base attack and saves from the type and Hit Dice, and show the ability ranges and natural attacks for this size.",
       "Applied": "{type}, {hitDice} — attacks at {attack}",
       "Abilities": "Str {str} · Dex {dex} · Con {con} for this size",
       "BypassHint": "silver",
       "NaturalAttacks": "Natural attacks: {attacks}",
+      "NoLargerSize": "Colossal is as large as the SRD advances a creature.",
       "NoType": "No type",
+      "PerHitDie": "Per extra Hit Die: {skills} skill points, {feats} feats",
       "PickType": "Pick a creature type and set its Hit Dice first.",
       "SensesHint": "Darkvision 60 ft., scent",
       "bite": "bite",

@@ -2614,6 +2614,54 @@ def parse_object_rows(rows, url: str) -> list[dict]:
         })
     return out
 
+def scrape_advancement() -> dict:
+    """What changes when a creature gains Hit Dice.
+
+    "The GM can improve a creature by increasing its Hit Dice. The Advancement
+    entry indicates the increased Hit Dice (and often size) of the creature."
+    Two tables: what a step up in size does to the physical abilities and the
+    natural armor, and what each creature type gains in skill points and feats
+    per extra Hit Die.
+    """
+    page = "advancement.html"
+    page_html = srd.fetch(page)
+    url = srd.page_url(page)
+    sizes, types = [], []
+
+    for table in srd.annotated_tables(page_html):
+        header = [re.sub(r"\s+\d+$", "", c.strip().lower()) for c in table["header"]]
+
+        if header[:2] == ["old size", "new size"]:
+            for row in table["rows"]:
+                old, new_size = object_size(row[0]), object_size(row[1] if len(row) > 1 else "")
+                if not old or not new_size:
+                    continue
+                sizes.append({
+                    "from": old,
+                    "to": new_size,
+                    "str": srd.to_int(row[2]),
+                    "dex": srd.to_int(row[3]),
+                    "con": srd.to_int(row[4]),
+                    "naturalArmor": srd.to_int(row[5]) if len(row) > 5 else 0,
+                })
+        elif header[:3] == ["type", "bonus skill points", "bonus feats"]:
+            for row in table["rows"]:
+                name = row[0].strip()
+                if not name or name.lower().startswith("1 "):
+                    continue
+                types.append({
+                    "id": creature_type_id(name),
+                    "name": name,
+                    # Kept as the SRD's own phrasing: "+2 per extra HD", "6 +
+                    # Int modifier per extra HD", and "-" for the types that
+                    # gain neither. Reading it as a number would mean
+                    # inventing one for the two that depend on Intelligence.
+                    "skillPoints": re.sub(r"\s+\d+$", "", row[1].strip()),
+                    "feats": row[2].strip() if len(row) > 2 else "",
+                })
+
+    return {"sizes": sizes, "types": types, "srdUrl": url}
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -2725,6 +2773,8 @@ def main() -> int:
     write("vehicles.json", vehicles)
     objects = scrape_objects()
     write("objects.json", objects)
+    advancement = scrape_advancement()
+    write("advancement.json", advancement)
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 
@@ -2738,6 +2788,7 @@ def main() -> int:
           f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "
           f"{len(conditions)} conditions, "
           f"{len(objects['objects'])} objects, "
+          f"{len(advancement['sizes'])} advancement steps, "
           f"{sum(len(v) for v in tables.values())} tables")
     return 0
 

@@ -25,6 +25,13 @@
     <div class="m20-row">
       <label>{{localize "MODERN20.Advancement"}}</label>
       <input type="text" name="system.details.advancement" value="{{system.details.advancement}}">
+      {{!-- The stat block's advancement entry says which Hit Dice and sizes
+            this creature reaches; the button applies one size step of it. --}}
+      <button type="button" class="m20-button m20-button--small"
+              data-action="advanceSize"
+              data-tooltip="{{localize 'MODERN20.Creature.AdvanceHint'}}">
+        {{localize "MODERN20.Creature.Advance"}}
+      </button>
     </div>
   </div>
 

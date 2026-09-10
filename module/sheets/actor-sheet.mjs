@@ -4,7 +4,9 @@ import { Modern20LevelUpScreen } from "../apps/level-up-screen.mjs";
 import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
 import { STANCES } from "../apps/actions.mjs";
 import { setting } from "../settings.mjs";
-import { creatureTypeChoices, derivedFromType, sizeGuidance } from "../apps/creature-types.mjs";
+import {
+  creatureTypeChoices, derivedFromType, sizeGuidance, sizeAdvancement, advancementForType
+} from "../apps/creature-types.mjs";
 
 const { Item } = foundry.documents;
 
@@ -52,7 +54,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       endTurn: Modern20ActorSheetBase.#onEndTurn,
       fiveFootStep: Modern20ActorSheetBase.#onFiveFootStep,
       fullAttack: Modern20ActorSheetBase.#onFullAttack,
-      applyCreatureType: Modern20ActorSheetBase.#onApplyCreatureType
+      applyCreatureType: Modern20ActorSheetBase.#onApplyCreatureType,
+      advanceSize: Modern20ActorSheetBase.#onAdvanceSize
     }
   };
 
@@ -470,6 +473,62 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
           attacks: attacks.join(", ")
         }));
       }
+    }
+
+    await announce(actor, { title: actor.name, lines, img: actor.img, whisper: true });
+  }
+
+  /**
+   * Advance the creature one size category.
+   *
+   * "An increase in size affects a creature's Defense, attack rolls, and
+   * grapple checks, as shown on Table: Creature Sizes, as well as physical
+   * ability scores and damage." Defense, attack and grapple are all derived
+   * from the size, so changing the size is enough for those; what has to be
+   * written is the physical abilities and the natural armor.
+   *
+   * One step at a time, because the SRD's table is one step at a time:
+   * "repeat the adjustment if the creature moves up more than one size
+   * category". The Hit Dice are the GM's to set — the advancement entry on
+   * the stat block says what the range is — and Apply type turns those into
+   * base attack and saves.
+   */
+  static async #onAdvanceSize() {
+    const actor = this.document;
+    const attributes = actor.system.attributes ?? {};
+    const step = sizeAdvancement(attributes.size);
+
+    if (!step) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Creature.NoLargerSize"));
+      return;
+    }
+
+    const abilities = actor.system.abilities ?? {};
+    const changes = {
+      "system.attributes.size": step.to,
+      "system.defense.naturalArmor": (actor.system.defense?.naturalArmor ?? 0) + step.naturalArmor
+    };
+    for (const key of ["str", "dex", "con"]) {
+      // "-" in the printed table is no change, which the scrape stores as 0.
+      if (step[key]) changes[`system.abilities.${key}.value`] = (abilities[key]?.value ?? 10) + step[key];
+    }
+    await actor.update(changes);
+
+    const signed = (value) => (value >= 0 ? `+${value}` : `${value}`);
+    const lines = [game.i18n.format("MODERN20.Creature.Advanced", {
+      from: game.i18n.localize(MODERN20.sizes[step.from]?.label ?? step.from),
+      to: game.i18n.localize(MODERN20.sizes[step.to]?.label ?? step.to),
+      str: signed(step.str), dex: signed(step.dex), con: signed(step.con),
+      natural: signed(step.naturalArmor)
+    })];
+
+    // What the extra Hit Dice are worth, which is the other half of advancing
+    // and the half the GM applies by hand.
+    const advancement = advancementForType(actor.system.details?.creatureType);
+    if (advancement && advancement.skillPoints !== "-") {
+      lines.push(game.i18n.format("MODERN20.Creature.PerHitDie", {
+        skills: advancement.skillPoints, feats: advancement.feats
+      }));
     }
 
     await announce(actor, { title: actor.name, lines, img: actor.img, whisper: true });

@@ -526,5 +526,61 @@ for (const creature of creatures) {
 }
 console.log(`${saveActivities} rollable abilities checked against their printed DCs`);
 
+/* -- advancing a creature ------------------------------------------------ */
+
+// "Adding Hit Dice to a creature can also increase its size", and the size is
+// what carries the ability and natural armor adjustments. Getting one of these
+// backwards would quietly make every advanced creature wrong.
+const { SIZE_ADVANCEMENT, ADVANCEMENT_BY_TYPE } =
+  await import(join(ROOT, "module", "advancement-data.mjs"));
+const { sizeAdvancement, advancementForType } =
+  await import(join(ROOT, "module", "apps", "creature-types.mjs"));
+
+const advancement = JSON.parse(readFileSync(join(ROOT, "data", "advancement.json"), "utf8"));
+
+for (const step of advancement.sizes) {
+  if (JSON.stringify(SIZE_ADVANCEMENT[step.from]) !== JSON.stringify(step)) {
+    fail(`${step.from} differs between the scrape and advancement-data.mjs `
+      + "— run gen_advancement.py");
+  }
+}
+
+// Every step goes up exactly one category, in the order config.mjs lists them.
+const ladder = Object.keys(MODERN20.sizes);
+for (const step of advancement.sizes) {
+  const from = ladder.indexOf(step.from);
+  if (from < 0 || ladder[from + 1] !== step.to) {
+    fail(`advancing a ${step.from} creature should make it `
+      + `${ladder[from + 1]}, the table says ${step.to}`);
+  }
+}
+// The SRD's own row for the step most creatures take, transcribed so a
+// parsing change that shifts a column is caught rather than shipped.
+const medium = sizeAdvancement("medium");
+if (!medium) fail("a medium creature should have a size step");
+else if (medium.str !== 8 || medium.dex !== -2 || medium.con !== 4 || medium.naturalArmor !== 2) {
+  fail(`medium to large: expected Str +8, Dex -2, Con +4, natural +2, got `
+    + `${medium.str}, ${medium.dex}, ${medium.con}, ${medium.naturalArmor}`);
+}
+// "Colossal" is as large as the table goes, and the sheet says so rather than
+// advancing into nothing.
+if (sizeAdvancement("colossal")) fail("the SRD advances nothing past Colossal");
+
+let typed = 0;
+for (const entry of advancement.types) {
+  if (!entry.id) continue;
+  typed++;
+  if (!CREATURE_TYPES[entry.id]) {
+    fail(`the advancement table names "${entry.name}", which is not a creature type`);
+  }
+  if (JSON.stringify(ADVANCEMENT_BY_TYPE[entry.id]) !== JSON.stringify(entry)) {
+    fail(`${entry.id} differs between the scrape and advancement-data.mjs`);
+  }
+  if (advancementForType(entry.id)?.skillPoints !== entry.skillPoints) {
+    fail(`${entry.id}: the lookup does not return the printed skill points`);
+  }
+}
+console.log(`${advancement.sizes.length} size steps and ${typed} type entries checked`);
+
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);

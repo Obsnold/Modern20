@@ -432,6 +432,22 @@ save is against that roll — the charred one deals 2d10 to anything touching it
 16 of the 30 abilities whose text mentions damage somewhere, and is the reason
 the other 14 are right.
 
+**Advancing one** is the other half of the creature type work. A stat block's
+Advancement entry says which Hit Dice and sizes a creature reaches — *"9–16 HD
+(Huge); 17–24 HD (Gargantuan)"* — and the sheet now has both halves of what
+that means. Apply type turns Hit Dice into base attack and saves; Advance a
+size steps the creature up one category and applies the SRD's own adjustments
+to its physical abilities and natural armor, one step at a time because the
+table is one step at a time: *"repeat the adjustment if the creature moves up
+more than one size category"*. Defense, attack rolls and grapple all derive
+from the size, so changing it is enough for those.
+
+The skill points and feats the extra Hit Dice are worth are reported rather
+than applied, in the SRD's own words — *"+2 per extra HD"*, *"8 + Int modifier
+per extra HD"*. Two of the fifteen types depend on the creature's Intelligence
+and five gain nothing at all, so a number invented for the rest would be wrong
+more often than it was right.
+
 What is *not* automated: everything else is text on an item. Nothing tracks a
 grapple started by improved grab, or a regeneration that has to be checked
 each round. The SRD writes those as instructions to a GM, and the useful thing

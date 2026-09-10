@@ -1,4 +1,5 @@
 import { CREATURE_TYPES, CREATURE_PROGRESSION } from "../creature-types.mjs";
+import { SIZE_ADVANCEMENT, ADVANCEMENT_BY_TYPE } from "../advancement-data.mjs";
 
 /**
  * Building a creature from its type.
@@ -110,6 +111,28 @@ export function sizeGuidance(typeId, size) {
   // them "Medium-size" rather than "Medium".
   const wanted = String(size ?? "").toLowerCase();
   return type.sizes.find((row) => sizeKey(row.size) === wanted) ?? null;
+}
+
+/**
+ * One step up the size ladder, with what the SRD says that does to a creature.
+ *
+ * "Adding Hit Dice to a creature can also increase its size. An increase in
+ * size affects a creature's Defense, attack rolls, and grapple checks, as
+ * shown on Table: Creature Sizes, as well as physical ability scores and
+ * damage." Defense, attack and grapple all come off the size itself, so what
+ * is left to apply is the abilities and the natural armor.
+ *
+ * @param {string} size The size being advanced from.
+ * @returns {{from, to, str, dex, con, naturalArmor}|null} Nothing for a
+ *   Colossal creature, which is as large as the SRD goes.
+ */
+export function sizeAdvancement(size) {
+  return SIZE_ADVANCEMENT[String(size ?? "").toLowerCase()] ?? null;
+}
+
+/** What a type gains per extra Hit Die, in the SRD's own words. */
+export function advancementForType(typeId) {
+  return ADVANCEMENT_BY_TYPE[typeId] ?? null;
 }
 
 /** "Medium-size" is the medium size; the rest are their own names. */
