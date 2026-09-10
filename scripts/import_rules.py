@@ -329,6 +329,52 @@ SPLIT_AT = {
     "futurevehicles.html": (None, (5, 6)),
     "futurevehiclegear.html": (None, (5, 6)),
 
+    # Occupations, species and organizations: what a character is made of.
+    # An organization's notable members and gear are headed a level below it
+    # and stay on its page, which is the entry a reader is looking for.
+    "occupations.html": (None, 5),
+    "urbanoccs.html": (None, 5),
+    "futureocc.html": (None, 5),
+    "urbanspecies.html": (None, 4),
+    "urbanpowerkind.html": (None, 4),
+    "urbanorg.html": (None, 5),
+
+    # Urban Arcana's magic items, by the kind of thing they are.
+    "urbanfxarmor.html": (None, (5, 6)),
+    "urbanfxweapon.html": (None, (5, 6)),
+    "urbanfxstaff.html": (None, 6),
+    "urbanfxpotion.html": (None, 6),
+    "urbanfxring.html": (None, 6),
+    "urbanfxtattoo.html": (None, 6),
+    "urbanfxvehicle.html": (None, 6),
+
+    # d20 Future builds things out of parts, and prices every part: the
+    # progress levels, then a catalogue each for starships, mecha and robots.
+    # The ship classes name their ships a level higher than the rest, because
+    # under each is a repeated "Standard PL 6 Design Specs:".
+    "futurepl.html": (None, 5),
+    "futureshipclass.html": (None, 6),
+    "futuredefense.html": (None, (5, 6)),
+    "futurecomm.html": (None, (5, 6)),
+    "futureultra.html": (None, 4),
+    "futurelight.html": (None, 4),
+    "futuremedium.html": (None, 4),
+    "futureheavy.html": (None, 4),
+    "futuresuper.html": (None, 4),
+    "futuremech1.html": (None, (5, 6)),
+    "futuremech3.html": (None, 5),
+    "futuremech5.html": (None, 5),
+    "futurerobot1.html": (None, 6),
+    "futureroboteq1.html": (None, 6),
+    "futureroboteq2.html": (None, 6),
+    "futureroboteq3.html": (None, 6),
+    "futureroboteq4.html": (None, 6),
+    "futureroboteq5.html": (None, 6),
+    "futurerobotex1.html": (None, 6),
+    "futurerobotex2.html": (None, 6),
+    "futurerobotex3.html": (None, 6),
+    "futurerobot4.html": (None, 6),
+
     # Catalogues of named equipment: one thing per entry, looked up by name.
     "urbanfxitem.html": (None, 6),
     "urbanfxartifact.html": (None, (5, 6)),
