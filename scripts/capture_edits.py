@@ -10,6 +10,7 @@ deliberately differ from the SRD, and why.
     scripts/capture_edits.py                     # pull from the Foundry host
     scripts/capture_edits.py --from /tmp/src     # compare an unpacked copy
     scripts/capture_edits.py --dry-run           # say what changed, write nothing
+    scripts/capture_edits.py --dry-run --exit-code   # fail if anything has
 
 Only fields the build actually sets are compared. Foundry fills in every
 default a document does not carry - a prototype token, empty effects, the
@@ -40,6 +41,15 @@ NODE_BIN = "/opt/node/current/bin"
 
 # Bookkeeping Foundry owns, which differs every time and means nothing here.
 SKIP = {"_id", "_key", "_slug", "_stats", "ownership", "sort", "folder"}
+
+# Dropped from a document brought back whole. The Foundry CLI calls these
+# volatile and drops them too: they say who last touched the document and when,
+# which is git's job here.
+VOLATILE = {"_stats", "ownership"}
+
+# What a compiled pack keys each kind of document under.
+COLLECTIONS = {"creatures": "actors", "vehicles": "actors", "objects": "actors",
+               "rules": "journal"}
 
 
 def pull(host: str, destination: str) -> None:
@@ -145,26 +155,86 @@ def differences(built: dict, live: dict) -> dict:
     return override
 
 
-def built_documents(pack: str) -> dict[str, tuple[str, dict]]:
-    """The pack's own documents, by display name, with the file each is in.
+def built_documents(pack: str) -> tuple[dict, dict, set[str]]:
+    """The pack's own documents, by id and by name, and its folder ids.
 
-    Keyed by name because that is what Foundry round-trips; carrying the file
-    stem too because that is a document's identity here - the build names
-    files from the SRD entry id, which is neither the display name nor a slug
-    of it, and writing to the wrong one creates a second copy.
+    By id first, because that is what a document is on both sides: rename a
+    creature on its sheet and it is still that creature, but matched on the
+    name alone the rename reads as a document Foundry invented and the pack
+    ends up holding two of it. By name as well, for a document whose id
+    Foundry replaced.
+
+    The file stem rides along because that is a document's identity here - the
+    build names files from the SRD entry id, which is neither the display name
+    nor a slug of it, and writing to the wrong one creates a second copy.
     """
     directory = os.path.join(PACKS, pack)
     if not os.path.isdir(directory):
-        return {}
-    out = {}
+        return {}, {}, set()
+    by_id, by_name, folders = {}, {}, set()
     for name in sorted(os.listdir(directory)):
         if not name.endswith(".json"):
             continue
         with open(os.path.join(directory, name), encoding="utf-8") as handle:
             document = json.load(handle)
-        if not document.get("_key", "").startswith("!folders!"):
-            out[document["name"]] = (name[:-5], document)
-    return out
+        if document.get("_key", "").startswith("!folders!"):
+            folders.add(document["_id"])
+            continue
+        by_id[document["_id"]] = (name[:-5], document)
+        by_name[document["name"]] = (name[:-5], document)
+    return by_id, by_name, folders
+
+
+def is_folder(document: dict) -> bool:
+    """Compendium folders are documents in the pack like any other."""
+    return document.get("_key", "").startswith("!folders!")
+
+
+def file_stem(pack: str, document: dict) -> str:
+    """A file name for a document that has never had one.
+
+    The build names its files after the SRD entry; a document made in Foundry
+    has no SRD entry, so it is named after itself. A folder is prefixed the
+    way the built folders are, so a directory listing still reads as one.
+    """
+    slug = re.sub(r"[^a-z0-9]+", "-", document["name"].lower()).strip("-")
+    slug = slug or document["_id"].lower()
+    if is_folder(document):
+        slug = f"folder-{slug}"
+
+    # Two different documents can slug to the same thing - "Steel Door" and
+    # "Steel-Door" - and the second would silently overwrite the first.
+    stem, suffix = slug, 2
+    while os.path.exists(os.path.join(PACKS, pack, f"{stem}.json")):
+        stem = f"{slug}-{suffix}"
+        suffix += 1
+    return stem
+
+
+def write_new(pack: str, document: dict) -> str:
+    """A document made in Foundry, written into the pack source.
+
+    Kept as Foundry has it, minus what the Foundry CLI itself calls volatile -
+    who touched it last and who may see it - and with the compendium key the
+    compiler needs, which an unpacked document does not carry.
+    """
+    document = {key: value for key, value in document.items() if key not in VOLATILE}
+    collection = "folders" if is_folder(document) else COLLECTIONS.get(pack, "items")
+    document["_key"] = f"!{collection}!{document['_id']}"
+
+    for field in ("items", "pages"):
+        for child in document.get(field) or []:
+            for key in VOLATILE:
+                child.pop(key, None)
+            child["_key"] = f"!{collection}.{field}!{document['_id']}.{child['_id']}"
+
+    stem = file_stem(pack, document)
+    path = os.path.join(PACKS, pack, f"{stem}.json")
+    with open(path, "w", encoding="utf-8") as handle:
+        json.dump(document, handle, indent=2, ensure_ascii=False)
+        handle.write("\n")
+    print(f"  wrote src/packs/{pack}/{stem}.json")
+    return stem
 
 
 def main() -> int:
@@ -173,6 +243,13 @@ def main() -> int:
     parser.add_argument("host", nargs="?", default=DEFAULT_HOST)
     parser.add_argument("--from", dest="source", help="an already-unpacked copy")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--exit-code", action="store_true",
+                        help="exit 1 if the live packs hold anything the pack "
+                             "source does not, the way `git diff --exit-code` "
+                             "does; for scripts that must not overwrite an edit")
+    parser.add_argument("--no-new", action="store_true",
+                        help="report documents that exist only in Foundry rather "
+                             "than bringing them into the pack source")
     args = parser.parse_args()
 
     temporary = None
@@ -185,27 +262,45 @@ def main() -> int:
 
     captured = 0
     write_back: list[tuple[str, str, dict]] = []
+    new_documents: list[tuple[str, dict]] = []
+    folders_known: dict[str, set[str]] = {}
+    missing: list[str] = []
     try:
         for pack in sorted(os.listdir(source)):
             directory = os.path.join(source, pack)
             if not os.path.isdir(directory):
                 continue
-            built = built_documents(pack)
+            by_id, by_name, folders_known[pack] = built_documents(pack)
             overrides = {}
+            seen: set[str] = set()
 
             for name in sorted(os.listdir(directory)):
                 if not name.endswith(".json"):
                     continue
                 with open(os.path.join(directory, name), encoding="utf-8") as handle:
                     live = json.load(handle)
-                if live.get("_key", "").startswith("!folders!"):
+
+                # A folder made in Foundry is a document the pack needs too:
+                # without it every creature filed into it points at a folder
+                # the compendium does not have, and lands in the root.
+                if is_folder(live):
+                    if live["_id"] not in folders_known[pack] and not args.no_new:
+                        new_documents.append((pack, live))
                     continue
 
-                found = built.get(live.get("name"))
+                found = by_id.get(live.get("_id")) or by_name.get(live.get("name"))
                 if not found:
-                    print(f"  ? {pack}/{live.get('name')} is in Foundry and not in the pack source")
+                    # Something made in Foundry rather than imported. With the
+                    # pack as the source of truth it belongs here too, which is
+                    # what every other system's extract does.
+                    if args.no_new:
+                        print(f"  ? {pack}/{live.get('name')} is only in Foundry "
+                              "(--no-new, left there)")
+                    else:
+                        new_documents.append((pack, live))
                     continue
                 stem, was = found
+                seen.add(stem)
 
                 override = differences(was, live)
                 if override:
@@ -217,6 +312,12 @@ def main() -> int:
                     captured += 1
                     for field in override:
                         print(f"  + {pack}/{live['name']}: {field}")
+
+            # Deleting is never guessed at: a compendium that failed to
+            # unpack, or a pack pulled before it was deployed, would read as
+            # every document in it having been deleted.
+            missing += [f"{pack}/{was['name']}" for stem, was in by_id.values()
+                        if stem not in seen]
 
             # The edit belongs in the pack source, which is what compiles and
             # what a reader reads. Applied onto the document already there
@@ -261,11 +362,42 @@ def main() -> int:
         if temporary:
             shutil.rmtree(temporary, ignore_errors=True)
 
+    # Folders first: a document written before the folder it sits in would be
+    # reported as homeless by the folder that is about to arrive.
+    new_documents.sort(key=lambda entry: (entry[0], not is_folder(entry[1])))
+
+    for pack, document in new_documents:
+        if args.dry_run:
+            print(f"  + {pack}/{document['name']} would be added to the pack source")
+            continue
+        write_new(pack, document)
+        if is_folder(document):
+            folders_known.setdefault(pack, set()).add(document["_id"])
+    if new_documents and not args.dry_run:
+        print(f"  {len(new_documents)} document(s) made in Foundry brought into "
+              "the pack source")
+
+    # A pack either groups everything or groups nothing, so a new document
+    # left in the compendium root is one check_packs will fail on. Said here,
+    # where the fix is a drag in Foundry, rather than at the next deploy.
+    for pack, document in new_documents:
+        if is_folder(document) or not folders_known.get(pack):
+            continue
+        if document.get("folder") not in folders_known[pack]:
+            print(f"  ! {pack}/{document['name']} is outside the pack's folders; "
+                  "file it in Foundry and capture again")
+
+    for name in missing:
+        print(f"  ? {name} is in the pack source but not in Foundry "
+              "(nothing deleted; say so yourself if it should go)")
+
     print(f"\n{captured} edited document(s) captured"
           + (" (dry run, nothing written)" if args.dry_run else ""))
     if captured and not args.dry_run:
         print("The pack source now carries the edit. Fill in each 'why' so the "
               "checks can tell it from a regression.")
+    if args.exit_code and (captured or new_documents):
+        return 1
     return 0
 
 
