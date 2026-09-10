@@ -1324,19 +1324,75 @@ def add_book_folders(pack: str, documents: list[dict], collection: str,
     return folders + documents
 
 
+# Any anchor, however it is written. These pages put class and target either
+# side of the href, and matching only <a href=...> left a fifth of the d20
+# Future cross-references as dead file names.
+ANCHOR = re.compile(r'<a\b([^>]*)>(.*?)</a>', re.S | re.I)
+HREF = re.compile(r'href\s*=\s*"([^"]*)"', re.I)
+
+
+def link_rules(markup: str, targets: dict[str, str]) -> str:
+    """The SRD's own cross-references, as links between compendium pages.
+
+    The mirror is a website, so its pages point at each other by file name -
+    "see <a href="weapons.html">Weapons</a>" - and a file name is nothing
+    inside Foundry. Each one becomes an @UUID link to the page that document
+    was imported into, which is what makes the reference navigable rather than
+    dead.
+
+    Everything else becomes its own text. A link within a page has nowhere to
+    jump to on a journal sheet, and the pages the mirror's own menu offers and
+    its server does not have are not worth a dead link either. Links out to
+    the web are left alone, and so are the <a name="..."> anchors those
+    in-page links were pointing at, which are not links at all.
+    """
+    def replace(match):
+        attributes, label = match.groups()
+        href = HREF.search(attributes)
+        if not href:
+            return match.group(0)
+        target = href.group(1).strip()
+        if "://" in target or target.startswith("mailto:"):
+            return match.group(0)
+
+        page = target.split("#")[0].split("/")[-1]
+        uuid = targets.get(page) or targets.get(f"{page}.html")
+        return f"@UUID[{uuid}]{{{text_only(label)}}}" if uuid else text_only(label)
+
+    return ANCHOR.sub(replace, markup)
+
+
+def text_only(markup: str) -> str:
+    """A link's label, without markup a link label cannot carry."""
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", markup)).strip()
+
+
 def build_rules() -> list[dict]:
     """The SRD's own text, as a journal compendium.
 
-    One entry per document, one page per section, in a folder per book. The
-    numbers come from the web mirror's tables; this is the prose those tables
-    are printed inside, taken from the RTF releases Wizards published — each of
-    which opens by declaring itself Open Game Content.
+    One entry per section of the SRD, one page per page of it, in a folder per
+    book — the structure the SRD publishes itself, rather than one guessed at
+    from heading levels. The numbers elsewhere in this system come from these
+    same pages' tables; this is the prose those tables are printed inside.
 
     Folders are documents in a pack like anything else, keyed !folders! rather
     than !journal!, which is how a compendium ships with its own structure.
     """
     documents = []
     entries = json.load(open(os.path.join(srd.DATA, "rules.json"), encoding="utf-8"))
+
+    # Where each of the SRD's own pages ended up, so a reference to it can be
+    # rewritten as a link. Built before anything else, because a page early in
+    # the book refers to one at the end of it.
+    targets = {}
+    for entry in entries:
+        slug = srd.slugify(entry["id"])
+        for position, page in enumerate(entry["pages"]):
+            if page.get("source"):
+                targets[page["source"]] = (
+                    f"Compendium.modern20.rules.JournalEntry."
+                    f"{document_id('rules', slug)}.JournalEntryPage."
+                    f"{document_id('rules', f'{slug}-{position}')}")
     # Three titles appear in two books each - Psionics, Advanced Classes and
     # Vehicles - and two identical rows in a search result help nobody, so
     # those say which book they are from. The rest keep the SRD's own name.
@@ -1357,7 +1413,7 @@ def build_rules() -> list[dict]:
                 "type": "text",
                 # Shown at the top of the page, as the SRD prints it.
                 "title": {"show": True, "level": 1},
-                "text": {"format": 1, "content": page["html"]},
+                "text": {"format": 1, "content": link_rules(page["html"], targets)},
                 "sort": (position + 1) * 100000,
                 "flags": {},
             })

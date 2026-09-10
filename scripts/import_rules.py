@@ -1,308 +1,298 @@
 #!/usr/bin/env python3
-"""Turn the SRD's own RTF releases into data/rules.json, the rules reference.
+"""Turn the SRD's own HTML into data/rules.json, the rules reference.
 
-The tables come from the web mirror, which the rest of the pipeline parses.
-The *prose* comes from here: the documents Wizards released, each of which
-opens by declaring itself Open Game Content under the Open Game License v1.0a.
+    python3 scripts/import_rules.py             # from .cache/, fetching what is missing
+    python3 scripts/import_rules.py --refresh   # re-fetch every page first
 
-    pandoc must be installed, and the documents downloaded:
-    python3 scripts/import_rules.py ~/Downloads/d20modernsrd
+This used to read the RTF releases through pandoc, and fought them the whole
+way: they are twenty-year-old Word files where the same kind of heading is an
+h1 in one document, an h5 in the next and a bold paragraph in the one after,
+so where a page ended had to be guessed at by counting what each heading level
+produced. The mirror at spellbooksoftware.com/d20mrsd is the same text already
+divided into pages, with a table of contents that says what each one is called
+and which book it belongs to. There is nothing left to guess.
 
-Only regenerating needs pandoc. The output is committed, so building the packs
-does not.
-
-The RTF styling is inconsistent — these are twenty-year-old Word files, and the
-same kind of heading is an h1 in one document, an h5 in the next, and a bold
-paragraph in the one after that. So the section level is chosen per document by
-what it produces rather than by trusting the level itself.
+The structure comes from the navigation menu every page carries, which is the
+whole site as a tree: a cell spanning four columns is a book, three is a
+section, two a page within it, one a page within that. The menu on any given
+page expands that page's own branch, so reading all of them assembles the
+whole thing, names included - and the names matter, because the headings
+inside the pages are useless for it. Every page under d20 Future is headed
+"d20 FUTURE".
 """
 import argparse
 import html
 import json
 import os
 import re
-import shutil
-import subprocess
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import srd  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# The books, in the order a reader would meet them.
-BOOKS = [
-    ("Modern", "d20 Modern"),
-    ("Arcana", "Urban Arcana"),
-    ("Future", "d20 Future"),
-    ("Menaces", "Menace Manual"),
-]
+# The banner each section sits under, as the book it is.
+BOOKS = {
+    "CORE SRD": "d20 Modern",
+    "Urban Arcana": "Urban Arcana",
+    "d20 Future": "d20 Future",
+    "Menace": "Menace Manual",
+    "Appendices": "d20 Modern",
+}
 
-# A page bigger than this is worth splitting further if the document offers a
-# deeper heading level to split on.
-MAX_PAGE_BYTES = 25_000
+# The one page in the menu that is not content: it is the table of contents,
+# and the compendium's own directory does that job.
+SKIP = {"srdhome.html"}
 
-# Below this, a level's headings are repeated boilerplate rather than section
-# names: d20 Future's advanced classes are twelve "Requirements" and twelve
-# "Class Features" at one level and the class names at another.
-MIN_UNIQUE_NAMES = 0.6
+MARKER = "<!-- Main body contents -->"
 
-HEADING = re.compile(r"<h([1-6])[^>]*>(.*?)</h\1>", re.S)
-
-
-def convert(path: str) -> str:
-    """One RTF as HTML, by way of pandoc."""
-    result = subprocess.run(
-        ["pandoc", "-f", "rtf", "-t", "html", path],
-        capture_output=True, text=True, check=True,
-    )
-    return result.stdout
-
-
-def tidy(markup: str) -> str:
-    """Pandoc's output, with the artefacts of a Word table taken out.
-
-    A heading inside a table cell is a column header - "Magic Bullet Type",
-    "Effect" - and reading it as a section put three of them in the middle of
-    the spell list. The odd/even row classes are pandoc's own striping, which
-    Foundry styles for itself.
-    """
-    markup = re.sub(r"(<td[^>]*>)\s*<h[1-6][^>]*>(.*?)</h[1-6]>",
-                    r"\1<strong>\2</strong>", markup, flags=re.S)
-    markup = re.sub(r'\s+class="(?:odd|even|heading)"', "", markup)
-    return markup.strip()
-
-
-# "ALIEN PROBE", "GREATER SPELL FOCUS": a name the RTF set in capitals as body
-# text rather than as a heading. Bounded so a sentence in capitals is not one.
-CAPS_PARAGRAPH = re.compile(r"<p>([A-Z][A-Z0-9 ,\'’\-()/&.]{3,48})</p>")
-
-
-def promote_caps(markup: str) -> str:
-    """All-caps paragraphs as the headings they are, outside tables.
-
-    These documents style the same kind of name three ways: the Menace
-    Manual's creature entries are an h2 for the acid rainer and a plain
-    paragraph for the alien probe two pages later. Promoting the paragraphs is
-    what puts one creature on one page.
-
-    Never inside a table, where a capitalised cell is a column header.
-    """
-    def promote(chunk):
-        def replace(match):
-            text = match.group(1).strip()
-            if text.endswith(".") or len(text.split()) > 6:
-                return match.group(0)
-            return f"<h2>{text}</h2>"
-        return CAPS_PARAGRAPH.sub(replace, chunk)
-
-    out, cursor = [], 0
-    for table in re.finditer(r"<table.*?</table>", markup, flags=re.S):
-        out.append(promote(markup[cursor:table.start()]))
-        out.append(table.group(0))
-        cursor = table.end()
-    out.append(promote(markup[cursor:]))
-    return "".join(out)
-
-
-def headings(markup: str) -> list[tuple[int, str, int]]:
-    """Every heading as (level, text, position)."""
-    found = []
-    for match in HEADING.finditer(markup):
-        text = html.unescape(re.sub(r"<[^>]+>", "", match.group(2))).strip()
-        text = re.sub(r"\s+", " ", text)
-        if text:
-            found.append((int(match.group(1)), text, match.start()))
-    return found
-
-
-def split_level(markup: str, found: list[tuple[int, str, int]]) -> int | None:
-    """Which heading level to break this document into pages at.
-
-    The shallowest level that gives more than one page, names them distinctly,
-    and does not leave a page too long to read. Failing all of that, the level
-    that at least gives the most pages.
-    """
-    candidates = []
-    for level in sorted({level for level, _, _ in found}):
-        marks = [position for candidate, _, position in found if candidate == level]
-        if len(marks) < 2:
-            continue
-        names = [text for candidate, text, _ in found if candidate == level]
-        unique = len(set(names)) / len(names)
-        largest = max(
-            (marks[i + 1] if i + 1 < len(marks) else len(markup)) - marks[i]
-            for i in range(len(marks))
-        )
-        candidates.append((level, unique, largest, len(marks)))
-
-    for level, unique, largest, _ in candidates:
-        if unique >= MIN_UNIQUE_NAMES and largest <= MAX_PAGE_BYTES:
-            return level
-    for level, unique, _, _ in candidates:
-        if unique >= MIN_UNIQUE_NAMES:
-            return level
-    return candidates[0][0] if candidates else None
-
-
-def largest_page(markup: str, found, level) -> int:
-    """The longest run between two headings of the chosen level."""
-    marks = [position for candidate, _, position in found if candidate == level]
-    if not marks:
-        return len(markup)
-    return max((marks[i + 1] if i + 1 < len(marks) else len(markup)) - marks[i]
-               for i in range(len(marks)))
+# <td colspan="3"><a href="combat.html">Combat</a></td>, or the same cell
+# without the link where it is the page being looked at.
+NAV_CELL = re.compile(
+    r'<td([^>]*)>\s*(?:<a\s+href="([^"#?]+)"[^>]*>(.*?)</a>|(.*?))\s*</td>',
+    re.S | re.I)
 
 
 def text_of(markup: str) -> str:
-    """The visible text of a fragment, for judging whether it says anything."""
+    """The visible text of a fragment, whitespace collapsed."""
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", markup))).strip()
 
 
-def pages_of(markup: str, title: str) -> list[dict]:
-    """One document as the pages of a journal entry.
+def nav_rows(page_html: str) -> list[tuple[int, str | None, str]]:
+    """The navigation menu as (depth, page, label), in document order.
 
-    A few of these files carry their sections as bold body text rather than as
-    headings, and promoting those was tried: it doubled the page count and
-    multiplied the duplicate page names by ten, because a bold cell in a table
-    is a column header. A long page is searchable; a contents list full of
-    pages called "DC" and "Size" is not.
+    Depth is the cell's colspan, which is how the menu draws its indentation:
+    4 is a book banner, 3 a section, 2 a page inside it, 1 a page inside that.
+    The row for the page being looked at carries no link, so its page is None
+    and the caller fills in the page it is reading.
     """
-    pages = split_pages(markup, title)
+    start = page_html.find('id="menu"')
+    end = page_html.find(MARKER)
+    if start < 0 or end < 0:
+        return []
 
-    # Promoting the capitalised paragraphs is kept only where it actually
-    # improves the split. It turns the Menace Manual's A-I creatures from 14
-    # pages into 34, one per creature, and Urban Arcana's feats from 4 into 27
-    # - but on Shadowkind it shifts the level the document is broken at and
-    # loses ten of the species, so there it is thrown away.
-    promoted = split_pages(promote_caps(markup), title)
-    if len(promoted) > len(pages) and duplicate_names(promoted) <= duplicate_names(pages):
-        return promoted
-    return pages
-
-
-def duplicate_names(pages: list[dict]) -> int:
-    """How many pages repeat a name another page already used."""
-    return len(pages) - len({page["name"] for page in pages})
+    rows = []
+    for match in NAV_CELL.finditer(page_html[start:end]):
+        attributes, href, linked, plain = match.groups()
+        label = text_of(linked if href else (plain or ""))
+        if not label:
+            continue
+        colspan = re.search(r'colspan="(\d+)"', attributes or "")
+        rows.append((int(colspan.group(1)) if colspan else 1, href, label))
+    return rows
 
 
-def split_pages(markup: str, title: str) -> list[dict]:
-    """The pages one document's headings divide it into."""
-    found = headings(markup)
-    level = split_level(markup, found)
-    if level is None:
-        return [{"name": title, "html": markup}]
+class Site:
+    """The SRD as its menu describes it: pages, names, parents and books."""
 
-    marks = [(text, position) for candidate, text, position in found if candidate == level]
-    pages = []
-    for index, (name, start) in enumerate(marks):
-        end = marks[index + 1][1] if index + 1 < len(marks) else len(markup)
-        pages.append({"name": readable(name), "html": markup[start:end].strip()})
+    def __init__(self):
+        self.label: dict[str, str] = {}
+        self.parent: dict[str, str | None] = {}
+        self.book: dict[str, str] = {}
+        self.children: dict[str, list[str]] = {}
+        self.order: list[str] = []
+        # Every page's menu links to every section, so a page dropped for
+        # being missing is offered again by the next menu read.
+        self.missing: set[str] = set()
 
-    # Anything before the first section - an introduction, the Open Game
-    # Content notice - belongs to the document rather than to a section.
-    preamble = markup[:marks[0][1]].strip()
-    if len(text_of(preamble)) > 40:
-        pages.insert(0, {"name": "Overview", "html": preamble})
+    def drop(self, page: str) -> None:
+        """A page the menu links to and the server does not have.
 
-    # Several documents print their own title at the same level as their
-    # sections, which leaves a page holding nothing but that title. The entry
-    # is already called that.
-    return [page for page in pages if len(text_of(page["html"])) > len(page["name"]) + 4]
+        The menu offers two appendices the mirror never published, and one
+        misspelt link to the Urban Arcana feats. A 404 is not a reason to stop
+        importing the other two hundred and forty pages.
+        """
+        self.missing.add(page)
+        self.label.pop(page, None)
+        parent = self.parent.pop(page, None)
+        self.book.pop(page, None)
+        if page in self.order:
+            self.order.remove(page)
+        for child in self.children.pop(page, []):
+            self.drop(child)
+        if parent in self.children and page in self.children[parent]:
+            self.children[parent].remove(page)
+
+    def add(self, page: str, label: str, parent: str | None, book: str) -> None:
+        if page in SKIP or page in self.missing:
+            return
+        self.label.setdefault(page, label)
+        if page not in self.parent:
+            self.parent[page] = parent
+            self.book[page] = book
+            self.order.append(page)
+            siblings = self.children.setdefault(parent, [])
+            if page not in siblings:
+                siblings.append(page)
+
+    def read(self, page: str, page_html: str) -> None:
+        """One page's menu, merged into what is known.
+
+        A row's parent is the last row seen one level shallower, which is what
+        the indentation means. Nothing is overwritten: the first menu to
+        describe a page is as good as the last, and this way the traversal can
+        read them in any order.
+        """
+        banner, at_depth = "CORE SRD", {}
+        for depth, href, label in nav_rows(page_html):
+            target = href or page
+            if depth >= 4:
+                banner, at_depth = label, {}
+                continue
+            self.add(target, label, at_depth.get(depth + 1), BOOKS.get(banner, "d20 Modern"))
+            at_depth[depth] = target
+            # A shallower row ends any branch below it.
+            for deeper in [d for d in at_depth if d < depth]:
+                at_depth.pop(deeper)
+
+    def descendants(self, page: str) -> list[str]:
+        """A page and everything under it, in menu order."""
+        out = [page]
+        for child in self.children.get(page, []):
+            out += self.descendants(child)
+        return out
 
 
-# Words the SRD sets in capitals because they are capitals, not because the
-# heading is: a contents list of "Fx Basics" and "Dc Modifiers" reads worse
-# than the capitals it replaced.
-ACRONYMS = {"FX", "DC", "DCS", "HP", "AP", "PL", "GM", "GMS", "NPC", "NPCS",
-            "SRD", "XP", "AC", "II", "III", "IV", "I", "A-I", "J-Z", "OGL"}
+def read_site(refresh: bool) -> Site:
+    """Walk the menu outwards from the index until it stops growing.
 
-# Small words a title leaves alone unless they open it.
-MINOR_WORDS = {"a", "an", "and", "as", "at", "by", "for", "from", "in", "of",
-               "on", "or", "the", "to", "with"}
-
-
-def readable(name: str) -> str:
-    """The SRD sets its headings in capitals; a contents list reads better not.
-
-    Title case, except for the words that are capitals in their own right and
-    the small words a title leaves alone: "FX BASICS" is FX Basics, and
-    "DEATH, DYING, AND HEALING" is Death, Dying, and Healing.
+    Each page's menu expands its own branch and no other, so the sections are
+    known after reading the index, their pages after reading the sections, and
+    so on. Three passes reach the whole site; the loop stops when a pass finds
+    nothing new rather than counting them.
     """
-    if not name.isupper():
-        return name
+    site = Site()
+    site.read("srdhome.html", srd.fetch("srdhome.html", refresh=refresh))
 
-    words = name.split()
-    out = []
-    for index, word in enumerate(words):
-        bare = word.strip("(),.:;").upper()
-        if bare in ACRONYMS:
-            out.append(word)
-        elif index and word.lower().strip(",") in MINOR_WORDS:
-            out.append(word.lower())
-        else:
-            out.append(word.title())
-    return " ".join(out)
+    read: set[str] = set()
+    while True:
+        pending = [page for page in site.order if page not in read]
+        if not pending:
+            return site
+        for page in pending:
+            read.add(page)
+            try:
+                site.read(page, srd.fetch(page, refresh=refresh))
+            except Exception as error:  # noqa: BLE001 - a missing page is not fatal
+                print(f"  ! {page} is in the menu but not on the site ({error})",
+                      file=sys.stderr)
+                site.drop(page)
 
 
-def title_of(path: str, markup: str, overrides: dict) -> str:
-    """What to call the entry.
+def body(page_html: str) -> str:
+    """The content cell, which every page marks the start of.
 
-    The file name is the SRD's own, and it is one lowercase run -
-    "msrdequipmentweaponsandarmor" - so it cannot be split back into words.
-    The title comes from the document, and the handful whose first heading is
-    a section rather than a title are named in data/overrides/rules.json.
+    It ends where its own cell does, so nested tables are counted rather than
+    cut at the first </td> - the SRD's pages are mostly tables.
     """
-    key = os.path.splitext(os.path.basename(path))[0]
-    if key in overrides:
-        return overrides[key]["title"]
-    found = headings(markup)
-    return readable(found[0][1]) if found else key
+    start = page_html.find(MARKER)
+    if start < 0:
+        return ""
+    rest = page_html[start + len(MARKER):]
+    depth = 0
+    for match in re.finditer(r"</?(table|td)\b", rest, re.I):
+        tag = match.group(0).lower()
+        if tag == "<table":
+            depth += 1
+        elif tag == "</table":
+            depth -= 1
+        elif tag == "</td" and depth <= 0:
+            return rest[:match.start()].strip()
+    return rest.strip()
+
+
+# A table whose only job is to draw a line under a heading, and the empty one
+# every page ends with. Both are layout the SRD's own stylesheet supplies and
+# Foundry does not.
+RULE_TABLE = re.compile(
+    r'<table[^>]*>(?:(?!</table>).)*?background="underline\.gif".*?</table>', re.S | re.I)
+SPACER_TABLE = re.compile(
+    r'<table[^>]*>\s*<tbody>\s*<tr>\s*<td[^>]*>\s*(?:<br\s*/?>|&nbsp;|\s)*\s*</td>\s*</tr>\s*</tbody>\s*</table>',
+    re.S | re.I)
+
+
+# The mirror's maintainer signs off at the foot of a hundred and forty-eight
+# pages, asking for reports of typos and broken links. It is his page
+# furniture, not the SRD's text, and it carries his e-mail address, which has
+# no business being shipped inside a compendium.
+CREDIT = re.compile(
+    r"(?:<br\s*/?>\s*)*<p>\s*<i>\s*Questions\?.*?</a>\s*(?:</p>)?", re.S | re.I)
+
+
+def tidy(markup: str) -> str:
+    """The page, with the mirror's own furniture taken out.
+
+    dash.gif is a one-pixel dash in a table cell, and an image that is not
+    there renders as a broken-image icon in a Foundry journal, so it becomes
+    the dash it was drawing.
+    """
+    markup = CREDIT.sub("", markup)
+    markup = RULE_TABLE.sub("", markup)
+    markup = SPACER_TABLE.sub("", markup)
+    markup = re.sub(r'<img[^>]*src="dash\.gif"[^>]*>', "&mdash;", markup, flags=re.I)
+    markup = re.sub(r"\n{3,}", "\n\n", markup)
+    return markup.strip()
+
+
+def entries_of(site: Site) -> list[list[str]]:
+    """The site's pages, grouped into one journal entry each.
+
+    An entry is a section and everything under it: Combat, and the eight pages
+    the menu indents beneath it. The expansions need no special case, because
+    the menu re-roots inside them - open any d20 Future page and its sixteen
+    chapters are drawn at section level under the d20 Future banner, exactly
+    as the core SRD's are under its own.
+    """
+    return [site.descendants(section) for section in site.children.get(None, [])]
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("source", help="the directory holding Modern/, Arcana/, Future/, Menaces/")
+    parser = argparse.ArgumentParser(description=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--refresh", action="store_true",
+                        help="re-fetch every page before reading it")
     args = parser.parse_args()
 
-    if not shutil.which("pandoc"):
-        print("pandoc is needed to read the RTF; data/rules.json is committed "
-              "so this is only for regenerating it", file=sys.stderr)
-        return 1
-
-    override_path = os.path.join(ROOT, "data", "overrides", "rules.json")
-    overrides = {}
-    if os.path.exists(override_path):
-        overrides = {k: v for k, v in json.load(open(override_path, encoding="utf-8")).items()
-                     if not k.startswith("_")}
+    site = read_site(args.refresh)
+    print(f"  {len(site.order)} pages, {len(site.children.get(None, []))} sections")
 
     documents = []
-    for folder, book in BOOKS:
-        directory = os.path.join(args.source, folder)
-        if not os.path.isdir(directory):
-            print(f"  ! no {folder}/ in {args.source}", file=sys.stderr)
-            continue
-
-        for name in sorted(os.listdir(directory)):
-            if not name.lower().endswith(".rtf"):
+    for pages in entries_of(site):
+        first = pages[0]
+        contents = []
+        for page in pages:
+            markup = tidy(body(srd.fetch(page, refresh=False)))
+            if not text_of(markup):
+                print(f"  ! {page} has no content", file=sys.stderr)
                 continue
-            path = os.path.join(directory, name)
-            markup = tidy(convert(path))
-            title = title_of(path, markup, overrides)
-            pages = pages_of(markup, title)
-            documents.append({
-                "id": os.path.splitext(name)[0],
-                "book": book,
-                "title": title,
-                "source": name,
-                "pages": pages,
-            })
-            print(f"  {book:14} {os.path.splitext(name)[0]:42} {len(pages):3} pages")
+            # The page it came from, so the build can turn the SRD's own
+            # cross-references into links between compendium pages.
+            contents.append({"name": site.label[page], "source": page, "html": markup})
+        if not contents:
+            continue
+        documents.append({
+            "id": os.path.splitext(first)[0],
+            "book": site.book[first],
+            "title": site.label[first],
+            "source": first,
+            "pages": contents,
+        })
 
-    out = os.path.join(ROOT, "data", "rules.json")
+    documents.sort(key=lambda entry: (list(BOOKS.values()).index(entry["book"])
+                                      if entry["book"] in BOOKS.values() else 9,
+                                      site.order.index(entry["source"])))
+
+    out = os.path.join(srd.DATA, "rules.json")
     with open(out, "w", encoding="utf-8") as handle:
         json.dump(documents, handle, indent=2, ensure_ascii=False)
         handle.write("\n")
 
     pages = sum(len(entry["pages"]) for entry in documents)
-    print(f"\ndata/rules.json: {len(documents)} documents, {pages} pages")
+    for book in dict.fromkeys(entry["book"] for entry in documents):
+        count = [entry["book"] for entry in documents].count(book)
+        print(f"  {book:14} {count:3} entries")
+    print(f"\ndata/rules.json: {len(documents)} entries, {pages} pages")
     return 0
 
 
