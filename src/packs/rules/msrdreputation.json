@@ -1,0 +1,60 @@
+{
+  "_id": "Mhsof9pBONxgNuWI",
+  "name": "Reputation",
+  "pages": [
+    {
+      "_id": "s1bhufphIXMKXAW5",
+      "name": "Overview",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>This material is Open Game Content, and is licensed for public use\nunder the terms of the Open Game License v1.0a.</p>\n<h1>REPUTATION</h1>\n<p>Reputation is used to determine whether another character (a GM\ncharacter) recognizes a character. Those who recognize the hero are more\nlikely to help the hero or do what he or she asks, provided the\nreputation has a positive connotation to the character who recognizes\nthe hero. A high Reputation bonus also makes it difficult for the hero\nto mask his or her identity.</p>\n<p>Most of the time, a hero doesn’t decide to use his or her reputation.\nThe GM decides when a hero’s reputation can be relevant to a scene or\nencounter. At the moment it becomes relevant, the GM makes a Reputation\ncheck for a GM character who might be influenced in some fashion due to\nthe hero’s fame or notoriety, as detailed below.</p>"
+      },
+      "sort": 100000,
+      "flags": {}
+    },
+    {
+      "_id": "gPwB6ZDUvPNkBQOB",
+      "name": "Fame and Infamy",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Fame and Infamy</h2>\n<p>Most characters with a high Reputation bonus (+4 or higher) are\nconsidered well known within their profession or social circle. Whether\nthis has a positive or negative connotation depends on the point of view\nof the person who recognizes the hero.</p>\n<p>When a character has a positive opinion of a hero’s reputation, the\nhero is considered to be famous by that character. Fame, when\nrecognized, provides a bonus to certain Charisma-based skill checks.</p>\n<p>When a character has a negative opinion of a hero’s reputation, the\nhero is considered to be infamous by that character. Also, at the GM’s\noption, a hero might be considered infamous in certain situations due to\nevents that have transpired in the campaign.</p>\n<p>Infamy, when recognized, provides a penalty to certain Charisma-based\nskill checks.</p>"
+      },
+      "sort": 200000,
+      "flags": {}
+    },
+    {
+      "_id": "leMNzIXnM5mqNOEp",
+      "name": "Using the Reputation Bonus",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Using the Reputation Bonus</h2>\n<p>Whenever the GM decides that a character’s reputation can be a factor\nin an encounter, the GM makes a Reputation check (DC 25) for the GM\ncharacter involved. A Reputation check is 1d20 + the hero’s Reputation\nbonus + the GM character’s Int modifer. (Some Knowledge skill modifiers\nmight apply instead of the Int modifier, if the hero would be well known\nin the field covered by the Knowledge skill.) Modifiers to the\nReputation check depend on the hero and the GM character in question, as\nshown below. Note that if the GM character has no possible way of\nrecognizing a hero, then the Reputation check automatically fails.</p>\n<p>If the GM character succeeds at the Reputation check, he or she\nrecognizes the hero. This provides a +4 bonus or a –4 penalty on checks\ninvolving the following skills for the duration of the encounter: Bluff,\nDiplomacy, Gather Information, Intimidate, and Perform.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Situation</strong></td>\n<td><strong>Reputation Check Modifier</strong></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>The hero is famous, known far and wide with either a positive or\nnegative connotation</p></td>\n<td><p>+10</p></td>\n</tr>\n<tr>\n<td><p>GM character is part of the hero’s professional or social\ncircle</p></td>\n<td><p>+5</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>The hero has some small amount of fame or notoriety</p></td>\n<td><p>+2</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>The GM must decide that a character’s fame or infamy can come into\nplay in a given situation to make a Reputation check necessary. A\ncharacter who doesn’t know, or know of, the hero can’t be influenced by\nhis or her reputation.</p>"
+      },
+      "sort": 300000,
+      "flags": {}
+    }
+  ],
+  "folder": "6JBxrBU0OZLlNysr",
+  "sort": 28000,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "msrdreputation.rtf"
+    }
+  },
+  "_key": "!journal!Mhsof9pBONxgNuWI"
+}

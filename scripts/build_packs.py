@@ -1212,6 +1212,78 @@ def build_psionics() -> list[dict]:
     return simple_pack("psionics", "psiPower", "psionics", "icons/svg/daze.svg", psionic_system)
 
 
+# The four books, in the order the compendium lists them.
+RULE_FOLDERS = ["d20 Modern", "Urban Arcana", "d20 Future", "Menace Manual"]
+
+
+def build_rules() -> list[dict]:
+    """The SRD's own text, as a journal compendium.
+
+    One entry per document, one page per section, in a folder per book. The
+    numbers come from the web mirror's tables; this is the prose those tables
+    are printed inside, taken from the RTF releases Wizards published — each of
+    which opens by declaring itself Open Game Content.
+
+    Folders are documents in a pack like anything else, keyed !folders! rather
+    than !journal!, which is how a compendium ships with its own structure.
+    """
+    documents = []
+    folders = {}
+    for index, book in enumerate(RULE_FOLDERS):
+        folder_id = document_id("rules", f"folder-{srd.slugify(book)}")
+        folders[book] = folder_id
+        documents.append({
+            "_id": folder_id,
+            "name": book,
+            "type": "JournalEntry",
+            "sorting": "m",
+            "folder": None,
+            "color": None,
+            "sort": index * 100000,
+            "flags": {},
+            "_key": f"!folders!{folder_id}",
+            "_slug": f"folder-{srd.slugify(book)}",
+        })
+
+    entries = json.load(open(os.path.join(srd.DATA, "rules.json"), encoding="utf-8"))
+    # Three titles appear in two books each - Psionics, Advanced Classes and
+    # Vehicles - and two identical rows in a search result help nobody, so
+    # those say which book they are from. The rest keep the SRD's own name.
+    shared = {title for title in (entry["title"] for entry in entries)
+              if [e["title"] for e in entries].count(title) > 1}
+
+    for index, entry in enumerate(entries):
+        name = (f"{entry['title']} ({entry['book']})"
+                if entry["title"] in shared else entry["title"])
+        slug = srd.slugify(entry["id"])
+        doc_id = document_id("rules", slug)
+        pages = []
+        for position, page in enumerate(entry["pages"]):
+            page_id = document_id("rules", f"{slug}-{position}")
+            pages.append({
+                "_id": page_id,
+                "name": page["name"] or name,
+                "type": "text",
+                # Shown at the top of the page, as the SRD prints it.
+                "title": {"show": True, "level": 1},
+                "text": {"format": 1, "content": page["html"]},
+                "sort": (position + 1) * 100000,
+                "flags": {},
+            })
+
+        documents.append({
+            "_id": doc_id,
+            "name": name,
+            "pages": pages,
+            "folder": folders.get(entry["book"]),
+            "sort": (index + 1) * 1000,
+            "flags": {"modern20": {"book": entry["book"], "source": entry["source"]}},
+            "_key": f"!journal!{doc_id}",
+            "_slug": slug,
+        })
+    return documents
+
+
 def build_objects() -> list[dict]:
     """The objects the SRD names, as actors a GM can drop on the canvas.
 
@@ -1383,6 +1455,7 @@ def build() -> dict[str, list[dict]]:
         ("creatures", build_creatures),
         ("vehicles", build_vehicles),
         ("objects", build_objects),
+        ("rules", build_rules),
     ):
         documents = builder()
         if documents:
@@ -1471,7 +1544,8 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
             "name": pack,
             "label": labels.get(pack, pack.title()),
             "path": f"packs/{pack}",
-            "type": "Actor" if pack in ("creatures", "vehicles", "objects") else "Item",
+            "type": "Actor" if pack in ("creatures", "vehicles", "objects")
+            else "JournalEntry" if pack == "rules" else "Item",
             "system": "modern20",
             "ownership": {"PLAYER": "OBSERVER", "ASSISTANT": "OWNER"},
         }

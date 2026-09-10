@@ -34,6 +34,7 @@ fighting it forever, so this is a standalone game system.
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 243 actors, built from the SRD |
+| Rules reference | 63 journal entries, 980 pages — the SRD's own text, in four books |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text, 64 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
@@ -453,6 +454,51 @@ grapple started by improved grab, or a regeneration that has to be checked
 each round. The SRD writes those as instructions to a GM, and the useful thing
 was to put them where the creature is rather than to guess at a mechanism for
 253 different abilities.
+
+## The rules reference
+
+The numbers come from the SRD's tables, which the pipeline parses from the web
+mirror. The prose comes from the documents Wizards released: 63 RTF files
+across d20 Modern, Urban Arcana, d20 Future and the Menace Manual, each of
+which opens by declaring itself Open Game Content. They build into a `rules`
+journal compendium — one entry per document, one page per section, in a folder
+per book — so the rules are searchable in the world, readable by players
+without the GM setting permissions, and linkable with `@UUID` from anything
+that needs to cite them.
+
+```bash
+python3 scripts/import_rules.py ~/Downloads/d20modernsrd   # needs pandoc
+python3 scripts/build_packs.py
+```
+
+Only regenerating needs pandoc and the documents; `data/rules.json` is
+committed, so building the packs needs neither.
+
+**The hard part is that the RTF styling is inconsistent.** These are
+twenty-year-old Word files, and the same kind of heading is an `h1` in one
+document, an `h5` in the next and a bold paragraph in the one after that. So
+the level to split a document at is chosen by what it produces rather than by
+trusting the level: the shallowest one that gives more than one page, names
+those pages distinctly, and leaves none too long to read. That is what turns
+the spell list into 114 pages rather than 2, and stops d20 Future's advanced
+classes becoming twenty-nine pages of "Requirements" and "Class Features".
+
+Three other things the conversion has to undo. A heading inside a table cell
+is a column header, and reading it as a section put three of them in the
+middle of the spell list. Several documents print their own title at the same
+level as their sections, leaving a page holding nothing but that title. And
+pandoc's row striping is its own, not the SRD's.
+
+Promoting bold paragraphs to headings was tried, since a few documents carry
+their structure that way. It doubled the page count and multiplied the
+duplicate page names by ten, because a bold cell in a table is a column
+header. A long page is searchable; a contents list full of pages called "DC"
+and "Size" is not.
+
+Ten documents open on a section rather than a title — the file names are one
+lowercase run, `msrdequipmentweaponsandarmor`, and cannot be split back into
+words — so those are named in `data/overrides/rules.json` with a stated reason,
+the same correction layer the scraped datasets use.
 
 ## Objects
 
