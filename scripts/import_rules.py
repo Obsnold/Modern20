@@ -309,12 +309,32 @@ SPLIT_AT = {
     "futurefeats.html": (None, 5),
     "skillsorder.html": (None, 5),
 
+    # Equipment. The books shape it differently: d20 Modern and Urban Arcana
+    # name the categories and print the goods in tables under them, while d20
+    # Future names every item it sells.
+    "equipment.html": (None, 5),
+    "general.html": (None, 5),
+    "weapons.html": (None, 5),
+    "armor.html": (None, 5),
+    "vehicles.html": (None, 5),
+    "urbanweapons.html": (None, 5),
+    "urbangeneral.html": (None, 5),
+    "urbanvehicles.html": (None, (5, 6)),
+    "urbanemergency.html": (None, 5),
+    "futuregadget.html": (None, (5, 6)),
+    "futurepl5.html": (None, (5, 6)),
+    "futurepl6.html": (None, (5, 6)),
+    "futurepl7.html": (None, (5, 6)),
+    "futurepl8.html": (None, (5, 6)),
+    "futurevehicles.html": (None, (5, 6)),
+    "futurevehiclegear.html": (None, (5, 6)),
+
     # Catalogues of named equipment: one thing per entry, looked up by name.
     "urbanfxitem.html": (None, 6),
-    "urbanfxartifact.html": (None, 6),
-    "futuremutant.html": (None, 6),
+    "urbanfxartifact.html": (None, (5, 6)),
+    "futuremutant.html": (None, (5, 6)),
     "futurecyber2.html": (None, 6),
-    "futuremecheq1.html": (None, 6),
+    "futuremecheq1.html": (None, (5, 6)),
     "futuremecheq2.html": (None, 6),
 }
 
@@ -407,8 +427,19 @@ def unnamed_entry(heading: str, rest: str, names: dict[str, tuple[str, bool]]) -
     return stat_block_name(rest)
 
 
-def split_entries(markup: str, level: int, name: str,
-                  names: dict[str, str]) -> list[dict] | None:
+def prose(markup: str) -> str:
+    """A fragment with its headings and links taken out.
+
+    What is left is what the fragment says for itself. The SRD opens most of
+    its pages with a banner and a list of links to the sections below, which
+    is a table of contents rather than text, and a compendium builds its own.
+    """
+    markup = re.sub(r"<h[1-6][^>]*>.*?</h[1-6]>", " ", markup, flags=re.S | re.I)
+    return re.sub(r"<a\b[^>]*>.*?</a>", " ", markup, flags=re.S | re.I)
+
+
+def split_entries(markup: str, level: int | tuple[int, ...], name: str,
+                  names: dict[str, tuple[str, bool]]) -> list[dict] | None:
     """One page per entry, where the SRD prints a run of them in one page.
 
     Split at the headings that name an entry - and at the ones that do not.
@@ -421,27 +452,41 @@ def split_entries(markup: str, level: int, name: str,
     within an entry rather than an entry - the large animated object belongs
     on the animated object's page, and a link to it still lands there.
     """
-    heading = re.compile(rf"<h{level}\b[^>]*>(.*?)</h{level}>", re.S | re.I)
+    # More than one level where the book names a category and then the items
+    # under it: split at the item level alone and every category heading is
+    # swallowed by the item printed above it.
+    levels = "".join(str(one) for one in
+                     (level if isinstance(level, tuple) else (level,)))
+    heading = re.compile(rf"<h([{levels}])\b[^>]*>(.*?)</h\1>", re.S | re.I)
     marks = []
     for match in heading.finditer(markup):
-        title = text_of(match.group(1))
+        title = text_of(match.group(2))
         if not title:
-            title = unnamed_entry(match.group(1), markup[match.end():], names)
+            title = unnamed_entry(match.group(2), markup[match.end():], names)
         if title:
-            marks.append((match.start(), readable(title)))
+            marks.append((match.start(), readable(title), int(match.group(1))))
     if len(marks) < 2:
         return None
 
     pages = []
-    # Anything before the first entry is the page's own banner, which the
-    # entry's contents list already says. Kept only if it says something else.
+    # Anything before the first entry is the page's own banner and its
+    # quick-find links, which the entry's own contents list already is. Kept
+    # only where it says something else - Urban Arcana opens its wondrous
+    # items by saying what one is - and named apart where the book heads its
+    # first section with the page's own name: d20 Future's gadget page opens
+    # on "The Gadget System".
     preamble = markup[:marks[0][0]]
-    if len(text_of(preamble)) > 200:
-        pages.append({"name": name, "html": preamble.strip()})
+    if len(text_of(prose(preamble))) > 80:
+        first = name if name not in [title for _, title, _ in marks] else f"{name} (Overview)"
+        pages.append({"name": first, "part": "", "html": preamble.strip()})
 
-    for index, (start, title) in enumerate(marks):
+    for index, (start, title, level) in enumerate(marks):
         end = marks[index + 1][0] if index + 1 < len(marks) else len(markup)
-        pages.append({"name": title, "html": markup[start:end].strip()})
+        # The section this one is printed under, for telling two entries of
+        # the same name apart: d20 Future sells a Compact weapon gadget and a
+        # Compact equipment gadget on one page.
+        part = next((was for _, was, deeper in reversed(marks[:index]) if deeper < level), "")
+        pages.append({"name": title, "part": part, "html": markup[start:end].strip()})
     return pages
 
 
@@ -468,11 +513,15 @@ def disambiguate(pages: list[dict], label: dict[str, str]) -> None:
     """
     seen = collections.Counter(page["name"] for page in pages)
     for page in pages:
-        if seen[page["name"]] < 2:
-            continue
-        part = label.get(page["source"], "").split("(")[0].strip()
-        if part:
-            page["name"] = f"{page['name']} ({part})"
+        if seen[page["name"]] > 1:
+            # The section it is printed under first, since two entries of one
+            # name are usually on one page - a Compact weapon gadget and a
+            # Compact equipment gadget - and the page they share cannot tell
+            # them apart. Failing that, the part of the book it comes from.
+            part = page.get("part") or label.get(page["source"], "").split("(")[0].strip()
+            if part:
+                page["name"] = f"{page['name']} ({part})"
+        page.pop("part", None)
 
 
 def main() -> int:
@@ -506,6 +555,7 @@ def main() -> int:
             for part in split or [{"name": site.label[page], "html": markup}]:
                 contents.append({
                     "name": part["name"],
+                    "part": part.get("part", ""),
                     "source": page,
                     "anchors": ANCHOR_NAME.findall(part["html"]),
                     "html": part["html"],

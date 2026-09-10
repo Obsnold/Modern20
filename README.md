@@ -34,7 +34,7 @@ fighting it forever, so this is a standalone game system.
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
-| Rules reference | 50 journal entries, 1,142 pages — the SRD's own text, in four books, cross-linked |
+| Rules reference | 50 journal entries, 1,327 pages — the SRD's own text, in four books, cross-linked |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
@@ -468,7 +468,7 @@ was to put them where the creature is rather than to guess at a mechanism for
 The SRD is published as a website — [spellbooksoftware.com/d20mrsd][mirror] —
 and that is where both halves of this system come from: the numbers, which the
 pipeline parses out of its tables, and the prose those tables are printed
-inside. It builds into a `rules` journal compendium of 50 entries and 1,142
+inside. It builds into a `rules` journal compendium of 50 entries and 1,327
 pages, one entry per section of the SRD and one page per page of it, in a
 folder per book, so the rules are searchable in the world, readable by players
 without the GM setting permissions, and linkable with `@UUID` from anything
@@ -513,17 +513,24 @@ journal is a broken-image icon 185 times over.
 **One entry, one page.** The SRD is a website, so it sells its catalogues
 twenty to a page: ninety-five feats on one page, fifty-nine spells on another,
 four pages of Menace Manual creatures. Those are pages nobody scrolls and
-nothing can link into. Thirty of them are split at the heading each entry is
-named at, which turns 238 pages into 1,142 — a page per creature, spell,
+nothing can link into. Forty-six of them are split at the heading each entry is
+named at, which turns 238 pages into 1,327 — a page per creature, spell,
 psionic power, incantation, seed, feat, skill, mutation, cybernetic
-enhancement, wondrous item and piece of mecha equipment.
+enhancement, wondrous item, piece of mecha equipment, and every equipment
+category and item the four books sell.
 
-`SPLIT_AT` at the top of the importer names every page it applies to, because
-this is a judgement rather than a rule: a catalogue of named things is split,
-a chapter of prose is not. The equipment chapters look similar and are left
-alone — "Ranged Weapons Table" and "Reloading Firearms" are sections of an
-argument, not things to look up — and so are the combat chapters, creature
-types, space travel and the progress-level gear lists.
+`SPLIT_AT` at the top of the importer names every page it applies to and the
+heading level to split it at, because this is a judgement rather than a rule:
+a catalogue of named things is split, a chapter of prose is not. The combat
+chapters, creature types and space travel are left whole.
+
+The equipment needed two levels, and which ones depends on the book. d20
+Modern and Urban Arcana name the *category* — "Handguns", "Civilian Cars" —
+and print the goods in a table under it, so a page is a category. d20 Future
+names every item it sells, so a page is an item: the Autodyn Hoverbike has one
+to itself. Where a page carries both, both levels are split at, or every
+category heading is swallowed by the item printed above it — which is what was
+quietly happening to the mecha systems, the artifacts and the mutations.
 
 Splitting on the visible headings alone was not enough, and the two books that
 break it break it differently. A third of the Menace Manual's creatures are
@@ -540,7 +547,15 @@ and a variant's in mixed case: ANIMATED OBJECT, then "Tiny to Medium", "Large
 to Huge". Variants stay on their creature's page, which is where a link to
 them lands. Where the SRD prints the same name twice in one entry — darkvision
 is both a spell and a psionic power, and both are in FX Basics — each page is
-named for the part of the book it comes from.
+named for the section it sits under, and failing that for the part of the book
+it comes from: d20 Future sells a Compact weapon gadget and a Compact
+equipment gadget on one page.
+
+A split page's preamble is dropped when it is only the banner and the
+quick-find links the site puts above every chapter, which a compendium's own
+contents list replaces. Measured on what is left after the headings and links
+come out, rather than on length, because Urban Arcana opens its wondrous items
+by saying what one is and that paragraph is shorter than the banners.
 
 Two of the Menace Manual's creatures, the rod and the rogue tulpa, are in its
 index and its page titles and nowhere in its text. The mirror never published
