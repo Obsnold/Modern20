@@ -34,7 +34,7 @@ fighting it forever, so this is a standalone game system.
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
-| Rules reference | 50 journal entries, 1,327 pages — the SRD's own text, in four books, cross-linked |
+| Rules reference | 50 journal entries, 1,653 pages — the SRD's own text, in four books, cross-linked |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
@@ -468,7 +468,7 @@ was to put them where the creature is rather than to guess at a mechanism for
 The SRD is published as a website — [spellbooksoftware.com/d20mrsd][mirror] —
 and that is where both halves of this system come from: the numbers, which the
 pipeline parses out of its tables, and the prose those tables are printed
-inside. It builds into a `rules` journal compendium of 50 entries and 1,327
+inside. It builds into a `rules` journal compendium of 50 entries and 1,653
 pages, one entry per section of the SRD and one page per page of it, in a
 folder per book, so the rules are searchable in the world, readable by players
 without the GM setting permissions, and linkable with `@UUID` from anything
@@ -513,11 +513,13 @@ journal is a broken-image icon 185 times over.
 **One entry, one page.** The SRD is a website, so it sells its catalogues
 twenty to a page: ninety-five feats on one page, fifty-nine spells on another,
 four pages of Menace Manual creatures. Those are pages nobody scrolls and
-nothing can link into. Forty-six of them are split at the heading each entry is
-named at, which turns 238 pages into 1,327 — a page per creature, spell,
-psionic power, incantation, seed, feat, skill, mutation, cybernetic
-enhancement, wondrous item, piece of mecha equipment, and every equipment
-category and item the four books sell.
+nothing can link into. Eighty-one of them are split at the heading each entry is
+named at, which turns 238 pages into 1,653 — a page per creature, spell,
+psionic power, incantation, seed, feat, skill, occupation, Shadowkind species,
+organization, mutation, magic item, and every equipment category and item the
+four books sell — including the parts d20 Future builds its starships, mecha
+and robots out of, which it prices individually and which nothing could link
+to while they sat twenty to a page.
 
 `SPLIT_AT` at the top of the importer names every page it applies to and the
 heading level to split it at, because this is a judgement rather than a rule:
