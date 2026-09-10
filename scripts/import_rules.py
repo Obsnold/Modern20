@@ -70,6 +70,38 @@ def tidy(markup: str) -> str:
     return markup.strip()
 
 
+# "ALIEN PROBE", "GREATER SPELL FOCUS": a name the RTF set in capitals as body
+# text rather than as a heading. Bounded so a sentence in capitals is not one.
+CAPS_PARAGRAPH = re.compile(r"<p>([A-Z][A-Z0-9 ,\'’\-()/&.]{3,48})</p>")
+
+
+def promote_caps(markup: str) -> str:
+    """All-caps paragraphs as the headings they are, outside tables.
+
+    These documents style the same kind of name three ways: the Menace
+    Manual's creature entries are an h2 for the acid rainer and a plain
+    paragraph for the alien probe two pages later. Promoting the paragraphs is
+    what puts one creature on one page.
+
+    Never inside a table, where a capitalised cell is a column header.
+    """
+    def promote(chunk):
+        def replace(match):
+            text = match.group(1).strip()
+            if text.endswith(".") or len(text.split()) > 6:
+                return match.group(0)
+            return f"<h2>{text}</h2>"
+        return CAPS_PARAGRAPH.sub(replace, chunk)
+
+    out, cursor = [], 0
+    for table in re.finditer(r"<table.*?</table>", markup, flags=re.S):
+        out.append(promote(markup[cursor:table.start()]))
+        out.append(table.group(0))
+        cursor = table.end()
+    out.append(promote(markup[cursor:]))
+    return "".join(out)
+
+
 def headings(markup: str) -> list[tuple[int, str, int]]:
     """Every heading as (level, text, position)."""
     found = []
@@ -133,6 +165,26 @@ def pages_of(markup: str, title: str) -> list[dict]:
     is a column header. A long page is searchable; a contents list full of
     pages called "DC" and "Size" is not.
     """
+    pages = split_pages(markup, title)
+
+    # Promoting the capitalised paragraphs is kept only where it actually
+    # improves the split. It turns the Menace Manual's A-I creatures from 14
+    # pages into 34, one per creature, and Urban Arcana's feats from 4 into 27
+    # - but on Shadowkind it shifts the level the document is broken at and
+    # loses ten of the species, so there it is thrown away.
+    promoted = split_pages(promote_caps(markup), title)
+    if len(promoted) > len(pages) and duplicate_names(promoted) <= duplicate_names(pages):
+        return promoted
+    return pages
+
+
+def duplicate_names(pages: list[dict]) -> int:
+    """How many pages repeat a name another page already used."""
+    return len(pages) - len({page["name"] for page in pages})
+
+
+def split_pages(markup: str, title: str) -> list[dict]:
+    """The pages one document's headings divide it into."""
     found = headings(markup)
     level = split_level(markup, found)
     if level is None:
