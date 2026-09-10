@@ -1444,8 +1444,11 @@ def build_rules() -> list[dict]:
             page_id = document_id("rules", f"{slug}-{position}")
             content = link_rules(page["html"], targets, split)
             # Each entry opens with the notice, the way each of the SRD's own
-            # documents does. The legal entry is the licence itself.
-            if position == 0 and entry["id"] != "legal":
+            # documents does. The legal entry is the licence itself, and the
+            # chapters taken from the RTF releases already say it: that is the
+            # sentence Wizards heads them with, and this is a copy of it.
+            if (position == 0 and entry["id"] != "legal"
+                    and "Open Game Content" not in content):
                 content = notice + content
             pages.append({
                 "_id": page_id,
