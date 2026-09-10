@@ -577,6 +577,39 @@ They are printed on this page, and they are the one size table whose numbers
 differ from every other — a Colossal creature is −8 to attack and +16 to
 grapple.
 
+## Editing in Foundry, and keeping the edit
+
+The compendia belong to the system, so anything corrected on a sheet in
+Foundry is thrown away by the next `deploy.sh --packs`, which recompiles every
+pack from `src/packs`. The way to keep an edit is to capture it:
+
+```bash
+# unlock the pack in Foundry (right-click it, Toggle Edit Lock), fix the sheet
+scripts/capture_edits.py            # reads the live packs back off the host
+# fill in the "why" it wrote, then
+python3 scripts/build_packs.py
+```
+
+It unpacks the live compendia with the Foundry CLI, compares them with what
+the build produces, and writes the differences into
+`data/overrides/packs/<pack>.json`, keyed by slug. Those are applied to the
+built documents, so an edit survives every re-scrape and rebuild — and each
+one asks for a reason, the same as every other correction here.
+
+Two kinds of noise had to be ignored to make that work, and both were found by
+running it. Foundry fills in every default a document does not carry — a
+prototype token, empty effects, an entire light configuration — so only fields
+the build actually sets are compared. And the editor rewrites `<br />` as
+`<br>` and reflows whitespace on any page it opens, so HTML is compared
+normalised. Without the second one, opening a page to read it counts as
+editing it.
+
+There are two override layers, and the distinction matters. `data/overrides/`
+holds corrections to the *scraped data*, keyed by entry id — the right place
+for a number the SRD prints wrongly. `data/overrides/packs/` holds corrections
+to the *built documents*, keyed by slug, which is where a captured edit lands
+and the only layer that can reach a journal page.
+
 ## Field labels
 
 Every document subtype declares `LOCALIZATION_PREFIXES`, and Foundry reads each

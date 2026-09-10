@@ -1614,17 +1614,65 @@ def build() -> dict[str, list[dict]]:
     return packs
 
 
-def apply_pack_overrides(packs: dict[str, list[dict]]) -> None:
-    """Apply data/overrides/<pack>.json to packs built from the SRD's tables.
+def set_path(target: dict, path: str, value) -> None:
+    """Set a dotted path, so an override can name a nested field."""
+    keys = path.split(".")
+    for key in keys[:-1]:
+        target = target.setdefault(key, {})
+    target[keys[-1]] = value
 
-    The dataset packs go through load_dataset, but the equipment packs are
-    built straight from scraped tables, so they need the same correction layer
-    reaching them here - the melee table has no reach column, for instance.
+
+def apply_document_override(document: dict, override: dict) -> None:
+    """One correction, onto one built document.
+
+    Two shapes are accepted. The older one is a flat map of system fields,
+    which is what the weapons corrections have always been. The newer one -
+    what scripts/capture_edits.py writes - names where each value goes:
+
+        "system": {"attributes.speed": 400},
+        "pages":  {"Charisma": {"text.content": "<p>..."}},
+        "items":  {"Bite": {"system.damage": "1d6"}}
+    """
+    for key, value in override.items():
+        if key == "why":
+            continue
+        if key in ("name", "img"):
+            document[key] = value
+        elif "." in key:
+            # A dotted key outside system addresses the document itself: a
+            # journal page's "text.content", say.
+            set_path(document, key, value)
+        elif key == "system" and isinstance(value, dict):
+            for path, setting in value.items():
+                set_path(document["system"], path, setting)
+        elif key in ("items", "pages") and isinstance(value, dict):
+            children = {child.get("name"): child for child in document.get(key) or []}
+            for name, fields in value.items():
+                child = children.get(name)
+                if child is None:
+                    print(f"  ! override names no {key[:-1]} called {name!r}", file=sys.stderr)
+                    continue
+                for path, setting in fields.items():
+                    set_path(child, path, setting)
+        else:
+            document["system"][key] = value
+
+
+def apply_pack_overrides(packs: dict[str, list[dict]]) -> None:
+    """Apply data/overrides/<pack>.json to the documents as built.
+
+    The dataset packs also have a correction layer of their own, applied by
+    load_dataset before anything is built, and that is the right place for a
+    wrong number in the SRD. This one is for corrections made to the built
+    document instead - a journal page edited in Foundry and captured back, or
+    a table-built weapon whose printed row is malformed - and it reaches every
+    pack, including the ones no dataset stands behind.
     """
     for pack, documents in packs.items():
-        if pack not in TABLE_PACKS:
-            continue
-        overrides = load_overrides(pack)
+        # data/overrides/packs/, not beside the dataset corrections: the two
+        # are keyed differently - a dataset entry by its id, a built document
+        # by its slug - and one file cannot be read both ways.
+        overrides = load_overrides(os.path.join("packs", pack))
         if not overrides:
             continue
 
@@ -1633,11 +1681,9 @@ def apply_pack_overrides(packs: dict[str, list[dict]]) -> None:
         for slug, override in overrides.items():
             document = by_slug.get(slug)
             if not document:
-                print(f"  ! override {pack}.{slug} matches no item", file=sys.stderr)
+                print(f"  ! override {pack}.{slug} matches no document", file=sys.stderr)
                 continue
-            for key, value in override.items():
-                if key != "why":
-                    document["system"][key] = value
+            apply_document_override(document, override)
             applied += 1
         if applied:
             print(f"  {applied} override(s) applied to {pack}")
