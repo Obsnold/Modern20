@@ -133,6 +133,14 @@ def differences(built: dict, live: dict) -> dict:
             # text - is addressed from the document itself.
             override[path] = now
 
+    # Where a document sits is content: dragging a creature into a folder in
+    # Foundry meant something, and a build that groups a pack by book only
+    # ever sets `folder` on the documents it made. `sort` is not content -
+    # Foundry renumbers it whenever anything is created or moved - so that
+    # stays in SKIP. Children have no folder, so this reads as no change.
+    if built.get("folder") != live.get("folder"):
+        override["folder"] = live.get("folder")
+
     for collection in ("items", "pages"):
         by_id = {child["_id"]: child for child in (built.get(collection) or [])}
         for child in live.get(collection) or []:
