@@ -1,0 +1,161 @@
+{
+  "sizes": [
+    {
+      "from": "fine",
+      "to": "diminutive",
+      "str": 0,
+      "dex": -2,
+      "con": 0,
+      "naturalArmor": 0
+    },
+    {
+      "from": "diminutive",
+      "to": "tiny",
+      "str": 2,
+      "dex": -2,
+      "con": 0,
+      "naturalArmor": 0
+    },
+    {
+      "from": "tiny",
+      "to": "small",
+      "str": 4,
+      "dex": -2,
+      "con": 0,
+      "naturalArmor": 0
+    },
+    {
+      "from": "small",
+      "to": "medium",
+      "str": 4,
+      "dex": -2,
+      "con": 2,
+      "naturalArmor": 0
+    },
+    {
+      "from": "medium",
+      "to": "large",
+      "str": 8,
+      "dex": -2,
+      "con": 4,
+      "naturalArmor": 2
+    },
+    {
+      "from": "large",
+      "to": "huge",
+      "str": 8,
+      "dex": -2,
+      "con": 4,
+      "naturalArmor": 3
+    },
+    {
+      "from": "huge",
+      "to": "gargantuan",
+      "str": 8,
+      "dex": 0,
+      "con": 4,
+      "naturalArmor": 4
+    },
+    {
+      "from": "gargantuan",
+      "to": "colossal",
+      "str": 8,
+      "dex": 0,
+      "con": 4,
+      "naturalArmor": 5
+    }
+  ],
+  "types": [
+    {
+      "id": "aberration",
+      "name": "Aberration",
+      "skillPoints": "+2 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "animal",
+      "name": "Animal",
+      "skillPoints": "-",
+      "feats": "-"
+    },
+    {
+      "id": "construct",
+      "name": "Construct",
+      "skillPoints": "-",
+      "feats": "-"
+    },
+    {
+      "id": "dragon",
+      "name": "Dragon",
+      "skillPoints": "6 + Int modifier per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "elemental",
+      "name": "Elemental",
+      "skillPoints": "+2 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "fey",
+      "name": "Fey",
+      "skillPoints": "+2 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "giant",
+      "name": "Giant",
+      "skillPoints": "+2 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "humanoid",
+      "name": "Humanoid",
+      "skillPoints": "+1 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "magicalBeast",
+      "name": "Magical beast",
+      "skillPoints": "+1 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "monstrousHumanoid",
+      "name": "Monstrous humanoid",
+      "skillPoints": "+2 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "ooze",
+      "name": "Ooze",
+      "skillPoints": "-",
+      "feats": "-"
+    },
+    {
+      "id": "outsider",
+      "name": "Outsider",
+      "skillPoints": "8 + Int modifier per extra HD",
+      "feats": "+1 per extra HD"
+    },
+    {
+      "id": "plant",
+      "name": "Plant",
+      "skillPoints": "-",
+      "feats": "-"
+    },
+    {
+      "id": "undead",
+      "name": "Undead",
+      "skillPoints": "+2 per extra HD",
+      "feats": "+1 per 4 extra HD"
+    },
+    {
+      "id": "vermin",
+      "name": "Vermin",
+      "skillPoints": "-",
+      "feats": "-"
+    }
+  ],
+  "srdUrl": "https://spellbooksoftware.com/d20mrsd/advancement.html"
+}
