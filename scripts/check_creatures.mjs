@@ -556,11 +556,12 @@ for (const step of advancement.sizes) {
 }
 // The SRD's own row for the step most creatures take, transcribed so a
 // parsing change that shifts a column is caught rather than shipped.
-const medium = sizeAdvancement("medium");
-if (!medium) fail("a medium creature should have a size step");
-else if (medium.str !== 8 || medium.dex !== -2 || medium.con !== 4 || medium.naturalArmor !== 2) {
+const mediumStep = sizeAdvancement("medium");
+if (!mediumStep) fail("a medium creature should have a size step");
+else if (mediumStep.str !== 8 || mediumStep.dex !== -2
+    || mediumStep.con !== 4 || mediumStep.naturalArmor !== 2) {
   fail(`medium to large: expected Str +8, Dex -2, Con +4, natural +2, got `
-    + `${medium.str}, ${medium.dex}, ${medium.con}, ${medium.naturalArmor}`);
+    + `${mediumStep.str}, ${mediumStep.dex}, ${mediumStep.con}, ${mediumStep.naturalArmor}`);
 }
 // "Colossal" is as large as the table goes, and the sheet says so rather than
 // advancing into nothing.
