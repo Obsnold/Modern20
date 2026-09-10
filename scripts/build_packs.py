@@ -1331,7 +1331,7 @@ ANCHOR = re.compile(r'<a\b([^>]*)>(.*?)</a>', re.S | re.I)
 HREF = re.compile(r'href\s*=\s*"([^"]*)"', re.I)
 
 
-def link_rules(markup: str, targets: dict[str, str]) -> str:
+def link_rules(markup: str, targets: dict[str, str], split: set[str] | None = None) -> str:
     """The SRD's own cross-references, as links between compendium pages.
 
     The mirror is a website, so its pages point at each other by file name -
@@ -1355,8 +1355,17 @@ def link_rules(markup: str, targets: dict[str, str]) -> str:
         if "://" in target or target.startswith("mailto:"):
             return match.group(0)
 
-        page = target.split("#")[0].split("/")[-1]
-        uuid = targets.get(page) or targets.get(f"{page}.html")
+        page, _, anchor = target.partition("#")
+        page = page.split("/")[-1]
+        uuid = (targets.get(f"{page}#{anchor}") or targets.get(f"{page}.html#{anchor}")
+                if anchor else None)
+        if not uuid and anchor and (split or set()) & {page, f"{page}.html"}:
+            # An anchor into a page that is now one page per entry, and no
+            # entry claims it: the mirror's own index offers three sizes of
+            # animated object and the third anchor was never written. Falling
+            # back to the page would land the reader on the acid rainer.
+            return text_only(label)
+        uuid = uuid or targets.get(page) or targets.get(f"{page}.html")
         return f"@UUID[{uuid}]{{{text_only(label)}}}" if uuid else text_only(label)
 
     return ANCHOR.sub(replace, markup)
@@ -1398,20 +1407,31 @@ def build_rules() -> list[dict]:
     # rewritten as a link. Built before anything else, because a page early in
     # the book refers to one at the end of it.
     targets = {}
+    sources: dict[str, int] = {}
     for entry in entries:
         slug = srd.slugify(entry["id"])
         for position, page in enumerate(entry["pages"]):
-            if page.get("source"):
-                targets[page["source"]] = (
-                    f"Compendium.modern20.rules.JournalEntry."
+            if not page.get("source"):
+                continue
+            uuid = (f"Compendium.modern20.rules.JournalEntry."
                     f"{document_id('rules', slug)}.JournalEntryPage."
                     f"{document_id('rules', f'{slug}-{position}')}")
+            # A reference to a page that has been split into one page per
+            # creature lands on the first of them; a reference to an anchor
+            # inside it lands on the creature, which is what the Menace
+            # Manual's own A-Z index is made of.
+            targets.setdefault(page["source"], uuid)
+            for anchor in page.get("anchors") or []:
+                targets.setdefault(f"{page['source']}#{anchor}", uuid)
+            sources[page["source"]] = sources.get(page["source"], 0) + 1
     # Three titles appear in two books each - Psionics, Advanced Classes and
     # Vehicles - and two identical rows in a search result help nobody, so
     # those say which book they are from. The rest keep the SRD's own name.
     shared = {title for title in (entry["title"] for entry in entries)
               if [e["title"] for e in entries].count(title) > 1}
 
+    # The SRD pages this build divided into one page per entry.
+    split = {source for source, count in sources.items() if count > 1}
     notice = ogc_notice(targets.get("legal.html"))
 
     for index, entry in enumerate(entries):
@@ -1422,7 +1442,7 @@ def build_rules() -> list[dict]:
         pages = []
         for position, page in enumerate(entry["pages"]):
             page_id = document_id("rules", f"{slug}-{position}")
-            content = link_rules(page["html"], targets)
+            content = link_rules(page["html"], targets, split)
             # Each entry opens with the notice, the way each of the SRD's own
             # documents does. The legal entry is the licence itself.
             if position == 0 and entry["id"] != "legal":
