@@ -21,6 +21,7 @@ inside the pages are useless for it. Every page under d20 Future is headed
 "d20 FUTURE".
 """
 import argparse
+import collections
 import html
 import json
 import os
@@ -278,10 +279,43 @@ def tidy(markup: str) -> str:
 # twenty at a time, which is a page nobody scrolls: split at the level the
 # creature names sit on and each gets its own.
 SPLIT_AT = {
+    # Creatures, four books of them.
+    "creatures1.html": ("creaturesaz.html", 4),
+    "creatures2.html": ("creaturesaz.html", 4),
+    "creatures3.html": ("creaturesaz.html", 4),
+    "creatures4.html": ("creaturesaz.html", 4),
+    "animals.html": (None, 4),
+    "urbanmonst1.html": ("urbanmonstaz.html", 4),
+    "urbanmonst2.html": ("urbanmonstaz.html", 4),
+    "urbanmonst3.html": ("urbanmonstaz.html", 4),
+    "urbanmonst4.html": ("urbanmonstaz.html", 4),
     "menacecreat1.html": ("menacecreatures.html", 4),
     "menacecreat2.html": ("menacecreatures.html", 4),
     "menacecreat3.html": ("menacecreatures.html", 4),
     "menacecreat4.html": ("menacecreatures.html", 4),
+
+    # Spells, powers and the rest of what a caster looks up by name.
+    "fxspelldesc1.html": ("fxspellsaz.html", 5),
+    "fxspelldesc2.html": ("fxspellsaz.html", 5),
+    "fxpowers.html": ("fxpowersaz.html", 5),
+    "urbanspelldesc.html": ("urbanspellsaz.html", 5),
+    "urbanpsidesc.html": (None, 5),
+    "urbanincdesc.html": ("urbanincorder.html", 5),
+    "urbanseed.html": (None, 5),
+
+    # Feats and skills.
+    "featorder.html": (None, 5),
+    "urbanfeatorder.html": (None, 5),
+    "futurefeats.html": (None, 5),
+    "skillsorder.html": (None, 5),
+
+    # Catalogues of named equipment: one thing per entry, looked up by name.
+    "urbanfxitem.html": (None, 6),
+    "urbanfxartifact.html": (None, 6),
+    "futuremutant.html": (None, 6),
+    "futurecyber2.html": (None, 6),
+    "futuremecheq1.html": (None, 6),
+    "futuremecheq2.html": (None, 6),
 }
 
 # Words the SRD sets in capitals because they are capitals, not because the
@@ -316,21 +350,61 @@ def readable(name: str) -> str:
     return " ".join(out)
 
 
-def index_names(markup: str, page: str) -> dict[str, str]:
+def index_names(markup: str, page: str) -> dict[str, tuple[str, bool]]:
     """What the book's own A-Z index calls each anchor in one of its pages.
 
-    It sets a creature's name in capitals and a variant of one in mixed case -
-    ANIMATED OBJECT, then "Tiny to Medium", "Large to Huge" - which is the
-    only thing in these files that tells the two apart. The capitalised ones
-    are the entries.
+    The Menace Manual sets a creature's name in capitals and a variant of one
+    in mixed case - ANIMATED OBJECT, then "Tiny to Medium", "Large to Huge" -
+    which is the only thing in that book that tells the two apart. So the case
+    is kept alongside the name, and it is what decides whether an unnamed
+    heading starts an entry or continues one.
     """
     names = {}
     for match in re.finditer(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', markup, re.S | re.I):
         target, label = match.group(1), text_of(match.group(2))
         file, _, anchor = target.partition("#")
-        if anchor and file.split("/")[-1] == page and label.isupper():
-            names.setdefault(anchor, label)
+        if anchor and label and file.split("/")[-1] == page:
+            names.setdefault(anchor, (label, label.isupper()))
     return names
+
+
+# A stat block opens with a row naming the creature, sometimes after an empty
+# cell holding a spacer image.
+TABLE_TITLE = re.compile(r"<table\b[^>]*>.*?<t[dh]\b[^>]*>(.*?)</t[dh]>", re.S | re.I)
+
+
+def stat_block_name(markup: str) -> str:
+    """The name a stat block prints for itself, where the heading printed none.
+
+    Urban Arcana heads several of its creatures with <h4><a name=""></a></h4>
+    and puts the name in the table that follows: the elf, the gear golem and
+    the urban wendigo are all headed by nothing at all. Only a table that
+    starts straight after the heading counts, and only a cell short enough to
+    be a name.
+    """
+    table = re.match(r"\s*(?:<br\s*/?>|\s)*<table\b", markup, re.I)
+    if not table:
+        return ""
+    for match in re.finditer(r"<t[dh]\b[^>]*>(.*?)</t[dh]>", markup[:1200], re.S | re.I):
+        text = text_of(match.group(1))
+        if text and len(text) < 60:
+            return text
+    return ""
+
+
+def unnamed_entry(heading: str, rest: str, names: dict[str, tuple[str, bool]]) -> str:
+    """What a heading holding nothing but an anchor is, if it is anything.
+
+    An entry, and this is its name - or a divider inside the entry above it,
+    and the answer is nothing. The index settles it where it names the anchor:
+    a name set in capitals is an entry, a name set in mixed case is a variant
+    of the one before. Where it does not, the stat block underneath does.
+    """
+    anchor = ANCHOR_NAME.search(heading)
+    if anchor and anchor.group(1) in names:
+        label, capitalised = names[anchor.group(1)]
+        return label if capitalised else ""
+    return stat_block_name(rest)
 
 
 def split_entries(markup: str, level: int, name: str,
@@ -352,8 +426,7 @@ def split_entries(markup: str, level: int, name: str,
     for match in heading.finditer(markup):
         title = text_of(match.group(1))
         if not title:
-            anchor = ANCHOR_NAME.search(match.group(1))
-            title = names.get(anchor.group(1), "") if anchor else ""
+            title = unnamed_entry(match.group(1), markup[match.end():], names)
         if title:
             marks.append((match.start(), readable(title)))
     if len(marks) < 2:
@@ -384,6 +457,24 @@ def entries_of(site: Site) -> list[list[str]]:
     return [site.descendants(section) for section in site.children.get(None, [])]
 
 
+def disambiguate(pages: list[dict], label: dict[str, str]) -> None:
+    """Two pages of one entry with the same name, told apart by where they are.
+
+    The SRD prints darkvision, daze, levitate and telekinesis as both a spell
+    and a psionic power, and both live in FX Basics. Split into a page each,
+    they are two identical rows in the contents list. Each is named for the
+    part of the book it comes from - the part's own name, up to the range it
+    carries: "Spells (Aid to Insect Plague)" is Spells.
+    """
+    seen = collections.Counter(page["name"] for page in pages)
+    for page in pages:
+        if seen[page["name"]] < 2:
+            continue
+        part = label.get(page["source"], "").split("(")[0].strip()
+        if part:
+            page["name"] = f"{page['name']} ({part})"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -410,9 +501,8 @@ def main() -> int:
             split = None
             if page in SPLIT_AT:
                 index, level = SPLIT_AT[page]
-                split = split_entries(
-                    markup, level, site.label[page],
-                    index_names(tidy(body(srd.fetch(index))), page))
+                names = index_names(tidy(body(srd.fetch(index))), page) if index else {}
+                split = split_entries(markup, level, site.label[page], names)
             for part in split or [{"name": site.label[page], "html": markup}]:
                 contents.append({
                     "name": part["name"],
@@ -422,6 +512,7 @@ def main() -> int:
                 })
         if not contents:
             continue
+        disambiguate(contents, site.label)
         documents.append({
             "id": os.path.splitext(first)[0],
             "book": site.book[first],
