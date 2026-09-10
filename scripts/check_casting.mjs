@@ -9,10 +9,10 @@
  *
  *     node scripts/check_casting.mjs
  */
-import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { installStubs } from "./lib/foundry-stubs.mjs";
+import { packDocuments } from "./lib/packs.mjs";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const { hooks } = installStubs();
@@ -35,9 +35,8 @@ const fail = (message) => { problems++; console.log(`FAIL  ${message}`); };
 
 let compared = 0;
 for (const [pack, type] of [["spells", "spell"], ["psionics", "psiPower"]]) {
-  const directory = join(ROOT, "src", "packs", pack);
-  for (const file of readdirSync(directory).filter((f) => f.endsWith(".json"))) {
-    const document = JSON.parse(readFileSync(join(directory, file), "utf8"));
+  for (const document of packDocuments(ROOT, pack)) {
+    const file = document.file;
     const built = document.system.activities ?? {};
     const derived = defaultActivities(type, document.system);
     compared++;
@@ -128,12 +127,7 @@ console.log(`${dcCases.length} save DC cases checked`);
 // The four FX advanced classes that grant one, checked against the numbers
 // printed on their own pages.
 const classes = Object.fromEntries(
-  readdirSync(join(ROOT, "src", "packs", "classes"))
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => {
-      const document = JSON.parse(readFileSync(join(ROOT, "src", "packs", "classes", f), "utf8"));
-      return [document.name, document.system];
-    })
+  packDocuments(ROOT, "classes").map((document) => [document.name, document.system])
 );
 
 const poolCases = [
