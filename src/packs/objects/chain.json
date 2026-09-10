@@ -1,0 +1,22 @@
+{
+  "_id": "XimGy4KBgx6z72sc",
+  "name": "Chain",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 10,
+    "hp": {
+      "value": 5,
+      "max": 5
+    },
+    "breakDC": 26,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!XimGy4KBgx6z72sc"
+}

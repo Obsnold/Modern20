@@ -1,0 +1,22 @@
+{
+  "_id": "9m8FQ1NDWR2kwwzu",
+  "name": "Lock (Cheap)",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 0,
+    "hp": {
+      "value": 1,
+      "max": 1
+    },
+    "breakDC": 10,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!9m8FQ1NDWR2kwwzu"
+}

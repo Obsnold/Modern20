@@ -1,0 +1,22 @@
+{
+  "_id": "G1LayxEnZkiVYOvD",
+  "name": "Cinderblock Wall",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 8,
+    "hp": {
+      "value": 90,
+      "max": 90
+    },
+    "breakDC": 35,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!G1LayxEnZkiVYOvD"
+}

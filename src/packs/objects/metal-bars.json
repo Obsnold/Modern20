@@ -1,0 +1,22 @@
+{
+  "_id": "srpo1tHU1h8ltmLF",
+  "name": "Metal Bars",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 10,
+    "hp": {
+      "value": 15,
+      "max": 15
+    },
+    "breakDC": 30,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!srpo1tHU1h8ltmLF"
+}

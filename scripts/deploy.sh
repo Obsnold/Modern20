@@ -48,9 +48,10 @@ node scripts/check_templates.mjs
 node scripts/check_casting.mjs
 node scripts/check_combat.mjs
 node scripts/check_creatures.mjs
+node scripts/check_objects.mjs
 
 if [ "\$PACKS" = "--packs" ]; then
-  for p in classes occupations talents feats spells psionics weapons armor gear creatures vehicles; do
+  for p in classes occupations talents feats spells psionics weapons armor gear creatures vehicles objects; do
     $FVTT package pack -n \$p --in src/packs/\$p --out packs >/dev/null
     echo "  packed \$p"
   done

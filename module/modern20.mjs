@@ -5,6 +5,7 @@ import { Modern20Hero } from "./data/actor-hero.mjs";
 import { Modern20Ordinary } from "./data/actor-ordinary.mjs";
 import { Modern20Creature } from "./data/actor-creature.mjs";
 import { Modern20Vehicle } from "./data/actor-vehicle.mjs";
+import { Modern20Object } from "./data/actor-object.mjs";
 import {
   Modern20Class, Modern20Occupation, Modern20Talent, Modern20Feat,
   Modern20Weapon, Modern20Armor, Modern20Gear, Modern20Container, Modern20VehicleMod,
@@ -15,7 +16,8 @@ import { Modern20Actor } from "./documents/actor.mjs";
 import { Modern20Item } from "./documents/item.mjs";
 import { Modern20HeroSheet } from "./sheets/actor-sheet.mjs";
 import {
-  Modern20OrdinarySheet, Modern20CreatureSheet, Modern20VehicleSheet
+  Modern20OrdinarySheet, Modern20CreatureSheet, Modern20VehicleSheet,
+  Modern20ObjectSheet
 } from "./sheets/npc-sheets.mjs";
 import { Modern20ItemSheet } from "./sheets/item-sheet.mjs";
 import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
@@ -42,7 +44,8 @@ Hooks.once("init", () => {
     hero: Modern20Hero,
     ordinary: Modern20Ordinary,
     creature: Modern20Creature,
-    vehicle: Modern20Vehicle
+    vehicle: Modern20Vehicle,
+    object: Modern20Object
   };
 
   CONFIG.Item.dataModels = {
@@ -177,7 +180,8 @@ function registerSheets() {
     [Modern20HeroSheet, ["hero"], "MODERN20.SheetLabel.Hero"],
     [Modern20OrdinarySheet, ["ordinary"], "MODERN20.SheetLabel.Ordinary"],
     [Modern20CreatureSheet, ["creature"], "MODERN20.SheetLabel.Creature"],
-    [Modern20VehicleSheet, ["vehicle"], "MODERN20.SheetLabel.Vehicle"]
+    [Modern20VehicleSheet, ["vehicle"], "MODERN20.SheetLabel.Vehicle"],
+    [Modern20ObjectSheet, ["object"], "MODERN20.SheetLabel.Object"]
   ];
 
   for (const [sheet, types, label] of actorSheets) {

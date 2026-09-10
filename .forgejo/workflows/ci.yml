@@ -109,6 +109,7 @@ jobs:
           node scripts/check_casting.mjs
           node scripts/check_combat.mjs
           node scripts/check_creatures.mjs
+          node scripts/check_objects.mjs
 
       # Ruff's default rules flag a redefined function but not a reassigned
       # constant, which is the half that bit.

@@ -1,0 +1,22 @@
+{
+  "_id": "N6x3HlsZ8WaL4CJb",
+  "name": "Rope",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 0,
+    "hp": {
+      "value": 2,
+      "max": 2
+    },
+    "breakDC": 23,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!N6x3HlsZ8WaL4CJb"
+}
