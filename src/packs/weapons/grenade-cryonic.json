@@ -1,0 +1,50 @@
+{
+  "_id": "MH7iytnHrBt9RgaV",
+  "name": "Grenade, cryonic",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "explosive",
+    "damage": "8d6",
+    "damageType": "cold",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "caliber": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 19,
+    "restriction": "res",
+    "burstRadius": "10 ft.",
+    "reflexDC": 15,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 15
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 10
+        }
+      }
+    },
+    "progressLevel": 8
+  },
+  "_key": "!items!MH7iytnHrBt9RgaV"
+}

@@ -207,6 +207,10 @@
       <legend>{{localize "MODERN20.Acquisition"}}</legend>
       {{formField fields.purchaseDC value=system.purchaseDC}}
       {{formField fields.restriction value=system.restriction}}
+      {{!-- Only d20 Future states one; a zero here means the modern day. --}}
+      {{#if system.progressLevel}}
+        {{formField fields.progressLevel value=system.progressLevel}}
+      {{/if}}
       {{formField fields.weight value=system.weight}}
       {{formField fields.quantity value=system.quantity}}
       {{formField fields.equipped value=system.equipped}}

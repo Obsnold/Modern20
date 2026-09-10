@@ -15,7 +15,7 @@
     "rateOfFire": "",
     "caliber": "",
     "magazine": "",
-    "size": "med",
+    "size": "medium",
     "ranged": false,
     "nonlethal": false,
     "weight": 2.0,
@@ -23,7 +23,7 @@
     "restriction": "none",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Simple Weapons (require the Simple Weapons Proficiency feat)",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -33,7 +33,8 @@
           "ammo": 1
         }
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!JmX8LL4Se8nc4xKX"
 }

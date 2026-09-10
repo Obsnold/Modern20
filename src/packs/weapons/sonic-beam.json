@@ -1,0 +1,40 @@
+{
+  "_id": "cRzFnKnRf658fTiD",
+  "name": "Sonic beam",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d6 + special",
+    "damageType": "sonic",
+    "critical": "20",
+    "rangeIncrement": 40,
+    "rateOfFire": "S",
+    "caliber": "",
+    "magazine": "50 box",
+    "size": "medium",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 3.0,
+    "purchaseDC": 18,
+    "restriction": "lic",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 8
+  },
+  "_key": "!items!cRzFnKnRf658fTiD"
+}

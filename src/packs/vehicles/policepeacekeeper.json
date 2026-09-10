@@ -1,0 +1,27 @@
+{
+  "_id": "ic7VV49dubsIhdUw",
+  "name": "Police peacekeeper",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 3,
+    "passengers": 10,
+    "cargo": "250 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "95 (10)",
+    "defense": 8,
+    "hardness": 10,
+    "hp": {
+      "value": 48,
+      "max": 48
+    },
+    "size": "huge",
+    "purchaseDC": 40,
+    "restriction": "res"
+  },
+  "_key": "!actors!ic7VV49dubsIhdUw"
+}

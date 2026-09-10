@@ -23,7 +23,7 @@
     "restriction": "mil",
     "burstRadius": "5 ft.",
     "reflexDC": 12,
-    "source": "",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "detonate": {
@@ -43,7 +43,8 @@
           "size": 5
         }
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!Bd8hTm8HHOhGRcDC"
 }

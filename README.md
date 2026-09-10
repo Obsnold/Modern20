@@ -30,9 +30,10 @@ fighting it forever, so this is a standalone game system.
 | Wealth checks, purchase DCs, restriction ratings, black market surcharge | Working |
 | Action points, massive damage threshold and Fortitude save | Working |
 | Class progression folding into attack, saves, Defense and Reputation | Working |
-| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 671 items, built from the SRD |
-| Ammunition and containers | 18 ammunition types; 10 bags and cases that hold items |
-| Compendia: creatures, vehicles | 202 actors, built from the SRD |
+| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 960 items, built from the SRD |
+| d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
+| Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
+| Compendia: creatures, vehicles | 229 actors, built from the SRD |
 | Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text, 64 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
@@ -471,6 +472,33 @@ Pages are cached in `.cache/` and the site is hit once. Output lands in `data/`
 and is committed, so a schema change means re-running `build_packs.py`, not
 re-scraping.
 
+### Equipment, and which book it came from
+
+The equipment packs are built from the SRD's own purchase tables, and a table
+is routed by its own columns rather than by the page it sits on: an armor table
+has an equipment bonus, a weapon table has damage and a critical, an ammunition
+table says so in its first cell, and what is left with a purchase DC is gear.
+That is what makes the d20 Future pages tractable, since one of them sells
+ranged weapons, melee weapons, ammunition, grenades, armor and gear in six
+tables under one heading.
+
+d20 Future and Urban Arcana items share the weapons, armor and gear packs with
+d20 Modern's own, the way d20 Future's vehicles have always shared the vehicles
+pack. Each item records the book it is from, and d20 Future's also record the
+**progress level** the SRD sells them at — PL5 for the Information Age up to
+PL8 for the Gravity Age — because a disintegrator sitting unlabelled beside a
+Colt is what makes a mixed compendium unusable. Where an expansion reprints an
+item the core already has, d20 Modern's entry is the one kept, and the build
+says which names that happened to.
+
+A d20 Future weapon's category is the one thing its table does not print: those
+tables are headed by progress level rather than by proficiency. Each carries
+the SRD's own footnote instead — *"All weapons listed in this table require the
+Personal Firearms Proficiency feat"* — so a weapon with a rate of fire is a
+firearm, split into handgun and longarm by the size the core tables split them
+on, one with a blast radius is an explosive, and the rest are simple weapons.
+Nothing mechanical hangs on it; it is a label on the item sheet.
+
 ### Compiling compendia
 
 Foundry reads LevelDB, and the packing tool is Node-only. `build_packs.py`
@@ -564,8 +592,12 @@ Roughly in the order worth doing it:
    merges hand corrections over scraped output.
 3. **XP thresholds**, so the sheet knows when a character may level rather than
    leaving it to the player to decide and click.
-4. **The rest of d20 Future and Urban Arcana** — progress levels, cybernetics,
-   mecha, robots, xenoforms.
+4. **The rest of d20 Future and Urban Arcana.** The equipment is in: every
+   weapon, suit of armor, piece of gear and vehicle those books price is built
+   from its own table. What is left is the material that needs rules rather
+   than rows — cybernetics, mecha and robot construction, starship combat,
+   xenoforms — each of which is a table of modifiers to something the system
+   would first have to model.
 
 Class skills are granted by the character's class and occupation items rather
 than ticked by hand — removing a class removes what it granted. A hand-ticked

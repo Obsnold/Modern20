@@ -1,0 +1,40 @@
+{
+  "_id": "mYOQ2lLMHODc06ub",
+  "name": "Speargun (simple)*",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "2d6",
+    "damageType": "piercing",
+    "critical": "20",
+    "rangeIncrement": 10,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "1 Int.",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 10,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!mYOQ2lLMHODc06ub"
+}

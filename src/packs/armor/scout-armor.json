@@ -1,0 +1,24 @@
+{
+  "_id": "0rcMdYAoJt6p5xx8",
+  "name": "Scout armor",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 2,
+    "maxDex": 7,
+    "armorPenalty": 0,
+    "speedPenalty": "30 ft./20 ft.",
+    "proficiency": "light",
+    "weight": 4.0,
+    "purchaseDC": 11,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "progressLevel": 6
+  },
+  "_key": "!items!0rcMdYAoJt6p5xx8"
+}

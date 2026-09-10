@@ -1,0 +1,40 @@
+{
+  "_id": "sc7B1Q6gG1UMDY0D",
+  "name": "Net launcher (grenade launcher)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "*",
+    "damageType": "-",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "1 Int.",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 15,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!sc7B1Q6gG1UMDY0D"
+}

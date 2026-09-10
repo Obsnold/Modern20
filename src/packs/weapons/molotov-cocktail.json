@@ -23,7 +23,7 @@
     "restriction": "none",
     "burstRadius": "Fire",
     "reflexDC": null,
-    "source": "Splash Weapons",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -33,7 +33,8 @@
           "ammo": 1
         }
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!72mQewXvl4bMmF7L"
 }

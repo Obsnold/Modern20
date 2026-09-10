@@ -1,0 +1,24 @@
+{
+  "_id": "9aMPdnDa5PVZjGWi",
+  "name": "Hide",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "medium",
+    "equipmentBonus": 3,
+    "maxDex": 4,
+    "armorPenalty": -3,
+    "speedPenalty": "20",
+    "proficiency": "medium",
+    "weight": 25.0,
+    "purchaseDC": 10,
+    "restriction": "none",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanarmor.html",
+    "progressLevel": 0
+  },
+  "_key": "!items!9aMPdnDa5PVZjGWi"
+}

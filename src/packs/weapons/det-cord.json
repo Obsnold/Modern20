@@ -15,7 +15,7 @@
     "rateOfFire": "",
     "caliber": "",
     "magazine": "",
-    "size": "med",
+    "size": "medium",
     "ranged": false,
     "nonlethal": false,
     "weight": 2.0,
@@ -23,7 +23,7 @@
     "restriction": "res",
     "burstRadius": "See text",
     "reflexDC": 12,
-    "source": "",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "detonate": {
@@ -43,7 +43,8 @@
           "size": 0
         }
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!s348z8aYmMPoB3IQ"
 }

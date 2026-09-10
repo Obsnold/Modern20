@@ -28,6 +28,11 @@ export function purchasableFields() {
   return {
     purchaseDC: int(0),
     restriction: new fields.StringField({ initial: "none" }),
+    // d20 Future sells its equipment by progress level - PL5 is the
+    // Information Age, PL8 the Gravity Age - and those items share these packs
+    // with d20 Modern's own. Zero is the modern baseline, which is what every
+    // item in the core equipment tables and Urban Arcana is.
+    progressLevel: int(0, { min: 0 }),
     weight: new fields.NumberField({ required: true, initial: 0, min: 0 }),
     quantity: new fields.NumberField({ required: true, integer: true, initial: 1, min: 0 }),
     equipped: new fields.BooleanField({ initial: false }),

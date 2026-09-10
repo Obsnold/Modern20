@@ -1,0 +1,27 @@
+{
+  "_id": "X2nNh5oukCkurzXo",
+  "name": "1967 Chevrolet Camaro (sports coupe)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "250 lb.",
+    "initiative": -2,
+    "maneuver": -1,
+    "topSpeed": "200 (20)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 36,
+      "max": 36
+    },
+    "size": "huge",
+    "purchaseDC": 28,
+    "restriction": "lic"
+  },
+  "_key": "!actors!X2nNh5oukCkurzXo"
+}

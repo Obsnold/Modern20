@@ -1,0 +1,40 @@
+{
+  "_id": "jxfay3NNRd5q9uQV",
+  "name": "Air rifle (simple)*",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d2",
+    "damageType": "piercing",
+    "critical": "20",
+    "rangeIncrement": 50,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "1 Int.",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 8,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!jxfay3NNRd5q9uQV"
+}

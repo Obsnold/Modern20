@@ -1,0 +1,24 @@
+{
+  "_id": "fJm3I6EMqUjOlLxj",
+  "name": "Unisoldiercombat armor",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "heavy",
+    "equipmentBonus": 10,
+    "maxDex": 1,
+    "armorPenalty": -6,
+    "speedPenalty": "20 ft./15 ft.",
+    "proficiency": "heavy",
+    "weight": 30.0,
+    "purchaseDC": 19,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "progressLevel": 8
+  },
+  "_key": "!items!fJm3I6EMqUjOlLxj"
+}

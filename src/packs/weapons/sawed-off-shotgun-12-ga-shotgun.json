@@ -15,7 +15,7 @@
     "rateOfFire": "S",
     "caliber": "12-gauge",
     "magazine": "2 int.",
-    "size": "med",
+    "size": "medium",
     "ranged": true,
     "nonlethal": false,
     "weight": 4.0,
@@ -23,7 +23,7 @@
     "restriction": "none",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -33,7 +33,8 @@
           "ammo": 1
         }
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!3vqH9geikkw6gNML"
 }

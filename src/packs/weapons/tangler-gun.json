@@ -1,0 +1,71 @@
+{
+  "_id": "oYhfGUdUVYTjfXGU",
+  "name": "Tangler gun",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "Special",
+    "damageType": "-",
+    "critical": "-",
+    "rangeIncrement": 20,
+    "rateOfFire": "S, A",
+    "caliber": "",
+    "magazine": "20 box",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 8.0,
+    "purchaseDC": 16,
+    "restriction": "lic",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      },
+      "autofire": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Autofire",
+        "attack": {
+          "defenseOverride": 10
+        },
+        "area": {
+          "shape": "square",
+          "size": 10
+        },
+        "consume": {
+          "ammo": 10
+        },
+        "requiresAmmo": 10,
+        "note": "MODERN20.Attack.AutofireArea"
+      },
+      "burst": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Burst",
+        "attack": {
+          "bonus": -4
+        },
+        "damage": {
+          "extraDice": 2
+        },
+        "consume": {
+          "ammo": 5
+        },
+        "requiresAmmo": 5,
+        "requiresFeat": "Burst Fire"
+      }
+    },
+    "progressLevel": 6
+  },
+  "_key": "!items!oYhfGUdUVYTjfXGU"
+}

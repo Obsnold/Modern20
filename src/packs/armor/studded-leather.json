@@ -1,0 +1,24 @@
+{
+  "_id": "ZQ2qOYmm25f57xVO",
+  "name": "Studded leather",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 3,
+    "maxDex": 5,
+    "armorPenalty": -1,
+    "speedPenalty": "30",
+    "proficiency": "light",
+    "weight": 20.0,
+    "purchaseDC": 13,
+    "restriction": "none",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanarmor.html",
+    "progressLevel": 0
+  },
+  "_key": "!items!ZQ2qOYmm25f57xVO"
+}

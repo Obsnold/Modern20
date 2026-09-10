@@ -43,13 +43,60 @@ AMMUNITION_HEADER = "ammunit"
 # "Bags and Boxes" are containers rather than general gear.
 CONTAINER_CATEGORY = "bags and boxes"
 
-# Which scraped table feeds which pack, keyed by source page.
-SOURCES = {
-    "weapons.html": ("weapons", "weapon"),
-    "armor.html": ("armor", "armor"),
-    "general.html": ("gear", "gear"),
-    "lifestyle.html": ("gear", "gear"),
+# The pages whose purchase tables become items, and the book each belongs to.
+#
+# Routing is by the table's own columns rather than by the page, because one
+# d20 Future page sells ranged weapons, melee weapons, ammunition, grenades,
+# armor and gear in six tables. Core pages come first so that where an
+# expansion reprints an item under the same name, the d20 Modern entry is the
+# one that survives.
+#
+# Everything lands in the same weapons, armor and gear packs, the way d20
+# Future's vehicles already share the vehicles pack. What tells them apart is
+# the source and, for d20 Future, the progress level.
+SOURCE_BOOKS = {
+    "weapons.html": "d20 Modern SRD",
+    "armor.html": "d20 Modern SRD",
+    "general.html": "d20 Modern SRD",
+    "lifestyle.html": "d20 Modern SRD",
+    "futurepl5.html": "d20 Future",
+    "futurepl6.html": "d20 Future",
+    "futurepl7.html": "d20 Future",
+    "futurepl8.html": "d20 Future",
+    "urbanweapons.html": "Urban Arcana",
+    "urbanarmor.html": "Urban Arcana",
+    "urbangeneral.html": "Urban Arcana",
 }
+
+# Where each kind of table lands. A page is not enough to decide this.
+PACK_FOR = {
+    "weapon": "weapons", "armor": "armor",
+    "gear": "gear", "ammunition": "gear", "container": "gear",
+}
+
+
+def table_kind(header: list[str]) -> str:
+    """What a purchase table sells, read off its own columns.
+
+    The SRD is consistent about these even where it is consistent about
+    nothing else: an armor table has an equipment bonus, a weapon table has
+    damage and a critical, an ammunition table says so in its first cell, and
+    what is left with a purchase DC is gear.
+    """
+    columns = column_map(header)
+    # "Ammunition Type | Purchase DC Modifier": a table of adjustments to
+    # something else's price, not a table of things to buy.
+    if "purchase dc" not in columns:
+        return ""
+    if any(AMMUNITION_HEADER in c.lower() for c in header[:1]) or "ammunition" in columns:
+        return "ammunition"
+    if "equipment bonus" in columns:
+        return "armor"
+    if "damage" in columns and "critical" in columns:
+        return "weapon"
+    if "purchase dc" in columns:
+        return "gear"
+    return ""
 
 
 def document_id(pack: str, slug: str) -> str:
@@ -102,12 +149,24 @@ def column_map(header: list[str]) -> dict[str, int]:
     aliases = {
         "magezine": "magazine",
         "ammunitino type (quantity)": "ammunition",
+        "ammunition type (quantity)": "ammunition",
+        "ammunition type": "ammunition",
         "nonprof. bonus": "nonproficient bonus",
         "speed (30 ft.)": "speed",
+        "speed (30 ft./20 ft.)": "speed",
+        # d20 Future words the same two columns differently.
+        "blast radius": "burst radius",
+        "reflex save": "reflex dc",
+        "weapon name": "weapon",
+        "weapon damage": "damage",
     }
     out = {}
     for index, name in enumerate(header):
         key = re.sub(r"\s+", " ", name.strip().lower())
+        # A footnote marker rides in the header itself: "Weapon 1", "Purchase
+        # DC 1". Left in place, "purchase dc 1" is a column nothing reads and
+        # every item in the table is free.
+        key = re.sub(r"\s+\d+$", "", key)
         key = aliases.get(key, key)
         out.setdefault(key, index)
     return out
@@ -247,7 +306,8 @@ def casting_fields(entry: dict) -> dict:
 def build_weapon(row, columns, category, url):
     ranged = bool(cell(row, columns, "rate of fire")) or cell(row, columns, "range increment") not in ("", "-")
     weapon = {
-        "category": weapon_category(category),
+        "category": future_weapon_category(row, columns)
+        if progress_level(category, url) else weapon_category(category),
         # Footnote markers leak into the damage cell: "10d6 2", "Varies 2".
         "damage": strip_footnote(cell(row, columns, "damage", default="1d4")),
         "damageType": cell(row, columns, "damage type").lower(),
@@ -256,7 +316,7 @@ def build_weapon(row, columns, category, url):
         "rateOfFire": cell(row, columns, "rate of fire"),
         "caliber": weapon_caliber(row[0]),
         "magazine": cell(row, columns, "magazine"),
-        "size": cell(row, columns, "size").lower() or "medium",
+        "size": weapon_size(cell(row, columns, "size")),
         "ranged": ranged,
         # Set by override for the sap; the SRD's melee table has no column.
         "nonlethal": False,
@@ -272,6 +332,22 @@ def build_weapon(row, columns, category, url):
     }
     weapon["activities"] = weapon_activities(weapon)
     return weapon
+
+
+# "Progress Level 6: Fusion Age" heads every d20 Future equipment table.
+PROGRESS_LEVEL = re.compile(r"progress level\s*(\d+)", re.I)
+
+
+def progress_level(category: str, page: str = "") -> int:
+    """The progress level an equipment table belongs to, or none.
+
+    A PL8 disintegrator sitting unlabelled beside a Colt is the thing that
+    makes a mixed compendium unusable, so the level is kept. The vehicle and
+    starship tables print it as a banner over each group; the four equipment
+    pages are a progress level each and say so in the page name instead.
+    """
+    match = PROGRESS_LEVEL.search(category or "") or re.search(r"futurepl(\d)", page or "")
+    return int(match.group(1)) if match else 0
 
 
 def weapon_category(section: str) -> str:
@@ -291,6 +367,46 @@ def weapon_category(section: str) -> str:
         if any(needle in text for needle in needles):
             return key
     return "simple"
+
+
+# The size column is abbreviated differently in each book: "Med", "Med." and
+# "Medium" all appear, and one row is a footnote marker.
+WEAPON_SIZES = {
+    "fine": "fine", "dim": "diminutive", "diminutive": "diminutive",
+    "tiny": "tiny", "small": "small", "sm": "small",
+    "med": "medium", "medium": "medium", "medium-size": "medium",
+    "large": "large", "lg": "large", "huge": "huge",
+    "gargantuan": "gargantuan", "colossal": "colossal",
+}
+
+
+def weapon_size(printed: str) -> str:
+    """A weapon's printed size as one of the SRD's nine size words."""
+    key = (printed or "").strip().rstrip(".").lower()
+    return WEAPON_SIZES.get(key, "medium")
+
+
+def future_weapon_category(row, columns) -> str:
+    """A d20 Future weapon's category, which its table banner does not give.
+
+    Those tables are headed by progress level rather than by proficiency, but
+    each one carries the SRD's own footnote saying which feat it needs: "All
+    weapons listed in this table require the Personal Firearms Proficiency
+    feat" over the ranged tables, "the Simple Weapons Proficiency feat" over
+    the melee ones. Personal Firearms covers both handguns and longarms, and
+    the SRD's own core tables split those by size - handguns are Medium or
+    smaller, longarms Large - so that is the split used here.
+
+    Nothing mechanical hangs on this: the category is a label on the item
+    sheet. It is worth getting close rather than filing every laser rifle
+    under simple weapons, which is what the fallback would do.
+    """
+    if cell(row, columns, "burst radius"):
+        return "explosive"
+    if not cell(row, columns, "rate of fire"):
+        return "simple"
+    size = cell(row, columns, "size").lower()
+    return "longarm" if size.startswith(("large", "huge", "gargantuan", "colossal")) else "handgun"
 
 
 def build_armor(row, columns, category, url):
@@ -1118,23 +1234,29 @@ def build_vehicles() -> list[dict]:
 def build() -> dict[str, list[dict]]:
     tables = json.load(open(os.path.join(srd.DATA, "purchase_tables.json"), encoding="utf-8"))
     # Ammunition first: weapons derive their calibre by matching against it.
-    tables.sort(key=lambda t: 0 if any(AMMUNITION_HEADER in c.lower()
-                                       for c in t["header"][:1]) else 1)
+    # Then d20 Modern before the expansions, so a reprinted name resolves to
+    # the core entry rather than to whichever page was scraped last.
+    tables.sort(key=lambda t: (
+        0 if any(AMMUNITION_HEADER in c.lower() for c in t["header"][:1]) else 1,
+        0 if SOURCE_BOOKS.get(t["page"]) == "d20 Modern SRD" else 1,
+    ))
     packs: dict[str, list[dict]] = {}
     seen: dict[str, set[str]] = {}
+    reprinted: list[str] = []
 
     for table in tables:
-        if table["page"] not in SOURCES:
+        book = SOURCE_BOOKS.get(table["page"])
+        if not book:
             continue
-        pack, item_type = SOURCES[table["page"]]
+        item_type = table_kind(table["header"])
+        if not item_type:
+            continue
+        pack = PACK_FOR[item_type]
         columns = column_map(table["header"])
         if "purchase dc" not in columns:
             continue
 
-        # Ammunition shares the weapons page but is gear, not a weapon.
-        ammunition = any(AMMUNITION_HEADER in c.lower() for c in table["header"][:1])
-        if ammunition:
-            pack, item_type = "gear", "ammunition"
+        ammunition = item_type == "ammunition"
 
         category = ""
         parent = ""
@@ -1153,10 +1275,22 @@ def build() -> dict[str, list[dict]]:
             if kind in ("blank", "header"):
                 continue
             if kind == "item":
+                # A product heading the SRD did not mark as one: a name with
+                # every other cell empty, and the indented variants beneath it
+                # are its options. Without this the variants lose the product
+                # they belong to, and the compendium holds gear called
+                # "Business", "Stealth" and "Contact".
+                if not any(c.strip() for c in row[1:]):
+                    parent = row[0].strip()
+                    continue
                 parent = ""
 
             label = row[0].strip()
-            if not label or len(row) < (2 if ammunition else 3):
+            # Long enough to reach its own purchase DC column, rather than a
+            # fixed three cells: the lifestyle tables are two columns wide -
+            # a name and a DC - and every housing and service in them was
+            # being dropped by a guard written for the equipment tables.
+            if not label or len(row) <= columns["purchase dc"]:
                 continue
             # A variant is only meaningful qualified by its product.
             name = f"{parent} ({label})" if kind == "variant" and parent else label
@@ -1170,6 +1304,11 @@ def build() -> dict[str, list[dict]]:
             slug = srd.slugify(name)
             bucket = seen.setdefault(pack, set())
             if slug in bucket:
+                # An expansion reprinting a core item, which the sort above
+                # already resolved in the core's favour. Reported rather than
+                # dropped in silence, since a name clash between two different
+                # items would look exactly the same from here.
+                reprinted.append(f"{pack}/{slug} ({book})")
                 continue
             bucket.add(slug)
 
@@ -1183,10 +1322,18 @@ def build() -> dict[str, list[dict]]:
                     "quantity": 1,
                     "equipped": False,
                     **BUILDERS[builder](row, columns, category, table["srdUrl"]),
+                    # Which book it is from, and - for d20 Future - which
+                    # progress level, since the packs are shared.
+                    "source": book,
+                    "progressLevel": progress_level(category, table["page"]),
                 },
                 "_key": f"!items!{document_id(pack, slug)}",
                 "_slug": slug,
             })
+
+    if reprinted:
+        print(f"  {len(reprinted)} reprinted name(s) kept from d20 Modern: "
+              + ", ".join(reprinted[:6]) + ("..." if len(reprinted) > 6 else ""))
 
     for name, builder in (
         ("classes", build_classes),

@@ -1,0 +1,24 @@
+{
+  "_id": "JmIRAuJzKCT9d8hS",
+  "name": "Flight Suit and helmet",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 2,
+    "maxDex": 6,
+    "armorPenalty": 0,
+    "speedPenalty": "30 ft./20 ft.",
+    "proficiency": "light",
+    "weight": 2.0,
+    "purchaseDC": 10,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl5.html",
+    "progressLevel": 5
+  },
+  "_key": "!items!JmIRAuJzKCT9d8hS"
+}

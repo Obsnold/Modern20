@@ -1,0 +1,50 @@
+{
+  "_id": "iQO2gzfzSaZggmnC",
+  "name": "Grenade, stun",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "explosive",
+    "damage": "Special",
+    "damageType": "-",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "caliber": "",
+    "magazine": "",
+    "size": "tiny",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 1.0,
+    "purchaseDC": 17,
+    "restriction": "mil",
+    "burstRadius": "10 ft.",
+    "reflexDC": 18,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 18
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 10
+        }
+      }
+    },
+    "progressLevel": 7
+  },
+  "_key": "!items!iQO2gzfzSaZggmnC"
+}

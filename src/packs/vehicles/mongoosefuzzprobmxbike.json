@@ -1,0 +1,27 @@
+{
+  "_id": "7lcwGOJLiRWiM6z7",
+  "name": "Mongoose Fuzz Pro (BMX bike)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "0 lb.",
+    "initiative": -1,
+    "maneuver": 4,
+    "topSpeed": "30 (3)",
+    "defense": 11,
+    "hardness": 5,
+    "hp": {
+      "value": 5,
+      "max": 5
+    },
+    "size": "small",
+    "purchaseDC": 13,
+    "restriction": "none"
+  },
+  "_key": "!actors!7lcwGOJLiRWiM6z7"
+}

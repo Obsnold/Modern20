@@ -1,0 +1,71 @@
+{
+  "_id": "AltcaDiDN3xDIsZZ",
+  "name": "Pulse rifle",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "3d10",
+    "damageType": "fire",
+    "critical": "20",
+    "rangeIncrement": 80,
+    "rateOfFire": "S, A",
+    "caliber": "",
+    "magazine": "50 Box",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 11.0,
+    "purchaseDC": 21,
+    "restriction": "res",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      },
+      "autofire": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Autofire",
+        "attack": {
+          "defenseOverride": 10
+        },
+        "area": {
+          "shape": "square",
+          "size": 10
+        },
+        "consume": {
+          "ammo": 10
+        },
+        "requiresAmmo": 10,
+        "note": "MODERN20.Attack.AutofireArea"
+      },
+      "burst": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Burst",
+        "attack": {
+          "bonus": -4
+        },
+        "damage": {
+          "extraDice": 2
+        },
+        "consume": {
+          "ammo": 5
+        },
+        "requiresAmmo": 5,
+        "requiresFeat": "Burst Fire"
+      }
+    },
+    "progressLevel": 8
+  },
+  "_key": "!items!AltcaDiDN3xDIsZZ"
+}

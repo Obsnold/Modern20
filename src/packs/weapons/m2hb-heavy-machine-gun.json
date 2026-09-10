@@ -23,7 +23,7 @@
     "restriction": "mil",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Heavy Weapons (each requires a specific Exotic Firearms Proficiency feat)",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -64,7 +64,8 @@
         "requiresAmmo": 5,
         "requiresFeat": "Burst Fire"
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!AIj8gzQIWHm7xuZ2"
 }

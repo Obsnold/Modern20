@@ -15,7 +15,7 @@
     "rateOfFire": "S,A",
     "caliber": ".45",
     "magazine": "30 box",
-    "size": "med",
+    "size": "medium",
     "ranged": true,
     "nonlethal": false,
     "weight": 6.0,
@@ -23,7 +23,7 @@
     "restriction": "res",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -64,7 +64,8 @@
         "requiresAmmo": 5,
         "requiresFeat": "Burst Fire"
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!EUC06QxOG8s3dx94"
 }

@@ -1,0 +1,27 @@
+{
+  "_id": "SYAwc6Vly2q7IEXr",
+  "name": "Vespa ET4 (scooter)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "0 lb.",
+    "initiative": -2,
+    "maneuver": 3,
+    "topSpeed": "22 (2)",
+    "defense": 10,
+    "hardness": 5,
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "size": "medium",
+    "purchaseDC": 18,
+    "restriction": "lic"
+  },
+  "_key": "!actors!SYAwc6Vly2q7IEXr"
+}

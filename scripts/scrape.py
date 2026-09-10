@@ -2197,7 +2197,9 @@ def scrape_combat_tables() -> dict:
 def scrape_vehicles() -> list[dict]:
     """Vehicles, which the SRD tabulates with the full stat line."""
     vehicles = {}
-    for page in ("vehicles.html", "futurevehicles.html"):
+    # d20 Future's vehicles have shared this dataset from the start; Urban
+    # Arcana's were the one book left out.
+    for page in ("vehicles.html", "futurevehicles.html", "urbanvehicles.html"):
         try:
             page_html = srd.fetch(page)
         except Exception:

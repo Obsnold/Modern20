@@ -1,0 +1,27 @@
+{
+  "_id": "lAEflkAfTqZwLERR",
+  "name": "Ultralight",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "50 lb.",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "28 (2)",
+    "defense": 9,
+    "hardness": 3,
+    "hp": {
+      "value": 10,
+      "max": 10
+    },
+    "size": "large",
+    "purchaseDC": 21,
+    "restriction": "lic"
+  },
+  "_key": "!actors!lAEflkAfTqZwLERR"
+}

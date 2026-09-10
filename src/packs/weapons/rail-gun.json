@@ -1,0 +1,40 @@
+{
+  "_id": "zWWqNuCttLCG8rUf",
+  "name": "Rail gun",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "3d12",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 100,
+    "rateOfFire": "S",
+    "caliber": "",
+    "magazine": "20 box",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 18.0,
+    "purchaseDC": 24,
+    "restriction": "mil",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 7
+  },
+  "_key": "!items!zWWqNuCttLCG8rUf"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "pvWIVZGmjjQfiyD4",
+  "name": "Police cruiser",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 4,
+    "cargo": "425 lb.",
+    "initiative": -2,
+    "maneuver": 0,
+    "topSpeed": "190 (19)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 30,
+    "restriction": "res"
+  },
+  "_key": "!actors!pvWIVZGmjjQfiyD4"
+}
