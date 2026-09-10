@@ -116,3 +116,9 @@ jobs:
       # constant, which is the half that bit.
       - name: no shadowed definitions in the scripts
         run: python3 scripts/check_shadowing.py
+
+      # Pack source is copied into LevelDB without being looked at, so a
+      # document in a folder the pack does not contain lands in the root and
+      # says nothing about it.
+      - name: compendium shape
+        run: python3 scripts/check_packs.py

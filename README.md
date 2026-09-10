@@ -582,7 +582,17 @@ tables under one heading.
 
 d20 Future and Urban Arcana items share the weapons, armor and gear packs with
 d20 Modern's own, the way d20 Future's vehicles have always shared the vehicles
-pack. Each item records the book it is from, and d20 Future's also record the
+pack, and each pack is grouped into a folder per book so a d20 Modern game does
+not have to read past the laser rifles to find a Colt. Seven packs hold more
+than one book — the equipment three, the creatures, the spells, the powers and
+the vehicles — and a pack holding one book is left ungrouped, since a single
+folder wrapping everything is a click rather than a grouping.
+
+Splitting the expansions into separate modules was considered and rejected for
+now: it does nothing for the licence, since a module distributing d20 Future
+content needs that book's Section 15 exactly as the system does, and it breaks
+every `@UUID` link into those packs the moment a module is not installed.
+Folders give the separation that was actually wanted. Each item records the book it is from, and d20 Future's also record the
 **progress level** the SRD sells them at — PL5 for the Information Age up to
 PL8 for the Gravity Age — because a disintegrator sitting unlabelled beside a
 Colt is what makes a mixed compendium unusable. Where an expansion reprints an
@@ -631,6 +641,7 @@ python3 scripts/check_globals.py     # no globals Foundry v14 removed
 python3 scripts/check_lang.py        # every referenced i18n key exists
 python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
 python3 scripts/check_shadowing.py   # no module-level name defined twice
+python3 scripts/check_packs.py       # folders, keys and ids a compendium needs
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
 node    scripts/check_creatures.mjs  # every creature's arithmetic against the SRD
