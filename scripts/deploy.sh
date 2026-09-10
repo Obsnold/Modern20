@@ -4,13 +4,26 @@
 #
 #   scripts/deploy.sh [user@host] [--packs]
 #
+# The flag may come in either order, or on its own. It used to have to be the
+# second argument, so `deploy.sh --packs` set the host to "--packs" and the
+# upload failed against a host of that name — which reads, from the terminal,
+# exactly like a deploy that ran and did nothing.
+#
 # Every check must pass before anything is copied. Piping a check into `tail`
 # hides its exit code behind the pipe's, which once let a failing check deploy
 # anyway — so results are captured, then reported, then acted on.
 set -euo pipefail
 
-HOST="${1:-user@host}"
-PACKS="${2:-}"
+HOST=""
+PACKS=""
+for argument in "$@"; do
+  case "$argument" in
+    --packs) PACKS="--packs" ;;
+    -*) echo "unknown option: $argument" >&2; exit 2 ;;
+    *) HOST="$argument" ;;
+  esac
+done
+HOST="${HOST:-user@host}"
 DEST=/var/lib/foundryvtt/Data/systems/modern20
 STAGE=/tmp/modern20-deploy
 NODE_BIN=/opt/node/current/bin
