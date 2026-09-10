@@ -15,7 +15,8 @@
         "content": "<p>This material is Open Game Content, and is licensed for public use\nunder the terms of the Open Game License v1.0a.</p>\n<h1>ENVIRONMENT &amp; HAZARDS</h1>"
       },
       "sort": 100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.Fk1OErJUFE5fvsUb"
     },
     {
       "_id": "0Dd8aoDUkziPiP1Z",
@@ -30,7 +31,8 @@
         "content": "<h2>Darkness and Light</h2>\n<p>It’s a rare mission that doesn’t end up in the dark somewhere, and\nheroes need a way to see. See Table: Light Sources for the radius that a\nlight source illuminates and how long it lasts.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Table: Light Sources</strong></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Item</strong></td>\n<td><strong>Light</strong></td>\n<td><strong>Duration</strong></td>\n</tr>\n<tr>\n<td><p>Candle</p></td>\n<td><p>5 feet</p></td>\n<td><p>12 hours</p></td>\n</tr>\n<tr>\n<td><p>Torch</p></td>\n<td><p>20 feet</p></td>\n<td><p>2 hours</p></td>\n</tr>\n<tr>\n<td><p>Halogen lantern</p></td>\n<td><p>40 feet</p></td>\n<td><p>24 hours</p></td>\n</tr>\n<tr>\n<td><p>Flashlight</p></td>\n<td><p>20 feet*</p></td>\n<td><p>6 hours</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>*Creates a beam 30 feet long and 5 feet high.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.0Dd8aoDUkziPiP1Z"
     },
     {
       "_id": "2fkhk6Qt1qB6pE0m",
@@ -45,7 +47,8 @@
         "content": "<h2>Heat and Cold</h2>\n<p>Heat and cold deal damage that cannot be recovered until the\ncharacter counteracts or escapes the inclement temperature. As soon as\nthe character suffers any damage from heat or cold, he or she is\nconsidered fatigued.</p>\n<p>A character not properly equipped to counteract the heat or cold must\nattempt a Fortitude saving throw each hour (DC 15, +1 for each previous\ncheck). Failure means that the character loses 1d4 hit points. Heavy\nclothing or armor provides a –4 penalty on saves against heat but grants\na +4 equipment bonus on saves against cold. A character who succeeds at\na Survival check (DC 15) gains a +4 competence bonus on the save (see\nthe Survival skill).</p>\n<p>Searing heat or bitter cold (desert or arctic conditions) forces a\ncharacter to make a Fortitude save every 10 minutes. Failure means that\nthe character loses 1d6 hit points. Appropriate clothing and successful\nuse of the Survival skill can modify the save, as noted above.</p>"
       },
       "sort": 300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.2fkhk6Qt1qB6pE0m"
     },
     {
       "_id": "TrFe5753s1r0Qddn",
@@ -60,7 +63,8 @@
         "content": "<h2>Catching on Fire</h2>\n<p>Heroes exposed to open flames might find their clothes, hair, or\nequipment on fire. Heroes at risk of catching fire are allowed a Reflex\nsaving throw (DC 15) to avoid this fate. If a hero’s clothes or hair\ncatch fire, he or she takes 1d6 points of damage immediately. In each\nsubsequent round, the burning hero must make another Reflex saving\nthrow. Failure means he or she takes another 1d6 points of damage that\nround. Success means that the fire has gone out. (That is, once the\ncharacter succeeds at the saving throw, he or she is no longer on\nfire.)</p>\n<p>A hero on fire may automatically extinguish the flames by jumping\ninto enough water to douse him or herself. If no body of water is at\nhand, rolling on the ground or smothering the fire with blankets or the\nlike permits the hero another save with a +4 bonus.</p>"
       },
       "sort": 400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.TrFe5753s1r0Qddn"
     },
     {
       "_id": "IG5ShKQWDhQn2WYb",
@@ -75,7 +79,8 @@
         "content": "<h2>Starvation and Thirst</h2>\n<p>Sometimes heroes might find themselves without food and water. In\nnormal climates, heroes need at least 1/2 gallon of fluids and about 1/4\npound of decent food per day to avoid the threat of starvation. In very\nhot climates, heroes need two or three times as much water to avoid\ndehydration.</p>\n<p>A character can go without water for one day plus a number of hours\nequal to his or her Constitution score. After this, the character must\nmake a Constitution check each hour (DC 10, +1 for each previous check)\nor take 1d6 points of damage.</p>\n<p>A character can go without food for three days, in growing\ndiscomfort. After this, the character must make a Constitution check\neach day (DC 10, +1 for each previous check) or sustain 1d6 points of\ndamage.</p>\n<p>Damage from thirst or starvation cannot be recovered until the hero\ngets water or food, as needed. Even magical or psionic effects that\nrestore hit points cannot heal this damage.</p>"
       },
       "sort": 500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.IG5ShKQWDhQn2WYb"
     },
     {
       "_id": "9dAHmndkiECgaCQq",
@@ -90,7 +95,8 @@
         "content": "<h2>Suffocation and Drowning</h2>\n<p>A character in an airless environment (underwater, vacuum) can hold\nhis or her breath for a number of rounds equal to his or her\nConstitution score. After this period of time, the character must make a\nConstitution check (DC 10) every round to continue holding his or her\nbreath. Each round, the DC of the Constitution check increases by 1.</p>\n<p>When the character fails one of these Constitution checks, he or she\nbegins to suffocate or drown. In the next round, the character falls\nunconscious with 0 hit points. In the following round, the character\ndrops to –1 hit points and is dying. In the third round after failing\nthe check, the character dies of suffocation or drowning.</p>"
       },
       "sort": 600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.9dAHmndkiECgaCQq"
     },
     {
       "_id": "4pyl9xjdlrLMvH6G",
@@ -105,7 +111,8 @@
         "content": "<h2>Smoke</h2>\n<p>Characters breathing heavy smoke or similar toxic gases must make a\nConstitution check (DC 10, +1 for each previous check) each round or\nspend that round choking and coughing. Characters who choke for 2\nconsecutive rounds take 1d6 points of damage.</p>\n<p>Smoke also obscures vision, giving one-half concealment (20% miss\nchance) to characters within it.</p>"
       },
       "sort": 700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.4pyl9xjdlrLMvH6G"
     },
     {
       "_id": "Tz5kVeTzf6m5Sqp0",
@@ -120,7 +127,8 @@
         "content": "<h2>Strangulation</h2>\n<p>When a character is strangled by an instrument or an attacker, use\nthe rules below.</p>\n<p>A character can strangle or choke a target of the same size category\nor one size category larger or smaller. The strangling attempt incurs an\nattack of opportunity.</p>\n<p>To begin the choke, the attacker must succeed at an opposed grapple\ncheck. If the grapple succeeds, the attacker can choose to deal normal\nunarmed damage as well as choke the target. The target can hold his of\nher breath for a number of rounds equal to his or her Constitution\nscore. After this period of time, the target must make a Constitution\ncheck (DC 10, +1 for each previous check) every round to continue\nholding his or her breath. The target begins to suffocate on a failed\ncheck (see Suffocation and Drowning).</p>\n<p>If at any time the target breaks free or slips free of the grapple,\nthe stranglehold is broken (although any damage that was dealt remains).\nNote that a grappled target who is not pinned can use his or her attack\naction to strangle his or her attacker.</p>"
       },
       "sort": 800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.Tz5kVeTzf6m5Sqp0"
     },
     {
       "_id": "JzGj1gOZTq7J0y2P",
@@ -135,7 +143,8 @@
         "content": "<h2>Falling</h2>\n<p>A character takes 1d6 points of damage for every 10 feet of a fall,\nto a maximum of 20d6 points. If the character succeeds on a Reflex\nsaving throw (DC 10, +1 for each 10 feet fallen), this damage is halved.\nIf the saving throw fails, full damage is applied.</p>\n<p>A character can make a Tumble check (DC 15) to treat a fall as if it\nwere 10 feet shorter when determining the damage and Reflex saving throw\nDC required by the fall.</p>"
       },
       "sort": 900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.JzGj1gOZTq7J0y2P"
     },
     {
       "_id": "TrKoAtyLKdp1ifJW",
@@ -150,7 +159,8 @@
         "content": "<h2>Falling Objects</h2>\n<p>Objects that fall upon characters (or creatures or vehicles) deal\ndamage based on their size and the distance fallen, as noted on Table:\nDamage from Falling Objects.</p>\n<p>Objects deal the initial damage given in Table: Damage from Falling\nObjects if they fall 10 feet or less. An object deals an additional 1d6\npoints of damage for every 10-foot increment it falls beyond the first\n(to a maximum of 20d6 points of damage). Objects of Fine size are too\nsmall to deal damage, regardless of the distance fallen.</p>\n<p>A successful Reflex save indicates that the target takes half damage.\nThe size of the falling object determines the save DC.</p>\n<p>If the save fails by 10 or more, and the object is at least three\nsize categories larger than the character, the character is pinned under\nthe fallen object. A pinned character cannot move but is not helpless.\nThe character can make a Strength check to lift the object off him or\nherself or an Escape Artist check (DC 20) to get out from underneath.\nThe GM can modify the DCs for these checks based on the\ncircumstances.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Table: Damage from Falling Objects</strong></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Object Size</strong></p></td>\n<td><p><strong>Examples</strong></p></td>\n<td><p><strong>Initial Damage</strong></p></td>\n<td><p><strong>Reflex Save DC</strong></p></td>\n<td><p><strong>Strength Check DC</strong></p></td>\n</tr>\n<tr>\n<td><p>Fine</p></td>\n<td><p>Penny</p></td>\n<td><p>0</p></td>\n<td><p>n/a</p></td>\n<td><p>n/a</p></td>\n</tr>\n<tr>\n<td><p>Diminutive</p></td>\n<td><p>Paperweight</p></td>\n<td><p>1</p></td>\n<td><p>0</p></td>\n<td><p>n/a</p></td>\n</tr>\n<tr>\n<td><p>Tiny</p></td>\n<td><p>Wrench</p></td>\n<td><p>1d3</p></td>\n<td><p>5</p></td>\n<td><p>n/a</p></td>\n</tr>\n<tr>\n<td><p>Small</p></td>\n<td><p>Vase</p></td>\n<td><p>1d4</p></td>\n<td><p>10</p></td>\n<td><p>5</p></td>\n</tr>\n<tr>\n<td><p>Medium-size</p></td>\n<td><p>Briefcase</p></td>\n<td><p>1d6</p></td>\n<td><p>15</p></td>\n<td><p>10</p></td>\n</tr>\n<tr>\n<td><p>Large</p></td>\n<td><p>Garbage can</p></td>\n<td><p>2d6</p></td>\n<td><p>20</p></td>\n<td><p>20</p></td>\n</tr>\n<tr>\n<td><p>Huge</p></td>\n<td><p>Oil barrel</p></td>\n<td><p>4d6</p></td>\n<td><p>25</p></td>\n<td><p>30</p></td>\n</tr>\n<tr>\n<td><p>Gargantuan</p></td>\n<td><p>Piano</p></td>\n<td><p>8d6</p></td>\n<td><p>30</p></td>\n<td><p>40</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Colossal</p></td>\n<td><p>Vehicle</p></td>\n<td><p>10d6</p></td>\n<td><p>35</p></td>\n<td><p>50</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 1000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.TrKoAtyLKdp1ifJW"
     },
     {
       "_id": "Euet0BGveC7ZlZVv",
@@ -165,7 +175,8 @@
         "content": "<h2>Poison</h2>\n<p>When a character takes damage from an attack with a poisoned weapon,\ntouches an item smeared with contact poison, consumes a poisonous\nsubstance, inhales a poisonous gas, or is otherwise poisoned, the\ncharacter must make a Fortitude saving throw. If the character fails, he\nor she takes the poison’s initial damage (usually ability damage). Even\nif the character succeeds, he or she typically faces secondary damage 1\nminute later. This secondary damage also requires a Fortitude saving\nthrow to avoid.</p>\n<p>Poisons are detailed in the Craft(chemical) skill description.</p>\n<p>Poisonous liquids are usually administered through injection or by\napplication to a weapon. Poisonous gases must be inhaled to be\neffective. Poisonous solids are usually ingested with food or drink.</p>\n<h3>Perils of Using Poison</h3>\n<p>A character has a 5% chance (roll of 1 on 1d20) to expose him or\nherself to a poison whenever the character applies it to a weapon or\notherwise readies it for use. Additionally, a character who rolls a 1 on\nan attack roll with a poisoned weapon must succeed at a Reflex saving\nthrow (DC 15) or accidentally poison him or herself with the weapon.</p>\n<h3>Poison Immunity</h3>\n<p>Creatures with natural poison attacks are immune to their own poison.\nNonliving creatures and creatures without metabolisms are immune to\npoison. Oozes and certain kinds of creatures are immune to poison, as\ndetailed in their descriptions, though it is conceivable that a special\npoison could be synthesized specifically to harm them.</p>"
       },
       "sort": 1100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.Euet0BGveC7ZlZVv"
     },
     {
       "_id": "WCqcNNr4pwJbwsQ6",
@@ -180,7 +191,8 @@
         "content": "<h2>Disease</h2>\n<p>When a character is exposed to a treatable disease, the character\nmust make an immediate Fortitude saving throw. The victim must make this\nroll when he or she comes into contact with an infectious carrier,\ntouches an item smeared with diseased matter, consumes food or drink\ntainted with a disease, or suffers damage from a contaminated attack. If\nthe character succeeds, the disease has no effect on him or her—the\ncharacter’s immune system fights off the infection. If the character\nfails the save, he or she takes damage after an incubation period; once\nper day thereafter, the character must succeed at a Fortitude saving\nthrow to avoid secondary damage. Two successful saving throws in a row\nindicate that the character has fought off the disease and recovers,\ntaking no more damage.</p>\n<p>The characteristics of some treatable diseases are summarized on\nTable: Diseases.</p>\n<p><strong>Type:</strong> The disease’s method of delivery—ingested,\ninhaled, or via an injury—and the DC needed to save. Some injury\ndiseases can be transmitted by a wound as small as an insect bite. Most\ndiseases that are inhaled can also be ingested (and vice versa).</p>\n<p><strong>Incubation Period:</strong> The amount of time before initial\ndamage takes effect (if the victim fails his or her Fortitude save).</p>\n<p><strong>Initial Damage:</strong> The damage the victim takes after\nthe incubation period.</p>\n<p><strong>Secondary Damage:</strong> The amount of damage the hero\ntakes one day after taking initial damage, if he or she fails a second\nsaving throw. This damage is taken each day the saving throw fails.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Table: Diseases</strong></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Disease</strong></p></td>\n<td><p><strong>Type</strong></p></td>\n<td><p><strong>Incubation Period</strong></p></td>\n<td><p><strong>Initial Damage</strong></p></td>\n<td><p><strong>Secondary Damage</strong></p></td>\n</tr>\n<tr>\n<td><p>Anthrax</p></td>\n<td><p>Inhaled/Injury DC 16</p></td>\n<td><p>1d2 days</p></td>\n<td><p>1 Con</p></td>\n<td><p>1d4 Con*</p></td>\n</tr>\n<tr>\n<td><p>Small pox</p></td>\n<td><p>Inhaled/Contact DC 15</p></td>\n<td><p>2d4 days</p></td>\n<td><p>1 Str and 1 Con</p></td>\n<td><p>1d2 Str and 1d2 Con</p></td>\n</tr>\n<tr>\n<td><p>Pneumonia</p></td>\n<td><p>Inhaled DC 12</p></td>\n<td><p>1d4 days</p></td>\n<td><p>1 Str</p></td>\n<td><p>1d3 Str and 1d3 Con</p></td>\n</tr>\n<tr>\n<td><p>Hantavirus</p></td>\n<td><p>Injury DC 14</p></td>\n<td><p>1 day</p></td>\n<td><p>1d2 Str</p></td>\n<td><p>1d2 Str* and 1d2 Con*</p></td>\n</tr>\n<tr>\n<td><p>Necrotizing faciitis</p></td>\n<td><p>Contact DC 13</p></td>\n<td><p>1d6 days</p></td>\n<td><p>1 Con</p></td>\n<td><p>1d3 Con*</p></td>\n</tr>\n<tr>\n<td><p>West Nile virus</p></td>\n<td><p>Injury DC 12</p></td>\n<td><p>1d4 days</p></td>\n<td><p>1 Dex and 1 Con</p></td>\n<td><p>1d2 Dex and 1d2 Con*</p></td>\n</tr>\n<tr>\n<td><p>Salmonellosis</p></td>\n<td><p>Ingested DC 13</p></td>\n<td><p>1 day</p></td>\n<td><p>1 Str and 1 Dex</p></td>\n<td><p>1 Str and 1d3 Dex</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>*If damage is sustained, make a second saving throw to avoid 1\npoint being permanently drained (instead of damaged).</p></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 1200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.WCqcNNr4pwJbwsQ6"
     },
     {
       "_id": "9YqqxgCSc6GamPaN",
@@ -195,7 +207,8 @@
         "content": "<h2>Acid</h2>\n<p>Corrosive acids deal damage each round of exposure. The amount of\ndamage varies depending on the acid’s strength, as noted on Table: Acid\nDamage.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Acid Damage</strong></p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Acid Strength</strong></p></td>\n<td><p><strong>Splash Attack*</strong></p></td>\n<td><p><strong>Total Immersion*</strong></p></td>\n</tr>\n<tr>\n<td><p>Mild</p></td>\n<td><p>1d6</p></td>\n<td><p>1d10</p></td>\n</tr>\n<tr>\n<td><p>Potent</p></td>\n<td><p>2d6</p></td>\n<td><p>2d10</p></td>\n</tr>\n<tr>\n<td><p>Concentrated</p></td>\n<td><p>3d6</p></td>\n<td><p>3d10</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>*Damage per round of exposure.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>Acid damage from an attack reduces hit points. A character fully\nimmersed in acid takes potentially more damage per round of exposure\nthan a character splashed with acid.</p>\n<p>The fumes from most acids are inhaled poisons. Those who come within\n5 feet of a large body of acid must make a Fortitude save (DC 15) or\ntake 1 point of temporary Constitution damage. A second save must\nsucceed 1 minute later to avoid taking another 1d4 points of\nConstitution damage.</p>"
       },
       "sort": 1300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.9YqqxgCSc6GamPaN"
     },
     {
       "_id": "P9qVWHMBRmrtYZLM",
@@ -210,7 +223,8 @@
         "content": "<h2>Electricity</h2>\n<p>Electrical hazards come in many forms, including stun guns, downed\npower lines, and electric security fences. Table: Electricity Damage\ngives damage values for various electrical hazards based on relative\nvoltage. A character can make a Fortitude saving throw to reduce the\ndamage by half. If that character is not grounded or is otherwise\ninsulated from the current, a successful save indicates that no damage\nis suffered.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Table: Electricity Damage</strong></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Type</strong></p></td>\n<td><p><strong>Examples</strong></p></td>\n<td><p><strong>Damage</strong></p></td>\n<td><p><strong>Fort DC</strong></p></td>\n</tr>\n<tr>\n<td><p>Jolt</p></td>\n<td><p>Car battery, stun gun</p></td>\n<td><p>1d3</p></td>\n<td><p>10</p></td>\n</tr>\n<tr>\n<td><p>Low voltage</p></td>\n<td><p>Fuse box, electrical socket</p></td>\n<td><p>2d6</p></td>\n<td><p>15</p></td>\n</tr>\n<tr>\n<td><p>Medium voltage</p></td>\n<td><p>Industrial transformer, electric fence</p></td>\n<td><p>4d6</p></td>\n<td><p>15</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>High voltage</p></td>\n<td><p>Power line, electric chair, lightning</p></td>\n<td><p>8d6</p></td>\n<td><p>20</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 1400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!aLk7WwRP405rr7y1.P9qVWHMBRmrtYZLM"
     }
   ],
   "sort": 18000,

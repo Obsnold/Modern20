@@ -15,7 +15,8 @@
         "content": "<p>This material is Open Game Content, and is licensed for public use\nunder the terms of the Open Game License v1.0a.</p>\n<h2>ABILITY SCORES</h2>\n<p>Every character has six basic Ability Scores:</p>\n<p>Strength (STR)</p>\n<p>Dexterity (DEX)</p>\n<p>Constitution (CON)</p>\n<p>Intelligence (INT)</p>\n<p>Wisdom (WIS)</p>\n<p>Charisma (CHA)</p>\n<p>The Score of these Abilities ranges from 0 to infinity. A limit, if\nany, will be specified in the rules. The normal human range is 3 to 18.\nIt is possible for a creature to have a score of \"none\". A score of\n\"none\" is not the same as a score of \"0\". A score of \"none\" means that\nthe creature does not possess the ability at all. The modifier for a\nscore of \"none\" is +0.</p>\n<p>A character with a CON of 0 is dead. A 0 in any other score means the\ncharacter is helpless and cannot move.</p>\n<p>Keeping track of negative ability score points is never necessary. A\ncharacter’s ability score can’t drop below 0.</p>\n<h3>Ability Modifiers</h3>\n<p>Each ability will have a modifier. The modifier can be calculated\nusing this formula:</p>\n<p>(ability/2) -5 [round result down]</p>\n<p>The modifier is the number you add to or subtract from the die roll\nwhen your character tries to do something related to that ability. A\npositive modifier is called a bonus, and a negative modifier is called a\npenalty.</p>\n<p>Use Of Ability Scores</p>"
       },
       "sort": 100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!7YH27IKnFPl0MQOR.tAguC7qD7baFqswt"
     },
     {
       "_id": "lqqR2KjMl6F3jXIP",
@@ -30,7 +31,8 @@
         "content": "<h4>Strength</h4>\n<p>Any creature that can physically manipulate other objects has at\nleast 1 point of Strength.</p>\n<p>A creature with no Strength score can't exert force, usually because\nit has no physical body or because it doesn't move. The creature\nautomatically fails Strength checks. If the creature can attack, it\napplies its Dexterity modifier to its base attack instead of a Strength\nmodifier.</p>"
       },
       "sort": 200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!7YH27IKnFPl0MQOR.lqqR2KjMl6F3jXIP"
     },
     {
       "_id": "BJTEDwGp4H77GyV8",
@@ -45,7 +47,8 @@
         "content": "<h4>Dexterity</h4>\n<p>Any creature that can move has at least 1 point of Dexterity.</p>\n<p>A creature with no Dexterity score can't move. If it can act, it\napplies its Intelligence modifier to initiative checks instead of a\nDexterity modifier. The creature fails all Reflex saves and Dexterity\nchecks.</p>"
       },
       "sort": 300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!7YH27IKnFPl0MQOR.BJTEDwGp4H77GyV8"
     },
     {
       "_id": "8l1deXHcDronyiod",
@@ -60,7 +63,8 @@
         "content": "<h4>Constitution</h4>\n<p>If a character's Constitution changes enough to alter his or her\nConstitution modifier, his or her hit points also increase or decrease\naccordingly at the same time.</p>\n<p>Any living creature has at least 1 point of Constitution.</p>\n<p>A creature with no Constitution has no body or no metabolism. It is\nimmune to any effect that requires a Fortitude save unless the effect\nworks on objects. The creature is also immune to ability damage, ability\ndrain, energy drain, and massive damage, and always fails Constitution\nchecks.</p>"
       },
       "sort": 400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!7YH27IKnFPl0MQOR.8l1deXHcDronyiod"
     },
     {
       "_id": "WWVlhuQZACXyhTbj",
@@ -75,7 +79,8 @@
         "content": "<h4>Intelligence</h4>\n<p>Any creature that can think, learn, or remember has at least 1 point\nof Intelligence.</p>\n<p>A creature with no Intelligence score is an automaton, operating on\nsimple instincts or programmed instructions. It is immune to all\nmind-influencing effects (charms, compulsions, phantasms, patterns and\nmorale effects) and automatically fails Intelligence checks.</p>"
       },
       "sort": 500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!7YH27IKnFPl0MQOR.WWVlhuQZACXyhTbj"
     },
     {
       "_id": "CHNXirUC2NuwdcRI",
@@ -90,7 +95,8 @@
         "content": "<h4>Wisdom</h4>\n<p>Any creature that can perceive its environment in any fashion has at\nleast 1 point of Wisdom.</p>\n<p>Anything with no Wisdom score is an object, not a creature. Anything\nwithout a Wisdom score also has no Charisma score, and vice versa.</p>"
       },
       "sort": 600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!7YH27IKnFPl0MQOR.CHNXirUC2NuwdcRI"
     },
     {
       "_id": "HMbHfmmbu2kIOLFt",
@@ -105,7 +111,8 @@
         "content": "<h4>Charisma</h4>\n<p>Any creature capable of telling the difference between itself and\nthings that are not itself has at least 1 point of Charisma.</p>\n<p>Changing Ability Scores</p>\n<p>Ability scores can increase with no limit.</p>\n<p>Poisons, diseases, and other effects can cause temporary ability\ndamage. Ability points lost to damage return naturally, typically at a\nrate of 1 point per day for each affected ability.</p>\n<p>As a character ages, some ability scores go up and others go\ndown.</p>\n<p>When an ability score changes, the modifier associated with that\nscore also changes.</p>"
       },
       "sort": 700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!7YH27IKnFPl0MQOR.HMbHfmmbu2kIOLFt"
     }
   ],
   "sort": 3000,

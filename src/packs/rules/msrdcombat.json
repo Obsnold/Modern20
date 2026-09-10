@@ -15,7 +15,8 @@
         "content": "<p>This material is Open Game Content, and is licensed for public use\nunder the terms of the Open Game License v1.0a.</p>\n<h2>COMBAT</h2>\n<p>Combat is played out in rounds, and in each round everybody acts in\nturn in a regular cycle. Com­bat usually runs in the following way.</p>\n<p>1. Each combatant starts the battle flat-footed. Once a combatant\nacts, he or she is no longer flat-footed.</p>\n<p>2. The GM determines which characters are aware of their opponents at\nthe start of the battle. If some but not all of the combatants are aware\nof their opponents, a surprise round happens before regular rounds\nbegin. The combatants who are aware of their opponents can act in the\nsurprise round, so they roll for initiative. In initiative order\n(highest to lowest), combatants who started the battle aware of their\nopponents each take one move or attack action. Combatants who were\nunaware don’t get to act in the surprise round. If no one or everyone\nstarts the battle aware, there is no surprise round.</p>\n<p>3. Combatants who have not yet rolled initiative do so. All\ncombatants are now ready to begin their first regular round.</p>\n<p>4. Combatants act in initiative order.</p>\n<p>5. When everyone has had a turn, the combatant with the highest\ninitiative acts again, and steps 4 and 5 repeat until combat ends.</p>\n<h3>Combat Statistics</h3>\n<p>This section summarizes the fundamental combat statistics.</p>\n<p>Attack Roll</p>\n<p>An attack roll represents a character’s attempts to strike an\nopponent on the character’s turn in a round. When a character makes an\nattack roll, he or she rolls 1d20 and adds his or her attack bonus. If\nthe result equals or beats the target’s Defense, the character hits and\ndeals damage. Many modifiers can affect the attack roll.</p>\n<p>A natural 1 (the d20 comes up 1) on the attack roll is always a miss.\nA natural 20 (the d20 comes up 20) is always a hit. A natural 20 is also\nalways a threat—a possible critical hit.</p>\n<p>If the character is not proficient in the weapon he or she is\nattacking with (the character doesn’t have the appropriate Weapon\nProficiency feat), that character takes a –4 penalty on the attack\nroll.</p>\n<p>Attack Bonus</p>\n<p>A character’s attack bonus with a melee weapon is:</p>\n<p>Base attack bonus + Strength modifier + size modifier</p>\n<p>With a ranged weapon, a character’s attack bonus is:</p>\n<p>Base attack bonus + Dexterity modifier + range penalty + size\nmodifier</p>"
       },
       "sort": 100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.yXlQV3BWRq1oNl3A"
     },
     {
       "_id": "Nhw00LvZB01fFkPU",
@@ -30,7 +31,8 @@
         "content": "<h4>Strength Modifier</h4>\n<p>Strength helps a character swing a weapon harder and faster, so a\ncharacter’s Strength modifier applies to melee attack rolls.</p>"
       },
       "sort": 200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.Nhw00LvZB01fFkPU"
     },
     {
       "_id": "lCuoqd5sd3xdQrVN",
@@ -45,7 +47,8 @@
         "content": "<h4>Size Modifier</h4>\n<p>Creature size categories are defined differently from the size\ncategories for weapons and other objects. Since this size modifier\napplies to Defense against a melee weapon attack or a ranged weapon\nattack, two creatures of the same size strike each other normally,\nregardless of what size they actually are. Creature sizes are compatible\nwith vehicle sizes.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Table: Size Modifiers</strong></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Size (Example)</strong></td>\n<td><strong>Size Modifier</strong></td>\n</tr>\n<tr>\n<td><p>Colossal (blue whale [90 ft. long])</p></td>\n<td><p>–8</p></td>\n</tr>\n<tr>\n<td><p>Gargantuan (gray whale [40 ft. long])</p></td>\n<td><p>–4</p></td>\n</tr>\n<tr>\n<td><p>Huge (elephant)</p></td>\n<td><p>–2</p></td>\n</tr>\n<tr>\n<td><p>Large (lion)</p></td>\n<td><p>–1</p></td>\n</tr>\n<tr>\n<td><p>Medium-size (human)</p></td>\n<td><p>+0</p></td>\n</tr>\n<tr>\n<td><p>Small (German shepherd)</p></td>\n<td><p>+1</p></td>\n</tr>\n<tr>\n<td><p>Tiny (housecat)</p></td>\n<td><p>+2</p></td>\n</tr>\n<tr>\n<td><p>Diminutive (rat)</p></td>\n<td><p>+4</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Fine (horsefly)</p></td>\n<td><p>+8</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.lCuoqd5sd3xdQrVN"
     },
     {
       "_id": "8oFiJaTcYFqW7jAK",
@@ -60,7 +63,8 @@
         "content": "<h4>Dexterity Modifier</h4>\n<p>Dexterity measures coordination and steadiness, so a character’s\nDexterity modifier applies when the character attacks with a ranged\nweapon.</p>"
       },
       "sort": 400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.8oFiJaTcYFqW7jAK"
     },
     {
       "_id": "D0bXEqy0pfvGoyHH",
@@ -75,7 +79,8 @@
         "content": "<h4>Range Penalty</h4>\n<p>The range penalty for a ranged weapon depends on what weapon the\ncharacter is using and how far away the target is. All ranged weapons\nand thrown weapons have a range increment (see Table: Ranged Weapons and\nTable: Melee Weapons). Any attack from a distance of less than one range\nincrement is not penalized for range. However, each full range increment\ncauses a cumulative –2 penalty on the attack roll. A thrown weapon has a\nmaximum range of five range increments. Ranged weapons that fire\nprojectiles can shoot up to ten increments.</p>\n<p>Damage</p>\n<p>When a character hits with a weapon, he or she deals damage according\nto the type of weapon. Effects that modify weapon damage also apply to\nunarmed strikes and the natural physical attack forms of creatures.</p>\n<p>Damage is deducted from the target’s current hit points.</p>"
       },
       "sort": 500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.D0bXEqy0pfvGoyHH"
     },
     {
       "_id": "xT7I1swRd7UQs7Lp",
@@ -90,7 +95,8 @@
         "content": "<h4>Minimum Weapon Damage</h4>\n<p>If penalties to damage bring the damage result below 1, a hit still\ndeals 1 point of damage.</p>"
       },
       "sort": 600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.xT7I1swRd7UQs7Lp"
     },
     {
       "_id": "k9CLMaFEJxQxeUIS",
@@ -105,7 +111,8 @@
         "content": "<h4>Strength Bonus</h4>\n<p>When a character hits with a melee weapon or thrown weapon, add his\nor her Strength modifier to the damage.</p>\n<p>Off-Hand Weapon: When a character deals damage with a weap­on in his\nor her off hand, add only half of the character’s Strength bonus.</p>\n<p>Wielding a Weapon Two-Handed: When a character deals damage with a\nweapon that he or she is wielding two-handed, add 1.5 times the\ncharacter’s Strength bonus. However, the character doesn’t get this\nhigher Strength bonus when using a light weapon two-handed; in such a\ncase, only the character’s normal Strength bonus applies to the damage\nroll.</p>\n<p>Multiplying Damage</p>\n<p>Sometimes damage is multiplied by some factor. Roll the damage (with\nall modifiers) multiple times and total the results.</p>\n<p>Bonus damage represented as extra dice is an exception. Do not\nmultiply bonus damage dice when a character scores a critical hit.</p>\n<p>Critical Hits</p>\n<p>When a character makes an attack roll and gets a natural 20 (the d20\nshows 20), the character hits regardless of the target’s Defense, and\nthe character has scored a threat of a critical hit. To find out if it\nis actually a critical hit, the character immediately makes another\nattack roll with all the same modifiers as the attack roll that scored\nthe threat. If the second roll also results in a hit against the\ntarget’s Defense, the attack is a critical hit. (The second roll just\nneeds to hit to confirm a critical hit; the character doesn’t need to\nroll a second 20.) If the second roll is a miss, then the attack just\ndeals the damage of a regular hit.</p>\n<p>A critical hit multiplies the character’s damage. Unless otherwise\nspecified, the multiplier is x2. (It is possible for some weapons to\nhave higher multipliers, doing more damage on a critical hit.) Some\nweapons have expanded threat ranges, making a critical hit more likely.\nHowever, even with these weapons, only a 20 is an automatic hit. The\nCritical column on Table: Ranged Weapons and Table: Melee Weapons\nindicates the threat range for each weapon on the tables.</p>\n<p>Bonus damage represented as extra dice is not multiplied when a\ncharacter scores a critical hit.</p>\n<p>Objects (including vehicles) and some types of creatures are immune\nto critical hits. A 20 is always a successful hit, but deals no extra\ndamage against these targets.</p>\n<p>Defense</p>\n<p>A character’s Defense represents how hard it is for opponents to land\na solid, damaging blow on the character. It’s the attack roll result\nthat an opponent needs to achieve to hit the character. The average,\nunarmored civilian has a Defense of 10. A character’s Defense is equal\nto:</p>\n<p>10 + Dexterity modifier + class bonus + equipment bonus + size\nmodifier</p>"
       },
       "sort": 700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.k9CLMaFEJxQxeUIS"
     },
     {
       "_id": "DFqi3kmxHIbpeZQ5",
@@ -120,7 +127,8 @@
         "content": "<h4>Dexterity Modifier</h4>\n<p>If a character’s Dexterity is high, he or she is particularly adept\nat dodging blows or gunfire. If a character’s Dexterity is low, he or\nshe is particularly inept at it. Characters apply their Dexterity\nmodifier to Defense.</p>\n<p>Sometimes a character can’t use his or her Dexterity bonus. If a\ncharacter can’t react to a blow, that character can’t use his or her\nDexterity bonus to Defense.</p>"
       },
       "sort": 800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.DFqi3kmxHIbpeZQ5"
     },
     {
       "_id": "8ZetSQMYFABnLsm4",
@@ -135,7 +143,8 @@
         "content": "<h4>Class Bonus</h4>\n<p>A character’s class and level grant the character an innate bonus to\nDefense. This bonus applies in all situations, even when the character\nis flat-footed or when the character would lose his or her Dexterity\nbonus for some other reason.</p>"
       },
       "sort": 900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.8ZetSQMYFABnLsm4"
     },
     {
       "_id": "RFqspcYXj1NB0Kvh",
@@ -150,7 +159,8 @@
         "content": "<h4>Equipment Bonus</h4>\n<p>If a character wears armor, it provides a bonus to his or her\nDefense. This bonus represents the armor’s ability to protect the\ncharacter from blows.</p>\n<p>Armor provides a minimum bonus to anyone who wears it, but a\ncharacter who is proficient in the use of a certain type of armor\nreceives a larger bonus to Defense.</p>\n<p>Sometimes a character can’t use his or her equipment bonus to\nDefense. If an attack will damage the character just by touching him or\nher, that character can’t add his or her equipment bonus (see Touch\nAttacks, below).</p>"
       },
       "sort": 1000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.RFqspcYXj1NB0Kvh"
     },
     {
       "_id": "jxStTS8eOTJ9xump",
@@ -165,7 +175,8 @@
         "content": "<h4>Size Modifier</h4>\n<p>The bigger an opponent is, the easier it is to hit in combat. The\nsmaller it is, the harder it is to hit. Since this same modifier applies\nto attack rolls a creature doesn’t have a hard time attacking another\ncreature of the same size. Size modifiers are shown on Table: Size\nModifiers.</p>"
       },
       "sort": 1100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.jxStTS8eOTJ9xump"
     },
     {
       "_id": "XUKWWAWnY12b0tGJ",
@@ -180,7 +191,8 @@
         "content": "<h4>Other Modifiers</h4>\n<p>Other factors can add to a character’s Defense.</p>\n<p><em>Feats:</em> Some feats give a bonus to a character’s Defense.</p>\n<p><em>Natural Armor:</em> Some creatures have natural armor, which\nusually consists of scales, fur, or layers of thick muscle.</p>\n<p><em>Dodge Bonuses:</em> Some other Defense bonuses represent actively\navoiding blows. These bonuses are called dodge bo­nus­es. Any situation\nthat denies a character his or her Dexterity bonus also denies his or\nher dodge bonuses. Unlike most sorts of bonuses, dodge bonuses stack\nwith each other.</p>\n<p><em>Magical Effects:</em> Some campaigns may include magic. Some\nmagical effects offer enhancement bonuses to armor (making it more\neffective) or deflection bonuses that ward off attacks.</p>\n<p><em>Touch Attacks</em></p>\n<p>Some attacks disregard armor. In these cases, the attacker makes a\ntouch attack roll (either a ranged touch attack roll or a melee touch\nattack roll). The attacker makes his or her attack roll as normal, but a\ncharacter’s Defense does not include any equipment bonus or armor bonus.\nAll other modifiers, such as class bonus, Dexterity modifier, and size\nmodifier, apply normally.</p>\n<h3>Hit Points</h3>\n<p>A character’s hit points tell how much punishment he or she can take\nbefore dropping. Hit points are based on the character’s class and\nlevel, and the character’s Constitution modifier applies.</p>\n<p>When a character’s hit point total drops to 0, he or she is disabled.\nWhen it drops to –1, he or she is dying. When it drops to –10, the\ncharacter is dead.</p>\n<h3>Speed</h3>\n<p>A character’s speed tells how far he or she can move in a move\naction. Humans normally move 30 feet, but some creatures move faster or\nslower. Wearing armor can slow a character down.</p>\n<p>A character normally moves as a move action, leaving an attack action\nto attack. The character can, however, use his or her attack action as a\nsecond move action. This could let the character move again, for a total\nmovement of up to double his or her normal speed. Another option is to\nrun all out (a full-round action). This lets the character move up to\nfour times his or her normal speed, but a character can only run all out\nin a straight line, and doing so affects the character’s Defense (see\nRun).</p>\n<p>Saving Throws</p>\n<p>Generally, when a character is subject to an unusual or magical\nattack, he or she gets a saving throw to avoid or reduce the effect. A\nsaving throw is a 1d20 roll plus a bonus based on the character’s class\nand level (the character’s base save bonus) and an ability modifier.</p>\n<p>A natural 1 (the d20 comes up 1) on a saving throw is always a\nfailure. A natural 20 (the d20 comes up 20) is always a success.</p>\n<p>A character’s saving throw bonus is:</p>\n<p>Base save bonus + ability modifier</p>\n<p>The Difficulty Class for a save is determined by the attack\nitself.</p>"
       },
       "sort": 1200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.XUKWWAWnY12b0tGJ"
     },
     {
       "_id": "dGWgC5ODqzCnMtNL",
@@ -195,7 +207,8 @@
         "content": "<h4>Saving Throw Types</h4>\n<p>The three different kinds of saving throws are:</p>\n<p><em>Fortitude:</em> These saves measure a character’s ability to\nstand up to massive physical punishment or attacks against his or her\nvitality and health such as poison and paralysis. Apply a character’s\nConstitution modifier to his or her Fortitude saving throws.</p>\n<p><em>Reflex:</em> These saves test a character’s ability to dodge\nmassive attacks such as explosions or car wrecks. (Often, when damage is\ninevitable, a character gets to make a Reflex save to take only half\ndamage.) Apply the character’s Dexterity modifier to his or her Reflex\nsaving throws.</p>\n<p><em>Will:</em> These saves reflect a character’s resistance to mental\ninfluence and domination as well as to many magical effects. Apply the\ncharacter’s Wisdom modifier to his or her Will saving throws.</p>\n<h3>Initiative</h3>\n<p>Every round, each combatant gets to do something. The combatants’\ninitiative checks, from highest to lowest, determine the order in which\nthey act, from first to last.</p>"
       },
       "sort": 1300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.dGWgC5ODqzCnMtNL"
     },
     {
       "_id": "N1nW5zSaFN3LVVx2",
@@ -210,7 +223,8 @@
         "content": "<h4>Initiative Checks</h4>\n<p>At the start of a battle, each combatant makes a single initiative\ncheck. An initiative check is a Dexterity check. Each character applies\nhis or her Dexterity modifier to the roll, and anyone with the Improved\nInitiative feat gets an additional +4 bonus on the check. The GM finds\nout what order characters are acting in, counting down from highest\nresult to lowest, and each character acts in turn. On all following\nrounds, the characters act in the same order (unless a character takes\nan action that results in his or her initiative changing; see Special\nInitiative Actions). If two or more combatants have the same initiative\ncheck result, the combatants who are tied go in order of total\ninitiative modifier (including Dexterity modifier and Improved\nInitiative bonus, if applicable). If there is still a tie, roll a\ndie.</p>\n<p><em>Flat-Footed:</em> At the start of a battle, before the character\nhas had a chance to act (specifically, before the character’s first turn\nin the initiative order), the character is flat-footed. A character\ncan’t use his or her Dexterity bonus to Defense or make attacks of\nopportunity while flat-footed.</p>"
       },
       "sort": 1400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.N1nW5zSaFN3LVVx2"
     },
     {
       "_id": "h14YWaHIVyF1RkSI",
@@ -225,7 +239,8 @@
         "content": "<h4>Joining a Battle</h4>\n<p>If characters enter a battle after it has begun, they roll initiative\nat that time and act whenever their turn comes up in the existing\norder.</p>\n<h3>Surprise</h3>\n<p>When a combat starts, if a character was not aware of his or her\nenemies and they were aware of the character, that character is\nsurprised. Likewise, a character can surprise his or her enemies if the\ncharacter knows about them before they’re aware of the character.</p>"
       },
       "sort": 1500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.h14YWaHIVyF1RkSI"
     },
     {
       "_id": "WNOP9bqPcJNUROul",
@@ -240,7 +255,8 @@
         "content": "<h4>The Surprise Round</h4>\n<p>If some but not all of the combatants are aware of their opponents, a\nsurprise round happens before regular rounds begin. The combatants who\nare aware of the opponents can act in the surprise round, so they roll\nfor initiative. In initiative order (highest to lowest), combatants who\nstarted the battle aware of their opponents each take an attack action\nor move action during the surprise round (see Action Types, below). If\nno one or everyone is surprised, a surprise round does not occur.</p>"
       },
       "sort": 1600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.WNOP9bqPcJNUROul"
     },
     {
       "_id": "lzzRJdmDNHJIpLD1",
@@ -255,7 +271,8 @@
         "content": "<h4>Unaware Combatants</h4>\n<p>Combatants who are unaware at the start of battle do not get to act\nin the surprise round. Unaware combatants are still flat-footed because\nthey have not acted yet. Because of this, they lose any Dexterity bonus\nto Defense.</p>\n<h3>Actions in Combat</h3>\n<p>The fundamental actions of moving and attacking cover most of what a\ncharacter wants to do in a battle. They’re described here. Other, more\nspecialized options are touched on in Table: Actions in Combat, and\ncovered in Special Initiative Actions and Special Attacks.</p>"
       },
       "sort": 1700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.lzzRJdmDNHJIpLD1"
     },
     {
       "_id": "eL65bfNclFRuBaJq",
@@ -270,7 +287,8 @@
         "content": "<h4>The Combat Round</h4>\n<p>Each round represents about 6 seconds in the game world. A round is\nan opportunity for each character involved in a combat to take an\naction. Anything a person could reasonably do in 6 seconds, a character\ncan do in 1 round.</p>\n<p>Each round’s activity begins with the character with the highest\ninitiative result and then proceeds, in order, from there. Each round of\na combat uses the same initiative order. When a character’s turn comes\nup in the initiative sequence, that character performs his or her entire\nround’s worth of actions. (For exceptions, see Attacks of Opportunity\nand Special Initiative Actions.)</p>\n<p>For almost all purposes, there is no relevance to the end of a round\nor the beginning of a round. A round can be a segment of game time\nstarting with the first character to act and ending with the last, but\nit usually means a span of time from a certain round to the same\ninitiative number in the next round. Effects that last a certain number\nof rounds end just before the same initiative count that they began\non.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Table: Actions in Combat</strong></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Attack Actions</strong></p></td>\n<td><p><strong>Attack of Opportunity<sup>1</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Attack (melee)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Attack (ranged)</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Attack (unarmed)</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Attack (aid another)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Bull rush (attack)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Escape a grapple</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Feint (see the Bluff skill)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Ready (triggers an attack action)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Make a dying character stable</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Attack a weapon</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Attack an object</p></td>\n<td><p>Maybe<strong><sup>2</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Total defense</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Use a skill that takes an attack action</p></td>\n<td><p>Usually</p></td>\n</tr>\n<tr>\n<td><p>Start/complete full-round action</p></td>\n<td><p>Varies</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Move Actions</strong></p></td>\n<td><p><strong>Attack of Opportunity<sup>1</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Move your speed</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Use a piece of equipment</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Climb (one-quarter speed)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Climb, accelerated (one-half speed)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Crawl</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Draw a weapon<sup>3</sup></p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Holster a weapon</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Move a heavy object</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Open a door</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Pick up an object</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Reload a firearm with a box magazine or speed loader</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Retrieve a stored object</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Stand up from prone, sitting, or kneeling</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Swim</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Use a skill that takes a move action</p></td>\n<td><p>Usually</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Full-Round Actions</strong></p></td>\n<td><p><strong>Attack of Opportunity<sup>1</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Bull rush (charge)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Charge</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Coup de grace</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Full attack</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Overrun (charge)</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Run</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Withdraw</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Extinguish flames</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Use a skill that takes a full round</p></td>\n<td><p>Usually</p></td>\n</tr>\n<tr>\n<td><p>Reload a firearm with an internal magazine</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><em>Free Actions</em></p></td>\n<td><p><em>Attack of\nOpportunity</em><strong><em><sup>1</sup></em></strong></p></td>\n</tr>\n<tr>\n<td><p>Drop an object</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Drop to prone, sitting, or kneeling</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>Speak</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Action Type Varies</strong></td>\n<td><p><strong>Attack of Opportunity<sup>1</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Disarm<strong><sup>4</sup></strong></p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Grapple<strong><sup>4</sup></strong></p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Load a weapon</p></td>\n<td><p>Yes</p></td>\n</tr>\n<tr>\n<td><p>Trip an opponent<strong><sup>4</sup></strong></p></td>\n<td><p>No (Yes if unarmed)</p></td>\n</tr>\n<tr>\n<td><p>Use a feat<strong><sup>5</sup></strong></p></td>\n<td><p>Varies</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>No Action</strong></p></td>\n<td><p><strong>Attack of Opportunity<sup>1</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Delay</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td><p>5-foot step</p></td>\n<td><p>No</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>1 Regardless of the action, if a character moves out of a\nthreatened square, the character usually provokes an attack of\nopportunity. This column indicates whether the action itself, not\nmoving, provokes an attack of opportunity.</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>2 If the object is being held, carried, or worn by a creature,\nyes. If not, no.</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>3 If the character has a base attack bonus of +1 or higher, he or\nshe can combine this action with a regular move. If the character has\nthe Two-Weapon Fighting feat, he or she can draw two light or one-handed\nweapons in the time it would normally take to draw one.</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>4 These attack forms substitute for a melee attack, not an\naction. As melee attacks, they can be used once in an attack or charge\naction, one or more times in a full attack action, or even as an attack\nof opportunity.</p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>5<sup> </sup>The description of a feat defines its\neffect.</p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<h3>Action Types</h3>\n<p>The four types of actions are attack actions, move actions,\nfull-round actions, and free actions. In a normal round, a character can\nperform an attack action and a move action (or two move actions; a\ncharacter can always take a move action in place of an attack action),\nor a character can perform a full-round action. A character can also\nperform as many free actions as the GM allows.</p>\n<p>In some situations (such as in the surprise round) a character may be\nlimited to taking only a single attack or move action.</p>"
       },
       "sort": 1800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.eL65bfNclFRuBaJq"
     },
     {
       "_id": "zWxktRkJsOyOAMjz",
@@ -285,7 +303,8 @@
         "content": "<h4>Attack Action</h4>\n<p>An attack action allows a character to do something. A character can\nmake an attack, use a skill or a feat (unless the skill or feat requires\na full-round action to perform; see below), or perform other similar\nactions. During a combat round, a character can take an attack action\nand a move action. A character can take a move action before or after\nperforming an attack action.</p>"
       },
       "sort": 1900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.zWxktRkJsOyOAMjz"
     },
     {
       "_id": "6KrXPOX1ospqdvlX",
@@ -300,7 +319,8 @@
         "content": "<h4>Move Action</h4>\n<p>A move action allows a character to move his or her speed or perform\nan action that takes a similar amount of time. A character can move his\nor her speed, climb one-quarter of his or her speed, draw or stow a\nweapon or other object, stand up, pick up an object, or perform some\nequivalent action (see Table: Actions in Combat).</p>\n<p>A character can take a move action in the place of an attack\naction.</p>\n<p>If a character moves no actual distance in a round, that character\ncan take one 5-foot step before, during, or after the action.</p>"
       },
       "sort": 2000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.6KrXPOX1ospqdvlX"
     },
     {
       "_id": "m7mOq99QisArauap",
@@ -315,7 +335,8 @@
         "content": "<h4>Full-Round Action</h4>\n<p>A full-round action consumes all a character’s effort during a round.\nThe only movement the character can take during a full-round action is a\n5-foot step before, during, or after the action. Some full-round actions\ndo not allow a character to take a 5-foot step. A character can also\nper­form free actions (see below) as the GM allows.</p>"
       },
       "sort": 2100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.m7mOq99QisArauap"
     },
     {
       "_id": "ZoRLq6ocdgdQJvXb",
@@ -330,7 +351,8 @@
         "content": "<h4>Free Action</h4>\n<p>Free actions consume a very small amount of time and effort, and over\nthe span of the round, their impact is so minor that they are considered\nfree. A character can perform one or more free actions while taking\nanother action normally. However, the GM puts reasonable limits on what\na character can really do for free. For instance, dropping an object,\ndropping to a prone position, speaking a sentence or two, and ceasing to\nconcentrate on a magic spell (if magic is available in the campaign) are\nall free actions.</p>\n<h3>Attack Actions</h3>\n<p>Most common attack actions are described below. More specialized\nattack actions are mentioned in Table: Actions in Combat, and covered in\nSpecial Attacks.</p>"
       },
       "sort": 2200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.ZoRLq6ocdgdQJvXb"
     },
     {
       "_id": "CkDhimBKBxCW4wOE",
@@ -345,7 +367,8 @@
         "content": "<h4>Melee Attacks</h4>\n<p>With a normal melee weapon, a character can strike any enemy within 5\nfeet. (Enemies within 5 feet are considered adjacent to the\ncharacter.)</p>\n<p>A character capable of making more than one melee attack per round\nmust use the full attack action (see Full-Round Actions, below) in order\nto make more than one attack.</p>\n<p><em>Fighting Defensively: </em>A character can choose to fight\ndefensively while making a melee attack. If the character does so, he or\nshe takes a –4 penalty on his or her attack in a round to gain a +2\ndodge bonus to Defense in the same round.</p>"
       },
       "sort": 2300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.CkDhimBKBxCW4wOE"
     },
     {
       "_id": "RdZxt3V1QMUBxeTu",
@@ -360,7 +383,8 @@
         "content": "<h4>Unarmed Attacks</h4>\n<p>Striking for damage with punches, kicks, and head butts is much like\nattacking with a melee weapon, except that an unarmed attack deals\nnonlethal damage. Unarmed strikes count as light melee weapons (for\npurposes of two-weapon attack penalties and so on). The following\nexceptions to normal melee rules apply to unarmed attacks.</p>\n<p>Attacks of Opportunity: Making an unarmed attack against an armed\nopponent provokes an attack of opportunity from the character attacked.\nThe attack of opportunity comes before the character’s attack. An\nunarmed attack does not provoke attacks of opportunity from other foes,\nnor does it provoke an attack of opportunity from an unarmed foe.</p>\n<p>“Armed” Unarmed Attacks: Sometimes a character or creature attacks\nunarmed but the attack still counts as armed. A creature with claws,\nfangs, and similar natural physical weapons, for example, counts as\narmed. Being armed counts for both offense and defense—not only does a\ncreature not provoke an attack of opportunity when attacking an armed\nfoe, but a character provokes an attack of opportunity from that\ncreature if the character makes an unarmed attack against it. The Combat\nMartial Arts feat makes a character’s unarmed attacks count as\narmed.</p>\n<p><em>Unarmed Strike Damage: </em>An unarmed strike from a Medium-size\ncharacter deals 1d3 points (plus the character’s Strength modifier, as\nnormal) of nonlethal damage.</p>\n<p>A character can specify that his or her unarmed strike will deal\nlethal damage before the character makes his or her attack roll, but the\ncharacter takes a –4 penalty on the attack roll because he or she has to\nstrike a particularly vulnerable spot to deal lethal damage.</p>"
       },
       "sort": 2400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.RdZxt3V1QMUBxeTu"
     },
     {
       "_id": "g7toHJ4AGa1mETya",
@@ -375,7 +399,8 @@
         "content": "<h4>Ranged Attacks</h4>\n<p>With a ranged weapon, a character can shoot or throw at any target\nthat is within the ranged weapon’s maximum range and in line of sight. A\ntarget is in line of sight if there are no solid obstructions between\nthe character and the target. The maximum range for a thrown weapon is\nfive range increments. For weapons that fire projectiles, it is ten\nrange increments.</p>\n<p>A character capable of making more than one ranged attack per round\nmust use the full attack action (see Full-Round Actions, below) in order\nto make more than one attack.</p>\n<p><em>Shooting or Throwing into a Melee:</em> If a character shoots or\nthrows a ranged weapon at a target that is engaged in melee with an\nally, the character takes a –4 penalty on his or her attack roll be­cause\nthe character has to aim carefully to avoid hitting the ally. Two\ncharacters are engaged in melee if they are enemies and they are\nadjacent to one another. (An unconscious or otherwise immobilized\ncharacter is not considered engaged unless he or she is actually being\nattacked.)</p>\n<p>If the target is so big that part of it is 10 feet or farther from\nthe nearest ally, the character can avoid the –4 penalty, even if it’s\nengaged in melee with an ally.</p>\n<p>Because of the weapon’s unwieldy shape and size, an attacker using a\nlongarm takes a –4 penalty on attacks against adjacent opponents.</p>\n<p><em>Fighting Defensively:</em> A character can choose to fight\ndefensively while making a ranged attack. If the character does so, he\nor she takes a –4 penalty on his or her attack in a round to gain a +2\ndodge bonus to Defense in the same round.</p>"
       },
       "sort": 2500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.g7toHJ4AGa1mETya"
     },
     {
       "_id": "Xv3dwtRiWUYTe9Z8",
@@ -390,7 +415,8 @@
         "content": "<h4>Total Defense</h4>\n<p>Instead of attacking, a character can use his or her attack action\nsimply to defend. This is called a total defense action. The character\ndoesn’t get to attack or perform any other activity, but does get a +4\ndodge bonus to his or her Defense for 1 round. The character’s Defense\nimproves at the start of this action, so it helps against any attacks of\nopportunity the character is subject to while performing his or her move\naction.</p>"
       },
       "sort": 2600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.Xv3dwtRiWUYTe9Z8"
     },
     {
       "_id": "dSEJnC9ivagiOHri",
@@ -405,7 +431,8 @@
         "content": "<h4>Start/Complete Full-Round Action</h4>\n<p>The “start/complete full-round action” attack action lets a character\nstart undertaking a full-round action (such as those listed on Table:\nActions in Combat) at the end of his or her turn, or complete a\nfull-round action by using an attack action at the beginning of his or\nher turn in the round following the round when the character started the\nfull-round action.</p>\n<p>If the character starts a full-round action at the end of his or her\nturn, the next action that character takes must be to complete the\nfull-round action.</p>\n<p>Start/complete full-round action cannot be used with a full attack,\ncharge, run, or withdraw action.</p>"
       },
       "sort": 2700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.dSEJnC9ivagiOHri"
     },
     {
       "_id": "gswdpM5b1zFK0Bdi",
@@ -420,7 +447,8 @@
         "content": "<h4>Move Actions</h4>\n<p>With the exception of specific movement-related skills, most move\nactions don’t require a check. In some cases, ability checks might be\nrequired.</p>"
       },
       "sort": 2800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.gswdpM5b1zFK0Bdi"
     },
     {
       "_id": "yjI0zJeX5S1UBWzx",
@@ -435,7 +463,8 @@
         "content": "<h4>Movement</h4>\n<p>The simplest move action is moving the character’s speed. If a\ncharacter takes this kind of move action during his or her turn, the\ncharacter cannot also take a 5-foot step.</p>\n<p>Many nonstandard modes of movement are also covered under this\ncategory, including climbing and swimming (up to one-quarter the\ncharacter’s speed), crawling (up to 5 feet), and entering a vehicle.</p>"
       },
       "sort": 2900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.yjI0zJeX5S1UBWzx"
     },
     {
       "_id": "QsevlxSrT1PjLeqR",
@@ -450,7 +479,8 @@
         "content": "<h4>Manipulating Objects</h4>\n<p>In most cases, moving or manipulating an object is a move action.\nThis includes drawing or holstering a weapon, retrieving or putting away\na stored object, picking up an object, moving a heavy object, and\nopening a door.</p>\n<p>If the character has a base attack bonus of +1 or higher, he or she\ncan draw a weapon as part of his or her normal movement.</p>"
       },
       "sort": 3000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.QsevlxSrT1PjLeqR"
     },
     {
       "_id": "VlnXrgkEygS9f2Sv",
@@ -465,7 +495,8 @@
         "content": "<h4>Standing Up</h4>\n<p>Standing up from a prone position requires a move action. It provokes\nan attack of opportunity from opponents who threaten the character.</p>\n<h3>Full-Round Actions</h3>\n<p>A full-round action requires an entire round to complete. If it\ndoesn’t involve moving any distance, a character can combine it with a\n5-foot step.</p>"
       },
       "sort": 3100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.VlnXrgkEygS9f2Sv"
     },
     {
       "_id": "YKg0TSPXCzBRLanY",
@@ -480,7 +511,8 @@
         "content": "<h4>Charge</h4>\n<p>Charging is a special full-round action that allows a character to\nmove more than his or her speed and attack during the action. However,\nthere are tight restrictions on how and when a character can charge.</p>\n<p>Movement during a Charge: The character must move before his or her\nattack, not after. The character must move at least 10 feet and may move\nup to twice his or her speed. All movement must be in a straight line,\nwith no backing up allowed. The character must stop as soon as he or she\nis within striking range of his or her target (the character can’t run\npast the target and attack from another direction). A character can’t\ntake a 5-foot step during the same round as a full charge.</p>\n<p>During the surprise round (or any other time a character is limited\nto taking no more than a single attack action on his or her turn) the\ncharacter can still use the charge action, but he or she is only allowed\nto move up to his or her speed (instead of up to twice his or her\nspeed).</p>\n<p>Attacking after a Charge: After moving, the character may make a\nsingle melee attack. The character gets a +2 bonus on the attack roll.\nThe character also takes a –2 penalty to his or her Defense for 1 round\n(until the beginning of the character’s turn in the following\nround).</p>\n<p>Even if the character has extra attacks, such as from having a high\nenough base attack bonus or from using multiple weapons, a character\nonly gets to make one attack after a charge.</p>\n<p>Instead of attacking the target, a character can attempt to push the\ntarget back. See Bull Rush.</p>"
       },
       "sort": 3200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.YKg0TSPXCzBRLanY"
     },
     {
       "_id": "g1sEffGM7QNFlW6E",
@@ -495,7 +527,8 @@
         "content": "<h4>Full Attack</h4>\n<p>If a character gets more than one attack per action because his or\nher base attack bonus is high enough, because he or she fights with two\nweapons, because he or she is using a double weapon, or for some special\nreason, the character must use the full attack action to get his or her\nadditional attacks. The character does not need to specify the targets\nof his or her attacks ahead of time. The character can see how the\nearlier attacks turn out before assigning the later ones.</p>\n<p>Full attack is a full-round action. Because of this, the only\nmovement a character can take during a full attack is a 5-foot step. The\ncharacter may take the step before, after, or between the attacks.</p>\n<p>If a character gets multiple attacks based on his or her base attack\nbonus, the character must make the attacks in order from highest bonus\nto lowest. If the character is using two weapons, the character can\nstrike with either weapon first. If the character is using a double\nwea­pon, the character can strike with either part of the weapon\nfirst.</p>\n<p>Committing to a Full Attack Action: A character doesn’t have to\ncommit to a full attack until after the first attack. The character can\nthen decide whether to make his or her remaining attacks or to take a\nmove action. Of course, if the character has already taken a 5-foot\nstep, he or she can’t use his or her move action to move any distance,\nbut the character could still draw or put away a weapon, for instance\n(see Move Actions, above).</p>\n<p><em>Fighting Defensively:</em> A character can choose to fight\ndefensively when taking a full attack action. If the character does so,\nhe or she takes a –4 penalty on all attacks in a round to gain a +2\ndodge bonus to Defense in the same round.</p>\n<p>Attacking with Two Weapons: If the character wields a second weapon\nin his or her off hand, the character can get one extra attack per round\nwith that weapon. Fighting in this way is very difficult, how­ever—the\ncharacter takes a –6 penalty on the regular attack or attacks with his\nor her primary hand and a –10 penalty on the attack with his or her off\nhand. A character can reduce these penalties in two ways.</p>\n<p>1. If the off-hand weapon is light, the penalties are reduced by 2\neach. (An unarmed strike is always considered light.)</p>\n<p>2. The Two-Weapon Fighting feat lessens the primary hand penalty by\n2, and the off-hand penalty by 6.</p>\n<p>Table: Two-Weapon Fighting Penalties summarizes the interaction of\nall these factors.</p>\n<p>Double Weapons: A character can use a double weapon to make an extra\nattack as if he or she were fighting with two weapons. The penalties\napply as if the off-hand weapon were light.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Two-Weapon Fighting Penalties</strong></p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Circumstances</strong></td>\n<td><strong>Primary Hand</strong></td>\n<td><strong>Off Hand</strong></td>\n</tr>\n<tr>\n<td><p>Normal penalties</p></td>\n<td><p>–6</p></td>\n<td><p>–10</p></td>\n</tr>\n<tr>\n<td><p>Off-hand weapon is light</p></td>\n<td><p>–4</p></td>\n<td><p>–8</p></td>\n</tr>\n<tr>\n<td><p>Two-Weapon Fighting feat</p></td>\n<td><p>–4</p></td>\n<td><p>–4</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Off-hand weapon is light and Two-Weapon Fighting feat</p></td>\n<td><p>–2</p></td>\n<td><p>–2</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 3300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.g1sEffGM7QNFlW6E"
     },
     {
       "_id": "cBiaOViBoNVkJOUo",
@@ -510,7 +543,8 @@
         "content": "<h4>Run</h4>\n<p>A character can run all out as a full-round action. When a character\nruns, he or she can move up to four times his or her speed in a straight\nline. (The character does not get a 5-foot step.) The character loses\nany Dexterity bonus to Defense since he or she can’t avoid attacks.\nHowever, the character gets a +2 bonus to Defense against ranged attacks\nwhile running.</p>\n<p>A character can run for a number of rounds equal to his or her\nConstitution score, but after that the character must succeed at a\nConstitution check (DC 10) to continue running. The character must check\nagain each round in which he or she continues to run, and the DC of this\ncheck increases by 1 for each check the character makes. When the\ncharacter fails this check, he or she must stop running. A character who\nhas run to his or her limit must rest for 1 minute (10 rounds) before\nrunning again. During a rest period, a character can move normally, but\ncan’t run.</p>\n<p>A run represents a speed of about 14 miles per hour for an\nunencumbered human.</p>"
       },
       "sort": 3400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.cBiaOViBoNVkJOUo"
     },
     {
       "_id": "ASTQUD5Yth7t30IY",
@@ -525,7 +559,8 @@
         "content": "<h4>Withdraw</h4>\n<p>Withdrawing from melee combat is a full-round action. When a\ncharacter withdraws, he or she can move up to twice his or her speed.\n(The character doesn’t also get a 5-foot step.) The square the character\nstarts from is not considered threatened for purposes of withdrawing,\nand therefore enemies do not get attacks of opportunity against the\ncharacter when he or she move from that square.</p>\n<p>If while withdrawing, the character moves through another threatened\nsquare (other than the one started in) without stopping, enemies get\nattacks of opportunity as normal.</p>\n<p>Some forms of movement (such as climbing and swimming) require skill\nchecks from most creatures. A character may not withdraw using a form of\nmovement for which that character must make a skill check.</p>\n<p>Miscellaneous Actions</p>\n<p>Some actions don’t fit neatly into the above categories. Some of the\noptions described below are actions that take the place of or are\nvariations on the actions described earlier. For actions not covered in\nany of this material, the GM determines how long such an action takes to\nperform and whether doing so provokes attacks of opportunity from\nthreatening enemies.</p>\n<p>Use Feat, Skill, or Talent</p>\n<p>Certain feats, let a character take special actions in combat. Other\nfeats are not actions in themselves, but they give a character a bonus\nwhen attempting something he or she can already do. Some feats aren’t\nmeant to be used within the framework of combat. The individual feat\ndescriptions tell a character what he or she needs to know about\nthem.</p>\n<p>Most uses of skills or talents in a combat situation are attack\nactions, but some might be move actions or full-round actions. When\nappropriate, the description of a talent or a skill provides the time\nrequired to use it.</p>\n<p>Attacks of Opportunity</p>\n<p>The melee combat rules assume that combatants are actively avoiding\nattacks. A player doesn’t have to declare anything special for his or\nher character to be on the defensive. Sometimes, however, a combatant in\na melee lets his or her guard down, and doesn’t maintain a defensive\nposture as usual. In this case, combatants near him or her can take\nadvantage of this lapse in defense to attack for free. These attacks are\ncalled attacks of opportunity.</p>"
       },
       "sort": 3500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.ASTQUD5Yth7t30IY"
     },
     {
       "_id": "MMeWq4EEudDcvBl1",
@@ -540,7 +575,8 @@
         "content": "<h4>Weapon Type</h4>\n<p>A character can use a melee weapon to make attacks of opportunity\nwhenever the conditions for such an attack are met (see Provoking an\nAttack of Opportunity, below). In addition, a character can make attacks\nof opportunity with unarmed attacks if the character’s unarmed attacks\ncount as armed (see “Armed” Unarmed Attacks).</p>\n<p>Threatened Squares</p>\n<p>A character threatens the squares into which he or she can make a\nmelee attack, even when it is not the character’s action. Generally,\nthat’s all squares adjacent to the character’s position. An enemy that\ntakes certain actions while in a threatened square provokes an attack of\nopportunity from the character. A character can only make attacks of\nopportunity with melee weapons, never with ranged weapons.</p>"
       },
       "sort": 3600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.MMeWq4EEudDcvBl1"
     },
     {
       "_id": "Zs0VDTYoor7RSvqA",
@@ -555,7 +591,8 @@
         "content": "<h4>Provoking an Attack of Opportunity</h4>\n<p>Two actions can provoke attacks of opportunity: moving out of a\nthreatened square, and performing an action within a threatened square\nthat distracts from defending and lets the character’s guard down.</p>\n<p>Moving out of a Threatened Square: When a character moves out of a\nthreatened square, that character generally provokes an attack of\nopportunity. There are two important exceptions, however. A character\ndoesn’t provoke an attack of opportunity if all he or she moves is a\n5-foot step, or if the character withdraws.</p>\n<p>If the character doesn’t start in a threatened square, but moves into\none, the character has to stop there, or else he or she provokes an\nattack of opportunity as he or she leaves that square.</p>\n<p>Performing an Action that Distracts the Character: Some actions, when\nperformed in a threatened square, provoke attacks of opportunity because\nthey make a character divert his or her attention from the fight at\nhand. Using a ranged weapon, in particular, provokes attacks of\nopportunity. Table: Actions in Combat notes many additional actions that\nprovoke attacks of opportunity.</p>"
       },
       "sort": 3700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.Zs0VDTYoor7RSvqA"
     },
     {
       "_id": "zrvT0ZEWTGppqtNE",
@@ -570,7 +607,8 @@
         "content": "<h4>Making an Attack of Opportunity</h4>\n<p>An attack of opportunity is a single melee attack, and a character\ncan only make one per round. A character does not have to make an attack\nof opportunity if he or she doesn’t want to.</p>\n<p>An experienced character gets additional regular melee attacks (by\nusing the full attack action), but at a lower attack bonus. A character\nmakes his or her attack of opportunity, however, at his or her normal\nattack bonus—even if the character has already attacked in this\nround.</p>\n<p>Movement and Position</p>\n<p>When using a grid to represent character’s movement, the standard\nscale equates 1 inch (or a 1 inch square) to 5 feet in the game\nworld.</p>\n<p>Standard Scale</p>\n<p>One inch (or one square) = 5 feet</p>\n<p>“Next to” or “adjacent” = 1 inch (5 feet) away<br />\n(or in adjacent square)</p>\n<p>30mm figure = A human-size creature</p>\n<p>A human-size creature occupies an area 1 inch (5 feet) across (or one\nsquare)</p>\n<p>One round = 6 seconds</p>"
       },
       "sort": 3800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.zrvT0ZEWTGppqtNE"
     },
     {
       "_id": "tvnijK6q6fD7twuH",
@@ -585,7 +623,8 @@
         "content": "<h4>Tactical Movement</h4>\n<p>Where can a character move, how long it takes to get there, and\nwhether he or she is vulnerable to attacks of opportunity while moving\nare key questions in combat.</p>"
       },
       "sort": 3900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.tvnijK6q6fD7twuH"
     },
     {
       "_id": "TonQQieUNTIQuFjV",
@@ -600,7 +639,8 @@
         "content": "<h4>How Far Can a Character Move?</h4>\n<p>Humans normally move 30 feet, although armor can slow a character\ndown. Some creatures move faster or slower. A character’s speed when\nunarmored is sometimes called base speed.</p>\n<p>Encumbrance: A character encumbered by carrying a large amount of\ngear or a fallen comrade may move slower than normal.</p>\n<p><em>Movement in Combat: </em>Generally, a character can move his or\nher speed as a move action. If a character uses his or her attack action\nas a move action, the character can move again (for a total movement of\nup to twice the character’s normal speed). If the character spends the\nentire round to run all out, he or she can move up to four times his or\nher normal speed. If a character does something that requires a full\nround, he or she can only take a 5-foot step.</p>\n<p><em>Movement in Darkness:</em> If a character moves when he or she\ncan’t see, such as in total darkness, his or her speed is limited to\none-half normal. The Blind-Fight feat reduces this penalty.</p>"
       },
       "sort": 4000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.TonQQieUNTIQuFjV"
     },
     {
       "_id": "MWF7CER0162gQXO7",
@@ -615,7 +655,8 @@
         "content": "<h4>Passing Through</h4>\n<p>Sometimes a character can pass through an area occupied by another\ncharacter or creature.</p>\n<p>Friendly Character: A character can move through a square occupied by\na friendly character.</p>\n<p>Unfriendly Character: There are two ways to move through a square\noccupied by a resisting enemy. The character can attempt an overrun. Or\nthe character can attempt to tumble through a square occupied by an\nenemy (if the character has ranks in the Tumble skill; see the skill\ndescription).</p>\n<p>A character can move through a square occupied by an unfriendly\ncharacter who doesn’t resist as if the character was friendly.</p>\n<p>Square Occupied by Creature Three Sizes Larger or Smaller: Any\ncreature can move through a square occupied by a creature three size\ncategories larger or three categories smaller than it is.</p>"
       },
       "sort": 4100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.MWF7CER0162gQXO7"
     },
     {
       "_id": "nBRTobrcTScVFbnN",
@@ -630,7 +671,8 @@
         "content": "<h4>Flanking</h4>\n<p>If a character is making a melee attack against an opponent, and an\nally directly opposite the character is threatening the opponent, the\ncharacter and his or her ally flank the opponent. The character gains a\n+2 bonus on his or her attack roll. The ally must be on the other side\nof the opponent so that the opponent is directly between the character\nand the ally.</p>\n<p>A character doesn’t gain a bonus for flanking when making a ranged\nattack.</p>"
       },
       "sort": 4200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.nBRTobrcTScVFbnN"
     },
     {
       "_id": "iDGfeKTAUVBgquAn",
@@ -645,7 +687,8 @@
         "content": "<h4>Combat Modifiers</h4>\n<p>This section covers offensive and defensive modifiers provided by\nposition.</p>"
       },
       "sort": 4300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.iDGfeKTAUVBgquAn"
     },
     {
       "_id": "6HheShHHg36aHrJT",
@@ -660,7 +703,8 @@
         "content": "<h4>Favorable and Unfavorable Conditions</h4>\n<p>Generally speaking, any situational modifier created by the\nattacker’s position or tactics applies to the attack roll, while any\nsituational modifier created by the defender’s position, state, or\ntactics applies to the defender’s Defense. The GM judges what bonuses\nand penalties apply, using Table: Defense Modifiers and Table: Attack\nRoll Modifiers as guides.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Defense Modifiers</strong></p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Circumstance</strong></p></td>\n<td><p><strong>Melee</strong></p></td>\n<td><p><strong>Ranged</strong></p></td>\n</tr>\n<tr>\n<td><p>Defender sitting or kneeling</p></td>\n<td><p>–2</p></td>\n<td><p>+2<strong><sup>1</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender prone</p></td>\n<td><p>–4</p></td>\n<td><p>+4<strong><sup>1</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender stunned or cowering</p></td>\n<td><p>–2<strong><sup>2</sup></strong></p></td>\n<td><p>–2<strong><sup>2</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender climbing</p></td>\n<td><p>–2<strong><sup>2</sup></strong></p></td>\n<td><p>–2<strong><sup>2</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender flat-footed</p></td>\n<td><p>+0<strong><sup>2</sup></strong></p></td>\n<td><p>+0<strong><sup>2</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender running</p></td>\n<td><p>+0<strong><sup>2</sup></strong></p></td>\n<td><p>+2<strong><sup>2</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender grappling (attacker not)</p></td>\n<td><p>+0<strong><sup>2</sup></strong></p></td>\n<td><p>+0<strong><sup>3</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender pinned</p></td>\n<td><p>–4<strong><sup>4</sup></strong></p></td>\n<td><p>+0<strong><sup>4</sup></strong></p></td>\n</tr>\n<tr>\n<td><p>Defender helpless (such as paralyzed, sleeping, or\nbound)</p></td>\n<td><p>+0<strong><sup>2</sup></strong></p></td>\n<td><p>+0<strong><sup>2</sup></strong></p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Defender has cover</p></td>\n<td><p>—–— See Cover —–—</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Defender concealed or invisible</p></td>\n<td><p>— See Concealment —</p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>1 Does not apply if target is adjacent to attacker. This\ncircumstance may instead improve bonus to Defense granted by cover. See\nCover, below.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>2 The defender loses any Dexterity bonus to Defense.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>3 Roll randomly to see which grappling combatant the character\nstrikes. That defender loses any Dexterity bonus to Defense.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>4 Treat the defender’s Dexterity as 0 (–5 modifier).</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Table: Attack Roll Modifiers</strong></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Circumstance</strong></td>\n<td><p><strong>Melee</strong></p></td>\n<td><p><strong>Ranged</strong></p></td>\n</tr>\n<tr>\n<td><p>Attacker flanking defender<sup>1</sup></p></td>\n<td><p>+2</p></td>\n<td><p>—</p></td>\n</tr>\n<tr>\n<td><p>Attacker on higher ground</p></td>\n<td><p>+1</p></td>\n<td><p>+0</p></td>\n</tr>\n<tr>\n<td><p>Attacker prone</p></td>\n<td><p>–4</p></td>\n<td><p>–2</p></td>\n</tr>\n<tr>\n<td><p>Attacker invisible</p></td>\n<td><p>+2<strong><sup>3</sup></strong></p></td>\n<td><p>+2<strong><sup>3</sup></strong></p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>1 A character flanks a defender when he or she has an ally on the\nopposite side of the defender threatening the defender.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>2 Some ranged weapons can’t be used while the attacker is\nprone.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>3 The defender loses any Dexterity bonus to Defense.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 4400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.6HheShHHg36aHrJT"
     },
     {
       "_id": "mncganww6vp6uxQf",
@@ -675,7 +719,8 @@
         "content": "<h4>Cover</h4>\n<p>Cover provides a bonus to Defense. The more cover a character has,\nthe bigger the bonus. In a melee, if a character has cover against an\nopponent, that opponent probably has cover against the character, too.\nWith ranged weapons, however, it’s easy to have better cover than the\nopponent.</p>\n<p>The GM may impose other penalties or restrictions on attacks\ndepending on the details of the cover.</p>"
       },
       "sort": 4500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.mncganww6vp6uxQf"
     },
     {
       "_id": "ivALn0mycEfc7Pp7",
@@ -690,7 +735,8 @@
         "content": "<h4>Degree of Cover</h4>\n<p>Cover is assessed in subjective measurements of how much protection\nit offers. The GM determines the value of cover. This measure is not a\nstrict mathematical calculation, because a character gains more value\nfrom covering the parts of his or her body that are more likely to be\nstruck. If the bottom half of a character’s body is covered, that only\ngives one-quarter cover, because most vital areas are still fully\nexposed. If one side or the other of a character’s body is covered, the\ncharacter gets one-half cover.</p>"
       },
       "sort": 4600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.ivALn0mycEfc7Pp7"
     },
     {
       "_id": "kvhIW59zbUe973C2",
@@ -705,7 +751,8 @@
         "content": "<h4>Cover Defense Bonus</h4>\n<p>Table: Cover gives the Defense bonuses for different degrees of\ncover. Add the relevant number to the character’s Defense. This cover\nbonus overlaps (does not stack) with certain other bonuses.</p>"
       },
       "sort": 4700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.kvhIW59zbUe973C2"
     },
     {
       "_id": "5U7kiFt2d5dYtjqQ",
@@ -720,7 +767,8 @@
         "content": "<h4>Cover Reflex Save Bonus</h4>\n<p>Table: Cover gives the Reflex save bonuses for different degrees of\ncover. Add this bonus to Reflex saves against attacks that affect an\narea. This bonus only applies to attacks that originate or burst out\nfrom a point on the other side of the cover.</p>"
       },
       "sort": 4800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.5U7kiFt2d5dYtjqQ"
     },
     {
       "_id": "jqPAsRD690AARXLT",
@@ -735,7 +783,8 @@
         "content": "<h4>Striking the Cover Instead of a Missed Target</h4>\n<p>If it ever becomes important to know whether the cover was actually\nstruck by an incoming attack that misses the intended target, the GM\nshould determine if the attack roll would have hit the protected target\nwithout the cover. If the attack roll falls within a range low enough to\nmiss the target with cover but high enough to strike the target if there\nhad been no cover, the object used for cover was struck. This can be\nparticularly important to know in cases when a character uses another\ncharacter as cover. In such a case, if the cover is struck and the\nattack roll exceeds the Defense of the covering character, the covering\ncharacter takes the damage intended for the target.</p>\n<p>If the covering character has a Dex­terity bonus to Defense or a dodge\nbonus, and this bonus keeps the covering character from being hit, then\nthe original target is hit in­stead. The covering character has dodged\nout of the way and didn’t provide cover after all. A covering character\ncan choose not to apply his or her Dexterity bonus to Defense and/or his\nor her dodge bonus, if the character so desires.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Cover</strong></p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Degree of Cover (Example)</strong></p></td>\n<td><p><strong>Cover Bonus to Defense</strong></p></td>\n<td><p><strong>Reflex Saves</strong></p></td>\n</tr>\n<tr>\n<td><p>One-quarter (standing behind a 3-ft. high wall)</p></td>\n<td><p>+2</p></td>\n<td><p>+1</p></td>\n</tr>\n<tr>\n<td><p>One-half (fighting from around a corner or a tree; standing at an\nopen window; behind a creature of same size)</p></td>\n<td><p>+4</p></td>\n<td><p>+2</p></td>\n</tr>\n<tr>\n<td><p>Three-quarters (peering around a corner or a big tree)</p></td>\n<td><p>+7</p></td>\n<td><p>+3</p></td>\n</tr>\n<tr>\n<td><p>Nine-tenths (standing at an arrow slit; behind a door that’s\nslightly ajar)</p></td>\n<td><p>+10</p></td>\n<td><p>+4 <sup>1</sup></p></td>\n</tr>\n<tr>\n<td><p>Total (on the other side of a solid wall)</p></td>\n<td><p>—</p></td>\n<td><p>—</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>1 Half damage if save is failed; no damage if\nsuccessful.</p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 4900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.jqPAsRD690AARXLT"
     },
     {
       "_id": "SeFlqHBSCXUxN3dd",
@@ -750,7 +799,8 @@
         "content": "<h4>Concealment</h4>\n<p>Concealment includes all circumstances in which nothing physically\nblocks a blow or shot, but something interferes with an attacker’s\naccuracy.</p>"
       },
       "sort": 5000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.SeFlqHBSCXUxN3dd"
     },
     {
       "_id": "JQ56p9Zksz6GHxR3",
@@ -765,7 +815,8 @@
         "content": "<h4>Degree of Concealment</h4>\n<p>Concealment is subjectively measured as to how well concealed the\ndefender is. Examples of what might qualify as concealment of various\ndegrees are given in Table: Concealment. Concealment always depends on\nthe point of view of the attacker.</p>"
       },
       "sort": 5100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.JQ56p9Zksz6GHxR3"
     },
     {
       "_id": "SvrpsltFE3bFRXbe",
@@ -780,7 +831,8 @@
         "content": "<h4>Concealment Miss Chance</h4>\n<p>Concealment gives the subject of a successful attack a chance that\nthe attacker missed because of the concealment. If the attacker hits,\nthe defender must make a miss chance percentile roll to avoid being\nstruck. (Actually, it doesn’t matter who makes the roll or whether it’s\nrolled before or after the attack roll. When multiple concealment\nconditions apply to a defender, use the one that would produce the\nhighest miss chance. Do not add the miss chances together.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Concealment</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Concealment (Example)</strong></td>\n<td><strong>Miss Chance</strong></td>\n</tr>\n<tr>\n<td><p>One-quarter (light fog; light foliage)</p></td>\n<td><p>10%</p></td>\n</tr>\n<tr>\n<td><p>One-half (shadows; dense fog at 5 ft.)</p></td>\n<td><p>20%</p></td>\n</tr>\n<tr>\n<td><p>Three-quarters (dense foliage)</p></td>\n<td><p>30%</p></td>\n</tr>\n<tr>\n<td><p>Nine-tenths (near total darkness)</p></td>\n<td><p>40%</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Total (attacker blind; total darkness; smoke grenade; dense fog\nat 10 ft.)</p></td>\n<td><p>50% and must guess target’s location</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>Helpless Defenders</p>\n<p>A helpless foe—one who is bound, sleeping, unconscious, or otherwise\nat the attacker’s mercy—is an easy target. A character can sometimes\napproach a target who is unaware of his or her presence, get adjacent to\nthe target, and treat him or her as helpless. If the target is in combat\nor some other tense situation, and therefore in a state of acute\nawareness and readiness, or if the target can use his or her Dexterity\nbonus to Defense, then that target can’t be considered unaware. Further,\nany reasonable precaution taken by a target, including stationing\nbodyguards, placing his or her back to a wall, or being able to make\nSpot checks, also precludes catching that target unaware and\nhelpless.</p>"
       },
       "sort": 5200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.SvrpsltFE3bFRXbe"
     },
     {
       "_id": "imEg6bepte9DqolP",
@@ -795,7 +847,8 @@
         "content": "<h4>Regular Attack</h4>\n<p>A helpless defender has an effective Defense of 5 + his or her size\nmodifier. If a character is attacking with a ranged weapon and is not\nadjacent to the target, the character can use a full-round action to\nmake the attack, and gain a +5 bonus on the attack roll. If the\ncharacter is attacking with a melee weapon, or with a ranged weapon from\nan adjacent square, the character can use a full-round action to deliver\na coup de grace.</p>"
       },
       "sort": 5300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.imEg6bepte9DqolP"
     },
     {
       "_id": "ZQbUGYRSud5cpGE2",
@@ -810,7 +863,8 @@
         "content": "<h4>Coup de Grace</h4>\n<p>As a full-round action, a character can use a melee weapon to deliver\na coup de grace to a helpless foe. A character can also use a ranged\nweapon, pro­vided the character is adjacent to the target. The character\nautomatically hits and score a critical hit. If the defender survives\nthe damage, he or she still must make a Fortitude save (DC 10 + damage\ndealt) or die.</p>\n<p>Delivering a coup de grace provokes attacks of opportunity from\nthreatening foes because it involves focused concentration and\nmethodical action.</p>\n<p>A character can’t deliver a coup de grace against a creature that is\nimmune to critical hits.</p>"
       },
       "sort": 5400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.ZQbUGYRSud5cpGE2"
     },
     {
       "_id": "wrZH8grzBzp7A1KX",
@@ -825,7 +879,8 @@
         "content": "<h4>Knockout Blow</h4>\n<p>As a full-round action, a character can make an unarmed attack or use\na melee weapon that deals nonlethal damage to deliver a knockout blow to\na helpless foe. A character can also use a melee weapon that deals\nlethal damage, but the character takes a –4 penalty on any attempt to\ndeal nonlethal damage with the weapon. The target has an effective\nDefense of 5 + his or her size modifier. If the character hits, he or\nshe automatically scores a critical hit (see Nonlethal Damage).</p>\n<p>Delivering a knockout blow provokes attacks of opportunity from\nthreatening foes because it involves focused concentration and\nmethodical action.</p>\n<p>A character can’t deliver a knockout blow against a creature that is\nimmune to critical hits.</p>\n<p>Special Initiative Actions</p>\n<p>Usually a character acts as soon as he or she can in combat, but\nsometimes a character wants to act later, at a better time, or in\nresponse to the actions of someone else.</p>"
       },
       "sort": 5500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.wrZH8grzBzp7A1KX"
     },
     {
       "_id": "Fo0GlpV6QHPeEczy",
@@ -840,7 +895,8 @@
         "content": "<h4>Delay</h4>\n<p>By choosing to delay, the character takes no action and then acts\nnormally at whatever point in the initiative count the character decides\nto act. When a character delays, he or she voluntarily reduces his or\nher own initiative result for the rest of the combat. When the\ncharacter’s new, lower initiative count comes up later in the same\nround, the character can act normally. The character can specify this\nnew initiative result or just wait until some time later in the round\nand act then, thus fixing the character’s new initiative count at that\npoint.</p>\n<p>A character cannot interrupt anyone’s action with a delayed action\n(as a character can with a readied action; see below).</p>"
       },
       "sort": 5600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.Fo0GlpV6QHPeEczy"
     },
     {
       "_id": "kKaDngUq6pQibO5O",
@@ -855,7 +911,8 @@
         "content": "<h4>Delaying Limits</h4>\n<p>The longest a character can delay before taking an action is until\nafter everyone else has acted in the round. At that point, the delaying\ncharacter must act or else forfeit any action in that round.</p>\n<p>If multiple characters are delaying, the one with the highest\ninitiative modifier (or highest Dexterity, in case of a tie) has the\nadvantage. If two or more delaying characters both want to act on the\nsame initiative count, the one with the highest initiative modifier gets\nto go first. If two or more delaying characters are trying to go after\none another, the one with the highest initiative modifier gets to go\nlast; the others must go first or lose their action for the round.</p>\n<p>If a character loses an action due to delaying, he or she may act on\nany count on the next turn. Again, the character cannot interrupt an\naction.</p>"
       },
       "sort": 5700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.kKaDngUq6pQibO5O"
     },
     {
       "_id": "Qu5pwQSB0HK6j5iF",
@@ -870,7 +927,8 @@
         "content": "<h4>Ready</h4>\n<p>The ready action lets a character prepare to take an action later, to\ninterrupt another character. Essentially, the character splits his or\nher action, taking the move action on the character’s initiative count\nand the attack action at a later point. On the character’s turn, he or\nshe prepares to take an action later, if a specific trigger is met.\nThen, later in the round, if the readied action is triggered, the\ncharacter takes it, acting before the triggering action.</p>\n<p>Readying does not provoke an attack of opportunity. (The character’s\nmove action, and the attack action he or she readies, may both provoke\nattacks of opportunity normally.)</p>"
       },
       "sort": 5800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.Qu5pwQSB0HK6j5iF"
     },
     {
       "_id": "Na5FnD7wWaTUT2h0",
@@ -885,7 +943,8 @@
         "content": "<h4>Readying an Action</h4>\n<p>A character can ready an attack action or a move action. To do so,\nthe character specifies the action he or she will take and the\nconditions under which the character will take it. Then, any time before\nthe character’s next action, the character may take the readied attack\naction in response to those conditions. The readied action occurs just\nbefore the event that triggers it. If the trigger is part of another\ncharacter’s actions, the readied action interrupts the other character.\nThe other character continues his or her actions once the readied action\nis completed.</p>\n<p>The character’s initiative count changes. For the rest of the\nencounter, it is the count on which the character took the readied\naction, and the character acts immediately ahead of the character whose\naction triggered the readied action.</p>\n<p>A character can take a 5-foot step as part of his or her readied\naction, but only if the character didn’t otherwise move any distance\nduring the round.</p>\n<p>If the character comes to his or her next action and has not yet\nperformed the readied action, the character doesn’t get to take the\nreadied action (though the character can ready the same action again).\nIf the character takes his or her readied action in the next round,\nbefore his or her regular turn comes up, the character’s initiative\ncount rises to that new point in the order of battle, and he or she does\nnot get your regular action that round.</p>\n<h3>Special Attacks</h3>\n<p>This section covers firearms, grappling, explosives, attacking\nobjects, and an assortment of other special attacks.</p>"
       },
       "sort": 5900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.Na5FnD7wWaTUT2h0"
     },
     {
       "_id": "jO5mlWqdgvnJLpbz",
@@ -900,7 +959,8 @@
         "content": "<h4>Aid Another</h4>\n<p>In combat, a character can help a friend attack or defend by\ndistracting or interfering with an opponent. If the character is in\nposition to attack an opponent with which a friend of the character is\nengaged in melee combat, the character can attempt to aid the friend as\nan attack action. The character makes an attack roll against Defense 10.\nIf the character succeeds, he or she doesn’t actually damage the\nopponent—but the character’s friend gains either a +2 circumstance bonus\nagainst that opponent or a +2 circumstance bonus to Defense against that\nopponent (aiding character’s choice) on the friend’s next turn.</p>"
       },
       "sort": 6000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.jO5mlWqdgvnJLpbz"
     },
     {
       "_id": "6mQFDfJVC52bDhD3",
@@ -915,7 +975,8 @@
         "content": "<h4>Firearms</h4>\n<p>The most basic form of attack with a firearm is a single shot. One\nattack is one pull of the trigger and fires one bullet at one\ntarget.</p>\n<p>The Personal Firearms Proficiency feat allows a character to make\nthis sort of attack without penalty. If a character isn’t proficient in\npersonal firearms, he or she takes a –4 penalty on attacks with that\ntype of weapon.</p>\n<p>A number of other feats allow a character to deal extra damage when\nhe or she fires more than one bullet as part of a single attack at a\nsingle target. (If a character doesn’t have those feats, he or she can\nstill fire more than one bullet—but the extra bullets don’t have any\neffect, and are just wasted ammunition.)</p>\n<p>As with all forms of ranged weapons, attacking with a firearm while\nwithin a threatened square provokes an attack of opportunity.</p>\n<p>Because of the weapon’s unwieldy shape and size, an attacker using a\nlongarm takes a –4 penalty on attacks against adjacent opponents.</p>"
       },
       "sort": 6100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.6mQFDfJVC52bDhD3"
     },
     {
       "_id": "fIntQkiajIiqtrtS",
@@ -930,7 +991,8 @@
         "content": "<h4>Autofire</h4>\n<p>If a ranged weapon has an automatic rate of fire, a character may set\nit on autofire. Autofire affects an area and everyone in it, not a\nspecific creature. The character targets a 10-foot-by-10-foot area and\nmakes an attack roll; the targeted area has an effective Defense of 10.\n(If the character does not have the Advanced Firearms Proficiency feat,\nhe or she takes a –4 penalty on the attack roll.) If the attack\nsucceeds, every creature within the affected area must make a Reflex\nsave (DC 15) or take the weapon’s damage. Autofire shoots 10 bullets,\nand can only be used if the weapon has 10 bullets in it.</p>\n<p>Autofire is not the same thing as burst fire, which involves firing a\nshort burst at a specific target. Firing a burst requires the Burst Fire\nfeat. If a character fires a blast of automatic fire at a specific\ntarget without the Burst Fire feat, it’s treated as a standard attack.\nThe attack, if successful, only deals normal damage—all the extra\nammunition the character fired is wasted.</p>\n<p>Some firearms—particularly machine guns—only have autofire settings\nand can’t normally fire single shots.</p>\n<h3>Grenades and Explosives</h3>\n<p>An explosive is a weapon that, when detonated, affects all creatures\nand objects within its burst radius by means of shrapnel, heat, or\nmassive concussion. Its effect is broad enough that it can hurt\ncharacters just by going off close to them.</p>\n<p>Some explosives, such as grenades, can be thrown, and they explode\nwhen they land. Others are planted, with fuses or timers, and go off\nafter a preset amount of time elapses.</p>"
       },
       "sort": 6200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.fIntQkiajIiqtrtS"
     },
     {
       "_id": "Zpt4A8o0g0J0b5GJ",
@@ -945,7 +1007,8 @@
         "content": "<h4>Thrown Explosives</h4>\n<p>An attack with a thrown explosive is a ranged attack made against a\nspecific 5-foot square. (A character can target a square occupied by a\ncreature.) Throwing the explosive is an attack action. If the square is\nwithin one range increment, you do not need to make an attack roll. Roll\n1d4 and consult the table to see which corner of the square the\nexplosive bounces to.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Thrown Explosives (hit)</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Roll on d4</strong></p></td>\n<td><p><strong>Corner of targeted square</strong></p></td>\n</tr>\n<tr>\n<td><p>1</p></td>\n<td><p>Upper Left</p></td>\n</tr>\n<tr>\n<td><p>2</p></td>\n<td><p>Upper Right</p></td>\n</tr>\n<tr>\n<td><p>3</p></td>\n<td><p>Lower Right</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>4</p></td>\n<td><p>Lower Left</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>If the target square is more than one range increment away, make an\nattack roll. The square has an effective Defense of 10. Thrown weapons\nrequire no weapon proficiency, so a character doesn’t take the –4\nnonproficient penalty. If the attack succeeds, the grenade or explosive\nlands in the targeted square. Roll 1d4 and consult the table above to\nsee which corner of the square the explosive bounces to.</p>\n<p>If the character misses the target, the explosive lands at a corner\nof a square nearby in a random direction. Consult the tables below to\ndetermine where the explosive lands. If the weapon was thrown two to\nthree range increments (11 to 30 feet), roll 1d8.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Thrown Explosive (Miss 2 to 3 Range\nIncrements)</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Roll on d8</strong></td>\n<td><strong>Location Struck</strong></td>\n</tr>\n<tr>\n<td><p>1</p></td>\n<td><p>upper right corner, one square beyond target</p></td>\n</tr>\n<tr>\n<td><p>2</p></td>\n<td><p>upper right corner, one square right of target</p></td>\n</tr>\n<tr>\n<td><p>3</p></td>\n<td><p>lower right corner, one square right of target</p></td>\n</tr>\n<tr>\n<td><p>4</p></td>\n<td><p>lower right corner, one square short of target</p></td>\n</tr>\n<tr>\n<td><p>5</p></td>\n<td><p>lower left corner, one square short of target</p></td>\n</tr>\n<tr>\n<td><p>6</p></td>\n<td><p>lower left corner, one square left of target</p></td>\n</tr>\n<tr>\n<td><p>7</p></td>\n<td><p>upper left corner, one square left of target</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>8</p></td>\n<td><p>upper left corner, one square beyond target</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>For ranges of up to five range increments (31 to 50 feet), roll\n1d12.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Thrown Explosives (Miss 4 to5 Range\nIncrements)</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Roll on d12</strong></td>\n<td><strong>Location Struck</strong></td>\n</tr>\n<tr>\n<td><p>1</p></td>\n<td><p>upper right corner, two squares beyond target</p></td>\n</tr>\n<tr>\n<td><p>2</p></td>\n<td><p>upper right corner, one square beyond and right of\ntarget</p></td>\n</tr>\n<tr>\n<td><p>3</p></td>\n<td><p>upper right corner, two squares right of target</p></td>\n</tr>\n<tr>\n<td><p>4</p></td>\n<td><p>lower right corner, two squares right of target</p></td>\n</tr>\n<tr>\n<td><p>5</p></td>\n<td><p>lower right corner, one square short and right of target</p></td>\n</tr>\n<tr>\n<td><p>6</p></td>\n<td><p>lower right corner, two squares short of target</p></td>\n</tr>\n<tr>\n<td><p>7</p></td>\n<td><p>lower left corner, two squares short of target</p></td>\n</tr>\n<tr>\n<td><p>8</p></td>\n<td><p>lower left corner, one square short and left of target</p></td>\n</tr>\n<tr>\n<td><p>9</p></td>\n<td><p>lower left corner, two squares left of target</p></td>\n</tr>\n<tr>\n<td><p>10</p></td>\n<td><p>upper left corner, two squares left of target</p></td>\n</tr>\n<tr>\n<td><p>11</p></td>\n<td><p>upper left corner, one square beyond and left of target</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>12</p></td>\n<td><p>upper left corner, two squares beyond target</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>After determining where the explosive landed, it deals its damage to\nall targets within the burst radius of the weapon. The targets may make\nReflex saves (DC varies according to the explosive type) for half\ndamage.</p>"
       },
       "sort": 6300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.Zpt4A8o0g0J0b5GJ"
     },
     {
       "_id": "invablkQrlhsDXDY",
@@ -960,7 +1023,8 @@
         "content": "<h4>Planted Explosives</h4>\n<p>A planted explosive is set in place, with a timer or fuse determining\nwhen it goes off. No attack roll is necessary to plant an explosive; the\nexplosive sits where it is placed until it is moved or goes off.</p>\n<p>When a planted explosive detonates, it deals its damage to all\ntargets within the burst radius of the weapon. The targets may make\nReflex saves (DC varies according to the explosive type) for half\ndamage.</p>"
       },
       "sort": 6400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.invablkQrlhsDXDY"
     },
     {
       "_id": "nmimpentZV86vPby",
@@ -975,7 +1039,8 @@
         "content": "<h4>Splash Weapons</h4>\n<p>A splash weapon is a ranged weapon that breaks apart on impact,\nsplashing or scattering its contents over its target and nearby\ncreatures or objects. Most splash weapons consist of liquids in\nbreakable containers.</p>\n<p>To attack with a splash weapon, make a ranged touch attack against\nthe target. Thrown weapons require no weapon proficiency, so characters\ndon’t take the –4 nonproficient penalty. A hit deals direct hit damage\nto the target and splash damage to all other creatures within 5 feet of\nthe target.</p>\n<p>A character can instead target a specific 5-foot square, including a\nsquare occupied by a creature. Use the rules for thrown explosives.\nHowever, if a character targets a square, creatures within 5 feet are\ndealt the splash damage, and the direct hit damage is not dealt to any\ncreature.</p>\n<p>If the character misses the target (whether aiming at a creature or a\nsquare), check to see where the weapon lands, using the rules for thrown\nexplosives. After determining where the object landed, it deals splash\ndamage to all creatures within 5 feet.</p>\n<h3>Attack an Object</h3>\n<p>Sometimes a character needs to attack or break an object</p>"
       },
       "sort": 6500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.nmimpentZV86vPby"
     },
     {
       "_id": "AIhKH6oThfGrdEv3",
@@ -990,7 +1055,8 @@
         "content": "<h4>Strike an Object</h4>\n<p>Objects are easier to hit than characters because they usually don’t\nmove, but many are tough enough to shrug off some damage from each\nblow.</p>\n<p>Object Defense and Bonuses to Attack: Objects are harder or easier to\nhit depending on their size and whether they are immobile or being held,\ncarried, or worn by opponents. The base Defense of objects is shown on\nTable: Size and Defense of Objects.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Size and Defense of Objects</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Size (Example)</strong></p></td>\n<td><p><strong>Defense</strong></p></td>\n</tr>\n<tr>\n<td><p>Colossal (jetliner)</p></td>\n<td><p>–3</p></td>\n</tr>\n<tr>\n<td><p>Gargantuan (army tank)</p></td>\n<td><p>1</p></td>\n</tr>\n<tr>\n<td><p>Huge (typical car)</p></td>\n<td><p>3</p></td>\n</tr>\n<tr>\n<td><p>Large (big door)</p></td>\n<td><p>4</p></td>\n</tr>\n<tr>\n<td><p>Medium-size (dirt bike)</p></td>\n<td><p>5</p></td>\n</tr>\n<tr>\n<td><p>Small (chair)</p></td>\n<td><p>6</p></td>\n</tr>\n<tr>\n<td><p>Tiny (laptop computer)</p></td>\n<td><p>7</p></td>\n</tr>\n<tr>\n<td><p>Diminutive (paperback book)</p></td>\n<td><p>9</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Fine (pencil)</p></td>\n<td><p>13</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p>If a character uses a full-round action to make an attack against an\ninanimate, immobile object, the character gets an automatic hit with a\nmelee weapon, or a +5 bonus on his or her attack roll with a ranged\nweapon.</p>\n<p>An object being held, carried, or worn has a Defense equal to the\nabove figure + 5 + the opponent’s Dexterity modifier + the opponent’s\nclass bonus to Defense. Striking a held, carried, or worn object\nprovokes an attack of opportunity from the character who holds it. (If a\ncharacter has the Sunder feat, he or she doesn’t incur an attack of\nopportunity for making the attempt.)</p>\n<p>Hardness: Each object has hardness—a number that represents how well\nit resists damage. Whenever an object takes damage, subtract its\nhardness from the damage. Only damage in excess of its hardness is\ndeducted from the object’s hit points (see Table: Substance Hardness and\nHit Points and Table: Object Hardness and Hit Points).</p>\n<p>Hit Points: An object’s hit point total depends on what it is made of\nor how big it is (see Table Substance Hardness and Hit Points and Table\nObject Hardness and Hit Points).</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Substance Hardness and Hit\nPoints</strong></p></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Substance</strong></p></td>\n<td><strong>Hardness</strong></td>\n<td><p><strong>Hit Points</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Paper</p></td>\n<td><p>0</p></td>\n<td><p>2/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Rope</p></td>\n<td><p>0</p></td>\n<td><p>2/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Plastic, soft</p></td>\n<td><p>0</p></td>\n<td><p>3/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Glass</p></td>\n<td><p>1</p></td>\n<td><p>1/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Ceramic</p></td>\n<td><p>1</p></td>\n<td><p>2/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Ice</p></td>\n<td><p>0</p></td>\n<td><p>3/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Plastic, hard</p></td>\n<td><p>2</p></td>\n<td><p>5/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Wood</p></td>\n<td><p>5</p></td>\n<td><p>10/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Aluminum</p></td>\n<td><p>6</p></td>\n<td><p>10/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Concrete</p></td>\n<td><p>8</p></td>\n<td><p>15/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Steel</p></td>\n<td><p>10</p></td>\n<td><p>30/inch of thickness</p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Table: Object Hardness and Hit Points</strong></p></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Object</strong></p></td>\n<td><p><strong>Hardness</strong></p></td>\n<td><p><strong>Hit Points</strong></p></td>\n<td><p><strong>Break DC</strong></p></td>\n</tr>\n<tr>\n<td><p>Lock</p></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Cheap</p></td>\n<td><p>0</p></td>\n<td><p>1</p></td>\n<td><p>10</p></td>\n</tr>\n<tr>\n<td><p>Average</p></td>\n<td><p>3</p></td>\n<td><p>5</p></td>\n<td><p>15</p></td>\n</tr>\n<tr>\n<td><p>High quality</p></td>\n<td><p>5</p></td>\n<td><p>10</p></td>\n<td><p>20</p></td>\n</tr>\n<tr>\n<td><p>High security</p></td>\n<td><p>10</p></td>\n<td><p>120</p></td>\n<td><p>35</p></td>\n</tr>\n<tr>\n<td><p>Ultrahigh security</p></td>\n<td><p>20</p></td>\n<td><p>150</p></td>\n<td><p>40</p></td>\n</tr>\n<tr>\n<td><p>Manufactured objects<strong><sup>1</sup></strong></p></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Fine</p></td>\n<td><p>0</p></td>\n<td><p>1</p></td>\n<td><p>10</p></td>\n</tr>\n<tr>\n<td><p>Diminutive</p></td>\n<td><p>0</p></td>\n<td><p>1</p></td>\n<td><p>10</p></td>\n</tr>\n<tr>\n<td><p>Tiny</p></td>\n<td><p>1</p></td>\n<td><p>2</p></td>\n<td><p>10</p></td>\n</tr>\n<tr>\n<td><p>Small</p></td>\n<td><p>3</p></td>\n<td><p>3</p></td>\n<td><p>12</p></td>\n</tr>\n<tr>\n<td><p>Medium-size</p></td>\n<td><p>5</p></td>\n<td><p>5</p></td>\n<td><p>15</p></td>\n</tr>\n<tr>\n<td><p>Large</p></td>\n<td><p>5</p></td>\n<td><p>10</p></td>\n<td><p>15</p></td>\n</tr>\n<tr>\n<td><p>Huge</p></td>\n<td><p>8</p></td>\n<td><p>10</p></td>\n<td><p>20</p></td>\n</tr>\n<tr>\n<td><p>Gargantuan</p></td>\n<td><p>8</p></td>\n<td><p>20</p></td>\n<td><p>30</p></td>\n</tr>\n<tr>\n<td><p>Colossal</p></td>\n<td><p>10</p></td>\n<td><p>30</p></td>\n<td><p>50</p></td>\n</tr>\n<tr>\n<td><p>Firearm, Medium-size</p></td>\n<td><p>5</p></td>\n<td><p>7</p></td>\n<td><p>17</p></td>\n</tr>\n<tr>\n<td><p>Rope</p></td>\n<td><p>0</p></td>\n<td><p>2</p></td>\n<td><p>23</p></td>\n</tr>\n<tr>\n<td><p>Simple wooden door</p></td>\n<td><p>5</p></td>\n<td><p>10</p></td>\n<td><p>13</p></td>\n</tr>\n<tr>\n<td><p>Strong wooden door</p></td>\n<td><p>5</p></td>\n<td><p>20</p></td>\n<td><p>23</p></td>\n</tr>\n<tr>\n<td><p>Steel door</p></td>\n<td><p>10</p></td>\n<td><p>120</p></td>\n<td><p>35</p></td>\n</tr>\n<tr>\n<td><p>Cinderblock wall</p></td>\n<td><p>8</p></td>\n<td><p>90</p></td>\n<td><p>35</p></td>\n</tr>\n<tr>\n<td><p>Chain</p></td>\n<td><p>10</p></td>\n<td><p>5</p></td>\n<td><p>26</p></td>\n</tr>\n<tr>\n<td><p>Handcuffs</p></td>\n<td><p>10</p></td>\n<td><p>10</p></td>\n<td><p>30</p></td>\n</tr>\n<tr>\n<td><p>Metal bars</p></td>\n<td><p>10</p></td>\n<td><p>15</p></td>\n<td><p>30</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>1Figures for manufactured objects are minimum values. The GM may\nadjust these upward to account for objects with more strength and\ndurability.</p></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<p><em>Energy Attacks:</em> Acid and sonic/concussive attacks deal\nnormal damage to most objects. Electricity and fire attacks deal half\ndamage to most objects; divide the damage by 2 before applying the\nhardness. Cold attacks deal one-quarter damage to most objects; divide\nthe damage by 4 before applying the hardness.</p>\n<p><em>Ineffective Weapons: </em>The GM may determine that certain\nweapons just can’t deal damage effectively to certain objects.</p>\n<p><em>Immunities:</em> Objects are immune to nonlethal damage and to\ncritical hits.</p>\n<p><em>Saving Throws:</em> Unattended objects never make saving throws.\nThey are considered to have failed their saving throws. An object\nattended by a character (being grasped, touched, or worn) receives a\nsaving throw just as if the character herself were making the saving\nthrow.</p>\n<h3>Breaking Objects</h3>\n<p>When a character tries to break something with sudden force rather\nthan by dealing damage, use a Strength check to see whether he or she\nsucceeds. The DC depends more on the construction of the object than on\nthe material.</p>\n<p>If an object has lost half or more of its hit points, the DC to break\nit decreases by 2.</p>\n<h3>Repairing Objects</h3>\n<p>Repairing damage to an object takes a full hour of work and\nappropriate tools. (Without the tools, a character takes a –4 penalty on\nhis or her Repair check.) At the end of the hour, make a Repair check\n(DC 20). Success restores 2d6 hit points. If damage remains, the\ncharacter may continue to make repairs for as many hours as it takes to\nrestore all the object’s hit points.</p>\n<h3>Bull Rush</h3>\n<p>A character can attempt a bull rush as an attack action made during\nhis or her move action, or as part of a charge. (In general, a character\ncan’t make an attack action during a move action; this is an exception.)\nIn either case, the character doesn’t get a 5-foot step before, during,\nor after the bull rush attempt. When the character bull rushes, he or\nshe attempts to push an opponent straight back instead of attacking the\nopponent. A character can only bull rush an opponent who is one size\ncategory larger than the character, the same size, or smaller.</p>"
       },
       "sort": 6600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.AIhKH6oThfGrdEv3"
     },
     {
       "_id": "KAyWzNdfDZRr3aED",
@@ -1005,7 +1071,8 @@
         "content": "<h4>Initiating a Bull Rush</h4>\n<p>First, the character moves into the target’s square. Moving in this\nway provokes an attack of opportunity from each foe that threatens the\ncharacter, probably including the target.</p>\n<p>Second, the character and the target make opposed Strength checks. If\nthe character and the target are different sizes, the larger combatant\ngets a bonus on the Strength check of +4 per difference in size\ncategory. The character gets a +2 bonus if he or she was charging. The\ntarget gets a +4 stability bonus if he or she has more than two legs or\nis otherwise exceptionally stable.</p>"
       },
       "sort": 6700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.KAyWzNdfDZRr3aED"
     },
     {
       "_id": "hd7qKRPPtakfjGfM",
@@ -1020,7 +1087,8 @@
         "content": "<h4>Bull Rush Results</h4>\n<p>If the character beats the target’s Strength check, the character\npushes the opponent back 5 feet. The character can push the target back\nan additional 5 feet for every 5 points by which the character exceeded\nthe target’s check result, provided the character moves with the target.\nA character can’t, however, exceed his or her normal movement for that\naction. (The target provokes attacks of opportunity if moved. So does\nthe character, if he or she moves with the target. The target and the\ncharacter do not provoke attacks of opportunity from each other as a\nresult of this movement.)</p>\n<p>If the character fails to beat the target’s Strength check, the\ncharacter moves 5 feet straight back to where the character was before\nthe character moved into the opponents square. If that square is\noccupied, the character falls prone in the square.</p>"
       },
       "sort": 6800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.hd7qKRPPtakfjGfM"
     },
     {
       "_id": "MwbVkdxiy0UpwxkT",
@@ -1035,7 +1103,8 @@
         "content": "<h4>Overrun</h4>\n<p>A character can attempt an overrun as an attack action made during\nhis or her move action, or as part of a charge. (In general, a character\ncannot make an attack action during a move action; this is an\nexception.) In either case, the character doesn’t get a 5-foot step\nbefore, during, or after the overrun attempt. With an overrun, the\ncharacter attempts to move through an opponents area, going past or over\nthe opponent. A character can only overrun an opponent who is one size\ncategory larger than the character, the same size, or smaller. A\ncharacter can make only one overrun attempt per action.</p>\n<p>First, the character must move at least 10 feet in a straight line\ninto the target’s square (provoking attacks of opportunity\nnormally).</p>\n<p>Then the target chooses either to avoid the character or to block the\ncharacter. If the opponent avoids the character, the character keeps\nmoving. (A character can always move through a square occupied by\nsomeone who lets the character by.) If the opponent blocks the\ncharacter, make a trip attack against the opponent (see Trip). If the\ncharacter succeeds in tripping his or her opponent, the character can\ncontinue his or her movement as normal.</p>\n<p>If the character fails and are tripped in turn, the character falls\nprone in the target’s square. If the character fails but are not\ntripped, the character has to move 5 feet back the way he or she came,\nending his or her movement there. If that square is occupied, the\ncharacter falls prone in the square.</p>\n<p>Trip</p>\n<p>A character can try to trip an opponent, or otherwise knock him or\nher down, as an unarmed melee attack. A character can only trip an\nopponent who is one size category larger than the character, the same\nsize, or smaller.</p>"
       },
       "sort": 6900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.MwbVkdxiy0UpwxkT"
     },
     {
       "_id": "elPLrLJW7vp2bz5A",
@@ -1050,7 +1119,8 @@
         "content": "<h4>Making a Trip Attack</h4>\n<p>Make an unarmed melee touch attack against the target. Doing this\nprovokes an attack of opportunity from the target as normal for unarmed\nattacks.</p>\n<p>If the attack succeeds, make a Strength check opposed by the target’s\nDexterity check or Strength check (using whichever ability score has the\nhigher modifier). If the character and the target are different sizes,\nthe larger combatant gets a bonus on the Strength check of +4 per\ndifference in size category. The target gets a +4 stability bonus on his\nor her check if he or she has more than two legs or is otherwise\nexceptionally stable. If the character wins, he or she trips the target.\nIf the character loses, the target may immediately react and make a\nStrength check opposed by the character’s Dexterity check or Strength\ncheck to try to trip the character.</p>\n<p><strong>Being Tripped (Prone)</strong></p>\n<p>A tripped character is prone (see Table: Defense Modifiers). Standing\nup from a prone position is a move action.</p>"
       },
       "sort": 7000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.elPLrLJW7vp2bz5A"
     },
     {
       "_id": "H1JsCRgTyfiSqYI8",
@@ -1065,7 +1135,8 @@
         "content": "<h4>Tripping with a Weapon</h4>\n<p>Some weapons, such as the chain and the whip, can be used to make\ntrip attacks. A character doesn’t incur an attack of opportunity when\ndoing so. If the character is tripped during his or her own trip\nattempt, the character can drop the weapon to avoid being tripped.</p>\n<h3>Disarm</h3>\n<p>As a melee attack, a character may attempt to disarm his or her\nopponent. If the character does so with a weapon, he or she knocks the\nopponent’s weapon out of his or her hands and to the ground. If the\ncharacter attempt the disarm while unarmed, the character ends up with\nthe weapon in his or her hand.</p>\n<p>If a character is attempting to disarm the wielder of a melee weapon,\nfollow the steps outlined here. Disarming the wielder of a ranged weapon\nis slightly different; see below.</p>\n<p>Step One: The character provokes an attack of opportunity from the\ntarget he or she is trying to disarm.</p>\n<p>Step Two: The character and the target make opposed attack rolls with\ntheir respective weapons. If the weapons are different sizes, the\ncombatant with the larger weapon gets a bonus on the attack roll of +4\nper difference in size category. If the target is using a weapon in two\nhands, he or she gets an additional +4 bonus. Also, if the combatants\nare different sizes, the larger combatant gets a bonus on the attack\nroll of +4 per difference in size category.</p>\n<p>Step Three: If the character beats the target’s attack roll, the\ntarget is disarmed. If the character attempted the disarm action\nunarmed, he or she now has the weapon. If the character was armed, the\ntarget’s weapon is on the ground at the target’s feet.</p>\n<p>If the character fails the disarm attempt, the target may immediately\nreact and attempt to disarm the character with the same sort of opposed\nmelee attack roll. The opponent’s attempt does not provoke an attack of\nopportunity from the character. If the opponent fails to disarm, the\ncharacter does not get a free disarm attempt against the opponent.</p>"
       },
       "sort": 7100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.H1JsCRgTyfiSqYI8"
     },
     {
       "_id": "SQL84A192SKt8zwA",
@@ -1080,7 +1151,8 @@
         "content": "<h4>Ranged Weapons</h4>\n<p>To disarm an opponent wielding a ranged weapon, the character makes a\nmelee attack or unarmed attack to strike the weapon in the opponent’s\nhand (see Attack an Object). If the weapon is held in two hands, it gets\na +2 bonus to its Defense. If the character’s attack succeeds, the\nranged weapon falls to the ground or winds up in the character’s hands\n(if the character made the attack unarmed). This kind of disarm attempt\nprovokes an attack of opportunity, but if the character fails, the\ntarget does not get to make a disarm attempt against him or her.</p>\n<p>Grabbing Objects</p>\n<p>A character can also use disarm to snatch away an object worn by a\ntarget. Doing this works the same as a disarm attempt (see above),\nexcept for the following.</p>\n<p>Attack of Opportunity: If the target’s attack of opportunity inflicts\nany damage, the attempt to grab the object automatically fails.</p>\n<p>Modifiers: If the object is well secured or otherwise difficult to\ngrab from the target, the target gets a +4 bonus. On the other hand, if\nthe object is poorly secured or otherwise easy to snatch or cut away,\nthe attacker gets a +4 bonus.</p>\n<p>Failed Attempts: Failing an attempt to grab an object doesn’t allow\nthe target to at­tempt to disarm the character.</p>\n<h3>Grapple</h3>\n<p>Grappling means wrestling and struggling hand-to-hand.</p>\n<p>There are three stages to grappling: grabbing, holding, and\npinning.</p>"
       },
       "sort": 7200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.SQL84A192SKt8zwA"
     },
     {
       "_id": "GTn3UtWvjBDj0RnB",
@@ -1095,7 +1167,8 @@
         "content": "<h4>Grabbing</h4>\n<p>Normally, a grab is just the first step to starting a grapple. If the\ncharacter grabs an opponent, but fails to go on to hold him or her, the\ncharacter doesn’t actually start a grapple. However, sometimes all a\ncharacter wants to do is grab the target.</p>"
       },
       "sort": 7300000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.GTn3UtWvjBDj0RnB"
     },
     {
       "_id": "4l1Dn25GvCE9ONUq",
@@ -1110,7 +1183,8 @@
         "content": "<h4>Holding</h4>\n<p>Once a character has established a hold, he or she is involved in a\ngrapple. From a hold, a character can attempt a number of actions,\nincluding damaging the opponent or pinning the opponent. A character\ncan’t get a hold on any creature more than two size categories larger\nthan the character. (However, such a creature can get a hold on the\ncharacter—so while a character can’t initiate a grapple with a creature\nmore than two size categories larger than, a character can still end up\nin one.)</p>"
       },
       "sort": 7400000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.4l1Dn25GvCE9ONUq"
     },
     {
       "_id": "pIdUH0FQeRGM70jh",
@@ -1125,7 +1199,8 @@
         "content": "<h4>Pinning</h4>\n<p>Getting the opponent in a pin is often the goal of a grapple. A\npinned character is held immobile.</p>"
       },
       "sort": 7500000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.pIdUH0FQeRGM70jh"
     },
     {
       "_id": "XPLNUNuv6AbDxZ8m",
@@ -1140,7 +1215,8 @@
         "content": "<h4>Grapple Checks</h4>\n<p>When a character is involved in a grapple, he or she will need to\nmake opposed grapple checks against an opponent—often repeatedly. A\ngrapple check is something like a melee attack roll. A character’s\nattack bonus on a grapple check is:</p>\n<p>Base attack bonus + Strength modifier + grapple modifier</p>"
       },
       "sort": 7600000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.XPLNUNuv6AbDxZ8m"
     },
     {
       "_id": "d2RuaoVCvcBinDEc",
@@ -1155,7 +1231,8 @@
         "content": "<h4>Grapple Modifier</h4>\n<p>A creature’s size works in its favor when grappling, if that creature\nis Large or larger in size. Conversely, a creature of Small or smaller\nsize is at a disadvantage because of its size when grappling. Instead of\nusing a creature’s size modifier on a grapple check (as would be done\nfor a melee or ranged attack roll), use the appropriate grapple modifier\nfrom Table: Grapple <strong>Modifiers.</strong></p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Grapple Modifiers</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Size (Example)</strong></p></td>\n<td><p><strong>Grapple Modifier</strong></p></td>\n</tr>\n<tr>\n<td><p>Colossal (blue whale [90 ft. long])</p></td>\n<td><p>+16</p></td>\n</tr>\n<tr>\n<td><p>Gargantuan (gray whale [40 ft. long])</p></td>\n<td><p>+12</p></td>\n</tr>\n<tr>\n<td><p>Huge (elephant)</p></td>\n<td><p>+8</p></td>\n</tr>\n<tr>\n<td><p>Large (lion)</p></td>\n<td><p>+4</p></td>\n</tr>\n<tr>\n<td><p>Medium-size (human)</p></td>\n<td><p>+0</p></td>\n</tr>\n<tr>\n<td><p>Small (German shepherd)</p></td>\n<td><p>–4</p></td>\n</tr>\n<tr>\n<td><p>Tiny (housecat)</p></td>\n<td><p>–8</p></td>\n</tr>\n<tr>\n<td><p>Diminutive (rat)</p></td>\n<td><p>–12</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Fine (horsefly)</p></td>\n<td><p>–16</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
       },
       "sort": 7700000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.d2RuaoVCvcBinDEc"
     },
     {
       "_id": "wkHBklL0D7O9EveF",
@@ -1170,7 +1247,8 @@
         "content": "<h4>Starting a Grapple</h4>\n<p>To start a grapple, a character first needs to grab and hold his or\nher target. Attempting to start a grapple is the equivalent of making a\nmelee attack. If the character gets multiple attacks in a round, he or\nshe can attempt to start a grapple multiple times (at successively lower\nbase attack bonuses). Follow these steps.</p>\n<p>1. Attack of Opportunity: A character provokes an attack of\nopportunity from the target he or she is trying to grapple. If the\nattack of opportunity deals the character damage, the character fails to\nstart the grapple. If the attack of opportunity misses or otherwise\nfails to deal damage, proceed to step 2.</p>\n<p>2. Grab: The character makes a melee touch attack to grab the target.\nIf the character fails to hit the target, the character fails to start\nthe grapple. If the character succeeds, proceed to step 3.</p>\n<p>3. Hold: Make an opposed grapple check. (This is a free action.) If\nthe character succeeds, the character has started the grapple, and deals\ndamage to the target as if with an unarmed strike.</p>\n<p>If the character loses, he or she fails to start the grapple. The\ncharacter automatically loses an attempt to hold if the target is two or\nmore size categories larger than the character is (but the character can\nstill make an attempt to grab such a target, if that’s all he or she\nwants to do).</p>\n<p>4. Maintain the Grapple: To maintain the grapple for later rounds,\nthe character must move into the target’s square. (This movement is free\nand doesn’t count as part of the character’s movement for the round\nmovement.) Moving, as normal, provokes attacks of opportunity from\nthreatening enemies, but not from the target. The character and the\ntarget are now grappling.</p>\n<p>If the character can’t move into the target’s square, the character\ncan’t maintain the grapple and must immediately let go of the target. To\ngrapple again, the character must begin at step 1.</p>"
       },
       "sort": 7800000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.wkHBklL0D7O9EveF"
     },
     {
       "_id": "YuvCSmD32pKq65ts",
@@ -1185,7 +1263,8 @@
         "content": "<h4>Grappling Consequences</h4>\n<p>While a character is grappling, his or her ability to attack others\nand defend him or herself is limited.</p>\n<p><em>No Threatened Squares: </em>A character doesn’t threaten any\nsquares while grappling.</p>\n<p><em>No Dexterity Bonus:</em> A character loses his or her Dexterity\nbonus to Defense (if the character has one) against opponents the\ncharacter isn’t grappling. (The character can still use it against\nopponents he or she is grappling.)</p>\n<p><em>No Movement:</em> A character cannot move while held in a\ngrapple.</p>"
       },
       "sort": 7900000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.YuvCSmD32pKq65ts"
     },
     {
       "_id": "gf9Z8W4omDhb05pz",
@@ -1200,7 +1279,8 @@
         "content": "<h4>If the Character is Grappling</h4>\n<p>When a character is grappling (regardless of who started the\ngrapple), he or she can attempt any of several actions on his or her\nturn. Unless otherwise noted, each of these options is equivalent to an\nattack. (If the character normally gets more than one attack per attack\naction, he or she can attempt as many of these options as he or she has\nattacks available, using his or her successively lower attack bonus for\neach roll.) The character is limited to these options only; he or she\ncannot take any other actions.</p>\n<p><em>Damage the Opponent:</em> Make an opposed grapple check; if the\ncharacter succeeds, he or she deals damage as with an un­armed\nstrike.</p>\n<p><em>Pin:</em> Make an opposed grapple check; if the character\nsucceeds, he or she holds the opponent immobile for 1 round. The\nopponent takes a –4 penalty to Defense against all attacks from other\npeople (but not from the character); however, the opponent is not\nconsidered helpless.</p>\n<p>A character can’t use a weapon on a pinned character or attempt to\ndamage or pin a second opponent while holding a pin on the first.</p>\n<p>A pinned character can’t take any action except to attempt to escape\nfrom the pin.</p>\n<p><em>Escape from Grapple:</em> Make an opposed grapple check. If the\ncharacter succeeds, he or she can escape the grapple. If more than one\nopponent is grappling the character, the grapple check result has to\nbeat all their check results to escape. (Opponents don’t have to try to\nhold a character if they don’t want to.)</p>\n<p>Alternatively, the character can make an Escape Artist check opposed\nby the opponent’s grapple check to escape from the grapple. This is an\nattack action that the character may only attempt once per round, even\nif the character gets multiple attacks.</p>\n<p>If the character has not used his or her move action for the round,\nthe character may do so after escaping the grapple.</p>\n<p><em>Escape from Pin: </em>Make an opposed grapple check. If the\ncharacter succeeds, he or she can escape from being pinned. (Opponents\ndon’t have to try to keep the character pinned if they don’t want to.)\nThe character is still being grappled, however.</p>\n<p>Alternatively, a character can make an Escape Artist check opposed by\nthe opponent’s grapple check to escape from the pin. This is an attack\naction that the character may only attempt once per round, even if the\ncharacter gets multiple attacks.</p>\n<p><em>Break Another’s Pin:</em> Make an opposed grapple check; if the\ncharacter succeeds, he or she can break the hold that an opponent has\nover an ally.</p>\n<p><em>Draw a Light Weapon:</em> A character can draw a light weap­on as\na move action.</p>\n<p><em>Attack with a Light Weapon:</em> A character can attack with a\nlight weapon while grappling (but not while pinned or pinning). A\ncharacter can’t attack with two weap­ons while grappling.</p>"
       },
       "sort": 8000000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.gf9Z8W4omDhb05pz"
     },
     {
       "_id": "vWNEJqchvJlR4v0H",
@@ -1215,7 +1295,8 @@
         "content": "<h4>If the Character is Pinned</h4>\n<p>When an opponent has pinned the character, he or she is held immobile\n(but not helpless) for 1 round. (the character can’t attempt any other\naction.) On the character’s turn, he or she can attempt to escape from\nthe pin. If the character succeeds, he or she is still grappling.</p>"
       },
       "sort": 8100000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.vWNEJqchvJlR4v0H"
     },
     {
       "_id": "iKpf3c2i3bFv33qH",
@@ -1230,7 +1311,8 @@
         "content": "<h4>Joining a Grapple</h4>\n<p>If the target is already grappling someone else, a character can use\nan attack to start a grapple, as above, except that the target doesn’t\nget an attack of opportunity against the character, and the character’s\ngrab automatically succeeds. The character still has to make a\nsuccessful opposed grapple check and move in to be part of the\ngrapple.</p>\n<p>If multiple enemies are already involved in the grapple, the\ncharacter picks one against whom to make the opposed grapple check.</p>\n<p><strong>Multiple Grapplers</strong></p>\n<p>Several combatants can be in a single grapple. Up to four combatants\ncan grapple a single opponent in a given round. Creatures that are one\nsize category smaller than the character count as one-half creature\neach; creatures that are one size category larger than the character\ncount as two creatures; and creatures two or more size categories larger\nthan the character count as four creatures.</p>\n<p>When involved in a grapple with multiple opponents, the character\nchooses one opponent to make an opposed check against. The exception is\nan attempt to escape from the grapple; to escape, a character’s grapple\ncheck must beat the check results of all opponents.</p>"
       },
       "sort": 8200000,
-      "flags": {}
+      "flags": {},
+      "_key": "!journal.pages!kbM6D20eEvG1qP6k.iKpf3c2i3bFv33qH"
     }
   ],
   "sort": 10000,
