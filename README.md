@@ -34,7 +34,7 @@ fighting it forever, so this is a standalone game system.
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
-| Rules reference | 50 journal entries, 1,653 pages — the SRD's own text, in four books, cross-linked |
+| Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
@@ -468,7 +468,7 @@ was to put them where the creature is rather than to guess at a mechanism for
 The SRD is published as a website — [spellbooksoftware.com/d20mrsd][mirror] —
 and that is where both halves of this system come from: the numbers, which the
 pipeline parses out of its tables, and the prose those tables are printed
-inside. It builds into a `rules` journal compendium of 50 entries and 1,653
+inside. It builds into a `rules` journal compendium of 53 entries and 1,685
 pages, one entry per section of the SRD and one page per page of it, in a
 folder per book, so the rules are searchable in the world, readable by players
 without the GM setting permissions, and linkable with `@UUID` from anything
@@ -514,7 +514,7 @@ journal is a broken-image icon 185 times over.
 twenty to a page: ninety-five feats on one page, fifty-nine spells on another,
 four pages of Menace Manual creatures. Those are pages nobody scrolls and
 nothing can link into. Eighty-one of them are split at the heading each entry is
-named at, which turns 238 pages into 1,653 — a page per creature, spell,
+named at, which turns 238 pages into 1,685 — a page per creature, spell,
 psionic power, incantation, seed, feat, skill, occupation, Shadowkind species,
 organization, mutation, magic item, and every equipment category and item the
 four books sell — including the parts d20 Future builds its starships, mecha
@@ -559,9 +559,31 @@ contents list replaces. Measured on what is left after the headings and links
 come out, rather than on length, because Urban Arcana opens its wondrous items
 by saying what one is and that paragraph is shorter than the banners.
 
+### What the website does not have
+
+Four of d20 Modern's chapters are not on the mirror at all. Not broken links
+or truncated pages — the text is not there: nothing on the site says what an
+action point does, what happens at negative hit points, how Reputation is
+checked, or how a skill check works. Every one of them is in the RTF releases,
+so `scripts/import_missing.py` takes those four documents from there and
+`data/rules-extra.json` holds them, folded into `data/rules.json` on every
+import rather than written in once and lost at the next one.
+
+They were found by taking every sentence of all 63 RTF documents and looking
+for it in the imported text. Four scored zero. Nothing else scored below a
+third, which is a wording difference rather than an absence — these documents
+and the website are different editings of the same text.
+
+The site's own broken links are a separate thing and mostly harmless: eleven
+URLs it links to are 404, and all but the two appendices are old names for
+pages it still has — `spellsaz.html` is `fxspellsaz.html`, `gear.html` is
+`general.html`. Two hundred and seventy-three links point at anchors that were
+never written, which is why a reference into a page that has since been split
+becomes plain text rather than a link to the wrong entry.
+
 Two of the Menace Manual's creatures, the rod and the rogue tulpa, are in its
-index and its page titles and nowhere in its text. The mirror never published
-them.
+index and its page titles and nowhere in its text. Those are not in the RTFs
+either — the Menace Manual SRD never included them.
 
 **The cross-references are made to work.** The SRD points at itself constantly
 — "see Weapons", "as described under Attacks of Opportunity" — and on the web

@@ -1,0 +1,31 @@
+{
+  "_id": "M6kVCrrZywdkvkEz",
+  "name": "Action Points",
+  "pages": [
+    {
+      "_id": "aWSa9p2Q7NHK5WqR",
+      "name": "Action Points",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>This material is Open Game Content, and is licensed for public use\nunder the terms of the Open Game License v1.0a.</p>\n<h2>ACTION POINTS</h2>\n<p>Action points provide characters with the means to affect game play\nin significant ways. A character always has a limited amount of action\npoints, and while the character replenishes this supply with every new\nlevel he or she attains, the character must use them wisely. A character\ncan spend 1 action point to do one of these things:</p>\n<ul>\n<li><p>Alter a single d20 roll used to make an attack, a skill check, an\nability check, a level check, or a saving throw.</p></li>\n<li><p>Use a class talent or class feature during your turn for which\nthe expenditure of 1 action point is required.</p></li>\n</ul>\n<p>When a character spends 1 action point to improve a d20 roll, add 1d6\nto the d20 roll to help meet or exceed the target number. A character\ncan declare the use of 1 action point to alter a d20 roll after the roll\nis made—but only before the GM reveals the result of that roll (whether\nthe attack or check or saving throw suc­ceeded or failed). A character\ncan’t use an action point on a skill check or ability check when he or\nshe is taking 10 or taking 20.</p>\n<p>When a character spends 1 action point to use a class feature, he or\nshe gains the benefit of the feature but doesn’t roll a d6. In this\ncase, the action point is not a bonus to a d20 roll.</p>\n<p>A character can only spend 1 action point in a round. If a character\nspends a point to use a class feature, he or she can’t spend another one\nin the same round to improve a die roll, and vice versa.</p>\n<p>Depending on the hero’s character level (see the table below), he or\nshe may be able to roll more than one d6 when spending 1 action point.\nIf the character does so, apply the highest result and disregard the\nother rolls.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Character Level</strong></p></td>\n<td><p><strong>Action Point Dice Rolled</strong></p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>1st–7th</p></td>\n<td><p>1d6</p></td>\n</tr>\n<tr>\n<td><p>8th–14th</p></td>\n<td><p>2d6</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>15th–20th</p></td>\n<td><p>3d6</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
+      },
+      "sort": 100000,
+      "flags": {},
+      "_key": "!journal.pages!M6kVCrrZywdkvkEz.aWSa9p2Q7NHK5WqR"
+    }
+  ],
+  "sort": 3000,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "msrdactionpoints.rtf"
+    }
+  },
+  "_key": "!journal!M6kVCrrZywdkvkEz",
+  "folder": "6JBxrBU0OZLlNysr"
+}

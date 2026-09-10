@@ -570,6 +570,49 @@ def disambiguate(pages: list[dict], label: dict[str, str]) -> None:
         page.pop("part", None)
 
 
+def fill_gaps(documents: list[dict]) -> list[dict]:
+    """The chapters the website does not have, from the RTFs Wizards released.
+
+    Four of d20 Modern's chapters are not on the mirror at all - action
+    points, death and dying, Reputation, and how a skill check works - so they
+    are imported from the documents instead and folded in here, on every run,
+    rather than being written into data/rules.json once and lost the next time
+    it is regenerated. scripts/import_missing.py is what produces them, and
+    says how they were found.
+    """
+    path = os.path.join(srd.DATA, "rules-extra.json")
+    if not os.path.exists(path):
+        return documents
+
+    with open(path, encoding="utf-8") as handle:
+        extra = json.load(handle)
+
+    by_id = {entry["id"]: entry for entry in documents}
+    for filler in extra:
+        pages = [{"name": page["name"], "source": filler["source"],
+                  "anchors": page.get("anchors") or [], "html": page["html"]}
+                 for page in filler["pages"]]
+
+        if filler.get("into"):
+            host = by_id.get(filler["into"])
+            if not host:
+                print(f"  ! nothing called {filler['into']} to add "
+                      f"{filler['title']} to", file=sys.stderr)
+                continue
+            host["pages"] += pages
+            print(f"  + {filler['title']} ({len(pages)} pages) into {host['title']}")
+            continue
+
+        entry = {"id": filler["id"], "book": filler["book"], "title": filler["title"],
+                 "source": filler["source"], "pages": pages}
+        after = [index for index, one in enumerate(documents)
+                 if one["id"] == filler.get("after")]
+        documents.insert(after[0] + 1 if after else len(documents), entry)
+        print(f"  + {filler['title']} ({len(pages)} pages) after "
+              f"{filler.get('after') or 'everything'}")
+    return documents
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -620,6 +663,8 @@ def main() -> int:
     documents.sort(key=lambda entry: (list(BOOKS.values()).index(entry["book"])
                                       if entry["book"] in BOOKS.values() else 9,
                                       site.order.index(entry["source"])))
+
+    documents = fill_gaps(documents)
 
     out = os.path.join(srd.DATA, "rules.json")
     with open(out, "w", encoding="utf-8") as handle:

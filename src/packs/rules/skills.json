@@ -801,9 +801,265 @@
       "sort": 5000000,
       "flags": {},
       "_key": "!journal.pages!Uuaoqg08HvQpYRGt.wfhDux0dBvZIqHmp"
+    },
+    {
+      "_id": "tnsUcIFoUlGFrR5j",
+      "name": "Skill Basics",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>This material is Open Game Content, and is licensed for public use\nunder the terms of the Open Game License v1.0a.</p>\n<p>SKILL BASICS</p>"
+      },
+      "sort": 5100000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.tnsUcIFoUlGFrR5j"
+    },
+    {
+      "_id": "O8YUnlY8aWzEKF8m",
+      "name": "Getting Skills",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Getting Skills</h1>\n<p>At each level, a character gets skill points that are used to buy\nskills. The character’s class and Intelligence modifier determine the\nnumber of points received.</p>\n<p>If the character buys a class skill, he or she gets 1 rank in the\nskill for each skill point spent. If the character buys a cross-class\nskill, he or she gets ½ rank per skill point. The maximum rank in a\nclass skill is equal to character level + 3. The maximum rank in a\ncross-class skill is one-half of this number.</p>"
+      },
+      "sort": 5200000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.O8YUnlY8aWzEKF8m"
+    },
+    {
+      "_id": "uUgkSBnEvajpPxdT",
+      "name": "Using Skills",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Using Skills</h1>\n<p>To make a skill check, roll:</p>\n<p>1d20 + skill modifier</p>\n<p>(Skill modifier = skill ranks + ability modifier + miscellaneous\nmodifiers)</p>\n<p><strong>Skill Ranks:</strong> A character’s ranks in a skill is based\non the number of skill points the character has invested in the skill.\nSome skills can be used even if the character has no ranks in the skill;\ndoing this is known as making an untrained skill check.</p>\n<p><strong>Ability Modifier:</strong> The ability modifier used in the\nskill check is the modifier for the skill’s key ability (the ability\nassociated with the skill’s use). The key ability of a skill is noted in\nits description.</p>\n<p><strong>Miscellaneous Modifiers:</strong> Miscellaneous modifiers\ninclude bonuses provided by feats and class features, and penalties such\nas the ones associated with the nonproficient use of armor, among\nothers.</p>"
+      },
+      "sort": 5300000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.uUgkSBnEvajpPxdT"
+    },
+    {
+      "_id": "9036TXW4jA8o53cE",
+      "name": "Acquiring Skill Ranks",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Acquiring Skill Ranks</h1>\n<p>Ranks indicate how much training or experience a character has with a\ngiven skill. Each skill has a number of ranks, from 0 (for a skill in\nwhich a character has no training at all) to 23 (for a 20th-level\ncharacter who has increased a class skill to its maximum rank). When\nmaking a skill check, a character adds his or her skill ranks to the\nroll as part of the skill modifier.</p>\n<p>The rules assume that a character can always find a way to learn any\nskill. However, the GM can impose limits depending on circumstances and\na given situation.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Skill Points per Level</strong></p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Class</strong></p></td>\n<td><p><strong>1st Level Skill Points</strong></p></td>\n<td><p><strong>Higher Level Skill Points</strong></p></td>\n</tr>\n<tr>\n<td><p>Strong</p></td>\n<td><p>(3 + Int modifier) x4</p></td>\n<td><p>3 + Int modifier</p></td>\n</tr>\n<tr>\n<td><p>Fast</p></td>\n<td><p>(5 + Int modifier) x4</p></td>\n<td><p>5 + Int modifier</p></td>\n</tr>\n<tr>\n<td><p>Tough</p></td>\n<td><p>(3 + Int modifier) x4</p></td>\n<td><p>3 + Int modifier</p></td>\n</tr>\n<tr>\n<td><p>Smart</p></td>\n<td><p>(9 + Int modifier) x4</p></td>\n<td><p>9 + Int modifier</p></td>\n</tr>\n<tr>\n<td><p>Dedicated</p></td>\n<td><p>(5 + Int modifier) x4</p></td>\n<td><p>5 + Int modifier</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Charismatic</p></td>\n<td><p>(7 + Int modifier) x4</p></td>\n<td><p>7 + Int modifier</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
+      },
+      "sort": 5400000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.9036TXW4jA8o53cE"
+    },
+    {
+      "_id": "ppRJeMfBbN9gT1fJ",
+      "name": "Skill Checks",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Skill Checks</h1>\n<p>Unlike with attack rolls and saving throws, a natural roll of 20 on\nthe d20 is not an automatic success when making a skill check, and a\nnatural roll of 1 is not an automatic failure.</p>"
+      },
+      "sort": 5500000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.ppRJeMfBbN9gT1fJ"
+    },
+    {
+      "_id": "n8pVTiy0RWWjWsKC",
+      "name": "Difficulty Class",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Difficulty Class</h1>\n<p>Some checks are made against a Difficulty Class (DC). The DC is a\nnumber set by the GM (using the skill rules as a guideline) that a\ncharacter must attain to succeed.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Difficulty Class Examples</strong></p></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p><strong>Difficulty (DC)</strong></p></td>\n<td><p><strong>Example (Skill Used)</strong></p></td>\n</tr>\n<tr>\n<td><p>Very easy (0)</p></td>\n<td><p>Notice something large in plain sight (Spot)</p></td>\n</tr>\n<tr>\n<td><p>Easy (5)</p></td>\n<td><p>Climb a knotted rope (Climb)</p></td>\n</tr>\n<tr>\n<td><p>Average (10)</p></td>\n<td><p>Hear an approaching security guard (Listen)</p></td>\n</tr>\n<tr>\n<td><p>Tough (15)</p></td>\n<td><p>Disarm an explosive (Demolitions)</p></td>\n</tr>\n<tr>\n<td><p>Challenging (20)</p></td>\n<td><p>Swim against a strong current (Swim)</p></td>\n</tr>\n<tr>\n<td><p>Formidable (25)</p></td>\n<td><p>Break into a secure computer system (Computer Use)</p></td>\n</tr>\n<tr>\n<td><p>Heroic (30)</p></td>\n<td><p>Leap across a 30-foot chasm (Jump)</p></td>\n</tr>\n<tr>\n<td><p>Superheroic (35)</p></td>\n<td><p>Convince the guards that even though you’re not wearing an ID\nbadge and aren’t on their list, they should let you into the building\n(Bluff)</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Nearly impossible (40)</p></td>\n<td><p>Track a trained commando through the forests of Brazil on a\nmoonless night after 12 days of rainfall (Survival)</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
+      },
+      "sort": 5600000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.n8pVTiy0RWWjWsKC"
+    },
+    {
+      "_id": "MRPKdIxG3dMZ6sLk",
+      "name": "Opposed Checks",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Opposed Checks</h1>\n<p>Some skill checks are opposed checks. They are made against a\nrandomized number, usually another character’s skill check result.</p>\n<p>For ties on opposed checks, the character with the higher key ability\nscore wins. If those scores are the same, roll again.</p>\n<table>\n<tbody>\n<tr>\n<td><p><strong>Table: Example Opposed Checks</strong></p></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>Task</strong></td>\n<td><strong>Skill</strong></td>\n<td><strong>Opposing Skill</strong></td>\n</tr>\n<tr>\n<td><p>Sneak up on someone</p></td>\n<td><p>Move Silently</p></td>\n<td><p>Listen</p></td>\n</tr>\n<tr>\n<td><p>Con someone</p></td>\n<td><p>Bluff</p></td>\n<td><p>Sense Motive</p></td>\n</tr>\n<tr>\n<td><p>Hide from someone</p></td>\n<td><p>Hide</p></td>\n<td><p>Spot</p></td>\n</tr>\n<tr>\n<td><p>Win a car race</p></td>\n<td><p>Drive</p></td>\n<td><p>Drive</p></td>\n</tr>\n<tr>\n<td><p>Pretend to be someone else</p></td>\n<td><p>Disguise</p></td>\n<td><p>Spot</p></td>\n</tr>\n<tr>\n<td><p>Steal a key chain</p></td>\n<td><p>Sleight of Hand</p></td>\n<td><p>Spot</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Create a fake ID</p></td>\n<td><p>Forgery</p></td>\n<td><p>Forgery</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
+      },
+      "sort": 5700000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.MRPKdIxG3dMZ6sLk"
+    },
+    {
+      "_id": "9E50oYRGtEPirBev",
+      "name": "Trying Again",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Trying Again</h1>\n<p>If a character fails on a skill check, he or she can sometimes try\nagain. Check the skill description to find out if, and under what\ncircumstances, a character can try again. Many skills, however, have\nnatural consequences for failing that must be accounted for. Some skills\ncan’t be tried again once a check has failed for a particular task.</p>\n<p>If the use of a skill carries no penalty for failure, a character can\ntake 20 and assume that he or she keeps trying until he or she\neventually succeeds.</p>"
+      },
+      "sort": 5800000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.9E50oYRGtEPirBev"
+    },
+    {
+      "_id": "zCsS0CWjHlbVZua3",
+      "name": "Untrained Skill Checks",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Untrained Skill Checks</h1>\n<p>Generally, if a character attempts to use a skill he or she doesn’t\nhave any ranks in, the character makes a skill check as described. The\ncharacter’s skill modifier don’t include skill ranks because the\ncharacter doesn’t have any. The character does get other modifiers,\nthough, such as the ability modifier for the skill’s key ability.</p>\n<p>Some skills can be used only if the character is trained in the\nskill.</p>\n<p>Favorable and Unfavorable Conditions</p>\n<p>Some situations may make a skill easier or harder to use, resulting\nin a bonus or penalty to the skill modifier or a change to the skill\ncheck’s DC.</p>\n<p>The GM can alter the odds of success in four ways to take into\naccount exceptional circumstances:</p>\n<p>1. Give the skill user a +2 circumstance bonus to represent\nconditions that improve performance, such as having the perfect tool for\nthe job, getting help from another character, or working under\nconditions that are significantly better than normal.</p>\n<p>2. Give the skill user a –2 circumstance penalty to represent\nconditions that hamper performance, such as being forced to use\nimprovised tools or possessing misleading information.</p>\n<p>3. Reduce the DC by 2 to represent circumstances that make the task\neasier, such as having a friendly audience when making a Perform check\nor searching for information on an extremely well documented topic with\na Computer Use check.</p>\n<p>4. Increase the DC by 2 to represent circumstances that make the task\nharder, such as making a Perform check in front of a hostile audience or\nsearching for information on a very poorly documented topic with a\nComputer Use check.</p>\n<p>Conditions that affect a character’s ability to perform the skill\nchange the character’s skill modifier. Conditions that modify how well\nthe character must perform the skill to succeed change the DC. A bonus\non a character’s skill modifier or a reduction in the DC of the check\nhave the same result—they create a better chance for success. But they\nrepresent different circumstances, and sometimes that difference is\nimportant.</p>"
+      },
+      "sort": 5900000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.zCsS0CWjHlbVZua3"
+    },
+    {
+      "_id": "Q1gLEx6MyFd906yF",
+      "name": "Time and Skill Checks",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Time and Skill Checks</h1>\n<p>Using a skill might take a round, several rounds, or even longer. It\nmight take no time at all. Types of actions define how long activities\ntake to perform within the framework of a combat round (6 seconds) and\nhow movement is treated with respect to the activity. See the skill\ndescription for specifies on how long a skill takes to use.</p>\n<p>In general, using a skill that requires concentration while in close\ncombat is dangerous. Nearby op­ponents can make attacks of opportunity\nagainst a character when he or she lets his or her guard down.</p>"
+      },
+      "sort": 6000000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.Q1gLEx6MyFd906yF"
+    },
+    {
+      "_id": "8Oy1NvAhNNEMJ5nB",
+      "name": "Tools",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Tools</h1>\n<p>Some skill applications require the use of tools. If tools are\nneeded, the specific items required are mentioned in the skill\ndescription. If the character doesn’t have the appropriate tools, he or\nshe can still attempt to use the skill, but the character takes a –4\npenalty on his or her check.</p>\n<p>A character may be able to put together some impromptu tools to make\nthe check. If the GM allows it, reduce the penalty to –2 (instead of –4)\nfor using impromptu tools. It usually takes some time (several minutes\nto an hour or more) to collect or create a set of impromptu tools, and\nit may require a skill check as well.</p>"
+      },
+      "sort": 6100000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.8Oy1NvAhNNEMJ5nB"
+    },
+    {
+      "_id": "fh5HqE9DyYe9m4Rg",
+      "name": "Checks without Rolls",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Checks without Rolls</h1>\n<p>A skill check represents an attempt to accomplish some goal, usually\nin the face of time pressure or distraction. Sometimes, though, a\ncharacter can use a skill under more favorable conditions and eliminate\nthe luck factor.</p>"
+      },
+      "sort": 6200000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.fh5HqE9DyYe9m4Rg"
+    },
+    {
+      "_id": "hb3aOSq2BKaurXXV",
+      "name": "Taking 10",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Taking 10</h1>\n<p>When a character is not being threatened or distracted, he or she may\nchoose to take 10. Instead of rolling 1d20 for the skill check,\ncalculate the result as if the character had rolled a 10 (an average\nroll on a d20). For many relatively routine tasks, taking 10 results in\na success.</p>\n<p>Distractions and threats make it impossible for a character to take\n10. A character also can’t take 10 when using a skill untrained, though\nthe GM may allow exceptions for truly routine activities.</p>\n<p>Taking 20</p>\n<p>When a character has plenty of time, is faced with no threats or\ndistractions, and the skill being attempted carries no penalty for\nfailure, a character can take 20. Instead of rolling 1d20 for the skill\ncheck, calculate the result as if the character had rolled a 20.</p>\n<p>Taking 20 is the equivalent of attempting the check over and over\nagain until the character gets it right. Taking 20 takes twenty times as\nlong as making a single check (2 minutes for a skill that can normally\nbe checked in 1 round).</p>"
+      },
+      "sort": 6300000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.hb3aOSq2BKaurXXV"
+    },
+    {
+      "_id": "pl1hjT0tlnmfoKAf",
+      "name": "Aiding Another",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Aiding Another</h1>\n<p>In some situations, characters can cooperate to accomplish a given\ntask. One character is designated as the leader in the effort, while the\nothers try to aid the character in his or her efforts. A character aids\nanother by making a skill check (DC 10). This is an attack action, and\nthe character can’t take 10 on this check. If the check succeeds, the\ncharacter’s ally gains a +2 circumstance bonus to apply to his or her\nskill check to complete the task.</p>\n<p>In many cases, a character’s help won’t be beneficial, or only a\nlim­ited number of characters can help at the same time. The GM limits\naid another attempts as he or she sees fit for the conditions.</p>"
+      },
+      "sort": 6400000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.pl1hjT0tlnmfoKAf"
+    },
+    {
+      "_id": "foUZpNCEDAl6nmTo",
+      "name": "Skill Synergy",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Skill Synergy</h1>\n<p>Sometimes, the GM may decide that having one skill provides a bonus\nwhen a character uses another skill in certain situations. The character\nmust have at least 5 ranks in the related skill to gain this synergy\nbonus, and the GM must agree that the two skills can complement each\nother in the given situation. In such cases, the character receives a +2\nsynergy bonus on the skill check.</p>\n<p>Ability Checks</p>\n<p>Sometimes a character tries to do something to which no specific\nskill applies. In these cases, the character makes an ability check:\nRoll 1d20 and apply the appropriate ability modifier. The GM assigns a\nDC, or sets up an opposed check when two characters are engaged in a\ncontest using one ability against another. In some cases, a test of\none’s ability doesn’t involve luck. When two characters arm wrestle, for\nexample, the stronger character simply wins. In the case of identical\nscores, make opposed Strength checks.</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Example Ability Check</strong></td>\n<td><strong>Key Ability</strong></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Forcing open a jammed or locked door</p></td>\n<td><p>Strength</p></td>\n</tr>\n<tr>\n<td><p>Tying a rope</p></td>\n<td><p>Dexterity</p></td>\n</tr>\n<tr>\n<td><p>Holding one’s breath</p></td>\n<td><p>Constitution</p></td>\n</tr>\n<tr>\n<td><p>Navigating a maze</p></td>\n<td><p>Intelligence</p></td>\n</tr>\n<tr>\n<td><p>Recognize a stranger you’ve seen before</p></td>\n<td><p>Wisdom</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><p>Getting yourself noticed in a crowd</p></td>\n<td><p>Charisma</p></td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>"
+      },
+      "sort": 6500000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.foUZpNCEDAl6nmTo"
+    },
+    {
+      "_id": "WlmRQEZbd9MFv2OM",
+      "name": "Modifier Types and Stacking",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h1>Modifier Types and Stacking</h1>\n<p>A modifier provides a bonus (a positive modifier) or a penalty (a\nnegative modifier) to a die roll.</p>\n<p>Bonuses with specific descriptors, such as “equipment bonus,”\ngenerally don’t stack (combine for cumulative effect) with others of the\nsame type. In those cases, only the best bonus of that type applies.</p>\n<p>The only specific bonuses that stack are dodge bonuses, synergy\nbonuses, and sometimes circumstance bonuses. Circumstance bonuses stack\nonly if they’re provided by differing circumstances; if two circumstance\nbonuses caused by similar circumstances apply, they don’t stack.</p>\n<p>Specific bonuses that don’t stack include competence, cover,\nequipment, morale, natural armor, and size.</p>\n<p>If the game setting includes magic or other supernatural effects,\nthere can also be deflection, enhancement, enlargement, haste, inherent,\ninsight, luck, profane, resistance, and sacred bonus descriptors. None\nof these bonuses stack.</p>\n<p>Any bonus without a descriptor (such as simply a “+1 bonus”) stacks\nwith other bonuses.</p>\n<p>All penalties stack, regardless of their descriptors.</p>"
+      },
+      "sort": 6600000,
+      "flags": {},
+      "_key": "!journal.pages!Uuaoqg08HvQpYRGt.WlmRQEZbd9MFv2OM"
     }
   ],
-  "sort": 7000,
+  "sort": 9000,
   "flags": {
     "modern20": {
       "book": "d20 Modern",
