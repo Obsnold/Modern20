@@ -1,0 +1,892 @@
+{
+  "_id": "niiq7fl5gfAU9c0g",
+  "name": "BAAL (Unique Archfiend - Charismatic Hero 10/Negotiator 8)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+    "abilities": {
+      "str": {
+        "value": 28,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 31,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 30,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 24,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 25,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 367,
+      "max": 367,
+      "temp": 0,
+      "formula": "8d8+80 plus 10d6+100 plus 8d8+80"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 20
+    },
+    "saves": {
+      "fort": {
+        "base": 15,
+        "misc": 0
+      },
+      "ref": {
+        "base": 13,
+        "misc": 0
+      },
+      "will": {
+        "base": 17,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 19,
+      "size": "huge",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 10,
+        "bypass": "+2"
+      },
+      "resistances": [],
+      "immunities": [
+        "fire",
+        "poison"
+      ],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 31,
+      "reach": 15,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "outsider",
+      "subtype": "",
+      "challengeRating": "25",
+      "hitDice": "8d8+80 plus 10d6+100 plus 8d8+80",
+      "advancement": "",
+      "organization": "",
+      "treasure": "Vast personal and corporate wealth, collection of ancient Middle Eastern religious artifacts."
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 37,
+        "classSkill": false
+      },
+      "computerUse": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 37,
+        "classSkill": false
+      },
+      "forgery": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "gamble": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 19,
+        "classSkill": false
+      },
+      "gatherInformation": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 21,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 36,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "arcane lore",
+            "ranks": 1,
+            "misc": 18,
+            "classSkill": false
+          },
+          {
+            "name": "behavioral sciences",
+            "ranks": 1,
+            "misc": 23,
+            "classSkill": false
+          },
+          {
+            "name": "business",
+            "ranks": 1,
+            "misc": 35,
+            "classSkill": false
+          },
+          {
+            "name": "civics",
+            "ranks": 1,
+            "misc": 35,
+            "classSkill": false
+          },
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 29,
+            "classSkill": false
+          },
+          {
+            "name": "history",
+            "ranks": 1,
+            "misc": 13,
+            "classSkill": false
+          },
+          {
+            "name": "technology",
+            "ranks": 1,
+            "misc": 7,
+            "classSkill": false
+          },
+          {
+            "name": "theology and philosophy",
+            "ranks": 1,
+            "misc": 5,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "profession": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 34,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Arabic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Dutch",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "French",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "German",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Greek",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Write Italian",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Japanese",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Russian",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Spanish",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "research": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 25,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Arabic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Dutch",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "French",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "German",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Greek",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Italian",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Japanese",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Russian",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Spanish",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      },
+      {
+        "name": "law",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 120 ft.",
+    "specialQualities": "Alternate form, aura of greed, conceal motive, damage reduction 10/+2, darkvision 120 ft., fear aura, immune to fire and poison, no sweat, react first, resistances, sow distrust, spell-like abilities, talk down several opponents",
+    "biography": "<p><strong>Attack:</strong> +26 melee (2d6+9, claw)</p><p><strong>Full Attack:</strong> +26 melee (2d6+9, 2 claws), or +26/+21/+16/+11 melee (by weapon), or +22/+17/+12/+7 ranged)</p><p><strong>Skills:</strong> Bluff +44, Computer Use +18, Concentration +16, Diplomacy +44, Forgery +16, Gamble +26, Gather Information +28, Intimidate +43, Knowledge (arcane lore) +29, Knowledge (behavioral sciences) +34, Knowledge (business) +46, Knowledge (civics) +46, Knowledge (current events) +40, Knowledge (history) +24, Knowledge (technology) +18, Knowledge (theology and philosophy) +16, Listen +13, Profession +41, Read/Write Abyssal, Read/Write Arabic, Read/Write Dutch, Read/Write English, Read/Write French, Read/Write German, Read/Write Greek, Read/ Write Italian, Read/Write Japanese, Read/Write Russian, Read/Write Spanish, Research +19, Sense Motive +32, Speak Abyssal, Speak Arabic, Speak Dutch, Speak English, Speak French, Speak German, Speak Greek, Speak Italian, Speak Japanese, Speak Russian, Speak Spanish, Spot +13.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Cleave, Confident, Deceptive, Educated, Frightful Presence, Iron Will, Personal Firearms Proficiency, Power Attack, Renown, Simple Weapons Proficiency, Sunder, Trustworthy, Windfall (×4).</p><p><strong>Talents:</strong> (Charismatic Hero): Charm (males), coordinate, favor, greater inspiration, inspiration.</p>"
+  },
+  "_key": "!actors!niiq7fl5gfAU9c0g",
+  "items": [
+    {
+      "_id": "Qdsmr2C4RmkRNhMi",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+26 melee (2d6+9, 2 claws), or +26/+21/+16/+11 melee (by weapon), or +22/+17/+12/+7 ranged)</p><p><strong>Also called:</strong> by weapon</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "2d6+9",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.Qdsmr2C4RmkRNhMi"
+    },
+    {
+      "_id": "SGZp08IAJJjsYZFG",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.SGZp08IAJJjsYZFG"
+    },
+    {
+      "_id": "i01SGc7JHt5VQoBW",
+      "name": "Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.i01SGc7JHt5VQoBW"
+    },
+    {
+      "_id": "glLNPOP3UsshrIGC",
+      "name": "Confident",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Gamble checks and Intimidate checks, and on level checks to resist intimidation.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.glLNPOP3UsshrIGC"
+    },
+    {
+      "_id": "djGAN1cw0W9V8gDj",
+      "name": "Deceptive",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Bluff checks and Disguise checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.djGAN1cw0W9V8gDj"
+    },
+    {
+      "_id": "a77Kt1fuZlPiIYZ9",
+      "name": "Educated",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "Pick two Knowledge skills. The character gets a +2 bonus on all checks with those skills.",
+        "normal": "",
+        "special": "A character can select this feat as many as seven times. Each time, the character selects two new Knowledge skills.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.a77Kt1fuZlPiIYZ9"
+    },
+    {
+      "_id": "EnbhmY0kFYag1HT5",
+      "name": "Frightful Presence",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Charisma 15",
+          "Intimidate 9 ranks."
+        ],
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.EnbhmY0kFYag1HT5"
+    },
+    {
+      "_id": "2PQjS5YJRZR65HQ9",
+      "name": "Iron Will",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.2PQjS5YJRZR65HQ9"
+    },
+    {
+      "_id": "MPqyr6Vt4soL1iUI",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.MPqyr6Vt4soL1iUI"
+    },
+    {
+      "_id": "qyHbYvN5edOZBRvF",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.qyHbYvN5edOZBRvF"
+    },
+    {
+      "_id": "iIhHUnSNQHhDEiG9",
+      "name": "Renown",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character’s Reputation bonus increases by +3.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.iIhHUnSNQHhDEiG9"
+    },
+    {
+      "_id": "8EQakXbcyYsN0Nne",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.8EQakXbcyYsN0Nne"
+    },
+    {
+      "_id": "b6tyz69cPyahMLN1",
+      "name": "Sunder",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "When the character strikes an object held or carried by an opponent, such as a weapon, the character does not provoke an attack of opportunity.",
+        "normal": "A character without this feat incurs an attack of opportunity when he or she strikes at an object held or carried by another character.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.b6tyz69cPyahMLN1"
+    },
+    {
+      "_id": "mOkiSogQg2mqdg9Q",
+      "name": "Trustworthy",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Diplomacy checks and Gather Information checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.mOkiSogQg2mqdg9Q"
+    },
+    {
+      "_id": "V9hRuHgO6ZaIZdci",
+      "name": "Windfall",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks.",
+        "normal": "",
+        "special": "A character can select this feat multiple times. Each time, both of its effects stack.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.V9hRuHgO6ZaIZdci"
+    },
+    {
+      "_id": "gIjMtLtaufwvWs59",
+      "name": "Alternate Form",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will as a free action, Baal can assume the form of a human male or revert to his normal form. He can retain either form indefinitely.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.gIjMtLtaufwvWs59"
+    },
+    {
+      "_id": "uHtejOmAb4R7bHUc",
+      "name": "Aura of Greed",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>): Once per day as a free action, Baal can create an aura of greed extending out from his body in a 20-foot radius. Except as noted here, the effect functions like the psionic power domination (manifester level 10th). Each creature within this area must make a successful Will save (DC 21) or be overcome with greed. A creature that fails its saving throw must immediately attack another random creature within 60 feet (possibly even Baal himself) and attempt to take its valuables. If no target is within reach, the affected creature must move toward a randomly chosen target it can see and attack it as soon as possible. This effect is Charisma-based and lasts for 1d4 rounds. As a move action, Baal can specify one creature for other affected creatures to attack instead of allowing random targeting. In this case, the Will save DC drops to 15.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.uHtejOmAb4R7bHUc"
+    },
+    {
+      "_id": "Yag0LSUX0DwxGdqy",
+      "name": "Conceal Motive",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.Yag0LSUX0DwxGdqy"
+    },
+    {
+      "_id": "ReUzJwXbOAXg7T4W",
+      "name": "Damage Reduction 10/+2",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Baal ignores the first 10 points of damage dealt by any weapon with a magical bonus lower than +2. In campaigns without magic weapons, the GM can either disregard Baal’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.ReUzJwXbOAXg7T4W"
+    },
+    {
+      "_id": "hjPuWRx9Hy2535HX",
+      "name": "Darkvision 120 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.hjPuWRx9Hy2535HX"
+    },
+    {
+      "_id": "PYhxVsmBvcqqkAzs",
+      "name": "Fear Aura",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will as a free action, Baal can create an aura of fear in a 20-foot radius around himself. This effect is otherwise identical to that of a fear spell (caster level 10th; Will DC 21). A creature that succeeds on the saving throw cannot be affected again by Baal’s fear aura for 24 hours.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.PYhxVsmBvcqqkAzs"
+    },
+    {
+      "_id": "ZJxfUlfd7z58kaPJ",
+      "name": "Immune to Fire and Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.ZJxfUlfd7z58kaPJ"
+    },
+    {
+      "_id": "FwQqdERiqSJUcxC0",
+      "name": "No Sweat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.FwQqdERiqSJUcxC0"
+    },
+    {
+      "_id": "oTgj6HtlK4w59HtQ",
+      "name": "React First",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.oTgj6HtlK4w59HtQ"
+    },
+    {
+      "_id": "hT82CUA0HJTFy1JQ",
+      "name": "Resistances",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Baal has cold resistance 20 and electricity resistance 20.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.hT82CUA0HJTFy1JQ"
+    },
+    {
+      "_id": "x4GgOJGit4Ms9wy3",
+      "name": "Sow Distrust",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.x4GgOJGit4Ms9wy3"
+    },
+    {
+      "_id": "jogQciw1HcPwow6A",
+      "name": "Spell-Like Abilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will—augury, bane, bestow curse, command, comprehend languages, confusion, detect magical aura, discern lies, dispel magic, enhance ability, faith’s fury, fireball, flaming projectiles, flaming wrath, greater command, hold monster, inflict critical wounds, inflict light wounds, inflict moderate wounds, inflict serious wounds, knock, mass inflict light wounds, passwall, prestidigitation, read magic, see invisibility, telekinesis, true seeing, wall of fire. Caster level 10th; save DC 17 + spell level.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.jogQciw1HcPwow6A"
+    },
+    {
+      "_id": "hhSU5OK2njgpBJbJ",
+      "name": "Talk Down Several Opponents",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.hhSU5OK2njgpBJbJ"
+    },
+    {
+      "_id": "zwEJZomf1zSWEFH9",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Baal is immune to fire and poison.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!niiq7fl5gfAU9c0g.zwEJZomf1zSWEFH9"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

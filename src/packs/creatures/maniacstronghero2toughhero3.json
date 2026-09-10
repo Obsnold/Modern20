@@ -1,0 +1,462 @@
+{
+  "_id": "S8Gz4psmXEVwkN7d",
+  "name": "Maniac (Strong Hero 2/Tough Hero 3)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 58,
+      "max": 58,
+      "temp": 0,
+      "formula": "5d12+20 plus 3 (robus) plus 3 (toughness)"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 8,
+        "misc": 0
+      },
+      "ref": {
+        "base": 1,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 4,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 5,
+        "bypass": "-"
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 22,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "",
+      "challengeRating": "6",
+      "hitDice": "5d12+20 plus 3 (robus) plus 3 (toughness)",
+      "advancement": "",
+      "organization": "",
+      "treasure": "Chain saw, Halloween mask, bloodstained overalls."
+    },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Chaos",
+        "strength": "none"
+      },
+      {
+        "name": "evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "Ability surge, damage reduction 5/-, immunities, resistance to massive damage",
+    "biography": "<p><strong>Attack:</strong> +8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw)</p><p><strong>Full Attack:</strong> +8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw) or +5 ranged)</p><p><strong>Skills:</strong> Climb +9, Jump +9, Read/Write English, Speak English, Spot +4, Survival +4.</p><p><strong>Feats:</strong> Combat Martial Arts, Great Fortitude, Improved Combat Martial Arts, Improved Damage Threshold, Power Attack, Simple Weapons Proficiency, Toughness.</p><p><strong>Talents:</strong> (Strong Hero): Melee smash</p>"
+  },
+  "_key": "!actors!S8Gz4psmXEVwkN7d",
+  "items": [
+    {
+      "_id": "T87lKECdr0qCfEYB",
+      "name": "Improved unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw) or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "1d4+5",
+        "damageType": "nonlethal",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.T87lKECdr0qCfEYB"
+    },
+    {
+      "_id": "pjJoUS27baIOzlzq",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw) or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d6+5",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.pjJoUS27baIOzlzq"
+    },
+    {
+      "_id": "JVUfAfagKooQT25G",
+      "name": "Chain saw",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw) or +5 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "3d6+5",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.JVUfAfagKooQT25G"
+    },
+    {
+      "_id": "BRuOhJV8rsG06nDS",
+      "name": "Combat Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Base attack bonus +1."
+        ],
+        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character’s choice) equal to 1d4 + the character’s Strength modifier. The character’s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
+        "normal": "Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.BRuOhJV8rsG06nDS"
+    },
+    {
+      "_id": "kaxtZ6Y3q8O92b93",
+      "name": "Great Fortitude",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.kaxtZ6Y3q8O92b93"
+    },
+    {
+      "_id": "J8UqMtl9X1MkYLx1",
+      "name": "Improved Combat Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Combat Martial Arts",
+          "base attack bonus +4."
+        ],
+        "benefit": "The character’s threat range on an unarmed strike improves to 19–20.",
+        "normal": "A character without this feat threatens a critical hit with an unarmed strike only on a 20.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.J8UqMtl9X1MkYLx1"
+    },
+    {
+      "_id": "hWZtdj4UAxcwfW3V",
+      "name": "Improved Damage Threshold",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character increases his or her massive damage threshold by 3 points.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
+        "special": "A character may gain this feat multiple times. Its effects stack.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.hWZtdj4UAxcwfW3V"
+    },
+    {
+      "_id": "bvLEBlQr4ZAPPMXZ",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.bvLEBlQr4ZAPPMXZ"
+    },
+    {
+      "_id": "VYN30poIoZMVrDZ1",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.VYN30poIoZMVrDZ1"
+    },
+    {
+      "_id": "uPtcqa1NuKDcYhMg",
+      "name": "Toughness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gains +3 hit points.",
+        "normal": "",
+        "special": "A character may gain this feat multiple times. Its effects stack.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.uPtcqa1NuKDcYhMg"
+    },
+    {
+      "_id": "uTV3y23UlJlt59Vi",
+      "name": "Ability Surge",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per day as a free action, the maniac can temporarily increase its Strength and Dexterity scores, but doing so imposes a penalty on its saving throws. While this ability is in effect, the maniac gains a +4 morale bonus to both Strength and Dexterity but takes a –2 penalty on all saving throws. Ability surge lasts for a number of rounds equal to the maniac’s character level. Following an ability surge, the maniac is fatigued (–2 to Strength and Dexterity) for as many rounds as the surge was in effect, but it may negate this penalty as a free action by spending an action point.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.uTV3y23UlJlt59Vi"
+    },
+    {
+      "_id": "53yPINZR8PjDf0JU",
+      "name": "Damage Reduction 5/-",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.53yPINZR8PjDf0JU"
+    },
+    {
+      "_id": "ViuI2Uifnp7PkFsm",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A maniac is immune to mind-affecting effects.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.ViuI2Uifnp7PkFsm"
+    },
+    {
+      "_id": "cF4Iskr5nCzSYqQk",
+      "name": "Resistance to Massive Damage",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A maniac gains a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.cF4Iskr5nCzSYqQk"
+    },
+    {
+      "_id": "7vgEZYdljYlXdohQ",
+      "name": "Damage Reduction 5/–",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A maniac ignores the first 5 points of damage dealt by any attack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!S8Gz4psmXEVwkN7d.7vgEZYdljYlXdohQ"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

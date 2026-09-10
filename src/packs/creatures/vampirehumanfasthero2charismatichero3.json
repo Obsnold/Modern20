@@ -1,0 +1,902 @@
+{
+  "_id": "zXkuXDFQE6xtASnP",
+  "name": "Vampire (Human Fast Hero 2/Charismatic Hero 3)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+    "abilities": {
+      "str": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 32,
+      "max": 32,
+      "temp": 0,
+      "formula": "5d12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 11
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 6,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 15,
+        "bypass": "+1"
+      },
+      "resistances": [
+        {
+          "type": "cold",
+          "value": 20
+        },
+        {
+          "type": "electricity",
+          "value": 20
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "undead",
+      "subtype": "",
+      "challengeRating": "7",
+      "hitDice": "5d12",
+      "advancement": "",
+      "organization": "",
+      "treasure": "Aston-Martin Vanquish sports coupe, eight-bedroom mansion, designer formal wear, mastercraft katana (+1), cell phone, desktop computer (with cellular modem, printer, and scanner), mastercraft violin (+1)."
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "disguise": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "drive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "gatherInformation": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "art",
+            "ranks": 1,
+            "misc": 3,
+            "classSkill": false
+          },
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 4,
+            "classSkill": false
+          },
+          {
+            "name": "popular culture",
+            "ranks": 1,
+            "misc": 4,
+            "classSkill": false
+          }
+        ]
+      },
+      "perform": {
+        "specialties": [
+          {
+            "name": "stringed instruments",
+            "ranks": 0,
+            "misc": 4,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "any two",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "any two",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      },
+      {
+        "name": "chaos",
+        "strength": "none"
+      },
+      {
+        "name": "master",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "Blood drain, create spawn, domination (DC 17), energy drain, alternate form, children of the night, damage reduction 15/+1, fast healing 5, gaseous form, cold and electricity resistance 20, spider climb, +4 turn resistance, darkvision 60 ft., weaknesses",
+    "biography": "<p><strong>Attack:</strong> +6 melee (1d6+4, slam)</p><p><strong>Full Attack:</strong> +6 melee (1d6+4, slam) +7 melee (2d6/19-20, mastercraft katana), or +6 ranged)</p><p><strong>Skills:</strong> Bluff +17*, Diplomacy +9*, Disguise +9, Drive +8, Gather Information +9*, Hide +18, Intimidate +9*, Knowledge (art) +6, Knowledge (current events) +7, Knowledge (popular culture) +7, Perform (stringed instruments) +9*, Listen +10, Move Silently +18, Read/Write Language (any two), Search +10, Sense Motive +8, Speak Language (any two), Spot +10.</p><p><strong>Feats:</strong> Alertness, Combat Reflexes, Dodge, Exotic Melee Weapon (katana), Improved Initiative, Iron Will, Lightning Reflexes, Renown, Simple Weapons Proficiency, Stealthy, Windfall</p><p><strong>Talents:</strong> (Fast Hero): Evasion</p>"
+  },
+  "_key": "!actors!zXkuXDFQE6xtASnP",
+  "items": [
+    {
+      "_id": "csc9XpzheBTsreUx",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d6+4, slam) +7 melee (2d6/19-20, mastercraft katana), or +6 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "unarmed",
+        "damage": "1d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.csc9XpzheBTsreUx"
+    },
+    {
+      "_id": "UzArRxGhzX7aS5sU",
+      "name": "Mastercraft katana",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d6+4, slam) +7 melee (2d6/19-20, mastercraft katana), or +6 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.UzArRxGhzX7aS5sU"
+    },
+    {
+      "_id": "yXr2FoNfvzKeNG9e",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.yXr2FoNfvzKeNG9e"
+    },
+    {
+      "_id": "Ei6p6hq7JRYGshR5",
+      "name": "Combat Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.Ei6p6hq7JRYGshR5"
+    },
+    {
+      "_id": "ycoXktWuDqvwNdxS",
+      "name": "Dodge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13."
+        ],
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.ycoXktWuDqvwNdxS"
+    },
+    {
+      "_id": "AjgzUtDCPr4o7Osk",
+      "name": "Exotic Melee Weapon",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.AjgzUtDCPr4o7Osk"
+    },
+    {
+      "_id": "7z72NnIZwIi0h2hY",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.7z72NnIZwIi0h2hY"
+    },
+    {
+      "_id": "FA8F2ybDJzDcHqSj",
+      "name": "Iron Will",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.FA8F2ybDJzDcHqSj"
+    },
+    {
+      "_id": "9ByOGaJDQoLFb8cR",
+      "name": "Lightning Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.9ByOGaJDQoLFb8cR"
+    },
+    {
+      "_id": "QFLCCRMU0vt8RUOW",
+      "name": "Renown",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character’s Reputation bonus increases by +3.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.QFLCCRMU0vt8RUOW"
+    },
+    {
+      "_id": "ng5iba8oZxpllQ2J",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.ng5iba8oZxpllQ2J"
+    },
+    {
+      "_id": "19LUjSxoyVwdJQrY",
+      "name": "Stealthy",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.19LUjSxoyVwdJQrY"
+    },
+    {
+      "_id": "49zC11ZJRmQrD5ci",
+      "name": "Windfall",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks.",
+        "normal": "",
+        "special": "A character can select this feat multiple times. Each time, both of its effects stack.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.49zC11ZJRmQrD5ci"
+    },
+    {
+      "_id": "LVkCxAu0S86AtnSy",
+      "name": "Blood Drain",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire can suck blood from a living victim with its fangs by making a successful grapple check. If it pins the foe, it drains blood, dealing 1d4 points of temporary Constitution damage each round the pin is maintained.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.LVkCxAu0S86AtnSy"
+    },
+    {
+      "_id": "T1k4wJVzMGs7gNeY",
+      "name": "Create Spawn",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A humanoid or monstrous humanoid slain by a vampire’s energy drain attack rises as a vampire loyal to its creator (called the master vampire, or simply “master”). The new vampire gains three allegiances (in any order): chaos, evil, and master. All previous allegiances are lost permanently. A vampire loses its allegiance to its master (and may adopt a new allegiance to replace it) only when the master vampire is destroyed.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.T1k4wJVzMGs7gNeY"
+    },
+    {
+      "_id": "RMEfdg1o7zEhkSI3",
+      "name": "Domination (DC 17)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>As an attack action, a vampire can crush an opponent’s will just by gazing into his or her eyes. The vampire can attempt to dominate only one target at a time, and the target must be within 30 feet and able to see the vampire. A target that fails a Will save (DC 10 + 1/2 vampire’s Hit Dice + vampire’s Charisma modifier) becomes the vampire’s thrall for 1 day per Hit Die of the vampire. The thrall temporarily loses all previous allegiances and adopts a singular, unswerving allegiance to the vampire. If the vampire commands its thrall to do something blatantly self-destructive, the target can make a Will save to break the vampire’s control. If the save succeeds, the target becomes free-willed and regains its previous allegiances.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Domination",
+            "actionType": "attack",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 17,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.RMEfdg1o7zEhkSI3"
+    },
+    {
+      "_id": "N9TMxlcpWsWO2Wdw",
+      "name": "Energy Drain",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A living creature hit by a vampire’s slam attack gains two negative levels. See page 226 for more information on energy drain and negative levels. A creature killed by a vampire’s energy drain attack rises as a vampire under its creator’s control (see Create Spawn, above).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.N9TMxlcpWsWO2Wdw"
+    },
+    {
+      "_id": "TbrffFgh6TRBM6Uj",
+      "name": "Alternate Form",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire can assume the form of a bat, rat, or wolf as a move action. The vampire can remain in that form until it assumes another form or until the next sunrise.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.TbrffFgh6TRBM6Uj"
+    },
+    {
+      "_id": "MynUcdwLzIEggSpB",
+      "name": "Children of the Night",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Vampires command the lesser creatures of the world and, once per day, can call forth a pack of 4d8 rats, a swarm of 10d10 bats, or a pack of 3d6 wolves as a full-round action. These creatures arrive in 2d6 rounds and serve the vampire for up to 1 hour.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.MynUcdwLzIEggSpB"
+    },
+    {
+      "_id": "fK1kOFGdI4cQ5lbb",
+      "name": "Damage Reduction 15/+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>In campaigns without magic weapons, the GM can disregard the vampire’s damage reduction, change it to 15/silver or 15/wood, or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.fK1kOFGdI4cQ5lbb"
+    },
+    {
+      "_id": "vd9LF4KsaM13AiP5",
+      "name": "Fast Healing 5",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire heals 5 points of damage each round so long as it has at least 1 hit point. If reduced to 0 hit points or lower, a vampire automatically assumes gaseous form (see below) and attempts to escape. It must reach its coffin home within 2 hours or be destroyed. (It can travel up to nine miles in 2 hours.) Once at rest in its coffin, its hit points rise to 1 hit point after 1 hour; the vampire then resumes healing at the rate of 5 hit points per round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.vd9LF4KsaM13AiP5"
+    },
+    {
+      "_id": "xLElH8kD9vVresX2",
+      "name": "Gaseous Form",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>As a move action, the vampire (and all its gear) becomes insubstantial, misty, and translucent. The vampire gains damage reduction 20/+1 in this form. Its armor (including natural armor) ceases to modify its Defense, though other modifiers (such as from Dexterity and size) still apply. The vampire cannot attack or use supernatural abilities while in gaseous form.</p><p>A vampire in this form can remain gaseous indefinitely and has a fly speed of 20 feet with perfect maneuverability. It can pass through small holes or narrow openings, even mere cracks. Its gaseous form is subject to wind and cannot enter water or other liquid.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.xLElH8kD9vVresX2"
+    },
+    {
+      "_id": "yYIf0MuHTCDuKXoV",
+      "name": "Cold and Electricity Resistance 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.yYIf0MuHTCDuKXoV"
+    },
+    {
+      "_id": "nQGtb6nvNnV8HmTE",
+      "name": "Spider Climb",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire can climb sheer surfaces as though with a spider climb spell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.nQGtb6nvNnV8HmTE"
+    },
+    {
+      "_id": "uZx60xhPSkmSsIsX",
+      "name": "+4 Turn Resistance",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.uZx60xhPSkmSsIsX"
+    },
+    {
+      "_id": "R64rRw9Gf1P0m8Tk",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Vampires have darkvision with a range of 60 feet.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.R64rRw9Gf1P0m8Tk"
+    },
+    {
+      "_id": "HDlIBy89nzClAF3I",
+      "name": "Weaknesses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire has several weaknesses, described below. A vampire can have fewer weaknesses, but each lost weakness costs a vampire one of its other special qualities. For example, a vampire that is immune to the effects of garlic might be unable to summon children of the night.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.HDlIBy89nzClAF3I"
+    },
+    {
+      "_id": "ZO3wFRGmKzAQgyuZ",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Vampires have the traits and immunities common to undead.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.ZO3wFRGmKzAQgyuZ"
+    },
+    {
+      "_id": "FriMEU96fU1gynka",
+      "name": "Cold Resistance 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire ignores the first 20 points of cold damage from any cold-based attack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.FriMEU96fU1gynka"
+    },
+    {
+      "_id": "BlUhEN7R4LaVPJaM",
+      "name": "Electricity Resistance 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire ignores the first 20 points of electricity damage from any electricity-based attack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.BlUhEN7R4LaVPJaM"
+    },
+    {
+      "_id": "tc15D6lQbYqUTpX9",
+      "name": "Turn Resistance",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire has +4 turn resistance.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.tc15D6lQbYqUTpX9"
+    },
+    {
+      "_id": "8dlrgaFkQwa5fvZQ",
+      "name": "Direct Sunlight",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The merest sliver of sunlight deals 2d6 points of damage to a vampire. A vampire exposed to direct sunlight for 1 full round must succeed on a Fortitude save (DC 20) or be consumed by fire and destroyed utterly.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.8dlrgaFkQwa5fvZQ"
+    },
+    {
+      "_id": "IDckx01aKqybpgvU",
+      "name": "Garlic",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire cannot enter or pass through any 5-foot square containing garlic. A vampire takes a –2 penalty on melee attack rolls against a target wearing garlic.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.IDckx01aKqybpgvU"
+    },
+    {
+      "_id": "469UIlu4FaP2P3rf",
+      "name": "Holy Symbol",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire takes a –2 penalty on melee attack rolls against a creature prominently wearing or brandishing a holy symbol. The symbol’s touch deals 1d4 points of holy damage to a vampire, and a vampire reduced to 0 hit points in this fashion is destroyed utterly. This holy damage can be healed only by inflict spells.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.469UIlu4FaP2P3rf"
+    },
+    {
+      "_id": "O6ODZBJTvuuNNrUM",
+      "name": "Inviolate Sanctuary",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire cannot enter a privately owned residence unless invited in by the rightful owner or tenant.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.O6ODZBJTvuuNNrUM"
+    },
+    {
+      "_id": "vvnfDcinHyELJiHj",
+      "name": "Mirror",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire in view of a mirror cannot use its domination special quality (see above).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.vvnfDcinHyELJiHj"
+    },
+    {
+      "_id": "S6FawTDs6tVlOD96",
+      "name": "Running Water",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A vampire cannot cross running water (but may be carried across). A vampire immersed in running water loses one-third of its remaining hit points each round until it is destroyed at the end of the third round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.S6FawTDs6tVlOD96"
+    },
+    {
+      "_id": "IshmSMzdxuBuddlO",
+      "name": "Wooden Stake",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Wooden weapons that deal piercing damage (such as wooden stakes, arrows, pool cues, spear shafts, and table legs) threaten a critical hit against a vampire on a natural 20 (unless noted otherwise), even though vampires are normally immune to critical hits. A successful critical hit destroys a vampire instantly, turning it to dust.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zXkuXDFQE6xtASnP.IshmSMzdxuBuddlO"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

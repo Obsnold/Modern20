@@ -1,0 +1,285 @@
+{
+  "_id": "iMzcxlI2XWPfkZSS",
+  "name": "Tiger",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+    "abilities": {
+      "str": {
+        "value": 23,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 45,
+      "max": 45,
+      "temp": 0,
+      "formula": "6d8+18"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 2
+    },
+    "saves": {
+      "fort": {
+        "base": 5,
+        "misc": 0
+      },
+      "ref": {
+        "base": 5,
+        "misc": 0
+      },
+      "will": {
+        "base": 2,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 4,
+      "size": "large",
+      "speed": 40,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 17,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "4",
+      "hitDice": "6d8+18",
+      "advancement": "7-12 HD (Large); 13-18 HD (Huge).",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Low-Light Vision",
+    "specialQualities": "Pounce, improved grab, rake 1d8+3, low-light vision",
+    "biography": "<p><strong>Attack:</strong> +9 melee (1d8+6, claw)</p><p><strong>Full Attack:</strong> +9 melee (1d8+6, 2 claws), +4 melee (2d6+3, bite)</p><p><strong>Skills:</strong> Balance +6, Hide +5 (+9 in tall grass or undergrowth), Listen +3, Move Silently +9, Spot +3, Swim +11.</p><p><strong>Feats:</strong> None.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!iMzcxlI2XWPfkZSS",
+  "items": [
+    {
+      "_id": "0DGFYulEAVYCtoTk",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d8+6, 2 claws), +4 melee (2d6+3, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "category": "unarmed",
+        "damage": "1d8+6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!iMzcxlI2XWPfkZSS.0DGFYulEAVYCtoTk"
+    },
+    {
+      "_id": "ab3XlooaR3RVCCbH",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+9 melee (1d8+6, 2 claws), +4 melee (2d6+3, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "category": "unarmed",
+        "damage": "2d6+3",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!iMzcxlI2XWPfkZSS.ab3XlooaR3RVCCbH"
+    },
+    {
+      "_id": "ZTGY8FJnGynLKD8Q",
+      "name": "Pounce",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a tiger leaps upon a foe during the first round of combat, it can make a full attack even if it has already taken a move action.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iMzcxlI2XWPfkZSS.ZTGY8FJnGynLKD8Q"
+    },
+    {
+      "_id": "61aBfUUzfYbjuYHP",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the tiger must hit with a claw or bite attack. If it gets a hold, it can rake (see below). See Improved Grab.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iMzcxlI2XWPfkZSS.61aBfUUzfYbjuYHP"
+    },
+    {
+      "_id": "REsbmCsmvNMn0OGD",
+      "name": "Rake 1d8+3",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A tiger that gets a hold of its target can make two rake attacks (+9 melee) with its hind legs for 1d8+6 points of damage each. If the tiger pounces on an opponent, it can also rake.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iMzcxlI2XWPfkZSS.REsbmCsmvNMn0OGD"
+    },
+    {
+      "_id": "NuZcVCvEGBN9WAUr",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!iMzcxlI2XWPfkZSS.NuZcVCvEGBN9WAUr"
+    },
+    {
+      "_id": "5sXyAmVpwirJ05g1",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Tigers receive a +4 species bonus on Balance, Hide, and Move Silently checks. In areas of tall grass or heavy undergrowth, their Hide bonus improves to +8.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iMzcxlI2XWPfkZSS.5sXyAmVpwirJ05g1"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

@@ -1,0 +1,169 @@
+{
+  "_id": "AHVymfwvtboMLYzS",
+  "name": "Herd Animal",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+    "abilities": {
+      "str": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 4,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 37,
+      "max": 37,
+      "temp": 0,
+      "formula": "5d8+15"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 4,
+        "misc": 0
+      },
+      "ref": {
+        "base": 4,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "large",
+      "speed": 40,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 16,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "2",
+      "hitDice": "5d8+15",
+      "advancement": "6-7 HD (Large)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "Stampede",
+    "biography": "<p><strong>Attack:</strong> +6 melee (1d8+6, butt)</p><p><strong>Full Attack:</strong> +6 melee (1d8+6, butt)</p><p><strong>Skills:</strong> Listen +8, Spot +5</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!AHVymfwvtboMLYzS",
+  "items": [
+    {
+      "_id": "2SvXfzfHUR7XYVe8",
+      "name": "Butt",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d8+6, butt)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "category": "simple",
+        "damage": "1d8+6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!AHVymfwvtboMLYzS.2SvXfzfHUR7XYVe8"
+    },
+    {
+      "_id": "4iTF4I8TrbQaT0iE",
+      "name": "Stampede",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A frightened herd flees as a group in a random direction, but always away from the perceived source of danger. It runs over anything of size Large or smaller that gets in its way, dealing 1d12 points of damage for every five animals in the herd. A successful Reflex save (DC 16) halves the damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!AHVymfwvtboMLYzS.4iTF4I8TrbQaT0iE"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

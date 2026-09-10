@@ -1,0 +1,152 @@
+{
+  "_id": "1XsdRLbtUW0Kx2bz",
+  "name": "Shark, Huge",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 65,
+      "max": 65,
+      "temp": 0,
+      "formula": "10d8+20"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 7,
+        "misc": 0
+      },
+      "ref": {
+        "base": 7,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 7,
+      "size": "huge",
+      "speed": 40,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 15,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "5",
+      "hitDice": "10d8+20",
+      "advancement": "11-17 HD (Huge)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Keen Scent",
+    "specialQualities": "Keen scent, wavesense",
+    "biography": "<p><strong>Attack:</strong> )</p><p><strong>Full Attack:</strong> )</p><p><strong>Skills:</strong> Listen +7, Spot +7</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!1XsdRLbtUW0Kx2bz",
+  "items": [
+    {
+      "_id": "Yf3GtHtJlZBM83d4",
+      "name": "Keen Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A Huge shark notices creatures by scent in a 180-foot radius. It can detect blood in the water at a range of up to 1 mile.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!1XsdRLbtUW0Kx2bz.Yf3GtHtJlZBM83d4"
+    },
+    {
+      "_id": "ChYpN7PcC6EB1iMu",
+      "name": "Wavesense",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A shark can automatically sense the location of any object or creature within 80 feet that is in contact with the water.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!1XsdRLbtUW0Kx2bz.ChYpN7PcC6EB1iMu"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

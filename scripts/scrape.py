@@ -1475,6 +1475,146 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
     }
 
 
+# The second way the SRD prints a stat block: not a table at all, but a run of
+# paragraphs under the creature's name.
+#
+#   <h4><a name="creat18">ZAP</a></h4>
+#   <p class="monster"><b>Fine elemental (air)</b></p>
+#   <p class="monster"><b>CR:</b> 1/4</p>
+#   <p class="monster"><b>HD:</b> 1/4 d8; <b>hp:</b> 1</p>
+#
+# Every animal in the SRD is printed this way, and so are eighty-odd creatures
+# across the Menace Manual - the alien probe, the zap, the neothelid - none of
+# which were imported while the scrape only read tables.
+MONSTER_PARAGRAPH = re.compile(r'<p class="monster">(.*?)</p>', re.S)
+HEADING_TAG = re.compile(r"<h[1-6][^>]*>(.*?)</h[1-6]>", re.S | re.I)
+
+# The paragraph format labels each half of a line the table format keeps in one
+# cell: "HD: 1/4 d8; hp: 1" against the table's "1/4 d8; hp 1".
+PARAGRAPH_LABELS = {
+    "cr": "cr", "hd": "hd", "hp": "hp", "mas": "mas", "init": "init",
+    "spd": "spd", "defense": "defense", "touch": "touch",
+    "flat-footed": "flat-footed", "flatfooted": "flat-footed",
+    "bab": "bab", "grap": "grap", "atk": "atk", "full atk": "full atk",
+    "fs": "fs", "reach": "reach", "sq": "sq", "al": "al", "sv": "sv",
+    "fort": "fort", "ref": "ref", "will": "will",
+    "skills": "skills", "feats": "feats", "talents": "talents",
+    "possessions": "possessions", "advancement": "advancement",
+    "str": "str", "dex": "dex", "con": "con", "int": "int",
+    "wis": "wis", "cha": "cha",
+}
+
+
+def paragraph_pairs(markup: str) -> list[tuple[str, str]]:
+    """A monster paragraph as the label/value pairs it prints."""
+    pairs = []
+    for label, value in re.findall(r"<b>(.*?)</b>([^<]*)", markup, re.S):
+        label = srd.clean(re.sub(r"<[^>]+>", "", label)).rstrip(":").strip()
+        pairs.append((label, srd.clean(value).strip(" ,;")))
+    return pairs
+
+
+def monster_rows(paragraphs: list[str]) -> tuple[str, dict[str, str]]:
+    """One paragraph stat block as the rows parse_creature_column reads.
+
+    The two formats carry the same facts under different punctuation, so the
+    paragraphs are folded back into the table's own shape rather than teaching
+    the column parser a second dialect.
+    """
+    size_type = ""
+    found: dict[str, str] = {}
+    for markup in paragraphs:
+        pairs = paragraph_pairs(markup)
+        if not pairs:
+            continue
+
+        labelled = [(label, value) for label, value in pairs
+                    if PARAGRAPH_LABELS.get(label.lower()) and value]
+        # The size and type are printed with no label of their own - bold for
+        # the ape, an empty bold tag followed by plain text for the raven and
+        # the tiger, which is what left those two with no creature type.
+        if not labelled and not size_type:
+            text = srd.clean(re.sub(r"<[^>]+>", " ", markup))
+            if looks_like_size_type(text):
+                size_type = text
+                continue
+
+        for label, value in labelled:
+            found.setdefault(PARAGRAPH_LABELS[label.lower()], value)
+
+    rows = {key: value for key, value in found.items()
+            if key in ("cr", "mas", "init", "spd", "defense", "atk", "full atk",
+                       "sq", "al", "skills", "feats", "talents", "possessions",
+                       "advancement")}
+    # "HD: 1/4 d8;" and "hp: 1" are one cell in the table format, and the hit
+    # points are read out of it.
+    # The semicolon matters: the column parser reads the Hit Dice as everything
+    # before it, and the hit points out of what follows.
+    rows["hd"] = "; ".join(filter(None, [found.get("hd", ""),
+                                         f"hp {found['hp']}" if found.get("hp") else ""]))
+    rows["bab/grap"] = found.get("bab", "")
+    rows["fs/reach"] = "/".join(filter(None, [found.get("fs", ""), found.get("reach", "")]))
+    rows["sv"] = ", ".join(f"{name.title()}: {found[name]}"
+                           for name in ("fort", "ref", "will") if found.get(name))
+    rows["ability scores"] = ", ".join(
+        f"{name.title()}: {found[name]}" for name in ("str", "dex", "con", "int", "wis", "cha")
+        if found.get(name))
+    return size_type, rows
+
+
+def scrape_monster_paragraphs(page_html: str, url: str,
+                              skill_names: list[tuple[str, str]]) -> list[dict]:
+    """Every paragraph-format creature on a page.
+
+    Blocks are grouped under the heading that names them; a heading whose
+    section prints no CR is prose rather than a creature.
+    """
+    creatures = []
+    headings = [(match.start(), srd.clean(re.sub(r"<[^>]+>", "", match.group(1))))
+                for match in HEADING_TAG.finditer(page_html)]
+
+    for index, (start, name) in enumerate(headings):
+        end = headings[index + 1][0] if index + 1 < len(headings) else len(page_html)
+        paragraphs = MONSTER_PARAGRAPH.findall(page_html[start:end])
+        if not paragraphs:
+            continue
+
+        size_type, rows = monster_rows(paragraphs)
+        if not rows.get("cr") or not rows.get("ability scores") or not name:
+            continue
+        if not size_type:
+            size_type = recovered_size_type(rows, name, page_html)
+
+        creatures.append(parse_creature_column(
+            rows, creature_name(name), size_type or "Medium-size", url, skill_names))
+    return creatures
+
+
+def creature_name(printed: str) -> str:
+    """A heading as a creature's name.
+
+    The paragraph blocks are headed in capitals - "ALIEN PROBE", "SHARK,
+    HUGE" - while the tables print "Acid Rainer". One compendium should not
+    hold both spellings.
+    """
+    return printed if not printed.isupper() else printed.title()
+
+def recovered_size_type(rows: dict[str, str], name: str, page_html: str) -> str:
+    """What a stat block that prints no size-and-type line is.
+
+    The Defense line states the size modifier and the creature's own traits
+    name the type - "a chemical golem has the traits and immunities common to
+    constructs". Where neither says, the name can: the SRD's ordinaries and
+    their class-levelled variants are headed "Replacement Scientist (Human
+    Smart Ordinary 5)", and a human is a humanoid.
+    """
+    size = size_from_defense(rows.get("defense", ""))
+    creature_type = type_from_traits(page_html, name)
+    if not creature_type and re.search(r"\bhuman\b", name, re.I):
+        creature_type = "humanoid"
+    return " ".join(filter(None, [size, creature_type])) or "Medium-size"
+
+
 def scrape_creatures(pages: list[str], skills: list[dict] | None = None) -> list[dict]:
     """Creature stat blocks, which the SRD lays out as label/value tables.
 
@@ -1541,18 +1681,20 @@ def scrape_creatures(pages: list[str], skills: list[dict] | None = None) -> list
 
                 size_type = size_types[column] if column < len(size_types) else ""
                 if not size_type:
-                    # Recovered from the block itself: the Defense line states
-                    # the size modifier, and the special abilities name the type.
-                    size_type = " ".join(filter(None, [
-                        size_from_defense(rows.get("defense", "")),
-                        type_from_traits(page_html, name),
-                    ])) or "Medium-size"
+                    size_type = recovered_size_type(rows, name, page_html)
 
                 entry = parse_creature_column(rows, name, size_type, srd.page_url(page),
                                               skill_names)
                 # Later pages repeat a few creatures; first definition wins.
                 if creatures.setdefault(entry["id"], entry) is entry:
                     on_page.append(entry)
+
+        # The same page can print some creatures as tables and others as
+        # paragraphs - every animal is a paragraph block - and the tables are
+        # read first, so a creature printed both ways keeps that reading.
+        for entry in scrape_monster_paragraphs(page_html, srd.page_url(page), skill_names):
+            if creatures.setdefault(entry["id"], entry) is entry:
+                on_page.append(entry)
 
         # The prose under SPECIES TRAITS describes what the SQ line names, and
         # is printed once per stat block rather than once per column.

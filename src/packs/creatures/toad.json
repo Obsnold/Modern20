@@ -1,0 +1,143 @@
+{
+  "_id": "qOiggZMFhklE4Ofm",
+  "name": "Toad",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+    "abilities": {
+      "str": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 4,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 1,
+      "max": 1,
+      "temp": 0,
+      "formula": "1/4d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "diminutive",
+      "speed": 5,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 11,
+      "reach": 1,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "1/10",
+      "hitDice": "1/4d8",
+      "advancement": "None",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 20,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "-",
+    "biography": "<p><strong>Attack:</strong> None</p><p><strong>Full Attack:</strong> None</p><p><strong>Skills:</strong> Hide +21 (includes +4 species bonus), Listen +5, Spot +4.</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!qOiggZMFhklE4Ofm",
+  "items": [
+    {
+      "_id": "ggHDiEV3K3VYomHv",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A toad’s coloration gives it a +4 species bonus on Hide checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!qOiggZMFhklE4Ofm.ggHDiEV3K3VYomHv"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

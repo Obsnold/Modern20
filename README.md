@@ -33,10 +33,10 @@ fighting it forever, so this is a standalone game system.
 | Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 960 items, built from the SRD |
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
-| Compendia: creatures, vehicles, objects | 243 actors, built from the SRD |
+| Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
 | Rules reference | 63 journal entries, 1,202 pages — the SRD's own text, in four books |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
-| Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text, 64 rollable |
+| Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
@@ -340,20 +340,27 @@ deprecated APIs.
 
 ## Creatures
 
-The 144 stat blocks in the SRD's Creatures, Animals and Menace pages import as
-actors. Everything the SRD prints as a total — attack bonuses, Defense, saves,
+The 198 stat blocks in the SRD's Creatures, Animals and Menace pages import as
+actors. The SRD prints them two ways and both are read: as a table with a
+label column and one column per creature, and as a run of paragraphs under the
+creature's name — `<p class="monster"><b>CR:</b> 1/4</p>` — which is how every
+animal is printed, and eighty-odd of the Menace Manual's creatures. The
+paragraph blocks are folded back into the table's own shape, so one column
+parser reads both. Reading only the tables had left 54 creatures out
+altogether: the ape, the bear, the horse, the tiger, the wolf, the alien
+probe, the zap, the neothelid. Everything the SRD prints as a total — attack bonuses, Defense, saves,
 initiative, skill totals — is stored as the offset that reproduces it, because
 the data model derives the same number from ability scores and Hit Dice. A
 creature that rolls Hide at the wrong bonus looks perfectly normal on a sheet,
-so `check_creatures.mjs` adds the 659 skill totals and 236 attacks back up and
+so `check_creatures.mjs` adds the 961 skill totals and 311 attacks back up and
 asserts each one comes to the printed figure.
 
 **Special abilities.** A stat block prints its abilities twice: once as the SQ
 line — *"Cold subtype, constrict, darkvision 60 ft., improved grab"* — and once
 as prose under SPECIES TRAITS that says what each one does. The import kept the
 line as a single string, which nothing could read, and dropped the prose
-entirely. Both are now parsed: 696 printed qualities and 793 described traits
-become 944 items, 906 of them carrying rules text.
+entirely. Both are now parsed, and become 1,230 items, 1,174 of them carrying
+rules text.
 
 Each printed quality takes its rules from the creature's own traits where they
 are given, since those say what *this* creature does with the ability, and from

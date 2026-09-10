@@ -1,0 +1,158 @@
+{
+  "_id": "49Zw6EecxKMLJTo0",
+  "name": "Bat",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+    "abilities": {
+      "str": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 4,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 1,
+      "max": 1,
+      "temp": 0,
+      "formula": "1/4 d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "diminutive",
+      "speed": 5,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 10,
+      "reach": 1,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "1/10",
+      "hitDice": "1/4 d8",
+      "advancement": "None.",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 30 ft.",
+    "specialQualities": "blindsight 30 ft.",
+    "biography": "<p><strong>Attack:</strong> none</p><p><strong>Full Attack:</strong> none</p><p><strong>Skills:</strong> Listen +9, Move Silently +6, Spot +9.</p><p><strong>Feats:</strong> None.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!49Zw6EecxKMLJTo0",
+  "items": [
+    {
+      "_id": "35kpEeudglYExXKK",
+      "name": "Blindsight 30 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bats can “see” by emitting high-frequency sounds, inaudible to most other creatures, that allow them to locate objects and creatures within 30 feet. Ultrasonic noise forces the bat to rely on its weak vision, which has a maximum range of 5 feet.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!49Zw6EecxKMLJTo0.35kpEeudglYExXKK"
+    },
+    {
+      "_id": "OQYf8yo1WLWFx8OQ",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bats receive a +4 species bonus on Listen and Spot checks. These bonuses are lost if the bat’s blindsight is negated.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!49Zw6EecxKMLJTo0.OQYf8yo1WLWFx8OQ"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

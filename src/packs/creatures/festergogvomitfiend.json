@@ -1,0 +1,472 @@
+{
+  "_id": "P7d89p9lvPjwgVvp",
+  "name": "Festergog (Vomit Fiend)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+    "abilities": {
+      "str": {
+        "value": 28,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 114,
+      "max": 114,
+      "temp": 0,
+      "formula": "12d8+60"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 14
+    },
+    "saves": {
+      "fort": {
+        "base": 10,
+        "misc": 0
+      },
+      "ref": {
+        "base": 10,
+        "misc": 0
+      },
+      "will": {
+        "base": 12,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 16,
+      "size": "huge",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 10,
+        "bypass": "slashing"
+      },
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 20
+        },
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "electricity",
+        "poison"
+      ],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 20,
+      "reach": 15,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "outsider",
+      "subtype": "",
+      "challengeRating": "9",
+      "hitDice": "12d8+60",
+      "advancement": "",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 20,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "any three",
+            "ranks": 1,
+            "misc": 11,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Draconic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Latin",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Draconic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Latin",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      },
+      {
+        "name": "chaos",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "Stench, immune to electricity and poison, acid and fire resistance 20, damage reduction 10/slashing, telepathy, darkvision 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +23 melee (2d6+13, slam)</p><p><strong>Full Attack:</strong> +23/+18/+13/+8 melee (2d6+9, slam), or +12/+7/+2/-3 ranged</p><p><strong>Skills:</strong> Bluff +15, Climb +29, Intimidate +15, Knowledge (any three) +15, Listen +14, Read/Write Abyssal, Read/Write Draconic, Read/Write English, Read/Write Latin, Search +15, Sense Motive +14, Speak Abyssal, Speak Draconic, Speak English, Speak Latin, Spot +14, Survival +14.</p><p><strong>Feats:</strong> Blind-Fight, Frightful Presence, Iron Will, Power Attack, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!P7d89p9lvPjwgVvp",
+  "items": [
+    {
+      "_id": "mDUSQ7vz8Ve7cWX0",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+23/+18/+13/+8 melee (2d6+9, slam), or +12/+7/+2/-3 ranged</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "2d6+9",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.mDUSQ7vz8Ve7cWX0"
+    },
+    {
+      "_id": "1oiQSMVmJTghpMeB",
+      "name": "Blind-Fight",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "In melee combat, every time the character misses because of concealment, the character can reroll the miss chance roll one time to see if the character actually hits.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.1oiQSMVmJTghpMeB"
+    },
+    {
+      "_id": "TL4nbFZWESLPQhDz",
+      "name": "Frightful Presence",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Charisma 15",
+          "Intimidate 9 ranks."
+        ],
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.TL4nbFZWESLPQhDz"
+    },
+    {
+      "_id": "CXa7mJc23M1pXEjV",
+      "name": "Iron Will",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.CXa7mJc23M1pXEjV"
+    },
+    {
+      "_id": "Iimc6DjwtVdlpy3p",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.Iimc6DjwtVdlpy3p"
+    },
+    {
+      "_id": "8HPkexR9kj4qKtfl",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.8HPkexR9kj4qKtfl"
+    },
+    {
+      "_id": "fkSjEbGNRsRQlWxH",
+      "name": "Stench",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A festergog’s skin exudes a toxic, foul-smelling pus. Any creature within 10 feet must succeed on a Fortitude save (DC 21) or become nauseated for as long as it remains in the affected area and for 1d4 rounds afterward. A nauseated creature cannot attack, cast spells, use spell-like abilities, or do anything else requiring attention or concentration. The only action a nauseated creature can take is a single move action per turn. Creatures that successfully save are unaffected and cannot be affected again by the same festergog’s stench for 24 hours.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.fkSjEbGNRsRQlWxH"
+    },
+    {
+      "_id": "KaDiJSSn0ko4qnki",
+      "name": "Immune to Electricity and Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.KaDiJSSn0ko4qnki"
+    },
+    {
+      "_id": "9O3GKfxZoUzP09H8",
+      "name": "Acid and Fire Resistance 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A festergog ignores the first 20 points of damage from any attack that deals acid or fire damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.9O3GKfxZoUzP09H8"
+    },
+    {
+      "_id": "yaVFRD1gI5jVBRnG",
+      "name": "Damage Reduction 10/Slashing",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A festergog ignores the first 10 points of damage dealt by any nonslashing weapon.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.yaVFRD1gI5jVBRnG"
+    },
+    {
+      "_id": "Un5TQU5UlEIOigfv",
+      "name": "Telepathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.Un5TQU5UlEIOigfv"
+    },
+    {
+      "_id": "vm817r6UZo4rEmIY",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.vm817r6UZo4rEmIY"
+    },
+    {
+      "_id": "4TONoTkfa4bb5osi",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A festergog is immune to electricity and poison.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!P7d89p9lvPjwgVvp.4TONoTkfa4bb5osi"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

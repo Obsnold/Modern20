@@ -1,0 +1,321 @@
+{
+  "_id": "Ho7p0XpflQ0qkDaX",
+  "name": "Crawling Claw",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 5,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 5,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 5,
+      "max": 5,
+      "temp": 0,
+      "formula": "1d10"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 5
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "diminutive",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 1,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "construct",
+      "subtype": "",
+      "challengeRating": "1/3",
+      "hitDice": "1d10",
+      "advancement": "None",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {},
+    "allegiances": [
+      {
+        "name": "any",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "construct, gaze immunity, smite fallen, spell resistance 10",
+    "biography": "<p><strong>Attack:</strong> +4 melee (1, claw)</p><p><strong>Full Attack:</strong> +4 melee (1, claw)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!Ho7p0XpflQ0qkDaX",
+  "items": [
+    {
+      "_id": "t9KuliBWCEQ1ti00",
+      "name": "Claw",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1, claw)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "diminutive",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.t9KuliBWCEQ1ti00"
+    },
+    {
+      "_id": "oq7KoC2DprorPdMS",
+      "name": "Construct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Crawling claws have the traits and immunities common to constructs.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.oq7KoC2DprorPdMS"
+    },
+    {
+      "_id": "hI4xVsPEbZNGlWCP",
+      "name": "Gaze Immunity",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Because it lacks eyes, a crawling claw is immune to gaze attacks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.hI4xVsPEbZNGlWCP"
+    },
+    {
+      "_id": "o8vfg8Eqv43UG02S",
+      "name": "Smite Fallen",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A crawling claw’s attacks deal double damage against prone combatants.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.o8vfg8Eqv43UG02S"
+    },
+    {
+      "_id": "wz3TnYtKRpnONrt3",
+      "name": "Spell Resistance 10",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Yes (Harmless)</p><p>You create a number of crawling claws up to twice your caster level. The hands to be transformed must all be within a 5-foot-radius circle. Once created, the group of crawling claws obeys your telepathic commands as long as the instructions are simple and you are within 100 feet. If you give the crawling claws simple standing orders before moving out of range, they obey these orders to the best of their ability until you return and issue new orders. Otherwise, they mill about aimlessly, attacking anything that moves into their space.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.wz3TnYtKRpnONrt3"
+    },
+    {
+      "_id": "l1pFGCHtI4qJeDWc",
+      "name": "Level",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mage 3</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.l1pFGCHtI4qJeDWc"
+    },
+    {
+      "_id": "GNkfy3J9j2CkZ4vN",
+      "name": "Components",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>V, S, M</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.GNkfy3J9j2CkZ4vN"
+    },
+    {
+      "_id": "JqtMmL2R2dzOE9iu",
+      "name": "Casting Time",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>1 hour</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.JqtMmL2R2dzOE9iu"
+    },
+    {
+      "_id": "Xuupf0jOvEtN1aRa",
+      "name": "Range",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Close (25 ft. + 5 ft./2 levels)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.Xuupf0jOvEtN1aRa"
+    },
+    {
+      "_id": "frubDNMOaLk5Fr44",
+      "name": "Targets",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Severed human left hands wihitn a 5-foot-radius circle</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.frubDNMOaLk5Fr44"
+    },
+    {
+      "_id": "B0zECSmTPZhGwKtb",
+      "name": "Duration",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Instantaneous</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.B0zECSmTPZhGwKtb"
+    },
+    {
+      "_id": "wxM6AiT52dWKac16",
+      "name": "Saving Throw",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>None</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.wxM6AiT52dWKac16"
+    },
+    {
+      "_id": "us4KgCAHKLndx2xU",
+      "name": "Material Component",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Clippings from a ghoul’s fingernails, and a ring that someone else lost.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Ho7p0XpflQ0qkDaX.us4KgCAHKLndx2xU"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}
