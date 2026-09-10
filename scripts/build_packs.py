@@ -1367,6 +1367,19 @@ def text_only(markup: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", markup)).strip()
 
 
+# The sentence Wizards heads each SRD document with. The mirror carries it
+# once, on its legal page, because a website is one document; a compendium is
+# fifty, and any one of them can be exported on its own.
+OGC_NOTICE = ("This material is Open Game Content, and is licensed for public "
+              "use under the terms of the Open Game License v1.0a.")
+
+
+def ogc_notice(legal: str | None) -> str:
+    """The notice as it goes at the head of an entry, linked to the licence."""
+    link = " @UUID[" + legal + "]{Legal Information}" if legal else ""
+    return "<p><em>" + OGC_NOTICE + "</em>" + link + "</p>"
+
+
 def build_rules() -> list[dict]:
     """The SRD's own text, as a journal compendium.
 
@@ -1399,6 +1412,8 @@ def build_rules() -> list[dict]:
     shared = {title for title in (entry["title"] for entry in entries)
               if [e["title"] for e in entries].count(title) > 1}
 
+    notice = ogc_notice(targets.get("legal.html"))
+
     for index, entry in enumerate(entries):
         name = (f"{entry['title']} ({entry['book']})"
                 if entry["title"] in shared else entry["title"])
@@ -1407,13 +1422,18 @@ def build_rules() -> list[dict]:
         pages = []
         for position, page in enumerate(entry["pages"]):
             page_id = document_id("rules", f"{slug}-{position}")
+            content = link_rules(page["html"], targets)
+            # Each entry opens with the notice, the way each of the SRD's own
+            # documents does. The legal entry is the licence itself.
+            if position == 0 and entry["id"] != "legal":
+                content = notice + content
             pages.append({
                 "_id": page_id,
                 "name": page["name"] or name,
                 "type": "text",
                 # Shown at the top of the page, as the SRD prints it.
                 "title": {"show": True, "level": 1},
-                "text": {"format": 1, "content": link_rules(page["html"], targets)},
+                "text": {"format": 1, "content": content},
                 "sort": (position + 1) * 100000,
                 "flags": {},
             })

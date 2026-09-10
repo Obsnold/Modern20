@@ -490,6 +490,18 @@ reading all of them assembles the tree, names included — and the names have to
 come from there, because the headings inside the pages do not carry them.
 Every page under d20 Future is headed "d20 FUTURE".
 
+**Each entry opens with the Open Game Content notice**, the sentence Wizards
+heads every SRD document with, linked to the Legal Information entry that
+carries the licence itself. The mirror states it once, on that one page,
+because a website is one document — a compendium is fifty, and any one of them
+can be exported on its own.
+
+Headings inside a table cell become emphasis. A heading in a cell is never a
+section: sometimes it is a column header, and here it is more often a letter
+dividing an alphabetical index — `<h3>I</h3>` above the invisible stalker —
+laid out in columns. Ninety-one of them would otherwise have been read as
+sections of the book.
+
 Three things the mirror ships that a compendium should not. Its maintainer
 signs off at the foot of a hundred and forty-eight pages with his e-mail
 address, which is his page furniture and not the SRD's text. Its headings are
