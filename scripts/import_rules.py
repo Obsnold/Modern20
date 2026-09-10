@@ -220,6 +220,43 @@ CREDIT = re.compile(
     r"(?:<br\s*/?>\s*)*<p>\s*<i>\s*Questions\?.*?</a>\s*(?:</p>)?", re.S | re.I)
 
 
+CELL_OR_HEADING = re.compile(r"</?t[dh]\b[^>]*>|</?h[1-6][^>]*>", re.I)
+
+
+def unhead_cells(markup: str) -> str:
+    """Headings inside a table cell, as the emphasis they actually are.
+
+    A heading in a cell is never a section. Sometimes it is a column header,
+    which is what put three of them in the middle of the spell list when the
+    RTFs were the source; here it is more often a letter dividing an
+    alphabetical index - <h3>I</h3> above the invisible stalker - laid out in
+    columns. Either way a document outline built from them is nonsense, so
+    they become <strong>.
+
+    Counted through the markup rather than matched cell by cell, because a
+    cell holds several of these and the SRD's own tables nest.
+    """
+    out, cursor, depth = [], 0, 0
+    for match in CELL_OR_HEADING.finditer(markup):
+        tag = match.group(0)
+        lowered = tag.lower()
+        out.append(markup[cursor:match.start()])
+        cursor = match.end()
+
+        if lowered.startswith("</t"):
+            depth = max(0, depth - 1)
+            out.append(tag)
+        elif lowered.startswith("<t"):
+            depth += 1
+            out.append(tag)
+        elif depth:
+            out.append("</strong>" if lowered.startswith("</h") else "<strong>")
+        else:
+            out.append(tag)
+    out.append(markup[cursor:])
+    return "".join(out)
+
+
 def tidy(markup: str) -> str:
     """The page, with the mirror's own furniture taken out.
 
@@ -227,6 +264,7 @@ def tidy(markup: str) -> str:
     there renders as a broken-image icon in a Foundry journal, so it becomes
     the dash it was drawing.
     """
+    markup = unhead_cells(markup)
     markup = CREDIT.sub("", markup)
     markup = RULE_TABLE.sub("", markup)
     markup = SPACER_TABLE.sub("", markup)
