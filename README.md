@@ -628,22 +628,55 @@ Labels are humanised from the field name, with an acronym list (DC, HP, BAB, SRD
 and an override map for names that read badly on their own — `str` becomes
 Strength, not Str.
 
-## The SRD pipeline
+## Where the content lives
 
-The SRD is static HTML, so content is scraped rather than retyped. Everything
-here is standard-library Python 3 — there is no install step.
+**`src/packs/` is the source of truth.** It is what compiles into the
+compendia, what Foundry shows, and where a correction ends up — the same
+arrangement dnd5e and pf2e use, where the pack JSON is the content and Foundry
+is a comfortable editor for it.
+
+What is unusual here is how documents get there in the first place. They are
+not written by hand: the SRD is scraped, parsed and imported. So the import is
+additive, and never argues with the pack.
 
 ```bash
-python3 scripts/scrape.py            # crawl the SRD into data/
-python3 scripts/scrape.py --refresh  # re-fetch every page first
-python3 scripts/build_packs.py       # data/ -> src/packs/
+python3 scripts/scrape.py             # crawl the SRD into data/
+python3 scripts/build_packs.py        # import what the packs do not have yet
+python3 scripts/build_packs.py --overwrite weapons   # take the import for one pack
+scripts/capture_edits.py              # bring edits made in Foundry home
 ```
+
+`build_packs.py` writes documents the SRD produces and the packs do not have,
+leaves every existing document alone, and *reports* where the two differ rather
+than resolving it — a difference is as likely to be a hand correction as a
+parser improvement, and it cannot tell which. Taking the imported version is a
+decision, made with `--overwrite` and named per pack, and it is the one path
+that can lose an edit.
 
 `scrape.py` crawls all 98 SRD pages from the index — a hand-maintained page list
 goes stale, since section pages link to the sub-pages holding the actual tables.
 Pages are cached in `.cache/` and the site is hit once. Output lands in `data/`
-and is committed, so a schema change means re-running `build_packs.py`, not
+and is committed, so a parser change means re-running `build_packs.py`, not
 re-scraping.
+
+`data/` is no longer the content, then: it is the SRD as parsed, which is what
+new imports are built from and what the checks hold the packs against. Which
+matters, because that is what keeps 311 attack bonuses and 961 skill totals
+verified against the printed figures even though the documents are now editable
+by hand.
+
+### When a pack document disagrees with the book
+
+Deliberately, sometimes. `data/overrides/packs/<pack>.json` records which
+documents differ from the SRD import and why — written by `capture_edits.py`,
+and read by `check_creatures.mjs` so a decision is not reported as a
+regression. Everything not listed there is still held to the printed figures.
+
+There is a second, older override layer: `data/overrides/<dataset>.json`
+corrects the *scraped data* by entry id, before anything is built from it. That
+is the right place for something the SRD gets wrong — Alertness printing its
+benefit under a "Prerequisite" label — because the fix then reaches every
+document made from that entry, including ones imported later.
 
 ### Equipment, and which book it came from
 

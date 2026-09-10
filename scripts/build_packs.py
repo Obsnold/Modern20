@@ -15,6 +15,7 @@ rebuild updates documents in place instead of duplicating them.
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -1658,38 +1659,32 @@ def apply_document_override(document: dict, override: dict) -> None:
             document["system"][key] = value
 
 
-def apply_pack_overrides(packs: dict[str, list[dict]]) -> None:
-    """Apply data/overrides/<pack>.json to the documents as built.
+def hand_edited(pack: str) -> dict[str, dict]:
+    """The documents in a pack that deliberately differ from the SRD import.
 
-    The dataset packs also have a correction layer of their own, applied by
-    load_dataset before anything is built, and that is the right place for a
-    wrong number in the SRD. This one is for corrections made to the built
-    document instead - a journal page edited in Foundry and captured back, or
-    a table-built weapon whose printed row is malformed - and it reaches every
-    pack, including the ones no dataset stands behind.
+    Kept as a record rather than applied as a transform: the correction itself
+    lives in src/packs, which is the source of truth. What this carries is the
+    reason, so a check that finds a pack document disagreeing with the SRD can
+    tell a decision from a regression.
     """
-    for pack, documents in packs.items():
-        # data/overrides/packs/, not beside the dataset corrections: the two
-        # are keyed differently - a dataset entry by its id, a built document
-        # by its slug - and one file cannot be read both ways.
-        overrides = load_overrides(os.path.join("packs", pack))
-        if not overrides:
-            continue
-
-        by_slug = {srd.slugify(d["name"]): d for d in documents}
-        applied = 0
-        for slug, override in overrides.items():
-            document = by_slug.get(slug)
-            if not document:
-                print(f"  ! override {pack}.{slug} matches no document", file=sys.stderr)
-                continue
-            apply_document_override(document, override)
-            applied += 1
-        if applied:
-            print(f"  {applied} override(s) applied to {pack}")
+    return load_overrides(os.path.join("packs", pack))
 
 
-def write(packs: dict[str, list[dict]]) -> None:
+def write(packs: dict[str, list[dict]], overwrite: set[str] | None = None) -> None:
+    """Write what the SRD produces into src/packs, without trampling it.
+
+    src/packs is the source of truth: it is what compiles into the compendia,
+    what Foundry shows, and what a hand correction ends up in. So this adds
+    documents the SRD has and the packs do not, and leaves everything else
+    alone. Where the two differ it says so and writes nothing, because the
+    difference is as likely to be a deliberate edit as a parser improvement.
+
+    Taking the generated version is a decision, made with --overwrite and named
+    per pack, and it is the one path that can lose an edit.
+    """
+    overwrite = overwrite or set()
+    added = differing = 0
+
     for pack, documents in packs.items():
         directory = os.path.join(OUT, pack)
         os.makedirs(directory, exist_ok=True)
@@ -1707,23 +1702,33 @@ def write(packs: dict[str, list[dict]]) -> None:
                 )
             seen[slug] = document["name"]
 
-            with open(os.path.join(directory, f"{slug}.json"), "w", encoding="utf-8") as handle:
-                json.dump(document, handle, indent=2, ensure_ascii=False)
-                handle.write("\n")
+            path = os.path.join(directory, f"{slug}.json")
+            rendered = json.dumps(document, indent=2, ensure_ascii=False) + "\n"
 
-        # An entry the scrape no longer produces - a fragment that turned out
-        # not to be a real feat - must go, or it stays in the compendium
-        # forever and trips the count check below.
-        for stale in os.listdir(directory):
-            if stale.endswith(".json") and stale[:-5] not in seen:
-                os.remove(os.path.join(directory, stale))
-                print(f"  - removed stale {pack}/{stale}")
+            if os.path.exists(path) and pack not in overwrite and "all" not in overwrite:
+                with open(path, encoding="utf-8") as handle:
+                    if handle.read() != rendered:
+                        differing += 1
+                        print(f"  ~ {pack}/{slug} differs from the SRD import "
+                              f"(keeping the pack's own; --overwrite {pack} to take it)")
+                continue
 
-        on_disk = len([f for f in os.listdir(directory) if f.endswith(".json")])
-        if on_disk != len(documents):
-            raise SystemExit(
-                f"{pack}: built {len(documents)} documents but {on_disk} files exist"
-            )
+            if not os.path.exists(path):
+                added += 1
+            with open(path, "w", encoding="utf-8") as handle:
+                handle.write(rendered)
+
+        # Documents in the pack that the SRD no longer produces are reported
+        # rather than removed: with the pack as the source of truth, one of
+        # them may be something written by hand.
+        for extra in sorted(os.listdir(directory)):
+            if extra.endswith(".json") and extra[:-5] not in seen:
+                print(f"  ? {pack}/{extra[:-5]} is in the pack and not in the SRD import")
+
+    if added or differing:
+        print(f"\n  {added} document(s) added, {differing} left as the pack has them")
+
+
         print(f"  src/packs/{pack:12} {len(documents):4} documents")
 
 
@@ -1751,15 +1756,20 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Import the SRD into src/packs, which is the source of truth.")
+    parser.add_argument("--overwrite", nargs="*", metavar="PACK", default=None,
+                        help="take the imported version for these packs, losing any "
+                             "hand corrections in them; 'all' for every pack")
+    arguments = parser.parse_args()
+
     packs = build()
     if not packs:
         print("No packs built. Run scripts/scrape.py first.", file=sys.stderr)
         return 1
 
-    apply_pack_overrides(packs)
-
-    print("Writing pack source...")
-    write(packs)
+    print("Importing into src/packs...")
+    write(packs, set(arguments.overwrite or []) or ({"all"} if arguments.overwrite == [] else set()))
 
     print("\nCompile these with the Foundry CLI (requires Node):")
     for pack in sorted(packs):

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Capture edits made in Foundry back into data/overrides/packs/.
 
-The compendia belong to the system, so anything corrected on a sheet in
-Foundry is thrown away by the next `deploy.sh --packs`, which recompiles all
-fourteen packs from src/packs. This reads the live packs back off the host,
-compares them with what the build produces, and writes the differences into
-the override layer, where they survive every rebuild.
+src/packs is the source of truth and Foundry is an editor for it, so an edit
+made on a sheet has to come home. This reads the live packs back off the host,
+compares them with the pack source, and writes the changed documents into it -
+along with a note in data/overrides/packs/ saying which documents now
+deliberately differ from the SRD, and why.
 
     scripts/capture_edits.py                     # pull from the Foundry host
     scripts/capture_edits.py --from /tmp/src     # compare an unpacked copy
@@ -25,6 +25,9 @@ import shutil
 import subprocess
 import sys
 import tempfile
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_packs import apply_document_override  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PACKS = os.path.join(ROOT, "src", "packs")
@@ -142,23 +145,26 @@ def differences(built: dict, live: dict) -> dict:
     return override
 
 
-def built_documents(pack: str) -> dict[str, dict]:
+def built_documents(pack: str) -> dict[str, tuple[str, dict]]:
+    """The pack's own documents, by display name, with the file each is in.
+
+    Keyed by name because that is what Foundry round-trips; carrying the file
+    stem too because that is a document's identity here - the build names
+    files from the SRD entry id, which is neither the display name nor a slug
+    of it, and writing to the wrong one creates a second copy.
+    """
     directory = os.path.join(PACKS, pack)
     if not os.path.isdir(directory):
         return {}
     out = {}
-    for name in os.listdir(directory):
+    for name in sorted(os.listdir(directory)):
         if not name.endswith(".json"):
             continue
         with open(os.path.join(directory, name), encoding="utf-8") as handle:
             document = json.load(handle)
         if not document.get("_key", "").startswith("!folders!"):
-            out[document["name"]] = document
+            out[document["name"]] = (name[:-5], document)
     return out
-
-
-def slugify(name: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-") or "unnamed"
 
 
 def main() -> int:
@@ -178,6 +184,7 @@ def main() -> int:
         pull(args.host, source)
 
     captured = 0
+    write_back: list[tuple[str, str, dict]] = []
     try:
         for pack in sorted(os.listdir(source)):
             directory = os.path.join(source, pack)
@@ -194,20 +201,39 @@ def main() -> int:
                 if live.get("_key", "").startswith("!folders!"):
                     continue
 
-                was = built.get(live.get("name"))
-                if not was:
-                    print(f"  ? {pack}/{live.get('name')} is in Foundry and not in the build")
+                found = built.get(live.get("name"))
+                if not found:
+                    print(f"  ? {pack}/{live.get('name')} is in Foundry and not in the pack source")
                     continue
+                stem, was = found
 
                 override = differences(was, live)
                 if override:
-                    overrides[slugify(live["name"])] = {
+                    overrides[stem] = {
                         "why": "TODO: say why this differs from the SRD",
                         **override,
                     }
+                    write_back.append((pack, stem, override))
                     captured += 1
                     for field in override:
                         print(f"  + {pack}/{live['name']}: {field}")
+
+            # The edit belongs in the pack source, which is what compiles and
+            # what a reader reads. Applied onto the document already there
+            # rather than taking Foundry's copy wholesale, so the file keeps
+            # its own shape - Foundry's copy carries a prototype token, a
+            # light configuration and a dozen other defaults we do not store.
+            if write_back and not args.dry_run:
+                for pack_name, slug, override in write_back:
+                    path = os.path.join(PACKS, pack_name, f"{slug}.json")
+                    with open(path, encoding="utf-8") as handle:
+                        document = json.load(handle)
+                    apply_document_override(document, override)
+                    with open(path, "w", encoding="utf-8") as handle:
+                        json.dump(document, handle, indent=2, ensure_ascii=False)
+                        handle.write("\n")
+                    print(f"  wrote src/packs/{pack_name}/{slug}.json")
+                write_back.clear()
 
             if overrides and not args.dry_run:
                 os.makedirs(OVERRIDES, exist_ok=True)
@@ -238,7 +264,8 @@ def main() -> int:
     print(f"\n{captured} edited document(s) captured"
           + (" (dry run, nothing written)" if args.dry_run else ""))
     if captured and not args.dry_run:
-        print("Fill in each 'why', then run build_packs.py to fold them in.")
+        print("The pack source now carries the edit. Fill in each 'why' so the "
+              "checks can tell it from a regression.")
     return 0
 
 

@@ -1,5 +1,5 @@
 {
-  "_comment": "Hand corrections merged over weapons built from the SRD's tables, keyed by slug. The tables have no reach column, so reach weapons are recorded here from their own descriptions. Each entry needs a 'why'.",
+  "_comment": "Documents in src/packs that deliberately differ from what the SRD import produces, keyed by slug. src/packs is the source of truth, so the correction itself is in the pack document; this is the record of which ones were changed and why, which is what lets a check tell a decision from a regression. Written by scripts/capture_edits.py when an edit is captured out of Foundry.",
   "spear": {
     "why": "weapons.html: 'This primitive device is a reach weapon. A character can strike opponents 10 feet away with it, but can't use it against an adjacent foe.' The melee table has no reach column.",
     "reach": 10,
