@@ -127,3 +127,10 @@ jobs:
       # the SRD's own documents, so a whole format going unread is visible.
       - name: SRD coverage has not regressed
         run: python3 scripts/check_coverage.py
+
+      # The export runs against a live Foundry host, so it is the one script
+      # here that cannot be tried out cheaply, and both of its bugs so far
+      # were found by reading 1,400 documents of its output. This round-trips
+      # one editing session through a temporary directory instead.
+      - name: edits made in Foundry survive the trip home
+        run: python3 scripts/check_capture.py

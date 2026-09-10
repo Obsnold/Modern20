@@ -1637,7 +1637,10 @@ def apply_document_override(document: dict, override: dict) -> None:
     for key, value in override.items():
         if key == "why":
             continue
-        if key in ("name", "img"):
+        if key in ("name", "img", "folder"):
+            # Fields of the document rather than of its system data. Anything
+            # not named here and not dotted falls through to system, which is
+            # where the older flat corrections put everything.
             document[key] = value
         elif "." in key:
             # A dotted key outside system addresses the document itself: a
