@@ -34,7 +34,7 @@ fighting it forever, so this is a standalone game system.
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 243 actors, built from the SRD |
-| Rules reference | 63 journal entries, 980 pages — the SRD's own text, in four books |
+| Rules reference | 63 journal entries, 1,202 pages — the SRD's own text, in four books |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text, 64 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
@@ -494,6 +494,17 @@ their structure that way. It doubled the page count and multiplied the
 duplicate page names by ten, because a bold cell in a table is a column
 header. A long page is searchable; a contents list full of pages called "DC"
 and "Size" is not.
+
+Promoting **capitalised** paragraphs is a different matter, and it is done.
+The Menace Manual styles the acid rainer's name as a heading and the alien
+probe's, two entries later, as a plain paragraph — so the alien probe was
+inside the acid rainer's page, along with the giant anaconda and the animated
+object. Capitals are a name in these documents where bold is not, and the
+promotion runs per document and is kept only where it improves the split:
+Menace Creatures (A-I) goes from 14 pages to 34, one per creature, and Urban
+Arcana's feats from 4 to 27, while Shadowkind keeps the 17 it already had
+because there the promotion shifts the level the document breaks at and loses
+ten species. 980 pages became 1,202 with no new duplicate names.
 
 Ten documents open on a section rather than a title — the file names are one
 lowercase run, `msrdequipmentweaponsandarmor`, and cannot be split back into
