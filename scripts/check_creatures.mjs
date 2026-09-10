@@ -30,6 +30,25 @@ const { derivedFromType, progressionAt, hitDiceCount, sizeGuidance, creatureType
 let problems = 0;
 const fail = (message) => { problems++; console.log(`FAIL  ${message}`); };
 
+/**
+ * Creatures whose pack document deliberately differs from the SRD import.
+ *
+ * src/packs is the source of truth, so a document can disagree with the book
+ * on purpose - a printed total corrected, a stat block the SRD got wrong. The
+ * record of which, and why, is data/overrides/packs/creatures.json, and this
+ * check reads it so that a decision is not reported as a regression. Anything
+ * not listed there is still held to the printed figures.
+ */
+let handEdited = {};
+try {
+  handEdited = JSON.parse(
+    readFileSync(join(ROOT, "data", "overrides", "packs", "creatures.json"), "utf8")
+  );
+} catch { /* nothing hand-edited yet */ }
+// Keyed by the pack file each document lives in, which is what identifies it:
+// the build names those from the SRD entry id, not from the display name.
+const edited = (creature) => Object.hasOwn(handEdited, slugify(creature.id));
+
 /* -- the generated module must match the scrape ------------------------- */
 
 const scraped = JSON.parse(
@@ -244,6 +263,8 @@ for (const creature of creatures) {
   const document = readCreatureDocument(creature.id);
   if (!document) continue;
 
+  if (edited(creature)) continue;
+
   // Matched one for one and consumed: a creature that bites at two different
   // bonuses must produce both, not the same one twice.
   const unmatched = [...creature.attacks];
@@ -300,6 +321,7 @@ let featItems = 0;
 for (const creature of creatures) {
   const document = readCreatureDocument(creature.id);
   if (!document) continue;
+  if (edited(creature)) continue;
   const stored = document.system.skills ?? {};
 
   for (const printed of creature.skillEntries) {
@@ -368,6 +390,7 @@ for (const creature of creatures) {
   const document = readCreatureDocument(creature.id);
   if (!document) continue;
 
+  if (edited(creature)) continue;
   const abilities = (document.items ?? []).filter((item) => item.type === "specialAbility");
   abilityItems += abilities.length;
   const traits = new Map(
@@ -582,6 +605,11 @@ for (const entry of advancement.types) {
   }
 }
 console.log(`${advancement.sizes.length} size steps and ${typed} type entries checked`);
+
+const deliberate = Object.keys(handEdited).filter((key) => !key.startsWith("_")).length;
+if (deliberate) {
+  console.log(`${deliberate} creature(s) deliberately differ from the SRD and were not compared`);
+}
 
 console.log(problems ? `\n${problems} problems` : "\nall creature checks passed");
 process.exit(problems ? 1 : 0);
