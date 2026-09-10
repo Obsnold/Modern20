@@ -273,6 +273,105 @@ def tidy(markup: str) -> str:
     return markup.strip()
 
 
+# Pages the SRD prints as one long run of entries, and the heading level each
+# entry is named at. The Menace Manual sells its creatures four to a page,
+# twenty at a time, which is a page nobody scrolls: split at the level the
+# creature names sit on and each gets its own.
+SPLIT_AT = {
+    "menacecreat1.html": ("menacecreatures.html", 4),
+    "menacecreat2.html": ("menacecreatures.html", 4),
+    "menacecreat3.html": ("menacecreatures.html", 4),
+    "menacecreat4.html": ("menacecreatures.html", 4),
+}
+
+# Words the SRD sets in capitals because they are capitals, not because the
+# heading is.
+ACRONYMS = {"FX", "DC", "DCS", "HP", "AP", "PL", "GM", "GMS", "NPC", "NPCS",
+            "SRD", "XP", "AC", "II", "III", "IV", "I"}
+
+# Small words a title leaves alone unless they open it.
+MINOR_WORDS = {"a", "an", "and", "as", "at", "by", "for", "from", "in", "of",
+               "on", "or", "the", "to", "with"}
+
+ANCHOR_NAME = re.compile(r'<a\s+name="([^"]+)"', re.I)
+
+
+def readable(name: str) -> str:
+    """The SRD sets these headings in capitals; a contents list reads better not.
+
+    "ACID RAINER" is Acid Rainer. Word by word rather than all or nothing,
+    because the Menace Manual shouts only the creature's own name and writes
+    the gloss after it normally: "FLESHRAKER (Knife Fiend)". A word that is
+    not in capitals is already as its author wanted it.
+    """
+    out = []
+    for index, word in enumerate(name.split()):
+        bare = word.strip("(),.:;").upper()
+        if not word.isupper() or len(bare) < 2 or bare in ACRONYMS:
+            out.append(word)
+        elif index and word.lower().strip(",") in MINOR_WORDS:
+            out.append(word.lower())
+        else:
+            out.append(word.title())
+    return " ".join(out)
+
+
+def index_names(markup: str, page: str) -> dict[str, str]:
+    """What the book's own A-Z index calls each anchor in one of its pages.
+
+    It sets a creature's name in capitals and a variant of one in mixed case -
+    ANIMATED OBJECT, then "Tiny to Medium", "Large to Huge" - which is the
+    only thing in these files that tells the two apart. The capitalised ones
+    are the entries.
+    """
+    names = {}
+    for match in re.finditer(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', markup, re.S | re.I):
+        target, label = match.group(1), text_of(match.group(2))
+        file, _, anchor = target.partition("#")
+        if anchor and file.split("/")[-1] == page and label.isupper():
+            names.setdefault(anchor, label)
+    return names
+
+
+def split_entries(markup: str, level: int, name: str,
+                  names: dict[str, str]) -> list[dict] | None:
+    """One page per entry, where the SRD prints a run of them in one page.
+
+    Split at the headings that name an entry - and at the ones that do not.
+    A third of the Menace Manual's creatures are headed by nothing but an
+    anchor, their name printed in the stat block table instead: the grimlock
+    is <h4><a name="creat6"></a></h4>, and splitting on the visible headings
+    alone filed it inside the ghoul. The book's own index names those.
+
+    An anchored heading the index does not name in capitals is a variant
+    within an entry rather than an entry - the large animated object belongs
+    on the animated object's page, and a link to it still lands there.
+    """
+    heading = re.compile(rf"<h{level}\b[^>]*>(.*?)</h{level}>", re.S | re.I)
+    marks = []
+    for match in heading.finditer(markup):
+        title = text_of(match.group(1))
+        if not title:
+            anchor = ANCHOR_NAME.search(match.group(1))
+            title = names.get(anchor.group(1), "") if anchor else ""
+        if title:
+            marks.append((match.start(), readable(title)))
+    if len(marks) < 2:
+        return None
+
+    pages = []
+    # Anything before the first entry is the page's own banner, which the
+    # entry's contents list already says. Kept only if it says something else.
+    preamble = markup[:marks[0][0]]
+    if len(text_of(preamble)) > 200:
+        pages.append({"name": name, "html": preamble.strip()})
+
+    for index, (start, title) in enumerate(marks):
+        end = marks[index + 1][0] if index + 1 < len(marks) else len(markup)
+        pages.append({"name": title, "html": markup[start:end].strip()})
+    return pages
+
+
 def entries_of(site: Site) -> list[list[str]]:
     """The site's pages, grouped into one journal entry each.
 
@@ -304,9 +403,23 @@ def main() -> int:
             if not text_of(markup):
                 print(f"  ! {page} has no content", file=sys.stderr)
                 continue
-            # The page it came from, so the build can turn the SRD's own
-            # cross-references into links between compendium pages.
-            contents.append({"name": site.label[page], "source": page, "html": markup})
+            # The page it came from, and the anchors that page's own links
+            # aim at, so the build can turn the SRD's cross-references into
+            # links between compendium pages - including the ones that point
+            # into the middle of a page that has since been split up.
+            split = None
+            if page in SPLIT_AT:
+                index, level = SPLIT_AT[page]
+                split = split_entries(
+                    markup, level, site.label[page],
+                    index_names(tidy(body(srd.fetch(index))), page))
+            for part in split or [{"name": site.label[page], "html": markup}]:
+                contents.append({
+                    "name": part["name"],
+                    "source": page,
+                    "anchors": ANCHOR_NAME.findall(part["html"]),
+                    "html": part["html"],
+                })
         if not contents:
             continue
         documents.append({

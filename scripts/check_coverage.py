@@ -101,8 +101,12 @@ def sections(rules: list[dict]) -> dict[str, list[str]]:
     for entry in rules:
         names = []
         for page in entry["pages"]:
-            names += [name for name in headings(page["html"])
-                      if name.lower() != page["name"].lower()]
+            # The page's own name counts too, and counts once. Where a page
+            # is a single entry - the Menace Manual's creatures are a page
+            # each - the name and the heading are the same thing, and reading
+            # only the headings while skipping the ones that match the page
+            # name counted the acid rainer zero times.
+            names += list(dict.fromkeys(headings(page["html"]) + [page["name"]]))
         found[entry["id"]] = names
         seen.update({name.lower() for name in names})
 
