@@ -707,6 +707,46 @@
           }
         }
       },
+      "Object": {
+        "FIELDS": {
+          "breakDC": {
+            "label": "Break DC"
+          },
+          "defenseMisc": {
+            "label": "Defense Misc"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "hardness": {
+            "label": "Hardness"
+          },
+          "hp": {
+            "label": "Hit Points"
+          },
+          "hp.max": {
+            "label": "Max"
+          },
+          "hp.value": {
+            "label": "Value"
+          },
+          "size": {
+            "label": "Size"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "substance": {
+            "label": "Substance"
+          },
+          "thickness": {
+            "label": "Thickness (inches)"
+          }
+        }
+      },
       "Ordinary": {
         "FIELDS": {
           "abilities": {
@@ -1038,6 +1078,12 @@
           "size": {
             "label": "Size"
           },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
           "topSpeed": {
             "label": "Top Speed"
           }
@@ -1357,6 +1403,7 @@
       "Apply": "Apply",
       "Bypassed": "Damage reduction {value}/{bypass} bypassed",
       "Half": "Half",
+      "Hardness": "Hardness {value}",
       "Heal": "Heal",
       "Heal1": "Heal 1",
       "Heal5": "Heal 5",
@@ -1369,6 +1416,7 @@
       "NonlethalShort": "nonlethal",
       "NotReducedEnergy": "Damage reduction {value} does not apply to {type} damage",
       "NotYours": "You do not own {name}.",
+      "ObjectShare": "An object takes {share} of {type} damage: {from} becomes {to}",
       "Reduced": "{name} ignores some of it",
       "Reduction": "Damage reduction {value}",
       "Resisted": "{type} resistance {value}",
@@ -2155,6 +2203,16 @@
     "NoWealthLost": "The purchase does not reduce your Wealth bonus.",
     "NoneStated": "None stated",
     "NoneYet": "None yet.",
+    "Object": {
+      "Break": "Break it",
+      "BreakCheck": "forces {name} (Strength DC {dc})",
+      "BreakDC": "Break DC",
+      "HalfHint": "at half hit points or less: DC reduced by 2",
+      "Hardness": "Hardness",
+      "Substance": "Made of",
+      "Suggested": "The SRD's figures for this size and substance",
+      "Title": "Object"
+    },
     "Occupation": {
       "Chosen": "Class skills chosen",
       "FeatMissing": "No feat named \"{name}\" is in the compendium; add it by hand.",
@@ -2237,6 +2295,7 @@
       "Creature": "Modern20 Creature Sheet",
       "Hero": "Modern20 Actor Sheet",
       "Item": "Modern20 Item Sheet",
+      "Object": "Modern20 Object Sheet",
       "Ordinary": "Modern20 Ordinary Sheet",
       "Vehicle": "Modern20 Vehicle Sheet"
     },
@@ -2363,6 +2422,7 @@
     "Warning": {
       "NoActionPoints": "This actor does not use action points.",
       "NoActionPointsLeft": "No action points remaining.",
+      "NoBreaker": "Select the character trying to break it.",
       "NoBuyer": "Select a character with a Wealth bonus to make the purchase.",
       "NoWealth": "This actor has no Wealth bonus.",
       "NotPurchasable": "This item has no purchase DC.",

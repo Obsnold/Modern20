@@ -33,7 +33,8 @@ fighting it forever, so this is a standalone game system.
 | Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 960 items, built from the SRD |
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
-| Compendia: creatures, vehicles | 229 actors, built from the SRD |
+| Compendia: creatures, vehicles, objects | 243 actors, built from the SRD |
+| Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 944 ability items, 906 with the SRD's own rules text, 64 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
@@ -436,6 +437,41 @@ grapple started by improved grab, or a regeneration that has to be checked
 each round. The SRD writes those as instructions to a GM, and the useful thing
 was to put them where the creature is rather than to guess at a mechanism for
 253 different abilities.
+
+## Objects
+
+The SRD gives an object a stat block of its own — a Defense by size, a hardness
+subtracted from every hit, hit points by substance or by size, and a break DC
+for forcing it rather than destroying it — and there was nowhere to put one.
+`object` is now an actor type, and the fourteen objects the SRD names outright
+build into a compendium: locks in five qualities, three kinds of door, a
+cinderblock wall, chain, handcuffs, metal bars.
+
+The point of making them actors is that hardness then has a reader.
+`Actor#applyDamage` subtracts it the way it subtracts a creature's damage
+reduction, and applies the SRD's energy rule on the way in — *"electricity and
+fire attacks deal half damage to most objects; divide the damage by 2 before
+applying the hardness. Cold attacks deal one-quarter damage"* — with acid and
+sonic dealing full. Objects are immune to nonlethal damage, which the same
+method already understood for constructs and undead.
+
+**Vehicles have had a `hardness` field since they were imported and nothing
+read it.** A car with hardness 5 took full damage from every hit. It is the
+same defect the creatures' damage reduction had, and the same fix: a vehicle
+is an object, so it takes the object path.
+
+Defense is derived rather than stored: the printed figure is 10 + the size
+modifier − 5, since an immobile object has no Dexterity bonus to lose. That
+reproduces all nine printed values exactly, which `check_objects.mjs` asserts —
+so a GM can set any size and get the right number rather than only the sizes
+the SRD tabulated. An object the SRD does not name gets the manufactured-object
+defaults for its size, and a substance and a thickness give hit points at the
+SRD's own rate: *"10/inch of thickness"* for wood.
+
+The same check verifies the grapple modifiers `config.mjs` transcribes by hand.
+They are printed on this page, and they are the one size table whose numbers
+differ from every other — a Colossal creature is −8 to attack and +16 to
+grapple.
 
 ## Field labels
 

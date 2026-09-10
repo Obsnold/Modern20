@@ -1,0 +1,89 @@
+<header class="m20-header m20-header--item">
+  <img class="m20-portrait" src="{{document.img}}" data-edit="img" alt="{{document.name}}">
+  <div class="m20-header__identity">
+    <input class="m20-name" type="text" name="name" value="{{document.name}}">
+    <div class="m20-header__classes">
+      <span class="m20-tag">{{localize (lookup (lookup config.sizes system.size) "label")}}</span>
+      <span class="m20-tag">{{localize "MODERN20.Defense"}} {{system.defense}}</span>
+      <span class="m20-tag">{{localize "MODERN20.Object.Hardness"}} {{system.hardness}}</span>
+    </div>
+  </div>
+</header>
+
+<section class="m20-body">
+  <div class="m20-panel">
+    <h3>{{localize "MODERN20.Object.Title"}}</h3>
+
+    <div class="m20-row">
+      <label for="m20-object-size">{{localize "MODERN20.Label.Size"}}</label>
+      <select id="m20-object-size" name="system.size">
+        {{#each config.sizes as |size key|}}
+          <option value="{{key}}" {{#if (eq key ../system.size)}}selected{{/if}}>
+            {{localize size.label}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="m20-row">
+      <label for="m20-object-substance">{{localize "MODERN20.Object.Substance"}}</label>
+      <select id="m20-object-substance" name="system.substance">
+        <option value="">{{localize "MODERN20.Creator.None"}}</option>
+        {{#each substances as |substance key|}}
+          <option value="{{key}}" {{#if (eq key ../system.substance)}}selected{{/if}}>
+            {{substance.name}}
+          </option>
+        {{/each}}
+      </select>
+      {{!-- The SRD gives a substance's hit points as a rate: "10/inch". --}}
+      {{formField fields.thickness value=system.thickness}}
+    </div>
+
+    <div class="m20-row">
+      {{formField fields.hardness value=system.hardness}}
+      {{formField fields.breakDC value=system.breakDC}}
+      {{formField fields.defenseMisc value=system.defenseMisc}}
+    </div>
+
+    <div class="m20-row">
+      <label>{{localize "MODERN20.HitPoints"}}</label>
+      <span class="m20-stat__value">
+        <input type="number" name="system.hp.value" value="{{system.hp.value}}"> /
+        <input type="number" name="system.hp.max" value="{{system.hp.max}}">
+      </span>
+      <span class="m20-hpsteps" data-player-allowed>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="5"
+                data-tooltip="{{localize 'MODERN20.Damage.Take5'}}">-5</button>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="1"
+                data-tooltip="{{localize 'MODERN20.Damage.Take1'}}">-1</button>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="-1"
+                data-tooltip="{{localize 'MODERN20.Damage.Heal1'}}">+1</button>
+        <button type="button" class="m20-icon" data-action="adjustHealth" data-delta="-5"
+                data-tooltip="{{localize 'MODERN20.Damage.Heal5'}}">+5</button>
+      </span>
+    </div>
+
+    <div class="m20-row" data-player-allowed>
+      <label>{{localize "MODERN20.Object.Break"}}</label>
+      <button type="button" class="m20-button m20-button--small" data-action="rollBreak">
+        {{localize "MODERN20.Object.BreakDC"}} {{system.currentBreakDC}}
+      </button>
+      {{#if system.damaged}}
+        <span class="m20-hint">{{localize "MODERN20.Object.HalfHint"}}</span>
+      {{/if}}
+    </div>
+
+    {{#if system.suggested.hitPoints}}
+      <p class="m20-hint">
+        {{localize "MODERN20.Object.Suggested"}}:
+        {{localize "MODERN20.Object.Hardness"}} {{system.suggested.hardness}},
+        {{system.suggested.hitPoints}} {{localize "MODERN20.HitPoints"}},
+        {{localize "MODERN20.Object.BreakDC"}} {{system.suggested.breakDC}}
+      </p>
+    {{/if}}
+  </div>
+
+  <div class="m20-panel">
+    {{formField fields.description value=system.description enriched=enrichedDescription toggled=true}}
+  </div>
+</section>

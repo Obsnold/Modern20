@@ -1,0 +1,22 @@
+{
+  "_id": "g32gnfylkjLpRWtf",
+  "name": "Lock (Ultrahigh Security)",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 20,
+    "hp": {
+      "value": 150,
+      "max": 150
+    },
+    "breakDC": 40,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!g32gnfylkjLpRWtf"
+}

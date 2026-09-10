@@ -1,0 +1,22 @@
+{
+  "_id": "p1goW40pbihYrZFO",
+  "name": "Firearm, Medium-size",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 5,
+    "hp": {
+      "value": 7,
+      "max": 7
+    },
+    "breakDC": 17,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!p1goW40pbihYrZFO"
+}

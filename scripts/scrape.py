@@ -2507,6 +2507,113 @@ def scrape_special_ammunition() -> list[dict]:
     return []
 
 
+# The size words the object tables use, which are the creature size words with
+# "Medium-size" written out.
+OBJECT_SIZES = {
+    "fine": "fine", "diminutive": "diminutive", "tiny": "tiny", "small": "small",
+    "medium-size": "medium", "medium": "medium", "large": "large", "huge": "huge",
+    "gargantuan": "gargantuan", "colossal": "colossal",
+}
+
+
+def object_size(text: str) -> str:
+    """The size an object table row names, ignoring the example beside it."""
+    word = re.sub(r"\(.*", "", text or "").strip().lower()
+    return OBJECT_SIZES.get(word, "")
+
+
+def scrape_objects() -> dict:
+    """What it takes to break something: hardness, hit points and Defense.
+
+    Three tables on the same page. Objects have a Defense by size, a hardness
+    subtracted from every hit, hit points by substance or by size, and a break
+    DC for forcing them open rather than destroying them - and the system has
+    been storing hardness on vehicles since they were imported while nothing
+    subtracted it.
+    """
+    page = "combatsa.html"
+    page_html = srd.fetch(page)
+    url = srd.page_url(page)
+    sizes, substances, objects = [], [], []
+
+    for table in srd.annotated_tables(page_html):
+        header = [c.strip().lower() for c in table["header"]]
+        rows = [(row, kind) for row, kind in zip(table["rows"], table["kinds"])
+                if kind not in ("blank", "header")]
+
+        if header[:2] == ["size", "defense"]:
+            for row, _ in rows:
+                size = object_size(row[0])
+                if size:
+                    sizes.append({
+                        "size": size,
+                        "example": (re.search(r"\((.*)\)", row[0]) or [None, ""])[1],
+                        "defense": srd.to_int(row[1]),
+                    })
+        elif header[:3] == ["substance", "hardness", "hit points"]:
+            for row, _ in rows:
+                if row[0].strip():
+                    substances.append({
+                        "id": camel(row[0]),
+                        "name": row[0].strip(),
+                        "hardness": srd.to_int(row[1]),
+                        # "10/inch of thickness": the SRD gives a rate, not a total.
+                        "hitPointsPerInch": srd.to_int(row[2]),
+                    })
+        elif header[:4] == ["object", "hardness", "hit points", "break dc"]:
+            objects.extend(parse_object_rows(rows, url))
+
+    return {"sizes": sizes, "substances": substances, "objects": objects,
+            "srdUrl": url}
+
+
+def parse_object_rows(rows, url: str) -> list[dict]:
+    """The named objects, and the by-size row of manufactured ones.
+
+    The table groups its rows under headings - "Lock", "Manufactured objects" -
+    and the SRD's own markup repeats the Gargantuan and Colossal rows of the
+    manufactured group three times over, so an entry already seen under the
+    same heading is the same entry.
+    """
+    group = ""
+    out, seen = [], set()
+    for row, kind in rows:
+        label = row[0].strip()
+        if not label:
+            continue
+        # A heading has no numbers beside it.
+        if len(row) < 4 or not any(cell.strip() for cell in row[1:4]):
+            # "Manufactured objects 1" - the heading carries a footnote marker.
+            group = re.sub(r"\s+\d+$", "", label)
+            continue
+        if label.lower().startswith(("figures for", "1 figures")):
+            continue
+
+        size = object_size(label)
+        name = f"{group} ({label})" if group and not size else label
+        key = (group, label)
+        if key in seen:
+            continue
+        seen.add(key)
+        if size:
+            # The manufactured-objects group is the by-size table itself, and
+            # the named objects printed after it - a steel door, a chain - are
+            # entries in their own right rather than more of the group.
+            group = ""
+        out.append({
+            "id": camel(name),
+            "name": name,
+            "group": group,
+            # A row of the manufactured-objects table is a size rather than a
+            # thing: those are the defaults for anything not printed by name.
+            "size": size,
+            "hardness": srd.to_int(row[1]),
+            "hitPoints": srd.to_int(row[2]),
+            "breakDC": srd.to_int(row[3]),
+            "srdUrl": url,
+        })
+    return out
+
 def scrape_purchase_tables(pages: list[str]) -> list[dict]:
     """Every table that carries a purchase DC, from anywhere in the SRD.
 
@@ -2616,6 +2723,8 @@ def main() -> int:
     write("psionics.json", psionics)
     vehicles = scrape_vehicles()
     write("vehicles.json", vehicles)
+    objects = scrape_objects()
+    write("objects.json", objects)
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 
@@ -2628,6 +2737,7 @@ def main() -> int:
           f"{len(creatures)} creatures, {len(spells)} spells, "
           f"{len(psionics)} psionic powers, {len(vehicles)} vehicles, "
           f"{len(conditions)} conditions, "
+          f"{len(objects['objects'])} objects, "
           f"{sum(len(v) for v in tables.values())} tables")
     return 0
 

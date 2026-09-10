@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { SUBSTANCES } from "../object-data.mjs";
 import { Modern20ActorSheetBase } from "./actor-sheet.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -75,6 +76,74 @@ export class Modern20CreatureSheet extends Modern20ActorSheetBase {
       labelPrefix: "MODERN20.Tab"
     }
   };
+}
+
+/**
+ * An object: a door, a chain, a cinderblock wall.
+ *
+ * One panel, because that is the whole of what the SRD gives an object — a
+ * Defense from its size, a hardness, hit points and a break DC. The hit point
+ * steps are the same ones every other sheet has, so shooting a door goes
+ * through Actor#applyDamage and its hardness comes off the damage.
+ */
+export class Modern20ObjectSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+  static DEFAULT_OPTIONS = {
+    classes: ["modern20", "sheet", "actor", "object"],
+    position: { width: 560, height: 520 },
+    window: { resizable: true },
+    form: { submitOnChange: true },
+    actions: {
+      adjustHealth: Modern20ObjectSheet.#onAdjustHealth,
+      rollBreak: Modern20ObjectSheet.#onRollBreak
+    }
+  };
+
+  static PARTS = {
+    body: { template: "systems/modern20/templates/actor/object-body.hbs", scrollable: [""] }
+  };
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const actor = this.document;
+
+    context.system = actor.system;
+    context.fields = actor.system.schema.fields;
+    context.config = MODERN20;
+    context.editable = this.isEditable;
+    context.substances = SUBSTANCES;
+    context.enrichedDescription =
+      await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+        actor.system.description,
+        { secrets: actor.isOwner, relativeTo: actor }
+      );
+
+    return context;
+  }
+
+  /** The same -5 / -1 / +1 / +5 steps the other sheets carry. */
+  static async #onAdjustHealth(event, target) {
+    const delta = Number(target.dataset.delta) || 0;
+    await this.document.applyDamage(delta);
+  }
+
+  /**
+   * "When a character tries to break something with sudden force rather than
+   * by dealing damage, use a Strength check." Rolled by whoever is pulling on
+   * it, which is not the object.
+   */
+  static async #onRollBreak() {
+    const breaker = game.user.character ?? canvas.tokens?.controlled?.[0]?.actor;
+    if (!breaker?.system?.abilities?.str) {
+      ui.notifications.warn(game.i18n.localize("MODERN20.Warning.NoBreaker"));
+      return;
+    }
+    const dc = this.document.system.currentBreakDC;
+    await breaker.rollAbility("str", {
+      flavor: game.i18n.format("MODERN20.Object.BreakCheck", {
+        name: this.document.name, dc
+      })
+    });
+  }
 }
 
 /**

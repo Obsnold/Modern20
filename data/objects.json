@@ -1,0 +1,350 @@
+{
+  "sizes": [
+    {
+      "size": "colossal",
+      "example": "jetliner",
+      "defense": -3
+    },
+    {
+      "size": "gargantuan",
+      "example": "army tank",
+      "defense": 1
+    },
+    {
+      "size": "huge",
+      "example": "typical car",
+      "defense": 3
+    },
+    {
+      "size": "large",
+      "example": "big door",
+      "defense": 4
+    },
+    {
+      "size": "medium",
+      "example": "dirt bike",
+      "defense": 5
+    },
+    {
+      "size": "small",
+      "example": "chair",
+      "defense": 6
+    },
+    {
+      "size": "tiny",
+      "example": "laptop computer",
+      "defense": 7
+    },
+    {
+      "size": "diminutive",
+      "example": "paperback book",
+      "defense": 9
+    },
+    {
+      "size": "fine",
+      "example": "pencil",
+      "defense": 13
+    }
+  ],
+  "substances": [
+    {
+      "id": "paper",
+      "name": "Paper",
+      "hardness": 0,
+      "hitPointsPerInch": 2
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "hardness": 0,
+      "hitPointsPerInch": 2
+    },
+    {
+      "id": "plasticSoft",
+      "name": "Plastic, soft",
+      "hardness": 0,
+      "hitPointsPerInch": 3
+    },
+    {
+      "id": "glass",
+      "name": "Glass",
+      "hardness": 1,
+      "hitPointsPerInch": 1
+    },
+    {
+      "id": "ceramic",
+      "name": "Ceramic",
+      "hardness": 1,
+      "hitPointsPerInch": 2
+    },
+    {
+      "id": "ice",
+      "name": "Ice",
+      "hardness": 0,
+      "hitPointsPerInch": 3
+    },
+    {
+      "id": "plasticHard",
+      "name": "Plastic, hard",
+      "hardness": 2,
+      "hitPointsPerInch": 5
+    },
+    {
+      "id": "wood",
+      "name": "Wood",
+      "hardness": 5,
+      "hitPointsPerInch": 10
+    },
+    {
+      "id": "aluminium",
+      "name": "Aluminium",
+      "hardness": 6,
+      "hitPointsPerInch": 10
+    },
+    {
+      "id": "concrete",
+      "name": "Concrete",
+      "hardness": 8,
+      "hitPointsPerInch": 15
+    },
+    {
+      "id": "steel",
+      "name": "Steel",
+      "hardness": 10,
+      "hitPointsPerInch": 10
+    }
+  ],
+  "objects": [
+    {
+      "id": "lockCheap",
+      "name": "Lock (Cheap)",
+      "group": "Lock",
+      "size": "",
+      "hardness": 0,
+      "hitPoints": 1,
+      "breakDC": 10,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "lockAverage",
+      "name": "Lock (Average)",
+      "group": "Lock",
+      "size": "",
+      "hardness": 3,
+      "hitPoints": 5,
+      "breakDC": 15,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "lockHighQuality",
+      "name": "Lock (High Quality)",
+      "group": "Lock",
+      "size": "",
+      "hardness": 5,
+      "hitPoints": 10,
+      "breakDC": 20,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "lockHighSecurity",
+      "name": "Lock (High Security)",
+      "group": "Lock",
+      "size": "",
+      "hardness": 10,
+      "hitPoints": 120,
+      "breakDC": 35,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "lockUltrahighSecurity",
+      "name": "Lock (Ultrahigh Security)",
+      "group": "Lock",
+      "size": "",
+      "hardness": 20,
+      "hitPoints": 150,
+      "breakDC": 40,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "fine",
+      "name": "Fine",
+      "group": "",
+      "size": "fine",
+      "hardness": 0,
+      "hitPoints": 1,
+      "breakDC": 10,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "diminutive",
+      "name": "Diminutive",
+      "group": "",
+      "size": "diminutive",
+      "hardness": 0,
+      "hitPoints": 1,
+      "breakDC": 10,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "tiny",
+      "name": "Tiny",
+      "group": "",
+      "size": "tiny",
+      "hardness": 1,
+      "hitPoints": 2,
+      "breakDC": 10,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "small",
+      "name": "Small",
+      "group": "",
+      "size": "small",
+      "hardness": 3,
+      "hitPoints": 3,
+      "breakDC": 12,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "mediumSize",
+      "name": "Medium-size",
+      "group": "",
+      "size": "medium",
+      "hardness": 5,
+      "hitPoints": 5,
+      "breakDC": 15,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "large",
+      "name": "Large",
+      "group": "",
+      "size": "large",
+      "hardness": 5,
+      "hitPoints": 10,
+      "breakDC": 15,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "huge",
+      "name": "Huge",
+      "group": "",
+      "size": "huge",
+      "hardness": 8,
+      "hitPoints": 10,
+      "breakDC": 20,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "gargantuan",
+      "name": "Gargantuan",
+      "group": "",
+      "size": "gargantuan",
+      "hardness": 8,
+      "hitPoints": 20,
+      "breakDC": 30,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "colossal",
+      "name": "Colossal",
+      "group": "",
+      "size": "colossal",
+      "hardness": 10,
+      "hitPoints": 30,
+      "breakDC": 50,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "firearmMediumSize",
+      "name": "Firearm, Medium-size",
+      "group": "",
+      "size": "",
+      "hardness": 5,
+      "hitPoints": 7,
+      "breakDC": 17,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "group": "",
+      "size": "",
+      "hardness": 0,
+      "hitPoints": 2,
+      "breakDC": 23,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "simpleWoodenDoor",
+      "name": "Simple Wooden Door",
+      "group": "",
+      "size": "",
+      "hardness": 5,
+      "hitPoints": 10,
+      "breakDC": 13,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "strongWoodenDoor",
+      "name": "Strong Wooden Door",
+      "group": "",
+      "size": "",
+      "hardness": 5,
+      "hitPoints": 20,
+      "breakDC": 23,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "steelDoor",
+      "name": "Steel Door",
+      "group": "",
+      "size": "",
+      "hardness": 10,
+      "hitPoints": 120,
+      "breakDC": 35,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "cinderblockWall",
+      "name": "Cinderblock Wall",
+      "group": "",
+      "size": "",
+      "hardness": 8,
+      "hitPoints": 90,
+      "breakDC": 35,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "chain",
+      "name": "Chain",
+      "group": "",
+      "size": "",
+      "hardness": 10,
+      "hitPoints": 5,
+      "breakDC": 26,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "handcuffs",
+      "name": "Handcuffs",
+      "group": "",
+      "size": "",
+      "hardness": 10,
+      "hitPoints": 10,
+      "breakDC": 30,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    },
+    {
+      "id": "metalBars",
+      "name": "Metal Bars",
+      "group": "",
+      "size": "",
+      "hardness": 10,
+      "hitPoints": 15,
+      "breakDC": 30,
+      "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+    }
+  ],
+  "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+}

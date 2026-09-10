@@ -1212,6 +1212,44 @@ def build_psionics() -> list[dict]:
     return simple_pack("psionics", "psiPower", "psionics", "icons/svg/daze.svg", psionic_system)
 
 
+def build_objects() -> list[dict]:
+    """The objects the SRD names, as actors a GM can drop on the canvas.
+
+    A door with 10 hit points and hardness 5 is a stat block like any other,
+    and having it as an actor is what puts the hardness where applyDamage can
+    subtract it. The by-size rows of the same table are not objects but the
+    defaults for one, and live in module/object-data.mjs instead.
+    """
+    source = json.load(open(os.path.join(srd.DATA, "objects.json"), encoding="utf-8"))
+    named = [entry for entry in source["objects"] if not entry["size"]]
+
+    documents = []
+    for entry in named:
+        slug = srd.slugify(entry["name"])
+        doc_id = document_id("objects", slug)
+        documents.append({
+            "_id": doc_id,
+            "name": entry["name"],
+            "type": "object",
+            "img": "icons/svg/door-closed.svg",
+            "system": {
+                "size": "medium",
+                "substance": "",
+                "thickness": 0,
+                "hardness": entry["hardness"],
+                "hp": {"value": entry["hitPoints"], "max": entry["hitPoints"]},
+                "breakDC": entry["breakDC"],
+                "defenseMisc": 0,
+                "description": "",
+                "source": "d20 Modern SRD",
+                "srdUrl": entry["srdUrl"],
+            },
+            "_key": f"!actors!{doc_id}",
+            "_slug": slug,
+        })
+    return documents
+
+
 def build_vehicles() -> list[dict]:
     """Vehicle actors. The SRD tabulates the full stat line, so this is a
     direct mapping rather than an inference."""
@@ -1344,6 +1382,7 @@ def build() -> dict[str, list[dict]]:
         ("psionics", build_psionics),
         ("creatures", build_creatures),
         ("vehicles", build_vehicles),
+        ("objects", build_objects),
     ):
         documents = builder()
         if documents:
@@ -1432,7 +1471,7 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
             "name": pack,
             "label": labels.get(pack, pack.title()),
             "path": f"packs/{pack}",
-            "type": "Actor" if pack in ("creatures", "vehicles") else "Item",
+            "type": "Actor" if pack in ("creatures", "vehicles", "objects") else "Item",
             "system": "modern20",
             "ownership": {"PLAYER": "OBSERVER", "ASSISTANT": "OWNER"},
         }

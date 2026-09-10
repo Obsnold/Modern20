@@ -1,0 +1,22 @@
+{
+  "_id": "S4dzFvsRe2MHhTAk",
+  "name": "Lock (Average)",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 3,
+    "hp": {
+      "value": 5,
+      "max": 5
+    },
+    "breakDC": 15,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!S4dzFvsRe2MHhTAk"
+}

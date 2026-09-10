@@ -30,7 +30,11 @@ export class Modern20Vehicle extends foundry.abstract.TypeDataModel {
         initial: "none",
         choices: Object.keys(MODERN20.restrictions)
       }),
-      description: new fields.HTMLField({ initial: "" })
+      description: new fields.HTMLField({ initial: "" }),
+      // Shipped in the compendium since vehicles were imported, and dropped
+      // on the way in for want of a field to land in.
+      source: new fields.StringField({ initial: "" }),
+      srdUrl: new fields.StringField({ initial: "" })
     };
   }
 }

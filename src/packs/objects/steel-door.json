@@ -1,0 +1,22 @@
+{
+  "_id": "bBNfigTxkffGR3QH",
+  "name": "Steel Door",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 10,
+    "hp": {
+      "value": 120,
+      "max": 120
+    },
+    "breakDC": 35,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!bBNfigTxkffGR3QH"
+}

@@ -46,6 +46,11 @@
         "htmlFields": [
           "description"
         ]
+      },
+      "object": {
+        "htmlFields": [
+          "description"
+        ]
       }
     },
     "Item": {
@@ -229,6 +234,17 @@
       "name": "vehicles",
       "label": "Vehicles",
       "path": "packs/vehicles",
+      "type": "Actor",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "objects",
+      "label": "Objects",
+      "path": "packs/objects",
       "type": "Actor",
       "system": "modern20",
       "ownership": {

@@ -3,6 +3,7 @@ import { rollWealthCheck, commitWealthLoss } from "../dice/wealth.mjs";
 import { ACTION_COST, STANCES, canAfford, attackSequence } from "../apps/actions.mjs";
 import { announce, problem } from "../apps/announce.mjs";
 import { setting } from "../settings.mjs";
+import { OBJECT_DAMAGE_SHARE } from "../object-data.mjs";
 
 // Foundry v14 removed the bare Actor/Item/Roll/ChatMessage globals; only
 // CONFIG, Hooks, game and ui survive. Everything else comes off the namespace.
@@ -226,6 +227,10 @@ export class Modern20Actor extends Actor {
     const lines = [];
     const named = (key, data) => lines.push(game.i18n.format(key, data));
 
+    // An object - and a vehicle is one - has hardness where a creature has
+    // resistances, and takes only part of some energy attacks.
+    if (this.isObject) return this.#objectDamage(amount, type, lines, named);
+
     if (type && (attributes.immunities ?? []).some((i) => Modern20Actor.damageType(i) === type)) {
       named("MODERN20.Damage.Immune", { type });
       return { amount: 0, immune: true, lines };
@@ -264,6 +269,37 @@ export class Modern20Actor extends Actor {
     }
 
     return { amount, immune: false, lines };
+  }
+
+  /**
+   * What an object keeps out of a hit.
+   *
+   * "Acid and sonic/concussive attacks deal normal damage to most objects.
+   * Electricity and fire attacks deal half damage to most objects; divide the
+   * damage by 2 before applying the hardness. Cold attacks deal one-quarter
+   * damage to most objects." Then: "whenever an object takes damage, subtract
+   * its hardness from the damage".
+   */
+  #objectDamage(amount, type, lines, named) {
+    const share = OBJECT_DAMAGE_SHARE[type];
+    if (share) {
+      const reduced = Math.floor(amount * share);
+      named("MODERN20.Damage.ObjectShare",
+        { share: share === 0.25 ? "a quarter" : "half", type, from: amount, to: reduced });
+      amount = reduced;
+    }
+
+    const hardness = this.system.hardness ?? 0;
+    if (hardness) {
+      named("MODERN20.Damage.Hardness", { value: hardness });
+      amount = Math.max(0, amount - hardness);
+    }
+    return { amount, immune: false, lines };
+  }
+
+  /** Objects have hardness and hit points; a vehicle is one of them. */
+  get isObject() {
+    return this.type === "object" || this.type === "vehicle";
   }
 
   /** A damage type as the one word the system matches on. */
@@ -604,6 +640,8 @@ export class Modern20Actor extends Actor {
   }
 
   get isImmuneToNonlethal() {
+    // "Objects are immune to nonlethal damage and to critical hits."
+    if (this.isObject) return true;
     return hasCreatureType(this.system, "construct", "undead", "ooze");
   }
 

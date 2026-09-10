@@ -1,0 +1,22 @@
+{
+  "_id": "3PRq7n4ikXPcSPSS",
+  "name": "Strong Wooden Door",
+  "type": "object",
+  "img": "icons/svg/door-closed.svg",
+  "system": {
+    "size": "medium",
+    "substance": "",
+    "thickness": 0,
+    "hardness": 5,
+    "hp": {
+      "value": 20,
+      "max": 20
+    },
+    "breakDC": 23,
+    "defenseMisc": 0,
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html"
+  },
+  "_key": "!actors!3PRq7n4ikXPcSPSS"
+}
