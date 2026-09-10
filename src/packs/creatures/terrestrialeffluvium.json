@@ -1,0 +1,221 @@
+{
+  "_id": "bDQCrm7Hav8vopiU",
+  "name": "Terrestrial Effluvium",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+    "abilities": {
+      "str": {
+        "value": 44,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 26,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 0,
+      "max": 0,
+      "temp": 0,
+      "formula": "32d10+256 plus 40 (extra hit points)"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": -2
+    },
+    "saves": {
+      "fort": {
+        "base": 10,
+        "misc": 0
+      },
+      "ref": {
+        "base": 10,
+        "misc": 0
+      },
+      "will": {
+        "base": 10,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 24,
+      "size": "colossal",
+      "speed": 10,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [
+        "ballistic",
+        "piercing"
+      ],
+      "vulnerabilities": [
+        "sonic"
+      ],
+      "massiveDamageThreshold": null,
+      "reach": 30,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "ooze",
+      "subtype": "",
+      "challengeRating": "15",
+      "hitDice": "32d10+256 plus 40 (extra hit points)",
+      "advancement": "33-56 HD (Colossal)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {},
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 60 ft.",
+    "specialQualities": "Ooze, acidic enzymes, immunities, vulnerabilities, blindsight 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +37 melee (2d8+19 plus 1d6 acid, slam)</p><p><strong>Full Attack:</strong> +37/+32/+27/+22 melee (2d8+19 plus 1d6 acid, slam)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!bDQCrm7Hav8vopiU",
+  "items": [
+    {
+      "_id": "O17VfJmUiOzfXTLM",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+37/+32/+27/+22 melee (2d8+19 plus 1d6 acid, slam)</p><p><strong>Plus:</strong> 1d6 acid</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "unarmed",
+        "damage": "2d8+19",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 4,
+        "size": "colossal",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!bDQCrm7Hav8vopiU.O17VfJmUiOzfXTLM"
+    },
+    {
+      "_id": "cTnpWMzKZUxEGvHK",
+      "name": "Ooze",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Terrestrial effluvium has the traits and immunities common to oozes.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bDQCrm7Hav8vopiU.cTnpWMzKZUxEGvHK"
+    },
+    {
+      "_id": "K59yFL4P4ar1WXNp",
+      "name": "Acidic Enzymes",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any creature that takes damage from a terrestrial effluvium’s slam attack also takes 1d6 points of acid damage from the ooze’s digestive enzymes. The enzymes continue to dissolve the victim, dealing 1d6 points of acid damage every round until the wound is washed with at least 1 pint of water (or some other appropriate liquid).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bDQCrm7Hav8vopiU.K59yFL4P4ar1WXNp"
+    },
+    {
+      "_id": "WPcpwLjQWnDChEIC",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Terrestial effluvium is immune to ballistic and piercing weapons.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bDQCrm7Hav8vopiU.WPcpwLjQWnDChEIC"
+    },
+    {
+      "_id": "wDC3KAtyhNOlBPi6",
+      "name": "Vulnerabilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Terrestial effluvium takes double damage from attacks that deal sonic or concussion damage. Direct sunlight deals 50 points of damage to the creature each round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bDQCrm7Hav8vopiU.wDC3KAtyhNOlBPi6"
+    },
+    {
+      "_id": "WyK3Mfd4pEcONrKw",
+      "name": "Blindsight 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or Listen checks to notice creatures within range of its blindsight ability.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!bDQCrm7Hav8vopiU.WyK3Mfd4pEcONrKw"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

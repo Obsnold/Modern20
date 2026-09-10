@@ -1,0 +1,696 @@
+{
+  "_id": "mvqDvGrdQC4YAh2D",
+  "name": "Sand Slave Terrorist (Human Tough Ordinary 3/Smart Ordinary 3)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 39,
+      "max": 39,
+      "temp": 0,
+      "formula": "3d10+6 plus 3d6+6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 5
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "medium",
+      "speed": 40,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [
+        {
+          "type": "electricity",
+          "value": 20
+        }
+      ],
+      "immunities": [
+        "poison"
+      ],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 18,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "",
+      "challengeRating": "7",
+      "hitDice": "3d10+6 plus 3d6+6",
+      "advancement": "",
+      "organization": "",
+      "treasure": "Tactical vest, Beretta 92F (9mm autoloader), 50 rounds of 9mm ammunition, Beretta M3P (12-gauge shotgun) 10 12-gauge shotgun rounds, tonfa, various gear and personal possessions."
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "computerUse": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "chemical",
+            "ranks": 0,
+            "misc": 5,
+            "classSkill": false
+          },
+          {
+            "name": "electronic",
+            "ranks": 0,
+            "misc": 5,
+            "classSkill": false
+          },
+          {
+            "name": "mechanical",
+            "ranks": 0,
+            "misc": 5,
+            "classSkill": false
+          },
+          {
+            "name": "structural",
+            "ranks": 0,
+            "misc": 5,
+            "classSkill": false
+          }
+        ]
+      },
+      "demolitions": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 5,
+        "classSkill": false
+      },
+      "disguise": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "drive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "forgery": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "gatherInformation": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 3,
+            "classSkill": false
+          },
+          {
+            "name": "tactics",
+            "ranks": 1,
+            "misc": 2,
+            "classSkill": false
+          },
+          {
+            "name": "technology",
+            "ranks": 1,
+            "misc": 3,
+            "classSkill": false
+          },
+          {
+            "name": "theology and philosophy",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          }
+        ]
+      },
+      "navigate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "pilot": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 2,
+        "classSkill": false
+      },
+      "profession": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Write English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "repair": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 1,
+        "classSkill": false
+      },
+      "research": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Etoile",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "Darkvision 60 ft., electricity resistance 20, fast ability healing 1, fast healing 3, fortification, fugue, hot running, immunities, network mind, selfdestruct, stasis, telepathy",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p><p><strong>Full Attack:</strong> +5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p><p><strong>Skills:</strong> Bluff +7, Computer Use +5, Craft (chemical) +7, Craft (electronic) +7, Craft (mechanical) +7, Craft (structural) +7, Demolitions +8, Disguise +3, Drive +5, Forgery +6, Gather Information +1, Intimidate +3, Knowledge (current events) +6, Knowledge (tactics) +5, Knowledge (technology) +6, Knowledge (theology and philosophy) +4, Navigate +4, Pilot +5, Profession +4, Read/ Write English, Repair +4, Research +5, Search +4, Speak English.</p><p><strong>Feats:</strong> Advanced Firearms Proficiency, Armor Proficiency (light), Deceptive, Improved Damage Threshold, Personal Firearms Proficiency, Point Blank Shot, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!mvqDvGrdQC4YAh2D",
+  "items": [
+    {
+      "_id": "RI9fKtTqyvzCmblz",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "simple",
+        "damage": "1d3+2",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.RI9fKtTqyvzCmblz"
+    },
+    {
+      "_id": "P9FIkgb9hIY9iUo1",
+      "name": "Pistol whip",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "simple",
+        "damage": "1d4+2",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.P9FIkgb9hIY9iUo1"
+    },
+    {
+      "_id": "1H8oKQMMniHTSuNn",
+      "name": "MAC Ingram M10",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.1H8oKQMMniHTSuNn"
+    },
+    {
+      "_id": "nDIKsEL49nEoLNta",
+      "name": "Advanced Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Personal Firearms Proficiency."
+        ],
+        "benefit": "The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an autofire setting).",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms set on autofire.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.nDIKsEL49nEoLNta"
+    },
+    {
+      "_id": "i1p1SGUMGP0SnnRe",
+      "name": "Armor Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.i1p1SGUMGP0SnnRe"
+    },
+    {
+      "_id": "w4iehtYqfloa7z9b",
+      "name": "Deceptive",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Bluff checks and Disguise checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.w4iehtYqfloa7z9b"
+    },
+    {
+      "_id": "sHbL5Nt0ql9xMFJc",
+      "name": "Improved Damage Threshold",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character increases his or her massive damage threshold by 3 points.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
+        "special": "A character may gain this feat multiple times. Its effects stack.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.sHbL5Nt0ql9xMFJc"
+    },
+    {
+      "_id": "VpRKbn1Lc7S1lfaB",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.VpRKbn1Lc7S1lfaB"
+    },
+    {
+      "_id": "ftzyWMNPeoE5ICNd",
+      "name": "Point Blank Shot",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +1 bonus on attack and damage rolls with ranged weapons against opponents within 30 feet.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.ftzyWMNPeoE5ICNd"
+    },
+    {
+      "_id": "IbLvQEohliQzygCg",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.IbLvQEohliQzygCg"
+    },
+    {
+      "_id": "vglkHLTE7S1qRu5M",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sand slave has darkvision to a range of 60 feet or the base creature’s darkvision, whichever is better.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.vglkHLTE7S1qRu5M"
+    },
+    {
+      "_id": "VQnD32YlMHgaQXBy",
+      "name": "Electricity Resistance 10 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sand slave ignores the first 10 points of electricity damage from any single attack. If the base creature already has electricity resistance, use the better value.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.VQnD32YlMHgaQXBy"
+    },
+    {
+      "_id": "fxBHhQN489l7fpPe",
+      "name": "Fast Ability Healing 1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sand slave heals ability damage at the rate of 1 ability score point per damaged ability per round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.fxBHhQN489l7fpPe"
+    },
+    {
+      "_id": "Tw2AQyBfdLQk1PDe",
+      "name": "Fast Healing 3",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sand slave heals 3 points of damage per round unless it is reduced to –10 or fewer hit points. This ability does not enable the sand slave to regrow or reattach severed body parts. If the base creature already has fast healing, use the better value.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.Tw2AQyBfdLQk1PDe"
+    },
+    {
+      "_id": "I5v0dU3sbfx9BvcT",
+      "name": "Fortification",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sand slave has a 50% chance to ignore the extra damage from a critical hit.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.I5v0dU3sbfx9BvcT"
+    },
+    {
+      "_id": "O5n16kbr66oA0NFL",
+      "name": "Fugue",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per day as a free action, a sand slave may attempt a Constitution check (DC 20). Success indicates that the sand slave has forced its nannites into hyperproductivity, thereby gaining an extra attack or move action each round for 1d8+2 rounds.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.O5n16kbr66oA0NFL"
+    },
+    {
+      "_id": "bkOxxt9eBmoiUxdp",
+      "name": "Hot Running",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per day as a free action, a sand slave can make a Constitution check (DC 15) to reverse the effects of fatigue and nonlethal damage. A successful check negates all nonlethal damage the sand slave has sustained and reduces fatigue or exhaustion as if the sand slave had rested for a full day.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.bkOxxt9eBmoiUxdp"
+    },
+    {
+      "_id": "hiVheHV909u2KCAd",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The sand slave is immune to disease and poison. The nannites in its body fight off all diseases, including other nannite infections, and break down all poisons before they can take effect.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.hiVheHV909u2KCAd"
+    },
+    {
+      "_id": "RoaSC7sUC1l1e9XJ",
+      "name": "Network Mind",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sand slave is automatically aware of the position and general emotional status of any other sand slaves within 200 feet. All sand slaves within that range that can see one another are in constant telepathic communication. If one is aware of a particular threat, they all are. If one sand slave in a particular group is not flatfooted, none of them are. No sand slave in such a group is considered flanked unless they all are.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.RoaSC7sUC1l1e9XJ"
+    },
+    {
+      "_id": "JW3AQCiAFNNGdKuv",
+      "name": "Selfdestruct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.JW3AQCiAFNNGdKuv"
+    },
+    {
+      "_id": "r2L3GP6WXzPRYim9",
+      "name": "Stasis",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per day as a free action, a sand slave can attempt a Constitution check (DC 15). Success dramatically slows the creature’s metabolism for up to 1 hour. During this time, the sand slave does not need to breathe, and it lacks a heartbeat and normal body temperature. If it does not move, it appears dead to casual inspection, though a blood test or successful Treat Injury check (DC 20) reveals that it is still alive. While in stasis, the sand slave does not take damage from prolonged exposure to environmental heat or cold, and the time spent in stasis does not count toward the time limit that the sand slave can go without water or food before taking damage. While in stasis, a sand slave can act normally, except that it cannot use its hot running or fugue abilities, and it does not heal ability or hit point damage.</p><p>The sand slave can end the stasis at any time before its duration runs out as a free action.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.r2L3GP6WXzPRYim9"
+    },
+    {
+      "_id": "FXs34lqNkf3Z3pDS",
+      "name": "Telepathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sand slave can communicate its thoughts and desires to any etoile or sand slave within 200 feet that it can see, regardless of intervening matter such as glass. The target creature “hears” the sand slave’s thoughts in whatever language it can most easily understand. However, it cannot communicate thoughts back to the sand slave unless it also has telepathy.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.FXs34lqNkf3Z3pDS"
+    },
+    {
+      "_id": "jZSZYYtLDgQxT31B",
+      "name": "Self-Destruct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When reduced to –10 hit points or below, a sand slave’s body immediately turns into a pile of dust. At any time, a sand slave can willfully destroy itself by taking an attack action to make a Constitution check (DC 10). Success indicates that the sand slave self-destructs as above.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!mvqDvGrdQC4YAh2D.jZSZYYtLDgQxT31B"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

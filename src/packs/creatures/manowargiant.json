@@ -1,0 +1,258 @@
+{
+  "_id": "fNmpec30lQXuTuzs",
+  "name": "Man-’O-War, Giant",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 4,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 32,
+      "max": 32,
+      "temp": 0,
+      "formula": "5d8+10"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 4,
+        "misc": 0
+      },
+      "ref": {
+        "base": 4,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "large",
+      "speed": 60,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 5,
+        "bypass": "piercing"
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [
+        "fire"
+      ],
+      "massiveDamageThreshold": 15,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "7",
+      "hitDice": "5d8+10",
+      "advancement": "6-9 HD (Large); 10-15 HD (Huge)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "Attach, damage reduction 5/piercing, fire vulnerability, paralysis, strands, wavesense",
+    "biography": "<p><strong>Attack:</strong> +4 melee (attach, strand) or +4 melee (1d4+2, bite)</p><p><strong>Full Attack:</strong> +4 melee (attach, 8 strands) and -1 melee (1d4+1, bite)</p><p><strong>Skills:</strong> Hide +9, Move Silently +9</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!fNmpec30lQXuTuzs",
+  "items": [
+    {
+      "_id": "FNNFHpxNzEYniDrG",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (attach, 8 strands) and -1 melee (1d4+1, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!fNmpec30lQXuTuzs.FNNFHpxNzEYniDrG"
+    },
+    {
+      "_id": "IBK9uSHzfZ2m6T98",
+      "name": "Attach",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a giant man-’o-war hits with a strand attack, the strand latches onto the opponent’s body. The attachment deals no damage, but the giant man-’o-war can then draw the opponent 20 feet closer to itself that round and each subsequent round thereafter that the opponent remains stuck. Once the creature is within 20 feet of the giant man-’o-war, the man-’o-war can draw it the remaining distance and bite (+4 melee) in that same round.</p><p>The opponent can break free of a strand with a successful Escape Artist check (DC 20) or Strength check (DC 16</p><p>Alternatively, the opponent or an ally can try to sever a strand. A single attack with a slashing weapon that deals at least 10 points of damage severs a strand (Defense 18).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!fNmpec30lQXuTuzs.IBK9uSHzfZ2m6T98"
+    },
+    {
+      "_id": "xuabGjseSv5RawPq",
+      "name": "Damage Reduction 5/Piercing",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A giant man-’o-war ignores the first 5 points of damage dealt by any nonpiercing weapon.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!fNmpec30lQXuTuzs.xuabGjseSv5RawPq"
+    },
+    {
+      "_id": "2F2GybcUDfB2j7zD",
+      "name": "Fire Vulnerability",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A giant man-’o-war takes 50% more damage from fire attacks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!fNmpec30lQXuTuzs.2F2GybcUDfB2j7zD"
+    },
+    {
+      "_id": "yPbsCr6lZyL7FQOJ",
+      "name": "Paralysis",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The strands of a giant man-’o-war secrete an anesthetizing slime. Any target hit by its strand attack must succeed on a Fortitude save (DC 10 + 1/2 the man-’owar’s Hit Dice + its Constitution modifier) or be paralyzed for 3d6 rounds. The man-’o-war can automatically bite a paralyzed opponent.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Paralysis",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 14,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!fNmpec30lQXuTuzs.yPbsCr6lZyL7FQOJ"
+    },
+    {
+      "_id": "LRgIaaRqj9rl55LL",
+      "name": "Strands",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A giant man-’o-war lies in wait for prey by spreading out its long, sticky strands and floating along on the deep currents. In this mode, it can spread its strands over a 100-foot radius. When something brushes one of the strands, all the rest of the strands contract to assist in pulling the prey toward the man-’o-war’s mouth.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!fNmpec30lQXuTuzs.LRgIaaRqj9rl55LL"
+    },
+    {
+      "_id": "WaYHq0LNVVQDyf7H",
+      "name": "Wavesense",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A giant man-’o-war can automatically sense the location of any object or creature within 150 feet that is in contact with the water.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!fNmpec30lQXuTuzs.WaYHq0LNVVQDyf7H"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

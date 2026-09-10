@@ -1,0 +1,461 @@
+{
+  "_id": "DhNHESATQFiuzNTD",
+  "name": "KWEVENCHA (Spider Fiend)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+    "abilities": {
+      "str": {
+        "value": 22,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 60,
+      "max": 60,
+      "temp": 0,
+      "formula": "8d8+24"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 13
+    },
+    "saves": {
+      "fort": {
+        "base": 6,
+        "misc": 0
+      },
+      "ref": {
+        "base": 6,
+        "misc": 0
+      },
+      "will": {
+        "base": 6,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 8,
+      "size": "large",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 5,
+        "bypass": "silver"
+      },
+      "resistances": [],
+      "immunities": [
+        "poison"
+      ],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 20,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "outsider",
+      "subtype": "",
+      "challengeRating": "7",
+      "hitDice": "8d8+24",
+      "advancement": "9-14 HD (Large); 15-21 HD (Huge); or by character class",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Chaos",
+        "strength": "none"
+      },
+      {
+        "name": "evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "Damage reduction 5/silver, darkvision 60 ft., immunities, improved grab, monstrous spider minions, poison (DC 17), spit poison, telepathy, web cocoon",
+    "biography": "<p><strong>Attack:</strong> +13 melee (1d8+6 plus poison, bite) or +7 ranged touch (poison spittle)</p><p><strong>Full Attack:</strong> +13 melee (1d8+6 plus poison, bite) and +8 melee (1d6+3, 2 claws) or +7 ranged touch (poison spittle)</p><p><strong>Skills:</strong> Balance +11, Climb +17, Hide +3, Intimidate +8, Jump +13, Listen +8, Move Silently +7, Read/Write Abyssal, Speak Abyssal, Spot +12.</p><p><strong>Feats:</strong> Improved Damage Threshold, Iron Will.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!DhNHESATQFiuzNTD",
+  "items": [
+    {
+      "_id": "DzHp6xdadKMrQxnq",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (1d8+6 plus poison, bite) and +8 melee (1d6+3, 2 claws) or +7 ranged touch (poison spittle)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d8+6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.DzHp6xdadKMrQxnq"
+    },
+    {
+      "_id": "UJqAum2pnK0mesp5",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13 melee (1d8+6 plus poison, bite) and +8 melee (1d6+3, 2 claws) or +7 ranged touch (poison spittle)</p><p><strong>Also called:</strong> poison spittle</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d6+3",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.UJqAum2pnK0mesp5"
+    },
+    {
+      "_id": "Rpb6HqE1k51kZdFD",
+      "name": "Improved Damage Threshold",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character increases his or her massive damage threshold by 3 points.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
+        "special": "A character may gain this feat multiple times. Its effects stack.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.Rpb6HqE1k51kZdFD"
+    },
+    {
+      "_id": "NO5DHn5gnX6qDBB3",
+      "name": "Iron Will",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.NO5DHn5gnX6qDBB3"
+    },
+    {
+      "_id": "birNsWLPL5EEyuE5",
+      "name": "Damage Reduction 5/Silver",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha ignores the first 5 points of damage dealt by any unsilvered weapon.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.birNsWLPL5EEyuE5"
+    },
+    {
+      "_id": "3gQQsIadKgp6nUGa",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.3gQQsIadKgp6nUGa"
+    },
+    {
+      "_id": "6QUHuhkxiT1h5pbl",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha is immune to poison.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.6QUHuhkxiT1h5pbl"
+    },
+    {
+      "_id": "7RVtZioMRBhCPq5o",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the kwevencha must hit a Small or Medium-size creature with its bite attack. If it gets a hold, it deals automatic damage with its bite on subsequent rounds.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.7RVtZioMRBhCPq5o"
+    },
+    {
+      "_id": "praQV3uuFhtwOb1e",
+      "name": "Monstrous Spider Minions",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha has 2d6 Tiny monstrous spiders clinging to its body. It can telepathically command these spiders to attack, but the kwevencha must remain within 100 feet of the monstrous spiders to telepathically control them.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.praQV3uuFhtwOb1e"
+    },
+    {
+      "_id": "wcNS9ewj6F8ww15M",
+      "name": "Poison (DC 17)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bite; contact 1d6 Str/1d6 Str; Fortitude save (DC 10 + 1/2 the kwevencha’s Hit Dice + its Constitution modifier) resists.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Poison",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 17,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.wcNS9ewj6F8ww15M"
+    },
+    {
+      "_id": "zNcV24Hkvh4aTa5M",
+      "name": "Spit Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha can shoot a 20-foot-long line of poisonous spittle at a single target. The save DC and effects of the poison are described above.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.zNcV24Hkvh4aTa5M"
+    },
+    {
+      "_id": "lMC3WzDQJXdMN7fo",
+      "name": "Telepathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha can communicate telepathically with any creature within 100 feet that has a language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.lMC3WzDQJXdMN7fo"
+    },
+    {
+      "_id": "uM9oseeM5pX4hXiX",
+      "name": "Web Cocoon",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha uses a spinneret in its abdomen to weave web cocoons around creatures incapacitated by its poison. A creature trapped inside the cocoon is immobile, although breathing is possible through the porous webbing. A kwevencha’s web cocoon has 20 hit points and a break DC of 26. Dealing damage to the web cocoon deals a like amount of damage to the creature trapped inside.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.uM9oseeM5pX4hXiX"
+    },
+    {
+      "_id": "6PUzfedxeOG7jPoY",
+      "name": "Stability",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha gains a +4 stability bonus on checks to resist trip and bull rush attacks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.6PUzfedxeOG7jPoY"
+    },
+    {
+      "_id": "ph0PieIc4JJ3y2gV",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A kwevencha gains a +4 species bonus on Balance, Climb, Jump, and Spot checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!DhNHESATQFiuzNTD.ph0PieIc4JJ3y2gV"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

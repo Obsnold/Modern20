@@ -1,0 +1,475 @@
+{
+  "_id": "vYprYh0CTxxiniVK",
+  "name": "Malleable Human Tough Hero 4/Dedicated Hero 3",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 63,
+      "max": 63,
+      "temp": 0,
+      "formula": "4d10+16 plus 3d6+12 plus 3 (Toughness)"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 8
+    },
+    "saves": {
+      "fort": {
+        "base": 7,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 5,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [
+        {
+          "type": "bludgeoning",
+          "value": 5
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 19,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "",
+      "challengeRating": "8",
+      "hitDice": "4d10+16 plus 3d6+12 plus 3 (Toughness)",
+      "advancement": "",
+      "organization": "",
+      "treasure": "Undercover vest, Beretta 92F (9mm autoloader), 50 rounds of 9mm ammunition, disguise kit."
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "disguise": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 16,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          }
+        ]
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Write English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Any",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "Bludgeoning resistance 5, increased reach, malleable form",
+    "biography": "<p><strong>Attack:</strong> +6 melee (1d4+1, unarmed strike) or +3 ranged (2d6, Beretta 92F)</p><p><strong>Full Attack:</strong> +6 melee (1d4+1, unarmed strike) or +3 ranged (2d6, Beretta 92F)</p><p><strong>Skills:</strong> Bluff +8, Climb +3, Concentration +6, Disguise +13, Escape Artist +14, Knowledge (current events) +2, Read/ Write English, Speak English, Spot +7, Survival +7.</p><p><strong>Feats:</strong> Armor Proficiency (light), Combat Martial Arts, Defensive Martial Arts, Great Fortitude, Improved Combat Martial Arts, Nimble, Simple Weapons Proficiency, Toughness.</p><p><strong>Talents:</strong> Talents (Tough Hero): Damage reduction 1/-, remain conscious</p>"
+  },
+  "_key": "!actors!vYprYh0CTxxiniVK",
+  "items": [
+    {
+      "_id": "SFG00CbIV8uDATgq",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4+1, unarmed strike) or +3 ranged (2d6, Beretta 92F)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "1d4+1",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.SFG00CbIV8uDATgq"
+    },
+    {
+      "_id": "elPM3OAwa1TzJ1gX",
+      "name": "Beretta 92F",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d4+1, unarmed strike) or +3 ranged (2d6, Beretta 92F)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.elPM3OAwa1TzJ1gX"
+    },
+    {
+      "_id": "wOgyySpyZzBl0OEZ",
+      "name": "Armor Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.wOgyySpyZzBl0OEZ"
+    },
+    {
+      "_id": "O2HYcPqqMFzpsQWz",
+      "name": "Combat Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Base attack bonus +1."
+        ],
+        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character’s choice) equal to 1d4 + the character’s Strength modifier. The character’s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
+        "normal": "Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.O2HYcPqqMFzpsQWz"
+    },
+    {
+      "_id": "QJ9S9IO3dTatyXmz",
+      "name": "Defensive Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gains a +1 dodge bonus to Defense against melee attacks.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack, unlike most other types of bonuses.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.QJ9S9IO3dTatyXmz"
+    },
+    {
+      "_id": "bvY0FOJa4HKrwlyO",
+      "name": "Great Fortitude",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.bvY0FOJa4HKrwlyO"
+    },
+    {
+      "_id": "5mCGl1zfVmHEpZey",
+      "name": "Improved Combat Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Combat Martial Arts",
+          "base attack bonus +4."
+        ],
+        "benefit": "The character’s threat range on an unarmed strike improves to 19–20.",
+        "normal": "A character without this feat threatens a critical hit with an unarmed strike only on a 20.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.5mCGl1zfVmHEpZey"
+    },
+    {
+      "_id": "P6Bj9HD24CCP7cOw",
+      "name": "Nimble",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Escape Artist checks and Sleight of Hand checks.",
+        "normal": "",
+        "special": "Remember that the Sleight of Hand skill can’t be used untrained.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.P6Bj9HD24CCP7cOw"
+    },
+    {
+      "_id": "I6e22GWR2hnVlscc",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.I6e22GWR2hnVlscc"
+    },
+    {
+      "_id": "djAGRjEQSx90VOci",
+      "name": "Toughness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gains +3 hit points.",
+        "normal": "",
+        "special": "A character may gain this feat multiple times. Its effects stack.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.djAGRjEQSx90VOci"
+    },
+    {
+      "_id": "voWuCuHD9cM8BHPc",
+      "name": "Bludgeoning Resistance 5",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A malleable creature ignores the first 5 points of bludgeoning damage from any single attack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.voWuCuHD9cM8BHPc"
+    },
+    {
+      "_id": "DBpoly61fxthvRfO",
+      "name": "Increased Reach",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The reach of a malleable creature increases by 5 feet.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.DBpoly61fxthvRfO"
+    },
+    {
+      "_id": "sDzVWwzQrEzQxMbb",
+      "name": "Malleable Form",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a malleable creature to make itself look different. It can appear 1 foot shorter or taller than its normal height, and it can seem thinner or fatter. It cannot change its skin, hair color, body type, or number of limbs. This ability does not allow the malleable creature to mimic the appearance of specific individuals.</p><p>As a full-round action, a malleable creature can squeeze through an opening as small as 6 inches square. In the case of an enclosed space, such as a drainpipe or airshaft, the malleable creature moves at one-third of its normal speed, but it can take no other actions until at least half of its body mass has emerged from the enclosure. Objects and clothing worn by the malleable creature may or may not be small enough to fit through the opening—objects larger than Tiny are left behind unless every part of the opening is large enough to accommodate them.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.sDzVWwzQrEzQxMbb"
+    },
+    {
+      "_id": "hUlQO0WkR7JgvZl7",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A malleable creature’s pliant body grants it a +4 species bonus on Disguise checks and a +10 species bonus on Escape Artist checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.hUlQO0WkR7JgvZl7"
+    },
+    {
+      "_id": "Xym2zHTiKKZpwsou",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A malleable creature gains Nimble as a bonus feat.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!vYprYh0CTxxiniVK.Xym2zHTiKKZpwsou"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

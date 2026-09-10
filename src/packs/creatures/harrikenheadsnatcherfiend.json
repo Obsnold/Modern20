@@ -1,0 +1,426 @@
+{
+  "_id": "Pv5lNNzWqWQb8w23",
+  "name": "HARRIKEN (Headsnatcher Fiend)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+    "abilities": {
+      "str": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 22,
+      "max": 22,
+      "temp": 0,
+      "formula": "4d8+4"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 11
+    },
+    "saves": {
+      "fort": {
+        "base": 4,
+        "misc": 0
+      },
+      "ref": {
+        "base": 4,
+        "misc": 0
+      },
+      "will": {
+        "base": 4,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 4,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [
+        {
+          "type": "fire",
+          "value": 10
+        }
+      ],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 13,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "outsider",
+      "subtype": "",
+      "challengeRating": "4",
+      "hitDice": "4d8+4",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "disguise": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any three",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Abyssal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any three",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "Attach head, body blindsight, darkvision 60 ft., detach head, disguise self (DC 15), electrical rejuvenation, fire resistance 10, indestructible body, telepathy",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d6+1, slam) or +5 melee (1d8+1/19-20, longsword)</p><p><strong>Full Attack:</strong> +5 melee (1d6+1, slam) or +5 melee (1d8+1/19-20, longsword) or +4 ranged)</p><p><strong>Skills:</strong> Bluff +10, Disguise +10 (+20 when using disguise self ability), Hide +6, Intimidate +9, Listen +6, Move Silently +6, Read/Write Abyssal, Read/Write Languages (any three), Sense Motive +6, Speak Abyssal, Speak Languages (any three), Spot +6.</p><p><strong>Feats:</strong> Heroic Surge (1/day)</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!Pv5lNNzWqWQb8w23",
+  "items": [
+    {
+      "_id": "NFlxDgDs16wDzzpk",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d6+1, slam) or +5 melee (1d8+1/19-20, longsword) or +4 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "1d6+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.NFlxDgDs16wDzzpk"
+    },
+    {
+      "_id": "ipsaNo66pMA24eN0",
+      "name": "Longsword",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d6+1, slam) or +5 melee (1d8+1/19-20, longsword) or +4 ranged)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "simple",
+        "damage": "1d8+1",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.ipsaNo66pMA24eN0"
+    },
+    {
+      "_id": "YvSNfX68rE38aq3G",
+      "name": "Heroic Surge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character’s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.YvSNfX68rE38aq3G"
+    },
+    {
+      "_id": "AHmdKdBvWM5h1A7U",
+      "name": "Attach Head",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>As an attack or move action, a harriken can attach a head (either its own detached head or the severed head of any Medium-size humanoid creature) to its headless body. It gains the visual, auditory, and olfactory senses of the creature whose head it wears; if the creature had low-light vision, for instance, the harriken gains this ability for as long as the head is worn.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.AHmdKdBvWM5h1A7U"
+    },
+    {
+      "_id": "8XH0ShFEdfiZyvH7",
+      "name": "Body Blindsight",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A harriken’s headless body can sense its surroundings as though it has the blindsight ability with a range of 30 feet. However, without its own head, the harriken loses its darkvision.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.8XH0ShFEdfiZyvH7"
+    },
+    {
+      "_id": "Wnv1OH48bvsl7FNI",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.Wnv1OH48bvsl7FNI"
+    },
+    {
+      "_id": "kaMJVvefEKRG0cnM",
+      "name": "Detach Head",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>As an attack or move action, a harriken can detach the head (either its own head or the severed head of any Medium-size humanoid creature) from its body.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.kaMJVvefEKRG0cnM"
+    },
+    {
+      "_id": "oWKU4kUNgzXZB5pF",
+      "name": "Disguise Self (DC 15)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The harriken can assume the appearance of a specific Medium-size humanoid creature by attaching the creature’s severed head to its body. The illusion lasts as long as the head remains attached. The harriken does not gain any of the creature’s abilities, mannerisms, or knowledge, but it gains a +10 bonus on Disguise checks. Other creatures get a Will save (DC 10 + 1/2 the harriken’s Hit Dice + its Charisma modifier) to pierce the illusion if they interact with it (such as by touching the harriken and having that sensory input not match what they see). A true seeing spell reveals the harriken’s actual horrific appearance.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Disguise Self",
+            "actionType": "varies",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 15,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.oWKU4kUNgzXZB5pF"
+    },
+    {
+      "_id": "PWWlOzMWzG5jAupf",
+      "name": "Electrical Rejuvenation",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A harriken is immune to electricity. Furthermore, it heals 1 point of damage for every die of electricity damage it would take normally. For example, a 6d6 lightning bolt heals 6 points of damage to the harriken.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.PWWlOzMWzG5jAupf"
+    },
+    {
+      "_id": "nKZG3F0dkghohii4",
+      "name": "Fire Resistance 10",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A harriken ignores the first 10 points of damage from any attack that deals fire damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.nKZG3F0dkghohii4"
+    },
+    {
+      "_id": "Ba3OX15JtaAIIhes",
+      "name": "Indestructible Body",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>While its head is attached to its body, a harriken can be killed. However, if its head is detached, the body stops taking damage when reduced to 1 hit point. Any damage dealt to the body that would knock it below 1 hit point is ignored. If the harriken’s detached head is found and destroyed (Defense 7; hp 5), the harriken’s body is instantly slain.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.Ba3OX15JtaAIIhes"
+    },
+    {
+      "_id": "WPzfHf0VttYZkOga",
+      "name": "Telepathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A harriken can communicate telepathically with any creature within 100 feet that has a language.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Pv5lNNzWqWQb8w23.WPzfHf0VttYZkOga"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

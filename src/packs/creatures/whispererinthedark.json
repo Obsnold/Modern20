@@ -1,0 +1,401 @@
+{
+  "_id": "iuveLpGBT7V40lhs",
+  "name": "Whisperer In The Dark",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 71,
+      "max": 71,
+      "temp": 0,
+      "formula": "11d12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 1
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 7,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 5,
+      "size": "large",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "undead",
+      "subtype": "incorporeal",
+      "challengeRating": "12",
+      "hitDice": "11d12",
+      "advancement": "12-18 HD (Huge); 19-26 HD (Gargantuan)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Chaos",
+        "strength": "none"
+      },
+      {
+        "name": "evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "Daylight powerlessness, incorporeal, psionics, steal essence, turn resistance +2, undead, unnatural aura",
+    "biography": "<p><strong>Attack:</strong> +4 melee (2d6 Con, incorporeal touch)</p><p><strong>Full Attack:</strong> +4 melee (2d6 Con, 4 incorporeal touches)</p><p><strong>Skills:</strong> Concentration +8, Hide +13, Intimidate +12, Listen +12, Search +12, Sense Motive +8, Spot +12.</p><p><strong>Feats:</strong> Alertness, Blind-Fight, Combat Reflexes, Frightful Presence, Improved Initiative.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!iuveLpGBT7V40lhs",
+  "items": [
+    {
+      "_id": "OvcSQuO3V8CJi0lQ",
+      "name": "Incorporeal touche (x4)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (2d6 Con, 4 incorporeal touches)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "con",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.OvcSQuO3V8CJi0lQ"
+    },
+    {
+      "_id": "aPG0PVGriORSiZzV",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.aPG0PVGriORSiZzV"
+    },
+    {
+      "_id": "zbafWGc4YdLP7x8m",
+      "name": "Blind-Fight",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "In melee combat, every time the character misses because of concealment, the character can reroll the miss chance roll one time to see if the character actually hits.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.zbafWGc4YdLP7x8m"
+    },
+    {
+      "_id": "zr258vCKqCkQJTKI",
+      "name": "Combat Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.zr258vCKqCkQJTKI"
+    },
+    {
+      "_id": "Rtg2mx1YOV2OHNql",
+      "name": "Frightful Presence",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Charisma 15",
+          "Intimidate 9 ranks."
+        ],
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.Rtg2mx1YOV2OHNql"
+    },
+    {
+      "_id": "rZIiEvXbABqUL9dF",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.rZIiEvXbABqUL9dF"
+    },
+    {
+      "_id": "BWIBXz34xNTRs3su",
+      "name": "Daylight Powerlessness",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A whisperer in the dark is utterly powerless in natural sunlight and flees from it if possible. If caught in sunlight, it cannot attack and may make only one move or attack action each round. It cannot take full-round actions at all in this situation.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.BWIBXz34xNTRs3su"
+    },
+    {
+      "_id": "rsoKyRKWMDMq8HzW",
+      "name": "Incorporeal",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.rsoKyRKWMDMq8HzW"
+    },
+    {
+      "_id": "lAdJcELe2z8kACXL",
+      "name": "Psionics",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will—attraction, clairaudience/clairvoyance, concussion, detect psionics, suggestion. Manifester level 10th; save DC 10 + whisperer in the dark’s key ability modifier + power level.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.lAdJcELe2z8kACXL"
+    },
+    {
+      "_id": "fWXo4yV4szv6db4n",
+      "name": "Steal Essence",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a creature with an Intelligence score greater than 2 is slain by a whisperer in the dark, its essence is absorbed into the monster’s consciousness within 1d4 rounds, though its physical body remains intact. Stealing a creature’s essence grants the whisperer 12 temporary hit points, and a new screaming face resembling that of the absorbed creature appears permanently within the cloud.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.fWXo4yV4szv6db4n"
+    },
+    {
+      "_id": "NTze38YsORqVwWSX",
+      "name": "Turn Resistance +2",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A whisperer in the dark is treated as having +2 Hit Dice for the purpose of turn or rebuke attempts.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.NTze38YsORqVwWSX"
+    },
+    {
+      "_id": "DzMdP8g93iuTnFcX",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A whisperer in the dark has the traits and immunities common to undead.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.DzMdP8g93iuTnFcX"
+    },
+    {
+      "_id": "sTrtCRbsFL00q2Mf",
+      "name": "Unnatural Aura",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A whisperer in the dark constantly projects an unnatural aura to a radius of 30 feet around itself. Both wild and domesticated animals can sense this aura and refuse to enter its area. If forced to come closer than 30 feet to the whisperer in the dark, they panic and remain panicked for as long as they are in the area.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.sTrtCRbsFL00q2Mf"
+    },
+    {
+      "_id": "PoMGK5xQmpYvdlJG",
+      "name": "Incorporeal Subtype",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A whisperer in the dark has no physical form and can be harmed only by other incorporeal creatures, +1 or better magic weapons, or magic, though it has a 50% chance to ignore any damage from a corporeal source. The whisperer in the dark can pass through solid objects at will, and its own attacks pass through armor. The charred one moves in complete silence and cannot be heard at all.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iuveLpGBT7V40lhs.PoMGK5xQmpYvdlJG"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

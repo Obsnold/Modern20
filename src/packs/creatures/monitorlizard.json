@@ -1,0 +1,229 @@
+{
+  "_id": "5dDb3jtGDlG8cZUZ",
+  "name": "Monitor Lizard",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 22,
+      "max": 22,
+      "temp": 0,
+      "formula": "3d8+9"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 17,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "3",
+      "hitDice": "3d8+9",
+      "advancement": "4-5 HD (Medium-size); 6-12 HD (Large)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "Poison, poison spray",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d8+4, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d8+4, bite)</p><p><strong>Skills:</strong> Climb +9, Hide +7 (+11 in overgrown or forested areas), Listen +4, Move Silently +6, Spot +4</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!5dDb3jtGDlG8cZUZ",
+  "items": [
+    {
+      "_id": "ftTEyOhXqZeCcN9u",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d8+4, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "unarmed",
+        "damage": "1d8+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!5dDb3jtGDlG8cZUZ.ftTEyOhXqZeCcN9u"
+    },
+    {
+      "_id": "dyIInDR7SkbeZaJl",
+      "name": "Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bite—Fortitude negates; save DC 10 + 1/2 the monitor lizard’s Hit Dice + its Constitution modifier; 1d6 Dex/1d6 Dex.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Poison",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 14,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!5dDb3jtGDlG8cZUZ.dyIInDR7SkbeZaJl"
+    },
+    {
+      "_id": "ufhz7rpO7z0Zjue4",
+      "name": "Poison Spray",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once every 1d4 rounds, the monitor lizard can spray poison in a 15-foot cone. See above for the effects of the poison.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!5dDb3jtGDlG8cZUZ.ufhz7rpO7z0Zjue4"
+    },
+    {
+      "_id": "s0THLpyrFBY1LRg8",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Monitor lizards gain a +4 species bonus on Hide and Move Silently checks. In forested or overgrown areas, the bonus on Hide checks improves to +8.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!5dDb3jtGDlG8cZUZ.s0THLpyrFBY1LRg8"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

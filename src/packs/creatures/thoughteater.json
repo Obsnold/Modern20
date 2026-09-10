@@ -1,0 +1,238 @@
+{
+  "_id": "qrBQuB42awQrbrv7",
+  "name": "Thought Eater",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 7,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 16,
+      "max": 16,
+      "temp": 0,
+      "formula": "3d8+3"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 1,
+        "misc": 0
+      },
+      "ref": {
+        "base": 1,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "small",
+      "speed": 40,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 11,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "aberration",
+      "subtype": "",
+      "challengeRating": "2",
+      "hitDice": "3d8+3",
+      "advancement": "4-6 HD (Small)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "Dimensional jaunt, eat thoughts, psionics",
+    "biography": "<p><strong>Attack:</strong> +3 melee touch (6 power points or 1 Int, touch)</p><p><strong>Full Attack:</strong> +3 melee touch (6 power points or 1 Int, touch)</p><p><strong>Skills:</strong> Hide +14, Listen +7, Spot +7</p><p><strong>Feats:</strong> Improved Initiative</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!qrBQuB42awQrbrv7",
+  "items": [
+    {
+      "_id": "EesB8LcB8jbgxxyE",
+      "name": "Touch",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee touch (6 power points or 1 Int, touch)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1",
+        "damageType": "int",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!qrBQuB42awQrbrv7.EesB8LcB8jbgxxyE"
+    },
+    {
+      "_id": "2RBHLvFgydmmUFMA",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!qrBQuB42awQrbrv7.2RBHLvFgydmmUFMA"
+    },
+    {
+      "_id": "zuzRyUopVEkH63dw",
+      "name": "Dimensional Jaunt",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will, a thought eater can shift from a different plane of existence into the normal world as part of any move action and shift back again as a free action. During this jaunt, the thought eater is incorporeal.</p><p>In this state, a thought eater has no physical form and can be harmed only by other incorporeal creatures, +1 or better magic weapons, or magic, though it has a 50% chance to ignore any damage from a corporeal source. The thought eater can pass through solid objects at will, and its own attacks pass through armor. It moves in complete silence and cannot be heard at all.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!qrBQuB42awQrbrv7.zuzRyUopVEkH63dw"
+    },
+    {
+      "_id": "0s1lzwGBJ9fvRfQF",
+      "name": "Eat Thoughts",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A thought eater can drain the thoughts of a living being with a successful melee touch attack. Against an opponent with psionics, this ability drains 6 power points from the victim. (If the victim has fewer than 6 power points, the thought eater gains all the remaining power points that the opponent possesses). Against a nonpsionic creature, this attack deals 1 point of Intelligence damage, which provides the thought eater with nourishment equivalent to 6 power points. A thought eater requires the equivalent of 10 power points per day to survive, but it happily gorges itself whenever the opportunity presents itself. Power points consumed in excess of its minimum daily requirement do not count against the next day’s requirement.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!qrBQuB42awQrbrv7.0s1lzwGBJ9fvRfQF"
+    },
+    {
+      "_id": "osdh1MQxFu9xEjyN",
+      "name": "Psionics",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will—daze, detect psionics, distract, verve. Manifester level 10th; save DC 10 + thought eater’s key ability modifier + power level.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!qrBQuB42awQrbrv7.osdh1MQxFu9xEjyN"
+    },
+    {
+      "_id": "4F2Zvj958VPaWizj",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A thought eater gains Improved Initiative as a bonus feat.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!qrBQuB42awQrbrv7.4F2Zvj958VPaWizj"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

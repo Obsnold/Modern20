@@ -1,0 +1,647 @@
+{
+  "_id": "IkbiTFBSTlkg4sRk",
+  "name": "Revenant Police Officer (Human Strong Ordinary 1/ Dedicated Ordinary 1)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 13,
+      "max": 13,
+      "temp": 0,
+      "formula": "2d12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 10
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "medium",
+      "speed": 35,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "undead",
+      "subtype": "",
+      "challengeRating": "3",
+      "hitDice": "2d12",
+      "advancement": "",
+      "organization": "",
+      "treasure": "Concealable vest, Beretta 92F (9mm autoloader), 50 rounds of 9mm ammunition, Beretta M3P (12-gauge shotgun), 10 12-gauge shotgun rounds, tonfa, various gear and personal possessions."
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "drive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "investigate": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 1,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          },
+          {
+            "name": "streetwise",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          },
+          {
+            "name": "tactics",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "profession": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 1,
+        "classSkill": false
+      },
+      "treatInjury": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "tumble": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 4,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Any",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "Darkvision 60 ft., revenant regeneration, special vulnerability (bludgeoning), turn resistance, undead, vulnerability (criminal’s sawed-off shotgun",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p><p><strong>Full Attack:</strong> +5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p><p><strong>Skills:</strong> Balance +9*, Climb +11*, Drive +6, Escape Artist +9*, Hide +9*, Intimidate +11, Investigate +2, Jump +9*, Knowledge (current events) +2, Knowledge (streetwise) +2, Knowledge (tactics) +2, Listen +10, Move Silently +9*, Profession +4, Read/Write English, Sense Motive +12, Speak English, Spot +12, Swim +5, Treat Injury +4, Tumble +9*.</p><p><strong>Feats:</strong> Armor Proficiency (light, medium), Combat Reflexes, Improved Initiative, Lightning Reflexes, Personal Firearms Proficiency, Quick Draw, Quick Reload, Run, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!IkbiTFBSTlkg4sRk",
+  "items": [
+    {
+      "_id": "XUtgfIBQc97a4g55",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "1d3+4",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.XUtgfIBQc97a4g55"
+    },
+    {
+      "_id": "nkhWLEX4vwF5kVnS",
+      "name": "Tonfa",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "1d4+4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.nkhWLEX4vwF5kVnS"
+    },
+    {
+      "_id": "Rxpr56XzUSk8gVeZ",
+      "name": "Beretta 92F",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.Rxpr56XzUSk8gVeZ"
+    },
+    {
+      "_id": "4vLl6wLvloNUDmFc",
+      "name": "Beretta M3P",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "2d8",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.4vLl6wLvloNUDmFc"
+    },
+    {
+      "_id": "gGFNoS2rawKMw88I",
+      "name": "Armor Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.gGFNoS2rawKMw88I"
+    },
+    {
+      "_id": "yml4vIG8NYRrCiH1",
+      "name": "Combat Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.yml4vIG8NYRrCiH1"
+    },
+    {
+      "_id": "luR31JcTyl081jtT",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.luR31JcTyl081jtT"
+    },
+    {
+      "_id": "bBk20jsl0U6CJKbc",
+      "name": "Lightning Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.bBk20jsl0U6CJKbc"
+    },
+    {
+      "_id": "NVIXYknyAyXpgqP8",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.NVIXYknyAyXpgqP8"
+    },
+    {
+      "_id": "KNIbqoYDRUJpWDrC",
+      "name": "Quick Draw",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Base attack bonus +1."
+        ],
+        "benefit": "The character can draw a weapon as a free action.",
+        "normal": "A character can draw a weapon as a move action. If a character has a base attack bonus of +1 or higher, the character can draw a weapon as a free action when moving.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.KNIbqoYDRUJpWDrC"
+    },
+    {
+      "_id": "qSb3wjdQUSpAivAQ",
+      "name": "Quick Reload",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Base attack bonus +1."
+        ],
+        "benefit": "Reloading a firearm with an already filled box magazine or speed loader is a free action. Reloading a revolver without a speed loader, or reloading any firearm with an internal magazine, is a move action.",
+        "normal": "Reloading a firearm with an already filled box magazine or speed loader is a move action. Reloading a revolver without a speed loader, or reloading any firearm with an internal magazine, is a full-round action.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.qSb3wjdQUSpAivAQ"
+    },
+    {
+      "_id": "Elwg1vd3GMnTq7gC",
+      "name": "Run",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "When running, the character moves a maximum of five times his or her normal speed instead of four times. If the character is in heavy armor, the character can move four times his or her speed rather than three times. If the character makes a long jump, the character gains a +2 competence bonus on his or her Jump check.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.Elwg1vd3GMnTq7gC"
+    },
+    {
+      "_id": "9aik6zRiRIlewaRp",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.9aik6zRiRIlewaRp"
+    },
+    {
+      "_id": "xTOK0lf3gLoMcV6T",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.xTOK0lf3gLoMcV6T"
+    },
+    {
+      "_id": "wgJnQEMEG3zCz2iB",
+      "name": "Revenant Regeneration",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The base creature loses the regeneration and fast healing special qualities if it had them and gains revenant regeneration instead. Only damage that matches the revenant’s special vulnerability (see below) actually reduces its hit points. However, damage of other sorts does have an effect. Track the creature’s nonvulnerability damage separately from its hit points. When that damage equals or exceeds its actual current hit point total, it falls prone and is immobile and helpless for 2d6 rounds.</p><p>During this time, any further damage dealt to it heals instantly. When this time elapses, the revenant arises to fight again, and its nonvulnerability damage tally is wiped clean. Note that damage matching the revenant’s special vulnerability reduces its revenant regeneration damage threshold by reducing its actual hit points.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.wgJnQEMEG3zCz2iB"
+    },
+    {
+      "_id": "7RGV0KPkbn6mVCNa",
+      "name": "Special Vulnerability (bludgeoning)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Each revenant has a special vulnerability related to the way it died. Any attack that deals the kind of damage that caused the revenant’s original death deals damage to the creature normally. Should the revenant reach 0 hit points from such damage, it is destroyed. Possible damage types include acid, electricity, fire, cold, sonic/concussion, slashing, piercing, bludgeoning, and ballistic.</p><p>A revenant that died from poison, starvation, suffocation, or some other cause that does not cause hit point damage is instead vulnerable to some danger that frightened it in life or some means of death that it meted out to others. Choose one of the damage types above for its special vulnerability on that basis.</p><p>If the revenant was killed by an attack that dealt multiple types of damage, only one of those damage types counts as its special vulnerability. If the revenant is subjected to another such mixed-damage attack, it takes hit point damage only from the type to which it is vulnerable.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.7RGV0KPkbn6mVCNa"
+    },
+    {
+      "_id": "JnKZuLsbv3f8bUBu",
+      "name": "Turn Resistance",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A revenant is treated as an undead with Hit Dice equal to the base creature’s Hit Dice +3 for the purpose of turn or rebuke attempts. This turn resistance increases by an additional +2 when it sees a creature upon which it wishes to take revenge and decreases by –2 while it is within sight of its vulnerability fear (see below). These modifiers stack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.JnKZuLsbv3f8bUBu"
+    },
+    {
+      "_id": "B2I9GjuLMCIxVp2E",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Revenants have the traits and immunities common to undead.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.B2I9GjuLMCIxVp2E"
+    },
+    {
+      "_id": "hVKgei1qUrFB5AXh",
+      "name": "Vulnerability (criminal’s Sawed-Off Shotgun",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.hVKgei1qUrFB5AXh"
+    },
+    {
+      "_id": "fdGZPEqKInBOAxzJ",
+      "name": "Vulnerability Fear",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A revenant is terrified of any specific items directly associated with its cause of death. Only something directly associated with the revenant’s death can cause this fear; the creature cannot be deceived by illusions or duplicates. When the revenant sees the item it fears, it must succeed at a Will saving throw (DC 15) or be shaken for 24 hours. Success leaves it shaken for only 1d4 rounds. If that item is used to deal damage to the revenant that matches its special vulnerability, the revenant must succeed at a Will saving throw (DC 20) or be panicked for 1 minute and shaken for 24 hours thereafter. Success indicates that the revenant is shaken for 1 minute. The time that a revenant is shaken or panicked from this effect does not stack.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IkbiTFBSTlkg4sRk.fdGZPEqKInBOAxzJ"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

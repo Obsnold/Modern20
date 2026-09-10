@@ -1,0 +1,324 @@
+{
+  "_id": "bzfpJutBfkCp2qnT",
+  "name": "Scorpion",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 4,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 2,
+      "max": 2,
+      "temp": 0,
+      "formula": "1/4 d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 10
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "fine",
+      "speed": 10,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 4,
+      "reach": 6,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "vermin",
+      "subtype": "",
+      "challengeRating": "1/4",
+      "hitDice": "1/4 d8",
+      "advancement": "None",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 15,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 30 ft.",
+    "specialQualities": "Darkvision 30 ft., improved grab, poison, vermin",
+    "biography": "<p><strong>Attack:</strong> +8 melee (1d2-4, claw)</p><p><strong>Full Attack:</strong> +8 melee (1d2-4, 2 claws) and +3 melee (1d2-4 plus poison, sting)</p><p><strong>Skills:</strong> Climb +4, Hide +15, Spot +7</p><p><strong>Feats:</strong> Weapon Finesse (claw), Weapon Finesse (sting)</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!bzfpJutBfkCp2qnT",
+  "items": [
+    {
+      "_id": "vYocxFMgbfWpkhOo",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d2-4, 2 claws) and +3 melee (1d2-4 plus poison, sting)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d2-4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 4,
+        "size": "fine",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.vYocxFMgbfWpkhOo"
+    },
+    {
+      "_id": "bmKFTUN8N2DKCeAW",
+      "name": "Sting",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d2-4, 2 claws) and +3 melee (1d2-4 plus poison, sting)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d2-4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -1,
+        "size": "fine",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.bmKFTUN8N2DKCeAW"
+    },
+    {
+      "_id": "6hHkbcwLZ8XpO9DQ",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.6hHkbcwLZ8XpO9DQ"
+    },
+    {
+      "_id": "RE6KsXPaY7rKGjsO",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.RE6KsXPaY7rKGjsO"
+    },
+    {
+      "_id": "5Cd6GdufPSqQXb47",
+      "name": "Darkvision 30 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.5Cd6GdufPSqQXb47"
+    },
+    {
+      "_id": "JwRGk2pmpKPRVmmZ",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the scorpion must hit an opponent of any size category with its claw attack. If it gets a hold, it automatically deals claw damage each round that the hold is maintained, and it can sting in the same round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.JwRGk2pmpKPRVmmZ"
+    },
+    {
+      "_id": "Lhf24uGzSXqWFzOL",
+      "name": "Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Sting—Fortitude negates; save DC 13; 1d4 Con/1d4 Con.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.Lhf24uGzSXqWFzOL"
+    },
+    {
+      "_id": "R2CblvCWPwzNrqZP",
+      "name": "Vermin",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A scorpion has darkvision out to a range of 30 feet. It is immune to mind-affecting effects and gains a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.R2CblvCWPwzNrqZP"
+    },
+    {
+      "_id": "tv1lwp52lgh7xPrC",
+      "name": "Bonus Feats",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A scorpion gains Weapon Finesse (claw) and Weapon Finesse (sting) as bonus feats.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.tv1lwp52lgh7xPrC"
+    },
+    {
+      "_id": "1C94DDTAqkXR4brG",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A scorpion gains a +4 species bonus on Climb, Hide, and Spot checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!bzfpJutBfkCp2qnT.1C94DDTAqkXR4brG"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

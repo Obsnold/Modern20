@@ -1,0 +1,292 @@
+{
+  "_id": "QaGOlpsVGtkRmOrY",
+  "name": "Snake, Cobra",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 13,
+      "max": 13,
+      "temp": 0,
+      "formula": "3d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 1
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "medium",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 11,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "2",
+      "hitDice": "3d8",
+      "advancement": "None",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Scent",
+    "specialQualities": "Poison (DC 11), poison spray (DC 11; spitting cobra only), scent",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d4 plus poison, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d4 plus poison, bite)</p><p><strong>Skills:</strong> Climb +11, Hide +10, Listen +9, Move Silently +11, Spot +9</p><p><strong>Feats:</strong> Weapon Finesse (bite)</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!QaGOlpsVGtkRmOrY",
+  "items": [
+    {
+      "_id": "poBVlF6V96y6FDlO",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d4 plus poison, bite)</p><p><strong>Plus:</strong> poison</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 3,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!QaGOlpsVGtkRmOrY.poBVlF6V96y6FDlO"
+    },
+    {
+      "_id": "b91tZHQZ5vytWVSM",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!QaGOlpsVGtkRmOrY.b91tZHQZ5vytWVSM"
+    },
+    {
+      "_id": "uum5gyvlhcsruFmb",
+      "name": "Poison (DC 11)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bite—Fortitude negates; save DC 10 + 1/2 the cobra’s Hit Dice + its Constitution modifier; 1d4 Str, 1d4 Dex/1d4 Str, 1d4 Dex.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Poison",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 11,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!QaGOlpsVGtkRmOrY.uum5gyvlhcsruFmb"
+    },
+    {
+      "_id": "HKZph2vffPozbHZg",
+      "name": "Poison Spray (DC 11; spitting cobra only)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will as a ranged touch attack, a spitting cobra can spray its venom at a target up to 10 feet away. When used in this manner, the spitting cobra’s venom acts as a contact poison. The target must succeed on a Fortitude save (DC 10 + 1/2 the cobra’s Hit Dice + its Constitution modifier) or be blinded and nauseated for 1 minute. A second Fortitude save must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). Eye protection, such as goggles or a full-face visor, negates the blindness effect.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Poison Spray",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 11,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!QaGOlpsVGtkRmOrY.HKZph2vffPozbHZg"
+    },
+    {
+      "_id": "oSGxk3IjURVunpBY",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a cobra to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!QaGOlpsVGtkRmOrY.oSGxk3IjURVunpBY"
+    },
+    {
+      "_id": "o5zGcnmaTrD6itOC",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Cobras gain Weapon Finesse (bite) as a bonus feat.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!QaGOlpsVGtkRmOrY.o5zGcnmaTrD6itOC"
+    },
+    {
+      "_id": "e1xCNAcYumMhrPLt",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A cobra receives a +8 species bonus on Move Silently checks and a +4 species bonus on Hide, Listen, and Spot checks. It applies either its Strength or its Dexterity modifier, whichever is higher, to Climb checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!QaGOlpsVGtkRmOrY.e1xCNAcYumMhrPLt"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

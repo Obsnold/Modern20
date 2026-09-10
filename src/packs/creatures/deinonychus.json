@@ -1,0 +1,266 @@
+{
+  "_id": "kOiBX05cAzFWFEE4",
+  "name": "Deinonychus",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+    "abilities": {
+      "str": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 30,
+      "max": 30,
+      "temp": 0,
+      "formula": "4d8+12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 4,
+        "misc": 0
+      },
+      "ref": {
+        "base": 4,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "large",
+      "speed": 60,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 17,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "3",
+      "hitDice": "4d8+12",
+      "advancement": "5-8 HD (Large)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none or pack",
+        "strength": "none"
+      }
+    ],
+    "senses": "Low-Light Vision, Scent",
+    "specialQualities": "low-light vision, scent",
+    "biography": "<p><strong>Attack:</strong> +6 melee (2d6+4, rake)</p><p><strong>Full Attack:</strong> Atk +6 melee (2d6+4, rake), +1 melee (1d3+2, 2 foreclaws), +1 melee (2d4+2, bite)</p><p><strong>Skills:</strong> Hide +7, Jump +13, Listen +11, Spot +11, Survival +9</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!kOiBX05cAzFWFEE4",
+  "items": [
+    {
+      "_id": "yV6kVmrOQ7HZ9ma7",
+      "name": "Rake",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>Atk +6 melee (2d6+4, rake), +1 melee (1d3+2, 2 foreclaws), +1 melee (2d4+2, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "2d6+4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!kOiBX05cAzFWFEE4.yV6kVmrOQ7HZ9ma7"
+    },
+    {
+      "_id": "GFAC1azdpoM6Gww4",
+      "name": "Foreclaw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>Atk +6 melee (2d6+4, rake), +1 melee (1d3+2, 2 foreclaws), +1 melee (2d4+2, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "simple",
+        "damage": "1d3+2",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!kOiBX05cAzFWFEE4.GFAC1azdpoM6Gww4"
+    },
+    {
+      "_id": "yb3609mTfIgySX6a",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>Atk +6 melee (2d6+4, rake), +1 melee (1d3+2, 2 foreclaws), +1 melee (2d4+2, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "category": "unarmed",
+        "damage": "2d4+2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!kOiBX05cAzFWFEE4.yb3609mTfIgySX6a"
+    },
+    {
+      "_id": "KvRsBI1fhwiDnYAa",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!kOiBX05cAzFWFEE4.KvRsBI1fhwiDnYAa"
+    },
+    {
+      "_id": "AuSm5EK9brz1483I",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a deinonychus to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!kOiBX05cAzFWFEE4.AuSm5EK9brz1483I"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

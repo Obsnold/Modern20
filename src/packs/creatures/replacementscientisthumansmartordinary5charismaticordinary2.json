@@ -1,0 +1,406 @@
+{
+  "_id": "szD3lsUNOZCF1yx7",
+  "name": "Replacement Scientist (Human Smart Ordinary 5/Charismatic Ordinary 2)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 31,
+      "max": 31,
+      "temp": 0,
+      "formula": "7d6+7"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 12,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "construct",
+      "subtype": "",
+      "challengeRating": "6",
+      "hitDice": "7d6+7",
+      "advancement": "",
+      "organization": "",
+      "treasure": "SITES M9 (9mm autoloader pistol), 16 rounds of 9mm ammunition, firearms license, notebook computer, briefcase, cellphone, corporate security pass, overcoat, business clothing, wallet."
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "computerUse": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "chemical",
+            "ranks": 0,
+            "misc": 4,
+            "classSkill": false
+          }
+        ]
+      },
+      "decipherScript": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 1,
+        "classSkill": false
+      },
+      "disguise": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "disableDevice": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 1,
+        "classSkill": false
+      },
+      "investigate": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 1,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          },
+          {
+            "name": "earth and life sciences",
+            "ranks": 1,
+            "misc": 5,
+            "classSkill": false
+          }
+        ]
+      },
+      "profession": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Korean",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "research": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Korean",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Creator",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "-",
+    "biography": "<p><strong>Attack:</strong> +3 melee (1d3, unarmed strike)</p><p><strong>Full Attack:</strong> +3 melee (1d3, unarmed strike), or +4 ranged (2d6, SITES M9)</p><p><strong>Skills:</strong> Bluff +4, Computer Use +4, Craft (chemical) +5, Decipher Script +3, Disguise +5 (+11 with contact lenses), Disable Device +3, Investigate +3, Knowledge (current events) +3, Knowledge (earth and life sciences) +7, Profession +3, Read/Write English, Read/Write Korean, Research +11, Search +3, Speak English, Speak Korean.</p><p><strong>Feats:</strong> Dodge*, Educated, Personal Firearms Proficiency, Simple Weapons Proficiency, Studious.</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!szD3lsUNOZCF1yx7",
+  "items": [
+    {
+      "_id": "Ofd4jPcL7tRe1D9Q",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d3, unarmed strike), or +4 ranged (2d6, SITES M9)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "1d3",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.Ofd4jPcL7tRe1D9Q"
+    },
+    {
+      "_id": "tSaI9Z9Wcp4QMGIo",
+      "name": "SITES M9",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+3 melee (1d3, unarmed strike), or +4 ranged (2d6, SITES M9)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.tSaI9Z9Wcp4QMGIo"
+    },
+    {
+      "_id": "svJQJduYcJeTVW0I",
+      "name": "Dodge*",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.svJQJduYcJeTVW0I"
+    },
+    {
+      "_id": "uQShzTVvOxxu6HSI",
+      "name": "Educated",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "Pick two Knowledge skills. The character gets a +2 bonus on all checks with those skills.",
+        "normal": "",
+        "special": "A character can select this feat as many as seven times. Each time, the character selects two new Knowledge skills.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.uQShzTVvOxxu6HSI"
+    },
+    {
+      "_id": "lSgZeD9rmSXBWKe2",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.lSgZeD9rmSXBWKe2"
+    },
+    {
+      "_id": "43ph240lT2dpPRRx",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.43ph240lT2dpPRRx"
+    },
+    {
+      "_id": "BmBg6BiFw86aRK8C",
+      "name": "Studious",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Decipher Script checks and Research checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.BmBg6BiFw86aRK8C"
+    },
+    {
+      "_id": "ubBxVOm8lOKFtMq1",
+      "name": "Limited Existence",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A replacement has a programmed natural life span of one to four years (the creator must specify the life span when the project to create the replacement begins). Once the replacement reaches the end of its programmed life span, it must make a Fortitude save (DC 25) once per day. Each failed save drains the replacement of 1d6 points of Constitution. This ability drain cannot be restored by any means. When its Constitution drops to 0, the replacement dissolves into a mass of protoplasmic goo. A replacement that dies before this time retains the shape of the original.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.ubBxVOm8lOKFtMq1"
+    },
+    {
+      "_id": "q5g5Oe1zUEifmCJ8",
+      "name": "Automatic Languages",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A replacement can read, write, and speak any language known by the original</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!szD3lsUNOZCF1yx7.q5g5Oe1zUEifmCJ8"
+    }
+  ],
+  "folder": "a4aNUGB5Hmo04l08"
+}

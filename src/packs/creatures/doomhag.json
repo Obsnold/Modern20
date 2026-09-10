@@ -1,0 +1,392 @@
+{
+  "_id": "FZ7KtQJr2WG0yIEx",
+  "name": "Doom Hag",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+    "abilities": {
+      "str": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 39,
+      "max": 39,
+      "temp": 0,
+      "formula": "6d12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 8
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 5,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "undead",
+      "subtype": "",
+      "challengeRating": "6",
+      "hitDice": "6d12",
+      "advancement": "7-15 HD (Medium-size)",
+      "organization": "",
+      "treasure": "Tattered clothing, collections of scalps, teeth, and thighbones"
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "arcane lore",
+            "ranks": 1,
+            "misc": 7,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "any three",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "any three",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Chaos",
+        "strength": "none"
+      },
+      {
+        "name": "Evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "Confusion (DC 17), darkvision 60 ft., mimicry, natural invisibility, rend 1d4+6, undead",
+    "biography": "<p><strong>Attack:</strong> +8 melee (1d4+4, claw)</p><p><strong>Full Attack:</strong> +8 melee (1d4+4, 2 claws)</p><p><strong>Skills:</strong> Bluff +11, Concentration +8, Hide +8 (+12 at night or in darkness), Intimidate +8, Knowledge (arcane lore) +10, Listen +10, Move Silently +8, Read/Write Language (any three), Speak Language (any three), Spot +10.</p><p><strong>Feats:</strong> Simple Weapons Proficiency, Stealthy, Weapon Focus (claw)</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!FZ7KtQJr2WG0yIEx",
+  "items": [
+    {
+      "_id": "T3GRZCjiHR0dWhJC",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+8 melee (1d4+4, 2 claws)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "1d4+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.T3GRZCjiHR0dWhJC"
+    },
+    {
+      "_id": "B5kU1jcgir1kwXln",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.B5kU1jcgir1kwXln"
+    },
+    {
+      "_id": "WgZE8yXPr9WaHh9w",
+      "name": "Stealthy",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.WgZE8yXPr9WaHh9w"
+    },
+    {
+      "_id": "VV585CsTkAKRAnZ1",
+      "name": "Weapon Focus",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "The character gains a +1 bonus on all attack rolls he or she makes using the selected weapon.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.VV585CsTkAKRAnZ1"
+    },
+    {
+      "_id": "OfnZLsfApehAgshY",
+      "name": "Confusion (DC 17)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A doom hag can use confusion three times per day, as the spell cast by a 9th-level Mage (Will save negates; save DC 14 + the doom hag’s Charisma modifier).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Confusion",
+            "actionType": "varies",
+            "save": {
+              "ability": "will",
+              "calculation": "flat",
+              "dc": 17,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.OfnZLsfApehAgshY"
+    },
+    {
+      "_id": "k42hmRpjdj3d7vBV",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.k42hmRpjdj3d7vBV"
+    },
+    {
+      "_id": "32xvW5VPGnxak32Z",
+      "name": "Mimicry",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A doom hag can imitate (but not necessarily understand) the sounds made by any person or animal it hears.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.32xvW5VPGnxak32Z"
+    },
+    {
+      "_id": "0UJsHhdeMlIUq8jU",
+      "name": "Natural Invisibility",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>During daylight, a doom hag is naturally invisible and remains so even when attacking. Any creature that correctly discerns the doom hag’s location despite being unable to see it has a 50% miss chance on melee and ranged attacks. This ability is always active, but the doom hag can suppress it for 1 round with a successful Concentration check (DC 15). A new check at the same DC is required for each subsequent round that it wishes to remain visible. The doom hag is visible from sundown to sunup.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.0UJsHhdeMlIUq8jU"
+    },
+    {
+      "_id": "hQxkMmSkon849sp9",
+      "name": "Rend 1d4+6",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a doom hag hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. The rending attack deals damage as a claw attack plus 1.5 times the doom hag’s Strength modifier.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.hQxkMmSkon849sp9"
+    },
+    {
+      "_id": "yki87VjugLrlnXzS",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A doom hag has the traits and immunities common to undead.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.yki87VjugLrlnXzS"
+    },
+    {
+      "_id": "2CrFDVQKt2lYaPLg",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A doom hag blends into the gloom, gaining a +4 species bonus on Hide checks at night or in darkness.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!FZ7KtQJr2WG0yIEx.2CrFDVQKt2lYaPLg"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

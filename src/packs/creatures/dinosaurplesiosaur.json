@@ -1,0 +1,169 @@
+{
+  "_id": "09d0S8ToaCRBPulr",
+  "name": "Dinosaur, Plesiosaur",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+    "abilities": {
+      "str": {
+        "value": 34,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 24,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 184,
+      "max": 184,
+      "temp": 0,
+      "formula": "16d8+112"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 2
+    },
+    "saves": {
+      "fort": {
+        "base": 10,
+        "misc": 0
+      },
+      "ref": {
+        "base": 10,
+        "misc": 0
+      },
+      "will": {
+        "base": 5,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 12,
+      "size": "gargantuan",
+      "speed": 10,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 24,
+      "reach": 20,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "10",
+      "hitDice": "16d8+112",
+      "advancement": "17-31 HD (Gargantuan); 32-45 HD (Colossal)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Scent",
+    "specialQualities": "Scent",
+    "biography": "<p><strong>Attack:</strong> +20 melee (2d8+18, bite)</p><p><strong>Full Attack:</strong> +20 melee (2d8+18, bite)</p><p><strong>Skills:</strong> Listen +6, Spot +6</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!09d0S8ToaCRBPulr",
+  "items": [
+    {
+      "_id": "nOw58odukHXAjoIe",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+20 melee (2d8+18, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "category": "unarmed",
+        "damage": "2d8+18",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!09d0S8ToaCRBPulr.nOw58odukHXAjoIe"
+    },
+    {
+      "_id": "VJrj6NCJaiMOLJZI",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a plesiosaur to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!09d0S8ToaCRBPulr.VJrj6NCJaiMOLJZI"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

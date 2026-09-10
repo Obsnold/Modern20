@@ -1,0 +1,378 @@
+{
+  "_id": "6pXQK3Vh5Is0ldid",
+  "name": "Neothelid",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+    "abilities": {
+      "str": {
+        "value": 30,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 7,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 27,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 312,
+      "max": 312,
+      "temp": 0,
+      "formula": "25d8+200"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 11
+    },
+    "saves": {
+      "fort": {
+        "base": 8,
+        "misc": 0
+      },
+      "ref": {
+        "base": 8,
+        "misc": 0
+      },
+      "will": {
+        "base": 14,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 18,
+      "size": "gargantuan",
+      "speed": 20,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 15,
+        "bypass": "+2"
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 27,
+      "reach": 20,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "aberration",
+      "subtype": "",
+      "challengeRating": "18",
+      "hitDice": "25d8+200",
+      "advancement": "26-45 HD (Colossal)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 28,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 28,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 25,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 500 ft.",
+    "specialQualities": "Blindsight 500 ft., breath weapon (DC 30), damage reduction 15/+2, improved grab, power resistance 25, psionics, swallow whole",
+    "biography": "<p><strong>Attack:</strong> +25 melee (2d6+10, tentacle rake)</p><p><strong>Full Attack:</strong> +25 melee (2d6+10, 4 tentacle rakes)</p><p><strong>Skills:</strong> Climb +38, Listen +30, Swim +35</p><p><strong>Feats:</strong> Cleave, Improved Initiative, Power Attack, Sunder, Weapon Focus (tentacle rake)</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!6pXQK3Vh5Is0ldid",
+  "items": [
+    {
+      "_id": "L1jAcB7fXCGrUsAF",
+      "name": "Tentacle rake (x4)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+25 melee (2d6+10, 4 tentacle rakes)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "category": "simple",
+        "damage": "2d6+10",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.L1jAcB7fXCGrUsAF"
+    },
+    {
+      "_id": "dMeZKPIKLL8ceFoz",
+      "name": "Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.dMeZKPIKLL8ceFoz"
+    },
+    {
+      "_id": "hRDlfS9jYiLyeia6",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.hRDlfS9jYiLyeia6"
+    },
+    {
+      "_id": "NqGDiXrsWuksUjDS",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.NqGDiXrsWuksUjDS"
+    },
+    {
+      "_id": "FXdjApG4Jhb3SxFE",
+      "name": "Sunder",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "When the character strikes an object held or carried by an opponent, such as a weapon, the character does not provoke an attack of opportunity.",
+        "normal": "A character without this feat incurs an attack of opportunity when he or she strikes at an object held or carried by another character.",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.FXdjApG4Jhb3SxFE"
+    },
+    {
+      "_id": "WPksgpDrIBfHJun1",
+      "name": "Weapon Focus",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "The character gains a +1 bonus on all attack rolls he or she makes using the selected weapon.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.WPksgpDrIBfHJun1"
+    },
+    {
+      "_id": "LFMsHRSngeLN0TQ0",
+      "name": "Blindsight 500 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A neothelid is blind but can ascertain all creatures and objects within 500 feet by nonvisual means. Beyond that range, all targets have total concealment with respect to the neothelid.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.LFMsHRSngeLN0TQ0"
+    },
+    {
+      "_id": "yss5n6rdRybeF9WV",
+      "name": "Breath Weapon (DC 30)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once every 1d4 rounds, a neothelid can breathe a 50-foot cone of acid that deals 14d10 points of acid damage to every creature in its area. A successful Reflex save (DC 10 + 1/2 the neothelid’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Breath Weapon",
+            "actionType": "varies",
+            "save": {
+              "ability": "ref",
+              "calculation": "flat",
+              "dc": 30,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.yss5n6rdRybeF9WV"
+    },
+    {
+      "_id": "AHY4EPK9zvKtwiCC",
+      "name": "Damage Reduction 15/+2",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A neothelid ignores the first 15 points of damage dealt by any weapon with a magical bonus lower than +2. In campaigns without magic weapons, the GM can either disregard the neothelid’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.AHY4EPK9zvKtwiCC"
+    },
+    {
+      "_id": "TuajBNdAMMQ1B7j3",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the neothelid must hit a single opponent at least one size category smaller than itself with two tentacle rake attacks in the same round. If it gets a hold, it automatically deals damage for two tentacle rakes each round that the hold is maintained, and it can swallow in the next round.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.TuajBNdAMMQ1B7j3"
+    },
+    {
+      "_id": "ja4dn4nIh8TBIml3",
+      "name": "Power Resistance 25",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with power resistance can avoid the effects of psionic powers that directly affect it. To determine whether a spell or spell-like ability works, the psionic power manifester must make a level check (1d20 + manifester’s level). If the result equals or exceeds the creature’s power resistance, the power works normally, although the creature is still allowed a saving throw.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.ja4dn4nIh8TBIml3"
+    },
+    {
+      "_id": "Ap4Q4Q5Hj8M3cUSf",
+      "name": "Psionics",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will—charm person, clairaudience/ clairvoyance, detect thoughts, levitate, suggestion, telekinesis. Manifester level 10th; save DC 10 + neothelid’s key ability modifier + power level.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.Ap4Q4Q5Hj8M3cUSf"
+    },
+    {
+      "_id": "4815VlIe1fn6ADo4",
+      "name": "Swallow Whole",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a neothelid begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the neothelid, the opponent takes bludgeoning damage equal to the neothelid’s tentacle rake attack plus 1d6 points of acid damage per round from the monster’s gizzard.</p><p>A successful grapple check allows the swallowed creature to climb out of the gizzard and return to the neothelid’s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gizzard using claws or a Small or Tiny slashing weapon. Dealing at least 25 points of damage to the gizzard (Defense 20) in this way creates an opening large enough to permit escape. Once a single swallowed creature exits, muscular action closes the hole; thus, another swallowed creature must cut its own way out. A Gargantuan neothelid’s gizzard can hold 2 Large, 8 Medium-size, 32 Small, or 128 Tiny or smaller opponents.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!6pXQK3Vh5Is0ldid.4815VlIe1fn6ADo4"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}

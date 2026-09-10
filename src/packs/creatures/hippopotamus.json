@@ -1,0 +1,199 @@
+{
+  "_id": "Tc8t0XN7amJRsa9E",
+  "name": "Hippopotamus",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+    "abilities": {
+      "str": {
+        "value": 24,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 3,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 76,
+      "max": 76,
+      "temp": 0,
+      "formula": "8d8+40"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 5
+    },
+    "saves": {
+      "fort": {
+        "base": 6,
+        "misc": 0
+      },
+      "ref": {
+        "base": 6,
+        "misc": 0
+      },
+      "will": {
+        "base": 2,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 6,
+      "size": "large",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 20,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "6",
+      "hitDice": "8d8+40",
+      "advancement": "9-16 HD (Large); 17-24 HD (Huge)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "None",
+        "strength": "none"
+      }
+    ],
+    "senses": "Scent",
+    "specialQualities": "Hold breath, scent",
+    "biography": "<p><strong>Attack:</strong> +12 melee (2d6+10, bite)</p><p><strong>Full Attack:</strong> +12 melee (2d6+10, bite)</p><p><strong>Skills:</strong> Listen +7, Swim +11</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>"
+  },
+  "_key": "!actors!Tc8t0XN7amJRsa9E",
+  "items": [
+    {
+      "_id": "SPnQhtoYNQ2XgH65",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+12 melee (2d6+10, bite)</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "category": "unarmed",
+        "damage": "2d6+10",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Tc8t0XN7amJRsa9E.SPnQhtoYNQ2XgH65"
+    },
+    {
+      "_id": "4tLOqIEcKWGvBx03",
+      "name": "Hold Breath",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A hippopotamus can seal its nostrils by muscular action and hold its breath for a number of rounds equal to its Constitution score × 10.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Tc8t0XN7amJRsa9E.4tLOqIEcKWGvBx03"
+    },
+    {
+      "_id": "58GtAagNVuVsCLur",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a hippopotamus to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!Tc8t0XN7amJRsa9E.58GtAagNVuVsCLur"
+    },
+    {
+      "_id": "38zIyE0jVREerLZi",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A hippopotamus is agile in the water, gaining a +4 species bonus on Swim checks.</p>",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Tc8t0XN7amJRsa9E.38zIyE0jVREerLZi"
+    }
+  ],
+  "folder": "Xy98uByp1hGr1qSR"
+}
