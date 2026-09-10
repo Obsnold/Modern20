@@ -39,6 +39,7 @@ python3 scripts/check_lang.py
 python3 scripts/check_config.py
 python3 scripts/check_shadowing.py
 python3 scripts/check_packs.py
+python3 scripts/check_coverage.py
 
 echo "==> Packaging"
 TARBALL="$(mktemp -d)/modern20.tgz"

@@ -660,6 +660,7 @@ python3 scripts/check_lang.py        # every referenced i18n key exists
 python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
 python3 scripts/check_shadowing.py   # no module-level name defined twice
 python3 scripts/check_packs.py       # folders, keys and ids a compendium needs
+python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
 node    scripts/check_creatures.mjs  # every creature's arithmetic against the SRD
@@ -694,6 +695,8 @@ to trust any of them:
 | `check_models.mjs` | a DataField shared between two schemas; an earlier permissive version of this harness passed the broken code |
 | `check_templates.mjs` | `{{formField fields.typo}}` renders as nothing with no console error — a blank row, not a crash |
 | `check_shadowing.py` / `no-redeclare` | two parsers in one week were named over an existing definition — `ability_key` over the psionics one, `DAMAGE_TYPES` over the spells one — and the later definition silently won |
+| `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
+| `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |
 
 Two of these bugs took a black screen to find. The Node checks enforce
 Foundry's *real* invariants rather than merely resolving names, because a

@@ -1,0 +1,383 @@
+{
+  "_comment": "How much of each SRD document the packs cover, by scripts/check_coverage.py. A document with nothing matched is either rules text the system implements in code, or content not imported yet; the review in the README says which. Regenerate with --update after importing more, never to make a failure go away.",
+  "documents": {
+    "msrdFXbasics": {
+      "book": "d20 Modern",
+      "title": "FX Basics",
+      "sections": 39,
+      "matched": 10
+    },
+    "msrdFXitems": {
+      "book": "d20 Modern",
+      "title": "FX Items",
+      "sections": 15,
+      "matched": 0
+    },
+    "msrdabilityscores": {
+      "book": "d20 Modern",
+      "title": "Ability Scores",
+      "sections": 6,
+      "matched": 0
+    },
+    "msrdactionpoints": {
+      "book": "d20 Modern",
+      "title": "Action Points",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdadvancedclassesI": {
+      "book": "d20 Modern",
+      "title": "Advanced Classes I",
+      "sections": 15,
+      "matched": 12
+    },
+    "msrdadvancedclassesII": {
+      "book": "d20 Modern",
+      "title": "Advanced Classes II",
+      "sections": 6,
+      "matched": 6
+    },
+    "msrdallegiances": {
+      "book": "d20 Modern",
+      "title": "Allegiances",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdbasicclasses": {
+      "book": "d20 Modern",
+      "title": "Basic Classes",
+      "sections": 9,
+      "matched": 0
+    },
+    "msrdbasics": {
+      "book": "d20 Modern",
+      "title": "The Basics",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdcombat": {
+      "book": "d20 Modern",
+      "title": "Combat",
+      "sections": 81,
+      "matched": 1
+    },
+    "msrdconditionsummary": {
+      "book": "d20 Modern",
+      "title": "Condition Summary",
+      "sections": 24,
+      "matched": 0
+    },
+    "msrdcreatureoverview": {
+      "book": "d20 Modern",
+      "title": "Creature Overview",
+      "sections": 11,
+      "matched": 2
+    },
+    "msrdcreatures": {
+      "book": "d20 Modern",
+      "title": "Creatures",
+      "sections": 42,
+      "matched": 32
+    },
+    "msrdcreaturetypes": {
+      "book": "d20 Modern",
+      "title": "Creature Types",
+      "sections": 13,
+      "matched": 5
+    },
+    "msrddeathdyinghealing": {
+      "book": "d20 Modern",
+      "title": "Death, Dying, and Healing",
+      "sections": 11,
+      "matched": 0
+    },
+    "msrddefense": {
+      "book": "d20 Modern",
+      "title": "Defense",
+      "sections": 6,
+      "matched": 0
+    },
+    "msrddepartment7": {
+      "book": "d20 Modern",
+      "title": "Department-7",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdenvironmentandhazards": {
+      "book": "d20 Modern",
+      "title": "Environment & Hazards",
+      "sections": 13,
+      "matched": 3
+    },
+    "msrdequipmentbasics": {
+      "book": "d20 Modern",
+      "title": "Equipment Basics",
+      "sections": 8,
+      "matched": 0
+    },
+    "msrdequipmentgeneral": {
+      "book": "d20 Modern",
+      "title": "General Equipment",
+      "sections": 8,
+      "matched": 0
+    },
+    "msrdequipmentvehicles": {
+      "book": "d20 Modern",
+      "title": "Vehicles",
+      "sections": 8,
+      "matched": 0
+    },
+    "msrdequipmentweaponsandarmor": {
+      "book": "d20 Modern",
+      "title": "Weapons and Armor",
+      "sections": 16,
+      "matched": 0
+    },
+    "msrdfeats": {
+      "book": "d20 Modern",
+      "title": "Feats",
+      "sections": 92,
+      "matched": 90
+    },
+    "msrdlegal": {
+      "book": "d20 Modern",
+      "title": "Legal Information",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdoccupation": {
+      "book": "d20 Modern",
+      "title": "Starting Occupation",
+      "sections": 19,
+      "matched": 19
+    },
+    "msrdordinaries": {
+      "book": "d20 Modern",
+      "title": "Ordinaries",
+      "sections": 8,
+      "matched": 0
+    },
+    "msrdpsionics": {
+      "book": "d20 Modern",
+      "title": "Psionics",
+      "sections": 51,
+      "matched": 48
+    },
+    "msrdreputation": {
+      "book": "d20 Modern",
+      "title": "Reputation",
+      "sections": 2,
+      "matched": 0
+    },
+    "msrdsavingthrows": {
+      "book": "d20 Modern",
+      "title": "Saving Throws",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdskillsi": {
+      "book": "d20 Modern",
+      "title": "Skills I",
+      "sections": 2,
+      "matched": 0
+    },
+    "msrdskillsii": {
+      "book": "d20 Modern",
+      "title": "Skills II",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdskillsoverview": {
+      "book": "d20 Modern",
+      "title": "Skills Overview",
+      "sections": 15,
+      "matched": 0
+    },
+    "msrdspecialabilities": {
+      "book": "d20 Modern",
+      "title": "Special Abilities",
+      "sections": 1,
+      "matched": 0
+    },
+    "msrdspells": {
+      "book": "d20 Modern",
+      "title": "Spells",
+      "sections": 113,
+      "matched": 113
+    },
+    "msrdvehiclemovementandcombat": {
+      "book": "d20 Modern",
+      "title": "Vehicle Movement and Combat",
+      "sections": 7,
+      "matched": 0
+    },
+    "msrdwealth": {
+      "book": "d20 Modern",
+      "title": "Wealth",
+      "sections": 12,
+      "matched": 0
+    },
+    "ArcanaAdvancedClasses": {
+      "book": "Urban Arcana",
+      "title": "Advanced Classes",
+      "sections": 7,
+      "matched": 0
+    },
+    "ArcanaCreatures": {
+      "book": "Urban Arcana",
+      "title": "Shadow Creatures",
+      "sections": 2,
+      "matched": 0
+    },
+    "ArcanaEquipment": {
+      "book": "Urban Arcana",
+      "title": "Equipment",
+      "sections": 4,
+      "matched": 0
+    },
+    "ArcanaFXItems": {
+      "book": "Urban Arcana",
+      "title": "Magic Items",
+      "sections": 9,
+      "matched": 0
+    },
+    "ArcanaIncantations": {
+      "book": "Urban Arcana",
+      "title": "Incantations",
+      "sections": 1,
+      "matched": 0
+    },
+    "ArcanaOccupationsandFeats": {
+      "book": "Urban Arcana",
+      "title": "Starting Occupations",
+      "sections": 26,
+      "matched": 1
+    },
+    "ArcanaOrganizations": {
+      "book": "Urban Arcana",
+      "title": "Organizations",
+      "sections": 23,
+      "matched": 0
+    },
+    "ArcanaPsionics": {
+      "book": "Urban Arcana",
+      "title": "Psionics",
+      "sections": 2,
+      "matched": 1
+    },
+    "ArcanaShadowkind": {
+      "book": "Urban Arcana",
+      "title": "Shadowkind",
+      "sections": 16,
+      "matched": 4
+    },
+    "ArcanaSpells": {
+      "book": "Urban Arcana",
+      "title": "Additional Spells",
+      "sections": 2,
+      "matched": 1
+    },
+    "FutureAdvancedClasses": {
+      "book": "d20 Future",
+      "title": "Advanced Classes",
+      "sections": 12,
+      "matched": 0
+    },
+    "FutureCybernetics": {
+      "book": "d20 Future",
+      "title": "Evolution of Cybernetics",
+      "sections": 8,
+      "matched": 0
+    },
+    "FutureEnvironments": {
+      "book": "d20 Future",
+      "title": "Environments",
+      "sections": 15,
+      "matched": 0
+    },
+    "FutureEquipment": {
+      "book": "d20 Future",
+      "title": "Universal Weapon Gadgets",
+      "sections": 25,
+      "matched": 0
+    },
+    "FutureMecha": {
+      "book": "d20 Future",
+      "title": "Mecha",
+      "sections": 47,
+      "matched": 0
+    },
+    "FutureMutations": {
+      "book": "d20 Future",
+      "title": "Mutations",
+      "sections": 3,
+      "matched": 0
+    },
+    "FutureOccupationsSkillsFeats": {
+      "book": "d20 Future",
+      "title": "Starting Occupations",
+      "sections": 47,
+      "matched": 2
+    },
+    "FutureProgressLevels": {
+      "book": "d20 Future",
+      "title": "Progress Levels",
+      "sections": 2,
+      "matched": 0
+    },
+    "FutureRobots": {
+      "book": "d20 Future",
+      "title": "Robots",
+      "sections": 25,
+      "matched": 0
+    },
+    "FutureScientificEngineering": {
+      "book": "d20 Future",
+      "title": "Scientific Engineering",
+      "sections": 32,
+      "matched": 0
+    },
+    "FutureStarships": {
+      "book": "d20 Future",
+      "title": "Starship Types and Subtypes",
+      "sections": 67,
+      "matched": 1
+    },
+    "FutureTravelerScience": {
+      "book": "d20 Future",
+      "title": "Realistic Space Travel",
+      "sections": 20,
+      "matched": 0
+    },
+    "FutureVehicles": {
+      "book": "d20 Future",
+      "title": "Vehicles",
+      "sections": 14,
+      "matched": 0
+    },
+    "FutureXenobiology": {
+      "book": "d20 Future",
+      "title": "Xenobiology",
+      "sections": 6,
+      "matched": 0
+    },
+    "MenaceCreaturesA-I": {
+      "book": "Menace Manual",
+      "title": "Menace Creatures (A-I)",
+      "sections": 33,
+      "matched": 24
+    },
+    "MenaceCreaturesJ-Z": {
+      "book": "Menace Manual",
+      "title": "Menace Creatures (J-Z)",
+      "sections": 38,
+      "matched": 26
+    },
+    "MenaceServicesandFeats": {
+      "book": "Menace Manual",
+      "title": "Services & Feats",
+      "sections": 2,
+      "matched": 0
+    }
+  }
+}
