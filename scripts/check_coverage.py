@@ -8,9 +8,9 @@ the SRD prints as paragraphs — every animal, the alien probe, the zap — were
 missing for months without a single check going red.
 
 data/rules.json is an independent list of what the books contain, taken from
-the documents Wizards released rather than from the pages this pipeline
-parses. This walks it and counts how many of each document's sections have a
-document in a pack, against the figures recorded in data/coverage.json.
+the SRD's own pages rather than from the tables this pipeline parses. This
+walks the headings inside them and counts how many have a document in a pack,
+against the figures recorded in data/coverage.json.
 
 A count that drops is a regression and fails. A count that rises is progress
 and has to be recorded, which is the point: the file is the audit, kept
@@ -20,7 +20,9 @@ current by the build rather than by memory.
     python3 scripts/check_coverage.py --update    # after importing more
 """
 import argparse
+import collections
 import glob
+import html
 import json
 import os
 import re
@@ -60,6 +62,54 @@ def imported_names() -> set[str]:
     return names
 
 
+HEADING = re.compile(r"<h([1-6])[^>]*>(.*?)</h\1>", re.S | re.I)
+
+# A heading that names the shape of the page rather than a piece of content.
+STRUCTURAL = re.compile(r"^(?:table:|sidebar:|new |the following)", re.I)
+
+# A heading used in this many pages is a sub-head every entry carries -
+# "Hit Points", "Talents", "Level" - not a thing to be imported.
+BOILERPLATE = 8
+
+
+def headings(markup: str) -> list[str]:
+    """Every heading on a page, as text."""
+    out = []
+    for match in HEADING.finditer(markup):
+        text = re.sub(r"\s+", " ", html.unescape(
+            re.sub(r"<[^>]+>", "", match.group(2)))).strip()
+        if len(text) > 2 and not STRUCTURAL.match(text):
+            out.append(text)
+    return out
+
+
+def sections(rules: list[dict]) -> dict[str, list[str]]:
+    """What each SRD document contains, by its own headings.
+
+    The mirror publishes a chapter per page - "Weapons", "Creatures A-Z" - so
+    the page names are far too coarse to measure coverage with: eight pages
+    would stand for four hundred creatures. The headings inside them are the
+    entries, which is what the packs are supposed to hold one of each.
+
+    Headings that turn up all over the book are dropped. Every class page has
+    a "Talents" heading and every creature a "Special Qualities" one, and
+    counting those as content to import would put a floor under the figure
+    that never moves.
+    """
+    seen = collections.Counter()
+    found = {}
+    for entry in rules:
+        names = []
+        for page in entry["pages"]:
+            names += [name for name in headings(page["html"])
+                      if name.lower() != page["name"].lower()]
+        found[entry["id"]] = names
+        seen.update({name.lower() for name in names})
+
+    return {entry_id: [name for name in names if seen[name.lower()] <= BOILERPLATE]
+            for entry_id, names in found.items()}
+
+
 def section_name(name: str) -> str:
     """A section heading as the name an entry would carry.
 
@@ -76,15 +126,15 @@ def coverage() -> dict[str, dict]:
     with open(os.path.join(ROOT, "data", "rules.json"), encoding="utf-8") as handle:
         rules = json.load(handle)
 
+    contents = sections(rules)
     out = {}
     for entry in rules:
-        sections = [page["name"] for page in entry["pages"]
-                    if page["name"].lower() != "overview"]
-        matched = sum(1 for name in sections if section_name(name) in names)
+        headings_here = contents[entry["id"]]
+        matched = sum(1 for name in headings_here if section_name(name) in names)
         out[entry["id"]] = {
             "book": entry["book"],
             "title": entry["title"],
-            "sections": len(sections),
+            "sections": len(headings_here),
             "matched": matched,
         }
     return out

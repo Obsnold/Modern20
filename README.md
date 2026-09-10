@@ -34,7 +34,7 @@ fighting it forever, so this is a standalone game system.
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
-| Rules reference | 63 journal entries, 1,202 pages — the SRD's own text, in four books |
+| Rules reference | 50 journal entries, 238 pages — the SRD's own text, in four books, cross-linked |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
@@ -465,59 +465,64 @@ was to put them where the creature is rather than to guess at a mechanism for
 
 ## The rules reference
 
-The numbers come from the SRD's tables, which the pipeline parses from the web
-mirror. The prose comes from the documents Wizards released: 63 RTF files
-across d20 Modern, Urban Arcana, d20 Future and the Menace Manual, each of
-which opens by declaring itself Open Game Content. They build into a `rules`
-journal compendium — one entry per document, one page per section, in a folder
-per book — so the rules are searchable in the world, readable by players
+The SRD is published as a website — [spellbooksoftware.com/d20mrsd][mirror] —
+and that is where both halves of this system come from: the numbers, which the
+pipeline parses out of its tables, and the prose those tables are printed
+inside. It builds into a `rules` journal compendium of 50 entries and 238
+pages, one entry per section of the SRD and one page per page of it, in a
+folder per book, so the rules are searchable in the world, readable by players
 without the GM setting permissions, and linkable with `@UUID` from anything
 that needs to cite them.
 
+[mirror]: https://spellbooksoftware.com/d20mrsd/srdhome.html
+
 ```bash
-python3 scripts/import_rules.py ~/Downloads/d20modernsrd   # needs pandoc
+python3 scripts/import_rules.py             # from .cache/, fetching what is missing
+python3 scripts/import_rules.py --refresh   # re-fetch every page first
 python3 scripts/build_packs.py
 ```
 
-Only regenerating needs pandoc and the documents; `data/rules.json` is
-committed, so building the packs needs neither.
+**The structure is the SRD's own.** Every page carries the whole site as a
+navigation menu, and the menu draws its levels with column spans: a cell
+spanning four columns is a book, three a section, two a page inside it, one a
+page inside that. A page's menu expands that page's branch and no other, so
+reading all of them assembles the tree, names included — and the names have to
+come from there, because the headings inside the pages do not carry them.
+Every page under d20 Future is headed "d20 FUTURE".
 
-**The hard part is that the RTF styling is inconsistent.** These are
-twenty-year-old Word files, and the same kind of heading is an `h1` in one
-document, an `h5` in the next and a bold paragraph in the one after that. So
-the level to split a document at is chosen by what it produces rather than by
-trusting the level: the shallowest one that gives more than one page, names
-those pages distinctly, and leaves none too long to read. That is what turns
-the spell list into 114 pages rather than 2, and stops d20 Future's advanced
-classes becoming twenty-nine pages of "Requirements" and "Class Features".
+Three things the mirror ships that a compendium should not. Its maintainer
+signs off at the foot of a hundred and forty-eight pages with his e-mail
+address, which is his page furniture and not the SRD's text. Its headings are
+underlined by a table with a background image, and its pages end with an empty
+one for spacing; neither means anything without the site's stylesheet. And a
+one-pixel `dash.gif` stands in for a dash in table cells, which in a Foundry
+journal is a broken-image icon 185 times over.
 
-Three other things the conversion has to undo. A heading inside a table cell
-is a column header, and reading it as a section put three of them in the
-middle of the spell list. Several documents print their own title at the same
-level as their sections, leaving a page holding nothing but that title. And
-pandoc's row striping is its own, not the SRD's.
+**The cross-references are made to work.** The SRD points at itself constantly
+— "see Weapons", "as described under Attacks of Opportunity" — and on the web
+those are links to file names, which mean nothing inside Foundry. The build
+knows which page each file became, so all 1,323 of them are rewritten as
+`@UUID` links into the compendium. A link within a page becomes its own text,
+since a journal sheet has nowhere to jump to, and the two appendices the menu
+offers that the server does not actually have go the same way rather than
+becoming dead links.
 
-Promoting bold paragraphs to headings was tried, since a few documents carry
-their structure that way. It doubled the page count and multiplied the
-duplicate page names by ten, because a bold cell in a table is a column
-header. A long page is searchable; a contents list full of pages called "DC"
-and "Size" is not.
+### Why not the RTF releases
 
-Promoting **capitalised** paragraphs is a different matter, and it is done.
-The Menace Manual styles the acid rainer's name as a heading and the alien
-probe's, two entries later, as a plain paragraph — so the alien probe was
-inside the acid rainer's page, along with the giant anaconda and the animated
-object. Capitals are a name in these documents where bold is not, and the
-promotion runs per document and is kept only where it improves the split:
-Menace Creatures (A-I) goes from 14 pages to 34, one per creature, and Urban
-Arcana's feats from 4 to 27, while Shadowkind keeps the 17 it already had
-because there the promotion shifts the level the document breaks at and loses
-ten species. 980 pages became 1,202 with no new duplicate names.
+They were used first, and the whole of that import was a fight with them.
+Wizards released the SRD as 63 Word files, and the styling is inconsistent
+inside a single document, let alone across four books: the same kind of
+heading is an `h1` in one, an `h5` in the next and a bold paragraph in the one
+after. Where a page ended had to be guessed at by trying each heading level
+and keeping whichever produced the most pages with the fewest duplicate names,
+and the Menace Manual still needed capitalised paragraphs promoted to headings
+to stop the alien probe living inside the acid rainer's page.
 
-Ten documents open on a section rather than a title — the file names are one
-lowercase run, `msrdequipmentweaponsandarmor`, and cannot be split back into
-words — so those are named in `data/overrides/rules.json` with a stated reason,
-the same correction layer the scraped datasets use.
+Every one of those guesses is gone. The mirror is the same text, already
+divided into pages, each with a name and a place in a tree. It also carries
+what the RTF import never reached — Shadowkind, incantations, prestige
+classes, starships, mecha, robots, cybernetics, mutations, organizations —
+because those were never a parsing problem, they were pages nothing had read.
 
 ## FX items
 
@@ -841,10 +846,12 @@ Roughly in the order worth doing it:
    leaving it to the player to decide and click.
 4. **The rest of d20 Future and Urban Arcana.** The equipment is in: every
    weapon, suit of armor, piece of gear and vehicle those books price is built
-   from its own table. What is left is the material that needs rules rather
-   than rows — cybernetics, mecha and robot construction, starship combat,
-   xenoforms — each of which is a table of modifiers to something the system
-   would first have to model.
+   from its own table. The *text* of everything else arrived with the rules
+   journal — Shadowkind, incantations, prestige classes, starship combat,
+   mecha, robots, cybernetics, mutations, xenoforms — so it is all readable
+   and linkable in the world today. What is left is making it mechanical:
+   each of those is a table of modifiers to something the system would first
+   have to model.
 
 Class skills are granted by the character's class and occupation items rather
 than ticked by hand — removing a class removes what it granted. A hand-ticked
