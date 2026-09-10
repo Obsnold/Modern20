@@ -34,7 +34,7 @@ fighting it forever, so this is a standalone game system.
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
-| Rules reference | 50 journal entries, 309 pages — the SRD's own text, in four books, cross-linked |
+| Rules reference | 50 journal entries, 1,142 pages — the SRD's own text, in four books, cross-linked |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
@@ -468,7 +468,7 @@ was to put them where the creature is rather than to guess at a mechanism for
 The SRD is published as a website — [spellbooksoftware.com/d20mrsd][mirror] —
 and that is where both halves of this system come from: the numbers, which the
 pipeline parses out of its tables, and the prose those tables are printed
-inside. It builds into a `rules` journal compendium of 50 entries and 309
+inside. It builds into a `rules` journal compendium of 50 entries and 1,142
 pages, one entry per section of the SRD and one page per page of it, in a
 folder per book, so the rules are searchable in the world, readable by players
 without the GM setting permissions, and linkable with `@UUID` from anything
@@ -510,24 +510,41 @@ one for spacing; neither means anything without the site's stylesheet. And a
 one-pixel `dash.gif` stands in for a dash in table cells, which in a Foundry
 journal is a broken-image icon 185 times over.
 
-**One creature, one page — in the Menace Manual.** That book sells its
-creatures twenty to a page, four pages of them, which is a page nobody
-scrolls. They are split at the heading each creature is named at, and the
-book's own A–Z index links straight to each one, because the anchors it points
-at are carried through the split.
+**One entry, one page.** The SRD is a website, so it sells its catalogues
+twenty to a page: ninety-five feats on one page, fifty-nine spells on another,
+four pages of Menace Manual creatures. Those are pages nobody scrolls and
+nothing can link into. Thirty of them are split at the heading each entry is
+named at, which turns 238 pages into 1,142 — a page per creature, spell,
+psionic power, incantation, seed, feat, skill, mutation, cybernetic
+enhancement, wondrous item and piece of mecha equipment.
 
-Splitting on the visible headings alone was not enough: a third of these
-creatures are headed by nothing but an anchor and print their name in the stat
-block table instead — the grimlock is `<h4><a name="creat6"></a></h4>`, and it
-ended up filed inside the ghoul. The index names those, and it is also the
-only thing that separates a creature from a variant of one, because it sets a
-creature's name in capitals and a variant's in mixed case: ANIMATED OBJECT,
-then "Tiny to Medium", "Large to Huge". The variants stay on their creature's
-page, which is where a link to them lands.
+`SPLIT_AT` at the top of the importer names every page it applies to, because
+this is a judgement rather than a rule: a catalogue of named things is split,
+a chapter of prose is not. The equipment chapters look similar and are left
+alone — "Ranged Weapons Table" and "Reloading Firearms" are sections of an
+argument, not things to look up — and so are the combat chapters, creature
+types, space travel and the progress-level gear lists.
 
-The same split would work on the core SRD's creatures A–Z and Urban Arcana's,
-which are grouped the same way; `SPLIT_AT` in the importer names the pages it
-applies to.
+Splitting on the visible headings alone was not enough, and the two books that
+break it break it differently. A third of the Menace Manual's creatures are
+headed by nothing but an anchor and print their name in the stat block instead
+— the grimlock is `<h4><a name="creat6"></a></h4>`, and it ended up filed
+inside the ghoul. Urban Arcana heads the elf, the gear golem and the urban
+wendigo with `<h4><a name=""></a></h4>`, an anchor with no name at all. So an
+unnamed heading is resolved first against the book's own A–Z index and then
+against the stat block underneath it.
+
+The index also says which unnamed headings are entries and which are
+continuations, because the Menace Manual sets a creature's name in capitals
+and a variant's in mixed case: ANIMATED OBJECT, then "Tiny to Medium", "Large
+to Huge". Variants stay on their creature's page, which is where a link to
+them lands. Where the SRD prints the same name twice in one entry — darkvision
+is both a spell and a psionic power, and both are in FX Basics — each page is
+named for the part of the book it comes from.
+
+Two of the Menace Manual's creatures, the rod and the rogue tulpa, are in its
+index and its page titles and nowhere in its text. The mirror never published
+them.
 
 **The cross-references are made to work.** The SRD points at itself constantly
 — "see Weapons", "as described under Attacks of Opportunity" — and on the web
