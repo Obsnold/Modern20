@@ -1,0 +1,27 @@
+{
+  "_id": "R7bzpAwkA3nfff9q",
+  "name": "Dodge Intrepid police interceptor (sports coupe)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 1,
+    "cargo": "200 lb.",
+    "initiative": -2,
+    "maneuver": 1,
+    "topSpeed": "200 (20)",
+    "defense": 9,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "large",
+    "purchaseDC": 31,
+    "restriction": "res"
+  },
+  "_key": "!actors!R7bzpAwkA3nfff9q"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "1IW6HFO3f8F7bcnm",
+  "name": "Emergency aid vehicle",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 2,
+    "passengers": 2,
+    "cargo": "1000 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "160 (16)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 30,
+    "restriction": "res"
+  },
+  "_key": "!actors!1IW6HFO3f8F7bcnm"
+}

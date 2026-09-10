@@ -1,0 +1,40 @@
+{
+  "_id": "h0IyVw6oek1nHtMy",
+  "name": "Mini-rocket launcher",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "Varies",
+    "damageType": "varies 2",
+    "critical": "20",
+    "rangeIncrement": 150,
+    "rateOfFire": "Single",
+    "caliber": "",
+    "magazine": "1 int.",
+    "size": "medium",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 5.0,
+    "purchaseDC": 23,
+    "restriction": "mil",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 6
+  },
+  "_key": "!items!h0IyVw6oek1nHtMy"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "F93ZOylMnn7JaJFT",
+  "name": "Diamondback X-20 (mountain)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 0,
+    "cargo": "0 lb.",
+    "initiative": -1,
+    "maneuver": 4,
+    "topSpeed": "40 (4)",
+    "defense": 11,
+    "hardness": 5,
+    "hp": {
+      "value": 6,
+      "max": 6
+    },
+    "size": "small",
+    "purchaseDC": 14,
+    "restriction": "none"
+  },
+  "_key": "!actors!F93ZOylMnn7JaJFT"
+}

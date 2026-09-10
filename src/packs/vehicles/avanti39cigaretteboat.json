@@ -1,0 +1,27 @@
+{
+  "_id": "drIxMirgckfCfVGJ",
+  "name": "Avanti 39 (cigarette boat)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 8,
+    "cargo": "300 lb.",
+    "initiative": 1,
+    "maneuver": -2,
+    "topSpeed": "100 (10)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 50,
+      "max": 50
+    },
+    "size": "huge",
+    "purchaseDC": 35,
+    "restriction": "lic"
+  },
+  "_key": "!actors!drIxMirgckfCfVGJ"
+}

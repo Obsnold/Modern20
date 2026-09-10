@@ -1,0 +1,40 @@
+{
+  "_id": "y6eo7gi0pPdEnMIR",
+  "name": "Quarterstaff*‡",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d6/1d6",
+    "damageType": "bludgeoning",
+    "critical": "20",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "caliber": "",
+    "magazine": "",
+    "size": "large",
+    "ranged": false,
+    "nonlethal": false,
+    "weight": 4.0,
+    "purchaseDC": 3,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!y6eo7gi0pPdEnMIR"
+}

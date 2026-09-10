@@ -1,0 +1,24 @@
+{
+  "_id": "DNdH5NcpvPuPth1P",
+  "name": "Space suit",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "heavy",
+    "equipmentBonus": 7,
+    "maxDex": 0,
+    "armorPenalty": -10,
+    "speedPenalty": "15 ft./10 ft.",
+    "proficiency": "heavy",
+    "weight": 50.0,
+    "purchaseDC": 26,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl5.html",
+    "progressLevel": 5
+  },
+  "_key": "!items!DNdH5NcpvPuPth1P"
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "FducoZbHnHGWA3K6",
+  "name": "Fishing trawler",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 9,
+    "passengers": 2,
+    "cargo": "100 tons",
+    "initiative": -4,
+    "maneuver": -4,
+    "topSpeed": "30 (3)",
+    "defense": 6,
+    "hardness": 5,
+    "hp": {
+      "value": 175,
+      "max": 175
+    },
+    "size": "gargantuan",
+    "purchaseDC": 43,
+    "restriction": "lic"
+  },
+  "_key": "!actors!FducoZbHnHGWA3K6"
+}

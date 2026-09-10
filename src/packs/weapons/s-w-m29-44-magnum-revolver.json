@@ -15,7 +15,7 @@
     "rateOfFire": "S",
     "caliber": ".44",
     "magazine": "6 cyl.",
-    "size": "med",
+    "size": "medium",
     "ranged": true,
     "nonlethal": false,
     "weight": 3.0,
@@ -23,7 +23,7 @@
     "restriction": "lic",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Hanguns (requires the Personal Firearms Proficiency feat)",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -33,7 +33,8 @@
           "ammo": 1
         }
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!1tzBVzFp0xW5StTy"
 }

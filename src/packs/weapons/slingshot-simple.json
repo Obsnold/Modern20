@@ -1,0 +1,40 @@
+{
+  "_id": "xzhYZRqM3MCRBPMX",
+  "name": "Slingshot (simple)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d3",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 50,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "-",
+    "size": "tiny",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 4,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!xzhYZRqM3MCRBPMX"
+}

@@ -23,7 +23,7 @@
     "restriction": "res",
     "burstRadius": "",
     "reflexDC": null,
-    "source": "Longarms (requires the Personal Firearms Proficiency feat)",
+    "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
     "activities": {
       "shot": {
@@ -64,7 +64,8 @@
         "requiresAmmo": 5,
         "requiresFeat": "Burst Fire"
       }
-    }
+    },
+    "progressLevel": 0
   },
   "_key": "!items!rnvd4sRAbZRkOQ1Q"
 }

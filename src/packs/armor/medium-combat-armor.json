@@ -1,0 +1,24 @@
+{
+  "_id": "BnyGstaXsfhtL5Hk",
+  "name": "Medium combat armor",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "medium",
+    "equipmentBonus": 4,
+    "maxDex": 4,
+    "armorPenalty": -2,
+    "speedPenalty": "20 ft./15 ft.",
+    "proficiency": "medium",
+    "weight": 8.0,
+    "purchaseDC": 14,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "progressLevel": 7
+  },
+  "_key": "!items!BnyGstaXsfhtL5Hk"
+}

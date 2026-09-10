@@ -1,0 +1,40 @@
+{
+  "_id": "iyxHnEeLdnDsgdKf",
+  "name": "Gauntlet",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "*",
+    "damageType": "bludgeoning",
+    "critical": "*",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "caliber": "",
+    "magazine": "",
+    "size": "medium",
+    "ranged": false,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 5,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!iyxHnEeLdnDsgdKf"
+}

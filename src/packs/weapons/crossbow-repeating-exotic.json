@@ -1,0 +1,40 @@
+{
+  "_id": "pApAcAGV8xhNU2VA",
+  "name": "Crossbow, repeating (exotic)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "critical": "19-20",
+    "rangeIncrement": 80,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "5 Int.",
+    "size": "medium",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 13,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!pApAcAGV8xhNU2VA"
+}

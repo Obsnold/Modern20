@@ -1,0 +1,24 @@
+{
+  "_id": "FtUqAqojAOiQyoP0",
+  "name": "Light combat armor",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 3,
+    "maxDex": 5,
+    "armorPenalty": -2,
+    "speedPenalty": "30 ft./20 ft.",
+    "proficiency": "light",
+    "weight": 6.0,
+    "purchaseDC": 12,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "progressLevel": 6
+  },
+  "_key": "!items!FtUqAqojAOiQyoP0"
+}

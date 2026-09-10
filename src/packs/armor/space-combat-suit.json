@@ -1,0 +1,24 @@
+{
+  "_id": "PNDFZItK6Ge9xz5U",
+  "name": "Space combat suit",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 9,
+    "maxDex": 1,
+    "armorPenalty": -7,
+    "speedPenalty": "15 ft./10 ft.",
+    "proficiency": "light",
+    "weight": 40.0,
+    "purchaseDC": 17,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "progressLevel": 7
+  },
+  "_key": "!items!PNDFZItK6Ge9xz5U"
+}

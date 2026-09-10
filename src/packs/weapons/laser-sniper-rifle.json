@@ -1,0 +1,40 @@
+{
+  "_id": "FZOaZAVkBgNgxyoe",
+  "name": "Laser sniper rifle",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "3d8",
+    "damageType": "fire",
+    "critical": "20",
+    "rangeIncrement": 120,
+    "rateOfFire": "S",
+    "caliber": "",
+    "magazine": "50 box",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 14.0,
+    "purchaseDC": 21,
+    "restriction": "res",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl6.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 6
+  },
+  "_key": "!items!FZOaZAVkBgNgxyoe"
+}

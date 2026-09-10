@@ -1,0 +1,40 @@
+{
+  "_id": "S1iqroJkUtYDyYj7",
+  "name": "Crossbow, hand (archaic)",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d4",
+    "damageType": "piercing",
+    "critical": "19-20",
+    "rangeIncrement": 30,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "1 Int.",
+    "size": "tiny",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 11,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!S1iqroJkUtYDyYj7"
+}

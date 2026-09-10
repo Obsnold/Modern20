@@ -1,0 +1,24 @@
+{
+  "_id": "4XvWxuy47agkPkNg",
+  "name": "Boost Armor",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "light",
+    "equipmentBonus": 7,
+    "maxDex": 4,
+    "armorPenalty": -3,
+    "speedPenalty": "20 ft./15 ft.",
+    "proficiency": "light",
+    "weight": 20.0,
+    "purchaseDC": 18,
+    "restriction": "lic",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "progressLevel": 8
+  },
+  "_key": "!items!4XvWxuy47agkPkNg"
+}

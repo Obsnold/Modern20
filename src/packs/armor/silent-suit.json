@@ -1,0 +1,24 @@
+{
+  "_id": "zLT4SHlwWzFw6SDu",
+  "name": "Silent suit",
+  "type": "armor",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "armorType": "medium",
+    "equipmentBonus": 1,
+    "maxDex": 8,
+    "armorPenalty": 0,
+    "speedPenalty": "30 ft./20 ft.",
+    "proficiency": "medium",
+    "weight": 1.0,
+    "purchaseDC": 18,
+    "restriction": "none",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "progressLevel": 7
+  },
+  "_key": "!items!zLT4SHlwWzFw6SDu"
+}

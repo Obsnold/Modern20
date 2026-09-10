@@ -1,0 +1,40 @@
+{
+  "_id": "zKjBqbRtDsIYLP8F",
+  "name": "Water cannon (simple)*",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "*",
+    "damageType": "*",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "20 Int.",
+    "size": "huge",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 19,
+    "restriction": "lic",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!zKjBqbRtDsIYLP8F"
+}

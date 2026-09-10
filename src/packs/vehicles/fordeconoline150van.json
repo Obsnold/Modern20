@@ -1,0 +1,27 @@
+{
+  "_id": "WrQ12feqGm8BLV0g",
+  "name": "Ford Econoline 150 (van)",
+  "type": "vehicle",
+  "img": "icons/svg/cave.svg",
+  "system": {
+    "description": "",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanvehicles.html",
+    "crew": 1,
+    "passengers": 8,
+    "cargo": "4800 lb.",
+    "initiative": -2,
+    "maneuver": -2,
+    "topSpeed": "195 (19)",
+    "defense": 8,
+    "hardness": 5,
+    "hp": {
+      "value": 34,
+      "max": 34
+    },
+    "size": "huge",
+    "purchaseDC": 29,
+    "restriction": "lic"
+  },
+  "_key": "!actors!WrQ12feqGm8BLV0g"
+}

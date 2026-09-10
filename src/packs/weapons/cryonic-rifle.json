@@ -1,0 +1,40 @@
+{
+  "_id": "x7rmyN8yttfl6mvZ",
+  "name": "Cryonic rifle",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "longarm",
+    "damage": "3d6",
+    "damageType": "cold",
+    "critical": "20",
+    "rangeIncrement": 20,
+    "rateOfFire": "S",
+    "caliber": "",
+    "magazine": "10 box",
+    "size": "large",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 8.0,
+    "purchaseDC": 21,
+    "restriction": "lic",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl8.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 8
+  },
+  "_key": "!items!x7rmyN8yttfl6mvZ"
+}

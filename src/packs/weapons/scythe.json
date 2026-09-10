@@ -1,0 +1,40 @@
+{
+  "_id": "mlCvWUzH548JI2Hn",
+  "name": "Scythe",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "2d4",
+    "damageType": "piercing, slashing",
+    "critical": "20/x4",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "caliber": "",
+    "magazine": "",
+    "size": "large",
+    "ranged": false,
+    "nonlethal": false,
+    "weight": 12.0,
+    "purchaseDC": 7,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!mlCvWUzH548JI2Hn"
+}

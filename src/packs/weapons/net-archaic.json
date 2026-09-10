@@ -1,0 +1,40 @@
+{
+  "_id": "CxwyrYG9SiRIQM39",
+  "name": "Net (archaic)*",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "*",
+    "damageType": "*",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "1",
+    "caliber": "",
+    "magazine": "-",
+    "size": "medium",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 6,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!CxwyrYG9SiRIQM39"
+}

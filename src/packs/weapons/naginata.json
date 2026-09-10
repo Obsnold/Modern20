@@ -1,0 +1,40 @@
+{
+  "_id": "8IqETvkTcRH6hnNN",
+  "name": "Naginata†",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "simple",
+    "damage": "1d10",
+    "damageType": "slashing",
+    "critical": "20/x3",
+    "rangeIncrement": 0,
+    "rateOfFire": "",
+    "caliber": "",
+    "magazine": "",
+    "size": "large",
+    "ranged": false,
+    "nonlethal": false,
+    "weight": 15.0,
+    "purchaseDC": 13,
+    "restriction": "none",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweapons.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      }
+    },
+    "progressLevel": 0
+  },
+  "_key": "!items!8IqETvkTcRH6hnNN"
+}

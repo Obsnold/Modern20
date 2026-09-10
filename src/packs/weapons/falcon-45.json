@@ -1,0 +1,71 @@
+{
+  "_id": "rLxXkspSN6mu7dNa",
+  "name": "Falcon .45",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "handgun",
+    "damage": "2d6",
+    "damageType": "ballistic",
+    "critical": "20",
+    "rangeIncrement": 40,
+    "rateOfFire": "S, A",
+    "caliber": ".45",
+    "magazine": "20 box",
+    "size": "medium",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.5,
+    "purchaseDC": 18,
+    "restriction": "lic",
+    "burstRadius": "",
+    "reflexDC": null,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl5.html",
+    "activities": {
+      "shot": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Single",
+        "consume": {
+          "ammo": 1
+        }
+      },
+      "autofire": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Autofire",
+        "attack": {
+          "defenseOverride": 10
+        },
+        "area": {
+          "shape": "square",
+          "size": 10
+        },
+        "consume": {
+          "ammo": 10
+        },
+        "requiresAmmo": 10,
+        "note": "MODERN20.Attack.AutofireArea"
+      },
+      "burst": {
+        "type": "attack",
+        "name": "MODERN20.Attack.Burst",
+        "attack": {
+          "bonus": -4
+        },
+        "damage": {
+          "extraDice": 2
+        },
+        "consume": {
+          "ammo": 5
+        },
+        "requiresAmmo": 5,
+        "requiresFeat": "Burst Fire"
+      }
+    },
+    "progressLevel": 5
+  },
+  "_key": "!items!rLxXkspSN6mu7dNa"
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "yEqqUxa3hkRClLOv",
+  "name": "Grenade, dissolver",
+  "type": "weapon",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "",
+    "quantity": 1,
+    "equipped": false,
+    "category": "explosive",
+    "damage": "2d6",
+    "damageType": "acid",
+    "critical": "-",
+    "rangeIncrement": 10,
+    "rateOfFire": "",
+    "caliber": "",
+    "magazine": "",
+    "size": "small",
+    "ranged": true,
+    "nonlethal": false,
+    "weight": 2.0,
+    "purchaseDC": 14,
+    "restriction": "res",
+    "burstRadius": "5 ft.",
+    "reflexDC": 15,
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurepl7.html",
+    "activities": {
+      "detonate": {
+        "type": "save",
+        "name": "MODERN20.Attack.Detonate",
+        "save": {
+          "ability": "ref",
+          "onSuccess": "half",
+          "dc": 15
+        },
+        "consume": {
+          "quantity": 1
+        },
+        "note": "MODERN20.Attack.DetonateNote",
+        "area": {
+          "shape": "radius",
+          "size": 5
+        }
+      }
+    },
+    "progressLevel": 7
+  },
+  "_key": "!items!yEqqUxa3hkRClLOv"
+}
