@@ -2,7 +2,7 @@
   "_id": "1nG9ns3xdUve8ivx",
   "name": "Advanced Satanic Ichor",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/slime.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -109,7 +109,7 @@
       "_id": "3HHmlUUdRylYoQ27",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+9/+4 melee touch (1d6+4 plus special, slam)</p><p><strong>Plus:</strong> special</p>",
         "source": "Menace Manual",
@@ -142,7 +142,7 @@
       "_id": "hTAVyoimiZy2KgJE",
       "name": "Blindsight 120 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Satanic ichor is blind but can ascertain all creatures and objects within 120 feet by nonvisual means. Beyond that range, all targets have total concealment with respect to the satanic ichor.</p>",
         "source": "Menace Manual",
@@ -158,7 +158,7 @@
       "_id": "iRlgDegvINFlh8Qo",
       "name": "Corrupt the Mind (DC 18)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>As an attack action, satanic ichor can dominate any creature it can contact telepathically (as the domination psionic power manifested by a 10th-level Telepath). A successful @Check[save:will|dc:18]{Will save (DC 18)} negates the effect and protects the creature against further domination attempts by the satanic ichor for 24 hours. Satanic ichor trapped within a container will typically use a dominated creature to break the container that confines it. Freed satanic ichor will typically use a dominated creature as a vessel (see below) or thrall to attract other potential thralls.</p>",
         "source": "Menace Manual",
@@ -186,7 +186,7 @@
       "_id": "2OsMLi1mOF1EPT7n",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Satanic ichor is immune to all weapons except ones that deal energy damage.</p>",
         "source": "Menace Manual",
@@ -202,7 +202,7 @@
       "_id": "bKql2YYTbcIhQUcC",
       "name": "Ooze",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Satanic ichor has the traits and immunities common to all oozes.</p>",
         "source": "Menace Manual",
@@ -218,7 +218,7 @@
       "_id": "gkdRXnBpKhZaplJf",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Satanic ichor can communicate telepathically with any creature within 100 feet that has a language.</p>",
         "source": "Menace Manual",
@@ -234,7 +234,7 @@
       "_id": "QfWGZNNCte61ToVL",
       "name": "Vessel of Flesh (DC 18)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>If it succeeds at an attack roll against a living creature, satanic ichor can enter the creature’s body through one or more orifices (usually the mouth, nostrils, or ears) or an open wound. The target gets a @Check[save:will]{Will save} (DC 10 + 1/2 the satanic ichor’s Hit Dice + its Charisma modifier) to keep the satanic ichor from entering and taking control of its body. If the save fails, the satanic ichor seizes control of the creature’s body, using it as a vessel to commit murder and other atrocities. A remove curse spell can expel satanic ichor from a creature’s body, but the caster must succeed at a level check (1d20 + caster level) or the spell fails (DC 10 + 1/2 the satanic ichor’s Hit Dice + its Charisma modifier). The creature possessed by satanic ichor has no memory of the possession once the satanic ichor is expelled. If the host drops to 0 or fewer hit points, the satanic ichor inside spills out through the mouth, ears, and nostrils and tries to commandeer a new “vessel” as quickly as possible. While possessing a creature, satanic ichor cannot be attacked directly.</p><p>A living creature possessed by satanic ichor takes 1d2 points of temporary Constitution damage per day, or 1d6 points per day if the satanic ichor’s size category is larger than its host’s. The Constitution damage cannot be healed until the satanic ichor is expelled.</p>",
         "source": "Menace Manual",

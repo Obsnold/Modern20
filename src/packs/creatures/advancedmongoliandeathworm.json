@@ -2,7 +2,7 @@
   "_id": "Fm6Mvevqc2Gqf1as",
   "name": "Advanced Mongolian Death Worm",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/beast-eye.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -122,7 +122,7 @@
       "_id": "fD0ehWx4sD8dqD6v",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+7 melee (1d6+1 plus poison, bite)</p><p><strong>Plus:</strong> poison</p>",
         "source": "Menace Manual",
@@ -155,7 +155,7 @@
       "_id": "PnDg0Ytbjr5jRSXb",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -177,7 +177,7 @@
       "_id": "Ai9sOGqbN0Kd8B5z",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -193,7 +193,7 @@
       "_id": "OFdHNLxVtVYqWgTp",
       "name": "Death Touch (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Any creature grappling with a Mongolian death worm must make a successful @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the worm’s Hit Dice + its Constitution modifier) each round or gain one negative level that lasts only until the grapple ends (no saving throw needed for removal).</p><p>Most Mongolian death worms use this ability purely in self-defense, but some of the larger ones learn that it can be a swift means of killing prey.</p>",
         "source": "Menace Manual",
@@ -221,7 +221,7 @@
       "_id": "hDlqzR4gBydV8TFz",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -237,7 +237,7 @@
       "_id": "Brqz0hddHNhe0snJ",
       "name": "Poison (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Bite—Fortitude negates; save DC 10 + 1/2 the worm’s Hit Dice + its Constitution modifier; 1d6 Con/1d6 Con.</p>",
         "source": "Menace Manual",
@@ -265,7 +265,7 @@
       "_id": "C0VBAFcyd60hpWU8",
       "name": "Poison Spray",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Once every 1d4 rounds, the Mongolian death worm can spray poison in a 15-foot cone. See above for the effects of the poison.</p>",
         "source": "Menace Manual",
@@ -281,7 +281,7 @@
       "_id": "JT0AvTRmegVAiqe4",
       "name": "Tremorsense",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A Mongolian death worm can automatically sense the location of anything within 60 feet that is in contact with the ground.</p>",
         "source": "Menace Manual",
@@ -297,7 +297,7 @@
       "_id": "VpiECeD2gQRz9m8U",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A Mongolian death worm gains Weapon Finesse (bite) as a bonus feat.</p>",
         "source": "Menace Manual",

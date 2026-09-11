@@ -2,7 +2,7 @@
   "_id": "92WqykPUcHwYlhoH",
   "name": "Wolf",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -140,7 +140,7 @@
       "_id": "5q92TbnXm4lvY3fl",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+3 melee (1d6+1, bite)</p>",
         "source": "d20 Modern SRD",
@@ -173,7 +173,7 @@
       "_id": "K6jgkDpG64WEqAfX",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a wolf to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
         "source": "d20 Modern SRD",
@@ -189,7 +189,7 @@
       "_id": "bYuwH79p03oONnGG",
       "name": "Trip",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A wolf that hits with a bite attack can attempt to trip the opponent as a free action (see page 152) without making a touch attack or provoking an attack of opportunity. If the attempt fails, the opponent cannot react to trip the wolf.</p>",
         "source": "d20 Modern SRD",
@@ -205,7 +205,7 @@
       "_id": "Udc1BI7kLReWDQKl",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -221,7 +221,7 @@
       "_id": "uOGMCR3OI59JQbnk",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Wolves receive a +4 species bonus on @Check[skill:survival]{Survival check}s when tracking by scent.</p>",
         "source": "d20 Modern SRD",

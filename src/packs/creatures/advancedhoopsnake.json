@@ -2,7 +2,7 @@
   "_id": "1gNoMKFAGRiWkbVz",
   "name": "Advanced Hoop Snake",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -140,7 +140,7 @@
       "_id": "LskpzHLBw2YFh23v",
       "name": "Bite (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+11 melee (1d8+7 plus poison, 2 bites)</p><p><strong>Plus:</strong> poison</p>",
         "source": "Menace Manual",
@@ -173,7 +173,7 @@
       "_id": "VbYwnqKvvrOENpQt",
       "name": "Constrict 1d6+7",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>A hoop snake deals bludgeoning damage with a successful grapple check against a target its own size category or smaller. The damage equals 1d6 + the snake’s Strength modifier.</p>",
         "source": "Menace Manual",
@@ -189,7 +189,7 @@
       "_id": "xFzb1mQmYkierGmm",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the hoop snake must hit an opponent at least one size category smaller than itself with its bite attack. If it gets a hold, it automatically deals bite damage each round that the hold is maintained, and it can constrict in the same round.</p>",
         "source": "Menace Manual",
@@ -205,7 +205,7 @@
       "_id": "ErUuGRtBFMlyIZ8i",
       "name": "Poison (DC 16)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Bite—Fortitude negates; save DC 10 + 1/2 the snake’s Hit Dice + its Constitution modifier.</p>",
         "source": "Menace Manual",
@@ -233,7 +233,7 @@
       "_id": "c1aKSE60tEQ9KQ96",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a hoop snake to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -249,7 +249,7 @@
       "_id": "3p78ABHNqbOjqEQ4",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A hoop snake receives a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide, Listen, and @Check[skill:spot]{Spot check}s. It applies its Dexterity modifier instead of its Strength modifier to @Check[skill:climb]{Climb check}s.</p>",
         "source": "Menace Manual",

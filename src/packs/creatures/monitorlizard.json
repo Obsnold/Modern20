@@ -2,7 +2,7 @@
   "_id": "5dDb3jtGDlG8cZUZ",
   "name": "Monitor Lizard",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -140,7 +140,7 @@
       "_id": "ftTEyOhXqZeCcN9u",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+5 melee (1d8+4, bite)</p>",
         "source": "Menace Manual",
@@ -173,7 +173,7 @@
       "_id": "dyIInDR7SkbeZaJl",
       "name": "Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Bite—Fortitude negates; save DC 10 + 1/2 the monitor lizard’s Hit Dice + its Constitution modifier; 1d6 Dex/1d6 Dex.</p>",
         "source": "Menace Manual",
@@ -201,7 +201,7 @@
       "_id": "ufhz7rpO7z0Zjue4",
       "name": "Poison Spray",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Once every 1d4 rounds, the monitor lizard can spray poison in a 15-foot cone. See above for the effects of the poison.</p>",
         "source": "Menace Manual",
@@ -217,7 +217,7 @@
       "_id": "s0THLpyrFBY1LRg8",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Monitor lizards gain a +4 species bonus on Hide and @Check[skill:moveSilently]{Move Silently check}s. In forested or overgrown areas, the bonus on @Check[skill:hide]{Hide check}s improves to +8.</p>",
         "source": "Menace Manual",

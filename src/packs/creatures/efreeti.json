@@ -2,7 +2,7 @@
   "_id": "MBgBHdFGEa1LYyMh",
   "name": "Efreeti",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -232,7 +232,7 @@
       "_id": "iia9XMa0yNdqAZgw",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+15/+10 melee (1d8+9 plus 1d6 fire, slam)</p><p><strong>Plus:</strong> 1d6 fire</p>",
         "source": "Urban Arcana",
@@ -265,7 +265,7 @@
       "_id": "j7USU7sbu1EclohQ",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -284,7 +284,7 @@
       "_id": "QjUIq6bdPMwxBDch",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -303,7 +303,7 @@
       "_id": "eGVb55YapnYn4WsY",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -324,7 +324,7 @@
       "_id": "TfIUuzea1YBrzDj9",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -343,7 +343,7 @@
       "_id": "E73qkuMOWt1HpH0v",
       "name": "Heat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An efreeti deals 1d6 points of additional fire damage whenever it hits in melee or each round it maintains a hold while grappling.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -359,7 +359,7 @@
       "_id": "h9S1EaigeN3HFESf",
       "name": "Spell-like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>1/day—detect magical aura, gaseous form, invisibility, wall of fire (save DC 16). These abilities are as the spells cast by a 10th-level Mage (save DC 12 + spell level). The DCs are Charisma-based.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -375,7 +375,7 @@
       "_id": "TY9mPMoaNAie3Ysy",
       "name": "Polymorph (self only)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>An efreeti can cast polymorph, at will, as a move action. This ability is similar to the polymorph incantation except that no skill checks or components are required, the efreeti cannot transform any creature other than itself, and the efreeti can remain in its new form indefinitely.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -391,7 +391,7 @@
       "_id": "B0PJlx4e08KXBtDa",
       "name": "Immune to Fire",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -407,7 +407,7 @@
       "_id": "h8Pr4D3UbGHahwL0",
       "name": "Cold Vulnerability",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>Efreet take 50% more damage when they fail a save against any cold-based attack.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -423,7 +423,7 @@
       "_id": "YBHHo38t347WdQyY",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>An efreeti can communicate telepathically with any creature within 100 feet that has a language.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -439,7 +439,7 @@
       "_id": "Yd6yTGlzGFdVDA3y",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Efreet can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and efreet can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -455,7 +455,7 @@
       "_id": "7ZXXqFWhynSXgI1b",
       "name": "Grant Wishes",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>Some efreeti (1% of the total population) are “noble” and can grant up to three wishes to any being (non-genies only) who captures them. Noble efreet perform no other services and, upon granting the third wish, are free of their servitude. Whenever possible, an efreeti will twist the words of a wish to bring pain and destruction upon the wisher. A wish can produce any one of the following effects, at the GM’s discretion:</p><p>Duplicate any spell, psionic power, or incantation (including raise dead).</p><p>Undo the harmful effects of a spell, psionic power, or incantation.</p><p>Increase one creature’s Wealth bonus by +20.</p><p>Bequeath one nonmagical item with a purchase DC of 60 or less.</p><p>Bequeath one magic item with a purchase DC of 45 or less.</p><p>Remove all injuries and afflictions affecting one creature.</p><p>Transport a number of creatures equal to the efreeti’s Hit Dice to any place the wisher chooses.</p><p>Undo a single recent event.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -471,7 +471,7 @@
       "_id": "rpxBv258mzSoTCZF",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Efreet are immune to fire.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

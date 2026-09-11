@@ -2,7 +2,7 @@
   "_id": "DWFZtg3hG0XCVRS7",
   "name": "Alien Probe",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -122,7 +122,7 @@
       "_id": "3UO22BIdQtZULhHm",
       "name": "Shock",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "<p>+14 ranged touch (2d6 electricity, shock)</p>",
         "source": "Menace Manual",
@@ -155,7 +155,7 @@
       "_id": "YEo2xgywxdAYQWy2",
       "name": "Actinic Light (DC 14)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>As an attack action, an alien probe can produce an extremely bright, blue-white light in a 60-foot cone. This light is not so much an attack form as a side effect of the means by which the creature gathers data. Nevertheless, exposure to the effect can cause mild discomfort or even harm to carbon-based life forms. Each creature within the area of the light takes 1d4 points of fire damage and is nauseated for 1d4 rounds; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the alien probe’s Hit Dice + its Charisma modifier) halves the damage and negates the nauseating effect. A creature that fails the saving throw by 5 or more is also paralyzed until removed from the area. A creature that fails the save by 10 or more experiences such severe swelling of the flesh that it is blinded as well as paralyzed. The paralysis and blindness last for 2d4 days, or until the victim receives medical attention (Treat Injury DC 15).</p>",
         "source": "Menace Manual",
@@ -188,7 +188,7 @@
       "_id": "X4tL5ET3T1wrRlY6",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An alien probe has the traits and immunities common to constructs.</p>",
         "source": "Menace Manual",
@@ -204,7 +204,7 @@
       "_id": "KFjLVdN0xImxTzmJ",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -220,7 +220,7 @@
       "_id": "BskSBUvdc6lWmufy",
       "name": "Dimension Door (DC 14)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>As an attack action, an alien probe can psionically transfer itself plus up to 300 pounds of additional material and/or creatures up to 600 feet; creatures can resist with a successful @Check[save:will]{Will save} (DC 10 + 1/2 the alien probe’s Hit Dice + its Charisma modifier). The probe must be in physical contact with the materials or creatures that it wishes to transfer. This ability is usable at will.</p>",
         "source": "Menace Manual",
@@ -248,7 +248,7 @@
       "_id": "NlC7FTElYwfVOuyS",
       "name": "Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>As a free action, an alien probe can become invisible by shifting its light display to a wavelength beyond other creatures’ ability to perceive. This ability is usable at will, and the effect lasts until dismissed (also a free action).</p>",
         "source": "Menace Manual",
@@ -264,7 +264,7 @@
       "_id": "8H1lIbPUQz32DZe8",
       "name": "Psionics",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>At will—brain lock, daze, detect psionics, tailor memory, telekinesis. Manifester level 10th; save DC 10 + alien probe’s key ability modifier + power level.</p>",
         "source": "Menace Manual",
@@ -280,7 +280,7 @@
       "_id": "Vee2XOuzTb8Te4a1",
       "name": "Shock",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "<p>With a successful ranged touch attack, an alien probe can deal 2d6 points of electricity damage.</p>",
         "source": "Menace Manual",
@@ -296,7 +296,7 @@
       "_id": "nb4vFm4xWnSCF8DV",
       "name": "Supersonic Speed",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>At will, an alien probe can shift into an accelerated mode of travel that exceeds supersonic speed. Its fly speed changes to 4,000 feet (good). It can maintain this increased speed for up to 6 hours per day, though it need not use the entire duration at once.</p>",
         "source": "Menace Manual",

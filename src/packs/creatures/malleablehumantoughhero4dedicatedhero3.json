@@ -2,7 +2,7 @@
   "_id": "vYprYh0CTxxiniVK",
   "name": "Malleable Human Tough Hero 4/Dedicated Hero 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -187,7 +187,7 @@
       "_id": "SFG00CbIV8uDATgq",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (1d4+1, unarmed strike) or +3 ranged (2d6, Beretta 92F)</p>",
         "source": "Menace Manual",
@@ -220,7 +220,7 @@
       "_id": "elPM3OAwa1TzJ1gX",
       "name": "Beretta 92F",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (1d4+1, unarmed strike) or +3 ranged (2d6, Beretta 92F)</p>",
         "source": "Menace Manual",
@@ -253,7 +253,7 @@
       "_id": "wOgyySpyZzBl0OEZ",
       "name": "Armor Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -272,7 +272,7 @@
       "_id": "O2HYcPqqMFzpsQWz",
       "name": "Combat Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -293,7 +293,7 @@
       "_id": "QJ9S9IO3dTatyXmz",
       "name": "Defensive Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "bvY0FOJa4HKrwlyO",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -331,7 +331,7 @@
       "_id": "5mCGl1zfVmHEpZey",
       "name": "Improved Combat Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -353,7 +353,7 @@
       "_id": "P6Bj9HD24CCP7cOw",
       "name": "Nimble",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -372,7 +372,7 @@
       "_id": "I6e22GWR2hnVlscc",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -391,7 +391,7 @@
       "_id": "djAGRjEQSx90VOci",
       "name": "Toughness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -410,7 +410,7 @@
       "_id": "voWuCuHD9cM8BHPc",
       "name": "Bludgeoning Resistance 5",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A malleable creature ignores the first 5 points of bludgeoning damage from any single attack.</p>",
         "source": "Menace Manual",
@@ -426,7 +426,7 @@
       "_id": "DBpoly61fxthvRfO",
       "name": "Increased Reach",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The reach of a malleable creature increases by 5 feet.</p>",
         "source": "Menace Manual",
@@ -442,7 +442,7 @@
       "_id": "sDzVWwzQrEzQxMbb",
       "name": "Malleable Form",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>This ability allows a malleable creature to make itself look different. It can appear 1 foot shorter or taller than its normal height, and it can seem thinner or fatter. It cannot change its skin, hair color, body type, or number of limbs. This ability does not allow the malleable creature to mimic the appearance of specific individuals.</p><p>As a full-round action, a malleable creature can squeeze through an opening as small as 6 inches square. In the case of an enclosed space, such as a drainpipe or airshaft, the malleable creature moves at one-third of its normal speed, but it can take no other actions until at least half of its body mass has emerged from the enclosure. Objects and clothing worn by the malleable creature may or may not be small enough to fit through the opening—objects larger than Tiny are left behind unless every part of the opening is large enough to accommodate them.</p>",
         "source": "Menace Manual",
@@ -458,7 +458,7 @@
       "_id": "hUlQO0WkR7JgvZl7",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A malleable creature’s pliant body grants it a +4 species bonus on @Check[skill:disguise]{Disguise check}s and a +10 species bonus on @Check[skill:escapeArtist]{Escape Artist check}s.</p>",
         "source": "Menace Manual",
@@ -474,7 +474,7 @@
       "_id": "Xym2zHTiKKZpwsou",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A malleable creature gains Nimble as a bonus feat.</p>",
         "source": "Menace Manual",

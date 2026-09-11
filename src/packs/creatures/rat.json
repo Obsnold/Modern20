@@ -2,7 +2,7 @@
   "_id": "zigbhFPKFFq716ND",
   "name": "Rat",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -140,7 +140,7 @@
       "_id": "X0IL1jPcOSxEdc2X",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d3-4, bite)</p>",
         "source": "d20 Modern SRD",
@@ -173,7 +173,7 @@
       "_id": "qIYPqZa4iTAatOAE",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -195,7 +195,7 @@
       "_id": "F2hJsgsYLuKTKooP",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a horse to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
         "source": "d20 Modern SRD",
@@ -211,7 +211,7 @@
       "_id": "bCTnAAXcJFk0qKLG",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",

@@ -2,7 +2,7 @@
   "_id": "0G1uNOwXHZL1Z8IN",
   "name": "Possessing Spirit (Haunt)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -158,7 +158,7 @@
       "_id": "uXAQKiXaqNV6IwN0",
       "name": "Corrupting touch",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee touch (1d6, corrupting touch)</p>",
         "source": "Urban Arcana",
@@ -191,7 +191,7 @@
       "_id": "FEfjbHOeb2Bni4a0",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -210,7 +210,7 @@
       "_id": "6Gtmpbo4URfoAqOp",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -229,7 +229,7 @@
       "_id": "BFHRphTlh8MwIcZm",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -245,7 +245,7 @@
       "_id": "BHCHMn5tZ9PvMUyw",
       "name": "Incorporeal",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -261,7 +261,7 @@
       "_id": "uxtNMehXZfuP0W8q",
       "name": "Corrupting Touch",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -277,7 +277,7 @@
       "_id": "2Fs242DneDDqCDzt",
       "name": "Possession (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once per round, as an attack action, a possessing spirit can merge with a living creature and seize control of its body. To use this ability, the spirit must first enter the target’s fighting space; doing so does not provoke attacks of opportunity.</p><p>The target can resist the spirit’s attempt at possession with a successful @Check[save:will]{Will save} (DC 10 + spirit’s Hit Dice + spirit’s Charisma modifier). If the save succeeds, the spirit is rebuffed and pushed into an adjacent square. A target that successfully saves cannot be possessed by that spirit for one day, and the spirit cannot again enter the target’s fighting space during that time. If the save fails, the spirit vanishes into the target’s body and takes control of it.</p><p>A possessed creature gains the spirit’s Intelligence, Wisdom, Charisma, base attack bonus, base save bonuses, allegiances, skills, and feats. The possessed creature retains its Strength, Dexterity, Constitution, type, hit points, massive damage threshold, grapple check modifier, fighting space, reach, Reputation bonus, and extraordinary abilities. It loses access to any spell-like abilities, supernatural abilities, action points, and mental abilities (including prepared spells and knowledge gained from life experiences).</p><p>While possessing a host creature, the spirit loses its supernatural or extraordinary abilities except for its turn resistance. The possessed creature’s original spirit instantly reinstates itself if the possessing spirit is turned, destroyed, or otherwise dislodged from its host. A possessing spirit can leave its host as a free action, if it so chooses. Any attack that deals massive damage on the host’s body allows the host another @Check[save:will]{Will save} to oust the possessing spirit and regain control of its body (whether or not the massive damage @Check[save:fort]{Fortitude save} succeeds).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -305,7 +305,7 @@
       "_id": "B7xmA6On9A5Su7ub",
       "name": "Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -321,7 +321,7 @@
       "_id": "qgRgvuAjwhcz6RzL",
       "name": "Rejuvenation",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -337,7 +337,7 @@
       "_id": "INOhI4q0mlHow3rM",
       "name": "+4 Turn Resistance",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -353,7 +353,7 @@
       "_id": "MyoBC7RslwIYlyEb",
       "name": "Imprisonment",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -369,7 +369,7 @@
       "_id": "IRb8030Vu1gV6qU6",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

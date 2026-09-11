@@ -2,7 +2,7 @@
   "_id": "DhNHESATQFiuzNTD",
   "name": "KWEVENCHA (Spider Fiend)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -184,7 +184,7 @@
       "_id": "DzHp6xdadKMrQxnq",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+13 melee (1d8+6 plus poison, bite) and +8 melee (1d6+3, 2 claws) or +7 ranged touch (poison spittle)</p><p><strong>Plus:</strong> poison</p>",
         "source": "Menace Manual",
@@ -217,7 +217,7 @@
       "_id": "UJqAum2pnK0mesp5",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+13 melee (1d8+6 plus poison, bite) and +8 melee (1d6+3, 2 claws) or +7 ranged touch (poison spittle)</p><p><strong>Also called:</strong> poison spittle</p>",
         "source": "Menace Manual",
@@ -250,7 +250,7 @@
       "_id": "Rpb6HqE1k51kZdFD",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -269,7 +269,7 @@
       "_id": "NO5DHn5gnX6qDBB3",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -288,7 +288,7 @@
       "_id": "birNsWLPL5EEyuE5",
       "name": "Damage Reduction 5/Silver",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A kwevencha ignores the first 5 points of damage dealt by any unsilvered weapon.</p>",
         "source": "Menace Manual",
@@ -304,7 +304,7 @@
       "_id": "3gQQsIadKgp6nUGa",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -320,7 +320,7 @@
       "_id": "6QUHuhkxiT1h5pbl",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A kwevencha is immune to poison.</p>",
         "source": "Menace Manual",
@@ -336,7 +336,7 @@
       "_id": "7RVtZioMRBhCPq5o",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the kwevencha must hit a Small or Medium-size creature with its bite attack. If it gets a hold, it deals automatic damage with its bite on subsequent rounds.</p>",
         "source": "Menace Manual",
@@ -352,7 +352,7 @@
       "_id": "praQV3uuFhtwOb1e",
       "name": "Monstrous Spider Minions",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A kwevencha has 2d6 Tiny monstrous spiders clinging to its body. It can telepathically command these spiders to attack, but the kwevencha must remain within 100 feet of the monstrous spiders to telepathically control them.</p>",
         "source": "Menace Manual",
@@ -368,7 +368,7 @@
       "_id": "wcNS9ewj6F8ww15M",
       "name": "Poison (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Bite; contact 1d6 Str/1d6 Str; @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the kwevencha’s Hit Dice + its Constitution modifier) resists.</p>",
         "source": "Menace Manual",
@@ -396,7 +396,7 @@
       "_id": "zNcV24Hkvh4aTa5M",
       "name": "Spit Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>A kwevencha can shoot a 20-foot-long line of poisonous spittle at a single target. The save DC and effects of the poison are described above.</p>",
         "source": "Menace Manual",
@@ -412,7 +412,7 @@
       "_id": "lMC3WzDQJXdMN7fo",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A kwevencha can communicate telepathically with any creature within 100 feet that has a language.</p>",
         "source": "Menace Manual",
@@ -428,7 +428,7 @@
       "_id": "uM9oseeM5pX4hXiX",
       "name": "Web Cocoon",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/spider-web.svg",
       "system": {
         "description": "<p>A kwevencha uses a spinneret in its abdomen to weave web cocoons around creatures incapacitated by its poison. A creature trapped inside the cocoon is immobile, although breathing is possible through the porous webbing. A kwevencha’s web cocoon has 20 hit points and a break DC of 26. Dealing damage to the web cocoon deals a like amount of damage to the creature trapped inside.</p>",
         "source": "Menace Manual",
@@ -444,7 +444,7 @@
       "_id": "6PUzfedxeOG7jPoY",
       "name": "Stability",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A kwevencha gains a +4 stability bonus on checks to resist trip and bull rush attacks.</p>",
         "source": "Menace Manual",
@@ -460,7 +460,7 @@
       "_id": "ph0PieIc4JJ3y2gV",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A kwevencha gains a +4 species bonus on Balance, Climb, Jump, and @Check[skill:spot]{Spot check}s.</p>",
         "source": "Menace Manual",

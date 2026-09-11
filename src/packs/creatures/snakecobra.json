@@ -2,7 +2,7 @@
   "_id": "QaGOlpsVGtkRmOrY",
   "name": "Snake, Cobra",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -140,7 +140,7 @@
       "_id": "poBVlF6V96y6FDlO",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+5 melee (1d4 plus poison, bite)</p><p><strong>Plus:</strong> poison</p>",
         "source": "Menace Manual",
@@ -173,7 +173,7 @@
       "_id": "b91tZHQZ5vytWVSM",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -195,7 +195,7 @@
       "_id": "uum5gyvlhcsruFmb",
       "name": "Poison (DC 11)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Bite—Fortitude negates; save DC 10 + 1/2 the cobra’s Hit Dice + its Constitution modifier; 1d4 Str, 1d4 Dex/1d4 Str, 1d4 Dex.</p>",
         "source": "Menace Manual",
@@ -223,7 +223,7 @@
       "_id": "HKZph2vffPozbHZg",
       "name": "Poison Spray (DC 11; spitting cobra only)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>At will as a ranged touch attack, a spitting cobra can spray its venom at a target up to 10 feet away. When used in this manner, the spitting cobra’s venom acts as a contact poison. The target must succeed on a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the cobra’s Hit Dice + its Constitution modifier) or be blinded and nauseated for 1 minute. A second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). Eye protection, such as goggles or a full-face visor, negates the blindness effect.</p>",
         "source": "Menace Manual",
@@ -251,7 +251,7 @@
       "_id": "oSGxk3IjURVunpBY",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a cobra to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -267,7 +267,7 @@
       "_id": "o5zGcnmaTrD6itOC",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Cobras gain Weapon Finesse (bite) as a bonus feat.</p>",
         "source": "Menace Manual",
@@ -283,7 +283,7 @@
       "_id": "e1xCNAcYumMhrPLt",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A cobra receives a +8 species bonus on @Check[skill:moveSilently]{Move Silently check}s and a +4 species bonus on Hide, Listen, and @Check[skill:spot]{Spot check}s. It applies either its Strength or its Dexterity modifier, whichever is higher, to @Check[skill:climb]{Climb check}s.</p>",
         "source": "Menace Manual",

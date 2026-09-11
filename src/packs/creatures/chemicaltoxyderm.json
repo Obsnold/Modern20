@@ -2,7 +2,7 @@
   "_id": "KYqG9AyZdqxG2d6b",
   "name": "Chemical Toxyderm",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -109,7 +109,7 @@
       "_id": "F703khONqBgrgTuT",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+27/+22/+17/+12 melee (2d6+16 plus 2d6 acid, slam) or +16/+11/+6/+1 ranged)</p><p><strong>Plus:</strong> 2d6 acid</p>",
         "source": "Urban Arcana",
@@ -142,7 +142,7 @@
       "_id": "qQTFggWEKBk0tz8O",
       "name": "Hide -8",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/delapouite/invisible.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -161,7 +161,7 @@
       "_id": "7Xf4PWtyz76RWRnn",
       "name": "Listen +27",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -180,7 +180,7 @@
       "_id": "J9TyoDPYPqhWeW3Q",
       "name": "Spot +27",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -199,7 +199,7 @@
       "_id": "R26N60Lr3nzwxSOr",
       "name": "Swim +15",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/splash.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -218,7 +218,7 @@
       "_id": "unm3agS7MydmlBkb",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -234,7 +234,7 @@
       "_id": "CLrt7AQA0WvEzEF8",
       "name": "Engulf (DC 22)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -250,7 +250,7 @@
       "_id": "SKLTJspfqnul40gY",
       "name": "Acid",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/acid.svg",
       "system": {
         "description": "<p>The chemical toxyderm is made of an acid that dissolves organic material. With each successful slam, the toxyderm deals 2d6 points of acid damage in addition to normal slam damage. A creature continues to take acid damage each round until the acid is rinsed off with water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -266,7 +266,7 @@
       "_id": "7fg8YM4IsUoF34bo",
       "name": "Breath Weapon (DC 27)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>The chemical toxyderm breathes a 50-foot cone of acid that deals 15d6 points of damage, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Unlike the garbage toxyderm, the chemical toxyderm takes no damage from its own breath weapon.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -294,7 +294,7 @@
       "_id": "xIIbe0DKd4WyAFzO",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

@@ -2,7 +2,7 @@
   "_id": "49Zw6EecxKMLJTo0",
   "name": "Bat",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -128,7 +128,7 @@
       "_id": "35kpEeudglYExXKK",
       "name": "Blindsight 30 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Bats can “see” by emitting high-frequency sounds, inaudible to most other creatures, that allow them to locate objects and creatures within 30 feet. Ultrasonic noise forces the bat to rely on its weak vision, which has a maximum range of 5 feet.</p>",
         "source": "d20 Modern SRD",
@@ -144,7 +144,7 @@
       "_id": "OQYf8yo1WLWFx8OQ",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Bats receive a +4 species bonus on Listen and @Check[skill:spot]{Spot check}s. These bonuses are lost if the bat’s blindsight is negated.</p>",
         "source": "d20 Modern SRD",

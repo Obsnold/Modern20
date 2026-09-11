@@ -2,7 +2,7 @@
   "_id": "IGpiWEfjeknjdvEg",
   "name": "Elohim",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -188,7 +188,7 @@
       "_id": "PeYXqq6sgpdQ6Wmh",
       "name": "Flame sword",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>+6 melee (2d6+1 and 3d6 fire, flame sword) or +6 ranged touch (3d6 fire, flame shield)</p><p><strong>Plus:</strong> 3d6 fire</p>",
         "source": "Menace Manual",
@@ -221,7 +221,7 @@
       "_id": "JHE0pGWdaR6o0MBQ",
       "name": "Flame shield",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>+6 melee (2d6+1 and 3d6 fire, flame sword) or +6 ranged touch (3d6 fire, flame shield)</p>",
         "source": "Menace Manual",
@@ -254,7 +254,7 @@
       "_id": "P6GgRJqzesL0jRPO",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -273,7 +273,7 @@
       "_id": "f2laWmosNuvtSmmt",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -292,7 +292,7 @@
       "_id": "tYXzKUMKxJ7K9qAi",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -311,7 +311,7 @@
       "_id": "aauyv8q2QdWN7yXP",
       "name": "Damage Reduction 10/+1 (fire form only)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "source": "d20 Modern SRD",
@@ -327,7 +327,7 @@
       "_id": "uLpCMlSATvp0Abpo",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -343,7 +343,7 @@
       "_id": "JmBpIUTbFfXmK77h",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An elohim has the traits and immunities common to elementals.</p>",
         "source": "Menace Manual",
@@ -359,7 +359,7 @@
       "_id": "rQvgcviVTCoCx4Q3",
       "name": "Fear Aura (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>When in its fire form (see below), an elohim projects an aura of righteous wrath that is fearsome to behold. Each creature within 30 feet must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) or cower until the elohim moves out of range, until it stops using its fire form ability, or until 10 rounds have elapsed. Thereafter, the creature is shaken for 24 hours.</p><p>A creature that makes a successful saving throw or has stopped cowering after a failure is immune to that elohim’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
@@ -387,7 +387,7 @@
       "_id": "Au9pNYdXSX9R0diW",
       "name": "Fire Form (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>At will, an elohim can assume fire form, changing its body and equipment into a pillar of living, semisolid flame. In this form, the elohim can use its flame shield ability and swing its flame sword normally, but any normal, unattended objects it touches immediately catch on fire. Any creature that touches or is touched by an elohim in fire form takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) halves the damage. A creature that grapples with an elohim in this form takes 4d6 points of fire damage per round of grappling (no saving throw). In fire form, the elohim can deal an extra 2d6 points of fire damage to an opponent with a successful unarmed attack, though it usually prefers to use its flame sword. An elohim in fire form can fly at a speed of 60 feet with perfect maneuverability, and it gains damage reduction 10/+1 and a +10 circumstance bonus on @Check[skill:escapeArtist]{Escape Artist check}s. Assuming fire form or reverting to human form requires a full-round action. An elohim that is killed or knocked unconscious while in fire form instantly reverts to its human form.</p>",
         "source": "Menace Manual",
@@ -420,7 +420,7 @@
       "_id": "qMWNdlna1p7A0dud",
       "name": "Fire Subtype",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>Elohim are immune to fire damage and take 50% more damage from cold attacks.</p>",
         "source": "Menace Manual",
@@ -436,7 +436,7 @@
       "_id": "u40akMiaPcsGzDf1",
       "name": "Flame Shield (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>At will as an attack action, an elohim can summon a shield of semisolid fire that floats near its body. This shield grants the creature a +2 bonus to Defense, and any adjacent foe that makes a melee attack against the elohim takes 1d6 points of fire damage from the shield.</p><p>If desired, the elohim can use an attack action to send the flame shield hurtling toward a foe up to 100 feet away with no range penalty. On a successful ranged touch attack, the shield deals 3d6 points of fire damage to the designated foe; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim’s Hit Dice + the elohim’s Charisma modifier) halves the damage. The elohim loses the shield’s other benefits, and the shield itself disappears.</p>",
         "source": "Menace Manual",
@@ -469,7 +469,7 @@
       "_id": "S2bIalRRb7TDSnmj",
       "name": "Flame Sword",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>At will as a free action, an elohim can summon forth a greatsword made of semisolid fire. The elohim must use both hands to wield this weapon, which deals 2d6 points of damage and 3d6 points of fire damage on a successful hit. The sword threatens a critical hit on a roll of natural 20 and deals double damage on a confirmed critical hit. Should the weapon leave the hands of the elohim, it vanishes in a puff of smoke.</p>",
         "source": "Menace Manual",
@@ -485,7 +485,7 @@
       "_id": "rj6meiFd3w5s2rOT",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>An elohim can speak telepathically to any other creature within 100 feet. Its telepathic words are comprehensible to any intelligent creature, even if the creature and the elohim share no common language. An elohim cannot read thoughts, so any creature that receives a telepathic message from an elohim must respond verbally in a language that the latter can understand in order to converse.</p>",
         "source": "Menace Manual",

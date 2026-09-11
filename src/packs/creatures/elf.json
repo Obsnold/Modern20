@@ -2,7 +2,7 @@
   "_id": "uNMaNThLMJh705Qr",
   "name": "Elf",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -166,7 +166,7 @@
       "_id": "StO52S5A20XVJz1I",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3 nonlethal, unarmed strike) or +0 melee (1d6/18-20, sword cane) or +1 ranged (1d8, compound bow)</p>",
         "source": "Urban Arcana",
@@ -199,7 +199,7 @@
       "_id": "AIYt7UJ3Fqvg7zj6",
       "name": "Sword cane",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3 nonlethal, unarmed strike) or +0 melee (1d6/18-20, sword cane) or +1 ranged (1d8, compound bow)</p>",
         "source": "Urban Arcana",
@@ -232,7 +232,7 @@
       "_id": "t8Xnu464sAzb5dwK",
       "name": "Compound bow",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3 nonlethal, unarmed strike) or +0 melee (1d6/18-20, sword cane) or +1 ranged (1d8, compound bow)</p>",
         "source": "Urban Arcana",
@@ -265,7 +265,7 @@
       "_id": "FQ7QJmXu6rXnSTLa",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -284,7 +284,7 @@
       "_id": "mfHtvjDLHG8Z2mra",
       "name": "Point Blank Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -303,7 +303,7 @@
       "_id": "l9aw5TTAhTxIM3Pa",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Elves can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -319,7 +319,7 @@
       "_id": "qin15FYDAW1vrpby",
       "name": "Spell Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Elves are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -335,7 +335,7 @@
       "_id": "U6l3eFaG4fIz8RyU",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Elves gain a +2 species bonus on Listen, Search, and @Check[skill:spot]{Spot check}s. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a @Check[skill:search]{Search check} to notice it as if she were actively looking for the door.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -351,7 +351,7 @@
       "_id": "sNfBS2JCbjRvkXsI",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Elves gain the bonus feat Archaic Weapons Proficiency.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

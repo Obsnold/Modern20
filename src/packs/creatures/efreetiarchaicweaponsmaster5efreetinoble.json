@@ -2,7 +2,7 @@
   "_id": "oC6P3MLsswQa98Ew",
   "name": "Efreeti Archaic Weaponsmaster 5 (Efreeti Noble)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -242,7 +242,7 @@
       "_id": "aGBBm3gHbcnjcM6G",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+19/+14/+9 melee (1d8+9 plus 1d6 fire, slam) or +20/+15/+10 melee (2d6+12/18-20 plus 1d6 fire, Huge falchion)</p><p><strong>Plus:</strong> 1d6 fire</p>",
         "source": "Urban Arcana",
@@ -275,7 +275,7 @@
       "_id": "fE5anjz7UqSE9SPA",
       "name": "Huge falchion",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+19/+14/+9 melee (1d8+9 plus 1d6 fire, slam) or +20/+15/+10 melee (2d6+12/18-20 plus 1d6 fire, Huge falchion)</p><p><strong>Plus:</strong> 1d6 fire</p>",
         "source": "Urban Arcana",
@@ -308,7 +308,7 @@
       "_id": "bkgMDsUpX7ZVnsAv",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -327,7 +327,7 @@
       "_id": "0ZfMyjRpV5x4ssQx",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -349,7 +349,7 @@
       "_id": "Hc3VdYB62XQNZlYL",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "cDuOuySys5itrxOv",
       "name": "Improved Disarm",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -390,7 +390,7 @@
       "_id": "CgQpfJtcOOLcoOkK",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -409,7 +409,7 @@
       "_id": "c6UOWiu3upG6JeEK",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -430,7 +430,7 @@
       "_id": "uMtyK4YeIgaefaiC",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -452,7 +452,7 @@
       "_id": "rN3DjN9BgoL103R6",
       "name": "Weapon Specialization",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -471,7 +471,7 @@
       "_id": "K4BDPETPJ867mc4v",
       "name": "Heat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An efreeti deals 1d6 points of additional fire damage whenever it hits in melee or each round it maintains a hold while grappling.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -487,7 +487,7 @@
       "_id": "ThXbt2bZU4UOOdjO",
       "name": "Spell-like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>1/day—detect magical aura, gaseous form, invisibility, wall of fire (save DC 16). These abilities are as the spells cast by a 10th-level Mage (save DC 12 + spell level). The DCs are Charisma-based.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -503,7 +503,7 @@
       "_id": "RLffrIndOL7VXgWR",
       "name": "Polymorph (self only)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>An efreeti can cast polymorph, at will, as a move action. This ability is similar to the polymorph incantation except that no skill checks or components are required, the efreeti cannot transform any creature other than itself, and the efreeti can remain in its new form indefinitely.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -519,7 +519,7 @@
       "_id": "rJXruXovOFwJ6U3d",
       "name": "Grant Wishes",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>Some efreeti (1% of the total population) are “noble” and can grant up to three wishes to any being (non-genies only) who captures them. Noble efreet perform no other services and, upon granting the third wish, are free of their servitude. Whenever possible, an efreeti will twist the words of a wish to bring pain and destruction upon the wisher. A wish can produce any one of the following effects, at the GM’s discretion:</p><p>Duplicate any spell, psionic power, or incantation (including raise dead).</p><p>Undo the harmful effects of a spell, psionic power, or incantation.</p><p>Increase one creature’s Wealth bonus by +20.</p><p>Bequeath one nonmagical item with a purchase DC of 60 or less.</p><p>Bequeath one magic item with a purchase DC of 45 or less.</p><p>Remove all injuries and afflictions affecting one creature.</p><p>Transport a number of creatures equal to the efreeti’s Hit Dice to any place the wisher chooses.</p><p>Undo a single recent event.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -535,7 +535,7 @@
       "_id": "RieGaAd6JQivyiBC",
       "name": "Immune to Fire",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -551,7 +551,7 @@
       "_id": "uFfn9zsZzm2WyxAB",
       "name": "Cold Vulnerability",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>Efreet take 50% more damage when they fail a save against any cold-based attack.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -567,7 +567,7 @@
       "_id": "G8IiYsa4cYiPisMo",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>An efreeti can communicate telepathically with any creature within 100 feet that has a language.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -583,7 +583,7 @@
       "_id": "k2XlBFec17LVtpix",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Efreet can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and efreet can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -599,7 +599,7 @@
       "_id": "xrT1BJ0M9o81X7i9",
       "name": "Imbue Weapon +1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -615,7 +615,7 @@
       "_id": "qgcE8pRF2QutzOyy",
       "name": "Quick Weapon Draw",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -631,7 +631,7 @@
       "_id": "7gnSvevnpDSxxLLB",
       "name": "Expert in Your Field (falchions)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -647,7 +647,7 @@
       "_id": "16Fy4QhjCdPs8rss",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Efreet are immune to fire.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

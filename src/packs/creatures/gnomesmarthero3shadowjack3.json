@@ -2,7 +2,7 @@
   "_id": "97Xfn8igaSFEC5SG",
   "name": "Gnome Smart Hero 3/Shadowjack 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -256,7 +256,7 @@
       "_id": "FXEKsDSUoZ8F6qtL",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d3-1 nonlethal, unarmed strike) or +1 melee (1d3 electricity plus stun, stun gun) or +5 ranged (blindness, pepper spray)</p>",
         "source": "Urban Arcana",
@@ -289,7 +289,7 @@
       "_id": "zkcArRMOIlaYBfQU",
       "name": "Stun gun",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d3-1 nonlethal, unarmed strike) or +1 melee (1d3 electricity plus stun, stun gun) or +5 ranged (blindness, pepper spray)</p><p><strong>Also called:</strong> blindness, pepper spray</p>",
         "source": "Urban Arcana",
@@ -322,7 +322,7 @@
       "_id": "oTLsNqihyH204o9X",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -341,7 +341,7 @@
       "_id": "p4Gz10kW2IMJFib4",
       "name": "Educated",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -360,7 +360,7 @@
       "_id": "DGzsVYQwlw78vDKV",
       "name": "Gearhead",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -379,7 +379,7 @@
       "_id": "ibUPGgAxEflcVFxW",
       "name": "Magical Heritage",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "Urban Arcana",
@@ -400,7 +400,7 @@
       "_id": "I7DSuRc1rO3Ee7bL",
       "name": "Renown",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -419,7 +419,7 @@
       "_id": "oWSiuJg4yLWt4OsG",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -438,7 +438,7 @@
       "_id": "XCahrrh1dpv6NO6G",
       "name": "Studious",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -457,7 +457,7 @@
       "_id": "aMMq3Zh4fwLEpBbb",
       "name": "Special Combat Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain a +1 species bonus on attack rolls against bugbears, goblins (and other goblinoids), and kobolds. Gnomes also gain a +4 dodge bonus to their Defense against giant-type creatures (such as ogres and trolls); this bonus represents special training that gnomes undergo, during which they learn tricks that previous generations developed in their battles with giants. Note that any time a gnome loses his positive Dexterity bonus to Defense, such as when he’s caught flat-footed, he loses this dodge bonus, too.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -473,7 +473,7 @@
       "_id": "0sqlAc3xCjKO6c3g",
       "name": "Illusion Mastery",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Add +1 to the Difficulty Class for all saving throws against Illusion spells cast by gnomes.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -489,7 +489,7 @@
       "_id": "bgnCJ6kUBuZWmXzf",
       "name": "Speak with Animals 1/day",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>Once per day, a gnome can use speak with animals as a spell-like ability to speak with a burrowing mammal (a mole, gopher, ground hog, and so forth). It has a duration of 1 minute, and the gnome is considered a 1st-level caster when he uses this ability, regardless of his actual level.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -505,7 +505,7 @@
       "_id": "HPuyIj1ewIfGHke2",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Gnomes can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -521,7 +521,7 @@
       "_id": "yM4UBhWciomsqeRD",
       "name": "Read/write Code",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -537,7 +537,7 @@
       "_id": "RJVqKHRd7x7yd2hE",
       "name": "Online Presence",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -553,7 +553,7 @@
       "_id": "XlsapaQQruUNzKyF",
       "name": "Saving Throw Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain a +2 species bonus on saving throws against illusions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -569,7 +569,7 @@
       "_id": "VMOduSbhEZYoFWlY",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain a +2 species bonus on @Check[skill:listen]{Listen check}s. Gnomes who have one or more ranks in the Craft (pharmaceutical) skill also gain a +2 species bonus on @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -585,7 +585,7 @@
       "_id": "6HsWor4yQSMPddsg",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain the bonus feat Archaic Weapons Proficiency. They may treat gnome hooked hammers as archaic weapons instead of exotic weapons.</p><p>Gnomes with Charisma scores of 10 or higher gain the bonus feat Magical Heritage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

@@ -2,7 +2,7 @@
   "_id": "0rKIygPWhRHMu59k",
   "name": "Wyrm (Hatchling)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/dragon-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -134,7 +134,7 @@
       "_id": "Rsr3JVGAtkTdycjp",
       "name": "Sting",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/wasp-sting.svg",
       "system": {
         "description": "<p>+10 melee (1d4+2 plus poison, sting), +4 melee (1d8+1, bite), +4 melee (1d6+1, 2 claws)</p><p><strong>Plus:</strong> poison</p>",
         "source": "d20 Modern SRD",
@@ -167,7 +167,7 @@
       "_id": "Uw0tncoooBHreKL3",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+10 melee (1d4+2 plus poison, sting), +4 melee (1d8+1, bite), +4 melee (1d6+1, 2 claws)</p>",
         "source": "d20 Modern SRD",
@@ -200,7 +200,7 @@
       "_id": "ktw00CmN6lMF1FGS",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+10 melee (1d4+2 plus poison, sting), +4 melee (1d8+1, bite), +4 melee (1d6+1, 2 claws)</p>",
         "source": "d20 Modern SRD",
@@ -233,7 +233,7 @@
       "_id": "5URflyAPWoyN49QC",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -252,7 +252,7 @@
       "_id": "qy4qoLpZYKUMuaTl",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -274,7 +274,7 @@
       "_id": "eCwpYtGyQYtM5SvY",
       "name": "Breath Weapon (DC 15; 3d10 points of fire damage)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>A wyrm can breathe a 60-foot-long, 5-foot-wide line of fire every 1d4 rounds as an attack action. Any creature in the line of fire takes 10d10 points of damage, or half damage if a @Check[save:ref|dc:25]{Reflex save (DC 25)} succeeds.</p>",
         "source": "d20 Modern SRD",
@@ -302,7 +302,7 @@
       "_id": "NA131dGLS7vtrtVo",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, a wyrm must hit with both claw attacks. If it gets a hold, it hangs on and stings. If a wyrm grabs a creature two or more size categories smaller, it automatically deals damage with both claws and its sting each round the hold is maintained. See Improved Grab.</p>",
         "source": "d20 Modern SRD",
@@ -318,7 +318,7 @@
       "_id": "4cefhO1i7Hts2Jbr",
       "name": "Poison (save DC 15; initial and secondary 2d6 Con)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>A creature stung by a wyrm must succeed on a @Check[save:fort|dc:25]{Fortitude save (DC 25)} or take 2d6 points of temporary Constitution damage. After 1 minute has elapsed, the creature must succeed on a second save (DC 25) or take another 2d6 points of temporary Constitution damage.</p>",
         "source": "d20 Modern SRD",
@@ -346,7 +346,7 @@
       "_id": "01PWrm3tbVxMc80A",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a wyrm to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
         "source": "d20 Modern SRD",
@@ -362,7 +362,7 @@
       "_id": "oaatFaopMrsf0M6o",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Wyrms are immune to sleep, hold, and paralysis effects.</p>",
         "source": "d20 Modern SRD",
@@ -378,7 +378,7 @@
       "_id": "WlIbJPXWRJVQZj92",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -394,7 +394,7 @@
       "_id": "EsyijYp3S2Z7tBvL",
       "name": "Fling",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A wyrm can drop a creature it has grabbed or use an attack action to fling it aside. A flung creature travels 30 feet and takes 3d6 points of damage. If the wyrm flings it while flying, the creature takes this amount or falling damage, whichever is greater.</p>",
         "source": "d20 Modern SRD",
@@ -410,7 +410,7 @@
       "_id": "qr1pZqX07LN5jeUK",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Wyrms receive a +3 species bonus on @Check[skill:spot]{Spot check}s during daylight hours.</p>",
         "source": "d20 Modern SRD",

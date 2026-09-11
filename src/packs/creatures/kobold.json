@@ -2,7 +2,7 @@
   "_id": "0OnFHRzFygy6nYf2",
   "name": "Kobold",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -174,7 +174,7 @@
       "_id": "OHEpwE373fB7iTzC",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>-1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p>",
         "source": "d20 Modern SRD",
@@ -207,7 +207,7 @@
       "_id": "vbQBFphINPbud6Od",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>-1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p>",
         "source": "d20 Modern SRD",
@@ -240,7 +240,7 @@
       "_id": "tNdwYTqR5q61baz6",
       "name": "Pathfinder",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>-1 melee (1d2-2, slam or 1d3-2, knife), or -2 ranged (2d4, Pathfinder)</p>",
         "source": "d20 Modern SRD",
@@ -273,7 +273,7 @@
       "_id": "E2T3eQP8r5JBaNmi",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -292,7 +292,7 @@
       "_id": "3C9G8Q8pjnsIVuX1",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -311,7 +311,7 @@
       "_id": "EsNGQsAajYkGCq5I",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -327,7 +327,7 @@
       "_id": "w5FfmOmhsifvdF2l",
       "name": "Light Sensitivity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Kobolds take a –1 penalty on attack rolls in sunlight or in brightly lit areas.</p>",
         "source": "d20 Modern SRD",
@@ -343,7 +343,7 @@
       "_id": "gWrKy5IkjDVyIViQ",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Kobolds receive a +2 species bonus on Craft (mechanical) and @Check[skill:search]{Search check}s.</p>",
         "source": "d20 Modern SRD",
@@ -359,7 +359,7 @@
       "_id": "gqbkKfCnRH6FSban",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Kobolds are keenly aware of their surroundings and receive the bonus feat Alertness.</p>",
         "source": "d20 Modern SRD",
@@ -375,7 +375,7 @@
       "_id": "xjTX1z2L0GYJAmx4",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Kobolds read, write, and speak Draconic.</p>",
         "source": "d20 Modern SRD",

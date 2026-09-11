@@ -2,7 +2,7 @@
   "_id": "szD3lsUNOZCF1yx7",
   "name": "Replacement Scientist (Human Smart Ordinary 5/Charismatic Ordinary 2)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -222,7 +222,7 @@
       "_id": "Ofd4jPcL7tRe1D9Q",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee (1d3, unarmed strike), or +4 ranged (2d6, SITES M9)</p>",
         "source": "d20 Modern SRD",
@@ -255,7 +255,7 @@
       "_id": "tSaI9Z9Wcp4QMGIo",
       "name": "SITES M9",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee (1d3, unarmed strike), or +4 ranged (2d6, SITES M9)</p>",
         "source": "d20 Modern SRD",
@@ -288,7 +288,7 @@
       "_id": "svJQJduYcJeTVW0I",
       "name": "Dodge*",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -307,7 +307,7 @@
       "_id": "uQShzTVvOxxu6HSI",
       "name": "Educated",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -326,7 +326,7 @@
       "_id": "lSgZeD9rmSXBWKe2",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -345,7 +345,7 @@
       "_id": "43ph240lT2dpPRRx",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -364,7 +364,7 @@
       "_id": "BmBg6BiFw86aRK8C",
       "name": "Studious",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -383,7 +383,7 @@
       "_id": "ubBxVOm8lOKFtMq1",
       "name": "Limited Existence",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A replacement has a programmed natural life span of one to four years (the creator must specify the life span when the project to create the replacement begins). Once the replacement reaches the end of its programmed life span, it must make a @Check[save:fort|dc:25]{Fortitude save (DC 25)} once per day. Each failed save drains the replacement of 1d6 points of Constitution. This ability drain cannot be restored by any means. When its Constitution drops to 0, the replacement dissolves into a mass of protoplasmic goo. A replacement that dies before this time retains the shape of the original.</p>",
         "source": "d20 Modern SRD",
@@ -399,7 +399,7 @@
       "_id": "q5g5Oe1zUEifmCJ8",
       "name": "Automatic Languages",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A replacement can read, write, and speak any language known by the original</p>",
         "source": "d20 Modern SRD",

@@ -2,7 +2,7 @@
   "_id": "kSyvAcrrKwLwpOo1",
   "name": "Mothfolk Dedicated Hero 3/Acolyte 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -200,7 +200,7 @@
       "_id": "97Jfv4HQc3dqDxq1",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+6 melee (1d6+1, 2 claws) or +7 ranged)</p>",
         "source": "Menace Manual",
@@ -233,7 +233,7 @@
       "_id": "uArq6hAeqw3MO4T8",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -252,7 +252,7 @@
       "_id": "u4wpluv3yz26DKmr",
       "name": "Lightning Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -271,7 +271,7 @@
       "_id": "Ng75joqDhFxmRukh",
       "name": "Mobility",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -293,7 +293,7 @@
       "_id": "klFhycj81kY5XN7t",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "GAxawCoU0U3p7eMd",
       "name": "Stealthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -331,7 +331,7 @@
       "_id": "CBdKzCMTmngN6WY4",
       "name": "Track",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -350,7 +350,7 @@
       "_id": "qd0jrZ3580Dg7tzH",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -366,7 +366,7 @@
       "_id": "GvWZnfxiDurIxBgN",
       "name": "Divine Spells",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -382,7 +382,7 @@
       "_id": "eygmfUY5bGOA6ltO",
       "name": "Fear Aura (DC 14)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>A mothfolk projects an aura of fear around itself in a 20-foot radius. Creatures within this area that wish to remain must attempt a @Check[save:will]{Will save} (DC 10 + ½ the mothman’s Hit Dice + its Charisma modifier) or be affected as by a fear spell. A mothfolk is immune to the fear auras of other mothfolk.</p>",
         "source": "Menace Manual",
@@ -410,7 +410,7 @@
       "_id": "6l33akEaViDPbGq4",
       "name": "Turn Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -426,7 +426,7 @@
       "_id": "R1M8qOcDrpVoihiF",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Mothfolk read, write, and speak a language of whistles, squeaks, and clicks (called Mothfolk, for lack of a better name).</p>",
         "source": "Menace Manual",
@@ -442,7 +442,7 @@
       "_id": "tyFo5J65rTzbppID",
       "name": "Skill Bonuses)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Mothfolk gain a +4 species bonus on Balance, Climb, Listen, and @Check[skill:moveSilently]{Move Silently check}s.</p>",
         "source": "Menace Manual",

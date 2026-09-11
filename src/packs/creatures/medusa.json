@@ -2,7 +2,7 @@
   "_id": "SD77k567txWFVnv2",
   "name": "Medusa",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -170,7 +170,7 @@
       "_id": "hfQi7XE99JxA2fzz",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6/+1 melee (1d4, knife), +3 melee (1d4 plus poison, snakes), or +9/+4 ranged (2d6, Glock 17)</p>",
         "source": "d20 Modern SRD",
@@ -203,7 +203,7 @@
       "_id": "iCuPuYg1aWPcMIWL",
       "name": "Snakes",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6/+1 melee (1d4, knife), +3 melee (1d4 plus poison, snakes), or +9/+4 ranged (2d6, Glock 17)</p><p><strong>Plus:</strong> poison</p>",
         "source": "d20 Modern SRD",
@@ -236,7 +236,7 @@
       "_id": "ZJzxVRhPSfBiubef",
       "name": "Glock 17",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6/+1 melee (1d4, knife), +3 melee (1d4 plus poison, snakes), or +9/+4 ranged (2d6, Glock 17)</p>",
         "source": "d20 Modern SRD",
@@ -269,7 +269,7 @@
       "_id": "Nb6GtHlN3UT9J4ux",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -288,7 +288,7 @@
       "_id": "6wH0cgnu5AqWemQu",
       "name": "Point Blank Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -307,7 +307,7 @@
       "_id": "cvasVCzUdUMaXR9Y",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -326,7 +326,7 @@
       "_id": "RgExkIUgqHX1Vfin",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -348,7 +348,7 @@
       "_id": "NkSVwWf88eyxw1bn",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -364,7 +364,7 @@
       "_id": "MzUlVySxGu0V1F8C",
       "name": "Gaze",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
         "description": "<p>A medusa’s gaze permanently turns to stone any creature within 30 feet that fails its @Check[save:fort|dc:15]{Fortitude save (DC 15)}. See Special Qualities for more information on gaze attacks. A break enchantment spell can remove the effect of petrification. In a campaign where heroes have limited access to spells, the GM can make the petrification a temporary effect (lasting 1d6 hours).</p>",
         "source": "d20 Modern SRD",
@@ -380,7 +380,7 @@
       "_id": "OY3TnpeTHoMw6vha",
       "name": "Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Any creature bitten by the medusa’s snaky hair must succeed on a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or succumb to the poison (initial damage 1d6 temporary Strength, secondary damage 2d6 temporary Strength).</p>",
         "source": "d20 Modern SRD",
@@ -396,7 +396,7 @@
       "_id": "bo33ev5tmnCetoRG",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Medusas receive the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -412,7 +412,7 @@
       "_id": "NFXLjB37K58xePDs",
       "name": "Automatic Languages",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Medusas read, write, and speak any two languages.</p>",
         "source": "d20 Modern SRD",

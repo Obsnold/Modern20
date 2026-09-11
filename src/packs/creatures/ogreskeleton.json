@@ -2,7 +2,7 @@
   "_id": "apeohRl3szvh2aCZ",
   "name": "Ogre Skeleton",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -109,7 +109,7 @@
       "_id": "1eQ5sAm3MI6gDGx4",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d6+5, 2 claws), or +4 melee (2d6+7, great club)</p>",
         "source": "d20 Modern SRD",
@@ -142,7 +142,7 @@
       "_id": "XcSRtWjurOifs2Lm",
       "name": "Great club",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (1d6+5, 2 claws), or +4 melee (2d6+7, great club)</p>",
         "source": "d20 Modern SRD",
@@ -175,7 +175,7 @@
       "_id": "q4ixuboRnwPDKWda",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -194,7 +194,7 @@
       "_id": "tmbcTxMXDEuxHs63",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -213,7 +213,7 @@
       "_id": "hBYRxMYBq6zzvWH0",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -229,7 +229,7 @@
       "_id": "Qp2ncIZBebH9K6KO",
       "name": "Skeleton Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skeleton has cold immunity. Because it lacks flesh and internal organs, a skeleton takes only half damage from ballistic, piercing, or slashing weapons.</p>",
         "source": "d20 Modern SRD",

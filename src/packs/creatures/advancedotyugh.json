@@ -2,7 +2,7 @@
   "_id": "ykSwKd8l3u5ZHxTT",
   "name": "Advanced Otyugh",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/floating-tentacles.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -138,7 +138,7 @@
       "_id": "gsxooOb55d82ig7L",
       "name": "Tentacle rake (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+14 melee (2d4+8, 2 tentacle rakes), +9 melee (2d8+4 plus disease, bite)</p>",
         "source": "Urban Arcana",
@@ -171,7 +171,7 @@
       "_id": "QawkSCT3eLK7s2WO",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+14 melee (2d4+8, 2 tentacle rakes), +9 melee (2d8+4 plus disease, bite)</p><p><strong>Plus:</strong> disease</p>",
         "source": "Urban Arcana",
@@ -204,7 +204,7 @@
       "_id": "03An4JOYsAhl0UKY",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -223,7 +223,7 @@
       "_id": "oAcbHf212S9RQOes",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -242,7 +242,7 @@
       "_id": "QXxKtif5ddcIcfkZ",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Otyughs can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and otyughs can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -258,7 +258,7 @@
       "_id": "R9xCsrYwREMNM4uX",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the otyugh must hit an opponent at least one size category smaller than itself with a tentacle attack. If it gets a hold, it can constrict (see below).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -274,7 +274,7 @@
       "_id": "ROev4bbUhA28GM93",
       "name": "Constrict 2d4+8",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>An otyugh deals automatic tentacle damage to a creature smaller than itself with a successful grapple check.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -290,7 +290,7 @@
       "_id": "rCndrYG6CAGPQLlC",
       "name": "Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>An otyugh’s bite carries a nasty disease called filth fever. Filth fever—bite: @Check[save:fort|dc:16]{Fortitude save (DC 16)} negates; incubation period 1d3 days; initial and secondary damage 1d3 Dex and 1d3 Con.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -306,7 +306,7 @@
       "_id": "Pbqh3bppHPk4O1BZ",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An otyugh gains a +8 species bonus on @Check[skill:hide]{Hide check}s when in its lair, due to its natural coloration.</p><p>A platonic is a powerful entity of Shadow devoted to a particular cause or abstract concept. A platonic is compelled to protect and advance its cause at every opportunity, which often brings it into contact with mortals whose goals are more complex and nebulous.</p><p>Platonics can change their appearance at a whim, but most choose to appear as handsome humans of either gender. If they aren’t bothering to disguise their otherworldly origin, their skin has a faint luminescent quality.</p><p>Each platonic has an abstract principle to which it is fanatically devoted. Platonics are beholden to what they call the Pact of the Boundless. A series of rules that all platonics follow, the Pact mandates that when possible, platonics won’t reveal their true nature to mundanes. Furthermore, platonics are compelled to act as subtly as possible.</p><p>Platonics naturally speak all languages. They choose their height and weight, but generally pick something within human norms.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

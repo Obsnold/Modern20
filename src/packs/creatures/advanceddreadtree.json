@@ -2,7 +2,7 @@
   "_id": "3laU1k3yptBECGhC",
   "name": "Advanced Dread Tree",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/carnivorous-plant.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -136,7 +136,7 @@
       "_id": "TXadfvZr7qB8l53z",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+25/+20/+15 melee (2d8+17, slam)</p>",
         "source": "Menace Manual",
@@ -169,7 +169,7 @@
       "_id": "Pr8vmOLBQfzHtSEm",
       "name": "Blindsight 30 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A dread tree is blind but can ascertain all creatures and objects within 30 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the dread tree.</p>",
         "source": "Menace Manual",
@@ -185,7 +185,7 @@
       "_id": "zb6G4WkHVF8mJ3og",
       "name": "Double Damage to Objects",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -201,7 +201,7 @@
       "_id": "3XrqFDHReoGu5mjg",
       "name": "Fire Vulnerability",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A dread tree takes 50% more damage from fire attacks.</p>",
         "source": "Menace Manual",
@@ -217,7 +217,7 @@
       "_id": "ASJsVjzGwIvB3NCB",
       "name": "Intoxicating Fruit (DC 19)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The fruit of a dread tree produces a scent that is extremely intriguing to mammals. Any such creature within 100 feet of a dread tree must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the dread tree’s Hit Dice + its Charisma modifier) or move into its fighting space. Once there, the creature must make another successful @Check[save:will]{Will save} (same DC) or pick and eat the fruit. A creature too small to reach the branches eats fruit that has fallen from the tree. The fruit contains an ingested poison (@Check[save:fort]{Fortitude save} DC 18; 1d6 Dex/unconsciousness for 2d6 rounds). The toxin remains viable for 1d6 days after picking.</p>",
         "source": "Menace Manual",
@@ -245,7 +245,7 @@
       "_id": "xUTNyiiyAxkLvxmR",
       "name": "Plant",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dread trees have the traits and immunities common to plants.</p>",
         "source": "Menace Manual",
@@ -261,7 +261,7 @@
       "_id": "0YgupOfK2MLhL2g8",
       "name": "Smash 2d8+17",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A dread tree can smash a grappled opponent into its trunk or on the ground, dealing slam damage every round the hold is maintained.</p>",
         "source": "Menace Manual",
@@ -277,7 +277,7 @@
       "_id": "AMGBdRgWsVnguE1Q",
       "name": "Double Damage against Objects",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A dread tree that makes a full attack against an object or structure deals double damage to it.</p>",
         "source": "Menace Manual",
@@ -293,7 +293,7 @@
       "_id": "nB2Kkb02MyODlAw8",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the dread tree must hit an opponent at least one size category smaller than itself with its slam attack. If it gets a hold, it automatically deals slam damage each round that the hold is maintained, and it can smash in the next round (see below).</p>",
         "source": "Menace Manual",
@@ -309,7 +309,7 @@
       "_id": "O3puwat5Jbq0scSZ",
       "name": "Skills",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Because a dread tree is intelligent, it gains skill points as if it were an animal. A dread tree gains a +16 species bonus on @Check[skill:hide]{Hide check}s made in forested areas.</p>",
         "source": "Menace Manual",

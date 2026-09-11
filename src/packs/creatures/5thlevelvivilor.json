@@ -2,7 +2,7 @@
   "_id": "n59cEgGpMO1pjCOb",
   "name": "5th-level Vivilor",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -140,7 +140,7 @@
       "_id": "OpvSHsXiPOW9xoI4",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+11/+6 melee (1d8+7, slam)</p>",
         "source": "Urban Arcana",
@@ -173,7 +173,7 @@
       "_id": "AacbpYS3FF79mm4j",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -192,7 +192,7 @@
       "_id": "SyhzYy0TtFHW518c",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -211,7 +211,7 @@
       "_id": "AXCPmwAMkXKc3dTT",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -230,7 +230,7 @@
       "_id": "mP7SvrcBcRV3Y2Xi",
       "name": "Two Choices From Vivilor Menu B",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -246,7 +246,7 @@
       "_id": "m9aeau8VRWKie5F5",
       "name": "Damage Reduction 5/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -262,7 +262,7 @@
       "_id": "2LIG3eLDCEeZExMe",
       "name": "Darkvision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A vivilor can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and the vivilor can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -278,7 +278,7 @@
       "_id": "p81hzKbKYnelvmGx",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Vivilors gain the bonus feat Archaic Weapons Proficiency. However, they generally prefer to use their natural weapons in combat.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -294,7 +294,7 @@
       "_id": "HHNPEG7HoZbkqcch",
       "name": "Aquatic",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/splash.svg",
       "system": {
         "description": "<p>The vivilor gains a swim speed of 60 feet. The vivilor can move in water without making @Check[skill:swim]{Swim check}s and cannot drown in water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -310,7 +310,7 @@
       "_id": "Wj6hXktAojG8kr9M",
       "name": "Bat Wings",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/feathered-wing.svg",
       "system": {
         "description": "<p>The vivilor gains a fly speed of 60 feet (average maneuverability).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -326,7 +326,7 @@
       "_id": "dlLbIcAzhqAedGLg",
       "name": "Energy Resistance 15",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor gains resistance 15 to one energy type of the summoner’s choosing: acid, fire, cold, electricity, or sonic/concussion.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -342,7 +342,7 @@
       "_id": "hGrfPMDedV3PROB6",
       "name": "Improved Ability Scores",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor gains +2 Strength and +2 Constitution.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -358,7 +358,7 @@
       "_id": "jbMlr0zqAf7DlXfu",
       "name": "Quadrupedal",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor has four limbs for locomotion, increasing its ground speed by +20 feet. As a quadruped, the vivilor can also carry heavier loads than bipedal forms.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -374,7 +374,7 @@
       "_id": "lM4yPuWkMPlr0HUN",
       "name": "Tentacles",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/suckered-tentacle.svg",
       "system": {
         "description": "<p>The vivilor can slam opponents using tentacles that increase its reach by +5 feet.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -390,7 +390,7 @@
       "_id": "3sm0Ul59MEDckVHa",
       "name": "Tougher Skin",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor’s natural armor bonus to Defense increases by +1.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -406,7 +406,7 @@
       "_id": "RIVbSXDD2eP5g4Z3",
       "name": "Amorphous",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor is immune to critical hits and massive damage. It cannot be flanked.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -422,7 +422,7 @@
       "_id": "Vy2GF7JqXcvhcPqZ",
       "name": "Extra Limbs",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor gains three additional slam attacks during its full attack action. These additional slams are treated as secondary attacks (–5 penalty to the attack roll).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -438,7 +438,7 @@
       "_id": "vLR3zYKmfxW5zJsc",
       "name": "Feathered Wings",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/feathered-wing.svg",
       "system": {
         "description": "<p>The vivilor gains a fly speed of 90 feet (good maneuverability).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -454,7 +454,7 @@
       "_id": "g8bHK23sCmzZSiMa",
       "name": "Grasping Tentacles",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/suckered-tentacle.svg",
       "system": {
         "description": "<p>The vivilor can slam opponents using tentacles that increase its reach by +5 feet. On a successful hit, a tentacle can make a free grapple check without provoking attacks of opportunity. A grappled opponent takes automatic slam damage every round the grapple is maintained.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -470,7 +470,7 @@
       "_id": "O0Jz2qzT4mV7apWg",
       "name": "Metallic Skin",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor’s natural armor bonus to Defense increases by +4.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -486,7 +486,7 @@
       "_id": "NaCnNEfK7rJD9o8N",
       "name": "Serpentine",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The vivilor has a serpentine form. It deals double slam damage against grappled foes.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

@@ -2,7 +2,7 @@
   "_id": "VuE7VfRjM20N8Hyw",
   "name": "Young Adult Dragon",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/dragon-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -212,7 +212,7 @@
       "_id": "jnV23Csu5VOsWGco",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+24 melee (2d6+6, bite), +19 melee (1d8+3, 2 claws), +19 melee (1d6+3, 2 wings), +19 melee (1d8+9, tail slap)</p>",
         "source": "Urban Arcana",
@@ -245,7 +245,7 @@
       "_id": "MYUcizjyaJ9h33x6",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+24 melee (2d6+6, bite), +19 melee (1d8+3, 2 claws), +19 melee (1d6+3, 2 wings), +19 melee (1d8+9, tail slap)</p>",
         "source": "Urban Arcana",
@@ -278,7 +278,7 @@
       "_id": "8dcYtyZO5b17q4Qe",
       "name": "Wing (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/feathered-wing.svg",
       "system": {
         "description": "<p>+24 melee (2d6+6, bite), +19 melee (1d8+3, 2 claws), +19 melee (1d6+3, 2 wings), +19 melee (1d8+9, tail slap)</p>",
         "source": "Urban Arcana",
@@ -311,7 +311,7 @@
       "_id": "jRT93x8KqGxuirwB",
       "name": "Tail slap",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/spiked-tail.svg",
       "system": {
         "description": "<p>+24 melee (2d6+6, bite), +19 melee (1d8+3, 2 claws), +19 melee (1d6+3, 2 wings), +19 melee (1d8+9, tail slap)</p>",
         "source": "Urban Arcana",
@@ -344,7 +344,7 @@
       "_id": "fdTnqinoEva81PQ0",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -363,7 +363,7 @@
       "_id": "0l2BZAr45kWntnBq",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -385,7 +385,7 @@
       "_id": "iKX53K2wMt0D1ync",
       "name": "Improved Bull Rush",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -407,7 +407,7 @@
       "_id": "ljGP3ZOcnRiciSSP",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -426,7 +426,7 @@
       "_id": "KV6jGuR5sZTkk68z",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -447,7 +447,7 @@
       "_id": "sUTHaWlG035XSOBW",
       "name": "Breath Weapon",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>A breath weapon attack usually causes damage and is often based on some type of energy. It allows a @Check[save:ref]{Reflex save} for half damage with a DC equal to 10 + ½ breathing creature’s HD + breathing creature’s Constitution modifier (the exact DC is given in the creature’s Species Traits). A creature is immune to its own breath weapon and those of others of its kind unless noted otherwise.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -463,7 +463,7 @@
       "_id": "LiKdftVNXzftvIch",
       "name": "Fear Aura 150 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>A fear aura either operates continuously or can be used at will. In either case, it’s a free action. This ability can freeze an opponent or cause opponents to become panicked. Other effects are possible. Negating the fear effect requires a successful @Check[save:will]{Will save} with a DC equal to 10 + 1/2 fearsome creature’s HD + fearsome creature’s Charisma modifier (the exact DC is given in the creature’s descriptive text).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -479,7 +479,7 @@
       "_id": "jSV43iFGHVOcgRrg",
       "name": "Spells",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Some creatures can cast arcane spells or divine spells (and can activate magic items accordingly). These creatures are subject to the same spellcasting rules as characters.</p><p>Spellcasting creatures are not members of an advanced class unless their entries say so, and they do not gain any class features. A creature with access to divine spells must prepare them in the normal manner.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -495,7 +495,7 @@
       "_id": "kRoYqK9mcfQ7x0hv",
       "name": "Spell-Like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -511,7 +511,7 @@
       "_id": "zBOcs2xAEfq9anG3",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -527,7 +527,7 @@
       "_id": "Bz09d5EUeJQdvIc2",
       "name": "SR 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -543,7 +543,7 @@
       "_id": "3s00xtRk3ZoX6dBe",
       "name": "Damage Reduction 5/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -559,7 +559,7 @@
       "_id": "gqfRkCaUk90jmafg",
       "name": "Blindsight 150 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -575,7 +575,7 @@
       "_id": "AfN4WdcTGDDTkxQX",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -591,7 +591,7 @@
       "_id": "HXF7qJsuXXEvoueY",
       "name": "Darkvision 500 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

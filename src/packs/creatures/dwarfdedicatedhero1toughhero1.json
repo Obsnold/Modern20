@@ -2,7 +2,7 @@
   "_id": "pyP3Arp7dfgjkJSr",
   "name": "Dwarf Dedicated Hero 1/Tough Hero 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -214,7 +214,7 @@
       "_id": "WGx3ysZYDzfDCFjc",
       "name": "Brass knuckles",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3+1, brass knuckles) or +1 melee (1d10+1/x3, dwarven waraxe) or -1 ranged (2d6, dynamite stick)</p>",
         "source": "Urban Arcana",
@@ -247,7 +247,7 @@
       "_id": "5KkLBbfCKUulrQRY",
       "name": "Dwarven waraxe",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3+1, brass knuckles) or +1 melee (1d10+1/x3, dwarven waraxe) or -1 ranged (2d6, dynamite stick)</p>",
         "source": "Urban Arcana",
@@ -280,7 +280,7 @@
       "_id": "2RP9dOTD1gmVCVks",
       "name": "Dynamite stick",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3+1, brass knuckles) or +1 melee (1d10+1/x3, dwarven waraxe) or -1 ranged (2d6, dynamite stick)</p>",
         "source": "Urban Arcana",
@@ -313,7 +313,7 @@
       "_id": "nAzIwFYsfWxTKteh",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -332,7 +332,7 @@
       "_id": "YWbk7E2Z8R7AVkIO",
       "name": "Educated",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -351,7 +351,7 @@
       "_id": "r5njJCTdfHL78BZS",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -370,7 +370,7 @@
       "_id": "b1UZt9QPQRckRGPv",
       "name": "Special Combat Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dwarves gain a +1 species bonus on attack rolls against bugbears, goblins, orcs, and other goblinoids. Dwarves also gain a +4 dodge bonus to Defense against creatures of the giant type. If a dwarf loses his positive Dexterity bonus to Defense (such as when flatfooted), this dodge bonus is lost.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -386,7 +386,7 @@
       "_id": "43GmjsaERukQzgrv",
       "name": "Stability",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dwarves gain a +4 species bonus on ability checks to resist bulll rush and trip attempts when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -402,7 +402,7 @@
       "_id": "JLhmUvoD8YXflB8V",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Dwarves can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dwarves can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -418,7 +418,7 @@
       "_id": "f1WJZVz4TyyXc6Pp",
       "name": "Speed",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dwarves have a base speed of 20 feet. However, dwarves can move at this speed even when wearing medium or heavy armor or when carrying a medium or heavy load (unlike other creatures, whose speed is reduced in such situations).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -434,7 +434,7 @@
       "_id": "ERmi16NCJEzmTusD",
       "name": "Saving Throw Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dwarves are highly resistant to toxins and innately resistant to magic. They gain a +2 species bonus on saving throws against poisons, spells, and spell-like abilities.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -450,7 +450,7 @@
       "_id": "dRQivKlLNilVCtOU",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dwarves gain a +2 species bonus on @Check[skill:search]{Search check}s to notice unusual stonework, new construction, unsafe surfaces, ceilings, and the like. A dwarf who merely passes within 10 feet of such exceptional construction can, as a free action, make a @Check[skill:search|dc:15]{Search check (DC 15)} as though he were actively searching for such.</p><p>Dwarves are naturally skilled mechanics and engineers. They gain a +2 species bonus on Craft (mechanical), Craft (structural), and @Check[skill:repair]{Repair check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -466,7 +466,7 @@
       "_id": "f0TQXITqPWaRaMD1",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dwarves gain the bonus feat Archaic Weapons Proficiency. Dwarves may treat dwarven urgroshes and dwarven waraxes as archaic weapons instead of exotic weapons.</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

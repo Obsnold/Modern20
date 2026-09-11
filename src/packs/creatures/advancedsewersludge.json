@@ -2,7 +2,7 @@
   "_id": "EkJ6KyFnrFAjPRKD",
   "name": "Advanced Sewer Sludge",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/slime.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -112,7 +112,7 @@
       "_id": "VWAhiPPOcYgDpFKZ",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+10/+5 melee (1d8+7 plus disease, slam)</p><p><strong>Plus:</strong> disease</p>",
         "source": "Menace Manual",
@@ -145,7 +145,7 @@
       "_id": "tEdF71ZAlsoFVypU",
       "name": "Blindsight 30 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sewer sludge is blind but can ascertain all creatures and objects within 30 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the sewer sludge.</p>",
         "source": "Menace Manual",
@@ -161,7 +161,7 @@
       "_id": "d2veOI1q9RQxRASA",
       "name": "Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>The touch of a sewer sludge carries typhoid bacillus (Fort DC 13 negates; incubation period 1d3 weeks; initial 1d4 Con; secondary 1d4 Con).</p>",
         "source": "Menace Manual",
@@ -177,7 +177,7 @@
       "_id": "MJHqU2Ts8HzyHBf5",
       "name": "Camouflage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/invisible.svg",
       "system": {
         "description": "<p>A motionless sewer sludge looks like nothing more than a pile of rotting garbage. A successful @Check[skill:spot|dc:15]{Spot check (DC 15)} is required to recognize it as a creature.</p>",
         "source": "Menace Manual",
@@ -193,7 +193,7 @@
       "_id": "EMeMKbtX1ivnvQGC",
       "name": "Constrict 1d6+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>A sewer sludge deals slam damage (1d6+1 for a typical specimen) with a successful grapple check against a target at least one size category smaller than itself.</p>",
         "source": "Menace Manual",
@@ -209,7 +209,7 @@
       "_id": "j5PdiBPUU5V46iAk",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sewer sludge is immune to electricity and cold damage. If a cold attack deals damage equal to or greater than the sewer sludge’s Constitution score, the creature is affected as though by a slow spell.</p>",
         "source": "Menace Manual",
@@ -225,7 +225,7 @@
       "_id": "T3Wpps02CZ2aqIYi",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the sewer sludge must hit an opponent at least one size category smaller than itself with its slam attack. If it gets a hold, it automatically deals slam damage each round that the hold is maintained, and it can constrict in the same round.</p>",
         "source": "Menace Manual",
@@ -241,7 +241,7 @@
       "_id": "1BtPkUPnRcmPr79d",
       "name": "Ooze",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sewer sludge has the traits and immunities common to oozes.</p>",
         "source": "Menace Manual",
@@ -257,7 +257,7 @@
       "_id": "NYXcaGlyPkDedlOO",
       "name": "Stench (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A creature within 10 feet of a sewer sludge must make a successful @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the sludge’s Hit Dice + its Constitution modifier) or be nauseated. The nausea persists for as long as the creature remains within 10 feet of the sewer sludge. A creature that leaves and reenters the area must make another save.</p>",
         "source": "Menace Manual",

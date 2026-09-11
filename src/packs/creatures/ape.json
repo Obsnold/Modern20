@@ -2,7 +2,7 @@
   "_id": "L2UcfDmB9aM4CssS",
   "name": "Ape",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -128,7 +128,7 @@
       "_id": "gM8YLHuLeXQPslnT",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>Atk +7 melee (1d6+5, 2 claws) and +2 melee (1d6+2, bite), or +4 ranged</p>",
         "source": "d20 Modern SRD",
@@ -161,7 +161,7 @@
       "_id": "FC9tWCRiHFVcOLBt",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>Atk +7 melee (1d6+5, 2 claws) and +2 melee (1d6+2, bite), or +4 ranged</p>",
         "source": "d20 Modern SRD",
@@ -194,7 +194,7 @@
       "_id": "ZMzm5QZo0K4w47cK",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -210,7 +210,7 @@
       "_id": "97HAZP5jBRedJSZM",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows an ape to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "d20 Modern SRD",

@@ -2,7 +2,7 @@
   "_id": "ZUigxdL6gdAmLjks",
   "name": "Wererat in Hybrid Form (Human Fast Hero 1)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -182,7 +182,7 @@
       "_id": "sSIZQ1EgO21efx4L",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee (1d4+3/19-20, knife) or +3 melee (1d4+3 plus lycanthropy, bite)</p>",
         "source": "Urban Arcana",
@@ -215,7 +215,7 @@
       "_id": "7gJaO8gpsufEA4vg",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+3 melee (1d4+3/19-20, knife) or +3 melee (1d4+3 plus lycanthropy, bite)</p><p><strong>Plus:</strong> lycanthropy</p>",
         "source": "Urban Arcana",
@@ -248,7 +248,7 @@
       "_id": "BjODFkAOSEDDo3sc",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -269,7 +269,7 @@
       "_id": "ZIWaPmZNbsvVbCu5",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -288,7 +288,7 @@
       "_id": "XrRl6KmkSdHjBUFK",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -307,7 +307,7 @@
       "_id": "NUBuMJ3BI2huqv9o",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -329,7 +329,7 @@
       "_id": "bill58BIc0aqmzZk",
       "name": "Curse of Lycanthropy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Any humanoid bitten by a wererat’s bite attack (in rat or hybrid form) must succeed at a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract lycanthropy.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -345,7 +345,7 @@
       "_id": "ZX5ZG44xePFGhBDB",
       "name": "Damage Reduction 15/Silver",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A wererat in rat or hybrid form ignores the first 15 points of damage dealt by a nonsilver or nonmagical weapon but takes full damage from silvered weapons or weapons with +1 or better magic bonus.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -361,7 +361,7 @@
       "_id": "ePbTh0jqhvn0echZ",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a wererat in rat or hybrid form to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -377,7 +377,7 @@
       "_id": "gDl47VkfZwlrMGl2",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>In their rat and hybrid forms, wererats have darkvision with a range of 60 feet.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -393,7 +393,7 @@
       "_id": "IAZduDrLuKETMvTw",
       "name": "Base Attck",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Same as the character</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -409,7 +409,7 @@
       "_id": "33bn8bvJkcPwxbdZ",
       "name": "Alternate Form",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A wererat can assume rat or hybrid form, but its gear is not absorbed into the new form. The bipedal hybrid form is about 5 feet tall, with a long tail and thin fur. The limbs are human, but the head looks like a rat’s. Changing to or from rat or hybrid form is a move action. Upon assuming either form, the wererat regains hit points as if having rested for a day. A slain wereat reverts to its humanoid form, although it remains dead. Afflicted wererats find this ability difficult to control. The rare natural wererat has full control over this power.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -425,7 +425,7 @@
       "_id": "WQtaZjetBGT5aQjg",
       "name": "Rat Empathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A wererat can communciate with rats in any form and gains a +4 species bonus on @Check[skill:diplomacy]{Diplomacy check}s when influencing a rat’s attitude. A friendly rat understands and heeds simple commands, such “wait,” “watch,” “flee,” and “attack.”</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -441,7 +441,7 @@
       "_id": "3Brmp33Y8Oxg3dwW",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Same as the character, with a +4 species bonus on Listen, Search, and @Check[skill:spot]{Spot check}s when in humanoid form. In rat or hybrid form, these bonuses increase to +8. A wererat in rat form also gains 3 ranks in Climb, 4 ranks in Hide, and 3 ranks in Move Silently.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

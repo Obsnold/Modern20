@@ -2,7 +2,7 @@
   "_id": "Ho7p0XpflQ0qkDaX",
   "name": "Crawling Claw",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -109,7 +109,7 @@
       "_id": "t9KuliBWCEQ1ti00",
       "name": "Claw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1, claw)</p>",
         "source": "Menace Manual",
@@ -142,7 +142,7 @@
       "_id": "oq7KoC2DprorPdMS",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Crawling claws have the traits and immunities common to constructs.</p>",
         "source": "Menace Manual",
@@ -158,7 +158,7 @@
       "_id": "hI4xVsPEbZNGlWCP",
       "name": "Gaze Immunity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
         "description": "<p>Because it lacks eyes, a crawling claw is immune to gaze attacks.</p>",
         "source": "Menace Manual",
@@ -174,7 +174,7 @@
       "_id": "o8vfg8Eqv43UG02S",
       "name": "Smite Fallen",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A crawling claw’s attacks deal double damage against prone combatants.</p>",
         "source": "Menace Manual",
@@ -190,7 +190,7 @@
       "_id": "wz3TnYtKRpnONrt3",
       "name": "Spell Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Yes (Harmless)</p><p>You create a number of crawling claws up to twice your caster level. The hands to be transformed must all be within a 5-foot-radius circle. Once created, the group of crawling claws obeys your telepathic commands as long as the instructions are simple and you are within 100 feet. If you give the crawling claws simple standing orders before moving out of range, they obey these orders to the best of their ability until you return and issue new orders. Otherwise, they mill about aimlessly, attacking anything that moves into their space.</p>",
         "source": "Menace Manual",
@@ -206,7 +206,7 @@
       "_id": "l1pFGCHtI4qJeDWc",
       "name": "Level",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Mage 3</p>",
         "source": "Menace Manual",
@@ -222,7 +222,7 @@
       "_id": "GNkfy3J9j2CkZ4vN",
       "name": "Components",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>V, S, M</p>",
         "source": "Menace Manual",
@@ -238,7 +238,7 @@
       "_id": "JqtMmL2R2dzOE9iu",
       "name": "Casting Time",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>1 hour</p>",
         "source": "Menace Manual",
@@ -254,7 +254,7 @@
       "_id": "Xuupf0jOvEtN1aRa",
       "name": "Range",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Close (25 ft. + 5 ft./2 levels)</p>",
         "source": "Menace Manual",
@@ -270,7 +270,7 @@
       "_id": "frubDNMOaLk5Fr44",
       "name": "Targets",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Severed human left hands wihitn a 5-foot-radius circle</p>",
         "source": "Menace Manual",
@@ -286,7 +286,7 @@
       "_id": "B0zECSmTPZhGwKtb",
       "name": "Duration",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Instantaneous</p>",
         "source": "Menace Manual",
@@ -302,7 +302,7 @@
       "_id": "wxM6AiT52dWKac16",
       "name": "Saving Throw",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>None</p>",
         "source": "Menace Manual",
@@ -318,7 +318,7 @@
       "_id": "us4KgCAHKLndx2xU",
       "name": "Material Component",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Clippings from a ghoul’s fingernails, and a ring that someone else lost.</p>",
         "source": "Menace Manual",

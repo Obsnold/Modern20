@@ -2,7 +2,7 @@
   "_id": "klE3h3IajVkdVc8K",
   "name": "Luciferan",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -158,7 +158,7 @@
       "_id": "5wckwywJGUSWP1C6",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+2 melee (1d4, 2 claws) or +3 ranged (2d6, Colt Python)</p>",
         "source": "Menace Manual",
@@ -191,7 +191,7 @@
       "_id": "q8xGPT5JBcunofIm",
       "name": "Colt Python",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d4, 2 claws) or +3 ranged (2d6, Colt Python)</p>",
         "source": "Menace Manual",
@@ -224,7 +224,7 @@
       "_id": "V3gHG8dtypdBe4GI",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -243,7 +243,7 @@
       "_id": "HuaFkLeBhNNxxGv2",
       "name": "Body Glow",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A luciferan’s skin constantly emits a pale red glow that is imperceptible in lighted conditions, but the effect reduces any concealment the luciferan may have due to darkness by one step.</p>",
         "source": "Menace Manual",
@@ -259,7 +259,7 @@
       "_id": "biQPoqE1ATPi5ZYb",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -275,7 +275,7 @@
       "_id": "AKGD46jqp31MZXse",
       "name": "Immolation",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A luciferan can increase the glow from its skin into a raging inferno. The flame so generated deal 6d6 points of fire damage to each object and creature within a 10-foot radius of the luciferan. A successful @Check[save:ref]{Reflex save} (10 + 1/2 the luciferan’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
@@ -291,7 +291,7 @@
       "_id": "wkxBsbFRoseFNbA9",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Luciferans read, write, and speak Aramaic.</p>",
         "source": "Menace Manual",
@@ -307,7 +307,7 @@
       "_id": "p2UpxU178q0EIhYG",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A luciferan gains a +2 species bonus on Bluff and @Check[skill:intimidate]{Intimidate check}s.</p>",
         "source": "Menace Manual",

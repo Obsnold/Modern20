@@ -128,6 +128,12 @@ jobs:
       - name: SRD coverage has not regressed
         run: python3 scripts/check_coverage.py
 
+      # A broken image logs nothing and draws an empty frame, so this is the
+      # one failure in a compendium that a human reading the pack files would
+      # not see either.
+      - name: every icon a document points at is a file that is here
+        run: python3 scripts/check_art.py
+
       # The export runs against a live Foundry host, so it is the one script
       # here that cannot be tried out cheaply, and both of its bugs so far
       # were found by reading 1,400 documents of its output. This round-trips

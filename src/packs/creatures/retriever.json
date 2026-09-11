@@ -2,7 +2,7 @@
   "_id": "WEHqxJYoES4YJDiF",
   "name": "Retriever",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -113,7 +113,7 @@
       "_id": "MwLDMRibaT9Wi7PC",
       "name": "Claw (x4)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+15 melee (2d4+10, 4 claws), +10 melee (1d6+5, bite) or +8 ranged touch (special, eye ray)</p>",
         "source": "Urban Arcana",
@@ -146,7 +146,7 @@
       "_id": "iFgaHsA7BfwOG3LM",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+15 melee (2d4+10, 4 claws), +10 melee (1d6+5, bite) or +8 ranged touch (special, eye ray)</p><p><strong>Also called:</strong> special, eye ray</p>",
         "source": "Urban Arcana",
@@ -179,7 +179,7 @@
       "_id": "SY2YBGWmbgYGJH0c",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Retrievers are immune to mind-influencing effects as well as poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -195,7 +195,7 @@
       "_id": "Z4FRBTW4OWs1AjI5",
       "name": "Eye Rays (DC 18)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
         "description": "<p>A retriever’s eyes can produce four different magical rays with a range of 100 feet. Each round, it can fire one ray, as a free action. An individual ray is usable only once every 4 rounds. It can fire an eye ray in the same round as it makes physical attacks. The save DC for all rays is 10 + 1/2 the retriever’s Hit Dice + the retriever’s Dexterity modifier. The four eye effects are:</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -211,7 +211,7 @@
       "_id": "vC2SD9uXC7mUVHd1",
       "name": "Fast Healing 5",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>Retrievers regain 5 hit points per round. Fast healing stops working when the retriever is reduced to 0 hit points or fewer.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -227,7 +227,7 @@
       "_id": "7IptWF10h6abkRib",
       "name": "Find Target",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>When ordered to find an item or being, a retriever does so unerringly, as though guided by discern location. The being giving the order must have seen (or have an item belonging to) the creature to be found, or have touched the object to be located. This ability is the equivalent of an 8th-level spell.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -243,7 +243,7 @@
       "_id": "QO2ZveaszPhxaErS",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the retriever must hit with its bite attack. If it wins the grapple check, it establishes a hold and grips the opponent fast in its mouth. This is how it usually “retrieves” things.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -259,7 +259,7 @@
       "_id": "bPm2jQFIvK2QGGkQ",
       "name": "Fire",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>Deals 12d6 points of fire damage to the target (Reflex half).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -275,7 +275,7 @@
       "_id": "ARTPgB16FEXRkYQ6",
       "name": "Cold",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>Deals 12d6 points of cold damage to the target (Reflex half).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -291,7 +291,7 @@
       "_id": "dA7C5XezEbxwclf3",
       "name": "Electricity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Deals 12d6 points of electricity damage to the target (Reflex half).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -307,7 +307,7 @@
       "_id": "v6Y8HioAVTDXjzNQ",
       "name": "Petrification",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The target must succeed on a @Check[save:fort]{Fortitude save} or turn to stone permanently.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

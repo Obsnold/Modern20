@@ -2,7 +2,7 @@
   "_id": "evfzdxnoQlgZjr5Q",
   "name": "Gargoyle Tough Hero 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/beast-eye.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -154,7 +154,7 @@
       "_id": "gmDA6Cp32QP4IHn1",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+8 melee (1d4, 2 claws), +6 melee (1d6, bite), +6 melee (1d6, gore), or +8 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -187,7 +187,7 @@
       "_id": "T0fprSio5MRd5oSN",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+8 melee (1d4, 2 claws), +6 melee (1d6, bite), +6 melee (1d6, gore), or +8 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -220,7 +220,7 @@
       "_id": "ECQ4vtGcNIvsq5vi",
       "name": "Gore",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
       "system": {
         "description": "<p>+8 melee (1d4, 2 claws), +6 melee (1d6, bite), +6 melee (1d6, gore), or +8 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -253,7 +253,7 @@
       "_id": "BmldUucqJ3KYgQaT",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -272,7 +272,7 @@
       "_id": "t15f5FQLb3BUjYfy",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -293,7 +293,7 @@
       "_id": "5377pXmNEuqS9KdL",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "sLBQuecD2aVPfiFK",
       "name": "Stealthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -331,7 +331,7 @@
       "_id": "vH1SpGQ3ZO8uSmq0",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -353,7 +353,7 @@
       "_id": "TpirTQsfgYCAEsUo",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -375,7 +375,7 @@
       "_id": "GDBwiIWUddPTMOpQ",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -397,7 +397,7 @@
       "_id": "KbiS0pdlBucm0FjR",
       "name": "Freeze",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A gargoyle can hold itself so still it appears to be a statue. An observer must succeed on a @Check[skill:spot|dc:20]{Spot check (DC 20)} to notice the gargoyle is alive.</p>",
         "source": "d20 Modern SRD",
@@ -413,7 +413,7 @@
       "_id": "8PNXk37ELFVul4Wc",
       "name": "Keen Sight",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Gargoyles have darkvision with a range of 60 feet and low-light vision.</p>",
         "source": "d20 Modern SRD",
@@ -429,7 +429,7 @@
       "_id": "amKCPmJhXv7TNpH2",
       "name": "Damage Reduction 15/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>In campaigns without magic weapons, the GM can either disregard the gargoyle’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
         "source": "d20 Modern SRD",
@@ -445,7 +445,7 @@
       "_id": "S5wSkxxrjN1ivfur",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A gargoyle receives a +8 species bonus on @Check[skill:hide]{Hide check}s when concealed against a background of worked stone.</p>",
         "source": "d20 Modern SRD",
@@ -461,7 +461,7 @@
       "_id": "7RVKc85GVERuY5VX",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gargoyles receive the bonus feats Weapon Finesse (bite), Weapon Finesse (claw), and Weapon Finesse (gore).</p>",
         "source": "d20 Modern SRD",
@@ -477,7 +477,7 @@
       "_id": "zN2czIaH3IoEIp61",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gargoyles speak (but neither read nor write) Terran.</p>",
         "source": "d20 Modern SRD",

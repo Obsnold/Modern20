@@ -2,7 +2,7 @@
   "_id": "aF65nKApnyN5CYB0",
   "name": "Grimlock Strong Hero 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -152,7 +152,7 @@
       "_id": "DtpALbNKZHKvrujq",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear) or +6 ranged (1d8+2, compound bow)</p>",
         "source": "Menace Manual",
@@ -185,7 +185,7 @@
       "_id": "HYjMs6YDGkNZLLsx",
       "name": "Spear",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear) or +6 ranged (1d8+2, compound bow)</p>",
         "source": "Menace Manual",
@@ -218,7 +218,7 @@
       "_id": "HBJd4luck7v9vtv7",
       "name": "Compound bow",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+9 melee (1d8+4 nonlethal, unarmed strike) or +8 melee (1d8+4, spear) or +6 ranged (1d8+2, compound bow)</p>",
         "source": "Menace Manual",
@@ -251,7 +251,7 @@
       "_id": "JS4m38689zqeVWu8",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -270,7 +270,7 @@
       "_id": "c78udigSsrv49nGS",
       "name": "Athletic",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -289,7 +289,7 @@
       "_id": "D6kcum4VgmMbqKdA",
       "name": "Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -308,7 +308,7 @@
       "_id": "xmTSnkjxtLBnIwMi",
       "name": "Improved Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -330,7 +330,7 @@
       "_id": "oIaMAIbYBiMqcYzz",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -349,7 +349,7 @@
       "_id": "1TtbEtMvrkQi4EqE",
       "name": "Track",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "K4Gjcrx2WIZXp1dD",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -390,7 +390,7 @@
       "_id": "cB778O5A7sHcENem",
       "name": "Blindsight 40 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock is blind but can ascertain all creatures and objects within 40 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the grimlock.</p><p>Grimlocks are affected normally by loud noises and sonic spells (such as shout or silence) and overpowering odors (such as a troglodyte’s stench or incense-thick air). Negating a grimlock’s sense of either smell or hearing denies it the benefits of blindsight, but the grimlock still functions as though it had the Blind-Fight feat. If both smell and hearing are negated, the grimlock is effectively blind.</p>",
         "source": "Menace Manual",
@@ -406,7 +406,7 @@
       "_id": "qhfU1i0KjRjQM5CD",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock is immune to gaze attacks, visual effects, illusions, and all other attack forms that rely on sight.</p>",
         "source": "Menace Manual",
@@ -422,7 +422,7 @@
       "_id": "sgV22s7qFcfsfcyK",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a grimlock to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -438,7 +438,7 @@
       "_id": "55hYp3kcbphEig5J",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock can speak (but not read or write) one local surface language.</p>",
         "source": "Menace Manual",
@@ -454,7 +454,7 @@
       "_id": "O5p7j4E1EHxCBRhI",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock’s dull gray skin helps it hide in its native terrain, conferring a +10 species bonus on @Check[skill:hide]{Hide check}s in rocky terrain or underground.</p>",
         "source": "Menace Manual",

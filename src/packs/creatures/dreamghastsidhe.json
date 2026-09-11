@@ -2,7 +2,7 @@
   "_id": "J2IzbsxyTqULeVJ3",
   "name": "Dreamghast (Sidhe)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -145,7 +145,7 @@
       "_id": "Q9YRGKp60tnOxVuV",
       "name": "Machete",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (1d6+1/19-20, machete), +0 melee (1d6/19-20, 3 machetes) or +6 ranged</p>",
         "source": "Urban Arcana",
@@ -178,7 +178,7 @@
       "_id": "bVvd0zMvbiZrTfii",
       "name": "Machete (x3) (+0)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (1d6+1/19-20, machete), +0 melee (1d6/19-20, 3 machetes) or +6 ranged</p>",
         "source": "Urban Arcana",
@@ -211,7 +211,7 @@
       "_id": "zBSiggLs2mk2rqPQ",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -230,7 +230,7 @@
       "_id": "xNZEAAYSqOxMkLxW",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -249,7 +249,7 @@
       "_id": "iGwcw52JygpBRItQ",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -268,7 +268,7 @@
       "_id": "B4URirJfBrt1Ut4V",
       "name": "Multiweapon Fighting*",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -287,7 +287,7 @@
       "_id": "c8BO6BiGAspjzpFF",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -306,7 +306,7 @@
       "_id": "nhblvz1U81tj7PVx",
       "name": "Fascinate",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A dreamghast can fascinate onlookers by staring at the targets and speaking softly. The targets must be within 60 feet of the dreamghast and must be able to see and hear the dreamghast. The dreamghast must also see the creatures it intends to fascinate. The distraction of a nearby combat or other dangers prevents the ability from working. Otherwise, creatures that fail a @Check[save:will|dc:21]{Will save (DC 21)} remain stationary and quiet, staring at and listening to the dreamghast as long as the dreamghast maintains the fascinate effect for up to 1 minute.</p><p>Any potential threat (such as a thrall of the dreamghast moving behind the fascinated creature) allows an affected target a new save against the fascinate effect. Any obvious threat, such as drawing a weapon, automatically breaks the effect. While using the fascinate ability, a dreamghast must spend an attack action each round concentrating. The fascinate ability is a spell-like, mind-affecting charm ability.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -322,7 +322,7 @@
       "_id": "mJB2eLQ3epPaFdnt",
       "name": "Change Self",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -338,7 +338,7 @@
       "_id": "YPey0YDjdvQtc1di",
       "name": "Despair",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>The mere sight of a dreamghast in its true form forces the viewer to succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that dreamghast’s despair ability for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -354,7 +354,7 @@
       "_id": "Ba2o4BQ9CeGylGec",
       "name": "Detect Dreams",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A dreamghast can observe the dreams of a sleeping creature within 60 feet. This functions like the detect thoughts power manifested by a 10th-level Telepath, except that it only functions on sleeping creatures.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -370,7 +370,7 @@
       "_id": "jN6Sr1oKTFbzt2Oi",
       "name": "Dream Eating",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -386,7 +386,7 @@
       "_id": "bBH64z1q2u2FNT1r",
       "name": "Enslave",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>If the dreamghast considers a dream-eating victim particularly interesting or useful, he may implant a series of enslavement commands in the victim’s mind. The target must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be affected as though by a domination power manifested by a 10th-level Telepath. The dreamghast commands the enslaved victim telepathically when the victim sleeps; when the victim is awake, it acts on previous orders but can’t be given new ones. An enslaved creature obeys the dreamghast’s commands until freed by a dispel magic or remove curse spell or a negate psionics power. The enslaved creature can also attempt a new @Check[save:will]{Will save} every 24 hours to break free. The control is also broken if the dreamghast dies or travels more than 1 mile from its slave.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -402,7 +402,7 @@
       "_id": "piPJB8uUfegmEhlT",
       "name": "Memory Loss",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once the dreamghast eats someone’s dreams, it may consume the subject’s memories as well. The victim must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or suffer complete memory loss. The victim has no memory of his identity, background, family, friends, and so forth. The memory loss has no effect on languages known, class-related talents, or other class features. The subject temporarily loses all Knowledge skills but retains all other skills. The memory loss persists until the victim receives a break enchantment spell or undergoes 1d6 months of therapy.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -418,7 +418,7 @@
       "_id": "NFKoYXo3Mje064zv",
       "name": "Damage Reduction 10/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -434,7 +434,7 @@
       "_id": "m0GR0jHq3IbB0mDY",
       "name": "Fire Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>Dreamghasts ignore the first 10 points of fire damage dealt by any single attack.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -450,7 +450,7 @@
       "_id": "smt1bG0Itzyf2Woq",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A dreamghast is immune to ballistic damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -466,7 +466,7 @@
       "_id": "LGFfYwBF3s95TYCn",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -482,7 +482,7 @@
       "_id": "KgtdFAPnUB1C792g",
       "name": "Devour Dreams",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A dreamghast can caress the forehead of a sleeping victim and consume its dreams for itself. The process requires 10 minutes of uninterrupted feeding, during which time a cloud or roiling vapor emerges from the victim’s head and is sucked into the dreamghast’s gaping maw. Once the dream is devoured, the dreamghast gains a +1 luck bonus on attacks, ability checks, skill checks, and saves and 4 temporary hit points per Hit Die of the victim. The luck bonus and temporary hit points last for 24 hours. At the end of the dream-eating process, the dreamghast chooses whether it wants to enslave the victim or cause memory loss (see below); either is a free action. A sleeping victim has no chance of waking during the dream-devouring process.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

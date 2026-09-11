@@ -2,7 +2,7 @@
   "_id": "oacjvcZf3aUN5djd",
   "name": "Halfling",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -200,7 +200,7 @@
       "_id": "fnW9oVd6TFWWPKwS",
       "name": "Unarmed",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed) or +0 melee (1d4-1/19-20, knife) or +2 ranged (1d4 electricity plus paralysis, taser) or +3 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -233,7 +233,7 @@
       "_id": "6mhzCmX7Q7KsqqlW",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed) or +0 melee (1d4-1/19-20, knife) or +2 ranged (1d4 electricity plus paralysis, taser) or +3 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -266,7 +266,7 @@
       "_id": "JItDIPOk0pVsFotc",
       "name": "Taser",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed) or +0 melee (1d4-1/19-20, knife) or +2 ranged (1d4 electricity plus paralysis, taser) or +3 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -299,7 +299,7 @@
       "_id": "hPZCTC9eeIMwys4L",
       "name": "Slingshot",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed) or +0 melee (1d4-1/19-20, knife) or +2 ranged (1d4 electricity plus paralysis, taser) or +3 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -332,7 +332,7 @@
       "_id": "7elGv0jnknNLGkc5",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -351,7 +351,7 @@
       "_id": "GgZtcUleRjG4HECz",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -370,7 +370,7 @@
       "_id": "suvFJaJujJSJH6bA",
       "name": "Special Combat Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain a +1 species bonus on attacks with thrown weapons and slings.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -386,7 +386,7 @@
       "_id": "2RxYVCxjVMVdag3O",
       "name": "Saving Throw Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain a +1 species bonus on all saving throws. In addition, they gain an additional +2 morale bonus on saving throws against fear.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -402,7 +402,7 @@
       "_id": "LD2gc8OeIFx4c4Tq",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain a +2 species bonus on Climb, Jump, Listen, and @Check[skill:moveSilently]{Move Silently check}s. In addition, halflings gain the bonus skills Read/Write Language (any one) and Speak Language (any one).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -418,7 +418,7 @@
       "_id": "Hht7qgWk7yaB7WL5",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain the bonus feat Archaic Weapons Proficiency.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

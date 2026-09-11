@@ -2,7 +2,7 @@
   "_id": "aO1xXCVFp5oRAGMZ",
   "name": "Very Young Dragon",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/dragon-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -194,7 +194,7 @@
       "_id": "9ul7YIOF6WPBQITD",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+12 melee (1d8+2, bite), +7 melee (1d6+1, 2 claws), +7 melee (1d4+1, 2 wings)</p>",
         "source": "Urban Arcana",
@@ -227,7 +227,7 @@
       "_id": "6xOyFYn4ksRHIjHZ",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+12 melee (1d8+2, bite), +7 melee (1d6+1, 2 claws), +7 melee (1d4+1, 2 wings)</p>",
         "source": "Urban Arcana",
@@ -260,7 +260,7 @@
       "_id": "0qUlMmvFmDDfc5UZ",
       "name": "Wing (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/feathered-wing.svg",
       "system": {
         "description": "<p>+12 melee (1d8+2, bite), +7 melee (1d6+1, 2 claws), +7 melee (1d4+1, 2 wings)</p>",
         "source": "Urban Arcana",
@@ -293,7 +293,7 @@
       "_id": "PrZbbF8IFERcYjlq",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "dATtZ0kVM2bQ2XZM",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -334,7 +334,7 @@
       "_id": "oyCDkXKVCHDwdCYv",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -355,7 +355,7 @@
       "_id": "ZlfpVQP9nXQvMCDu",
       "name": "Breath Weapon",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>A breath weapon attack usually causes damage and is often based on some type of energy. It allows a @Check[save:ref]{Reflex save} for half damage with a DC equal to 10 + ½ breathing creature’s HD + breathing creature’s Constitution modifier (the exact DC is given in the creature’s Species Traits). A creature is immune to its own breath weapon and those of others of its kind unless noted otherwise.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -371,7 +371,7 @@
       "_id": "yMUlVpESywqjy3FC",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -387,7 +387,7 @@
       "_id": "XUarKJGcys9ytydC",
       "name": "Blindsight 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -403,7 +403,7 @@
       "_id": "ImedKxhmix76omwL",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -419,7 +419,7 @@
       "_id": "jgLOYKTlbWtPuMtT",
       "name": "Darkvision 200 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

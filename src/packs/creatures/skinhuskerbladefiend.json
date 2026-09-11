@@ -2,7 +2,7 @@
   "_id": "KGI3fMbn9GlrsPf8",
   "name": "Skinhusker (Blade Fiend)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -194,7 +194,7 @@
       "_id": "qpQsXZusXHXy5T8U",
       "name": "Bone armblade (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+11 melee (1d8+5/19-20, 2 bone armblades), or +5 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -227,7 +227,7 @@
       "_id": "TTC5nOBnrZy55Vg6",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -249,7 +249,7 @@
       "_id": "H6HldCPSQqOMV3B2",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -270,7 +270,7 @@
       "_id": "4CJC9yomKTv5OqVQ",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -289,7 +289,7 @@
       "_id": "g7BqukC7bjJA2Epq",
       "name": "Improved Critical (bone armblade)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skinhusker threatens a critical hit on a natural roll of 19 or 20.</p>",
         "source": "d20 Modern SRD",
@@ -305,7 +305,7 @@
       "_id": "ZjymV22jjTlRXh60",
       "name": "Immune to Fire and Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -321,7 +321,7 @@
       "_id": "OHzXpvqNSGDOhTq8",
       "name": "Electricity Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skinhusker ignores the first 20 points of damage from any attack that deals electricity damage.</p>",
         "source": "d20 Modern SRD",
@@ -337,7 +337,7 @@
       "_id": "Y37h1joXHoYfB7Ip",
       "name": "Damage Reduction 10/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "source": "d20 Modern SRD",
@@ -353,7 +353,7 @@
       "_id": "J78uQu67aR3LIWix",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -369,7 +369,7 @@
       "_id": "t9osU5yBPcID9jQ5",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -385,7 +385,7 @@
       "_id": "pIibUJ19khmjXTxI",
       "name": "Death Explosion",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>When a skinhusker is reduced to –1 or fewer hit points, it explodes in a ball of flame. All creatures in adjacent squares take 2d6 points of fire damage; a successful @Check[save:ref|dc:12]{Reflex save (DC 12)} halves the damage.</p>",
         "source": "d20 Modern SRD",
@@ -401,7 +401,7 @@
       "_id": "v0ImPiq9o2qWJ3xT",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skinhusker is immune to fire and poison</p>",
         "source": "d20 Modern SRD",

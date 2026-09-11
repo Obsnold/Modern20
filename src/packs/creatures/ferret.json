@@ -2,7 +2,7 @@
   "_id": "ZrNq0Adbr8fAxcSc",
   "name": "Ferret",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -140,7 +140,7 @@
       "_id": "r5lutI8Wu3jIgEM9",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d3-4, bite)</p>",
         "source": "d20 Modern SRD",
@@ -173,7 +173,7 @@
       "_id": "sLFNOOZYx3jJTsHF",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -195,7 +195,7 @@
       "_id": "N8iZZm3vb8DDJbuA",
       "name": "Attach",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If a ferret hits with a bite attack, it uses its powerful jaws to latch onto the opponent’s body and automatically deals bite damage each round it remains attached. An attached ferret loses its Dexterity bonus to Defense and has a Defense of 12.</p>",
         "source": "d20 Modern SRD",
@@ -211,7 +211,7 @@
       "_id": "2i0YQgT9GgDua0kE",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -227,7 +227,7 @@
       "_id": "f77jQ2mlZC5Ump3M",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a ferret to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "d20 Modern SRD",
@@ -243,7 +243,7 @@
       "_id": "eW5soFyIZRf8NRwH",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A ferret receives a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on @Check[skill:moveSilently]{Move Silently check}s. It uses its Dexterity modifier for @Check[skill:climb]{Climb check}s.</p>",
         "source": "d20 Modern SRD",
@@ -259,7 +259,7 @@
       "_id": "WnT44xsdOLmcBf49",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A ferret gains the bonus feat Weapon Finesse (bite).</p>",
         "source": "d20 Modern SRD",

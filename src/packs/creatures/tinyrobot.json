@@ -2,7 +2,7 @@
   "_id": "jsLwZxBp6403AH1o",
   "name": "Tiny Robot",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -109,7 +109,7 @@
       "_id": "FVOEB3pw9TbVazPf",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Robots have the traits and immunities common to constructs.</p>",
         "source": "d20 Modern SRD",
@@ -125,7 +125,7 @@
       "_id": "yilokZHdQHZXzPBj",
       "name": "Speed",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A robot’s speed depends on its size and method of locomotion (bipedal, quadrupedal, tracked, or wheeled). The different speeds are given with each robot’s statistics (below).</p>",
         "source": "d20 Modern SRD",
@@ -141,7 +141,7 @@
       "_id": "6aCfdHezsUld7lw4",
       "name": "Attacks",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A robot is not normally equipped with weapons. Robots fitted with arms or similar manipulators can attempt to grapple things, but the manipulators are too small to deal damage.</p>",
         "source": "d20 Modern SRD",
@@ -157,7 +157,7 @@
       "_id": "hzkKBoIkFcYNCtlC",
       "name": "Skills",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A character with four or more levels in the Techie advanced class can program one or more ranks of a single skill into a Diminutive or Tiny robot. Otherwise, a robot has no skills.</p>",
         "source": "d20 Modern SRD",

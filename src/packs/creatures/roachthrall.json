@@ -2,7 +2,7 @@
   "_id": "gMP0D9wfhHe92tUH",
   "name": "Roach Thrall",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/floating-tentacles.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -178,7 +178,7 @@
       "_id": "o5x3BfOh1axpbgX0",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+2 melee (1d4, 2 claws or 4 claws)</p>",
         "source": "Urban Arcana",
@@ -211,7 +211,7 @@
       "_id": "VXTOzSuJNS1BkLry",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -230,7 +230,7 @@
       "_id": "aiDVZi2rhpbunEj7",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -249,7 +249,7 @@
       "_id": "VbkEam4JnvBEybPm",
       "name": "Deceptive",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -268,7 +268,7 @@
       "_id": "a39yrxX4kDKpHnCc",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -287,7 +287,7 @@
       "_id": "cj7ivrjEfIy3dveG",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -306,7 +306,7 @@
       "_id": "qH9Kf7pyFqRQPM1X",
       "name": "Human Host",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>While inside its human host, the roach thrall can’t use its natural weapons or darkvision. The host body has 10 hit points; if it’s reduced to 0 or fewer hit points, the roach thrall automatically spends a full-round action growing out of the ruined host.</p><p>The roach thrall can voluntarily cast aside its host body as a full-round action.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -322,7 +322,7 @@
       "_id": "MgdC1wvpHLRh6zNh",
       "name": "Multiple Limbs",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Once they’ve emerged from their human hosts, roach thralls walk upright for a few days before reverting to the gait of a cockroach. This is a preference, not a mandate; the roach thrall can choose whether to be upright or not once per round as a free action. An upright roach thrall has a speed of 30 feet and can use four limbs to attack. Otherwise, it has a speed of 40 feet and can only use two limbs to attack.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -338,7 +338,7 @@
       "_id": "AZF0lrdvFrdxiBVf",
       "name": "Resistance to Massive Damage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Although roach thralls aren’t vermin, they share some attributes with cockroaches. Roach thralls gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -354,7 +354,7 @@
       "_id": "Gypc73jlLF0Mtppp",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Roach thralls outside of their human hosts can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and otyughs can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -370,7 +370,7 @@
       "_id": "k0Zwww4rKTCBaFkp",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The roach thrall living inside a human host gains a +10 species bonus on @Check[skill:disguise]{Disguise check}s. It also gains a +5 species bonus on @Check[skill:bluff]{Bluff check}s when attempting to pass itself off as its human host.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

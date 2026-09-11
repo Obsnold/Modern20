@@ -2,7 +2,7 @@
   "_id": "nXnAisrOWbEGOHiV",
   "name": "Skeletal Rat Swarm",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -111,7 +111,7 @@
       "_id": "UIJppG30XtyQlzeP",
       "name": "Swarm",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -127,7 +127,7 @@
       "_id": "NiFrzcZ6wJaKrIuc",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Skeletal rat swarms are immune to poison, sleep, paralysis, stunning, disease, necromantic effects, and mindaffecting effects. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or effects of massive damage, or any effect requiring a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They may be healed by application of negative energy (such as an inflict light wounds spell). The swarm is destroyed if reduced to 0 hit points or less.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -143,7 +143,7 @@
       "_id": "FfiSXeA7v9H9VLzk",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skeletal rat swarm is immune to cold and takes only one-quarter damage from ballistic, piercing, or slashing weapons.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -159,7 +159,7 @@
       "_id": "ty8MPGorsEpMhtvX",
       "name": "Distraction",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -175,7 +175,7 @@
       "_id": "QfyVMpoweAnVVMXe",
       "name": "Darkvision 60 ft",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A skeletal rat swarm can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and the skeletal rats can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

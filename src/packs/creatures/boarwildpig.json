@@ -2,7 +2,7 @@
   "_id": "FcxP3pO7M2uS12B6",
   "name": "Boar (Wild Pig)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -122,7 +122,7 @@
       "_id": "dsYUdRiwEaXlsa2k",
       "name": "Gore",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
       "system": {
         "description": "<p>+4 melee (1d8+3, gore)</p>",
         "source": "Menace Manual",
@@ -155,7 +155,7 @@
       "_id": "Gk4UtFBA7XRXekyZ",
       "name": "Ferocity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A boar is so fiercely aggressive in combat that it continues fighting even when disabled or dying.</p>",
         "source": "Menace Manual",
@@ -171,7 +171,7 @@
       "_id": "diZw8mlZkUU0KI8U",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -187,7 +187,7 @@
       "_id": "gKDSTTKQQqSnJNZY",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a boar to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",

@@ -2,7 +2,7 @@
   "_id": "35E6WEq9sBpYE3ql",
   "name": "Ogre",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/giant.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -142,7 +142,7 @@
       "_id": "FV4GBIbdhb0t5rrP",
       "name": "Huge club",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+8 melee (2d6+7, Huge club), or +7 melee (1d4+5, slam), or +1 ranged</p>",
         "source": "d20 Modern SRD",
@@ -175,7 +175,7 @@
       "_id": "VjJkwY8Rmr1gXRY1",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+8 melee (2d6+7, Huge club), or +7 melee (1d4+5, slam), or +1 ranged</p>",
         "source": "d20 Modern SRD",
@@ -208,7 +208,7 @@
       "_id": "mMjGpsfXFFcmMvl4",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -227,7 +227,7 @@
       "_id": "ZBYPDLJbF7nChJUZ",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -249,7 +249,7 @@
       "_id": "9NOZutd89oPlvJeH",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -265,7 +265,7 @@
       "_id": "JNYJdASL0atxArBo",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An ogre gains the bonus feat Archaic Weapons Proficiency or Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -281,7 +281,7 @@
       "_id": "vJxFiGjUm8H1BAlM",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Ogres speak (but neither read nor write) Giant or one other language.</p>",
         "source": "d20 Modern SRD",

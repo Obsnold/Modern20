@@ -2,7 +2,7 @@
   "_id": "RG9nUXvSv1DJADiv",
   "name": "Giant Squid",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -128,7 +128,7 @@
       "_id": "Ayvyfbqgzhm2rnrD",
       "name": "Tentacle rake (x10)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+15 melee (1d6+8, 10 tentacle rakes), +10 melee (2d6+4, bite)</p>",
         "source": "Urban Arcana",
@@ -161,7 +161,7 @@
       "_id": "IL4HEdJeNvBuCjlJ",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+15 melee (1d6+8, 10 tentacle rakes), +10 melee (2d6+4, bite)</p>",
         "source": "Urban Arcana",
@@ -194,7 +194,7 @@
       "_id": "bxxyhqs1TJ4PznuX",
       "name": "Aquatic",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/splash.svg",
       "system": {
         "description": "<p>Squid can move in water without making @Check[skill:swim]{Swim check}s, and they cannot drown in water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -210,7 +210,7 @@
       "_id": "vnyMQZa2KlLvyhmn",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the squid must hit with its tentacle arm attack. If it gets a hold, the squid automatically deals bite damage each round the hold is maintained. Squid and giant squid are treated as one size category larger for purposes of determining their grapple check bonus. If a giant squid makes a successful strike with its tentacle rake attack against a target smaller than itself, it can constrict (see below).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -226,7 +226,7 @@
       "_id": "mjByTwLfgEUdtoif",
       "name": "Constrict",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>A giant squid deals automatic tentacle damage with a successful grapple check against creatures smaller than itself.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -242,7 +242,7 @@
       "_id": "XgFUUqkGNlsVHa0O",
       "name": "Ink Cloud",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Both the squid and giant squid can emit a cloud of jet-black ink as a free action. The squid’s ink cloud fills a 10-foot cube, while the giant squid’s ink cloud fills a 20-foot cube. The cloud provides total concealment, which the squid normally uses to escape a losing fight. All vision within the cloud is obscured.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -258,7 +258,7 @@
       "_id": "IKrt4EFya8pnSXz1",
       "name": "Jet",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A squid or giant squid can jet backward once per round as a full-round action. This increases the squid’s speed to 240 feet and the giant squid’s speed to 320 feet.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -274,7 +274,7 @@
       "_id": "IiBlImFC9YagBmDy",
       "name": "Darkvision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Squid can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and squid can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -290,7 +290,7 @@
       "_id": "uziS3cjcSCaKN3aB",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Normal squid (but not giant squid) gain the bonus feats Weapon Finesse (bite) and Weapon Finesse (tentacles)</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

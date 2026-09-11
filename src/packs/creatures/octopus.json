@@ -2,7 +2,7 @@
   "_id": "PtMqxCrFXLfTPHKe",
   "name": "Octopus",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -140,7 +140,7 @@
       "_id": "8HYfkgx4jsFK4YW0",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (special, tentacles), -1 melee (1d4, bite)</p>",
         "source": "Urban Arcana",
@@ -173,7 +173,7 @@
       "_id": "ZGQ11Uub149mbwUy",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -195,7 +195,7 @@
       "_id": "70XE4uOkEHiL04P5",
       "name": "Aquatic",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/splash.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -211,7 +211,7 @@
       "_id": "VSDiDsXvh2axc4Yy",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>If the creature hits with a melee weapon it deals normal damage and attempts to start a grapple as a free action, doing so without provoking attacks of opportunity. No initial touch attack is required. Unless otherwise stated, improved grab works only against opponents at least one size category smaller than the creature. A Small or smaller creature using improved grab does not apply its grapple modifier to its grapple check.</p><p>The creature has the option to conduct the grapple normally, or simply use the part of its body it used in the improved grab to hold the opponent. If it chooses to do the latter, it takes a –20 penalty on grapple checks but is not considered grappled itself; the creature does not lose its Dexterity bonus to Defense, still threatens an area, and can use its remaining attacks against other opponents.</p><p>A successful hold does not deal additional damage unless the creature also has the constrict ability (see above). If the creature does not constrict, each successful grapple check it makes during successive rounds automatically deals the damage given for the attack that established the hold.</p><p>When a creature gets a hold after an improved grab attack, it pulls the opponent into its space. This act does not provoke attacks of opportunity. The creature is not considered grappled while it holds the opponent, so it still threatens adjacent squares and retains its Dexterity bonus. It can even move, provided it can drag the opponent’s weight.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -227,7 +227,7 @@
       "_id": "gXlj2zuCELHmk1Fq",
       "name": "Poison (DC 10)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Poison attacks deal initial damage, such as temporary ability damage (see above) or some other effect, to the opponent on a failed @Check[save:fort]{Fortitude save}. Unless otherwise noted, another saving throw is required 1 minute later (regardless of the first save’s result) to avoid secondary damage.</p><p>The @Check[save:fort]{Fortitude save} against poison has a DC equal to 10 + 1/2 poisoning creature’s HD + poisoning creature’s Constitution modifier (the exact DC is given in the creature’s Species Traits). A successful save negates the damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -243,7 +243,7 @@
       "_id": "1pg3LCNI22gEm8G2",
       "name": "Ink Cloud",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -259,7 +259,7 @@
       "_id": "FTQQ4mkC8PdQi3af",
       "name": "Jet",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -275,7 +275,7 @@
       "_id": "4DIq6mffqZPUjCs0",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

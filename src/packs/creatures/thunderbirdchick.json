@@ -2,7 +2,7 @@
   "_id": "vmtPp9nT3qBVpuFn",
   "name": "Thunderbird (Chick)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/beast-eye.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -153,7 +153,7 @@
       "_id": "chGXg3U8UcrAWDrO",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+6 melee (1d6, bite) and +1 melee (1d4, 2 claws)</p>",
         "source": "Menace Manual",
@@ -186,7 +186,7 @@
       "_id": "l1jw438YyDlpd0la",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+6 melee (1d6, bite) and +1 melee (1d4, 2 claws)</p>",
         "source": "Menace Manual",
@@ -219,7 +219,7 @@
       "_id": "bRYGSZdg127lN2vO",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -241,7 +241,7 @@
       "_id": "f5P0Q0RwQoXrPy6h",
       "name": "Breath Weapon (2d10; DC 13)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>Every 1d4 rounds, a thunderbird can breathe a 60-foot-long cone of sonic energy as an attack action. Any creature in the cone takes 1d10 points of sonic damage per 2 Hit Dice of the thunderbird (8d10 for the typical adult specimen). A successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the thunderbird’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
@@ -269,7 +269,7 @@
       "_id": "KWHykHHeQKBtPw7T",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -285,7 +285,7 @@
       "_id": "MTkJQcHvFN2zAl1X",
       "name": "Fear Aura (DC 13)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>Any creature within 60 feet of a thunderbird must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the thunderbird’s Hit Dice + its Charisma modifier) or be shaken for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that thunderbird’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
@@ -313,7 +313,7 @@
       "_id": "f8GdD2Iw2q7Lxwz5",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the thunderbird must hit a single opponent at least two size categories smaller than itself with both claw attacks in the same round. If it gets a hold, it automatically deals damage for two claw attacks and a bite attack each round that the hold is maintained.</p>",
         "source": "Menace Manual",
@@ -329,7 +329,7 @@
       "_id": "7X0SnoscVb8PHYvv",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Thunderbirds are immune to electricity and sonic damage.</p>",
         "source": "Menace Manual",
@@ -345,7 +345,7 @@
       "_id": "29berJ3CIrMy8Xbu",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -361,7 +361,7 @@
       "_id": "0yXEpiokUYB6toCF",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A thunderbird can speak Auran (the language of avian creatures).</p>",
         "source": "Menace Manual",

@@ -2,7 +2,7 @@
   "_id": "ZElSE5hOWGkpjP5X",
   "name": "Urban Wendigo",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/giant.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -152,7 +152,7 @@
       "_id": "5vw0Q9VvIAsBxguv",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+9 melee (1d6+6, 2 claws), +4 melee (1d6+3, bite) or +4 ranged)</p>",
         "source": "Urban Arcana",
@@ -185,7 +185,7 @@
       "_id": "tunyZjAkq9tnETBF",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+9 melee (1d6+6, 2 claws), +4 melee (1d6+3, bite) or +4 ranged)</p>",
         "source": "Urban Arcana",
@@ -218,7 +218,7 @@
       "_id": "0KS9uVcELwC5wocF",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -239,7 +239,7 @@
       "_id": "2iXSLV6hB7xAbP81",
       "name": "Mobility",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -261,7 +261,7 @@
       "_id": "atSp5mi7p4vpfbQ4",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -280,7 +280,7 @@
       "_id": "o6OdeLSKW4ElzQOK",
       "name": "Rage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An urban wendigo that takes damage in combat flies into a berserk rage the following round, clawing and biting madly until either it or its opponent is dead. An enraged urban wendigo gains +4 Strength and +4 Constitution, and takes a –2 penalty Defense. The creature cannot end its rage voluntarily.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -296,7 +296,7 @@
       "_id": "jpJ9MxZZJrJ3u657",
       "name": "Rend 2d6+9",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If an urban wendigo hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. This attack automatially deals an additional 2d6+9 points of damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -312,7 +312,7 @@
       "_id": "dmupHHVVTeXXoDAd",
       "name": "Ferocity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An urban wendigo is such a tenacious combatant that it continues to fight without penalty even while disabled or dying.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -328,7 +328,7 @@
       "_id": "BRgJoIgbZAhk56rW",
       "name": "Peripheral Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A side effect of the desolation that created the urban wendigo in the first place, the urban wendigo gains the benefit of invisibility, as the spell cast by a 10th-level Mage. By staying out of the direct, focused vision of city dwellers, the urban wendigo can roam the city unseen. Unlike the invisibility spell, any character looking in the general direction of the urban wendigo and taking an attack action to make a @Check[skill:spot]{Spot check} (DC = the urban wendigo’s @Check[skill:hide]{Hide check}) can see the urban wendigo if the check succeeds. Once a character sees an urban wendigo, that character is immune to its peripheral invisibility for 1 hour.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -344,7 +344,7 @@
       "_id": "LyTd69XXb1R1qBft",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the urban wendigo to detect approaching enemies, sniff out hidden foes, and track by scent.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -360,7 +360,7 @@
       "_id": "Y6EOcNZIF525kcwW",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Urban wendigos can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -376,7 +376,7 @@
       "_id": "64Sv6icCXylhYCm9",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Urban wendigos gain a +10 species bonus on Balance, Climb, Jump, and @Check[skill:survival]{Survival check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

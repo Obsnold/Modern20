@@ -2,7 +2,7 @@
   "_id": "i6I1vg0bXHsmjWTB",
   "name": "Halfling Fast Hero 1/Charismatic Hero 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -246,7 +246,7 @@
       "_id": "2KT07ppyfk4vubMi",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -279,7 +279,7 @@
       "_id": "TDNV6Pu0seDW9Io2",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -312,7 +312,7 @@
       "_id": "CycYQObJ6PmH9BVa",
       "name": "Pathfinder",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -345,7 +345,7 @@
       "_id": "emTHqSmlZXeZGr7c",
       "name": "Taser",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -378,7 +378,7 @@
       "_id": "dikJZF7iThAGDUzM",
       "name": "Slingshot",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
         "source": "Urban Arcana",
@@ -411,7 +411,7 @@
       "_id": "HdVlluq65oM7fejX",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -430,7 +430,7 @@
       "_id": "TVBK8WyFJWKoyxOL",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -449,7 +449,7 @@
       "_id": "YuXPg3syj1AgyrXL",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -468,7 +468,7 @@
       "_id": "nMcF5L0VJolLNkIo",
       "name": "Special Combat Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain a +1 species bonus on attacks with thrown weapons and slings.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -484,7 +484,7 @@
       "_id": "NYtYQ1WZVxd9IgZy",
       "name": "Saving Throw Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain a +1 species bonus on all saving throws. In addition, they gain an additional +2 morale bonus on saving throws against fear.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -500,7 +500,7 @@
       "_id": "DHZzzTj91qA4at8J",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain a +2 species bonus on Climb, Jump, Listen, and @Check[skill:moveSilently]{Move Silently check}s. In addition, halflings gain the bonus skills Read/Write Language (any one) and Speak Language (any one).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -516,7 +516,7 @@
       "_id": "VvuUB1aWWMEVzBU5",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Halflings gain the bonus feat Archaic Weapons Proficiency.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

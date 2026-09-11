@@ -2,7 +2,7 @@
   "_id": "13Uok5JNqfppKpxf",
   "name": "Bodak",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -145,7 +145,7 @@
       "_id": "Kmcorqyl43wfhQeT",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+7 melee (1d4+1, slam)</p>",
         "source": "Menace Manual",
@@ -178,7 +178,7 @@
       "_id": "03KzFieCd26ShS98",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -199,7 +199,7 @@
       "_id": "DYpGj1Vyfy2L6Ala",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -218,7 +218,7 @@
       "_id": "OZcce3pX59Ei72RH",
       "name": "Acid and Fire Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A bodak ignores the first 20 points of acid or fire damage from any single attack.</p>",
         "source": "Menace Manual",
@@ -234,7 +234,7 @@
       "_id": "0tP612KAn7juKIOg",
       "name": "Damage Reduction 15/+1 15/silver",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A bodak ignores the first 15 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the bodak’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
@@ -250,7 +250,7 @@
       "_id": "wP3p1RAG8cVNvfau",
       "name": "Death Gaze (DC 15)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
         "description": "<p>Any creature within 30 feet of a bodak that meets its gaze must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the bodak’s Hit Dice + its Charisma modifier) or die instantly. This ability is usable at will.</p>",
         "source": "Menace Manual",
@@ -278,7 +278,7 @@
       "_id": "IrcYJjikzBhH2nN6",
       "name": "Electricity Immunity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A bodak is immune to electricity damage.</p>",
         "source": "Menace Manual",
@@ -294,7 +294,7 @@
       "_id": "UJdTHOXjJlEIpCux",
       "name": "Flashbacks",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Occasionally, a bodak sees something that reminds it of its past life. At the start of every encounter, there is a 5% chance that a bodak notices something about an opponent (randomly determined if more than one opponent is present) that triggers its memory of the past. When such a flashback occurs, the bodak takes no actions for 1 round, though it can defend itself normally. Thereafter, it takes a –2 morale penalty on all attack rolls directed at that opponent for the remainder of the combat.</p>",
         "source": "Menace Manual",
@@ -310,7 +310,7 @@
       "_id": "gFCiVN80bVGESNgo",
       "name": "Sunlight Vulnerability",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The merest touch of sunlight sears a bodak’s tainted alien flesh. Each round of exposure to the direct rays of the sun deals 1 point of damage to the creature.</p>",
         "source": "Menace Manual",
@@ -326,7 +326,7 @@
       "_id": "vHfS4H7n0YTzio5k",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A bodak has the traits and immunities common to undead.</p>",
         "source": "Menace Manual",
@@ -342,7 +342,7 @@
       "_id": "DPPHdGLZTwaEspZu",
       "name": "Languages",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A bodak does not speak.</p>",
         "source": "Menace Manual",

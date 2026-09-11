@@ -2,7 +2,7 @@
   "_id": "jFcbH3nDyeEHF1jA",
   "name": "Donkey",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -128,7 +128,7 @@
       "_id": "M80uEFOgUEgTk8dW",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+1 melee (1d3, bite)</p>",
         "source": "Urban Arcana",
@@ -161,7 +161,7 @@
       "_id": "2YsjYheF0OMOeHij",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Donkeys can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -177,7 +177,7 @@
       "_id": "PxsqZUjY7FiljS50",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the donkey to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -193,7 +193,7 @@
       "_id": "fQ3Mj3nZJpwEzBTK",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Donkeys gain a +2 species bonus on @Check[skill:balance]{Balance check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

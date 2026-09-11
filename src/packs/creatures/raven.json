@@ -2,7 +2,7 @@
   "_id": "WWIznTy7844mxXQN",
   "name": "Raven",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -122,7 +122,7 @@
       "_id": "KGqp7G91mMz3cL3U",
       "name": "Claw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d2-5, claw)</p>",
         "source": "d20 Modern SRD",
@@ -155,7 +155,7 @@
       "_id": "y8qrRcnNPwzYmxcU",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -177,7 +177,7 @@
       "_id": "OXkmuDEToLXEGZa1",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a horse to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
         "source": "d20 Modern SRD",

@@ -2,7 +2,7 @@
   "_id": "QW8IsDOEFOC04Gag",
   "name": "Puppeteer",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/skoll/long-legged-spider.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -128,7 +128,7 @@
       "_id": "xH4uzTrJzVIuF9l1",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+3 melee (1, bite)</p>",
         "source": "d20 Modern SRD",
@@ -161,7 +161,7 @@
       "_id": "7QREN3s3cosF061H",
       "name": "Glide",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A puppeteer can glide through the air at a speed of 20 feet for up to 16 minutes at a time, with poor maneuverability. The puppeteer cannot manifest psionic powers while gliding.</p>",
         "source": "d20 Modern SRD",
@@ -177,7 +177,7 @@
       "_id": "SPOoY29pR7zahxUc",
       "name": "Psionics",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>3/day—brain lock, lesser domination. These abilities are as the psionic powers of an 8th-level manifester.</p>",
         "source": "d20 Modern SRD",
@@ -193,7 +193,7 @@
       "_id": "rU7e17rKtSZoyCZx",
       "name": "Thrall",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>If a puppeteer successfully uses lesser domination on its host seven times, the final effect is permanent, bonding the host to the puppeteer. The thralled host will carry out the orders of the puppeteer, including self-destructive orders. Actions against the host’s original nature allow the host a @Check[save:will|dc:22]{Will save (DC 22)} to resist, with a –10 penalty on the roll. A successful save negates that particular action (or future occurrences of that action), but the host remains the puppeteer’s thrall.</p>",
         "source": "d20 Modern SRD",
@@ -209,7 +209,7 @@
       "_id": "LELKUgDk20j9hGyB",
       "name": "Shared Host",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When multiple puppeteers prey on a single host, the blood drain can be too great for the host to bear. The extensive blood drain deals 1 point of temporary Constitution damage per day, and a host reduced to 0 Constitution in this fashion dies. The minimum number of puppeteers needed to cause temporary Constitution damage depends on the host’s size: Diminutive 2, Tiny 4, Small 12, Medium-size 20, Large 30, Gargantuan 50, Colossal 90.</p>",
         "source": "d20 Modern SRD",
@@ -225,7 +225,7 @@
       "_id": "Vc9gHUuw5Eghl6nS",
       "name": "Blindsight 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A puppeteer can ascertain creatures by nonvisual means within 60 feet. The puppeteer confers blindsight upon its host.</p>",
         "source": "d20 Modern SRD",
@@ -241,7 +241,7 @@
       "_id": "bliS2v9j8JR7eoZB",
       "name": "Host Protection",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An attached puppeteer uses its host’s base saving throw bonuses if they’re better than its own. Effects that target vermin can’t affect a puppeteer riding a humanoid host.</p>",
         "source": "d20 Modern SRD",
@@ -257,7 +257,7 @@
       "_id": "zuau5h0rJSkNKTNq",
       "name": "Immune to Mind-Influencing Effects",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -273,7 +273,7 @@
       "_id": "HYLqa4tidYvesSmL",
       "name": "Resistance to Massive Damage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Puppeteers gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage. This ability is conferred upon the puppeteer’s host as well.</p>",
         "source": "d20 Modern SRD",
@@ -289,7 +289,7 @@
       "_id": "XED8ryi6rYmMqKBq",
       "name": "Combined Challenge Rating",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The Challenge Rating of a puppeteer with a host is equal to the host’s Challenge Rating +1.</p>",
         "source": "d20 Modern SRD",
@@ -305,7 +305,7 @@
       "_id": "Hgs56bw3bNyOhA2e",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Puppeteers are immune to mind-influencing effects. This ability is conferred upon the puppeteer’s host as well.</p>",
         "source": "d20 Modern SRD",
@@ -321,7 +321,7 @@
       "_id": "GO5wStOMEUJG6N9b",
       "name": "Shared Skills",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The puppeteer retains its skills when it takes a host. The host gains a +4 bonus on Listen and @Check[skill:spot]{Spot check}s.</p>",
         "source": "d20 Modern SRD",

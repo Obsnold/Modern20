@@ -2,7 +2,7 @@
   "_id": "gC1yySDw7N6ToAUM",
   "name": "Etoile",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -172,7 +172,7 @@
       "_id": "vApRIVU4fc9OglAh",
       "name": "Pincer (x3)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+7 melee (1d3-2 plus 1d6 electricity, 3 pincers)</p><p><strong>Plus:</strong> 1d6 electricity</p>",
         "source": "Menace Manual",
@@ -205,7 +205,7 @@
       "_id": "mUaFmkIFOUy4DzP3",
       "name": "Builder",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -224,7 +224,7 @@
       "_id": "07qEX2R8FNEwvhpP",
       "name": "Cautious",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -243,7 +243,7 @@
       "_id": "pdKGymYD5lLl7mU2",
       "name": "Gearhead",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -262,7 +262,7 @@
       "_id": "YclP3n2XVH4Twu0n",
       "name": "Surgery",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -283,7 +283,7 @@
       "_id": "bExife5nr5XyQTbR",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -305,7 +305,7 @@
       "_id": "O3FW1sIsXKg4EMSE",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -321,7 +321,7 @@
       "_id": "675aeGAVNG7ttGxA",
       "name": "Device Operation",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>At will as an attack action, an etoile can turn on any machine powered by electricity with a touch, even if the device usually requires a key, a passcode, or other security bypass to activate. If the object lacks a power source, it operates for only 1 round after activation. If desired, an etoile can supply continuous power to operate an unpowered device. To do so, it must keep all three pincers in contact with the device, and it can do nothing else except move (assuming it can lift the device). A single etoile generates enough power to continuously operate a desktop computer. Multiple etoile supplying power to the same device increase the available power in direct proportion to their number; that is, doubling the number of etoile doubles the available power, tripling it triples the power, and so on.</p>",
         "source": "Menace Manual",
@@ -337,7 +337,7 @@
       "_id": "JZuUFxGnssrcXyaP",
       "name": "Electric Shock",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "<p>When an etoile hits with a melee or melee touch attack, it can choose to shock its foe for an additional 1d6 points of electricity damage as a free action.</p>",
         "source": "Menace Manual",
@@ -353,7 +353,7 @@
       "_id": "JF3ATOr1KIFb23AZ",
       "name": "Electricity Immunity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Etoile are immune to electricity.</p>",
         "source": "Menace Manual",
@@ -369,7 +369,7 @@
       "_id": "ksgrrmRZJ0nlDzPS",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An etoile has the traits and immunities common to elementals.</p>",
         "source": "Menace Manual",
@@ -385,7 +385,7 @@
       "_id": "d8O0flb33TYWTZoE",
       "name": "Mechanical Healing",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An etoile cannot heal normally. To regain hit points lost to damage, it must either be repaired like a mechanical device or devour the corpse of one of its own kind.</p><p>All the normal rules for healing via the Treat Injury skill can be applied to an etoile, but a @Check[skill:repair]{Repair check} rather than a @Check[skill:treatInjury]{Treat Injury check} is required. Any creature (including an etoile) without a mechanical repair kit takes a penalty on @Check[skill:repair]{Repair check}s, just as a character lacking a first aid kit would when making @Check[skill:treatInjury]{Treat Injury check}s.</p><p>Alternatively, an etoile can consume the body of a dead etoile to heal itself. This process requires an available etoile corpse and three full-round actions. As soon as consumption is complete, the etoile regains all lost hit points and heals all ability damage.</p>",
         "source": "Menace Manual",
@@ -401,7 +401,7 @@
       "_id": "KOV5nkS8V7WABLvV",
       "name": "Nannite Infection (DC 16)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Through a process as yet unknown, an etoile naturally produces microscopic machines known as nannites within its body. Once per day as a free action, it can inject these nannites into a foe it has damaged with a pincer. The nannites function as a disease, attacking the host creature’s DNA and transforming its structure and psychology over time.</p><p>A creature injected with nannites must immediately make a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the etoile’s Hit Dice + its Intelligence modifier). On a successful save, the creature’s body fights off the infection, destroying the nannites in the process.</p><p>On a failed save, the creature immediately takes 1 point of Dexterity damage and 1 point of Wisdom damage. Each day thereafter, the creature must succeed on a new @Check[save:fort]{Fortitude save} at the same DC or take 1d3 points of Dexterity damage and 1d3 points of Wisdom damage. Two successful saving throws in a row indicate that the creature has fought off the nannite infection, but any damage already taken must heal normally. If an infected creature has an Intelligence score of at least 6 and either its Dexterity or its Wisdom score is reduced to 0 by the disease, it is transformed into a sand slave. Such a creature immediately gains the sand slave template (see the “Sand Slave” entry, below), and all ability damage previously dealt by the disease is healed. Thereafter, the new sand slave is a servant of all etoile and can no longer be cured of the nannite infection.</p><p>Nannite infection has no visible symptoms, and many confuse its debilitating effects with drunkenness or drug use. However, microscopic study of an infected creature’s blood or high-resolution x-rays can reveal the nannites and the alterations they have created in its body structure (see the “Sand Slave” entry for more information).</p><p>A creature other than an etoile using the Treat Injury skill to treat the disease takes a –10 penalty on @Check[skill:treatInjury]{Treat Injury check}s unless it also has at least 5 ranks in both Knowledge (technology) and Knowledge (physical sciences), or 5 ranks in Disable Device.</p><p>Etoile are immune to nannite infection.</p>",
         "source": "Menace Manual",
@@ -429,7 +429,7 @@
       "_id": "Yh0AhDd3ISa8y6cp",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Though it cannot produce sounds, an etoile can communicate its thoughts and desires to any creature within 200 feet that it can see, regardless of intervening matter such as glass. The target creature “hears” the etoile’s thoughts in whatever language it can most easily understand. However, it cannot communicate thoughts back to the etoile unless it also has telepathy. Etoile do not normally know any languages other than their own thought-speech, so they often rely on their human agents to act as interpreters.</p>",
         "source": "Menace Manual",

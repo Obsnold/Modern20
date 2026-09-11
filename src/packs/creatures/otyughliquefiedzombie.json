@@ -2,7 +2,7 @@
   "_id": "2zA3s8wTZBztV3bp",
   "name": "Otyugh Liquefied Zombie",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -109,7 +109,7 @@
       "_id": "0unEHvZjwQvZaHYv",
       "name": "Tentacle rake (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+14 melee (1d6+6, 2 tentacle rakes), +9 melee (2d6+3 plus disease, bite)</p>",
         "source": "Urban Arcana",
@@ -142,7 +142,7 @@
       "_id": "sHHnaEF6d7ANOC4k",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+14 melee (1d6+6, 2 tentacle rakes), +9 melee (2d6+3 plus disease, bite)</p><p><strong>Plus:</strong> disease</p>",
         "source": "Urban Arcana",
@@ -175,7 +175,7 @@
       "_id": "D4SNgBaUoU1SGmsX",
       "name": "Toughness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -194,7 +194,7 @@
       "_id": "XFaAZNoDZEAtMrEe",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -210,7 +210,7 @@
       "_id": "st0MAzAOgZb2TgDv",
       "name": "Liquefied Spew",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Whenever a liquefied zombie is damaged in combat by anything other than a bludgeoning weapon, some of the liquefied tissue spews forth, covering everything within 5 feet of the liquefied zombie. The scalding liquid deals 1d6 points of damage and exposes anyone it touches to the disease of necrotizing faciitis.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -226,7 +226,7 @@
       "_id": "IzLv9VbH4Ssw2VbS",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>If the creature hits with a melee weapon it deals normal damage and attempts to start a grapple as a free action, doing so without provoking attacks of opportunity. No initial touch attack is required. Unless otherwise stated, improved grab works only against opponents at least one size category smaller than the creature. A Small or smaller creature using improved grab does not apply its grapple modifier to its grapple check.</p><p>The creature has the option to conduct the grapple normally, or simply use the part of its body it used in the improved grab to hold the opponent. If it chooses to do the latter, it takes a –20 penalty on grapple checks but is not considered grappled itself; the creature does not lose its Dexterity bonus to Defense, still threatens an area, and can use its remaining attacks against other opponents.</p><p>A successful hold does not deal additional damage unless the creature also has the constrict ability (see above). If the creature does not constrict, each successful grapple check it makes during successive rounds automatically deals the damage given for the attack that established the hold.</p><p>When a creature gets a hold after an improved grab attack, it pulls the opponent into its space. This act does not provoke attacks of opportunity. The creature is not considered grappled while it holds the opponent, so it still threatens adjacent squares and retains its Dexterity bonus. It can even move, provided it can drag the opponent’s weight.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -242,7 +242,7 @@
       "_id": "Vw7sIeruwYNgCUm3",
       "name": "Constrict 1d6+6",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>The creature crushes the opponent, dealing bludgeoning damage, after making a successful grapple check. The amount of damage is given in the creature’s entry. If the creature also has the improved grab ability (see below), it deals constriction damage in addition to damage dealt by the weapon used to grab.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -258,7 +258,7 @@
       "_id": "HKcXvYf6XYjTwoU7",
       "name": "Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -274,7 +274,7 @@
       "_id": "FJLP4IcLM8MUuJfr",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Liquefied zombies have darkvision with a range of 60 feet.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -290,7 +290,7 @@
       "_id": "ttioNMHmwmlQVpQF",
       "name": "Reputation Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A liquefied zombie has a +0 Reputation bonus.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

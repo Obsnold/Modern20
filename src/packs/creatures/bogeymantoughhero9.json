@@ -2,7 +2,7 @@
   "_id": "dNcj3UTndByoFPiY",
   "name": "Bogeyman Tough Hero 9",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -154,7 +154,7 @@
       "_id": "bFlAiGRAVxxveTew",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+11 melee (1d8+3 nonlethal, unarmed strike) or +9 melee (by weapon) or +7 ranged)</p><p><strong>Also called:</strong> by weapon</p>",
         "source": "Menace Manual",
@@ -187,7 +187,7 @@
       "_id": "QVj4frmTMf8XZBfS",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -206,7 +206,7 @@
       "_id": "O2nbnr2a1fUCMVIK",
       "name": "Armor Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -225,7 +225,7 @@
       "_id": "PDx15TQjNWvUOT6o",
       "name": "Blind-Fight",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -244,7 +244,7 @@
       "_id": "lbnDH18GLKFK4xHs",
       "name": "Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -263,7 +263,7 @@
       "_id": "XEWUqoHhvSUxDmbm",
       "name": "Endurance",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -282,7 +282,7 @@
       "_id": "PuNinqzbm2KIxkTg",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -301,7 +301,7 @@
       "_id": "DB9vhA8bPM79dsxZ",
       "name": "Improved Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -323,7 +323,7 @@
       "_id": "WUD7QJaD5RWzXyKk",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -342,7 +342,7 @@
       "_id": "7xkA84nLRs4x0TIb",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -363,7 +363,7 @@
       "_id": "qFY5EkYKlTCTeaHu",
       "name": "Simple Weapons Proficiency Sunder",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -382,7 +382,7 @@
       "_id": "0ElRom9PSgAADn8I",
       "name": "Death’s Door",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A bogeyman appears to die if reduced to –10 hit points. However, unless it is reduced to its negative Constitution score in hit points, its “death” is only temporary; when the bogeyman’s fast healing ability (see below) brings its hit point total to 1 or higher, it springs back to life.</p>",
         "source": "Menace Manual",
@@ -398,7 +398,7 @@
       "_id": "h9jGAbtmaOW5L8e2",
       "name": "Fast Healing 5",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>A bogeyman heals 5 points of damage per round until it is reduced to its negative Constitution score, at which point it dies. This ability does not enable the bogeyman to regrow or reattach severed body parts.</p>",
         "source": "Menace Manual",
@@ -414,7 +414,7 @@
       "_id": "9lX1uX2grFmPP7bL",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A bogeyman is immune to disease, mind-affecting effects, necromantic effects, paralysis, poison, and sleep. It is not subject to nonlethal damage.</p>",
         "source": "Menace Manual",
@@ -430,7 +430,7 @@
       "_id": "L4PvhJ9zJmkO8RGc",
       "name": "Languages",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A bogeyman rarely speaks, but it can read, write, and understand whatever languages the base creature could.</p>",
         "source": "Menace Manual",

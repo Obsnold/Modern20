@@ -2,7 +2,7 @@
   "_id": "SKCVAjNy41dOgnii",
   "name": "Flesh Golem",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -109,7 +109,7 @@
       "_id": "PJNclid4tVLU1igt",
       "name": "Slam (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+10 melee (2d8+5, 2 slams), or +4 ranged</p>",
         "source": "d20 Modern SRD",
@@ -142,7 +142,7 @@
       "_id": "bBvLa6c6ReRplu1o",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Flesh golems have the traits and immunities common to constructs.</p>",
         "source": "d20 Modern SRD",
@@ -158,7 +158,7 @@
       "_id": "mxdGxzsjOGYFmS9v",
       "name": "Berserk",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When a flesh golem enters combat, there is a cumulative 1% chance each round it will go berserk. An uncontrolled golem goes on a rampage, attacking the nearest living creature or smashing some object smaller than itself if no creature is within reach, then moving on to spread more destruction. The golem’s creator, if within 60 feet, can try to regain control by speaking firmly and persuasively to the golem, which requires a successful @Check[ability:cha|dc:19]{Charisma check (DC 19)}. Following such a successful check, it takes 1 minute of rest by the golem to reset the golem’s berserk chance to 0%.</p>",
         "source": "d20 Modern SRD",
@@ -174,7 +174,7 @@
       "_id": "ICrIfThHWMefvtmG",
       "name": "Magic Immunity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A flesh golem is immune to all spells, psionic powers, spell-like abilities, and supernatural effects, except as follows. Attacks that deal fire or cold damage slow it for 2d6 rounds, with no saving throw (see the slow spell). A slowed golem can take only one move or attack action each turn. Additionally, the slowed golem takes a –2 penalty to Defense, melee attack rolls, melee damage rolls, and @Check[save:ref]{Reflex save}s. Any amount of electricity damage dealt to the golem breaks the slow effect and cures 1 point of damage for each 3 points of damage it would otherwise deal. The golem rolls no saving throw against effects that deal electricity damage.</p>",
         "source": "d20 Modern SRD",
@@ -190,7 +190,7 @@
       "_id": "Ye2FbMocYB6b87zx",
       "name": "Damage Reduction 15/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>In campaigns without magic weapons, the GM can either disregard the golem’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
         "source": "d20 Modern SRD",
@@ -206,7 +206,7 @@
       "_id": "3Q0JyOcl6MIBs31g",
       "name": "Speed",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Flesh golems can’t take run actions.</p>",
         "source": "d20 Modern SRD",

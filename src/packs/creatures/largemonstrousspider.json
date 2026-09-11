@@ -2,7 +2,7 @@
   "_id": "gM70NBefRl9h4bvT",
   "name": "Large Monstrous Spider",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/skoll/long-legged-spider.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -140,7 +140,7 @@
       "_id": "BypUXK1CBMHABAcn",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d8+3 plus poison, bite)</p><p><strong>Plus:</strong> poison</p>",
         "source": "d20 Modern SRD",
@@ -173,7 +173,7 @@
       "_id": "WiwN3jrdc9GoBtAR",
       "name": "Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>A monstrous spider injects poison into its victim with a successful bite. The victim must succeed on a @Check[save:fort]{Fortitude save} or take the initial damage; a second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the poison’s secondary damage. The DC of the @Check[save:fort]{Fortitude save}s and the effects vary depending on the monstrous spider’s size, as shown on Table: Monstrous Spider Poison.</p>",
         "source": "d20 Modern SRD",
@@ -189,7 +189,7 @@
       "_id": "z4Zy1gdUURxTB995",
       "name": "Web",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/spider-web.svg",
       "system": {
         "description": "<p>Monstrous spiders often wait in their webs or in trees, then lower themselves silently on silk strands and leap onto prey passing beneath. A single strand is strong enough to support the spider and one creature of the same size.</p><p>Web-spinning spiders can cast a web eight times per day. Casting a web is a melee touch attack with a maximum range of 50 feet and a range increment of 10 feet, and the web is effective against targets up to one size category larger than the spider. The web anchors the target in place, allowing no movement. An entangled creature can escape with a successful @Check[skill:escapeArtist]{Escape Artist check} or burst it with a @Check[ability:str]{Strength check}. Both are attack actions whose DCs are given in Table: Monstrous Spider Webs.</p><p>Web-spinning spiders often create sheets of sticky webbing from 5 to 60 feet square, depending on the size of the spider. They usually position these sheets to snare flying creatures but can also try to trap prey on the ground. Approaching creatures must succeed on a @Check[skill:spot|dc:20]{Spot check (DC 20)} to notice a web; otherwise they stumble into it and become trapped as though by a successful web attack. Attempts to escape or burst the webbing gain a +5 bonus if the trapped creature has something to walk on or grab while pulling free. Each 5-foot section has the hit points listed on below and damage reduction 5/fire.</p><p>A monstrous spider can move across its own sheet web at its climb speed and can determine the exact location of any creature touching the web.</p>",
         "source": "d20 Modern SRD",
@@ -205,7 +205,7 @@
       "_id": "39vqmiQlfhFQEy1h",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -221,7 +221,7 @@
       "_id": "BzO53dyLOhzGm7BI",
       "name": "Immune to Mind-Affecting Attacks",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -237,7 +237,7 @@
       "_id": "fwxfiY3xOmP079XQ",
       "name": "Resistance to Massive Damage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Monstrous spiders gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "source": "d20 Modern SRD",
@@ -253,7 +253,7 @@
       "_id": "PPYVuNd0YxJ7E5Lm",
       "name": "Speed",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Hunting spiders are speedier than their web-spinning counterparts. Increase the normal speed of hunting spiders by 10 feet. Climb speed remains unchanged.</p>",
         "source": "d20 Modern SRD",
@@ -269,7 +269,7 @@
       "_id": "my6dwi9FQbgdJoh5",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Monstrous spiders receive a +4 species bonus on Hide and @Check[skill:moveSilently]{Move Silently check}s and a +8 species bonus on @Check[skill:spot]{Spot check}s. Hunting spiders receive a +6 species bonus on @Check[skill:jump]{Jump check}s.</p>",
         "source": "d20 Modern SRD",
@@ -285,7 +285,7 @@
       "_id": "qvqhdiC5r555osYY",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Medium-size or smaller monstrous spiders gain the bonus feat Weapon Finesse (bite).</p>",
         "source": "d20 Modern SRD",

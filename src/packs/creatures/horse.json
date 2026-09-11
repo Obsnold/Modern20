@@ -2,7 +2,7 @@
   "_id": "ZRZyqfO3GJtijiJw",
   "name": "Horse",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -122,7 +122,7 @@
       "_id": "bbsBCp2WXgh8ez5b",
       "name": "Hoof",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d4+1, hoof)</p>",
         "source": "d20 Modern SRD",
@@ -155,7 +155,7 @@
       "_id": "psgKbfudpGY5SUlb",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a horse to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
         "source": "d20 Modern SRD",
@@ -171,7 +171,7 @@
       "_id": "q9AnhsaYbqknS5Hf",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",

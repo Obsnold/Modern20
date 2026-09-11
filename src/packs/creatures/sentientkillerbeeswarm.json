@@ -2,7 +2,7 @@
   "_id": "lX8jOtbqIqEBVNTA",
   "name": "Sentient Killer Bee Swarm",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/skoll/long-legged-spider.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -140,7 +140,7 @@
       "_id": "Y4TqPvUttlp7yE2d",
       "name": "Swarm",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -156,7 +156,7 @@
       "_id": "ahmj2X508a7FYuj9",
       "name": "Sentience",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -172,7 +172,7 @@
       "_id": "tSbmOlA3siVgfUNN",
       "name": "Distraction",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -188,7 +188,7 @@
       "_id": "cNHVNCCo60cgbyYp",
       "name": "Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Bite—@Check[save:fort|dc:14]{Fortitude save (DC 14)} negates; initial and secondary damage 1d3 Con.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -204,7 +204,7 @@
       "_id": "NrBYCOeT1x5p4oXB",
       "name": "Resistance to Massive Damage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sentient killer bee swarm gains a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -220,7 +220,7 @@
       "_id": "Pu3FGgXUhyDcWWy9",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A sentient killer bee swarm can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and the killer bees can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

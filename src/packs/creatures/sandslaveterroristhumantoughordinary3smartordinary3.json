@@ -2,7 +2,7 @@
   "_id": "mvqDvGrdQC4YAh2D",
   "name": "Sand Slave Terrorist (Human Tough Ordinary 3/Smart Ordinary 3)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -277,7 +277,7 @@
       "_id": "RI9fKtTqyvzCmblz",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p>",
         "source": "Menace Manual",
@@ -310,7 +310,7 @@
       "_id": "P9FIkgb9hIY9iUo1",
       "name": "Pistol whip",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p>",
         "source": "Menace Manual",
@@ -343,7 +343,7 @@
       "_id": "1H8oKQMMniHTSuNn",
       "name": "MAC Ingram M10",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+5 melee (1d3+2 nonlethal, unarmed strike) or +5 melee (1d4+2, pistol whip) or +5 ranged (2d6, MAC Ingram M10)</p>",
         "source": "Menace Manual",
@@ -376,7 +376,7 @@
       "_id": "nDIKsEL49nEoLNta",
       "name": "Advanced Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -397,7 +397,7 @@
       "_id": "i1p1SGUMGP0SnnRe",
       "name": "Armor Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -416,7 +416,7 @@
       "_id": "w4iehtYqfloa7z9b",
       "name": "Deceptive",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -435,7 +435,7 @@
       "_id": "sHbL5Nt0ql9xMFJc",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -454,7 +454,7 @@
       "_id": "VpRKbn1Lc7S1lfaB",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -473,7 +473,7 @@
       "_id": "ftzyWMNPeoE5ICNd",
       "name": "Point Blank Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -492,7 +492,7 @@
       "_id": "IbLvQEohliQzygCg",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -511,7 +511,7 @@
       "_id": "vglkHLTE7S1qRu5M",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A sand slave has darkvision to a range of 60 feet or the base creature’s darkvision, whichever is better.</p>",
         "source": "Menace Manual",
@@ -527,7 +527,7 @@
       "_id": "VQnD32YlMHgaQXBy",
       "name": "Electricity Resistance 10 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sand slave ignores the first 10 points of electricity damage from any single attack. If the base creature already has electricity resistance, use the better value.</p>",
         "source": "Menace Manual",
@@ -543,7 +543,7 @@
       "_id": "fxBHhQN489l7fpPe",
       "name": "Fast Ability Healing 1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sand slave heals ability damage at the rate of 1 ability score point per damaged ability per round.</p>",
         "source": "Menace Manual",
@@ -559,7 +559,7 @@
       "_id": "Tw2AQyBfdLQk1PDe",
       "name": "Fast Healing 3",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>A sand slave heals 3 points of damage per round unless it is reduced to –10 or fewer hit points. This ability does not enable the sand slave to regrow or reattach severed body parts. If the base creature already has fast healing, use the better value.</p>",
         "source": "Menace Manual",
@@ -575,7 +575,7 @@
       "_id": "I5v0dU3sbfx9BvcT",
       "name": "Fortification",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sand slave has a 50% chance to ignore the extra damage from a critical hit.</p>",
         "source": "Menace Manual",
@@ -591,7 +591,7 @@
       "_id": "O5n16kbr66oA0NFL",
       "name": "Fugue",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Once per day as a free action, a sand slave may attempt a @Check[ability:con|dc:20]{Constitution check (DC 20)}. Success indicates that the sand slave has forced its nannites into hyperproductivity, thereby gaining an extra attack or move action each round for 1d8+2 rounds.</p>",
         "source": "Menace Manual",
@@ -607,7 +607,7 @@
       "_id": "bkOxxt9eBmoiUxdp",
       "name": "Hot Running",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Once per day as a free action, a sand slave can make a @Check[ability:con|dc:15]{Constitution check (DC 15)} to reverse the effects of fatigue and nonlethal damage. A successful check negates all nonlethal damage the sand slave has sustained and reduces fatigue or exhaustion as if the sand slave had rested for a full day.</p>",
         "source": "Menace Manual",
@@ -623,7 +623,7 @@
       "_id": "hiVheHV909u2KCAd",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The sand slave is immune to disease and poison. The nannites in its body fight off all diseases, including other nannite infections, and break down all poisons before they can take effect.</p>",
         "source": "Menace Manual",
@@ -639,7 +639,7 @@
       "_id": "RoaSC7sUC1l1e9XJ",
       "name": "Network Mind",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>A sand slave is automatically aware of the position and general emotional status of any other sand slaves within 200 feet. All sand slaves within that range that can see one another are in constant telepathic communication. If one is aware of a particular threat, they all are. If one sand slave in a particular group is not flatfooted, none of them are. No sand slave in such a group is considered flanked unless they all are.</p>",
         "source": "Menace Manual",
@@ -655,7 +655,7 @@
       "_id": "JW3AQCiAFNNGdKuv",
       "name": "Selfdestruct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -671,7 +671,7 @@
       "_id": "r2L3GP6WXzPRYim9",
       "name": "Stasis",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Once per day as a free action, a sand slave can attempt a @Check[ability:con|dc:15]{Constitution check (DC 15)}. Success dramatically slows the creature’s metabolism for up to 1 hour. During this time, the sand slave does not need to breathe, and it lacks a heartbeat and normal body temperature. If it does not move, it appears dead to casual inspection, though a blood test or successful @Check[skill:treatInjury|dc:20]{Treat Injury check (DC 20)} reveals that it is still alive. While in stasis, the sand slave does not take damage from prolonged exposure to environmental heat or cold, and the time spent in stasis does not count toward the time limit that the sand slave can go without water or food before taking damage. While in stasis, a sand slave can act normally, except that it cannot use its hot running or fugue abilities, and it does not heal ability or hit point damage.</p><p>The sand slave can end the stasis at any time before its duration runs out as a free action.</p>",
         "source": "Menace Manual",
@@ -687,7 +687,7 @@
       "_id": "FXs34lqNkf3Z3pDS",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A sand slave can communicate its thoughts and desires to any etoile or sand slave within 200 feet that it can see, regardless of intervening matter such as glass. The target creature “hears” the sand slave’s thoughts in whatever language it can most easily understand. However, it cannot communicate thoughts back to the sand slave unless it also has telepathy.</p>",
         "source": "Menace Manual",
@@ -703,7 +703,7 @@
       "_id": "jZSZYYtLDgQxT31B",
       "name": "Self-Destruct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When reduced to –10 hit points or below, a sand slave’s body immediately turns into a pile of dust. At any time, a sand slave can willfully destroy itself by taking an attack action to make a @Check[ability:con|dc:10]{Constitution check (DC 10)}. Success indicates that the sand slave self-destructs as above.</p>",
         "source": "Menace Manual",

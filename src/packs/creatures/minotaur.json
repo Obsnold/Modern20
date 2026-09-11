@@ -2,7 +2,7 @@
   "_id": "0uoK6TqHMToMntdF",
   "name": "Minotaur",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -154,7 +154,7 @@
       "_id": "FgNwoCutM3wzLEXy",
       "name": "Huge lead pipe",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -187,7 +187,7 @@
       "_id": "Gzz4TesfnqvipDNb",
       "name": "Gore",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
       "system": {
         "description": "<p>+9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -220,7 +220,7 @@
       "_id": "nSo2HcH8woEfSgCJ",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+9/+4 melee (2d6+4, Huge lead pipe), +4 melee (1d8+2, gore), or +9/+4 melee (1d4+4, slam), +4 melee (1d8+2, gore), or +5 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -253,7 +253,7 @@
       "_id": "vtT9snd8TYZZlgkd",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -272,7 +272,7 @@
       "_id": "IxP9T6WDZ6lN8cRl",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -291,7 +291,7 @@
       "_id": "gfGo32IogiDtjFEd",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "8vFn5SoVAsNW5PqF",
       "name": "Charge 4d6+6",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "<p>A minotaur typically begins a battle by charging at an opponent. In addition to the normal benefits and hazards of a charge, the beast can make a single gore attack that deals 4d6+6 points of damage.</p>",
         "source": "d20 Modern SRD",
@@ -328,7 +328,7 @@
       "_id": "9tDp1W56qmuqV4uW",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the minotaur to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
         "source": "d20 Modern SRD",
@@ -344,7 +344,7 @@
       "_id": "lR12DlTtyKeCOLxJ",
       "name": "Natural Cunning",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Although minotaurs are not especially intelligent, they possess innate cunning and logical reasoning ability. This prevents them from ever becoming lost. Further, they are never caught flat-footed.</p>",
         "source": "d20 Modern SRD",
@@ -360,7 +360,7 @@
       "_id": "URCpOLtFORoyyuxF",
       "name": "Darkvision 60 ft",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -376,7 +376,7 @@
       "_id": "GEherN1iTiEaEBwm",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Minotaurs receive a +4 species bonus on Search, Spot, and @Check[skill:listen]{Listen check}s.</p>",
         "source": "d20 Modern SRD",
@@ -392,7 +392,7 @@
       "_id": "73t7n0Tp66LKYpeo",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A minotaur gains the bonus feat Archaic Weapons Proficiency or Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -408,7 +408,7 @@
       "_id": "xVeyvVhB48p0KnQq",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Minotaurs speak (but neither read nor write) Giant or one other language.</p>",
         "source": "d20 Modern SRD",

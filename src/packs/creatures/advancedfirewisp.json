@@ -2,7 +2,7 @@
   "_id": "9pWX6exYM9fi2PTh",
   "name": "Advanced Fire Wisp",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -127,7 +127,7 @@
       "_id": "VPvQxkyAP0E6DUjg",
       "name": "Touch",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+8 melee touch (1d6 fire, touch)</p>",
         "source": "Menace Manual",
@@ -160,7 +160,7 @@
       "_id": "fNmddUCMaJs86LaR",
       "name": "Heroic Surge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -179,7 +179,7 @@
       "_id": "BuWIefYTGw2TLojM",
       "name": "Blindsight 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A fire wisp can detect the electrical currents in and around creatures and objects within 60 feet. This perception reveals their locations as accurately as normal vision would. Beyond that range, all targets have total concealment with respect to the fire wisp.</p>",
         "source": "Menace Manual",
@@ -195,7 +195,7 @@
       "_id": "aO5QsuzqERsVcu4W",
       "name": "Damage Reduction 10/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A fire wisp ignores the first 10 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the fire wisp’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/ concussion).</p>",
         "source": "Menace Manual",
@@ -211,7 +211,7 @@
       "_id": "CuhAjSFuSHvQ6Vhu",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A fire wisp has the traits and immunities common to elementals.</p>",
         "source": "Menace Manual",
@@ -227,7 +227,7 @@
       "_id": "3eI8P4o5WkRRqvoq",
       "name": "Fiery Leap",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A fire wisp can attack multiple creatures in the same round by leaping from one to the next. A fire wisp can attack as many creatures in a single round as it can reach with a full round of movement (40 feet), leaving behind visible arcs of green fire between the targets. It makes a separate attack roll for each target, and all attacks are made at the fire wisp’s full attack bonus. A leaping fire wisp does not provoke attacks of opportunity as it enters a target’s square.</p>",
         "source": "Menace Manual",
@@ -243,7 +243,7 @@
       "_id": "SDlb6cfEMWs0ewmt",
       "name": "Fire Subtype",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A fire wisp is immune to fire damage and takes 50% more damage from cold attacks.</p>",
         "source": "Menace Manual",
@@ -259,7 +259,7 @@
       "_id": "D4W23znESTM0rbCT",
       "name": "Gaseous",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The gaseous body of a fire wisp can travel through openings as small as pinholes. A fire wisp cannot enter water or other liquids, but unlike other gaseous creatures, it is affected by wind only if it wishes to be. Even tornado- strength winds pass through a fire wisp with no effect if it wants to fly in a different direction.</p>",
         "source": "Menace Manual",
@@ -275,7 +275,7 @@
       "_id": "9wxUICaC6W6FDOnG",
       "name": "Ignite",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Any creature that takes damage from a fire wisp catches on fire.</p>",
         "source": "Menace Manual",
@@ -291,7 +291,7 @@
       "_id": "ogF60BEmWmpLIgwj",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Fire wisps are immune to electricity and fire damage.</p>",
         "source": "Menace Manual",
@@ -307,7 +307,7 @@
       "_id": "QjUdGUPtPttAdUyb",
       "name": "Ability Scores",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A fire wisp has no Strength score. It cannot grapple other creatures or be grappled, and it applies its Dexterity modifier instead of its Strength modifier to melee attack rolls.</p>",
         "source": "Menace Manual",

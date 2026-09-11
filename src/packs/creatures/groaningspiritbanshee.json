@@ -2,7 +2,7 @@
   "_id": "BkfEqOxvLG9NXDe8",
   "name": "Groaning Spirit (Banshee)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -158,7 +158,7 @@
       "_id": "SrBnXmDwMSVAcf8Y",
       "name": "Corrupting touch",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee touch (1d6, corrupting touch)</p>",
         "source": "Urban Arcana",
@@ -191,7 +191,7 @@
       "_id": "oi4cL4Y1DduGoXDf",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -210,7 +210,7 @@
       "_id": "qdz1Ej2BlTDADc75",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -226,7 +226,7 @@
       "_id": "ErnsQGriMsXgReaL",
       "name": "Incorporeal",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -242,7 +242,7 @@
       "_id": "vGi1vvsdhOqU9f48",
       "name": "Corrupting Touch",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -258,7 +258,7 @@
       "_id": "iJs4vUyrIpqDJf4H",
       "name": "Frightful Moan (DC 14)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A groaning spirit can moan as an attack action. All living creatures within a 30-foot spread must succeed at a @Check[save:will]{Will save} (DC 10 + spirit’s Hit Dice + spirit’s Charisma modifier) or become panicked for 2d4 rounds. A panicked creature flees as fast as possible, cowers if unable to get away, and defends normally (but cannot attack). This is a sonic, necromantic, mind-affecting fear effect. A creature that successfully saves against the moan cannot be affected by the same spirit’s moan for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -286,7 +286,7 @@
       "_id": "FXpfZkA5awNhytuS",
       "name": "Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -302,7 +302,7 @@
       "_id": "6qQJFbvq05cGuVHQ",
       "name": "Rejuvenation",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -318,7 +318,7 @@
       "_id": "PAbWUHfpVjeQulcB",
       "name": "+4 Turn Resistance",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -334,7 +334,7 @@
       "_id": "quKPMCY3bHCczCo9",
       "name": "Imprisonment",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -350,7 +350,7 @@
       "_id": "90vcDHWH2AaYoRhh",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

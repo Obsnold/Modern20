@@ -2,7 +2,7 @@
   "_id": "P68pygvSOgH6gqKz",
   "name": "Wyrmling",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/dragon-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -200,7 +200,7 @@
       "_id": "OPmiPAS9YtKd4LAw",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+9 melee (1d6+1, bite), +4 melee (1d4, 2 claws)</p>",
         "source": "Urban Arcana",
@@ -233,7 +233,7 @@
       "_id": "d1dFLUFuyv3CdbYY",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+9 melee (1d6+1, bite), +4 melee (1d4, 2 claws)</p>",
         "source": "Urban Arcana",
@@ -266,7 +266,7 @@
       "_id": "cEBCefoSDQwbsMhB",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -288,7 +288,7 @@
       "_id": "oiKbALmp2urexNPO",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -309,7 +309,7 @@
       "_id": "w0npbL07PNuqEbDh",
       "name": "Reath Weapon",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -325,7 +325,7 @@
       "_id": "T0OtL12n9vC0Gym4",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -341,7 +341,7 @@
       "_id": "LtE1F42CC5htPw40",
       "name": "Blindsight 30 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -357,7 +357,7 @@
       "_id": "qdL2cGJgNYQ6TMCM",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -373,7 +373,7 @@
       "_id": "yirSov8amyJnBzWc",
       "name": "Darkvision 100 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

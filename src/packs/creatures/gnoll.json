@@ -2,7 +2,7 @@
   "_id": "69YKBisFuhRoK3XJ",
   "name": "Gnoll",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -146,7 +146,7 @@
       "_id": "iWiohgsi2MZTbrxZ",
       "name": "Unarmed",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee (1d3+2, unarmed or 1d6+2/19-20, metal baton), or +1 ranged (2d6, TEC-9)</p>",
         "source": "d20 Modern SRD",
@@ -179,7 +179,7 @@
       "_id": "i090SeXM1CwjTO8I",
       "name": "Metal baton",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee (1d3+2, unarmed or 1d6+2/19-20, metal baton), or +1 ranged (2d6, TEC-9)</p>",
         "source": "d20 Modern SRD",
@@ -212,7 +212,7 @@
       "_id": "M8ylOivdn5qCNkLS",
       "name": "TEC-9",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee (1d3+2, unarmed or 1d6+2/19-20, metal baton), or +1 ranged (2d6, TEC-9)</p>",
         "source": "d20 Modern SRD",
@@ -245,7 +245,7 @@
       "_id": "wRVEb6CesChpEq1j",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -264,7 +264,7 @@
       "_id": "ESL0AWThVUA40Yql",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -283,7 +283,7 @@
       "_id": "KC6pf9YQGfZZaPSC",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -299,7 +299,7 @@
       "_id": "Ir5raYoASKxfoeCZ",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls receive the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -315,7 +315,7 @@
       "_id": "ZWdQ30sQyv4fBXcO",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls read, write, and speak Gnoll.</p>",
         "source": "d20 Modern SRD",

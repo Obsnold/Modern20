@@ -2,7 +2,7 @@
   "_id": "tTgeHLCZUaPIrRSn",
   "name": "Faun (Sidhe)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -169,7 +169,7 @@
       "_id": "igYmgsLK039XV1ib",
       "name": "Gore",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
       "system": {
         "description": "<p>+2 melee (1d6, gore) or +2 melee (1d6/18-20, sword cane) or +5 ranged (2d6, Colt Python)</p>",
         "source": "Urban Arcana",
@@ -202,7 +202,7 @@
       "_id": "hQO6sZwIiuu8Htej",
       "name": "Sword cane",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d6, gore) or +2 melee (1d6/18-20, sword cane) or +5 ranged (2d6, Colt Python)</p>",
         "source": "Urban Arcana",
@@ -235,7 +235,7 @@
       "_id": "V5sdRjxRQgxypZ0l",
       "name": "Colt Python",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d6, gore) or +2 melee (1d6/18-20, sword cane) or +5 ranged (2d6, Colt Python)</p>",
         "source": "Urban Arcana",
@@ -268,7 +268,7 @@
       "_id": "Kc5UppSys5lT4Tkt",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -287,7 +287,7 @@
       "_id": "FBBVrPyMqyPGejM4",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -306,7 +306,7 @@
       "_id": "D6Txe3wvyqwgrDCC",
       "name": "Personal Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -325,7 +325,7 @@
       "_id": "RsP9MdWARlOd7yKy",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -344,7 +344,7 @@
       "_id": "QgDbZj25LvQa3689",
       "name": "Nchanting Music",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -360,7 +360,7 @@
       "_id": "0gUa1ccizJEGx2kU",
       "name": "Change Self",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -376,7 +376,7 @@
       "_id": "zuzLF3hMREexC2Xj",
       "name": "Cold Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>Fauns ignore the first 10 points of cold damage dealt by any single attack.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -392,7 +392,7 @@
       "_id": "HeDjGvqAHrGlkAFW",
       "name": "Damage Reduction 5/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -408,7 +408,7 @@
       "_id": "BdfXffb0Fivtbb3w",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A faun is immune to bludgeoning damage, enabling it to survive a barfight unscathed.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -424,7 +424,7 @@
       "_id": "aC448We3BhKEswyi",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -440,7 +440,7 @@
       "_id": "aLNguYJFMAvhCIE8",
       "name": "Enchanting Music",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Music is magical to fauns, and they can create a variety of enchanting effects on listeners with a carefully crafted song. When a faun infuses its song with its fey power, all creatures within a 60-foot spread of the satyr (except other sidhe) must succeed at a @Check[save:will|dc:13]{Will save (DC 13)} or be affected by attraction, as the power manifest by a 10thlevel Telepath. Once per day, the faun can use his music to instead create a lesser domination effect (@Check[save:will]{Will save}, DC 15, negates) or mental blast effect (@Check[save:will]{Will save}, DC 15, negates) targeted at one specific listener.</p><p>It takes the faun a full-round action to use enchanting music. Anyone who successfully saves against the faun’s enchanting music cannot be affected by music from that faun for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -456,7 +456,7 @@
       "_id": "esFeL3etwIlq3IbP",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Fauns gain a +4 species bonus on Hide, Listen, Move Silently, Perform, and @Check[skill:spot]{Spot check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

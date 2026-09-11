@@ -2,7 +2,7 @@
   "_id": "5BRc8Ia1CgE5Gl6d",
   "name": "Breathsnatcher",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -166,7 +166,7 @@
       "_id": "sXO5MW7AwGaiPvul",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+11/+6 melee (1d4+2, knife) or +12/+7 ranged (2d6, MAC Ingram M10) or +8/+3 ranged (4d6, MAC Ingram M10 burst)</p>",
         "source": "Urban Arcana",
@@ -199,7 +199,7 @@
       "_id": "W0DQH16JTFYg5gs3",
       "name": "MAC Ingram M10",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+11/+6 melee (1d4+2, knife) or +12/+7 ranged (2d6, MAC Ingram M10) or +8/+3 ranged (4d6, MAC Ingram M10 burst)</p>",
         "source": "Urban Arcana",
@@ -232,7 +232,7 @@
       "_id": "CpA6onwpdVNHbypJ",
       "name": "MAC Ingram M10 burst",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+11/+6 melee (1d4+2, knife) or +12/+7 ranged (2d6, MAC Ingram M10) or +8/+3 ranged (4d6, MAC Ingram M10 burst)</p>",
         "source": "Urban Arcana",
@@ -265,7 +265,7 @@
       "_id": "1qPtSKORNPLKrrwg",
       "name": "Advanced Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -286,7 +286,7 @@
       "_id": "5Nd5XOBqwgk3cUC4",
       "name": "Burst Fire",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -309,7 +309,7 @@
       "_id": "sC9osL2v0g0M57I7",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -328,7 +328,7 @@
       "_id": "aQqW107lTD7CzceW",
       "name": "Quick Draw",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -349,7 +349,7 @@
       "_id": "52wy951BeYEG6egH",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "rzPIUFmshEwKA0qO",
       "name": "Clawing Smoke",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once every 1d4 rounds, a breathsnatcher can expel a 30-foot cone of magic smoke. The smoke grants one-half concealment to creatures in its periphery and full concealment to characters obscured by more than 5 feet of smoke. In addition, any creature within the cone must succeed at a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or get smoke in their lungs.</p><p>Holding one’s breath doesn’t help, as tendrils of smoke actively try to invade the lungs. This magic smoke begins to rip at the lungs and surrounding organs, dealing 3d4 points of damage per round. The affected creature can attempt another @Check[save:fort]{Fortitude save} each subsequent round to cough out the semivaporous menace.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -384,7 +384,7 @@
       "_id": "MkttGSw3aBVKjX5S",
       "name": "Snatch Breath",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>As a full-round action, the breathsnatcher can steal the breath from any adjacent creature with –1 or fewer hit points. This instantly kills the creature and grants the breathsnatcher damage reduction 15/+1 for 1 hour per Hit Die of the victim.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -400,7 +400,7 @@
       "_id": "EgEgLhvItF3xnMST",
       "name": "Fast Healing 5",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>A breathsnatcher heals 5 points of damage each round so long as it has at least 1 hit point remaining.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

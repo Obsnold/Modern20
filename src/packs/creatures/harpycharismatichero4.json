@@ -2,7 +2,7 @@
   "_id": "nlKXkSDm6BjRjRk6",
   "name": "Harpy Charismatic Hero 4",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -184,7 +184,7 @@
       "_id": "2v89FJSkCdO84FvJ",
       "name": "Metal baton",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+9/+4 melee (1d8, metal baton) or +9 melee (1d4, 2 claws) or +12/+7 ranged (2d6, S&W M29)</p>",
         "source": "Menace Manual",
@@ -217,7 +217,7 @@
       "_id": "f0EW4FCqQfblrSlF",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+9/+4 melee (1d8, metal baton) or +9 melee (1d4, 2 claws) or +12/+7 ranged (2d6, S&W M29)</p>",
         "source": "Menace Manual",
@@ -250,7 +250,7 @@
       "_id": "hfK7r0oPKPNst7q5",
       "name": "S&W M29",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+9/+4 melee (1d8, metal baton) or +9 melee (1d4, 2 claws) or +12/+7 ranged (2d6, S&W M29)</p>",
         "source": "Menace Manual",
@@ -283,7 +283,7 @@
       "_id": "oc0ChQyCPqIe5NaS",
       "name": "Flyby Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -302,7 +302,7 @@
       "_id": "wiAXVRC4ErwOZFM0",
       "name": "Personal Weapon Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -321,7 +321,7 @@
       "_id": "4yx9riQQWaDSghvZ",
       "name": "Point Blank Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -340,7 +340,7 @@
       "_id": "icsev6VjGTfrSofg",
       "name": "Renown",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -359,7 +359,7 @@
       "_id": "YXekiBqKK6Cwo7ms",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -378,7 +378,7 @@
       "_id": "7OAeR9it79rWNDyc",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -400,7 +400,7 @@
       "_id": "CMKL7bGNkbMpXfAH",
       "name": "Captivating Song (DC 16)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -416,7 +416,7 @@
       "_id": "DNBLDzSqK6IO0YDa",
       "name": "Darkvision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A half-fiend has darkvision with a range of 60 feet.</p>",
         "source": "Menace Manual",
@@ -432,7 +432,7 @@
       "_id": "87TZZlCtarsMwKC8",
       "name": "Damage Reduction",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has damage reduction. If the result is less than 1, the half-fiend has no damage reduction. If the campaign includes few or no magic weapons, the GM should consider allowing specific types of weapons to ignore a half-fiend’s damage reduction or contrive some other special vulnerability.</p>",
         "source": "Menace Manual",
@@ -448,7 +448,7 @@
       "_id": "Cce3eUI0FbDgwEFf",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has any immunities. If the result is less than 1, the half-fiend has no immunities.</p>",
         "source": "Menace Manual",
@@ -464,7 +464,7 @@
       "_id": "hp7UkL4iSQt8WEcY",
       "name": "Outsider",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A half-fiend has the traits common to outsiders.</p>",
         "source": "Menace Manual",
@@ -480,7 +480,7 @@
       "_id": "uPVyhjZK4ixddwYA",
       "name": "Resistance to Energy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has any resistances. If the result is less than 1, the half-fiend has no resistances.</p>",
         "source": "Menace Manual",
@@ -496,7 +496,7 @@
       "_id": "ue31lomJNM0ib6fW",
       "name": "Spell-Like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A half-fiend with an Intelligence or Wisdom score of 8 or higher possesses spell-like abilities according to its character level, as given on the table below. Unless otherwise indicated, each ability is usable once per day.</p>",
         "source": "Menace Manual",
@@ -512,7 +512,7 @@
       "_id": "jcy3Q9NgapR8bRA8",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A half-fiend with an Intelligence score of 12 or higher can communicate telepathically with any living creature within 100 feet that has a language.</p>",
         "source": "Menace Manual",

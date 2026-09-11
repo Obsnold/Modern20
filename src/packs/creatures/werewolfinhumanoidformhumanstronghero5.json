@@ -2,7 +2,7 @@
   "_id": "MC0kTTw6DndV2Y75",
   "name": "Werewolf in Humanoid Form (Human Strong Hero 5)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -210,7 +210,7 @@
       "_id": "pxdKmRqXZw3CNckR",
       "name": "Cleaver",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+8 melee (1d6+6/19-20, cleaver), or +7 ranged (2d8, Mossberg)</p>",
         "source": "d20 Modern SRD",
@@ -243,7 +243,7 @@
       "_id": "uPlgzVZ0okybqov1",
       "name": "Mossberg",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+8 melee (1d6+6/19-20, cleaver), or +7 ranged (2d8, Mossberg)</p>",
         "source": "d20 Modern SRD",
@@ -276,7 +276,7 @@
       "_id": "T0Fes8hyQhwdvap5",
       "name": "Athletic",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -295,7 +295,7 @@
       "_id": "q5wOrJJxDmMGdbnD",
       "name": "Heroic Surge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -314,7 +314,7 @@
       "_id": "rwF1QgDRYJMD7mo9",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -333,7 +333,7 @@
       "_id": "RpVYGsLrWNDhhNko",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -352,7 +352,7 @@
       "_id": "EdUCgfga2fpQufzu",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -373,7 +373,7 @@
       "_id": "RKJ8G4r5TvSclWzG",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -392,7 +392,7 @@
       "_id": "g6mPSvJFJNydEBvr",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -414,7 +414,7 @@
       "_id": "reSEgy6SPcRXqExP",
       "name": "Alternate Form",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A werewolf can assume wolf or hybrid form, but its gear is not absorbed into the new form. The bipedal hybrid form is about 6 feet tall, with a short tail and thick fur. The legs are like those of a wolf, and the head combines humanoid and lupine features in degrees that vary from one werewolf to the next. The animal form is that of a fully-grown wolf without any trace of human features.</p><p>Changing to or from wolf or hybrid form is a move action. Upon assuming either form, the werewolf regains hit points as if having rested for a day. A slain werewolf reverts to its humanoid form, although it remains dead. Afflicted werewolves find this ability difficult to control (see Lycanthropy as an Affliction, below), but natural lycanthropes have full control over this power.</p>",
         "source": "d20 Modern SRD",
@@ -430,7 +430,7 @@
       "_id": "3RvB7Sk9E4xn16YZ",
       "name": "Trip",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A werewolf in wolf form that hits with a bite attack can attempt to trip its opponent as a free action without making a touch attack or provoking an attack of opportunity. If the attempt fails, the opponent cannot react to trip the werewolf.</p>",
         "source": "d20 Modern SRD",
@@ -446,7 +446,7 @@
       "_id": "BZeFU1hrROmoISEf",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a werewolf in wolf or hybrid form to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "d20 Modern SRD",
@@ -462,7 +462,7 @@
       "_id": "qsgqnBbxLcbd9STp",
       "name": "Wolf Empathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A werewolf can communicate with wolves in any form and gains a +4 species bonus on @Check[skill:diplomacy]{Diplomacy check}s when influencing a wolf’s attitude. A friendly wolf understands and heeds simple commands, such as “wait,” “chase,” “flee,” and “attack.”</p>",
         "source": "d20 Modern SRD",
@@ -478,7 +478,7 @@
       "_id": "96Mdew3FaaYTLTOs",
       "name": "Curse of Lycanthropy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Any humanoid hit by a werewolf’s bite attack (in wolf or hybrid form) must succeed on a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract lycanthropy.</p>",
         "source": "d20 Modern SRD",
@@ -494,7 +494,7 @@
       "_id": "6Pj1sn3Ew6QIjzlj",
       "name": "Damage Reduction 15/Silver",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A werewolf in wolf or hybrid form ignores the first 15 points of damage dealt by a nonsilver or nonmagical weapon but takes full damage from silvered weapons or weapons with a +1 or better magic bonus.</p>",
         "source": "d20 Modern SRD",
@@ -510,7 +510,7 @@
       "_id": "ImUeeWtoTvYQ7u2d",
       "name": "Darkvision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>In their wolf and hybrid forms, werewolves have darkvision with a range of 60 feet.</p>",
         "source": "d20 Modern SRD",

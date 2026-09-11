@@ -2,7 +2,7 @@
   "_id": "zXkuXDFQE6xtASnP",
   "name": "Vampire (Human Fast Hero 2/Charismatic Hero 3)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -251,7 +251,7 @@
       "_id": "csc9XpzheBTsreUx",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+6 melee (1d6+4, slam) +7 melee (2d6/19-20, mastercraft katana), or +6 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -284,7 +284,7 @@
       "_id": "UzArRxGhzX7aS5sU",
       "name": "Mastercraft katana",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (1d6+4, slam) +7 melee (2d6/19-20, mastercraft katana), or +6 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -317,7 +317,7 @@
       "_id": "yXr2FoNfvzKeNG9e",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -336,7 +336,7 @@
       "_id": "Ei6p6hq7JRYGshR5",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -355,7 +355,7 @@
       "_id": "ycoXktWuDqvwNdxS",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -376,7 +376,7 @@
       "_id": "AjgzUtDCPr4o7Osk",
       "name": "Exotic Melee Weapon",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -395,7 +395,7 @@
       "_id": "7z72NnIZwIi0h2hY",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -414,7 +414,7 @@
       "_id": "FA8F2ybDJzDcHqSj",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -433,7 +433,7 @@
       "_id": "9ByOGaJDQoLFb8cR",
       "name": "Lightning Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -452,7 +452,7 @@
       "_id": "QFLCCRMU0vt8RUOW",
       "name": "Renown",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -471,7 +471,7 @@
       "_id": "ng5iba8oZxpllQ2J",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -490,7 +490,7 @@
       "_id": "19LUjSxoyVwdJQrY",
       "name": "Stealthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -509,7 +509,7 @@
       "_id": "49zC11ZJRmQrD5ci",
       "name": "Windfall",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -528,7 +528,7 @@
       "_id": "LVkCxAu0S86AtnSy",
       "name": "Blood Drain",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire can suck blood from a living victim with its fangs by making a successful grapple check. If it pins the foe, it drains blood, dealing 1d4 points of temporary Constitution damage each round the pin is maintained.</p>",
         "source": "d20 Modern SRD",
@@ -544,7 +544,7 @@
       "_id": "T1k4wJVzMGs7gNeY",
       "name": "Create Spawn",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A humanoid or monstrous humanoid slain by a vampire’s energy drain attack rises as a vampire loyal to its creator (called the master vampire, or simply “master”). The new vampire gains three allegiances (in any order): chaos, evil, and master. All previous allegiances are lost permanently. A vampire loses its allegiance to its master (and may adopt a new allegiance to replace it) only when the master vampire is destroyed.</p>",
         "source": "d20 Modern SRD",
@@ -560,7 +560,7 @@
       "_id": "RMEfdg1o7zEhkSI3",
       "name": "Domination (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>As an attack action, a vampire can crush an opponent’s will just by gazing into his or her eyes. The vampire can attempt to dominate only one target at a time, and the target must be within 30 feet and able to see the vampire. A target that fails a @Check[save:will]{Will save} (DC 10 + 1/2 vampire’s Hit Dice + vampire’s Charisma modifier) becomes the vampire’s thrall for 1 day per Hit Die of the vampire. The thrall temporarily loses all previous allegiances and adopts a singular, unswerving allegiance to the vampire. If the vampire commands its thrall to do something blatantly self-destructive, the target can make a @Check[save:will]{Will save} to break the vampire’s control. If the save succeeds, the target becomes free-willed and regains its previous allegiances.</p>",
         "source": "d20 Modern SRD",
@@ -588,7 +588,7 @@
       "_id": "N9TMxlcpWsWO2Wdw",
       "name": "Energy Drain",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A living creature hit by a vampire’s slam attack gains two negative levels. See page 226 for more information on energy drain and negative levels. A creature killed by a vampire’s energy drain attack rises as a vampire under its creator’s control (see Create Spawn, above).</p>",
         "source": "d20 Modern SRD",
@@ -604,7 +604,7 @@
       "_id": "TbrffFgh6TRBM6Uj",
       "name": "Alternate Form",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A vampire can assume the form of a bat, rat, or wolf as a move action. The vampire can remain in that form until it assumes another form or until the next sunrise.</p>",
         "source": "d20 Modern SRD",
@@ -620,7 +620,7 @@
       "_id": "MynUcdwLzIEggSpB",
       "name": "Children of the Night",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Vampires command the lesser creatures of the world and, once per day, can call forth a pack of 4d8 rats, a swarm of 10d10 bats, or a pack of 3d6 wolves as a full-round action. These creatures arrive in 2d6 rounds and serve the vampire for up to 1 hour.</p>",
         "source": "d20 Modern SRD",
@@ -636,7 +636,7 @@
       "_id": "fK1kOFGdI4cQ5lbb",
       "name": "Damage Reduction 15/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>In campaigns without magic weapons, the GM can disregard the vampire’s damage reduction, change it to 15/silver or 15/wood, or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "d20 Modern SRD",
@@ -652,7 +652,7 @@
       "_id": "vd9LF4KsaM13AiP5",
       "name": "Fast Healing 5",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>A vampire heals 5 points of damage each round so long as it has at least 1 hit point. If reduced to 0 hit points or lower, a vampire automatically assumes gaseous form (see below) and attempts to escape. It must reach its coffin home within 2 hours or be destroyed. (It can travel up to nine miles in 2 hours.) Once at rest in its coffin, its hit points rise to 1 hit point after 1 hour; the vampire then resumes healing at the rate of 5 hit points per round.</p>",
         "source": "d20 Modern SRD",
@@ -668,7 +668,7 @@
       "_id": "xLElH8kD9vVresX2",
       "name": "Gaseous Form",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>As a move action, the vampire (and all its gear) becomes insubstantial, misty, and translucent. The vampire gains damage reduction 20/+1 in this form. Its armor (including natural armor) ceases to modify its Defense, though other modifiers (such as from Dexterity and size) still apply. The vampire cannot attack or use supernatural abilities while in gaseous form.</p><p>A vampire in this form can remain gaseous indefinitely and has a fly speed of 20 feet with perfect maneuverability. It can pass through small holes or narrow openings, even mere cracks. Its gaseous form is subject to wind and cannot enter water or other liquid.</p>",
         "source": "d20 Modern SRD",
@@ -684,7 +684,7 @@
       "_id": "yYIf0MuHTCDuKXoV",
       "name": "Cold and Electricity Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -700,7 +700,7 @@
       "_id": "nQGtb6nvNnV8HmTE",
       "name": "Spider Climb",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire can climb sheer surfaces as though with a spider climb spell.</p>",
         "source": "d20 Modern SRD",
@@ -716,7 +716,7 @@
       "_id": "uZx60xhPSkmSsIsX",
       "name": "+4 Turn Resistance",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -732,7 +732,7 @@
       "_id": "R64rRw9Gf1P0m8Tk",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Vampires have darkvision with a range of 60 feet.</p>",
         "source": "d20 Modern SRD",
@@ -748,7 +748,7 @@
       "_id": "HDlIBy89nzClAF3I",
       "name": "Weaknesses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire has several weaknesses, described below. A vampire can have fewer weaknesses, but each lost weakness costs a vampire one of its other special qualities. For example, a vampire that is immune to the effects of garlic might be unable to summon children of the night.</p>",
         "source": "d20 Modern SRD",
@@ -764,7 +764,7 @@
       "_id": "ZO3wFRGmKzAQgyuZ",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Vampires have the traits and immunities common to undead.</p>",
         "source": "d20 Modern SRD",
@@ -780,7 +780,7 @@
       "_id": "FriMEU96fU1gynka",
       "name": "Cold Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>A vampire ignores the first 20 points of cold damage from any cold-based attack.</p>",
         "source": "d20 Modern SRD",
@@ -796,7 +796,7 @@
       "_id": "BlUhEN7R4LaVPJaM",
       "name": "Electricity Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire ignores the first 20 points of electricity damage from any electricity-based attack.</p>",
         "source": "d20 Modern SRD",
@@ -812,7 +812,7 @@
       "_id": "tc15D6lQbYqUTpX9",
       "name": "Turn Resistance",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire has +4 turn resistance.</p>",
         "source": "d20 Modern SRD",
@@ -828,7 +828,7 @@
       "_id": "8dlrgaFkQwa5fvZQ",
       "name": "Direct Sunlight",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The merest sliver of sunlight deals 2d6 points of damage to a vampire. A vampire exposed to direct sunlight for 1 full round must succeed on a @Check[save:fort|dc:20]{Fortitude save (DC 20)} or be consumed by fire and destroyed utterly.</p>",
         "source": "d20 Modern SRD",
@@ -844,7 +844,7 @@
       "_id": "IDckx01aKqybpgvU",
       "name": "Garlic",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire cannot enter or pass through any 5-foot square containing garlic. A vampire takes a –2 penalty on melee attack rolls against a target wearing garlic.</p>",
         "source": "d20 Modern SRD",
@@ -860,7 +860,7 @@
       "_id": "469UIlu4FaP2P3rf",
       "name": "Holy Symbol",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire takes a –2 penalty on melee attack rolls against a creature prominently wearing or brandishing a holy symbol. The symbol’s touch deals 1d4 points of holy damage to a vampire, and a vampire reduced to 0 hit points in this fashion is destroyed utterly. This holy damage can be healed only by inflict spells.</p>",
         "source": "d20 Modern SRD",
@@ -876,7 +876,7 @@
       "_id": "O6ODZBJTvuuNNrUM",
       "name": "Inviolate Sanctuary",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire cannot enter a privately owned residence unless invited in by the rightful owner or tenant.</p>",
         "source": "d20 Modern SRD",
@@ -892,7 +892,7 @@
       "_id": "vvnfDcinHyELJiHj",
       "name": "Mirror",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vampire in view of a mirror cannot use its domination special quality (see above).</p>",
         "source": "d20 Modern SRD",
@@ -908,7 +908,7 @@
       "_id": "S6FawTDs6tVlOD96",
       "name": "Running Water",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/splash.svg",
       "system": {
         "description": "<p>A vampire cannot cross running water (but may be carried across). A vampire immersed in running water loses one-third of its remaining hit points each round until it is destroyed at the end of the third round.</p>",
         "source": "d20 Modern SRD",
@@ -924,7 +924,7 @@
       "_id": "IshmSMzdxuBuddlO",
       "name": "Wooden Stake",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Wooden weapons that deal piercing damage (such as wooden stakes, arrows, pool cues, spear shafts, and table legs) threaten a critical hit against a vampire on a natural 20 (unless noted otherwise), even though vampires are normally immune to critical hits. A successful critical hit destroys a vampire instantly, turning it to dust.</p>",
         "source": "d20 Modern SRD",

@@ -2,7 +2,7 @@
   "_id": "Lw2VjS2VkuFuH6BM",
   "name": "Breathsnatcher Infiltrator 4",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -190,7 +190,7 @@
       "_id": "xF3x1KxmRtAhXwsd",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+13/+8 melee (1d4+2/19-20, knife) or +15/+10 ranged (2d6, MAC Ingram M10) or +11/+6 ranged (4d6, MAC Ingram M10 burst)</p>",
         "source": "Urban Arcana",
@@ -223,7 +223,7 @@
       "_id": "f2w2br1Ihktu54Ol",
       "name": "MAC Ingram M10",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+13/+8 melee (1d4+2/19-20, knife) or +15/+10 ranged (2d6, MAC Ingram M10) or +11/+6 ranged (4d6, MAC Ingram M10 burst)</p>",
         "source": "Urban Arcana",
@@ -256,7 +256,7 @@
       "_id": "21XjRk85yIIgdRhS",
       "name": "MAC Ingram M10 burst",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+13/+8 melee (1d4+2/19-20, knife) or +15/+10 ranged (2d6, MAC Ingram M10) or +11/+6 ranged (4d6, MAC Ingram M10 burst)</p>",
         "source": "Urban Arcana",
@@ -289,7 +289,7 @@
       "_id": "2gST25dTfqWNXA4k",
       "name": "Advanced Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -310,7 +310,7 @@
       "_id": "RBzQhaHKCISo7e52",
       "name": "Burst Fire",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -333,7 +333,7 @@
       "_id": "ADLRZyQBz9OQvJ10",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -352,7 +352,7 @@
       "_id": "YL5JAop6VdUWExtu",
       "name": "Quick Draw",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -373,7 +373,7 @@
       "_id": "ULA3tky0ItqLeeWc",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -392,7 +392,7 @@
       "_id": "QHg0crijkrSZYYXz",
       "name": "Stealthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -411,7 +411,7 @@
       "_id": "J4xO39QPNnebLIH4",
       "name": "Strafe",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -433,7 +433,7 @@
       "_id": "1DzOp24uQ8yAgZXD",
       "name": "Clawing Smoke",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once every 1d4 rounds, a breathsnatcher can expel a 30-foot cone of magic smoke. The smoke grants one-half concealment to creatures in its periphery and full concealment to characters obscured by more than 5 feet of smoke. In addition, any creature within the cone must succeed at a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or get smoke in their lungs.</p><p>Holding one’s breath doesn’t help, as tendrils of smoke actively try to invade the lungs. This magic smoke begins to rip at the lungs and surrounding organs, dealing 3d4 points of damage per round. The affected creature can attempt another @Check[save:fort]{Fortitude save} each subsequent round to cough out the semivaporous menace.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -449,7 +449,7 @@
       "_id": "fKeSzuB8sETry5ey",
       "name": "Snatch Breath",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>As a full-round action, the breathsnatcher can steal the breath from any adjacent creature with –1 or fewer hit points. This instantly kills the creature and grants the breathsnatcher damage reduction 15/+1 for 1 hour per Hit Die of the victim.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -465,7 +465,7 @@
       "_id": "FiHzrXBnuhLcDqxW",
       "name": "Fast Healing 5",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>A breathsnatcher heals 5 points of damage each round so long as it has at least 1 hit point remaining.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -481,7 +481,7 @@
       "_id": "L2RcQhvQYe2eL6qd",
       "name": "Sweep",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -497,7 +497,7 @@
       "_id": "0dIXocLGFhkwXK5J",
       "name": "Improvised Implements",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -513,7 +513,7 @@
       "_id": "pA3OGa1k6IeRUaDn",
       "name": "Improved Evasion",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

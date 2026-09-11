@@ -2,7 +2,7 @@
   "_id": "KsdSsVvbLq8vpEcZ",
   "name": "Giant Lizard",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -152,7 +152,7 @@
       "_id": "vlGGo44I11CfDMfH",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+5 melee (1d8+4, bite)</p>",
         "source": "Urban Arcana",
@@ -185,7 +185,7 @@
       "_id": "liCiI1ntvvnzZjYs",
       "name": "Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Some species of giant lizard have a poisonous bite. Bite: @Check[save:fort|dc:14]{Fortitude save (DC 14)}; initial and secondary 1d3 Strength damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -201,7 +201,7 @@
       "_id": "Lh4f9yCQUGYBgBZY",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Lizards can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -217,7 +217,7 @@
       "_id": "iLlon0PHdaF4mjO8",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Lizards use their Dexterity modifier for @Check[skill:climb]{Climb check}s. They gain a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide and @Check[skill:moveSilently]{Move Silently check}s. In wooded or overgrown areas, the species bonus on @Check[skill:hide]{Hide check}s improves to +8.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -233,7 +233,7 @@
       "_id": "EquGIWIZaBGc5Zof",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Lizards gain the bonus feat Weapon Finesse (bite).</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

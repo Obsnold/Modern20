@@ -2,7 +2,7 @@
   "_id": "mdyoHuWVWyMv2bjJ",
   "name": "Owl",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -128,7 +128,7 @@
       "_id": "T4j3pRkb8dS9zKCL",
       "name": "Claw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+5 melee (1d2-2, claw)</p>",
         "source": "d20 Modern SRD",
@@ -161,7 +161,7 @@
       "_id": "BX7JVdMxBuoxUyq1",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -183,7 +183,7 @@
       "_id": "re1i01gZp5T9GPSX",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -199,7 +199,7 @@
       "_id": "1ArkzGaHrgKxvpOb",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Owls receive a +8 species bonus on @Check[skill:listen]{Listen check}s and a +14 species bonus on @Check[skill:moveSilently]{Move Silently check}s. They receive a +8 species bonus on @Check[skill:spot]{Spot check}s in dusk and darkness.</p>",
         "source": "d20 Modern SRD",
@@ -215,7 +215,7 @@
       "_id": "Xa76nrvDfFld6xQR",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Owls gain the bonus feat Weapon Finesse (claw).</p>",
         "source": "d20 Modern SRD",

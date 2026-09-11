@@ -2,7 +2,7 @@
   "_id": "7XYi21HVUcHvZPgx",
   "name": "Small Star Doppelganger",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/floating-tentacles.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -179,7 +179,7 @@
       "_id": "7GFzDGm8HQ0DkG1j",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d6+2, bite) and -1 melee (1d4+1, gore) and -1 melee (1d3+1, claw) and -1 melee (1d2+1, slam)</p>",
         "source": "Menace Manual",
@@ -212,7 +212,7 @@
       "_id": "6r4yOspzfCEQNx6X",
       "name": "Gore",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
       "system": {
         "description": "<p>+4 melee (1d6+2, bite) and -1 melee (1d4+1, gore) and -1 melee (1d3+1, claw) and -1 melee (1d2+1, slam)</p>",
         "source": "Menace Manual",
@@ -245,7 +245,7 @@
       "_id": "Nxlk94jtkf6Lo3SH",
       "name": "Claw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d6+2, bite) and -1 melee (1d4+1, gore) and -1 melee (1d3+1, claw) and -1 melee (1d2+1, slam)</p>",
         "source": "Menace Manual",
@@ -278,7 +278,7 @@
       "_id": "w7UoHZglLAFx4ncD",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+4 melee (1d6+2, bite) and -1 melee (1d4+1, gore) and -1 melee (1d3+1, claw) and -1 melee (1d2+1, slam)</p>",
         "source": "Menace Manual",
@@ -311,7 +311,7 @@
       "_id": "uY6IkFJRZtwtuuYk",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -330,7 +330,7 @@
       "_id": "NcftodQHSqYGng1f",
       "name": "Athletic",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -349,7 +349,7 @@
       "_id": "KLBqae0GmFf8zfo4",
       "name": "Builder",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "LAkVxX7lJG0KQIg8",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -387,7 +387,7 @@
       "_id": "CxvpX53Vj2QZZd8g",
       "name": "Absorb",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>As a full-round action, a star doppelganger can absorb the body (but not the equipment) of any creature to which it has successfully transferred its flesh (see Flesh Transfer, below). The star doppelganger gains a size category whenever it has absorbed creatures whose combined size categories equal its own, according to the following equivalencies: Four Tiny creatures equal a Small creature, four Small creatures equal a Medium-size creature, and four Medium-size creatures equal a Large creature. Thus, a Huge star doppelganger could have resulted from a Large star doppelganger absorbing one Large creature, four Medium-size creatures, or any mix of sizes that equals Large. The star doppelganger’s statistics remain the same after absorption unless it gains a size category. Any hit point or ability damage that the star doppelganger has taken before absorbing its prey still applies to its new statistics. A star doppelganger cannot absorb a creature larger than itself, nor can it absorb another star doppelganger.</p>",
         "source": "Menace Manual",
@@ -403,7 +403,7 @@
       "_id": "msiCyPA0dMdSnrfk",
       "name": "Alien Physiology",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A star doppelganger does not need to eat or sleep the way a normal creature does. It cannot starve or become fatigued. A star doppelganger is not subject to death from massive damage or critical hits.</p>",
         "source": "Menace Manual",
@@ -419,7 +419,7 @@
       "_id": "wComcO5YHqje3Lcv",
       "name": "Cold Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>A star doppelganger ignores the first 10 points of cold damage from any single attack.</p>",
         "source": "Menace Manual",
@@ -435,7 +435,7 @@
       "_id": "1IXac4NqkXf8j8B0",
       "name": "Convert",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If desired, a star doppelganger can convert any creature to which it has successfully transferred its flesh (see Flesh Transfer, below) into a new star doppelganger as a full-round action. A converted creature becomes in all ways a star doppelganger of the appropriate size category, losing all its own ability scores, Hit Dice, class levels, skills, feats, species traits, and allegiances and replacing them with those of a star doppelganger. A creature with less than 1 Hit Die or more than 16 Hit Dice cannot be converted.</p>",
         "source": "Menace Manual",
@@ -451,7 +451,7 @@
       "_id": "GsOyRM4W5nSONZeF",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -467,7 +467,7 @@
       "_id": "aAcqGGWbqAZfBQKz",
       "name": "Fear Aura (DC 11)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>Any creature within 60 feet of a star doppelganger in its normal form must succeed on a @Check[save:will]{Will saving throw} (DC 10 + 1/2 star doppelganger’s Hit Dice + its Charisma modifier) or be stunned for 1d4 rounds by its hideous appearance and otherworldly appendages. An opponent that cannot see the star doppelganger is immune to this effect.</p><p>Whether or not the save is successful, the creature cannot be affected again by that star doppelganger’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
@@ -495,7 +495,7 @@
       "_id": "tB6tVX3zyT5S294P",
       "name": "Flesh Transfer (DC 11)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A star doppelganger can transfer its own flesh to a helpless living creature or a living creature that it has pinned in a grapple for 3 consecutive rounds. As an attack action, the star doppelganger sloughs flesh from its own body onto the helpless or pinned foe, thereby transforming the latter’s body into star doppelganger flesh. The opponent may attempt a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 star doppelganger’s Hit Dice + its Constitution modifier) to resist. Success indicates that the star doppelganger has failed to transfer its flesh to the opponent, but it can attempt to do so again using another attack action assuming that the proper conditions are still in place. Failure indicates that the flesh transfer was successful and the opponent’s body has begun to transform into star doppelganger flesh. The opponent is then helpless for the remainder of the process.</p><p>The star doppelganger must stay in physical contact with the target for 1d4 additional rounds before the transfer is complete. At that point, the opponent can be either absorbed by the star doppelganger or converted into a new star doppelganger (see Absorb and Convert, above), at the attacker’s option. If the star doppelganger is physically separated from the opponent or killed before the flesh transfer is complete, the opponent takes 1d4 points of Constitution drain and remains helpless for 2d4 rounds.</p><p>An opponent smaller than Tiny or larger than Large cannot be either absorbed or converted. If the opponent cannot be either absorbed, and a creature with less than 1 Hit Die or more than 16 Hit Dice cannot be converted, it simply becomes a dead star doppelganger when the process is complete.</p>",
         "source": "Menace Manual",
@@ -523,7 +523,7 @@
       "_id": "NjeUTV2gfTs8oVTF",
       "name": "Hive Mind",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>All star doppelgangers within 200 feet of one another are in constant mental communication. If one is aware of a particular threat, they all are. If one star doppelganger in a particular group is not flat-footed, none of them are. No star doppelganger in such a group is considered flanked unless they all are.</p>",
         "source": "Menace Manual",
@@ -539,7 +539,7 @@
       "_id": "UuyteVU4GgimgfwE",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Because a star doppelganger does not need to breathe, it is immune to suffocation, inhaled poisons, and other detrimental atmospheric effects. If it has assumed a form that normally breathes, it does so to look natural, but its immunities still apply.</p>",
         "source": "Menace Manual",
@@ -555,7 +555,7 @@
       "_id": "vrhJBAN53YwzL0oD",
       "name": "Mimic",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A star doppelganger can perfectly mimic any creature that it has absorbed within the past hour. Changing its form to match that of the absorbed creature is a full-round action that provokes attacks of opportunity. The star doppelganger retains its own Hit Dice, hit points, species traits, desires, and allegiances, but replaces its own ability scores with those of the absorbed creature. It also gains access to all the absorbed creature’s natural weapons, attack bonuses, skills, ability scores, feats, memories, and even spells yet to be cast. All of these abilities function at the effective Hit Dice or level of the absorbed creature. The star doppelganger functions in all ways as the creature did just before the absorption.</p><p>The star doppelganger must be of the same size category as the creature it chooses to mimic, so it may need to split or absorb creatures until its size is correct. It must acquire the equipment of the absorbed individual to complete the ruse properly. A star doppelganger may mimic a particular creature only once, and it can stay in that form for no longer than 24 hours. Thereafter, it automatically reverts to its star doppelganger form, losing all the knowledge, skills, feats, and abilities that the mimicked form provided. It does retain the memories of its actions while in the mimicked form and any information it gained during that time. Hit point and ability damage or drain taken in the mimicked form is healed upon reversion to its original form, but a star doppelganger that is killed in a mimicked form remains dead. Any magical effects that were operating on the star doppelganger in its mimicked form end upon reversion.</p><p>Most star doppelgangers try to return to their normal forms when their mimicked forms have lost half their hit points to damage.</p>",
         "source": "Menace Manual",
@@ -571,7 +571,7 @@
       "_id": "0jSGuRMWXZA0yTNP",
       "name": "Regeneration 5",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A star doppelganger regenerates 5 points of damage each round but cannot regenerate fire, acid, or electricity damage. If a star doppelganger loses a limb or body part, the lost portion regrows in 3d6 minutes. The creature can reattach the severed member instantly by holding it to the stump.</p>",
         "source": "Menace Manual",
@@ -587,7 +587,7 @@
       "_id": "ylwBjCjwlhQPvRtL",
       "name": "Split",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If a star doppelganger wants to escape bonds, or enter an area of smaller confines than its current size would permit, or diminish its size to mimic a creature it has absorbed, it can split off part of its body at will. Splitting is a full-round action that provokes attacks of opportunity.</p><p>The detached portion is a new star doppelganger of a size category smaller than the original, with the normal statistics for a star doppelganger of its size category. (Use the size equivalencies given in the Absorb ability, above, to determine the results of splits.) Any damage or other negative effects previously suffered stay with the larger portion, or are randomly assigned to one portion if both are the same size category. Neither portion of the split doppelganger can be smaller than Tiny. Once it has split apart, the star doppelganger cannot rejoin its parts; they are forever separate creatures. A star doppelganger can initiate a split at any point on its body—a fact that makes binding one nearly impossible.</p>",
         "source": "Menace Manual",
@@ -603,7 +603,7 @@
       "_id": "x0Sm7wa6DQTs6vF2",
       "name": "Species Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Because of its near-perfect mimicry ability, a star doppelganger gains a +30 circumstance bonus on @Check[skill:disguise]{Disguise check}s and a +10 circumstance bonus on @Check[skill:bluff]{Bluff check}s when acting as the creature it is mimicking. These bonuses are not accounted for in the statistics blocks below.</p>",
         "source": "Menace Manual",

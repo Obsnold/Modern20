@@ -2,7 +2,7 @@
   "_id": "WWoSxDQlQ4i2t4MV",
   "name": "Monkey",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -140,7 +140,7 @@
       "_id": "WJ7acRtYssqi55bR",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d3-4, bite)</p>",
         "source": "d20 Modern SRD",
@@ -173,7 +173,7 @@
       "_id": "41RfsCaMPwR980Ze",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -195,7 +195,7 @@
       "_id": "X1yLzPSeQRbOtbbh",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Monkeys gain the bonus feat Weapon Finesse (bite).</p>",
         "source": "d20 Modern SRD",

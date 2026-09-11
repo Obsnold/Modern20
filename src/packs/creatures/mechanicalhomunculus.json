@@ -2,7 +2,7 @@
   "_id": "ZMzhcQoEYuTijYTL",
   "name": "Mechanical Homunculus",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -150,7 +150,7 @@
       "_id": "qsMAO55iyAlZuBCF",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+2 melee (1d3-1 plus 1d6 acid, bite)</p><p><strong>Plus:</strong> 1d6 acid</p>",
         "source": "Urban Arcana",
@@ -183,7 +183,7 @@
       "_id": "VPKW3ZPNkqUxNh7X",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -199,7 +199,7 @@
       "_id": "UBYK3EGFJCbc6OLh",
       "name": "Repairable",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -215,7 +215,7 @@
       "_id": "SqBdJrPXkLTBknA5",
       "name": "Darkvision 120 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The mechanical homunculus has night vision sensors that improve the range of its darkvision to 120 feet.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -231,7 +231,7 @@
       "_id": "jvr3aR75ASbSa28I",
       "name": "Acid Spittle",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/acid.svg",
       "system": {
         "description": "<p>The bite of a mechanical homunculus injects mild acid that deals an additional 1d6 points of acid damage. The fumes of this acid are not poisonous.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -247,7 +247,7 @@
       "_id": "mXMQ62vpsuvrQwsF",
       "name": "Skills",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A mechanical homunculus has 10 skill points, which its master assigns to specific skills when the homunculus is first created. The skill ranks can be assigned only to the following skills: Computer Use, Decipher Script, Demolitions, Disable Device, Knowledge (any), Listen, Navigate, Read/Write Language (any), Repair, Search, Speak Language (any), and Spot. No skill can have more than 5 ranks assigned to it, and all of the skills are treated as class skills. A damaged mechanical homunculus with one or more ranks of Repair can attempt to repair itself or aid another’s attempts to repair it.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

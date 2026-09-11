@@ -2,7 +2,7 @@
   "_id": "jl0sY6Pn43gThx0M",
   "name": "Human Zombie",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -109,7 +109,7 @@
       "_id": "ggNaBsfr5rOkEJKh",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+1 melee (1d6+1, slam)</p>",
         "source": "d20 Modern SRD",
@@ -142,7 +142,7 @@
       "_id": "uADNHiHVXwCMMG4F",
       "name": "Toughness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -161,7 +161,7 @@
       "_id": "RCB5XfiWplcvbj3v",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -177,7 +177,7 @@
       "_id": "jTt65x5XkYWxEZp8",
       "name": "Move or Attack Action Only",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A zombie has poor reflexes and can perform only a single move action or attack action on its turn. It can only move and attack if it charges.</p>",
         "source": "d20 Modern SRD",
