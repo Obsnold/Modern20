@@ -1,0 +1,30 @@
+{
+  "_id": "ZHeOKfBbOqoRf7kd",
+  "name": "Horn of Blasting",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Up to three times per day, this horn can emit a shrieking sound that deafens and damages creatures caught in its path. Any creature within a 30-foot cone directly in front of the vehicle takes 2d6 points of sonic/concussion damage and is deafened for 2d6 rounds. A successful Fortitude save (DC 16) halves the damage and negates the deafening effect. Crystalline creatures in the cone take quadruple damage (8d6 points) from the sonic blast.</p><p>Vehicle windows and windshields may shatter if they take sufficient damage from the blast. Headlights are also susceptible to the horn of blasting and should be treated as windows for this purpose.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 0,
+    "restriction": "none",
+    "progressLevel": 0,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.xvAjT7w3aYNRXaIK"
+  },
+  "_key": "!items!ZHeOKfBbOqoRf7kd",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "29",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

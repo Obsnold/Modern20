@@ -1,0 +1,30 @@
+{
+  "_id": "gj7Up8tzrkIakF6k",
+  "name": "Horn of Dread",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>Up to three times per day, this horn can emit a terrifying noise. Anyone within 50 feet of the horn’s sound must succeed a Will save (DC 15) or be affected by a cause fear spell (as if cast by a 5th-level Acolyte).</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 27,
+    "restriction": "none",
+    "progressLevel": 0,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.szZxv1dcWefFpe7P"
+  },
+  "_key": "!items!gj7Up8tzrkIakF6k",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "27",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

@@ -1,0 +1,30 @@
+{
+  "_id": "bECELrRax6Q0HSOr",
+  "name": "Rod of Technology",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This 18-inch-long metal rod is covered in wires and diodes, and topped with a large crystal. Six switches are built into its length. Each switch activates a special power of the rod.</p><p>The first button turns the rod into a portable satellite telephone.</p><p>The second button transforms the rod into a metal detector.</p><p>The third switch turns the rod into a lock release gun.</p><p>The fourth button transforms the rod into a GPS receiver.</p><p>The fifth switch causes the rod’s crystal tip to shed bright light equivalent to a light spell.</p><p>The sixth button delivers an electrical pulse to any device touched by the rod’s crystal tip, duplicating the effects of a power device or degauss spell (at the wielder’s discretion).</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 6.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 29,
+    "restriction": "none",
+    "progressLevel": 0,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.slLUm6ZQgQpUn9RD"
+  },
+  "_key": "!items!bECELrRax6Q0HSOr",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "29",
+      "weight": "6 lb",
+      "casterLevel": "1st",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

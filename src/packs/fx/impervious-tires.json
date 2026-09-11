@@ -1,0 +1,30 @@
+{
+  "_id": "KC1NIAghm49wZ79V",
+  "name": "Impervious Tires",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>These tires are usually sold in sets of two or four, and each tire in the set has a hardness of 20.</p><p>If one of the tires is punctured and ruined, the remaining impervious tires continue to function.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Vehicular",
+    "weight": 0.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 28,
+    "restriction": "none",
+    "progressLevel": 0,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.oM7GpcxkYabR4Tjy"
+  },
+  "_key": "!items!KC1NIAghm49wZ79V",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "28 (per set)",
+      "weight": "— (factored into the vehicle’s weight)",
+      "casterLevel": "5th",
+      "itemType": "Wondrous Item (vehicular)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}
