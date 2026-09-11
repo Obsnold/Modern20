@@ -1,0 +1,242 @@
+{
+  "_id": "dSqrTBTOlSk18Jnv",
+  "name": "Porpoise",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+    "abilities": {
+      "str": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 5,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 11,
+      "max": 11,
+      "temp": 0,
+      "formula": "2d8+2"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 2
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "medium",
+      "speed": 80,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 13,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "1/2",
+      "hitDice": "2d8+2",
+      "advancement": "3-4 HD (Medium); 5-6 HD (Large)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none or school",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight",
+    "specialQualities": "aquatic, blindsight",
+    "biography": "<p><strong>Attack:</strong> +4 melee (1d4, slam)</p><p><strong>Full Attack:</strong> +4 melee (1d4, slam)</p><p><strong>Skills:</strong> Listen +10 (+6 if blindsight is negated), Spot +10 (+6 if blindsight is negated)</p><p><strong>Feats:</strong> Weapon Finesse (slam)</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.IwvFHKARnxOONdid"
+  },
+  "_key": "!actors!dSqrTBTOlSk18Jnv",
+  "items": [
+    {
+      "_id": "qXpD6KQEuEYMsWBU",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+4 melee (1d4, slam)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 3,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!dSqrTBTOlSk18Jnv.qXpD6KQEuEYMsWBU"
+    },
+    {
+      "_id": "2dANxHMChK52usMs",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.FAIe1iFuVQS9Ij9y"
+      },
+      "_key": "!actors.items!dSqrTBTOlSk18Jnv.2dANxHMChK52usMs"
+    },
+    {
+      "_id": "QDRhRRIBoPNxa3Tu",
+      "name": "Aquatic",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Porpoises can move in water without making Swim checks and cannot drown in water.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!dSqrTBTOlSk18Jnv.QDRhRRIBoPNxa3Tu"
+    },
+    {
+      "_id": "tWqV78liIgfft2ko",
+      "name": "Blindsight",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Porpoises can “see” by emitting high-frequency sounds, inaudible to most other creatures. This form of echolocation allows them to locate objects and creatures within 120 feet. A silence spell negates this and forces the porpoise to rely on its vision, which is approximately as good as a human’s.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!dSqrTBTOlSk18Jnv.tWqV78liIgfft2ko"
+    },
+    {
+      "_id": "02Sgpt9hnX4Sbclu",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Porpoises gain a +4 species bonus on Listen and Spot checks. These bonuses are lost if blindsight is negated.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!dSqrTBTOlSk18Jnv.02Sgpt9hnX4Sbclu"
+    },
+    {
+      "_id": "Ofw9x71Fm6cNNzGT",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Porpoises gain the bonus feat Weapon Finesse (slam).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!dSqrTBTOlSk18Jnv.Ofw9x71Fm6cNNzGT"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

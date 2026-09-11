@@ -1,0 +1,604 @@
+{
+  "_id": "jnKWlgPVCzEDo1yw",
+  "name": "Sraosha (Platonic of Contract Enforcement)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+    "abilities": {
+      "str": {
+        "value": 23,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 23,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 24,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 142,
+      "max": 142,
+      "temp": 0,
+      "formula": "15d8+75"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 17
+    },
+    "saves": {
+      "fort": {
+        "base": 9,
+        "misc": 0
+      },
+      "ref": {
+        "base": 9,
+        "misc": 0
+      },
+      "will": {
+        "base": 9,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 15,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 30,
+        "bypass": "+3"
+      },
+      "resistances": [
+        {
+          "type": "acid",
+          "value": 20
+        },
+        {
+          "type": "fire",
+          "value": 20
+        }
+      ],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 20,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "outsider",
+      "subtype": "",
+      "challengeRating": "17",
+      "hitDice": "15d8+75",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": "+3 longsword, +3 M16A2 (both items stored extradimensionally), +2 ring of protection."
+    },
+    "skills": {
+      "computerUse": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 18,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 18,
+        "classSkill": false
+      },
+      "investigate": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 17,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "business",
+            "ranks": 1,
+            "misc": 17,
+            "classSkill": false
+          },
+          {
+            "name": "civics",
+            "ranks": 1,
+            "misc": 17,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 18,
+        "classSkill": false
+      },
+      "research": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 20,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 20,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 18,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 18,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "contract enforcement",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "aura of menace, spell-like abilities, tongues, extradimensional storage, keen vision, immunities, acid and fire resistance 20, damage reduction 30/+3, SR 25, fast healing 10",
+    "biography": "<p><strong>Attack:</strong> +24 melee (1d8+12/19-20, +3 longsword) or +21 melee (1d4+6, unarmed strike) or +23 ranged (2d8+3, +3 M-16A2) or +19 ranged (4d8+3, +2 M-16A2 burst)</p><p><strong>Full Attack:</strong> +24/+19/+14 melee (1d8+12/19-20, +3 longsword) or +21/+16/+11 melee (1d4+6, unarmed strike) or +23/+18/+13 ranged (2d8+3, +2 M-16A2) or +19/+14/+9 ranged (4d8+3, +2 M16A2 burst)</p><p><strong>Skills:</strong> Computer Use +7, Diplomacy +25, Intimidate +25, Investigate +23, Knowledge (business) +23, Knowledge (civics) +23, Listen +24, Research +25, Search +25, Sense Motive +24, Spot +24.</p><p><strong>Feats:</strong> Advanced Firearms Proficiency, Archaic Weapons Proficiency, Burst Fire, Combat Martial Arts, Personal Firearms Proficiency, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.Un1uA1sp7v5bmpn0"
+  },
+  "_key": "!actors!jnKWlgPVCzEDo1yw",
+  "items": [
+    {
+      "_id": "amU1nfY6s0NAdNLG",
+      "name": "+3 longsword",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+24/+19/+14 melee (1d8+12/19-20, +3 longsword) or +21/+16/+11 melee (1d4+6, unarmed strike) or +23/+18/+13 ranged (2d8+3, +2 M-16A2) or +19/+14/+9 ranged (4d8+3, +2 M16A2 burst)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d8+12",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 3,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.amU1nfY6s0NAdNLG"
+    },
+    {
+      "_id": "vWpJJB7n4QowOr6G",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+24/+19/+14 melee (1d8+12/19-20, +3 longsword) or +21/+16/+11 melee (1d4+6, unarmed strike) or +23/+18/+13 ranged (2d8+3, +2 M-16A2) or +19/+14/+9 ranged (4d8+3, +2 M16A2 burst)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d4+6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.vWpJJB7n4QowOr6G"
+    },
+    {
+      "_id": "ePyI3e0decgTi03j",
+      "name": "+2 M-16A2",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+24/+19/+14 melee (1d8+12/19-20, +3 longsword) or +21/+16/+11 melee (1d4+6, unarmed strike) or +23/+18/+13 ranged (2d8+3, +2 M-16A2) or +19/+14/+9 ranged (4d8+3, +2 M16A2 burst)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "2d8+3",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 3,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.ePyI3e0decgTi03j"
+    },
+    {
+      "_id": "Xg3kt0mHyeE1URqb",
+      "name": "+2 M16A2 burst",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+24/+19/+14 melee (1d8+12/19-20, +3 longsword) or +21/+16/+11 melee (1d4+6, unarmed strike) or +23/+18/+13 ranged (2d8+3, +2 M-16A2) or +19/+14/+9 ranged (4d8+3, +2 M16A2 burst)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "4d8+3",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": -1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.Xg3kt0mHyeE1URqb"
+    },
+    {
+      "_id": "mTce5ZT4FZoIgRKw",
+      "name": "Advanced Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Personal Firearms Proficiency."
+        ],
+        "benefit": "The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an autofire setting).",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms set on autofire.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.rxXG0hi6JlzNgNJH"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.mTce5ZT4FZoIgRKw"
+    },
+    {
+      "_id": "gP1TJjJoU9tCm3Iq",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.gP1TJjJoU9tCm3Iq"
+    },
+    {
+      "_id": "QaUF6cyXavwG841j",
+      "name": "Burst Fire",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Wisdom 13",
+          "Personal Firearms Proficiency",
+          "Advanced Firearms Proficiency."
+        ],
+        "benefit": "When using an automatic firearm with at least five bullets loaded, the character may fire a short burst as a single attack against a single target. The character receives a –4 penalty on the attack roll, but deal +2 dice of damage.",
+        "normal": "Autofire uses ten bullets, targets a 10-foot-by-10-foot area, and can’t be aimed at a specific target. Without this feat, if a character attempts an autofire attack at a specific target, it simply counts as a normal attack and all the extra bullets are wasted.",
+        "special": "If the firearm has a three-round burst setting, firing a burst expends three bullets instead of five and can be used if the weapon has only three bullets in it.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.5Ul6TvdFCnck680x"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.QaUF6cyXavwG841j"
+    },
+    {
+      "_id": "MqTnDya04u4KpHpy",
+      "name": "Combat Martial Arts",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Base attack bonus +1."
+        ],
+        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character’s choice) equal to 1d4 + the character’s Strength modifier. The character’s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
+        "normal": "Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.TUbsr6Wx4Q3flQ2g"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.MqTnDya04u4KpHpy"
+    },
+    {
+      "_id": "NFKmZEbHBb7KGoKj",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.NFKmZEbHBb7KGoKj"
+    },
+    {
+      "_id": "JOprsFz47p0bcblO",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.JOprsFz47p0bcblO"
+    },
+    {
+      "_id": "hXSszMFPMKXi1oCI",
+      "name": "Aura of Menace",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.hXSszMFPMKXi1oCI"
+    },
+    {
+      "_id": "rb0ABVx1xEBcO9WX",
+      "name": "Spell-Like Abilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.rb0ABVx1xEBcO9WX"
+    },
+    {
+      "_id": "eoBqcXr5Ez8jaAxq",
+      "name": "Tongues",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.eoBqcXr5Ez8jaAxq"
+    },
+    {
+      "_id": "Odkl0WuEIlQdW0UD",
+      "name": "Extradimensional Storage",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.Odkl0WuEIlQdW0UD"
+    },
+    {
+      "_id": "kay2HuDG0tRZxf8p",
+      "name": "Keen Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.kay2HuDG0tRZxf8p"
+    },
+    {
+      "_id": "R61P6h1jg4B2gaze",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.R61P6h1jg4B2gaze"
+    },
+    {
+      "_id": "ttGg2p93jVlOtrBj",
+      "name": "Acid and Fire Resistance 20",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.ttGg2p93jVlOtrBj"
+    },
+    {
+      "_id": "pSoUhcdnFjpzQw2x",
+      "name": "Damage Reduction 30/+3",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.pSoUhcdnFjpzQw2x"
+    },
+    {
+      "_id": "Jcw5QpIEggwlAuQ8",
+      "name": "SR 25",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.Jcw5QpIEggwlAuQ8"
+    },
+    {
+      "_id": "aIXKzB0igPGChawt",
+      "name": "Fast Healing 10",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature regains hit points at an exceptionally fast rate, usually 1 or more hit points per round. Fast healing stops working when a creature is reduced to –10 hp or fewer. Except as noted here, fast healing works just like natural healing.</p><p>Fast healing doesn’t provide any benefit against attack forms that don’t deal hit point damage. Fast healing also doesn’t restore hit points lost to starvation, thirst, or suffocation, and it doesn’t allow a creature to regrow or reattach severed body parts.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!jnKWlgPVCzEDo1yw.aIXKzB0igPGChawt"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

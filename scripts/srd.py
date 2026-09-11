@@ -269,7 +269,15 @@ CHROME = {"srdhome.html", "index.html", "skills.html"}
 # Content pages that sit deeper than the crawl reaches. Psionic powers are four
 # hops from the index (srdhome -> fxbasics -> fxspells -> fxpsionics -> fxpowers),
 # and crawling that deep to find two pages would fetch most of the site again.
-DEEP_PAGES = ["fxpowers.html", "urbanpsidesc.html"]
+DEEP_PAGES = [
+    "fxpowers.html", "urbanpsidesc.html",
+    # Urban Arcana's creatures, four hops from the index (srdhome -> arcana ->
+    # urbanmonst -> urbanmonstaz -> urbanmonst1). Every one of its sixty-five
+    # creatures was missing from the compendium for that one hop: the stat
+    # blocks are the same label/value tables the parser already reads, and it
+    # had simply never been shown them.
+    "urbanmonst1.html", "urbanmonst2.html", "urbanmonst3.html", "urbanmonst4.html",
+]
 
 
 def links(page_html: str) -> list[str]:

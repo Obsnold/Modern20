@@ -1,0 +1,353 @@
+{
+  "_id": "LAW3ST3TB9Huo6kI",
+  "name": "Big Cat",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+    "abilities": {
+      "str": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 19,
+      "max": 19,
+      "temp": 0,
+      "formula": "3d8+6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 1
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "medium",
+      "speed": 40,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 15,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "2",
+      "hitDice": "3d8+6",
+      "advancement": "4-5 (Medium).",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none or owner",
+        "strength": "none"
+      }
+    ],
+    "senses": "Scent, Low-Light Vision",
+    "specialQualities": "pounce, improved grab, rake, scent, low-light vision",
+    "biography": "<p><strong>Attack:</strong> +6 melee (1d3+4, claw)</p><p><strong>Full Attack:</strong> +6 melee (1d6+3, bite), +1 melee (1d3+1, 2 claws)</p><p><strong>Skills:</strong> Balance +12, Climb +11, Hide +9, Jump +7, Listen +6, Move Silently +9, Spot +6.</p><p><strong>Feats:</strong> Weapon Finesse (bite, claw).</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.3h86W5LRGifg3IAG"
+  },
+  "_key": "!actors!LAW3ST3TB9Huo6kI",
+  "items": [
+    {
+      "_id": "Ky47X39v9GTAD4N4",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d6+3, bite), +1 melee (1d3+1, 2 claws)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d6+3",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.Ky47X39v9GTAD4N4"
+    },
+    {
+      "_id": "FBzotZwpQV6eBAMi",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+6 melee (1d6+3, bite), +1 melee (1d3+1, 2 claws)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d3+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -4,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.FBzotZwpQV6eBAMi"
+    },
+    {
+      "_id": "L72P80fSgjpzC0lm",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.FAIe1iFuVQS9Ij9y"
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.L72P80fSgjpzC0lm"
+    },
+    {
+      "_id": "hjpSZI01IOOAbdT2",
+      "name": "Pounce",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a big cat leaps upon a foe during the first round of combat, it can make a full attack even if it has already taken a move action.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.hjpSZI01IOOAbdT2"
+    },
+    {
+      "_id": "xZJz3MHKs9hnv9GI",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the big cat must hit with its bite attack. If it gets a hold, it can rake.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.xZJz3MHKs9hnv9GI"
+    },
+    {
+      "_id": "EyJ3IGyQSWlmooAS",
+      "name": "Rake",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If a big cat successfully grabs its prey (see Improved Grab, above), it can make two rake attacks (+6 melee) with its hind legs as part of a full attack. Each successful rake attack deals 1d3+1 points of damage.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.EyJ3IGyQSWlmooAS"
+    },
+    {
+      "_id": "jn8R66qfZbprT0pJ",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows the big cat to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.jn8R66qfZbprT0pJ"
+    },
+    {
+      "_id": "JETtPKZGz5uWHQGL",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Big cats can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.JETtPKZGz5uWHQGL"
+    },
+    {
+      "_id": "Mbe44pjhQTCg89Tj",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Big cats gain a +8 species bonus on Balance checks and a +4 species bonus on Hide, Jump, and Move Silently checks (for running jumps, the Jump bonus is +8).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.Mbe44pjhQTCg89Tj"
+    },
+    {
+      "_id": "armEtimwif2BaeEN",
+      "name": "Bonus Feats",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Big cats gain the bonus feats Weapon Finesse (bite) and Weapon Finesse (claw).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!LAW3ST3TB9Huo6kI.armEtimwif2BaeEN"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

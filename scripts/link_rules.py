@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Give every document in src/packs the rules page it belongs to.
+"""Give every document in src/packs the page and the book it came from.
 
 src/packs is the source of truth: the importer adds documents it does not have
 and leaves the rest alone, because a difference there is as likely to be a hand
@@ -7,10 +7,21 @@ correction as a parser improvement. So a new field cannot arrive by re-running
 the import — it would report 1,391 documents as differing and write none of
 them.
 
-This writes that one field and nothing else. Each document keeps every value
-it has; `system.rulesPage` is added beside `srdUrl`, which is the same fact
-about the same document — where the rules for it are, in the compendium rather
-than on the web.
+This writes two fields and nothing else, both of them facts about where the
+document came from. `system.rulesPage` is added beside `srdUrl` — where the
+rules for it are, in the compendium rather than on the web. And
+`system.source` is corrected where it names the wrong book: everything built
+from a scraped dataset claimed to be core, so the Menace Manual's creatures,
+Urban Arcana's spells and powers and d20 Future's vehicles all said "d20
+Modern SRD". A document whose source already names the right book is left
+exactly as it is, whatever it calls it.
+
+A document with no folder is filed in the one the import would have put it in,
+which is the same problem again: the feats pack held one book and needed no
+folders, so when Urban Arcana's arrived the ninety-five already there stayed at
+the root while an empty "d20 Modern" folder appeared beside them. A document
+that is already in a folder is never moved — a GM filing things their own way
+in Foundry is not a mistake to correct.
 
 It then writes the other direction into the rules pages themselves: a footer on
 each page listing the documents that point at it, so the gargoyle's page offers
@@ -99,6 +110,23 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     system = document.get("system")
     if system is None:
         return False
+
+    # The book the page it cites belongs to. Only a document naming the wrong
+    # one is corrected: "d20 Modern SRD" and "d20 Modern" are the same book
+    # spelled two ways, and a hand-written "Urban Arcana p.42" is a note rather
+    # than a mistake.
+    url = system.get("srdUrl") or ""
+    book = build_packs.book_of(url)
+    if book and book not in (system.get("source") or ""):
+        system["source"] = build_packs.source_for(url)
+        counts["book"] += 1
+        changed = True
+
+    folder = (built or {}).get("folder")
+    if folder and not document.get("folder"):
+        document["folder"] = folder
+        counts["filed"] += 1
+        changed = True
 
     uuid = ((built or {}).get("system") or {}).get("rulesPage")
     if uuid:
@@ -234,6 +262,10 @@ def main() -> int:
     order = ["imported"] + rules_pages.ORDER + ["none"]
     print("Matched: " + ", ".join(f"{counts[how]} by {how}"
                                   for how in order if counts[how]))
+    if counts["book"]:
+        print(f"{counts['book']} document(s) were filed under the wrong book")
+    if counts["filed"]:
+        print(f"{counts['filed']} document(s) were in no folder and now are")
     if arguments.report and unlinked:
         print("\nNo rules page at all:")
         for name in unlinked:

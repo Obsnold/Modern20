@@ -1,0 +1,23 @@
+{
+  "_id": "MFrE91UYtrW7uEp5",
+  "name": "Improved Natural Healing",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html",
+    "featType": "general",
+    "category": "",
+    "prerequisites": [
+      "Base Fortitude save bonus +5."
+    ],
+    "benefit": "You recover 2 hit points per character level per rest period (8 hours of sleep). If you undergo complete bed rest (doing nothing for the entire day), you recover 4 hit points per character level per day. Ability damage returns at 2 points for resting 8 hours, or 4 points per day with complete bed rest.",
+    "normal": "Normal natural healing is 1 hit point per character level for 8 hours rest, or 2 hit points per character level per day for complete bed rest. Ability damage returns at 1 point for 8 hours rest, or 2 points per day with complete bed rest.",
+    "special": "",
+    "repeatable": false,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.j3y53K4idZvPtNvy"
+  },
+  "_key": "!items!MFrE91UYtrW7uEp5",
+  "folder": "2W3VHg09JuaKFTS0"
+}

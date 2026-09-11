@@ -1,0 +1,494 @@
+{
+  "_id": "QQV24kKqHJDItjSu",
+  "name": "Urban Wendigo Fast Hero 3",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+    "abilities": {
+      "str": {
+        "value": 23,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 76,
+      "max": 76,
+      "temp": 0,
+      "formula": "6d8+24 plus 3d8+12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 7,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 5,
+        "misc": 0
+      },
+      "ref": {
+        "base": 4,
+        "misc": 0
+      },
+      "will": {
+        "base": 2,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 6,
+      "size": "large",
+      "speed": 45,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 19,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "giant",
+      "subtype": "",
+      "challengeRating": "8",
+      "hitDice": "6d8+24 plus 3d8+12",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": "Crossbow with 12 bolts, battered shopping cart filled with miscellaneous items"
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Scent, Low-Light Vision",
+    "specialQualities": "rage, rend 2d6+9, ferocity, peripheral invisibility, scent, low-light vision",
+    "biography": "<p><strong>Attack:</strong> +11 melee (1d6+6, claw) or +7 ranged (1d10/19-20, crossbow)</p><p><strong>Full Attack:</strong> +11 melee (1d6+6, 2 claws), +6 melee (1d6+3, bite) or +7 ranged (1d10/19-20, crossbow)</p><p><strong>Skills:</strong> Balance +14, Climb +19, Hide +4, Jump +19, Listen +4, Move Silently +4, Spot +4, Survival +14</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Dodge, Mobility, Simple Weapons Proficiency, Spring Attack, Stealthy</p><p><strong>Talents:</strong> (Fast Hero): Evasion, increased speed</p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.mWKjQ9HAkmLwQ253"
+  },
+  "_key": "!actors!QQV24kKqHJDItjSu",
+  "items": [
+    {
+      "_id": "WLflWE3SFLV999qg",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+11 melee (1d6+6, 2 claws), +6 melee (1d6+3, bite) or +7 ranged (1d10/19-20, crossbow)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d6+6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.WLflWE3SFLV999qg"
+    },
+    {
+      "_id": "KECR36lUV34odnqS",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+11 melee (1d6+6, 2 claws), +6 melee (1d6+3, bite) or +7 ranged (1d10/19-20, crossbow)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d6+3",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.KECR36lUV34odnqS"
+    },
+    {
+      "_id": "tka9Y4P3H6eQjFAU",
+      "name": "Crossbow",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+11 melee (1d6+6, 2 claws), +6 melee (1d6+3, bite) or +7 ranged (1d10/19-20, crossbow)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d10",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.tka9Y4P3H6eQjFAU"
+    },
+    {
+      "_id": "xl6eFpF3PQWnSx4x",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.xl6eFpF3PQWnSx4x"
+    },
+    {
+      "_id": "WPenR2TQ24GSP9cU",
+      "name": "Dodge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13."
+        ],
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.USPpLIhpI8GaU7Bq"
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.WPenR2TQ24GSP9cU"
+    },
+    {
+      "_id": "txDHuXVHYBhP4o11",
+      "name": "Mobility",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13",
+          "Dodge."
+        ],
+        "benefit": "The character gets a +4 dodge bonus to Defense against attacks of opportunity provoked when the character moves out of a threatened square.",
+        "normal": "",
+        "special": "A condition that makes a character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.HO0ORkOl3whhjgEX"
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.txDHuXVHYBhP4o11"
+    },
+    {
+      "_id": "3ticUXvvCTqxSR5q",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.3ticUXvvCTqxSR5q"
+    },
+    {
+      "_id": "J5SZnVaNJJSdIPM9",
+      "name": "Spring Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13",
+          "Dodge",
+          "Mobility",
+          "base attack bonus +4."
+        ],
+        "benefit": "When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater’s speed.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.srWZs0ySc6ofVA48"
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.J5SZnVaNJJSdIPM9"
+    },
+    {
+      "_id": "ppduEgxBfSBQz4bs",
+      "name": "Stealthy",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT"
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.ppduEgxBfSBQz4bs"
+    },
+    {
+      "_id": "8ZZmJ5wGyIR0AfB6",
+      "name": "Rage",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An urban wendigo that takes damage in combat flies into a berserk rage the following round, clawing and biting madly until either it or its opponent is dead. An enraged urban wendigo gains +4 Strength and +4 Constitution, and takes a –2 penalty Defense. The creature cannot end its rage voluntarily.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.8ZZmJ5wGyIR0AfB6"
+    },
+    {
+      "_id": "GeDvglGpROc59sg8",
+      "name": "Rend 2d6+9",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If an urban wendigo hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. This attack automatially deals an additional 2d6+9 points of damage.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.GeDvglGpROc59sg8"
+    },
+    {
+      "_id": "DrPfGVsE2EtZaSre",
+      "name": "Ferocity",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An urban wendigo is such a tenacious combatant that it continues to fight without penalty even while disabled or dying.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.DrPfGVsE2EtZaSre"
+    },
+    {
+      "_id": "Tb0fV7XeEs1tJpFN",
+      "name": "Peripheral Invisibility",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A side effect of the desolation that created the urban wendigo in the first place, the urban wendigo gains the benefit of invisibility, as the spell cast by a 10th-level Mage. By staying out of the direct, focused vision of city dwellers, the urban wendigo can roam the city unseen. Unlike the invisibility spell, any character looking in the general direction of the urban wendigo and taking an attack action to make a Spot check (DC = the urban wendigo’s Hide check) can see the urban wendigo if the check succeeds. Once a character sees an urban wendigo, that character is immune to its peripheral invisibility for 1 hour.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.Tb0fV7XeEs1tJpFN"
+    },
+    {
+      "_id": "DVfiYp1jB6MR0wYJ",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows the urban wendigo to detect approaching enemies, sniff out hidden foes, and track by scent.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.DVfiYp1jB6MR0wYJ"
+    },
+    {
+      "_id": "FxAdWAffuuCROllg",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Urban wendigos can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.FxAdWAffuuCROllg"
+    },
+    {
+      "_id": "rddBTU0shLnYKQu5",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Urban wendigos gain a +10 species bonus on Balance, Climb, Jump, and Survival checks.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!QQV24kKqHJDItjSu.rddBTU0shLnYKQu5"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

@@ -1,0 +1,418 @@
+{
+  "_id": "0OXyjUlwKFnSyKPh",
+  "name": "Gnome",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "abilities": {
+      "str": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 5,
+      "max": 5,
+      "temp": 0,
+      "formula": "1d8+1"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 1
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "small",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 12,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "shadowkind",
+      "challengeRating": "1/2",
+      "hitDice": "1d8+1",
+      "advancement": "By character class.",
+      "organization": "",
+      "treasure": "Stun gun, pepper spray, windbreaker, casual clothes, cell phone, PDA."
+    },
+    "skills": {
+      "computerUse": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 1,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "pharmaceutical",
+            "ranks": 0,
+            "misc": 3,
+            "classSkill": false
+          }
+        ]
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "technology",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Gnome",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Gnome",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any one",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 1,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "varies",
+        "strength": "none"
+      }
+    ],
+    "senses": "Low-Light Vision",
+    "specialQualities": "special combat bonuses, illusion mastery, speak with animals 1/day, low-light vision",
+    "biography": "<p><strong>Attack:</strong> Atk +0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d3 electricity plus paralysis, stun gun) or +1 ranged (blindness, pepper spray)</p><p><strong>Full Attack:</strong> +0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d3 electricity plus stun, stun gun) or +1 ranged (blindness, pepper spray)</p><p><strong>Skills:</strong> Computer Use +1, Craft (pharmaceutical) +3, Hide +4, Knowledge (technology) +1, Listen +3, Read/Write Gnome, Speak Gnome, Speak Language (any one), Spot +1.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Magical Heritage, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> N/A</p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.Bl2lJj7BwJczWktb"
+  },
+  "_key": "!actors!0OXyjUlwKFnSyKPh",
+  "items": [
+    {
+      "_id": "Gr5986oRR5e7hQI8",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d3 electricity plus stun, stun gun) or +1 ranged (blindness, pepper spray)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d3-1",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.Gr5986oRR5e7hQI8"
+    },
+    {
+      "_id": "GtzsaCTH4OMKRVBF",
+      "name": "Stun gun",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d3 electricity plus stun, stun gun) or +1 ranged (blindness, pepper spray)</p><p><strong>Also called:</strong> blindness, pepper spray</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d3",
+        "damageType": "electricity",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.GtzsaCTH4OMKRVBF"
+    },
+    {
+      "_id": "mZAIpkzKHduoW0Zs",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.mZAIpkzKHduoW0Zs"
+    },
+    {
+      "_id": "LjVcfwfqdKLDaNPq",
+      "name": "Magical Heritage",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.148sNurtv9lmF1iY",
+        "featType": "general",
+        "prerequisites": [
+          "Intelligence 10."
+        ],
+        "benefit": "Choose three 0-level arcane spells (“cantrips”). You may cast each of these spells once per day per your arcane spellcasting level (minimum 1). You are treated as a Mage for purposes of arcane spell failure chance when you are wearing armor.",
+        "normal": "",
+        "special": "You may only take this feat as a 1st-level character.",
+        "repeatable": false
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.LjVcfwfqdKLDaNPq"
+    },
+    {
+      "_id": "uAYiXbcHdmnKreBS",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.uAYiXbcHdmnKreBS"
+    },
+    {
+      "_id": "QL3REO7o0N6mrm4K",
+      "name": "Special Combat Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gnomes gain a +1 species bonus on attack rolls against bugbears, goblins (and other goblinoids), and kobolds. Gnomes also gain a +4 dodge bonus to their Defense against giant-type creatures (such as ogres and trolls); this bonus represents special training that gnomes undergo, during which they learn tricks that previous generations developed in their battles with giants. Note that any time a gnome loses his positive Dexterity bonus to Defense, such as when he’s caught flat-footed, he loses this dodge bonus, too.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.QL3REO7o0N6mrm4K"
+    },
+    {
+      "_id": "CsvfpffLEDiM5pX0",
+      "name": "Illusion Mastery",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Add +1 to the Difficulty Class for all saving throws against Illusion spells cast by gnomes.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.CsvfpffLEDiM5pX0"
+    },
+    {
+      "_id": "ymbaJgloX0xvFIZJ",
+      "name": "Speak with Animals 1/day",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per day, a gnome can use speak with animals as a spell-like ability to speak with a burrowing mammal (a mole, gopher, ground hog, and so forth). It has a duration of 1 minute, and the gnome is considered a 1st-level caster when he uses this ability, regardless of his actual level.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.ymbaJgloX0xvFIZJ"
+    },
+    {
+      "_id": "rrFsNxExsOfUygJX",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gnomes can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.rrFsNxExsOfUygJX"
+    },
+    {
+      "_id": "8oK4WI3x6Oof1yg4",
+      "name": "Saving Throw Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gnomes gain a +2 species bonus on saving throws against illusions.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.8oK4WI3x6Oof1yg4"
+    },
+    {
+      "_id": "hTivE9aH2KSxKczn",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gnomes gain a +2 species bonus on Listen checks. Gnomes who have one or more ranks in the Craft (pharmaceutical) skill also gain a +2 species bonus on Craft (pharmaceutical) checks.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.hTivE9aH2KSxKczn"
+    },
+    {
+      "_id": "Lcse8oZ5gWclSQHK",
+      "name": "Bonus Feats",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Gnomes gain the bonus feat Archaic Weapons Proficiency. They may treat gnome hooked hammers as archaic weapons instead of exotic weapons.</p><p>Gnomes with Charisma scores of 10 or higher gain the bonus feat Magical Heritage.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!0OXyjUlwKFnSyKPh.Lcse8oZ5gWclSQHK"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

@@ -1,0 +1,192 @@
+{
+  "_id": "nXnAisrOWbEGOHiV",
+  "name": "Skeletal Rat Swarm",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+    "abilities": {
+      "str": {
+        "value": 3,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 19,
+      "max": 19,
+      "temp": 0,
+      "formula": "3d12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 2
+    },
+    "saves": {
+      "fort": {
+        "base": 1,
+        "misc": 0
+      },
+      "ref": {
+        "base": 1,
+        "misc": 0
+      },
+      "will": {
+        "base": 3,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "medium",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [
+        "poison"
+      ],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "undead",
+      "subtype": "swarm of fine undead",
+      "challengeRating": "2",
+      "hitDice": "3d12",
+      "advancement": "None",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {},
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft",
+    "specialQualities": "swarm, undead, immunities, distraction, darkvision 60 ft",
+    "biography": "<p><strong>Attack:</strong> swarm (2d4, swarm)</p><p><strong>Full Attack:</strong> swarm (2d4, swarm)</p><p><strong>Skills:</strong> None</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.yQx22El5qRaEMhBJ"
+  },
+  "_key": "!actors!nXnAisrOWbEGOHiV",
+  "items": [
+    {
+      "_id": "UIJppG30XtyQlzeP",
+      "name": "Swarm",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.dKgutAR4SJE2Fcc0"
+      },
+      "_key": "!actors.items!nXnAisrOWbEGOHiV.UIJppG30XtyQlzeP"
+    },
+    {
+      "_id": "NiFrzcZ6wJaKrIuc",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Skeletal rat swarms are immune to poison, sleep, paralysis, stunning, disease, necromantic effects, and mindaffecting effects. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or effects of massive damage, or any effect requiring a Fortitude save unless the effect also works on objects or is harmless. They may be healed by application of negative energy (such as an inflict light wounds spell). The swarm is destroyed if reduced to 0 hit points or less.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!nXnAisrOWbEGOHiV.NiFrzcZ6wJaKrIuc"
+    },
+    {
+      "_id": "FfiSXeA7v9H9VLzk",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A skeletal rat swarm is immune to cold and takes only one-quarter damage from ballistic, piercing, or slashing weapons.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!nXnAisrOWbEGOHiV.FfiSXeA7v9H9VLzk"
+    },
+    {
+      "_id": "ty8MPGorsEpMhtvX",
+      "name": "Distraction",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!nXnAisrOWbEGOHiV.ty8MPGorsEpMhtvX"
+    },
+    {
+      "_id": "QfyVMpoweAnVVMXe",
+      "name": "Darkvision 60 ft",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A skeletal rat swarm can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and the skeletal rats can function with no light at all.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!nXnAisrOWbEGOHiV.QfyVMpoweAnVVMXe"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

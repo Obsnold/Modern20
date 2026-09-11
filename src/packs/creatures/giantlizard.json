@@ -1,0 +1,250 @@
+{
+  "_id": "KsdSsVvbLq8vpEcZ",
+  "name": "Giant Lizard",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "abilities": {
+      "str": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 22,
+      "max": 22,
+      "temp": 0,
+      "formula": "3d8+9"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 3,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 2,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 17,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "2",
+      "hitDice": "3d8+9",
+      "advancement": "4-5 HD (Medium); 6-18 HD (Large); 19-32 HD (Huge); 33-45 HD (Gargantuan)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Low-Light Vision",
+    "specialQualities": "Poison, low-light vision",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d8+4, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d8+4, bite)</p><p><strong>Skills:</strong> Balance +10, Climb +13, Hide +6 (+10 in wooded or overgrown areas), Listen +5, Move Silently +6, Spot +5, Swim +11</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.X3qHjJBzUOpZRSwK"
+  },
+  "_key": "!actors!KsdSsVvbLq8vpEcZ",
+  "items": [
+    {
+      "_id": "vlGGo44I11CfDMfH",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d8+4, bite)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "category": "unarmed",
+        "damage": "1d8+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!KsdSsVvbLq8vpEcZ.vlGGo44I11CfDMfH"
+    },
+    {
+      "_id": "liCiI1ntvvnzZjYs",
+      "name": "Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Some species of giant lizard have a poisonous bite. Bite: Fortitude save (DC 14); initial and secondary 1d3 Strength damage.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!KsdSsVvbLq8vpEcZ.liCiI1ntvvnzZjYs"
+    },
+    {
+      "_id": "Lh4f9yCQUGYBgBZY",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Lizards can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!KsdSsVvbLq8vpEcZ.Lh4f9yCQUGYBgBZY"
+    },
+    {
+      "_id": "iLlon0PHdaF4mjO8",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Lizards use their Dexterity modifier for Climb checks. They gain a +8 species bonus on Balance checks and a +4 species bonus on Hide and Move Silently checks. In wooded or overgrown areas, the species bonus on Hide checks improves to +8.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!KsdSsVvbLq8vpEcZ.iLlon0PHdaF4mjO8"
+    },
+    {
+      "_id": "EquGIWIZaBGc5Zof",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Lizards gain the bonus feat Weapon Finesse (bite).</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!KsdSsVvbLq8vpEcZ.EquGIWIZaBGc5Zof"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

@@ -1,0 +1,649 @@
+{
+  "_id": "ZkOvjSvqVZdzMneo",
+  "name": "Adult Dragon",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+    "abilities": {
+      "str": {
+        "value": 27,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 253,
+      "max": 253,
+      "temp": 0,
+      "formula": "22d12+110"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 21,
+      "misc": -2
+    },
+    "saves": {
+      "fort": {
+        "base": 13,
+        "misc": 0
+      },
+      "ref": {
+        "base": 13,
+        "misc": 0
+      },
+      "will": {
+        "base": 13,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 22,
+      "size": "huge",
+      "speed": 40,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 5,
+        "bypass": "+1"
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 24,
+      "reach": 15,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "dragon",
+      "subtype": "",
+      "challengeRating": "15",
+      "hitDice": "22d12+110",
+      "advancement": "",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": -8,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "arcane lore",
+            "ranks": 1,
+            "misc": 11,
+            "classSkill": false
+          },
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "history",
+            "ranks": 1,
+            "misc": 2,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Draconic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any five",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 12,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Draconic",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any five",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Blindsight 180 ft., Low-Light Vision, Darkvision 600 ft.",
+    "specialQualities": "breath weapon, fear aura 180 ft., crush 2d8+12, spells, spell-like abilities, immunities, SR 22, damage reduction 5/+1, blindsight 180 ft., low-light vision, darkvision 600 ft.",
+    "biography": "<p><strong>Attack:</strong> +28 melee (2d8+12, bite)</p><p><strong>Full Attack:</strong> +28 melee (2d8+8, bite), +23 melee (2d6+4, 2 claws), +23 melee (1d8+4, 2 wings), +23 melee (2d6+12, tail slap)</p><p><strong>Skills:</strong> Concentration +9, Bluff +17, Diplomacy +17, Hide -8, Jump +20, Knowledge (arcane lore) +17, Knowledge (current events) +6, Knowledge (history) +8, Listen +19, Read/Write Draconic, Read/Write Language (any five), Search +17, Sense Motive +17, Speak Draconic, Speak Language (any five), Spot +19.</p><p><strong>Feats:</strong> Alertness, Cleave, Combat Reflexes, Improved Bull Rush, Improved Damage Threshold, Power Attack.</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.00opBo7DXF6l7tPA"
+  },
+  "_key": "!actors!ZkOvjSvqVZdzMneo",
+  "items": [
+    {
+      "_id": "WGNp2Cxpds1qGQu0",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+28 melee (2d8+8, bite), +23 melee (2d6+4, 2 claws), +23 melee (1d8+4, 2 wings), +23 melee (2d6+12, tail slap)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "2d8+8",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.WGNp2Cxpds1qGQu0"
+    },
+    {
+      "_id": "ajrLe8oZwjR2HPFu",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+28 melee (2d8+8, bite), +23 melee (2d6+4, 2 claws), +23 melee (1d8+4, 2 wings), +23 melee (2d6+12, tail slap)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "2d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.ajrLe8oZwjR2HPFu"
+    },
+    {
+      "_id": "uEKz5GlhobCTK6ut",
+      "name": "Wing (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+28 melee (2d8+8, bite), +23 melee (2d6+4, 2 claws), +23 melee (1d8+4, 2 wings), +23 melee (2d6+12, tail slap)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d8+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.uEKz5GlhobCTK6ut"
+    },
+    {
+      "_id": "cayJWF8xA2obySbr",
+      "name": "Tail slap",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+28 melee (2d8+8, bite), +23 melee (2d6+4, 2 claws), +23 melee (1d8+4, 2 wings), +23 melee (2d6+12, tail slap)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "2d6+12",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.cayJWF8xA2obySbr"
+    },
+    {
+      "_id": "4ARabdJuFLsBfoKO",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.4ARabdJuFLsBfoKO"
+    },
+    {
+      "_id": "jqvwDs14THdycBBh",
+      "name": "Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.GWzDEz5myNqUySzu"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.jqvwDs14THdycBBh"
+    },
+    {
+      "_id": "tsRQEwysXpOmH7WG",
+      "name": "Combat Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.tsRQEwysXpOmH7WG"
+    },
+    {
+      "_id": "G8f5uvS6YE0q0VLs",
+      "name": "Improved Bull Rush",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "When the character performs a bull rush, the character does not provoke an attack of opportunity from the defender.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.iyAP3DsBASP6UtQp"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.G8f5uvS6YE0q0VLs"
+    },
+    {
+      "_id": "UfXjEfMluhTRs5Y2",
+      "name": "Improved Damage Threshold",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character increases his or her massive damage threshold by 3 points.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
+        "special": "A character may gain this feat multiple times. Its effects stack.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.aPNXiSF4u1f9ve4a"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.UfXjEfMluhTRs5Y2"
+    },
+    {
+      "_id": "xK1uX5cjT6HyASyd",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.wN9oWEMFLOWBLpVj"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.xK1uX5cjT6HyASyd"
+    },
+    {
+      "_id": "dPrz1t7Tp6PJ2SyU",
+      "name": "Breath Weapon",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A breath weapon attack usually causes damage and is often based on some type of energy. It allows a Reflex save for half damage with a DC equal to 10 + ½ breathing creature’s HD + breathing creature’s Constitution modifier (the exact DC is given in the creature’s Species Traits). A creature is immune to its own breath weapon and those of others of its kind unless noted otherwise.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.dPrz1t7Tp6PJ2SyU"
+    },
+    {
+      "_id": "XFlsoYA7IxDrcSnH",
+      "name": "Fear Aura 180 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A fear aura either operates continuously or can be used at will. In either case, it’s a free action. This ability can freeze an opponent or cause opponents to become panicked. Other effects are possible. Negating the fear effect requires a successful Will save with a DC equal to 10 + 1/2 fearsome creature’s HD + fearsome creature’s Charisma modifier (the exact DC is given in the creature’s descriptive text).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.XFlsoYA7IxDrcSnH"
+    },
+    {
+      "_id": "UOGb3xQHS9QLN1ie",
+      "name": "Crush 2d8+12",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.UOGb3xQHS9QLN1ie"
+    },
+    {
+      "_id": "e1cGycPCBgDj15vl",
+      "name": "Spells",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Some creatures can cast arcane spells or divine spells (and can activate magic items accordingly). These creatures are subject to the same spellcasting rules as characters.</p><p>Spellcasting creatures are not members of an advanced class unless their entries say so, and they do not gain any class features. A creature with access to divine spells must prepare them in the normal manner.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.e1cGycPCBgDj15vl"
+    },
+    {
+      "_id": "vBhCg7EfJ3Cjk380",
+      "name": "Spell-Like Abilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.vBhCg7EfJ3Cjk380"
+    },
+    {
+      "_id": "xkKfpx6SWNUzUQvL",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.xkKfpx6SWNUzUQvL"
+    },
+    {
+      "_id": "Ray9p2u4rte1f7i1",
+      "name": "SR 22",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.Ray9p2u4rte1f7i1"
+    },
+    {
+      "_id": "gE54YbqzGGSQRkP7",
+      "name": "Damage Reduction 5/+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.gE54YbqzGGSQRkP7"
+    },
+    {
+      "_id": "Wl7J0hsluLcOVavs",
+      "name": "Blindsight 180 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or Listen checks to notice creatures within range of its blindsight ability.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.Wl7J0hsluLcOVavs"
+    },
+    {
+      "_id": "Ut49wU8k6JYETgy3",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.Ut49wU8k6JYETgy3"
+    },
+    {
+      "_id": "V1FlAWtPqmmPZDFK",
+      "name": "Darkvision 600 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!ZkOvjSvqVZdzMneo.V1FlAWtPqmmPZDFK"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

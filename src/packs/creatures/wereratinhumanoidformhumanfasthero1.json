@@ -1,0 +1,458 @@
+{
+  "_id": "H6W25Esh1MGinFqo",
+  "name": "Wererat in Humanoid Form (Human Fast Hero 1)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.u7cSMQEII3wtdlnE",
+    "abilities": {
+      "str": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 13,
+      "max": 13,
+      "temp": 0,
+      "formula": "1d8+2 plus 1d8+2"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 15,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "",
+      "challengeRating": "3",
+      "hitDice": "1d8+2 plus 1d8+2",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": "Loaded Colt Python (.357 revolver), knife, casual clothes"
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 5,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "streetwise",
+            "ranks": 1,
+            "misc": 3,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 3,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "tumble": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "law",
+        "strength": "none"
+      },
+      {
+        "name": "evil",
+        "strength": "none"
+      },
+      {
+        "name": "wererats",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "alternate form, rat empathy",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d4+2/19-20, knife) or +5 ranged (2d6, Colt Python)</p><p><strong>Full Attack:</strong> +5 melee (1d4+2/19-20, knife) or +5 ranged (2d6, Colt Python)</p><p><strong>Skills:</strong> Balance +9, Climb +11, Escape Artist +9, Hide +10, Knowledge (streetwise) +3, Listen +4, Move Silently +8, Search +3, Spot +4, Tumble +9.</p><p><strong>Feats:</strong> Dodge, Personal Firearms Proficiency, Simple Weapons Proficiency, Weapon Finesse (knife)</p><p><strong>Talents:</strong> N/A</p>"
+  },
+  "_key": "!actors!H6W25Esh1MGinFqo",
+  "items": [
+    {
+      "_id": "81Vvd9dh6JKuAmIf",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d4+2/19-20, knife) or +5 ranged (2d6, Colt Python)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d4+2",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 3,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.81Vvd9dh6JKuAmIf"
+    },
+    {
+      "_id": "EsOpfSsE2fScXTLA",
+      "name": "Colt Python",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d4+2/19-20, knife) or +5 ranged (2d6, Colt Python)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.EsOpfSsE2fScXTLA"
+    },
+    {
+      "_id": "kyTjiCDnnBE3zPYl",
+      "name": "Dodge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13."
+        ],
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.USPpLIhpI8GaU7Bq"
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.kyTjiCDnnBE3zPYl"
+    },
+    {
+      "_id": "LU7b0w8U17I8nCRo",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN"
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.LU7b0w8U17I8nCRo"
+    },
+    {
+      "_id": "AuNRH1XdQfbjPcCW",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.AuNRH1XdQfbjPcCW"
+    },
+    {
+      "_id": "g1FzbV8NSNoHqlgx",
+      "name": "Weapon Finesse",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "With the selected melee weapon, the character may use his or her Dexterity modifier instead of his or her Strength modifier on attack rolls.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character selects a different weapon.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.FAIe1iFuVQS9Ij9y"
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.g1FzbV8NSNoHqlgx"
+    },
+    {
+      "_id": "ocqQ9FdkdQbsuSem",
+      "name": "Alternate Form",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A wererat can assume rat or hybrid form, but its gear is not absorbed into the new form. The bipedal hybrid form is about 5 feet tall, with a long tail and thin fur. The limbs are human, but the head looks like a rat’s. Changing to or from rat or hybrid form is a move action. Upon assuming either form, the wererat regains hit points as if having rested for a day. A slain wereat reverts to its humanoid form, although it remains dead. Afflicted wererats find this ability difficult to control. The rare natural wererat has full control over this power.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.ocqQ9FdkdQbsuSem"
+    },
+    {
+      "_id": "RQPs6jcax7I35mk5",
+      "name": "Rat Empathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A wererat can communciate with rats in any form and gains a +4 species bonus on Diplomacy checks when influencing a rat’s attitude. A friendly rat understands and heeds simple commands, such “wait,” “watch,” “flee,” and “attack.”</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.RQPs6jcax7I35mk5"
+    },
+    {
+      "_id": "o0Sipp5OzWOyapjP",
+      "name": "Base Attck",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Same as the character</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.o0Sipp5OzWOyapjP"
+    },
+    {
+      "_id": "A2uu8zmT59imDraU",
+      "name": "Curse of Lycanthropy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Any humanoid bitten by a wererat’s bite attack (in rat or hybrid form) must succeed at a Fortitude save (DC 15) or contract lycanthropy.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.A2uu8zmT59imDraU"
+    },
+    {
+      "_id": "dtZYhLFaW2eSUlkB",
+      "name": "Damage Reduction 15/Silver",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A wererat in rat or hybrid form ignores the first 15 points of damage dealt by a nonsilver or nonmagical weapon but takes full damage from silvered weapons or weapons with +1 or better magic bonus.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.dtZYhLFaW2eSUlkB"
+    },
+    {
+      "_id": "b0vyWKvTi0S4kPFh",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows a wererat in rat or hybrid form to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.b0vyWKvTi0S4kPFh"
+    },
+    {
+      "_id": "BwiBBGKrt0072pmM",
+      "name": "Darkvision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>In their rat and hybrid forms, wererats have darkvision with a range of 60 feet.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.BwiBBGKrt0072pmM"
+    },
+    {
+      "_id": "ZWdUUrH85N68OYmX",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Same as the character, with a +4 species bonus on Listen, Search, and Spot checks when in humanoid form. In rat or hybrid form, these bonuses increase to +8. A wererat in rat form also gains 3 ranks in Climb, 4 ranks in Hide, and 3 ranks in Move Silently.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!H6W25Esh1MGinFqo.ZWdUUrH85N68OYmX"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

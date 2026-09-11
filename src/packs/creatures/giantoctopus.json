@@ -1,0 +1,303 @@
+{
+  "_id": "NSORxcDjYkZX3CuW",
+  "name": "Giant Octopus",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+    "abilities": {
+      "str": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 3,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 44,
+      "max": 44,
+      "temp": 0,
+      "formula": "8d8+8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 7,
+      "misc": -1
+    },
+    "saves": {
+      "fort": {
+        "base": 6,
+        "misc": 0
+      },
+      "ref": {
+        "base": 6,
+        "misc": 0
+      },
+      "will": {
+        "base": 2,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 6,
+      "size": "large",
+      "speed": 10,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 13,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "animal",
+      "subtype": "",
+      "challengeRating": "8",
+      "hitDice": "8d8+8",
+      "advancement": "9-12 HD (Large); 13-24 HD (Huge); 25-42 (Gargantuan)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Low-Light Vision",
+    "specialQualities": "Aquatic subtype, improved grab, constrict, ink cloud, jet, low-light vision",
+    "biography": "<p><strong>Attack:</strong> +10 melee (1d4+7, tentacle slam)</p><p><strong>Full Attack:</strong> +10 melee (1d4+5, 8 tentacle slams), +5 melee (1d8+2, bite)</p><p><strong>Skills:</strong> Escape Artist +12, Hide +2, Listen +5, Move Silently +4, Spot +5</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.1NHk1METnWtDDLhJ"
+  },
+  "_key": "!actors!NSORxcDjYkZX3CuW",
+  "items": [
+    {
+      "_id": "a48wTKHuuXKLqSpC",
+      "name": "Tentacle slam (x8)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+10 melee (1d4+5, 8 tentacle slams), +5 melee (1d8+2, bite)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d4+5",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.a48wTKHuuXKLqSpC"
+    },
+    {
+      "_id": "eqJAgxwGKDMYG5qp",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+10 melee (1d4+5, 8 tentacle slams), +5 melee (1d8+2, bite)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d8+2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.eqJAgxwGKDMYG5qp"
+    },
+    {
+      "_id": "OzTfO79Do6oKxCy8",
+      "name": "Aquatic Subtype",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.OzTfO79Do6oKxCy8"
+    },
+    {
+      "_id": "AvdqzoqCtQPI9riK",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If the creature hits with a melee weapon it deals normal damage and attempts to start a grapple as a free action, doing so without provoking attacks of opportunity. No initial touch attack is required. Unless otherwise stated, improved grab works only against opponents at least one size category smaller than the creature. A Small or smaller creature using improved grab does not apply its grapple modifier to its grapple check.</p><p>The creature has the option to conduct the grapple normally, or simply use the part of its body it used in the improved grab to hold the opponent. If it chooses to do the latter, it takes a –20 penalty on grapple checks but is not considered grappled itself; the creature does not lose its Dexterity bonus to Defense, still threatens an area, and can use its remaining attacks against other opponents.</p><p>A successful hold does not deal additional damage unless the creature also has the constrict ability (see above). If the creature does not constrict, each successful grapple check it makes during successive rounds automatically deals the damage given for the attack that established the hold.</p><p>When a creature gets a hold after an improved grab attack, it pulls the opponent into its space. This act does not provoke attacks of opportunity. The creature is not considered grappled while it holds the opponent, so it still threatens adjacent squares and retains its Dexterity bonus. It can even move, provided it can drag the opponent’s weight.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.AvdqzoqCtQPI9riK"
+    },
+    {
+      "_id": "vOAFHhDnqqUDru3v",
+      "name": "Constrict",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature crushes the opponent, dealing bludgeoning damage, after making a successful grapple check. The amount of damage is given in the creature’s entry. If the creature also has the improved grab ability (see below), it deals constriction damage in addition to damage dealt by the weapon used to grab.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.vOAFHhDnqqUDru3v"
+    },
+    {
+      "_id": "TbWnJrW0G822zF6r",
+      "name": "Ink Cloud",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.TbWnJrW0G822zF6r"
+    },
+    {
+      "_id": "kgteHEpqdEMZqV6R",
+      "name": "Jet",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.kgteHEpqdEMZqV6R"
+    },
+    {
+      "_id": "5c2UK3ZH0kSXT2bN",
+      "name": "Low-Light Vision",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!NSORxcDjYkZX3CuW.5c2UK3ZH0kSXT2bN"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

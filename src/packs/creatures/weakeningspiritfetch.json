@@ -1,0 +1,367 @@
+{
+  "_id": "z1OqpZxdRzOExa3R",
+  "name": "Weakening Spirit (Fetch)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 26,
+      "max": 26,
+      "temp": 0,
+      "formula": "4d12"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 1
+    },
+    "saves": {
+      "fort": {
+        "base": 1,
+        "misc": 0
+      },
+      "ref": {
+        "base": 1,
+        "misc": 0
+      },
+      "will": {
+        "base": 4,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "undead",
+      "subtype": "",
+      "challengeRating": "6",
+      "hitDice": "4d12",
+      "advancement": "5-8 HD (Medium); 9-14 HD (Large)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      },
+      "search": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 14,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none or varies",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "undead, incorporeal, corrupting touch, draining touch (DC 15), invisibility, rejuvenation, +4 turn resistance, imprisonment, darkvision 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +3 melee (1d6 plus 1d4 Str drain, corrupting touch)</p><p><strong>Full Attack:</strong> +2 melee (1d6 plus 1d4 Str drain, corrupting touch)</p><p><strong>Skills:</strong> Bluff +7, Diplomacy +7, Hide +16, Intimidate +7, Listen +16, Search +16, Sense Motive +8, Spot +16</p><p><strong>Feats:</strong> Improved Initiative</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.BgRq6svgYBn28jlN"
+  },
+  "_key": "!actors!z1OqpZxdRzOExa3R",
+  "items": [
+    {
+      "_id": "1UBxUSN9pG46IUmm",
+      "name": "Corrupting touch",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d6 plus 1d4 Str drain, corrupting touch)</p><p><strong>Plus:</strong> 1d4 Str drain</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.1UBxUSN9pG46IUmm"
+    },
+    {
+      "_id": "sQD1jRKhaShEdiEi",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.cwSHh1LODru7iHSp"
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.sQD1jRKhaShEdiEi"
+    },
+    {
+      "_id": "0JJ4UIvaixJsBs7E",
+      "name": "Undead",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.0JJ4UIvaixJsBs7E"
+    },
+    {
+      "_id": "MMnitFZxEJWp8Wob",
+      "name": "Incorporeal",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.MMnitFZxEJWp8Wob"
+    },
+    {
+      "_id": "3QskiI7vBbQuN7Il",
+      "name": "Corrupting Touch",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.3QskiI7vBbQuN7Il"
+    },
+    {
+      "_id": "qw2rYnseA8P5Z4fe",
+      "name": "Draining Touch (DC 15)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A living creature wounded by the weakening spirit’s corrupting touch attack must succeed at a Fortitude save (DC 10 + spirit’s Hit Dice + spirit’s Charisma modifier) or suffer 1d4 points of permanent Strength drain. A creature reduced to 0 Strength by a weakening spirit’s draining touch dies and rises as a free-willed weakening spirit 24 hours later.</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Draining Touch",
+            "actionType": "varies",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 15,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.qw2rYnseA8P5Z4fe"
+    },
+    {
+      "_id": "PEwcWwjmmVSLAbSf",
+      "name": "Invisibility",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.PEwcWwjmmVSLAbSf"
+    },
+    {
+      "_id": "Y8q6i51Yefzf7OHd",
+      "name": "Rejuvenation",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.Y8q6i51Yefzf7OHd"
+    },
+    {
+      "_id": "jYMgxL9Zio3RvrNM",
+      "name": "+4 Turn Resistance",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.jYMgxL9Zio3RvrNM"
+    },
+    {
+      "_id": "j6ScfV6rlWydMc1q",
+      "name": "Imprisonment",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.j6ScfV6rlWydMc1q"
+    },
+    {
+      "_id": "ZE0L0rImh49piffd",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!z1OqpZxdRzOExa3R.ZE0L0rImh49piffd"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

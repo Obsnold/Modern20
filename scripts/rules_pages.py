@@ -58,13 +58,14 @@ QUALIFIER = re.compile(
 # Which of those qualified pages a pack wants, where both exist.
 PREFERRED = {"spells": "spells", "psionics": "psionic powers"}
 
-# A trailing parenthetical is a qualifier rather than a name: the progress
-# level a d20 Future vehicle is sold at ("Autodyn Hoverbike (PL 7)"), the
-# section the importer named a page for to tell it from another of the same
-# name, the size a creature variant is printed at. Stripped for the loose
+# A trailing parenthetical or bracket is a qualifier rather than a name: the
+# progress level a d20 Future vehicle is sold at ("Autodyn Hoverbike (PL 7)"),
+# the section the importer named a page for to tell it from another of the same
+# name, the size a creature variant is printed at, the category Urban Arcana
+# files a feat under ("Empower Spell [Metamagic]"). Stripped for the loose
 # comparison only - the exact one has to keep it, or every Craft specialty
 # collapses onto the Craft page.
-TRAILING = re.compile(r"\s*\([^)]*\)\s*$")
+TRAILING = re.compile(r"\s*[([][^)\]]*[)\]]\s*$")
 
 # The SRD's own typo in a table heading. The page it prints the goods under
 # spells it correctly, so nothing matches without this.
@@ -324,6 +325,16 @@ class RulesIndex:
             if found:
                 return "variant", found
 
+        # A name that says the entry's name and more: "Human Liquefied Zombie"
+        # is the zombie template the SRD heads "Zombie, Liquefied", and the
+        # words are the only thing the two have in common. Inside its own page,
+        # where the entry it varies is what it can reach.
+        # The same words in the SRD's own filing order counts: the compendium
+        # holds the "Dire Rat" that the book heads "Rat, Dire".
+        worded = self._worded(name, here)
+        if worded and tokens(worded.name) <= tokens(name):
+            return "variant", worded
+
         # The category the SRD sold it under. d20 Modern heads a page
         # "Handguns" and prints the goods in a table beneath it, so for those
         # books a page is a category and this is as fine as a link can get.
@@ -358,6 +369,13 @@ class RulesIndex:
                 if found:
                     return "class", found
 
+        # Nothing finer matched, so the chapter it was printed in. Not the
+        # first page of its own SRD page: a page that was split into one page
+        # per entry has no first page worth landing on, and a reference that
+        # found nothing was landing on whichever creature came first - the
+        # dragon emperor arriving at the ash wraith.
+        if source in self.split and entry:
+            return "page", entry[0]
         if here:
             return "page", here[0]
         return None

@@ -1,0 +1,24 @@
+{
+  "_id": "OrWAizpuYyct3mVz",
+  "name": "Improved Grapple",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html",
+    "featType": "general",
+    "category": "",
+    "prerequisites": [
+      "Brawl",
+      "Dexterity 13."
+    ],
+    "benefit": "You do not provoke an attack of opportunity when you make a touch attack to start a grapple. You also gain a +4 competence bonus on all grapple checks (regardless of whether you started the grapple).",
+    "normal": "Characters without this feat provoke an attack of opportunity when they initiate a grapple.",
+    "special": "",
+    "repeatable": false,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.LlUEHRvFvuPFUCH7"
+  },
+  "_key": "!items!OrWAizpuYyct3mVz",
+  "folder": "2W3VHg09JuaKFTS0"
+}

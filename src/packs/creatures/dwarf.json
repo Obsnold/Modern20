@@ -1,0 +1,381 @@
+{
+  "_id": "gsgiZyahre8eA61m",
+  "name": "Dwarf",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+    "abilities": {
+      "str": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 5,
+      "max": 5,
+      "temp": 0,
+      "formula": "1d8+1"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "medium",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 13,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "shadowkind",
+      "challengeRating": "1/2",
+      "hitDice": "1d8+1",
+      "advancement": "By character class.",
+      "organization": "",
+      "treasure": "N/A"
+    },
+    "skills": {
+      "craft": {
+        "specialties": [
+          {
+            "name": "mechanical",
+            "ranks": 0,
+            "misc": 5,
+            "classSkill": false
+          },
+          {
+            "name": "structural",
+            "ranks": 0,
+            "misc": 4,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Dwarven",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "repair": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 2,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Dwarven",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "varies",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "special combat bonuses, stability, darkvision 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +0 melee (1d3 nonlethal, unarmed strike) or +0 melee (1d6/x4, pickaxe)</p><p><strong>Full Attack:</strong> +0 melee (1d3 nonlethal, unarmed strike) or +0 melee (1d6/x4, pickaxe) or +0 ranged)</p><p><strong>Skills:</strong> Craft (mechanical) +5, Craft (structural) +4, Listen +2, Read/Write Dwarven, Repair +3, Speak Dwarven, Spot +2.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Educated (mechanical, structural).</p><p><strong>Talents:</strong> N/A</p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.lGqU9C46CymAGrv8"
+  },
+  "_key": "!actors!gsgiZyahre8eA61m",
+  "items": [
+    {
+      "_id": "h7LkxWdJog7e3F1Y",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+0 melee (1d3 nonlethal, unarmed strike) or +0 melee (1d6/x4, pickaxe) or +0 ranged)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d3",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.h7LkxWdJog7e3F1Y"
+    },
+    {
+      "_id": "XtyUkvb3s3F1yHIu",
+      "name": "Pickaxe",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+0 melee (1d3 nonlethal, unarmed strike) or +0 melee (1d6/x4, pickaxe) or +0 ranged)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d6",
+        "damageType": "",
+        "critical": "4",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.XtyUkvb3s3F1yHIu"
+    },
+    {
+      "_id": "g2WAPGtQxDGGDpAR",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.g2WAPGtQxDGGDpAR"
+    },
+    {
+      "_id": "Y8w6DgNOy2DYwvCi",
+      "name": "Educated",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "Pick two Knowledge skills. The character gets a +2 bonus on all checks with those skills.",
+        "normal": "",
+        "special": "A character can select this feat as many as seven times. Each time, the character selects two new Knowledge skills.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.ZlOGPJBVqz5Xzlee"
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.Y8w6DgNOy2DYwvCi"
+    },
+    {
+      "_id": "9WqePSW3MolxbvpQ",
+      "name": "Special Combat Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dwarves gain a +1 species bonus on attack rolls against bugbears, goblins, orcs, and other goblinoids. Dwarves also gain a +4 dodge bonus to Defense against creatures of the giant type. If a dwarf loses his positive Dexterity bonus to Defense (such as when flatfooted), this dodge bonus is lost.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.9WqePSW3MolxbvpQ"
+    },
+    {
+      "_id": "1oRKS31jhWA10AuT",
+      "name": "Stability",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dwarves gain a +4 species bonus on ability checks to resist bulll rush and trip attempts when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.1oRKS31jhWA10AuT"
+    },
+    {
+      "_id": "UdS6WFOnyp0TKzqN",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dwarves can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dwarves can function with no light at all.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.UdS6WFOnyp0TKzqN"
+    },
+    {
+      "_id": "rJiFWe5XHZrjTXwU",
+      "name": "Speed",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dwarves have a base speed of 20 feet. However, dwarves can move at this speed even when wearing medium or heavy armor or when carrying a medium or heavy load (unlike other creatures, whose speed is reduced in such situations).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.rJiFWe5XHZrjTXwU"
+    },
+    {
+      "_id": "YnyjnphhHZntvP6h",
+      "name": "Saving Throw Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dwarves are highly resistant to toxins and innately resistant to magic. They gain a +2 species bonus on saving throws against poisons, spells, and spell-like abilities.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.YnyjnphhHZntvP6h"
+    },
+    {
+      "_id": "D47FAFt9zSwFVYIv",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dwarves gain a +2 species bonus on Search checks to notice unusual stonework, new construction, unsafe surfaces, ceilings, and the like. A dwarf who merely passes within 10 feet of such exceptional construction can, as a free action, make a Search check (DC 15) as though he were actively searching for such.</p><p>Dwarves are naturally skilled mechanics and engineers. They gain a +2 species bonus on Craft (mechanical), Craft (structural), and Repair checks.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.D47FAFt9zSwFVYIv"
+    },
+    {
+      "_id": "vr6QRYwSMUuONPGd",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Dwarves gain the bonus feat Archaic Weapons Proficiency. Dwarves may treat dwarven urgroshes and dwarven waraxes as archaic weapons instead of exotic weapons.</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!gsgiZyahre8eA61m.vr6QRYwSMUuONPGd"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

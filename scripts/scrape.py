@@ -459,30 +459,58 @@ def entry_starts(lines: list[str], labels: set[str], lookahead: int = 3,
     return starts
 
 
+# The alphabetical feat listings, which are the pages that carry the
+# descriptions - the chapter pages list the names and link here. Core first, so
+# that where both books print a feat the core entry is the one kept: Urban
+# Arcana reprints Wild Talent, exactly as it reprints equipment.
+#
+# Not here: d20 Future's feats and the Menace Manual's. Those two pages are
+# laid out differently enough that this parser reads their prerequisite lines
+# as feat names, and a wrong import is worse than a missing one.
+FEAT_PAGES = ("featorder.html", "urbanfeatorder.html")
+
+# Urban Arcana tags a feat with the category the book files it under, in
+# capitals after the name: "Empower Spell [METAMAGIC]". That is the book's own
+# taxonomy rather than part of the name, so it comes off into a field.
+FEAT_CATEGORY = re.compile(r"\s*\[([^\]]+)\]\s*$")
+
+
 def scrape_feats() -> list[dict]:
-    """Feats from the alphabetical listing, which carries the descriptions."""
-    lines = text_lines(srd.fetch("featorder.html"))
-    starts = entry_starts(lines, FEAT_LABELS, lookahead=4)
-
+    """Feats from the alphabetical listings, which carry the descriptions."""
     feats = {}
-    for position, start in enumerate(starts):
-        end = starts[position + 1] if position + 1 < len(starts) else len(lines)
-        name = lines[start]
-        fields = collect_labels(lines, start + 1, end, FEAT_LABELS)
-        if not (fields.keys() & FEAT_LABELS):
-            continue
+    reprinted = []
+    for page in FEAT_PAGES:
+        lines = text_lines(srd.fetch(page))
+        starts = entry_starts(lines, FEAT_LABELS, lookahead=4)
 
-        prereq = fields.get("prerequisites") or fields.get("prerequisite") or ""
-        feats[name] = {
-            "id": camel(name),
-            "name": name,
-            "prerequisites": [p.strip() for p in prereq.split(",") if p.strip()],
-            "benefit": fields.get("benefit", ""),
-            "normal": fields.get("normal", ""),
-            "special": fields.get("special", ""),
-            "srdUrl": srd.page_url("featorder.html"),
-        }
+        for position, start in enumerate(starts):
+            end = starts[position + 1] if position + 1 < len(starts) else len(lines)
+            printed = lines[start]
+            fields = collect_labels(lines, start + 1, end, FEAT_LABELS)
+            if not (fields.keys() & FEAT_LABELS):
+                continue
 
+            tag = FEAT_CATEGORY.search(printed)
+            name = FEAT_CATEGORY.sub("", printed).strip()
+            if name in feats:
+                reprinted.append(f"{name} ({page})")
+                continue
+
+            prereq = fields.get("prerequisites") or fields.get("prerequisite") or ""
+            feats[name] = {
+                "id": camel(name),
+                "name": name,
+                "category": tag.group(1).strip().title() if tag else "",
+                "prerequisites": [p.strip() for p in prereq.split(",") if p.strip()],
+                "benefit": fields.get("benefit", ""),
+                "normal": fields.get("normal", ""),
+                "special": fields.get("special", ""),
+                "srdUrl": srd.page_url(page),
+            }
+
+    if reprinted:
+        print(f"  {len(reprinted)} feat(s) reprinted, kept from the core list: "
+              + ", ".join(reprinted))
     return [feats[k] for k in sorted(feats)]
 
 
@@ -3015,7 +3043,16 @@ def main() -> int:
     rules_path = os.path.join(srd.DATA, "rules.json")
     fx_items = scrape_fx_items(json.load(open(rules_path, encoding="utf-8"))
                                if os.path.exists(rules_path) else [])
-    write("fx_items.json", fx_items)
+    # A parser that suddenly finds nothing has drifted from what it reads, and
+    # writing that over a dataset that has 134 entries in it loses them
+    # silently - which is what happened here: scrape_fx_items still keys on the
+    # entry ids the RTF import used, and the rules have come from the website
+    # since. Keep what is there and say so.
+    if fx_items:
+        write("fx_items.json", fx_items)
+    else:
+        print("  ! no FX items parsed — keeping data/fx_items.json as it is; "
+              "scrape_fx_items needs rewriting against the split rules pages")
     write("purchase_tables.json", scrape_purchase_tables(pages))
     write("tables.json", tables)
 

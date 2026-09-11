@@ -1,0 +1,530 @@
+{
+  "_id": "Lw2VjS2VkuFuH6BM",
+  "name": "Breathsnatcher Infiltrator 4",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+    "abilities": {
+      "str": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 16,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 9,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 58,
+      "max": 58,
+      "temp": 0,
+      "formula": "9d8 plus 4d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 3,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 4,
+        "misc": 0
+      },
+      "ref": {
+        "base": 10,
+        "misc": 0
+      },
+      "will": {
+        "base": 7,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 11,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 10,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "monstrousHumanoid",
+      "subtype": "",
+      "challengeRating": "10",
+      "hitDice": "9d8 plus 4d8",
+      "advancement": "By character class.",
+      "organization": "",
+      "treasure": "Leather trenchcoat, knife, MAC Ingram M10 (.45 machine pistol) with suppressor."
+    },
+    "skills": {
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any one",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "sleightOfHand": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 6,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "English",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any one",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "clawing smoke, snatch breath, fast healing 5, sweep, improvised implements, improved evasion",
+    "biography": "<p><strong>Attack:</strong> +13 melee (1d4+2/19-20, knife) or +15 ranged (2d6, MAC Ingram M10)</p><p><strong>Full Attack:</strong> +13/+8 melee (1d4+2/19-20, knife) or +15/+10 ranged (2d6, MAC Ingram M10) or +11/+6 ranged (4d6, MAC Ingram M10 burst)</p><p><strong>Skills:</strong> Climb +9, Escape Artist +11, Hide +17, Jump +9, Listen +14, Move Silently +17, Read/Write English, Read/Write Language (any one), Sleight of Hand +11, Speak English, Speak Language (any one), Spot +12.</p><p><strong>Feats:</strong> Advanced Firearms Proficiency, Burst Fire, Personal Firearms Proficiency, Quick Draw, Simple Weapons Proficiency, Stealthy, Strafe.</p><p><strong>Talents:</strong> N/A</p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.T9rKBJ5F55JyvS4B"
+  },
+  "_key": "!actors!Lw2VjS2VkuFuH6BM",
+  "items": [
+    {
+      "_id": "xF3x1KxmRtAhXwsd",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13/+8 melee (1d4+2/19-20, knife) or +15/+10 ranged (2d6, MAC Ingram M10) or +11/+6 ranged (4d6, MAC Ingram M10 burst)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d4+2",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.xF3x1KxmRtAhXwsd"
+    },
+    {
+      "_id": "f2w2br1Ihktu54Ol",
+      "name": "MAC Ingram M10",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13/+8 melee (1d4+2/19-20, knife) or +15/+10 ranged (2d6, MAC Ingram M10) or +11/+6 ranged (4d6, MAC Ingram M10 burst)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.f2w2br1Ihktu54Ol"
+    },
+    {
+      "_id": "21XjRk85yIIgdRhS",
+      "name": "MAC Ingram M10 burst",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+13/+8 melee (1d4+2/19-20, knife) or +15/+10 ranged (2d6, MAC Ingram M10) or +11/+6 ranged (4d6, MAC Ingram M10 burst)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "4d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": -4,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.21XjRk85yIIgdRhS"
+    },
+    {
+      "_id": "2gST25dTfqWNXA4k",
+      "name": "Advanced Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Personal Firearms Proficiency."
+        ],
+        "benefit": "The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an autofire setting).",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms set on autofire.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.rxXG0hi6JlzNgNJH"
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.2gST25dTfqWNXA4k"
+    },
+    {
+      "_id": "RBzQhaHKCISo7e52",
+      "name": "Burst Fire",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Wisdom 13",
+          "Personal Firearms Proficiency",
+          "Advanced Firearms Proficiency."
+        ],
+        "benefit": "When using an automatic firearm with at least five bullets loaded, the character may fire a short burst as a single attack against a single target. The character receives a –4 penalty on the attack roll, but deal +2 dice of damage.",
+        "normal": "Autofire uses ten bullets, targets a 10-foot-by-10-foot area, and can’t be aimed at a specific target. Without this feat, if a character attempts an autofire attack at a specific target, it simply counts as a normal attack and all the extra bullets are wasted.",
+        "special": "If the firearm has a three-round burst setting, firing a burst expends three bullets instead of five and can be used if the weapon has only three bullets in it.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.5Ul6TvdFCnck680x"
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.RBzQhaHKCISo7e52"
+    },
+    {
+      "_id": "ADLRZyQBz9OQvJ10",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN"
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.ADLRZyQBz9OQvJ10"
+    },
+    {
+      "_id": "YL5JAop6VdUWExtu",
+      "name": "Quick Draw",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Base attack bonus +1."
+        ],
+        "benefit": "The character can draw a weapon as a free action.",
+        "normal": "A character can draw a weapon as a move action. If a character has a base attack bonus of +1 or higher, the character can draw a weapon as a free action when moving.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.BCayySXCBedKf8dW"
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.YL5JAop6VdUWExtu"
+    },
+    {
+      "_id": "ULA3tky0ItqLeeWc",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.ULA3tky0ItqLeeWc"
+    },
+    {
+      "_id": "QHg0crijkrSZYYXz",
+      "name": "Stealthy",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT"
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.QHg0crijkrSZYYXz"
+    },
+    {
+      "_id": "J4xO39QPNnebLIH4",
+      "name": "Strafe",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Personal Firearms Proficiency",
+          "Advanced Firearms Proficiency."
+        ],
+        "benefit": "When using a firearm on autofire, the character can affect an area four 5-foot squares long and one square wide (that is, any four squares in a straight line).",
+        "normal": "A firearm on autofire normally affects a 10-foot-by-10-foot area.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.tZisMsPbinmWzM6I"
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.J4xO39QPNnebLIH4"
+    },
+    {
+      "_id": "1DzOp24uQ8yAgZXD",
+      "name": "Clawing Smoke",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once every 1d4 rounds, a breathsnatcher can expel a 30-foot cone of magic smoke. The smoke grants one-half concealment to creatures in its periphery and full concealment to characters obscured by more than 5 feet of smoke. In addition, any creature within the cone must succeed at a Fortitude save (DC 14) or get smoke in their lungs.</p><p>Holding one’s breath doesn’t help, as tendrils of smoke actively try to invade the lungs. This magic smoke begins to rip at the lungs and surrounding organs, dealing 3d4 points of damage per round. The affected creature can attempt another Fortitude save each subsequent round to cough out the semivaporous menace.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.1DzOp24uQ8yAgZXD"
+    },
+    {
+      "_id": "fKeSzuB8sETry5ey",
+      "name": "Snatch Breath",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>As a full-round action, the breathsnatcher can steal the breath from any adjacent creature with –1 or fewer hit points. This instantly kills the creature and grants the breathsnatcher damage reduction 15/+1 for 1 hour per Hit Die of the victim.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.fKeSzuB8sETry5ey"
+    },
+    {
+      "_id": "FiHzrXBnuhLcDqxW",
+      "name": "Fast Healing 5",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A breathsnatcher heals 5 points of damage each round so long as it has at least 1 hit point remaining.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.FiHzrXBnuhLcDqxW"
+    },
+    {
+      "_id": "L2RcQhvQYe2eL6qd",
+      "name": "Sweep",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.L2RcQhvQYe2eL6qd"
+    },
+    {
+      "_id": "0dIXocLGFhkwXK5J",
+      "name": "Improvised Implements",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.0dIXocLGFhkwXK5J"
+    },
+    {
+      "_id": "pA3OGa1k6IeRUaDn",
+      "name": "Improved Evasion",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Lw2VjS2VkuFuH6BM.pA3OGa1k6IeRUaDn"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}
