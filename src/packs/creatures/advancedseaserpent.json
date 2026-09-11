@@ -7,6 +7,7 @@
     "description": "",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.oZCst8w9HkXz397P",
     "abilities": {
       "str": {
         "value": 42,
@@ -132,6 +133,7 @@
         "description": "<p>+27 melee (4d6+16, bite or tail slap)</p><p><strong>Also called:</strong> tail slap</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.vYPTvgtCpwqn2G2j",
         "category": "unarmed",
         "damage": "4d6+16",
         "damageType": "bludgeoning",
@@ -164,6 +166,7 @@
         "description": "",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.GWzDEz5myNqUySzu",
         "featType": "general",
         "prerequisites": [
           "Strength 13",
@@ -185,6 +188,7 @@
         "description": "",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.3LIyZLMBJltSh21Y",
         "featType": "general",
         "prerequisites": [
           "Strength 13",
@@ -208,6 +212,7 @@
         "description": "",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.cwSHh1LODru7iHSp",
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
@@ -226,6 +231,7 @@
         "description": "",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.wN9oWEMFLOWBLpVj",
         "featType": "general",
         "prerequisites": [
           "Strength 13."
@@ -246,6 +252,7 @@
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
         "abilityType": "extraordinary",
         "sense": true,
         "activities": {}
@@ -261,6 +268,7 @@
         "description": "<p>Part of the reason that so few sea serpents have ever been spotted or photographed is that they can make their forms indistinct and thereby blend into the lapping waves. As a full-round action, a sea serpent can blur its outline for a number of rounds equal to its Hit Dice. This distortion grants the sea serpent one-half concealment (20% miss chance). A sea serpent cannot be recorded on any visual media while in this state—a photograph shows only a fuzzy haze. A see invisibility spell does not counteract this effect, but a true seeing spell does.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.vYPTvgtCpwqn2G2j",
         "abilityType": "supernatural",
         "sense": false,
         "activities": {}
@@ -276,6 +284,7 @@
         "description": "<p>To use this ability, the sea serpent must hit an opponent at least one size category smaller than itself with its bite attack. If it gets a hold, it automatically deals bite damage each round that the hold is maintained, and it can swallow in the next round.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.vYPTvgtCpwqn2G2j",
         "abilityType": "extraordinary",
         "sense": false,
         "activities": {}
@@ -291,6 +300,7 @@
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
         "abilityType": "extraordinary",
         "sense": true,
         "activities": {}
@@ -306,6 +316,7 @@
         "description": "<p>If a sea serpent begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the sea serpent, the opponent takes bludgeoning damage equal to the serpent’s tail slap attack plus 1d6 points of acid damage per round from the monster’s gullet. A successful grapple check allows the swallowed creature to climb out of the gullet and return to the sea serpent’s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gullet using claws or a Small or Tiny slashing weapon. Dealing at least 20 points of damage to the gullet (Defense 25) in this way creates an opening large enough to permit escape. Once a single swallowed creature exits, muscular action closes the hole; thus, another swallowed creature must cut its own way out. A Huge sea serpent’s gullet can hold 2 Medium-size, 8 Small, 32 Tiny, or 128 Diminutive or smaller opponents.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.vYPTvgtCpwqn2G2j",
         "abilityType": "extraordinary",
         "sense": false,
         "activities": {}
@@ -321,6 +332,7 @@
         "description": "<p>The sea serpent’s coloration and shape grant it a +10 species bonus on Hide checks made while it is in water.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.vYPTvgtCpwqn2G2j",
         "abilityType": "",
         "sense": false,
         "activities": {}
