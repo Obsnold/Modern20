@@ -98,6 +98,7 @@ module/
   effects.mjs            What an item applies, in the sheet's own words
   apps/browser.mjs       One window over every compendium, filtered the SRD's way
   macros.mjs             An item dragged to the hotbar, as a macro that uses it
+  migrate.mjs            What a world already playing needs when the system changes
 templates/               Handlebars templates (actor, item, chat)
 css/modern20.css         Styling, scoped under .modern20
 lang/en.json             Localization
@@ -817,6 +818,25 @@ compared as one value differs on every round trip, and all 22 feats would come
 home reporting an edit nobody made. Compared document by document, an effect a
 GM switches off comes home switched off — which `check_capture.py` now drags
 through the round trip to prove.
+
+## Migrating a world that is already playing
+
+`DataModel.migrateData` handles a field that moved or changed shape: it runs on
+every document as it loads, in the world and in the compendia, and needs no
+pass of its own. What it cannot do is fill in something that was never there. A
+creature imported into a world last month has the token Foundry gave it — one
+square, no vision — because the compendium it came from had no token to copy,
+and nothing about loading that actor will ever change it.
+
+So `migrate.mjs` is for derived data that arrived after the world did, and it
+changes only what is still the default it was given: a Gargantuan wyrm on a 1x1
+token is a default nobody chose, and a Medium creature on a 2x2 token is
+somebody's decision. It gives an actor the token its size implies, gives it the
+space the SRD prints where the old flat five is still stored, and does the same
+for the tokens already standing on a map — fixing the actor does not move
+those. Then it stamps the system version into a hidden world setting, and only
+then: a migration that fails says so and records nothing, because a world that
+believes it has been migrated will never try again.
 
 ## Items on the hotbar
 

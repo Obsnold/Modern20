@@ -175,6 +175,12 @@ export function installStubs() {
     i18n: { localize: (k) => k, format: (k) => k },
     system: { id: "modern20" },
     keybindings: { get: () => [] },
+    // The world the ready hook looks at: a migration counts what needs
+    // changing, and a hotbar macro looks for the item by name.
+    user: { isGM: false, character: null },
+    actors: [],
+    scenes: [],
+    macros: [],
     // A real registry rather than a stub that answers everything: Foundry
     // throws on an unregistered key, and reading a setting returns its
     // default until someone changes it. Checks that exercise behaviour then
