@@ -1,0 +1,98 @@
+{
+  "_id": "TOP8GTBrrCjNGzqb",
+  "name": "Initial Damage (Xenobiology)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.D46tOF1IZARTjdlF.JournalEntryPage.ADsaoywM5v2HzRGm]{Xenobiology}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "wkN6lV54GcsAPCF7",
+      "type": "text",
+      "text": "1d6 Str — Secondary Damage: 1d6 Str",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TOP8GTBrrCjNGzqb.wkN6lV54GcsAPCF7"
+    },
+    {
+      "_id": "ByGkWW409BNgCGeE",
+      "type": "text",
+      "text": "1d6 Dex — Secondary Damage: 1d6 Dex",
+      "img": null,
+      "weight": 1,
+      "range": [
+        18,
+        34
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TOP8GTBrrCjNGzqb.ByGkWW409BNgCGeE"
+    },
+    {
+      "_id": "VsWbRkk7wmttgFuE",
+      "type": "text",
+      "text": "1d4 Con — Secondary Damage: 1d4 Con",
+      "img": null,
+      "weight": 1,
+      "range": [
+        35,
+        50
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TOP8GTBrrCjNGzqb.VsWbRkk7wmttgFuE"
+    },
+    {
+      "_id": "tU3Ltuu3lQLErSJ7",
+      "type": "text",
+      "text": "2d4 Wis — Secondary Damage: 2d4 Wis",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        67
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TOP8GTBrrCjNGzqb.tU3Ltuu3lQLErSJ7"
+    },
+    {
+      "_id": "SZSdIEdFkJK4Pw6w",
+      "type": "text",
+      "text": "2d4 Cha — Secondary Damage: 2d4 Cha",
+      "img": null,
+      "weight": 1,
+      "range": [
+        68,
+        84
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TOP8GTBrrCjNGzqb.SZSdIEdFkJK4Pw6w"
+    },
+    {
+      "_id": "CULjiqdo1evoZvcq",
+      "type": "text",
+      "text": "None — Secondary Damage: Paralysis 1d6 hours",
+      "img": null,
+      "weight": 1,
+      "range": [
+        85,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TOP8GTBrrCjNGzqb.CULjiqdo1evoZvcq"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Future",
+      "source": "futurexen.html"
+    }
+  },
+  "_key": "!tables!TOP8GTBrrCjNGzqb",
+  "folder": "nYWxFtWojpl6Liv5"
+}

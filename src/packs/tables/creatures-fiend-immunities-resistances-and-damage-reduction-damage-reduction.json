@@ -1,0 +1,176 @@
+{
+  "_id": "AyFkYccmTS9CaJDo",
+  "name": "Fiend Immunities, Resistances, and Damage Reduction: Damage Reduction",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.fkyh9AMuMfVUJgzy]{Fiend}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "U5Gletuq90FWUSxo",
+      "type": "text",
+      "text": "None (do not roll again)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        33
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.U5Gletuq90FWUSxo"
+    },
+    {
+      "_id": "Bjtes2nhtNESJ3xI",
+      "type": "text",
+      "text": "5/specific weapon type 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        34,
+        45
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.Bjtes2nhtNESJ3xI"
+    },
+    {
+      "_id": "WkSCzKfSAIeSBWDh",
+      "type": "text",
+      "text": "10/specific weapon type 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        57
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.WkSCzKfSAIeSBWDh"
+    },
+    {
+      "_id": "nU9SZPQPeab00yXL",
+      "type": "text",
+      "text": "20/specific weapon type 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        58,
+        63
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.nU9SZPQPeab00yXL"
+    },
+    {
+      "_id": "VcU3hdy0TWYdFKD0",
+      "type": "text",
+      "text": "5/+1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        64,
+        72
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.VcU3hdy0TWYdFKD0"
+    },
+    {
+      "_id": "ICXKOVHRQbaLYdjm",
+      "type": "text",
+      "text": "10/+1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        73,
+        81
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.ICXKOVHRQbaLYdjm"
+    },
+    {
+      "_id": "MBq6sWhNVnLd0wmy",
+      "type": "text",
+      "text": "15/+1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        82,
+        84
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.MBq6sWhNVnLd0wmy"
+    },
+    {
+      "_id": "mLa2zkCpKZ1AwKGp",
+      "type": "text",
+      "text": "20/+1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        85,
+        87
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.mLa2zkCpKZ1AwKGp"
+    },
+    {
+      "_id": "74veRgPiwiAQyotj",
+      "type": "text",
+      "text": "5/+2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        88,
+        90
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.74veRgPiwiAQyotj"
+    },
+    {
+      "_id": "s6dUh8hqUZ9UrZWn",
+      "type": "text",
+      "text": "10/+2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        93
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.s6dUh8hqUZ9UrZWn"
+    },
+    {
+      "_id": "DERRmVkp0ViCHjjm",
+      "type": "text",
+      "text": "15/+2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        94,
+        98
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.DERRmVkp0ViCHjjm"
+    },
+    {
+      "_id": "nADygWAJmhDvpNA4",
+      "type": "text",
+      "text": "20/+2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!AyFkYccmTS9CaJDo.nADygWAJmhDvpNA4"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "creatures1.html"
+    }
+  },
+  "_key": "!tables!AyFkYccmTS9CaJDo",
+  "folder": "UHfmkPt1QMSvg0Ap"
+}

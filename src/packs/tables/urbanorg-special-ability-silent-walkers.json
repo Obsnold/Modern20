@@ -1,0 +1,306 @@
+{
+  "_id": "KUXKTr1Tll7q7Rw9",
+  "name": "Special Ability (Silent Walkers)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.3lDORI4MhNo6KUtY.JournalEntryPage.2lO3msTcJdi0VWu8]{Silent Walkers}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "3ICFkFK7Uefge5bv",
+      "type": "text",
+      "text": "Item can Sense Motive (10 ranks)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.3ICFkFK7Uefge5bv"
+    },
+    {
+      "_id": "xY0iqluVyMVWGBML",
+      "type": "text",
+      "text": "Wielder has free use of Combat Reflexes",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.xY0iqluVyMVWGBML"
+    },
+    {
+      "_id": "sON5rutzbV2zT4fX",
+      "type": "text",
+      "text": "Wielder has free use of Blind-Fight",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.sON5rutzbV2zT4fX"
+    },
+    {
+      "_id": "Qxrq7kkrefc4GMmf",
+      "type": "text",
+      "text": "Wielder has free use of Improved Initiative",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        20
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.Qxrq7kkrefc4GMmf"
+    },
+    {
+      "_id": "csBfftYKdXMbAIgQ",
+      "type": "text",
+      "text": "Wielder has free use of Dodge",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        25
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.csBfftYKdXMbAIgQ"
+    },
+    {
+      "_id": "GkgNsKHUwZwPc5Iw",
+      "type": "text",
+      "text": "Wielder has free use of Mobility",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        30
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.GkgNsKHUwZwPc5Iw"
+    },
+    {
+      "_id": "KO5Q4TevnVcheBbN",
+      "type": "text",
+      "text": "Detect magical aura at will",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        35
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.KO5Q4TevnVcheBbN"
+    },
+    {
+      "_id": "oPkU8f6SfGa5fGMW",
+      "type": "text",
+      "text": "Detect psionics at will",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        40
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.oPkU8f6SfGa5fGMW"
+    },
+    {
+      "_id": "vEQX6zMNspAbikef",
+      "type": "text",
+      "text": "Wielder gains the evasion ability",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        45
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.vEQX6zMNspAbikef"
+    },
+    {
+      "_id": "ckXtuwrKUU3cqQ4M",
+      "type": "text",
+      "text": "Wielder can see invisible at will",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        50
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.ckXtuwrKUU3cqQ4M"
+    },
+    {
+      "_id": "ciZSLlkO4tnd9coU",
+      "type": "text",
+      "text": "Cure light wounds (1d8+5) on wielder 1/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.ciZSLlkO4tnd9coU"
+    },
+    {
+      "_id": "OTSLwjk6x6kz229o",
+      "type": "text",
+      "text": "Feather fall on wielder 1/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        60
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.OTSLwjk6x6kz229o"
+    },
+    {
+      "_id": "7seNyM1acFxmYk3b",
+      "type": "text",
+      "text": "Wielder does not need to sleep",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        65
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.7seNyM1acFxmYk3b"
+    },
+    {
+      "_id": "BJTkD44QPs7xHyVU",
+      "type": "text",
+      "text": "Wielder does not need to breathe",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        70
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.BJTkD44QPs7xHyVU"
+    },
+    {
+      "_id": "zY6hlbSSEClA5PRq",
+      "type": "text",
+      "text": "Spider climb for 20 minutes on wielder 1/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.zY6hlbSSEClA5PRq"
+    },
+    {
+      "_id": "loBCSwddGhMJ7OSt",
+      "type": "text",
+      "text": "Charm person (DC 11) on contact 3/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.loBCSwddGhMJ7OSt"
+    },
+    {
+      "_id": "y7VFtcbxwHGhlrim",
+      "type": "text",
+      "text": "Shield on wielder 3/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        85
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.y7VFtcbxwHGhlrim"
+    },
+    {
+      "_id": "CUtB3zBKzAwt4vSo",
+      "type": "text",
+      "text": "Invisibility (wielder only, up to 30 minutes per use) 3/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        88
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.CUtB3zBKzAwt4vSo"
+    },
+    {
+      "_id": "8SuVhe3FKR6GGe1I",
+      "type": "text",
+      "text": "Fly (30 minutes per use) 2/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        89,
+        91
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.8SuVhe3FKR6GGe1I"
+    },
+    {
+      "_id": "LAokFaQYNkC3WjX6",
+      "type": "text",
+      "text": "Heal",
+      "img": null,
+      "weight": 1,
+      "range": [
+        92,
+        94
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.LAokFaQYNkC3WjX6"
+    },
+    {
+      "_id": "tIXpuPCvRgjRqZlq",
+      "type": "text",
+      "text": "True seeing at will",
+      "img": null,
+      "weight": 1,
+      "range": [
+        95,
+        97
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.tIXpuPCvRgjRqZlq"
+    },
+    {
+      "_id": "yg1IhHI7kq2glcWG",
+      "type": "text",
+      "text": "Passwall 3/day",
+      "img": null,
+      "weight": 1,
+      "range": [
+        98,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!KUXKTr1Tll7q7Rw9.yg1IhHI7kq2glcWG"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "source": "urbanorg.html"
+    }
+  },
+  "_key": "!tables!KUXKTr1Tll7q7Rw9",
+  "folder": "PkdN6lH20W8cYUmP"
+}

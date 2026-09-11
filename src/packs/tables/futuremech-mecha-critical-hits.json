@@ -1,0 +1,150 @@
+{
+  "_id": "yDUb2FGEWRXtlItG",
+  "name": "Mecha Critical Hits",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.oCTi0Ls8HOlGNqpk.JournalEntryPage.Li6v2IPYYKIb6PYO]{Mech Combat and Movement}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "6QylSkfX6SpnGexg",
+      "type": "text",
+      "text": "Normal damage, crew dazed",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.6QylSkfX6SpnGexg"
+    },
+    {
+      "_id": "yZCHnWXyz3YlwqQK",
+      "type": "text",
+      "text": "Normal critical hit, crew dazed",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        35
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.yZCHnWXyz3YlwqQK"
+    },
+    {
+      "_id": "7aDDoOKohduoeu4v",
+      "type": "text",
+      "text": "Normal critical hit, mecha knocked prone",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        45
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.7aDDoOKohduoeu4v"
+    },
+    {
+      "_id": "G2htVRNangOFcATr",
+      "type": "text",
+      "text": "Severe critical hit, crew dazed, mecha stunned",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        50
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.G2htVRNangOFcATr"
+    },
+    {
+      "_id": "IKPyvw3TuP3n8AFQ",
+      "type": "text",
+      "text": "Severe critical hit, mecha knocked prone",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.IKPyvw3TuP3n8AFQ"
+    },
+    {
+      "_id": "KnHprMwkG0wK9qfl",
+      "type": "text",
+      "text": "Crew hit (normal damage)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        60
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.KnHprMwkG0wK9qfl"
+    },
+    {
+      "_id": "9yep5mdiyIJKfXkM",
+      "type": "text",
+      "text": "Normal damage, equipment damaged",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        70
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.9yep5mdiyIJKfXkM"
+    },
+    {
+      "_id": "7fdaAGMgHAwAs6d0",
+      "type": "text",
+      "text": "Normal damage, equipment destroyed",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        80
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.7fdaAGMgHAwAs6d0"
+    },
+    {
+      "_id": "upljI6vKzTR1GXlb",
+      "type": "text",
+      "text": "Normal critical hit, slot damaged",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        90
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.upljI6vKzTR1GXlb"
+    },
+    {
+      "_id": "QddGQ3a3lIErGMOy",
+      "type": "text",
+      "text": "Normal critical hit, slot destroyed",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yDUb2FGEWRXtlItG.QddGQ3a3lIErGMOy"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Future",
+      "source": "futuremech4.html"
+    }
+  },
+  "_key": "!tables!yDUb2FGEWRXtlItG",
+  "folder": "nYWxFtWojpl6Liv5"
+}

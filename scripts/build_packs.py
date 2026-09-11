@@ -40,6 +40,11 @@ TABLE_PACKS = {"weapons", "armor", "gear"}
 # what kind of folder can hold them.
 ACTOR_PACKS = {"creatures", "vehicles", "objects"}
 
+# Packs that are neither, and that group themselves into book folders as they
+# are built: every page of the rules and every table printed in one knows the
+# book it came from without being asked.
+SELF_GROUPING = {"rules", "tables"}
+
 # The SRD lists ammunition as a name and a purchase DC only, so its rows are
 # two cells wide and were being dropped by the three-cell minimum. Routed by
 # its own header rather than by page, since it shares weapons.html.
@@ -653,7 +658,8 @@ def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extr
 # the collection its parent lives in. An actor's items, a journal entry's pages
 # and an item's active effects are documents in the compiled pack, not fields of
 # their parent.
-EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects"}
+EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects",
+            "tables": "results"}
 
 
 def key_embedded(collection: str, doc_id: str, document: dict) -> None:
@@ -1544,7 +1550,8 @@ def add_book_folders(pack: str, documents: list[dict], collection: str,
     A pack that holds one book is left alone: a single folder wrapping
     everything is a click, not a grouping.
     """
-    kinds = {"actors": "Actor", "items": "Item", "journal": "JournalEntry"}
+    kinds = {"actors": "Actor", "items": "Item", "journal": "JournalEntry",
+             "tables": "RollTable"}
     present = {book_for(document) for document in documents}
     present.discard("")
     if len(present) < 2:
@@ -1808,6 +1815,194 @@ def build_rules() -> list[dict]:
                             lambda document: document["flags"]["modern20"]["book"])
 
 
+# A table the SRD rolls on, rather than one it prints to be read: the first
+# cell of the header is the die. "Roll on d4", "d% Roll", "1d10".
+DIE_COLUMN = re.compile(r"^(?:roll(?:\s+on)?\s+)?(\d*)\s*d\s*(%|\d+)(?:\s+roll)?$", re.I)
+
+# Every table block in a page, and the captions the SRD heads them with.
+TABLE_BLOCK = re.compile(r"<table[^>]*>.*?</table>", re.S | re.I)
+TABLE_CAPTION = re.compile(r"Table:\s*([^<]{3,70})", re.I)
+
+# How close a caption has to sit to the table it names. The SRD prints it
+# directly above; a caption further off than this belongs to the table before.
+CAPTION_REACH = 600
+
+# The SRD's own misspellings, in the two places that name a table: its caption
+# and the heading over its outcome. A compendium lists its tables by name, so a
+# typo there is a search nobody can make — "Table: Celectial Immunities,
+# Resistances, and Damage Reduction", "d10 Roll | Bhavior".
+TABLE_TYPOS = {"Celectial": "Celestial", "Bhavior": "Behavior"}
+
+# A printed range: "01-02", "67-100", "7".
+ROLL_RANGE = re.compile(r"^(\d+)\s*(?:[-–—]\s*(\d+))?$")
+
+
+# The dice a table can be rolled on, smallest first.
+DICE = (4, 6, 8, 10, 12, 20, 100)
+
+
+def die_formula(printed: str, highest: int) -> str:
+    """The die this table is rolled on. "Roll on d4" is 1d4; "d%" is 1d100.
+
+    The header is checked against the rows, because a header can be wrong and
+    a row cannot: the SRD's third scatter table has twelve rows under a
+    heading that says d8, and the sentence above it says "For ranges of up to
+    five range increments (31 to 50 feet), roll 1d12." Where the rows outrun
+    the heading, the die is the smallest real one that covers them.
+    """
+    match = DIE_COLUMN.match(printed.strip())
+    faces = int(100 if match.group(2) == "%" else match.group(2))
+    count = match.group(1) or "1"
+    if highest > faces:
+        faces = next((sides for sides in DICE if sides >= highest), highest)
+        count = "1"
+    return f"{count}d{faces}"
+
+
+def roll_range(printed: str) -> tuple[int, int] | None:
+    """The rolls a row covers, or None where the first cell is not a roll.
+
+    "97-00" is 97 to 100: a percentile die reads its zero as a hundred, which
+    is how the SRD prints the last row of every d% table.
+    """
+    match = ROLL_RANGE.match((printed or "").strip())
+    if not match:
+        return None
+    low = int(match.group(1)) or 100
+    high = int(match.group(2)) if match.group(2) else low
+    return (low, high or 100)
+
+
+def build_tables() -> list[dict]:
+    """The SRD's own random tables, as RollTables.
+
+    The rules say "roll d% and consult the table" two dozen times — mutations,
+    cybernetic side effects, where a thrown grenade lands, what a celestial is
+    immune to — and a table printed in a journal page is a table somebody reads
+    and then rolls by hand. As a RollTable it is a table Foundry rolls.
+
+    Read out of the rules pages rather than out of the scraped table dump,
+    because the caption that names a table is on the page beside it and the
+    dump keeps only the grid.
+    """
+    entries = json.load(open(os.path.join(srd.DATA, "rules.json"), encoding="utf-8"))
+    index = rules_pages.RulesIndex(entries)
+
+    documents = []
+    for entry in entries:
+        for page in entry["pages"]:
+            captions = [(match.end(), match.group(1).strip(" .:"))
+                        for match in TABLE_CAPTION.finditer(page["html"])]
+
+            for block in TABLE_BLOCK.finditer(page["html"]):
+                parsed = srd.tables(block.group(0))
+                rows = parsed[0] if parsed else []
+                if len(rows) < 2:
+                    continue
+
+                header = rows[0]
+                dice = [position for position, cell in enumerate(header)
+                        if DIE_COLUMN.match(cell.strip())]
+                if not dice:
+                    continue
+
+                near = [text for position, text in captions
+                        if 0 <= block.start() - position <= CAPTION_REACH]
+                documents += page_tables(entry, page, index, header, rows[1:], dice,
+                                         near[-1] if near else "")
+
+    if not documents:
+        return []
+    return add_book_folders("tables", documents, "tables",
+                            lambda document: document["flags"]["modern20"]["book"])
+
+
+def page_tables(entry: dict, page: dict, index: rules_pages.RulesIndex,
+                header: list[str], rows: list[list[str]], dice: list[int],
+                caption: str) -> list[dict]:
+    """One table per die column, except where two columns are one table.
+
+    The SRD prints a long table in two columns to fit the page — "Sources of
+    Weakness" is d% 1-50 beside d% 51-100 under the same heading — and prints
+    three different tables side by side where a creature rolls for immunity,
+    resistance and damage reduction at once. What tells them apart is the
+    heading over the outcome: the same heading twice is one table.
+    """
+    outcomes: dict[str, list[tuple[int, int]]] = {}
+    for position in dice:
+        name = (header[position + 1] if position + 1 < len(header) else "Result").strip()
+        end = next((other for other in dice if other > position), len(header))
+        outcomes.setdefault(name or "Result", []).append((position, end))
+
+    page_uuid = next((record.uuid for record in index.by_entry[entry["id"]]
+                      if record.name == page["name"]), "")
+
+    documents = []
+    for outcome, columns in outcomes.items():
+        name = caption or f"{outcome} ({page['name']})"
+        if caption and len(outcomes) > 1:
+            name = f"{caption}: {outcome}"
+        for printed, spelled in TABLE_TYPOS.items():
+            name = re.sub(rf"\b{printed}\b", spelled, name)
+
+        results = []
+        for row in rows:
+            for start, end in columns:
+                span = roll_range(row[start] if start < len(row) else "")
+                if not span:
+                    continue
+                # Every column but the roll, labelled where the table gives
+                # more than one: "Mutation Type" and "MP Cost" are both the
+                # result of one roll.
+                parts = []
+                for position in range(start + 1, min(end, len(row))):
+                    text = (row[position] or "").strip()
+                    if not text:
+                        continue
+                    label = header[position].strip() if position < len(header) else ""
+                    parts.append(f"{label}: {text}" if label and position > start + 1 else text)
+                if not parts:
+                    continue
+                results.append((span, " — ".join(parts)))
+
+        if len(results) < 2:
+            continue
+
+        results.sort(key=lambda result: result[0])
+        slug = srd.slugify(f"{entry['id']}-{name}")
+        doc_id = document_id("tables", slug)
+        documents.append({
+            "_id": doc_id,
+            "name": name,
+            # The same icon the rules carry: a table is a page of the book.
+            "img": "icons/svg/book.svg",
+            # Where it is printed, which is the rule the table is part of.
+            "description": (f"@UUID[{page_uuid}]{{{page['name']}}}" if page_uuid
+                            else page["name"]),
+            "formula": die_formula(header[columns[0][0]],
+                                   max(high for (_, high), _text in results)),
+            "replacement": True,
+            "displayRoll": True,
+            "results": [{
+                "_id": document_id("table-results", f"{slug}-{low}-{high}"),
+                # A string since v13, where it was a number before.
+                "type": "text",
+                "text": text,
+                "img": None,
+                "weight": 1,
+                "range": [low, high],
+                "drawn": False,
+            } for (low, high), text in results],
+            "sort": 0,
+            "flags": {"modern20": {"book": entry["book"], "source": page.get("source", "")}},
+            "_key": f"!tables!{doc_id}",
+            "_slug": slug,
+        })
+        key_embedded("tables", doc_id, documents[-1])
+
+    return documents
+
+
 def build_fx_items() -> list[dict]:
     """Magic and psionic items, as gear that carries its own rules.
 
@@ -2040,6 +2235,7 @@ def build() -> dict[str, list[dict]]:
         ("vehicles", build_vehicles),
         ("objects", build_objects),
         ("fx", build_fx_items),
+        ("tables", build_tables),
         ("rules", build_rules),
     ):
         documents = builder()
@@ -2049,7 +2245,9 @@ def build() -> dict[str, list[dict]]:
     # Everything else knows its own page by name: a feat, a spell, a creature
     # and a talent's class all have one. The rules are the pages themselves.
     for pack, documents in packs.items():
-        if pack == "rules":
+        # A journal entry is the rules, and a roll table is a table printed
+        # inside them: neither has system data to carry a link to itself.
+        if pack in SELF_GROUPING:
             continue
         for document in documents:
             if document.get("_key", "").startswith("!folders!"):
@@ -2058,10 +2256,12 @@ def build() -> dict[str, list[dict]]:
                 rules.link(document, pack)
     print(rules.report())
 
-    # Seven packs hold more than one book: the equipment three, the creatures,
-    # the spells, the powers and the vehicles. Each gets a folder per book.
+    # Nine packs hold more than one book: the equipment three, the creatures,
+    # the feats, the spells, the powers, the vehicles and the FX items. Each
+    # gets a folder per book. The rules and the random tables group themselves
+    # as they are built, from the book each page belongs to.
     for pack, documents in packs.items():
-        if pack == "rules":
+        if pack in SELF_GROUPING:
             continue
         collection = "actors" if pack in ACTOR_PACKS else "items"
         packs[pack] = add_book_folders(
@@ -2201,6 +2401,7 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
         "classes": "Classes", "feats": "Feats", "talents": "Talents",
         "occupations": "Occupations", "spells": "Spells", "creatures": "Creatures",
         "psionics": "Psionic Powers", "vehicles": "Vehicles",
+        "tables": "Random Tables",
     }
     entries = [
         {
@@ -2208,7 +2409,8 @@ def manifest_block(packs: dict[str, list[dict]]) -> str:
             "label": labels.get(pack, pack.title()),
             "path": f"packs/{pack}",
             "type": "Actor" if pack in ACTOR_PACKS
-            else "JournalEntry" if pack == "rules" else "Item",
+            else "JournalEntry" if pack == "rules"
+            else "RollTable" if pack == "tables" else "Item",
             "system": "modern20",
             "ownership": {"PLAYER": "OBSERVER", "ASSISTANT": "OWNER"},
         }

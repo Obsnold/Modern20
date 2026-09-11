@@ -1,0 +1,176 @@
+{
+  "_id": "FmeZ4hfUGCwHteBx",
+  "name": "Fiend Immunities, Resistances, and Damage Reduction: Resistance",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.fkyh9AMuMfVUJgzy]{Fiend}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "AKEpH1hjeFuRcOAq",
+      "type": "text",
+      "text": "None (do not roll again)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        21
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.AKEpH1hjeFuRcOAq"
+    },
+    {
+      "_id": "nKvfDkuLIRoPtZtc",
+      "type": "text",
+      "text": "Acid resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        22,
+        27
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.nKvfDkuLIRoPtZtc"
+    },
+    {
+      "_id": "DEfHjwKEptjp4oB2",
+      "type": "text",
+      "text": "Acid resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        28,
+        30
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.DEfHjwKEptjp4oB2"
+    },
+    {
+      "_id": "whvPxgNZDnGz5vlb",
+      "type": "text",
+      "text": "Cold resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        36
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.whvPxgNZDnGz5vlb"
+    },
+    {
+      "_id": "rrAjhauoolm3aM5q",
+      "type": "text",
+      "text": "Cold resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        37,
+        39
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.rrAjhauoolm3aM5q"
+    },
+    {
+      "_id": "sdqqEHShwSNTk6bq",
+      "type": "text",
+      "text": "Sonic/concussion resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        40,
+        45
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.sdqqEHShwSNTk6bq"
+    },
+    {
+      "_id": "MuMlUESlLJePya4Z",
+      "type": "text",
+      "text": "Sonic/concussion resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        48
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.MuMlUESlLJePya4Z"
+    },
+    {
+      "_id": "zK4cW2jOteH6Dy4B",
+      "type": "text",
+      "text": "Electricity resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        54
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.zK4cW2jOteH6Dy4B"
+    },
+    {
+      "_id": "ReeHWxHafZCZMlAn",
+      "type": "text",
+      "text": "Electricity resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        55,
+        57
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.ReeHWxHafZCZMlAn"
+    },
+    {
+      "_id": "qFG8UfFfHXUOxHq7",
+      "type": "text",
+      "text": "Fire resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        58,
+        63
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.qFG8UfFfHXUOxHq7"
+    },
+    {
+      "_id": "kzsJ9GcDiELagla1",
+      "type": "text",
+      "text": "Fire resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        64,
+        66
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.kzsJ9GcDiELagla1"
+    },
+    {
+      "_id": "heHGtTFjEEt2ZSbI",
+      "type": "text",
+      "text": "Choose one, and roll again",
+      "img": null,
+      "weight": 1,
+      "range": [
+        67,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!FmeZ4hfUGCwHteBx.heHGtTFjEEt2ZSbI"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "creatures1.html"
+    }
+  },
+  "_key": "!tables!FmeZ4hfUGCwHteBx",
+  "folder": "UHfmkPt1QMSvg0Ap"
+}

@@ -1,0 +1,176 @@
+{
+  "_id": "GSGUNuhoVD3vlqaE",
+  "name": "Thrown Explosives (Miss 4 to 5 Range Increments)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.BW08qOlRSlaENtxF.JournalEntryPage.ZVIRSi83JXUEeVf3]{Special Attacks}",
+  "formula": "1d12",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "ZjexJkSqMQygRbVJ",
+      "type": "text",
+      "text": "upper right corner, two squares beyond target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.ZjexJkSqMQygRbVJ"
+    },
+    {
+      "_id": "h8H5OWna3gVgFUh8",
+      "type": "text",
+      "text": "upper right corner, one square beyond and right of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.h8H5OWna3gVgFUh8"
+    },
+    {
+      "_id": "lhihR7DMJZFRZocB",
+      "type": "text",
+      "text": "upper right corner, two squares right of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.lhihR7DMJZFRZocB"
+    },
+    {
+      "_id": "19yC3pT35JfjLVWp",
+      "type": "text",
+      "text": "lower right corner, two squares right of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.19yC3pT35JfjLVWp"
+    },
+    {
+      "_id": "39wicLjWnmm8LJFk",
+      "type": "text",
+      "text": "lower right corner, one square short and right of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.39wicLjWnmm8LJFk"
+    },
+    {
+      "_id": "Tb0i3XqmeOqBcVMQ",
+      "type": "text",
+      "text": "lower right corner, two squares short of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.Tb0i3XqmeOqBcVMQ"
+    },
+    {
+      "_id": "WOgvg2yUAeeLlRnB",
+      "type": "text",
+      "text": "lower left corner, two squares short of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.WOgvg2yUAeeLlRnB"
+    },
+    {
+      "_id": "jz1uZ0UwPBT2wMiD",
+      "type": "text",
+      "text": "lower left corner, one square short and left of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.jz1uZ0UwPBT2wMiD"
+    },
+    {
+      "_id": "hsEeovyJImCJy1a1",
+      "type": "text",
+      "text": "lower left corner, two squares left of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.hsEeovyJImCJy1a1"
+    },
+    {
+      "_id": "WBE6iOEqZLAg69vg",
+      "type": "text",
+      "text": "upper left corner, two squares left of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.WBE6iOEqZLAg69vg"
+    },
+    {
+      "_id": "E054kxirT5xmfCw3",
+      "type": "text",
+      "text": "upper left corner, one square beyond and left of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.E054kxirT5xmfCw3"
+    },
+    {
+      "_id": "zY1CInNEkjsie2G2",
+      "type": "text",
+      "text": "upper left corner, two squares beyond target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!GSGUNuhoVD3vlqaE.zY1CInNEkjsie2G2"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "combatsa.html"
+    }
+  },
+  "_key": "!tables!GSGUNuhoVD3vlqaE",
+  "folder": "UHfmkPt1QMSvg0Ap"
+}

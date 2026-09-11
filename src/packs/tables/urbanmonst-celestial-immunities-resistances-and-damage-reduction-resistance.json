@@ -1,0 +1,176 @@
+{
+  "_id": "qyWiImjK779ygNtB",
+  "name": "Celestial Immunities, Resistances, and Damage Reduction: Resistance",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.Q0MaeVlbtJnpcpT2]{Celestial}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "F1CLTplaEEdZhtUw",
+      "type": "text",
+      "text": "None (do not roll again)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        21
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.F1CLTplaEEdZhtUw"
+    },
+    {
+      "_id": "3TpwxmrKbGYq2247",
+      "type": "text",
+      "text": "Acid resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        22,
+        27
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.3TpwxmrKbGYq2247"
+    },
+    {
+      "_id": "YjmztRfd3sOGC0bi",
+      "type": "text",
+      "text": "Acid resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        28,
+        30
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.YjmztRfd3sOGC0bi"
+    },
+    {
+      "_id": "ozP5vmhfy0l3uJoQ",
+      "type": "text",
+      "text": "Cold resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        36
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.ozP5vmhfy0l3uJoQ"
+    },
+    {
+      "_id": "a0jlaOvrIZNd7EzJ",
+      "type": "text",
+      "text": "Cold resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        37,
+        39
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.a0jlaOvrIZNd7EzJ"
+    },
+    {
+      "_id": "fAEZ194fKjRRORRy",
+      "type": "text",
+      "text": "Sonic/concussion resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        40,
+        45
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.fAEZ194fKjRRORRy"
+    },
+    {
+      "_id": "ZOFAZQIH9IXEfQQH",
+      "type": "text",
+      "text": "Sonic/concussion resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        46,
+        48
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.ZOFAZQIH9IXEfQQH"
+    },
+    {
+      "_id": "sFVa5QKEgvXW9FXQ",
+      "type": "text",
+      "text": "Electricity resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        54
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.sFVa5QKEgvXW9FXQ"
+    },
+    {
+      "_id": "UNAaFYfWSUi1nlsb",
+      "type": "text",
+      "text": "Electricity resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        55,
+        57
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.UNAaFYfWSUi1nlsb"
+    },
+    {
+      "_id": "XBHRM488uRIP0OyZ",
+      "type": "text",
+      "text": "Fire resistance 10",
+      "img": null,
+      "weight": 1,
+      "range": [
+        58,
+        63
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.XBHRM488uRIP0OyZ"
+    },
+    {
+      "_id": "3TGTY7FY9bvdPWTS",
+      "type": "text",
+      "text": "Fire resistance 20",
+      "img": null,
+      "weight": 1,
+      "range": [
+        64,
+        66
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.3TGTY7FY9bvdPWTS"
+    },
+    {
+      "_id": "VVC5IDbLe438ybfw",
+      "type": "text",
+      "text": "Choose one, and roll again",
+      "img": null,
+      "weight": 1,
+      "range": [
+        67,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!qyWiImjK779ygNtB.VVC5IDbLe438ybfw"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "source": "urbanmonst1.html"
+    }
+  },
+  "_key": "!tables!qyWiImjK779ygNtB",
+  "folder": "PkdN6lH20W8cYUmP"
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "nIJ5WA1pA3Hgbt11",
+  "name": "Enhancement Bonus (Silent Walkers)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.3lDORI4MhNo6KUtY.JournalEntryPage.2lO3msTcJdi0VWu8]{Silent Walkers}",
+  "formula": "1d6",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "cCMuiBVNn1D8zoh4",
+      "type": "text",
+      "text": "+1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!nIJ5WA1pA3Hgbt11.cCMuiBVNn1D8zoh4"
+    },
+    {
+      "_id": "Oj8moWFHMzsFJ2Ch",
+      "type": "text",
+      "text": "+2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        4,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!nIJ5WA1pA3Hgbt11.Oj8moWFHMzsFJ2Ch"
+    },
+    {
+      "_id": "mdGOZBMsKxn2Kg0K",
+      "type": "text",
+      "text": "+3",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!nIJ5WA1pA3Hgbt11.mdGOZBMsKxn2Kg0K"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "source": "urbanorg.html"
+    }
+  },
+  "_key": "!tables!nIJ5WA1pA3Hgbt11",
+  "folder": "PkdN6lH20W8cYUmP"
+}

@@ -1,0 +1,670 @@
+{
+  "_id": "yTZ0git8U1ewzJnn",
+  "name": "Mutations",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.aIKthCBZnrcjSaDf.JournalEntryPage.QcZPxSkEROfWIJkc]{Mutation Points}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "ZUkD87X80b3LUIN9",
+      "type": "text",
+      "text": "Extra Digits Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.ZUkD87X80b3LUIN9"
+    },
+    {
+      "_id": "PwuJnMc51s06i2oa",
+      "type": "text",
+      "text": "Fins Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.PwuJnMc51s06i2oa"
+    },
+    {
+      "_id": "ffZYp1Os0DIgHqz1",
+      "type": "text",
+      "text": "Forked Tongue Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.ffZYp1Os0DIgHqz1"
+    },
+    {
+      "_id": "Prrj2uRzubpWWXmE",
+      "type": "text",
+      "text": "Horns Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.Prrj2uRzubpWWXmE"
+    },
+    {
+      "_id": "uoHA0p2sRk1XjOA4",
+      "type": "text",
+      "text": "Scaly Skin Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.uoHA0p2sRk1XjOA4"
+    },
+    {
+      "_id": "WT3ppompwMmNsFlx",
+      "type": "text",
+      "text": "Thin Fur Coat Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.WT3ppompwMmNsFlx"
+    },
+    {
+      "_id": "IWYPQaHO6161Fty1",
+      "type": "text",
+      "text": "Unnatural Eyes Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        13,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.IWYPQaHO6161Fty1"
+    },
+    {
+      "_id": "fpyNBDboeU7fYyaH",
+      "type": "text",
+      "text": "Unnatural Hair Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        15,
+        16
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.fpyNBDboeU7fYyaH"
+    },
+    {
+      "_id": "plWM3YHYKzh5V4EF",
+      "type": "text",
+      "text": "Unnatural Skin Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        17,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.plWM3YHYKzh5V4EF"
+    },
+    {
+      "_id": "1s9VM6S47FPnvYr5",
+      "type": "text",
+      "text": "Unnatural Voice Cosmetic — MP Cost: 0",
+      "img": null,
+      "weight": 1,
+      "range": [
+        19,
+        20
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.1s9VM6S47FPnvYr5"
+    },
+    {
+      "_id": "sjcnGFowDhNWLCK0",
+      "type": "text",
+      "text": "Acidic Saliva Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        21,
+        22
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.sjcnGFowDhNWLCK0"
+    },
+    {
+      "_id": "rV0OxwrA8Ia7p5Cl",
+      "type": "text",
+      "text": "Adrenaline Jolt Minor — MP Cost: 3",
+      "img": null,
+      "weight": 1,
+      "range": [
+        23,
+        24
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.rV0OxwrA8Ia7p5Cl"
+    },
+    {
+      "_id": "ltMmon9b32Qvqno6",
+      "type": "text",
+      "text": "Claws Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        25,
+        26
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.ltMmon9b32Qvqno6"
+    },
+    {
+      "_id": "rcQCwQTzI3PGuFPf",
+      "type": "text",
+      "text": "Darkvision Minor — MP Cost: 3",
+      "img": null,
+      "weight": 1,
+      "range": [
+        27,
+        28
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.rcQCwQTzI3PGuFPf"
+    },
+    {
+      "_id": "t35XmCIHx5BxPtKU",
+      "type": "text",
+      "text": "Energy Diffusion Minor — MP Cost: 2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        29,
+        30
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.t35XmCIHx5BxPtKU"
+    },
+    {
+      "_id": "4c48HW5QtzJDQPrI",
+      "type": "text",
+      "text": "Fangs Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        32
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.4c48HW5QtzJDQPrI"
+    },
+    {
+      "_id": "Jtj6tkMN5jdZXTa5",
+      "type": "text",
+      "text": "Force Barrier Minor — MP Cost: 3",
+      "img": null,
+      "weight": 1,
+      "range": [
+        33,
+        34
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.Jtj6tkMN5jdZXTa5"
+    },
+    {
+      "_id": "hRv0snBT6VnFV16t",
+      "type": "text",
+      "text": "Gills Minor — MP Cost: 2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        35,
+        36
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.hRv0snBT6VnFV16t"
+    },
+    {
+      "_id": "bEaCWtd12XDiXg6B",
+      "type": "text",
+      "text": "Great Horns Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        37,
+        38
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.bEaCWtd12XDiXg6B"
+    },
+    {
+      "_id": "9i0suugnHwDOSQ6v",
+      "type": "text",
+      "text": "Hypersensitivity Minor — MP Cost: 3",
+      "img": null,
+      "weight": 1,
+      "range": [
+        39,
+        40
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.9i0suugnHwDOSQ6v"
+    },
+    {
+      "_id": "VZ6Yn8CpD00CWzFI",
+      "type": "text",
+      "text": "Leaper Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        41,
+        42
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.VZ6Yn8CpD00CWzFI"
+    },
+    {
+      "_id": "ZdRYU0KHBnqMQ7ej",
+      "type": "text",
+      "text": "Scaly Armor Minor — MP Cost: 3",
+      "img": null,
+      "weight": 1,
+      "range": [
+        43,
+        44
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.ZdRYU0KHBnqMQ7ej"
+    },
+    {
+      "_id": "OF8omuDN2GTfRtEY",
+      "type": "text",
+      "text": "Scent Minor — MP Cost: 2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        45,
+        46
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.OF8omuDN2GTfRtEY"
+    },
+    {
+      "_id": "Va6XC1QAo9VbmTLD",
+      "type": "text",
+      "text": "Second Wind Minor — MP Cost: 2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        47,
+        48
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.Va6XC1QAo9VbmTLD"
+    },
+    {
+      "_id": "SwiOnkMaLObhYfFS",
+      "type": "text",
+      "text": "Smokescreen Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        50
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.SwiOnkMaLObhYfFS"
+    },
+    {
+      "_id": "oL9nbWhJhzGDHbQG",
+      "type": "text",
+      "text": "Tail Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        52
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.oL9nbWhJhzGDHbQG"
+    },
+    {
+      "_id": "9g7h8nz08YBTswWA",
+      "type": "text",
+      "text": "Thick Fur Coat Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        53,
+        54
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.9g7h8nz08YBTswWA"
+    },
+    {
+      "_id": "yqESfOkFI7vd9wIp",
+      "type": "text",
+      "text": "Ultra Immune System Minor — MP Cost: 2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        55,
+        56
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.yqESfOkFI7vd9wIp"
+    },
+    {
+      "_id": "6batEQMUbCCXm1iC",
+      "type": "text",
+      "text": "Wall Crawler Minor — MP Cost: 2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        57,
+        58
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.6batEQMUbCCXm1iC"
+    },
+    {
+      "_id": "jbdKjzvGG6J5nciH",
+      "type": "text",
+      "text": "Webbed Digits Minor — MP Cost: 1",
+      "img": null,
+      "weight": 1,
+      "range": [
+        59,
+        60
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.jbdKjzvGG6J5nciH"
+    },
+    {
+      "_id": "mGp6tw3jSFTZWk2q",
+      "type": "text",
+      "text": "Echolocator Major — MP Cost: 5",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        62
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.mGp6tw3jSFTZWk2q"
+    },
+    {
+      "_id": "0qeHfaUj6T7qkeun",
+      "type": "text",
+      "text": "Elasticity Major — MP Cost: 5",
+      "img": null,
+      "weight": 1,
+      "range": [
+        63,
+        64
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.0qeHfaUj6T7qkeun"
+    },
+    {
+      "_id": "NcQZMzglosOTBbKP",
+      "type": "text",
+      "text": "Energy Absorption Major — MP Cost: 4",
+      "img": null,
+      "weight": 1,
+      "range": [
+        65,
+        66
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.NcQZMzglosOTBbKP"
+    },
+    {
+      "_id": "v65dvfKRp5C15YqC",
+      "type": "text",
+      "text": "Enlarged Form Major — MP Cost: 6",
+      "img": null,
+      "weight": 1,
+      "range": [
+        67,
+        68
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.v65dvfKRp5C15YqC"
+    },
+    {
+      "_id": "Lwyi707mSWFSC5fI",
+      "type": "text",
+      "text": "Exoskeleton Major — MP Cost: 5",
+      "img": null,
+      "weight": 1,
+      "range": [
+        69,
+        70
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.Lwyi707mSWFSC5fI"
+    },
+    {
+      "_id": "Cs6yY2Sq2Ntqfqlj",
+      "type": "text",
+      "text": "Extra Arms Major — MP Cost: 6",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        72
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.Cs6yY2Sq2Ntqfqlj"
+    },
+    {
+      "_id": "3kYRS8m25WB64DlY",
+      "type": "text",
+      "text": "Gazing Eye Major — MP Cost: 4",
+      "img": null,
+      "weight": 1,
+      "range": [
+        73,
+        74
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.3kYRS8m25WB64DlY"
+    },
+    {
+      "_id": "RjkqMaS4qqSOBdGX",
+      "type": "text",
+      "text": "Pheromone Attraction Major — MP Cost: 6",
+      "img": null,
+      "weight": 1,
+      "range": [
+        75,
+        76
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.RjkqMaS4qqSOBdGX"
+    },
+    {
+      "_id": "BJkrumSkHxtoAkD1",
+      "type": "text",
+      "text": "Prehensile Tail Major — MP Cost: 4",
+      "img": null,
+      "weight": 1,
+      "range": [
+        77,
+        78
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.BJkrumSkHxtoAkD1"
+    },
+    {
+      "_id": "1C3T3fdjEugeaJ7i",
+      "type": "text",
+      "text": "Prickly Pear Major — MP Cost: 4",
+      "img": null,
+      "weight": 1,
+      "range": [
+        79,
+        80
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.1C3T3fdjEugeaJ7i"
+    },
+    {
+      "_id": "Uu7nIgfA5saehg8P",
+      "type": "text",
+      "text": "Radioactive Major — MP Cost: 5",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        82
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.Uu7nIgfA5saehg8P"
+    },
+    {
+      "_id": "eGq0Zgnhy3cQe2xV",
+      "type": "text",
+      "text": "Skeletal Reinforcement Major — MP Cost: 5",
+      "img": null,
+      "weight": 1,
+      "range": [
+        83,
+        84
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.eGq0Zgnhy3cQe2xV"
+    },
+    {
+      "_id": "h6dqIzvOH4lPsw8p",
+      "type": "text",
+      "text": "Stinger Major — MP Cost: 4",
+      "img": null,
+      "weight": 1,
+      "range": [
+        85,
+        86
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.h6dqIzvOH4lPsw8p"
+    },
+    {
+      "_id": "Ysy21oeQaDavuR4G",
+      "type": "text",
+      "text": "Telekinetic Mind Major — MP Cost: 5",
+      "img": null,
+      "weight": 1,
+      "range": [
+        87,
+        88
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.Ysy21oeQaDavuR4G"
+    },
+    {
+      "_id": "tV9wchsDH8sCQdrX",
+      "type": "text",
+      "text": "Telepathy Major — MP Cost: 5",
+      "img": null,
+      "weight": 1,
+      "range": [
+        89,
+        90
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.tV9wchsDH8sCQdrX"
+    },
+    {
+      "_id": "wupY6B3udkX30dMO",
+      "type": "text",
+      "text": "Tentacle Major — MP Cost: 6",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        92
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.wupY6B3udkX30dMO"
+    },
+    {
+      "_id": "gGKwjNV55vts2K6O",
+      "type": "text",
+      "text": "Venomous Bite Major — MP Cost: 4",
+      "img": null,
+      "weight": 1,
+      "range": [
+        93,
+        94
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.gGKwjNV55vts2K6O"
+    },
+    {
+      "_id": "CgaVdkjsZNVpj5Jc",
+      "type": "text",
+      "text": "Vexing Voice Major — MP Cost: 4",
+      "img": null,
+      "weight": 1,
+      "range": [
+        95,
+        96
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.CgaVdkjsZNVpj5Jc"
+    },
+    {
+      "_id": "OOKW1HAz1HAyZFp8",
+      "type": "text",
+      "text": "Wings Major — MP Cost: 6",
+      "img": null,
+      "weight": 1,
+      "range": [
+        97,
+        98
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.OOKW1HAz1HAyZFp8"
+    },
+    {
+      "_id": "OLfqoNhUUypz035m",
+      "type": "text",
+      "text": "X-Ray Vision Major — MP Cost: 6",
+      "img": null,
+      "weight": 1,
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!yTZ0git8U1ewzJnn.OLfqoNhUUypz035m"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Future",
+      "source": "futuremutant.html"
+    }
+  },
+  "_key": "!tables!yTZ0git8U1ewzJnn",
+  "folder": "nYWxFtWojpl6Liv5"
+}

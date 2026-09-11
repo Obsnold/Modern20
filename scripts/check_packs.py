@@ -29,6 +29,7 @@ COLLECTIONS = {
     "vehicles": ("Actor", "!actors!"),
     "objects": ("Actor", "!actors!"),
     "rules": ("JournalEntry", "!journal!"),
+    "tables": ("RollTable", "!tables!"),
 }
 DEFAULT = ("Item", "!items!")
 
@@ -48,7 +49,8 @@ DISPOSITIONS = {-1, 0}
 # The embedded collections the Foundry CLI stores as entries of their own: an
 # actor's items, a journal entry's pages and an item's active effects are
 # documents in the compiled pack, keyed from their parent, not fields of it.
-EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects"}
+EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects",
+            "tables": "results"}
 
 
 def main() -> int:
@@ -156,6 +158,27 @@ def main() -> int:
                     if mode.get("range", 0) < 5:
                         fail(f"{pack}: \"{entry['name']}\" detects with "
                              f"{mode.get('id')} at {mode.get('range')!r} feet")
+
+        # A random table is only a table if its rolls cover it. A gap is a
+        # roll with no result, which Foundry reports as an empty draw, and an
+        # overlap is a result nobody can get to.
+        if kind == "RollTable":
+            for entry in contents:
+                faces = int((entry.get("formula") or "1d0").split("d")[-1] or 0)
+                covered = set()
+                for result in entry.get("results") or []:
+                    low, high = (result.get("range") or [0, 0])[:2]
+                    if not 1 <= low <= high <= faces:
+                        fail(f"{pack}: \"{entry['name']}\" has a result on {low}-{high}, "
+                             f"outside its {entry.get('formula')}")
+                        continue
+                    rolls = set(range(low, high + 1))
+                    if rolls & covered:
+                        fail(f"{pack}: \"{entry['name']}\" has two results on "
+                             f"{sorted(rolls & covered)[0]}")
+                    covered |= rolls
+                if not entry.get("results"):
+                    fail(f"{pack}: \"{entry['name']}\" has no results")
 
         used = {entry.get("folder") for entry in contents}
         for folder in folders:
