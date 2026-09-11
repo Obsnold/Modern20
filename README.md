@@ -40,6 +40,7 @@ fighting it forever, so this is a standalone game system.
 | Feats that apply themselves | 22 of the 189 feats and talents state a bonus plainly enough to carry an Active Effect; the rest stay text |
 | Compendium browser | All 1,590 documents in one window, filtered by book, compendium, restriction rating, progress level and what a Wealth bonus can afford |
 | Random tables | 26 RollTables — mutations, cybernetic side effects, where a grenade lands, what a celestial is immune to |
+| Items on the hotbar | Dragging one there makes a macro that uses it, by name, on whoever is selected |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
@@ -96,6 +97,7 @@ module/
   enrichers.mjs          The rolls the rules text asks for, as rolls
   effects.mjs            What an item applies, in the sheet's own words
   apps/browser.mjs       One window over every compendium, filtered the SRD's way
+  macros.mjs             An item dragged to the hotbar, as a macro that uses it
 templates/               Handlebars templates (actor, item, chat)
 css/modern20.css         Styling, scoped under .modern20
 lang/en.json             Localization
@@ -815,6 +817,21 @@ compared as one value differs on every round trip, and all 22 feats would come
 home reporting an edit nobody made. Compared document by document, an effect a
 GM switches off comes home switched off — which `check_capture.py` now drags
 through the round trip to prove.
+
+## Items on the hotbar
+
+Dragging an item to the hotbar makes a macro that uses it, which every mature
+system does and Foundry itself does not: its own answer to a dropped item is to
+do nothing.
+
+The macro looks the item up **by name on whoever is selected** rather than
+holding the id of the one that was dragged, which is what makes one bar work
+for a table — the same "Colt Python" button fires for whichever character is
+carrying a Colt Python, including one dragged out of the compendium browser
+onto a sheet ten minutes later. It also survives the item being sold and
+rebought, which on a Wealth economy happens constantly. One macro per item
+however many times it is dragged, since a second copy of the same script is a
+hotbar full of duplicates.
 
 ## Random tables
 
