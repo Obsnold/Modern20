@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>This potion forces the individual drinking it to say nothing but the truth for 10 minutes; a successful Will save (DC 12) negates the effect. Further, he or she is compelled to answer any questions put to him or her in that time, but with each question he or she is free to make a separate Will save (DC 12). If one of these secondary saves is successful, he or she doesn’t break free of the truth-compelling enchantment but also doesn’t have to answer that particular question. No more than one question can be asked each round. This effect is a mind-affecting enchantment.</p>",
+    "description": "<p>This potion forces the individual drinking it to say nothing but the truth for 10 minutes; a successful @Check[save:will|dc:12]{Will save (DC 12)} negates the effect. Further, he or she is compelled to answer any questions put to him or her in that time, but with each question he or she is free to make a separate @Check[save:will|dc:12]{Will save (DC 12)}. If one of these secondary saves is successful, he or she doesn’t break free of the truth-compelling enchantment but also doesn’t have to answer that particular question. No more than one question can be asked each round. This effect is a mind-affecting enchantment.</p>",
     "source": "d20 Modern",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.WmxqGysLfKltpkbJ",

@@ -387,7 +387,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Gnomes gain a +2 species bonus on Listen checks. Gnomes who have one or more ranks in the Craft (pharmaceutical) skill also gain a +2 species bonus on Craft (pharmaceutical) checks.</p>",
+        "description": "<p>Gnomes gain a +2 species bonus on @Check[skill:listen]{Listen check}s. Gnomes who have one or more ranks in the Craft (pharmaceutical) skill also gain a +2 species bonus on @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

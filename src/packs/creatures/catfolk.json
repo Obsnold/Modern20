@@ -246,7 +246,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -364,7 +364,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any mammalian creature within 30 feet of a cat folk that meets its gaze must make a successful Will save (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or be dazed.</p>",
+        "description": "<p>Any mammalian creature within 30 feet of a cat folk that meets its gaze must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or be dazed.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -440,7 +440,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any normal feline that can smell or see a cat folk must make a successful Will save (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or flee in fear. A successful save means the feline is shaken but does not flee. In either case, the feline attacks the cat folk only if cornered. A cat folk is immune to its own feline aversion effect and to those of other cat folk.</p>",
+        "description": "<p>Any normal feline that can smell or see a cat folk must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or flee in fear. A successful save means the feline is shaken but does not flee. In either case, the feline attacks the cat folk only if cornered. A cat folk is immune to its own feline aversion effect and to those of other cat folk.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -468,7 +468,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A cat folk ignores falling damage from heights of 30 feet or less. When falling from a greater height, it can attempt a Reflex save (DC 15) to halve the damage.</p>",
+        "description": "<p>A cat folk ignores falling damage from heights of 30 feet or less. When falling from a greater height, it can attempt a @Check[save:ref|dc:15]{Reflex save (DC 15)} to halve the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

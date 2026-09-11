@@ -190,7 +190,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Bite—Fortitude save (DC 14) negates; initial and secondary damage 1d3 Con.</p>",
+        "description": "<p>Bite—@Check[save:fort|dc:14]{Fortitude save (DC 14)} negates; initial and secondary damage 1d3 Con.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -206,7 +206,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A sentient killer bee swarm gains a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "description": "<p>A sentient killer bee swarm gains a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

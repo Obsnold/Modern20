@@ -234,7 +234,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Eagles gain a +8 species bonus on Spot checks during daylight.</p>",
+        "description": "<p>Eagles gain a +8 species bonus on @Check[skill:spot]{Spot check}s during daylight.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

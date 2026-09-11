@@ -320,7 +320,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dhezLjTJWP7r3Rtl",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:fort]{Fortitude saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -361,7 +361,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.XhLA70sGpWq2JknG",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Escape Artist checks and Sleight of Hand checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:escapeArtist]{Escape Artist check}s and @Check[skill:sleightOfHand]{Sleight of Hand check}s.",
         "normal": "",
         "special": "Remember that the Sleight of Hand skill can’t be used untrained.",
         "repeatable": false
@@ -460,7 +460,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A malleable creature’s pliant body grants it a +4 species bonus on Disguise checks and a +10 species bonus on Escape Artist checks.</p>",
+        "description": "<p>A malleable creature’s pliant body grants it a +4 species bonus on @Check[skill:disguise]{Disguise check}s and a +10 species bonus on @Check[skill:escapeArtist]{Escape Artist check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

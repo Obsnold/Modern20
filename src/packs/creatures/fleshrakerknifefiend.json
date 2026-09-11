@@ -411,7 +411,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any slashing weapon wielded by a fleshraker can inflict terrible wounds that bleed profusely. In addition to the normal damage the weapon deals, the target takes 1 point of damage that round and each subsequent round from bleeding. Multiple wounds from a wounding weapon result in cumulative bleeding loss (two wounds for 2 points of damage per round, and so on). A successful Treat Injury check (DC 15) or the application of any cure spell stops the bleeding. The weapon does not retain this ability outside the grasp of a knife fiend, although any bleeding wounds it has inflicted continue to bleed if the fleshraker is disarmed.</p>",
+        "description": "<p>Any slashing weapon wielded by a fleshraker can inflict terrible wounds that bleed profusely. In addition to the normal damage the weapon deals, the target takes 1 point of damage that round and each subsequent round from bleeding. Multiple wounds from a wounding weapon result in cumulative bleeding loss (two wounds for 2 points of damage per round, and so on). A successful @Check[skill:treatInjury|dc:15]{Treat Injury check (DC 15)} or the application of any cure spell stops the bleeding. The weapon does not retain this ability outside the grasp of a knife fiend, although any bleeding wounds it has inflicted continue to bleed if the fleshraker is disarmed.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

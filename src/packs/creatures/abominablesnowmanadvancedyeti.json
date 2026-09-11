@@ -210,7 +210,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.Sat1e5tLcGOsAfhd",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "To find tracks or follow them for one mile requires a Survival check. The character must make another Survival check every time the tracks become difficult to follow.",
+        "benefit": "To find tracks or follow them for one mile requires a @Check[skill:survival]{Survival check}. The character must make another @Check[skill:survival]{Survival check} every time the tracks become difficult to follow.",
         "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
         "special": "",
         "repeatable": false
@@ -287,7 +287,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The yeti’s white fur grants it a +15 species bonus on Hide checks made in snowy conditions.</p>",
+        "description": "<p>The yeti’s white fur grants it a +15 species bonus on @Check[skill:hide]{Hide check}s made in snowy conditions.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

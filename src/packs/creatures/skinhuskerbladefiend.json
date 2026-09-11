@@ -387,7 +387,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>When a skinhusker is reduced to –1 or fewer hit points, it explodes in a ball of flame. All creatures in adjacent squares take 2d6 points of fire damage; a successful Reflex save (DC 12) halves the damage.</p>",
+        "description": "<p>When a skinhusker is reduced to –1 or fewer hit points, it explodes in a ball of flame. All creatures in adjacent squares take 2d6 points of fire damage; a successful @Check[save:ref|dc:12]{Reflex save (DC 12)} halves the damage.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

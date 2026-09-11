@@ -36,7 +36,7 @@ fighting it forever, so this is a standalone game system.
 | Compendia: creatures, vehicles, objects | 399 actors, built from the SRD — every creature in all three books |
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
 | Everything links to it | All 1,590 compendium documents carry the page their rules are on, and 854 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
-| The rules roll themselves | 2,054 sentences across 693 pages — "a DC 15 Climb check" is the roll, clicked where it is printed |
+| The rules roll themselves | 3,103 sentences — 2,054 across 693 rules pages and 1,049 in the items' and creatures' own text — "a DC 15 Climb check" is the roll, clicked where it is printed |
 | Feats that apply themselves | 22 of the 189 feats and talents state a bonus plainly enough to carry an Active Effect; the rest stay text |
 | Compendium browser | All 1,590 documents in one window, filtered by book, compendium, restriction rating, progress level and what a Wealth bonus can afford |
 | Random tables | 26 RollTables — mutations, cybernetic side effects, where a grenade lands, what a celestial is immune to |
@@ -715,13 +715,30 @@ SRD's own text is never edited, and it is replaced whole on every run;
 own sheet would otherwise leave a page offering something that is not there.
 
 **The rules roll themselves.** The SRD says what to roll constantly, and on a
-page that is a sentence. 2,054 of those sentences across 693 pages are
-rewritten at import into `@Check[skill:climb|dc:15]{DC 15 Climb check}`, which
-`module/enrichers.mjs` renders as the SRD's own words with a die in front of
-them: clicking rolls for the character assigned to the user, or the token they
-have selected, and where the SRD printed a DC the card says whether the roll
-beat it — *"If the result equals or exceeds the DC, the character succeeds."*
-1,360 are skill checks, 574 saves and 120 ability checks; 399 carry a DC.
+page that is a sentence. 3,103 of those sentences are rewritten at import into
+`@Check[skill:climb|dc:15]{DC 15 Climb check}`, which `module/enrichers.mjs`
+renders as the SRD's own words with a die in front of them: clicking rolls for
+the character assigned to the user, or the token they have selected, and where
+the SRD printed a DC the card says whether the roll beat it — *"If the result
+equals or exceeds the DC, the character succeeds."* 1,961 are skill checks, 977
+saves and 165 ability checks; 552 carry a DC.
+
+Two thirds of those are on the rules pages — 2,054 across 693 of them — and the
+rest are in the text the compendium's own documents carry: 1,049 rolls in 724
+descriptions, benefits and creature abilities, which is where the rules are
+actually read at the table. "The victim must succeed on a Fortitude save or
+take the initial damage" is printed on the spider, not in a chapter about
+poison; "a +2 bonus on all Escape Artist checks" is printed on the feat. The
+same rewrite over the same phrases, so a save and the page that defines it say
+it the same way.
+
+Which is why everything that displays this system's prose enriches it:
+`enrichProse` in `module/enrichers.mjs` takes the four fields the SRD prints
+rules text in — description, benefit, normal, special — and the item sheet, the
+attack, cast and save cards and the plain item card all go through it. Text put
+on screen unenriched would show the markup itself, so this is one call rather
+than one per field: forgetting a field is invisible, because the text still
+renders and only the roll is missing.
 
 The phrases come from the scraped skill list rather than a list written here,
 so a skill the SRD names and this system has cannot go quietly unlinked, and a
@@ -1278,7 +1295,7 @@ python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
 python3 scripts/check_shadowing.py   # no module-level name defined twice
 python3 scripts/check_packs.py       # folders, keys, ids, tokens and table ranges
 python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
-python3 scripts/check_rules_links.py # every link into the rules resolves, every roll it asks for rolls
+python3 scripts/check_rules_links.py # every link into the rules resolves, every roll anything asks for rolls
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field

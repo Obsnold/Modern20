@@ -199,7 +199,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Venomous bite: Fortitude save (DC 11); initial damage sleep for 1 minute; secondary damage sleep for another 5d6 minutes.</p>",
+        "description": "<p>Venomous bite: @Check[save:fort|dc:11]{Fortitude save (DC 11)}; initial damage sleep for 1 minute; secondary damage sleep for another 5d6 minutes.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

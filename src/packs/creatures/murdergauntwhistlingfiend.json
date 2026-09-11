@@ -287,7 +287,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -396,7 +396,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A murdergaunt can whistle as a free action every round. Creatures within 120 feet who can hear the murdergaunt’s horrid tune must make a Will save (DC 10 + 1/2 the murdergaunt’s Hit Dice + its Charisma modifier).</p><p>Any creature that fails its Will save cowers until the whistling stops. A cowering creature is frozen in fear, loses its Dexterity bonus, and can take no actions. In addition, a cowering creature takes a –2 penalty to Defense.</p><p>A creature that saves against the murdergaunt’s whistle cannot be affected by the same murdergaunt’s whistle for 24 hours. The save DC for the whistle is Charisma-based.</p>",
+        "description": "<p>A murdergaunt can whistle as a free action every round. Creatures within 120 feet who can hear the murdergaunt’s horrid tune must make a @Check[save:will]{Will save} (DC 10 + 1/2 the murdergaunt’s Hit Dice + its Charisma modifier).</p><p>Any creature that fails its @Check[save:will]{Will save} cowers until the whistling stops. A cowering creature is frozen in fear, loses its Dexterity bonus, and can take no actions. In addition, a cowering creature takes a –2 penalty to Defense.</p><p>A creature that saves against the murdergaunt’s whistle cannot be affected by the same murdergaunt’s whistle for 24 hours. The save DC for the whistle is Charisma-based.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

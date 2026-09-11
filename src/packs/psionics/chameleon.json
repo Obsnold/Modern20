@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>Your skin and equipment take on the color and texture of nearby objects, including floors and walls. You receive a +10 enhancement bonus on Hide checks.</p>",
+    "description": "<p>Your skin and equipment take on the color and texture of nearby objects, including floors and walls. You receive a +10 enhancement bonus on @Check[skill:hide]{Hide check}s.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.oV1LeyRitgNmlonJ.JournalEntryPage.YTEb1585N4eo2BJH",

@@ -469,7 +469,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.HsVilKryF2fbZuF9",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Gamble checks and Intimidate checks, and on level checks to resist intimidation.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:gamble]{Gamble check}s and @Check[skill:intimidate]{Intimidate check}s, and on level checks to resist intimidation.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -488,7 +488,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.DgpDCeNyPKCCmSV9",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Bluff checks and Disguise checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:bluff]{Bluff check}s and @Check[skill:disguise]{Disguise check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -529,7 +529,7 @@
           "Charisma 15",
           "Intimidate 9 ranks."
         ],
-        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -548,7 +548,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:will]{Will saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -667,7 +667,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dQ8whv6F6ZX89bmY",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Diplomacy checks and Gather Information checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:diplomacy]{Diplomacy check}s and @Check[skill:gatherInformation]{Gather Information check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -686,7 +686,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.w9EpyKbWNBwI1oOV",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks.",
+        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.",
         "normal": "",
         "special": "A character can select this feat multiple times. Each time, both of its effects stack.",
         "repeatable": false
@@ -715,7 +715,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>): Once per day as a free action, Baal can create an aura of greed extending out from his body in a 20-foot radius. Except as noted here, the effect functions like the psionic power domination (manifester level 10th). Each creature within this area must make a successful Will save (DC 21) or be overcome with greed. A creature that fails its saving throw must immediately attack another random creature within 60 feet (possibly even Baal himself) and attempt to take its valuables. If no target is within reach, the affected creature must move toward a randomly chosen target it can see and attack it as soon as possible. This effect is Charisma-based and lasts for 1d4 rounds. As a move action, Baal can specify one creature for other affected creatures to attack instead of allowing random targeting. In this case, the Will save DC drops to 15.</p>",
+        "description": "<p>): Once per day as a free action, Baal can create an aura of greed extending out from his body in a 20-foot radius. Except as noted here, the effect functions like the psionic power domination (manifester level 10th). Each creature within this area must make a successful @Check[save:will|dc:21]{Will save (DC 21)} or be overcome with greed. A creature that fails its saving throw must immediately attack another random creature within 60 feet (possibly even Baal himself) and attempt to take its valuables. If no target is within reach, the affected creature must move toward a randomly chosen target it can see and attack it as soon as possible. This effect is Charisma-based and lasts for 1d4 rounds. As a move action, Baal can specify one creature for other affected creatures to attack instead of allowing random targeting. In this case, the @Check[save:will]{Will save} DC drops to 15.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

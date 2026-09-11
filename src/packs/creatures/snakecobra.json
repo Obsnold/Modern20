@@ -225,7 +225,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>At will as a ranged touch attack, a spitting cobra can spray its venom at a target up to 10 feet away. When used in this manner, the spitting cobra’s venom acts as a contact poison. The target must succeed on a Fortitude save (DC 10 + 1/2 the cobra’s Hit Dice + its Constitution modifier) or be blinded and nauseated for 1 minute. A second Fortitude save must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). Eye protection, such as goggles or a full-face visor, negates the blindness effect.</p>",
+        "description": "<p>At will as a ranged touch attack, a spitting cobra can spray its venom at a target up to 10 feet away. When used in this manner, the spitting cobra’s venom acts as a contact poison. The target must succeed on a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the cobra’s Hit Dice + its Constitution modifier) or be blinded and nauseated for 1 minute. A second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). Eye protection, such as goggles or a full-face visor, negates the blindness effect.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -285,7 +285,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A cobra receives a +8 species bonus on Move Silently checks and a +4 species bonus on Hide, Listen, and Spot checks. It applies either its Strength or its Dexterity modifier, whichever is higher, to Climb checks.</p>",
+        "description": "<p>A cobra receives a +8 species bonus on @Check[skill:moveSilently]{Move Silently check}s and a +4 species bonus on Hide, Listen, and @Check[skill:spot]{Spot check}s. It applies either its Strength or its Dexterity modifier, whichever is higher, to @Check[skill:climb]{Climb check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

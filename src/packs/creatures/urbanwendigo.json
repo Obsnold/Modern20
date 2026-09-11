@@ -330,7 +330,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A side effect of the desolation that created the urban wendigo in the first place, the urban wendigo gains the benefit of invisibility, as the spell cast by a 10th-level Mage. By staying out of the direct, focused vision of city dwellers, the urban wendigo can roam the city unseen. Unlike the invisibility spell, any character looking in the general direction of the urban wendigo and taking an attack action to make a Spot check (DC = the urban wendigo’s Hide check) can see the urban wendigo if the check succeeds. Once a character sees an urban wendigo, that character is immune to its peripheral invisibility for 1 hour.</p>",
+        "description": "<p>A side effect of the desolation that created the urban wendigo in the first place, the urban wendigo gains the benefit of invisibility, as the spell cast by a 10th-level Mage. By staying out of the direct, focused vision of city dwellers, the urban wendigo can roam the city unseen. Unlike the invisibility spell, any character looking in the general direction of the urban wendigo and taking an attack action to make a @Check[skill:spot]{Spot check} (DC = the urban wendigo’s @Check[skill:hide]{Hide check}) can see the urban wendigo if the check succeeds. Once a character sees an urban wendigo, that character is immune to its peripheral invisibility for 1 hour.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -378,7 +378,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Urban wendigos gain a +10 species bonus on Balance, Climb, Jump, and Survival checks.</p>",
+        "description": "<p>Urban wendigos gain a +10 species bonus on Balance, Climb, Jump, and @Check[skill:survival]{Survival check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

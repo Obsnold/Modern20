@@ -4,7 +4,7 @@
   "type": "spell",
   "img": "icons/svg/book.svg",
   "system": {
-    "description": "<p>The subject gets an enhancement bonus on Jump checks. The enhancement bonus is +10 at 1st level, +20 at 3rd level, and +30 at 5th level (the maximum).</p>",
+    "description": "<p>The subject gets an enhancement bonus on @Check[skill:jump]{Jump check}s. The enhancement bonus is +10 at 1st level, +20 at 3rd level, and +30 at 5th level (the maximum).</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc2.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.Ae0mALKDkEycQnlk",

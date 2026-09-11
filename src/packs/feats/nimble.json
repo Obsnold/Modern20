@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.XhLA70sGpWq2JknG",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Escape Artist checks and Sleight of Hand checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:escapeArtist]{Escape Artist check}s and @Check[skill:sleightOfHand]{Sleight of Hand check}s.",
     "normal": "",
     "special": "Remember that the Sleight of Hand skill can’t be used untrained.",
     "repeatable": false

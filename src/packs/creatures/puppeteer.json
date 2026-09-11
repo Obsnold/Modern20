@@ -195,7 +195,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>If a puppeteer successfully uses lesser domination on its host seven times, the final effect is permanent, bonding the host to the puppeteer. The thralled host will carry out the orders of the puppeteer, including self-destructive orders. Actions against the host’s original nature allow the host a Will save (DC 22) to resist, with a –10 penalty on the roll. A successful save negates that particular action (or future occurrences of that action), but the host remains the puppeteer’s thrall.</p>",
+        "description": "<p>If a puppeteer successfully uses lesser domination on its host seven times, the final effect is permanent, bonding the host to the puppeteer. The thralled host will carry out the orders of the puppeteer, including self-destructive orders. Actions against the host’s original nature allow the host a @Check[save:will|dc:22]{Will save (DC 22)} to resist, with a –10 penalty on the roll. A successful save negates that particular action (or future occurrences of that action), but the host remains the puppeteer’s thrall.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -275,7 +275,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Puppeteers gain a +5 species bonus on Fortitude saves to negate the effects of massive damage. This ability is conferred upon the puppeteer’s host as well.</p>",
+        "description": "<p>Puppeteers gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage. This ability is conferred upon the puppeteer’s host as well.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -323,7 +323,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The puppeteer retains its skills when it takes a host. The host gains a +4 bonus on Listen and Spot checks.</p>",
+        "description": "<p>The puppeteer retains its skills when it takes a host. The host gains a +4 bonus on Listen and @Check[skill:spot]{Spot check}s.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

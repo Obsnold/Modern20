@@ -381,7 +381,7 @@
           "Treat Injury 4 ranks."
         ],
         "benefit": "The character can use the Treat Injury skill to perform surgery without penalty. See the Treat Injury skill description.",
-        "normal": "Characters without this feat take a –4 penalty on Treat Injury checks made to perform surgery.",
+        "normal": "Characters without this feat take a –4 penalty on @Check[skill:treatInjury]{Treat Injury check}s made to perform surgery.",
         "special": "",
         "repeatable": false
       },
@@ -415,7 +415,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>When a troglodyte is angry or frightened, it secretes an oily, musklike chemical that most animal life finds offensive. All living creatures (except troglodytes) within 30 feet of the troglodyte must succeed on a Fortitude save (DC 13) or take a –2 morale penalty on attack rolls, weapon damage rolls, ability checks, skill checks, and saving throws for 10 rounds. Characters subjected to stench from multiple troglodytes make only one saving throw. Characters affected by a troglodyte’s stench cannot be affected again by any troglodyte’s stench until the current effect expires.</p>",
+        "description": "<p>When a troglodyte is angry or frightened, it secretes an oily, musklike chemical that most animal life finds offensive. All living creatures (except troglodytes) within 30 feet of the troglodyte must succeed on a @Check[save:fort|dc:13]{Fortitude save (DC 13)} or take a –2 morale penalty on attack rolls, weapon damage rolls, ability checks, skill checks, and saving throws for 10 rounds. Characters subjected to stench from multiple troglodytes make only one saving throw. Characters affected by a troglodyte’s stench cannot be affected again by any troglodyte’s stench until the current effect expires.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -447,7 +447,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A troglodyte’s skin changes color somewhat, allowing it to blend in with its surroundings like a chameleon. A troglodyte gains a +4 species bonus on Hide checks (+8 in a rocky or subterranean setting).</p>",
+        "description": "<p>A troglodyte’s skin changes color somewhat, allowing it to blend in with its surroundings like a chameleon. A troglodyte gains a +4 species bonus on @Check[skill:hide]{Hide check}s (+8 in a rocky or subterranean setting).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

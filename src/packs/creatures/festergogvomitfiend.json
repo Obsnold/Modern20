@@ -303,7 +303,7 @@
           "Charisma 15",
           "Intimidate 9 ranks."
         ],
-        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -322,7 +322,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:will]{Will saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -375,7 +375,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A festergog’s skin exudes a toxic, foul-smelling pus. Any creature within 10 feet must succeed on a Fortitude save (DC 21) or become nauseated for as long as it remains in the affected area and for 1d4 rounds afterward. A nauseated creature cannot attack, cast spells, use spell-like abilities, or do anything else requiring attention or concentration. The only action a nauseated creature can take is a single move action per turn. Creatures that successfully save are unaffected and cannot be affected again by the same festergog’s stench for 24 hours.</p>",
+        "description": "<p>A festergog’s skin exudes a toxic, foul-smelling pus. Any creature within 10 feet must succeed on a @Check[save:fort|dc:21]{Fortitude save (DC 21)} or become nauseated for as long as it remains in the affected area and for 1d4 rounds afterward. A nauseated creature cannot attack, cast spells, use spell-like abilities, or do anything else requiring attention or concentration. The only action a nauseated creature can take is a single move action per turn. Creatures that successfully save are unaffected and cannot be affected again by the same festergog’s stench for 24 hours.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

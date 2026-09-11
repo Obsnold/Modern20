@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.Sat1e5tLcGOsAfhd",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "To find tracks or follow them for one mile requires a Survival check. The character must make another Survival check every time the tracks become difficult to follow.",
+    "benefit": "To find tracks or follow them for one mile requires a @Check[skill:survival]{Survival check}. The character must make another @Check[skill:survival]{Survival check} every time the tracks become difficult to follow.",
     "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
     "special": "",
     "repeatable": false

@@ -433,7 +433,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once per hour, a vrock can emit a piercing screech. Every creature within a 30-foot radius must succeed at a Fortitude save (DC 10 + 1/2 vrock’s Hit Dice + vrock’s Constitution modifier) or be stunned for 1 round.</p>",
+        "description": "<p>Once per hour, a vrock can emit a piercing screech. Every creature within a 30-foot radius must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 vrock’s Hit Dice + vrock’s Constitution modifier) or be stunned for 1 round.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -461,7 +461,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>To use this ability, a group of five or more vrocks join hands in a circle, dancing wildly and chanting. If they dance for 3 rounds, a wave of crackling energy flashes outward in a 100-foot radius. All creature within the radius take 2d20 points of electricity damage (to which vrocks are immune); a successful Reflex save (DC 15) halves the damage. Forcing the vrocks to break the circle stops the dance.</p>",
+        "description": "<p>To use this ability, a group of five or more vrocks join hands in a circle, dancing wildly and chanting. If they dance for 3 rounds, a wave of crackling energy flashes outward in a 100-foot radius. All creature within the radius take 2d20 points of electricity damage (to which vrocks are immune); a successful @Check[save:ref|dc:15]{Reflex save (DC 15)} halves the damage. Forcing the vrocks to break the circle stops the dance.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -717,7 +717,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Vrocks gain a +8 species bonus on Listen and Spot checks.</p>",
+        "description": "<p>Vrocks gain a +8 species bonus on Listen and @Check[skill:spot]{Spot check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

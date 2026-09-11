@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>This paint job makes the vehicle less noticeable. It grants a +5 circumstance bonus on Bluff and Hide checks when tailing another vehicle or losing a tail. In addition, anyone wishing to break into the vehicle (other than the owner) must succeed at a Will save (DC 15) or be unable to do so. This is a mind-affecting spell-like effect; a new save may be attempted after 24 hours have passed.</p>",
+    "description": "<p>This paint job makes the vehicle less noticeable. It grants a +5 circumstance bonus on Bluff and @Check[skill:hide]{Hide check}s when tailing another vehicle or losing a tail. In addition, anyone wishing to break into the vehicle (other than the owner) must succeed at a @Check[save:will|dc:15]{Will save (DC 15)} or be unable to do so. This is a mind-affecting spell-like effect; a new save may be attempted after 24 hours have passed.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.KbPEqvLzkJNioQfS",

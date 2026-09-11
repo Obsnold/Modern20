@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.WNAXtvgtyiic73kt",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Jump checks and Tumble checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.",
     "normal": "",
     "special": "Remember that the Tumble skill can’t be used untrained.",
     "repeatable": false

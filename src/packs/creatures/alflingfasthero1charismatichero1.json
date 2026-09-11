@@ -502,7 +502,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Halflings gain a +2 species bonus on Climb, Jump, Listen, and Move Silently checks. In addition, halflings gain the bonus skills Read/Write Language (any one) and Speak Language (any one).</p>",
+        "description": "<p>Halflings gain a +2 species bonus on Climb, Jump, Listen, and @Check[skill:moveSilently]{Move Silently check}s. In addition, halflings gain the bonus skills Read/Write Language (any one) and Speak Language (any one).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "source": "Urban Arcana",
         "abilityType": "",

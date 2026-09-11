@@ -240,7 +240,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -335,7 +335,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.Sat1e5tLcGOsAfhd",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "To find tracks or follow them for one mile requires a Survival check. The character must make another Survival check every time the tracks become difficult to follow.",
+        "benefit": "To find tracks or follow them for one mile requires a @Check[skill:survival]{Survival check}. The character must make another @Check[skill:survival]{Survival check} every time the tracks become difficult to follow.",
         "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
         "special": "",
         "repeatable": false
@@ -364,7 +364,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>At the mere sight of a mummy, the viewer must succeed on a Will save (DC 15) or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that mummy’s despair ability for one day.</p>",
+        "description": "<p>At the mere sight of a mummy, the viewer must succeed on a @Check[save:will|dc:15]{Will save (DC 15)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that mummy’s despair ability for one day.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -380,7 +380,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A mummy’s touch carries a horrible rotting disease (Fort save DC 20 negates; incubation period 1 day; damage 1d6 temporary Constitution). The GM may allow characters to create medicine to treat the disease using the Craft (pharmaceutical) skill. In a campaign that uses magic, a remove disease spell can cure this disease. The only other way to halt the disease’s advance is to amputate whatever appendage the mummy touched (usually a hand, arm, leg, or foot). Amputating a limb deals 1d4+1 points of temporary Constitution damage, although a successful Treat Injury check (DC 25) reduces the temporary Constitution damage to 1 point.</p><p>An afflicted creature that dies of mummy rot shrivels away and turns to dust.</p>",
+        "description": "<p>A mummy’s touch carries a horrible rotting disease (Fort save DC 20 negates; incubation period 1 day; damage 1d6 temporary Constitution). The GM may allow characters to create medicine to treat the disease using the Craft (pharmaceutical) skill. In a campaign that uses magic, a remove disease spell can cure this disease. The only other way to halt the disease’s advance is to amputate whatever appendage the mummy touched (usually a hand, arm, leg, or foot). Amputating a limb deals 1d4+1 points of temporary Constitution damage, although a successful @Check[skill:treatInjury|dc:25]{Treat Injury check (DC 25)} reduces the temporary Constitution damage to 1 point.</p><p>An afflicted creature that dies of mummy rot shrivels away and turns to dust.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Duxf6x7GStPBDNHg",

@@ -366,7 +366,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A medusa’s gaze permanently turns to stone any creature within 30 feet that fails its Fortitude save (DC 15). See Special Qualities for more information on gaze attacks. A break enchantment spell can remove the effect of petrification. In a campaign where heroes have limited access to spells, the GM can make the petrification a temporary effect (lasting 1d6 hours).</p>",
+        "description": "<p>A medusa’s gaze permanently turns to stone any creature within 30 feet that fails its @Check[save:fort|dc:15]{Fortitude save (DC 15)}. See Special Qualities for more information on gaze attacks. A break enchantment spell can remove the effect of petrification. In a campaign where heroes have limited access to spells, the GM can make the petrification a temporary effect (lasting 1d6 hours).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -382,7 +382,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any creature bitten by the medusa’s snaky hair must succeed on a Fortitude save (DC 14) or succumb to the poison (initial damage 1d6 temporary Strength, secondary damage 2d6 temporary Strength).</p>",
+        "description": "<p>Any creature bitten by the medusa’s snaky hair must succeed on a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or succumb to the poison (initial damage 1d6 temporary Strength, secondary damage 2d6 temporary Strength).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

@@ -180,7 +180,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -199,7 +199,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mawmlYXqaF5J2G2K",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:ref]{Reflex saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -324,7 +324,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, a montauk monster can cause a creature it has successfully hit with a melee attack to fuse with nearby matter. At the time of the attack, the target creature must be within 5 feet of a solid object with a volume at least equal to its own. (In most cases, the ground or a wall is sufficient.) The target must succeed at a Will saving throw (DC 10 + 1/2 the montauk monster’s Hit Dice + its Charisma modifier) or be fused with the object and instantly killed. The object’s hardness drops by 2 after the fusion, regardless of the creature’s nature or physical makeup. Such an object continues to function normally, but it is usually cosmetically grotesque, with fleshy fingers or a portion of a face projecting from its surface.</p>",
+        "description": "<p>Once every 1d4 rounds, a montauk monster can cause a creature it has successfully hit with a melee attack to fuse with nearby matter. At the time of the attack, the target creature must be within 5 feet of a solid object with a volume at least equal to its own. (In most cases, the ground or a wall is sufficient.) The target must succeed at a @Check[save:will]{Will saving throw} (DC 10 + 1/2 the montauk monster’s Hit Dice + its Charisma modifier) or be fused with the object and instantly killed. The object’s hardness drops by 2 after the fusion, regardless of the creature’s nature or physical makeup. Such an object continues to function normally, but it is usually cosmetically grotesque, with fleshy fingers or a portion of a face projecting from its surface.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

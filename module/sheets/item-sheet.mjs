@@ -1,6 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { maxRange, maxIncrements } from "../apps/attack.mjs";
 import { describeEffects } from "../effects.mjs";
+import { enrichProse } from "../enrichers.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -109,11 +110,11 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     // quietly adding is one the reader can see.
     context.applies = describeEffects(item);
 
-    context.enrichedDescription =
-      await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-        item.system.description,
-        { secrets: item.isOwner, relativeTo: item }
-      );
+    // Every field the SRD prints rules text in, not only the description: a
+    // feat's benefit is where its checks are named, and unenriched text shows
+    // the markup.
+    context.enriched = await enrichProse(item, { secrets: item.isOwner });
+    context.enrichedDescription = context.enriched.description;
 
     return context;
   }

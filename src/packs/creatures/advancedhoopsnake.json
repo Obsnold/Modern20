@@ -251,7 +251,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A hoop snake receives a +8 species bonus on Balance checks and a +4 species bonus on Hide, Listen, and Spot checks. It applies its Dexterity modifier instead of its Strength modifier to Climb checks.</p>",
+        "description": "<p>A hoop snake receives a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide, Listen, and @Check[skill:spot]{Spot check}s. It applies its Dexterity modifier instead of its Strength modifier to @Check[skill:climb]{Climb check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

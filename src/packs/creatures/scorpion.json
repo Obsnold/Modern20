@@ -288,7 +288,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A scorpion has darkvision out to a range of 30 feet. It is immune to mind-affecting effects and gains a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "description": "<p>A scorpion has darkvision out to a range of 30 feet. It is immune to mind-affecting effects and gains a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -320,7 +320,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A scorpion gains a +4 species bonus on Climb, Hide, and Spot checks.</p>",
+        "description": "<p>A scorpion gains a +4 species bonus on Climb, Hide, and @Check[skill:spot]{Spot check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

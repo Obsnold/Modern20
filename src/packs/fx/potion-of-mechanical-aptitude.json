@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>This potion makes the imbiber more proficient in understanding how technological devices work. He gains a +5 circumstance bonus on Computer Use and Repair checks for 1 hour.</p>",
+    "description": "<p>This potion makes the imbiber more proficient in understanding how technological devices work. He gains a +5 circumstance bonus on Computer Use and @Check[skill:repair]{Repair check}s for 1 hour.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.27vREGlGDc9skZfA",

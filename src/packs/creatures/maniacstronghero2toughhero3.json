@@ -286,7 +286,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dhezLjTJWP7r3Rtl",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:fort]{Fortitude saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -447,7 +447,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A maniac gains a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "description": "<p>A maniac gains a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

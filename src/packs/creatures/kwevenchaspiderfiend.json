@@ -277,7 +277,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:will]{Will saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -370,7 +370,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Bite; contact 1d6 Str/1d6 Str; Fortitude save (DC 10 + 1/2 the kwevencha’s Hit Dice + its Constitution modifier) resists.</p>",
+        "description": "<p>Bite; contact 1d6 Str/1d6 Str; @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the kwevencha’s Hit Dice + its Constitution modifier) resists.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -462,7 +462,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A kwevencha gains a +4 species bonus on Balance, Climb, Jump, and Spot checks.</p>",
+        "description": "<p>A kwevencha gains a +4 species bonus on Balance, Climb, Jump, and @Check[skill:spot]{Spot check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

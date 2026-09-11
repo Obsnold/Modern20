@@ -308,7 +308,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A dreamghast can fascinate onlookers by staring at the targets and speaking softly. The targets must be within 60 feet of the dreamghast and must be able to see and hear the dreamghast. The dreamghast must also see the creatures it intends to fascinate. The distraction of a nearby combat or other dangers prevents the ability from working. Otherwise, creatures that fail a Will save (DC 21) remain stationary and quiet, staring at and listening to the dreamghast as long as the dreamghast maintains the fascinate effect for up to 1 minute.</p><p>Any potential threat (such as a thrall of the dreamghast moving behind the fascinated creature) allows an affected target a new save against the fascinate effect. Any obvious threat, such as drawing a weapon, automatically breaks the effect. While using the fascinate ability, a dreamghast must spend an attack action each round concentrating. The fascinate ability is a spell-like, mind-affecting charm ability.</p>",
+        "description": "<p>A dreamghast can fascinate onlookers by staring at the targets and speaking softly. The targets must be within 60 feet of the dreamghast and must be able to see and hear the dreamghast. The dreamghast must also see the creatures it intends to fascinate. The distraction of a nearby combat or other dangers prevents the ability from working. Otherwise, creatures that fail a @Check[save:will|dc:21]{Will save (DC 21)} remain stationary and quiet, staring at and listening to the dreamghast as long as the dreamghast maintains the fascinate effect for up to 1 minute.</p><p>Any potential threat (such as a thrall of the dreamghast moving behind the fascinated creature) allows an affected target a new save against the fascinate effect. Any obvious threat, such as drawing a weapon, automatically breaks the effect. While using the fascinate ability, a dreamghast must spend an attack action each round concentrating. The fascinate ability is a spell-like, mind-affecting charm ability.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -340,7 +340,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The mere sight of a dreamghast in its true form forces the viewer to succeed at a Will save (DC 21) or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that dreamghast’s despair ability for one day.</p>",
+        "description": "<p>The mere sight of a dreamghast in its true form forces the viewer to succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that dreamghast’s despair ability for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -388,7 +388,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>If the dreamghast considers a dream-eating victim particularly interesting or useful, he may implant a series of enslavement commands in the victim’s mind. The target must succeed at a Will save (DC 21) or be affected as though by a domination power manifested by a 10th-level Telepath. The dreamghast commands the enslaved victim telepathically when the victim sleeps; when the victim is awake, it acts on previous orders but can’t be given new ones. An enslaved creature obeys the dreamghast’s commands until freed by a dispel magic or remove curse spell or a negate psionics power. The enslaved creature can also attempt a new Will save every 24 hours to break free. The control is also broken if the dreamghast dies or travels more than 1 mile from its slave.</p>",
+        "description": "<p>If the dreamghast considers a dream-eating victim particularly interesting or useful, he may implant a series of enslavement commands in the victim’s mind. The target must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be affected as though by a domination power manifested by a 10th-level Telepath. The dreamghast commands the enslaved victim telepathically when the victim sleeps; when the victim is awake, it acts on previous orders but can’t be given new ones. An enslaved creature obeys the dreamghast’s commands until freed by a dispel magic or remove curse spell or a negate psionics power. The enslaved creature can also attempt a new @Check[save:will]{Will save} every 24 hours to break free. The control is also broken if the dreamghast dies or travels more than 1 mile from its slave.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -404,7 +404,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once the dreamghast eats someone’s dreams, it may consume the subject’s memories as well. The victim must succeed at a Will save (DC 21) or suffer complete memory loss. The victim has no memory of his identity, background, family, friends, and so forth. The memory loss has no effect on languages known, class-related talents, or other class features. The subject temporarily loses all Knowledge skills but retains all other skills. The memory loss persists until the victim receives a break enchantment spell or undergoes 1d6 months of therapy.</p>",
+        "description": "<p>Once the dreamghast eats someone’s dreams, it may consume the subject’s memories as well. The victim must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or suffer complete memory loss. The victim has no memory of his identity, background, family, friends, and so forth. The memory loss has no effect on languages known, class-related talents, or other class features. The subject temporarily loses all Knowledge skills but retains all other skills. The memory loss persists until the victim receives a break enchantment spell or undergoes 1d6 months of therapy.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

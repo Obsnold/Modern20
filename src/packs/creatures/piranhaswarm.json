@@ -140,7 +140,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A swarm of piranha can move in water without making Swim checks and cannot drown in water.</p>",
+        "description": "<p>A swarm of piranha can move in water without making @Check[skill:swim]{Swim check}s and cannot drown in water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

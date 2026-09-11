@@ -201,7 +201,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Owls receive a +8 species bonus on Listen checks and a +14 species bonus on Move Silently checks. They receive a +8 species bonus on Spot checks in dusk and darkness.</p>",
+        "description": "<p>Owls receive a +8 species bonus on @Check[skill:listen]{Listen check}s and a +14 species bonus on @Check[skill:moveSilently]{Move Silently check}s. They receive a +8 species bonus on @Check[skill:spot]{Spot check}s in dusk and darkness.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

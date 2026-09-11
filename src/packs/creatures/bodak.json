@@ -252,7 +252,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any creature within 30 feet of a bodak that meets its gaze must succeed at a Fortitude save (DC 10 + 1/2 the bodak’s Hit Dice + its Charisma modifier) or die instantly. This ability is usable at will.</p>",
+        "description": "<p>Any creature within 30 feet of a bodak that meets its gaze must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the bodak’s Hit Dice + its Charisma modifier) or die instantly. This ability is usable at will.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

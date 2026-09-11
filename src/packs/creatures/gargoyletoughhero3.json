@@ -320,7 +320,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -399,7 +399,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A gargoyle can hold itself so still it appears to be a statue. An observer must succeed on a Spot check (DC 20) to notice the gargoyle is alive.</p>",
+        "description": "<p>A gargoyle can hold itself so still it appears to be a statue. An observer must succeed on a @Check[skill:spot|dc:20]{Spot check (DC 20)} to notice the gargoyle is alive.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -447,7 +447,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A gargoyle receives a +8 species bonus on Hide checks when concealed against a background of worked stone.</p>",
+        "description": "<p>A gargoyle receives a +8 species bonus on @Check[skill:hide]{Hide check}s when concealed against a background of worked stone.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

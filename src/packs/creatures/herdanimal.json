@@ -157,7 +157,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A frightened herd flees as a group in a random direction, but always away from the perceived source of danger. It runs over anything of size Large or smaller that gets in its way, dealing 1d12 points of damage for every five animals in the herd. A successful Reflex save (DC 16) halves the damage.</p>",
+        "description": "<p>A frightened herd flees as a group in a random direction, but always away from the perceived source of danger. It runs over anything of size Large or smaller that gets in its way, dealing 1d12 points of damage for every five animals in the herd. A successful @Check[save:ref|dc:16]{Reflex save (DC 16)} halves the damage.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

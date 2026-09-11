@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.ecG9rkNpU4Osi2BV",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Forgery checks and Search checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:forgery]{Forgery check}s and @Check[skill:search]{Search check}s.",
     "normal": "",
     "special": "",
     "repeatable": false

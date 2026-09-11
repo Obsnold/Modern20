@@ -219,7 +219,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The fruit of a dread tree produces a scent that is extremely intriguing to mammals. Any such creature within 100 feet of a dread tree must make a successful Will save (DC 10 + 1/2 the dread tree’s Hit Dice + its Charisma modifier) or move into its fighting space. Once there, the creature must make another successful Will save (same DC) or pick and eat the fruit. A creature too small to reach the branches eats fruit that has fallen from the tree. The fruit contains an ingested poison (Fortitude save DC 18; 1d6 Dex/unconsciousness for 2d6 rounds). The toxin remains viable for 1d6 days after picking.</p>",
+        "description": "<p>The fruit of a dread tree produces a scent that is extremely intriguing to mammals. Any such creature within 100 feet of a dread tree must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the dread tree’s Hit Dice + its Charisma modifier) or move into its fighting space. Once there, the creature must make another successful @Check[save:will]{Will save} (same DC) or pick and eat the fruit. A creature too small to reach the branches eats fruit that has fallen from the tree. The fruit contains an ingested poison (@Check[save:fort]{Fortitude save} DC 18; 1d6 Dex/unconsciousness for 2d6 rounds). The toxin remains viable for 1d6 days after picking.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -295,7 +295,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Because a dread tree is intelligent, it gains skill points as if it were an animal. A dread tree gains a +16 species bonus on Hide checks made in forested areas.</p>",
+        "description": "<p>Because a dread tree is intelligent, it gains skill points as if it were an animal. A dread tree gains a +16 species bonus on @Check[skill:hide]{Hide check}s made in forested areas.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

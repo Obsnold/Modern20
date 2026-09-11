@@ -61,9 +61,9 @@
           Urban Arcana's feats carry one. --}}
     {{#if system.category}}{{formField fields.category value=system.category}}{{/if}}
     {{formField fields.repeatable value=system.repeatable}}
-    {{formField fields.benefit value=system.benefit toggled=true}}
-    {{formField fields.normal value=system.normal toggled=true}}
-    {{formField fields.special value=system.special toggled=true}}
+    {{formField fields.benefit value=system.benefit enriched=enriched.benefit toggled=true}}
+    {{formField fields.normal value=system.normal enriched=enriched.normal toggled=true}}
+    {{formField fields.special value=system.special enriched=enriched.special toggled=true}}
   {{/if}}
 
   {{#if (eq document.type "specialAbility")}}

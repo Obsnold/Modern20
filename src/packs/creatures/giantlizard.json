@@ -187,7 +187,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Some species of giant lizard have a poisonous bite. Bite: Fortitude save (DC 14); initial and secondary 1d3 Strength damage.</p>",
+        "description": "<p>Some species of giant lizard have a poisonous bite. Bite: @Check[save:fort|dc:14]{Fortitude save (DC 14)}; initial and secondary 1d3 Strength damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "source": "Urban Arcana",
         "abilityType": "extraordinary",
@@ -219,7 +219,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Lizards use their Dexterity modifier for Climb checks. They gain a +8 species bonus on Balance checks and a +4 species bonus on Hide and Move Silently checks. In wooded or overgrown areas, the species bonus on Hide checks improves to +8.</p>",
+        "description": "<p>Lizards use their Dexterity modifier for @Check[skill:climb]{Climb check}s. They gain a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide and @Check[skill:moveSilently]{Move Silently check}s. In wooded or overgrown areas, the species bonus on @Check[skill:hide]{Hide check}s improves to +8.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "source": "Urban Arcana",
         "abilityType": "",

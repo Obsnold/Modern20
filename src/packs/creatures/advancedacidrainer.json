@@ -199,7 +199,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mawmlYXqaF5J2G2K",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:ref]{Reflex saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -239,7 +239,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -268,7 +268,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, an acid rainer can spray out a cloud of caustic mist that fills a 30-foot radius spread centered on itself. Each creature within this area takes 2d6 points of acid damage, or half damage if a Reflex save succeeds (DC 10 + 1/2 the acid rainer’s Hit Dice + its Constitution modifier).</p>",
+        "description": "<p>Once every 1d4 rounds, an acid rainer can spray out a cloud of caustic mist that fills a 30-foot radius spread centered on itself. Each creature within this area takes 2d6 points of acid damage, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 the acid rainer’s Hit Dice + its Constitution modifier).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -365,7 +365,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>An acid rainer gains a +8 species bonus on Hide checks and a +4 species bonus on Move Silently checks.</p>",
+        "description": "<p>An acid rainer gains a +8 species bonus on @Check[skill:hide]{Hide check}s and a +4 species bonus on @Check[skill:moveSilently]{Move Silently check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

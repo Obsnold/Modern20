@@ -285,7 +285,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, a neothelid can breathe a 50-foot cone of acid that deals 14d10 points of acid damage to every creature in its area. A successful Reflex save (DC 10 + 1/2 the neothelid’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>Once every 1d4 rounds, a neothelid can breathe a 50-foot cone of acid that deals 14d10 points of acid damage to every creature in its area. A successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the neothelid’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

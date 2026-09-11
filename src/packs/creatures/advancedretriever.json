@@ -181,7 +181,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Retrievers are immune to mind-influencing effects as well as poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a Fortitude save unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
+        "description": "<p>Retrievers are immune to mind-influencing effects as well as poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -309,7 +309,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The target must succeed on a Fortitude save or turn to stone permanently.</p>",
+        "description": "<p>The target must succeed on a @Check[save:fort]{Fortitude save} or turn to stone permanently.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

@@ -372,7 +372,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.hXMJTt5gsddJTUkS",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Decipher Script checks and Research checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:decipherScript]{Decipher Script check}s and @Check[skill:research]{Research check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -385,7 +385,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A replacement has a programmed natural life span of one to four years (the creator must specify the life span when the project to create the replacement begins). Once the replacement reaches the end of its programmed life span, it must make a Fortitude save (DC 25) once per day. Each failed save drains the replacement of 1d6 points of Constitution. This ability drain cannot be restored by any means. When its Constitution drops to 0, the replacement dissolves into a mass of protoplasmic goo. A replacement that dies before this time retains the shape of the original.</p>",
+        "description": "<p>A replacement has a programmed natural life span of one to four years (the creator must specify the life span when the project to create the replacement begins). Once the replacement reaches the end of its programmed life span, it must make a @Check[save:fort|dc:25]{Fortitude save (DC 25)} once per day. Each failed save drains the replacement of 1d6 points of Constitution. This ability drain cannot be restored by any means. When its Constitution drops to 0, the replacement dissolves into a mass of protoplasmic goo. A replacement that dies before this time retains the shape of the original.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

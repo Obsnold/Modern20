@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.6poX5emOh3rgaP1Q",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Handle Animal checks and Ride checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:handleAnimal]{Handle Animal check}s and @Check[skill:ride]{Ride check}s.",
     "normal": "",
     "special": "Remember that the Handle Animal skill can’t be used untrained.",
     "repeatable": false

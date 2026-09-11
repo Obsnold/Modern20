@@ -179,7 +179,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Porpoises can move in water without making Swim checks and cannot drown in water.</p>",
+        "description": "<p>Porpoises can move in water without making @Check[skill:swim]{Swim check}s and cannot drown in water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -211,7 +211,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Porpoises gain a +4 species bonus on Listen and Spot checks. These bonuses are lost if blindsight is negated.</p>",
+        "description": "<p>Porpoises gain a +4 species bonus on Listen and @Check[skill:spot]{Spot check}s. These bonuses are lost if blindsight is negated.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

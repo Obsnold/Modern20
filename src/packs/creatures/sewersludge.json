@@ -179,7 +179,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A motionless sewer sludge looks like nothing more than a pile of rotting garbage. A successful Spot check (DC 15) is required to recognize it as a creature.</p>",
+        "description": "<p>A motionless sewer sludge looks like nothing more than a pile of rotting garbage. A successful @Check[skill:spot|dc:15]{Spot check (DC 15)} is required to recognize it as a creature.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -259,7 +259,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A creature within 10 feet of a sewer sludge must make a successful Fortitude save (DC 10 + 1/2 the sludge’s Hit Dice + its Constitution modifier) or be nauseated. The nausea persists for as long as the creature remains within 10 feet of the sewer sludge. A creature that leaves and reenters the area must make another save.</p>",
+        "description": "<p>A creature within 10 feet of a sewer sludge must make a successful @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the sludge’s Hit Dice + its Constitution modifier) or be nauseated. The nausea persists for as long as the creature remains within 10 feet of the sewer sludge. A creature that leaves and reenters the area must make another save.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

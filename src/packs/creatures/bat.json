@@ -146,7 +146,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Bats receive a +4 species bonus on Listen and Spot checks. These bonuses are lost if the bat’s blindsight is negated.</p>",
+        "description": "<p>Bats receive a +4 species bonus on Listen and @Check[skill:spot]{Spot check}s. These bonuses are lost if the bat’s blindsight is negated.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

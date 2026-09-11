@@ -229,7 +229,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>At will as an attack action, a zap can cause an electrical overload in a piece of electronic equipment within 10 feet, destroying its internal workings and rendering it useless. If the item is being carried or wielded at the time of the attack, the wielder can attempt a Reflex save (DC 20) to negate the effect. An unattended item receives no save. An electronic item damaged in this fashion must either be replaced or repaired (Repair DC 15).</p>",
+        "description": "<p>At will as an attack action, a zap can cause an electrical overload in a piece of electronic equipment within 10 feet, destroying its internal workings and rendering it useless. If the item is being carried or wielded at the time of the attack, the wielder can attempt a @Check[save:ref|dc:20]{Reflex save (DC 20)} to negate the effect. An unattended item receives no save. An electronic item damaged in this fashion must either be replaced or repaired (Repair DC 15).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

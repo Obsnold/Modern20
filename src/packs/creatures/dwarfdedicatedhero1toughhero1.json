@@ -452,7 +452,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Dwarves gain a +2 species bonus on Search checks to notice unusual stonework, new construction, unsafe surfaces, ceilings, and the like. A dwarf who merely passes within 10 feet of such exceptional construction can, as a free action, make a Search check (DC 15) as though he were actively searching for such.</p><p>Dwarves are naturally skilled mechanics and engineers. They gain a +2 species bonus on Craft (mechanical), Craft (structural), and Repair checks.</p>",
+        "description": "<p>Dwarves gain a +2 species bonus on @Check[skill:search]{Search check}s to notice unusual stonework, new construction, unsafe surfaces, ceilings, and the like. A dwarf who merely passes within 10 feet of such exceptional construction can, as a free action, make a @Check[skill:search|dc:15]{Search check (DC 15)} as though he were actively searching for such.</p><p>Dwarves are naturally skilled mechanics and engineers. They gain a +2 species bonus on Craft (mechanical), Craft (structural), and @Check[skill:repair]{Repair check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

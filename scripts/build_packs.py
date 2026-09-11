@@ -1873,6 +1873,45 @@ def roll_range(printed: str) -> tuple[int, int] | None:
     return (low, high or 100)
 
 
+# The fields that carry the SRD's own prose on a document, and so carry the
+# checks and saves it asks for: a spell's description, a feat's benefit, a
+# creature ability's rules text.
+PROSE_FIELDS = ("description", "benefit", "normal", "special")
+
+
+def link_field_checks(document: dict, patterns: list[tuple[re.Pattern, dict]]) -> int:
+    """Write the rolls one document's own text asks for. Returns fields changed.
+
+    The same rewrite the rules pages get, over the prose a document carries: a
+    spell's description, a feat's benefit, a creature ability's rules text. The
+    abilities are where it earns most — "must succeed on a Fortitude save (DC
+    15) or die instantly" is printed on hundreds of them, and a save nobody can
+    click is a save somebody looks up.
+
+    Safe to run over text that already has its rolls: `PROTECTED` covers a roll
+    that is already written, so the phrase inside one is never read again.
+    """
+    changed = 0
+    system = document.get("system") or {}
+    for field in PROSE_FIELDS:
+        text = system.get(field)
+        if not isinstance(text, str) or not text.strip():
+            continue
+        written = link_checks(text, patterns)
+        if written != text:
+            system[field] = written
+            changed += 1
+    return changed
+
+
+def link_document_checks(document: dict, patterns: list[tuple[re.Pattern, dict]]) -> int:
+    """`link_field_checks` over a document and everything embedded in it."""
+    changed = link_field_checks(document, patterns)
+    for child in (document.get("items") or []):
+        changed += link_document_checks(child, patterns)
+    return changed
+
+
 def build_tables() -> list[dict]:
     """The SRD's own random tables, as RollTables.
 
@@ -2255,6 +2294,20 @@ def build() -> dict[str, list[dict]]:
             if not (document.get("system") or {}).get("rulesPage"):
                 rules.link(document, pack)
     print(rules.report())
+
+    # The rolls each document's own text asks for, the way the rules pages
+    # carry theirs.
+    rollable = check_patterns()
+    asked = 0
+    for pack, documents in packs.items():
+        if pack in SELF_GROUPING:
+            continue
+        for document in documents:
+            if document.get("_key", "").startswith("!folders!"):
+                continue
+            asked += link_document_checks(document, rollable)
+    if asked:
+        print(f"  rolls written into {asked} field(s) of the packs' own text")
 
     # Nine packs hold more than one book: the equipment three, the creatures,
     # the feats, the spells, the powers, the vehicles and the FX items. Each

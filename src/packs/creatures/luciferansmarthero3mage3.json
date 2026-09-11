@@ -379,7 +379,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:will]{Will saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -478,7 +478,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A luciferan can increase the glow from its skin into a raging inferno. The flame so generated deal 6d6 points of fire damage to each object and creature within a 10-foot radius of the luciferan. A successful Reflex save (10 + 1/2 the luciferan’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>A luciferan can increase the glow from its skin into a raging inferno. The flame so generated deal 6d6 points of fire damage to each object and creature within a 10-foot radius of the luciferan. A successful @Check[save:ref]{Reflex save} (10 + 1/2 the luciferan’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -542,7 +542,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A luciferan gains a +2 species bonus on Bluff and Intimidate checks.</p>",
+        "description": "<p>A luciferan gains a +2 species bonus on Bluff and @Check[skill:intimidate]{Intimidate check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

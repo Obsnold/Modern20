@@ -223,7 +223,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Wolves receive a +4 species bonus on Survival checks when tracking by scent.</p>",
+        "description": "<p>Wolves receive a +4 species bonus on @Check[skill:survival]{Survival check}s when tracking by scent.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
