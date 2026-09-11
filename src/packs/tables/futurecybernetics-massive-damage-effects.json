@@ -1,0 +1,72 @@
+{
+  "_id": "rjbYulv6AgCcPCya",
+  "name": "Massive Damage Effects",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.URad6EPfCjxrRKdV.JournalEntryPage.VtNrYQCd8wphJwQu]{Cybernetics}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "5ouxSnoDZQqeVfjO",
+      "type": "text",
+      "text": "Normal Effect",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        30
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rjbYulv6AgCcPCya.5ouxSnoDZQqeVfjO"
+    },
+    {
+      "_id": "rVhDu5GWQy3FUtu1",
+      "type": "text",
+      "text": "Attachment Disabled",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        60
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rjbYulv6AgCcPCya.rVhDu5GWQy3FUtu1"
+    },
+    {
+      "_id": "GMu3TYYe5u0SddF3",
+      "type": "text",
+      "text": "Normal Effect and Attachment Disabled",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        80
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rjbYulv6AgCcPCya.GMu3TYYe5u0SddF3"
+    },
+    {
+      "_id": "2ZgiYyX9VSboo3fS",
+      "type": "text",
+      "text": "Attachment Damaged and Side Effect",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rjbYulv6AgCcPCya.2ZgiYyX9VSboo3fS"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Future",
+      "source": "futurecybernetics.html"
+    }
+  },
+  "_key": "!tables!rjbYulv6AgCcPCya",
+  "folder": "nYWxFtWojpl6Liv5"
+}

@@ -39,6 +39,7 @@ fighting it forever, so this is a standalone game system.
 | The rules roll themselves | 2,054 sentences across 693 pages — "a DC 15 Climb check" is the roll, clicked where it is printed |
 | Feats that apply themselves | 22 of the 189 feats and talents state a bonus plainly enough to carry an Active Effect; the rest stay text |
 | Compendium browser | All 1,590 documents in one window, filtered by book, compendium, restriction rating, progress level and what a Wealth bonus can afford |
+| Random tables | 26 RollTables — mutations, cybernetic side effects, where a grenade lands, what a celestial is immune to |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
@@ -815,6 +816,44 @@ home reporting an edit nobody made. Compared document by document, an effect a
 GM switches off comes home switched off — which `check_capture.py` now drags
 through the round trip to prove.
 
+## Random tables
+
+The SRD says "roll d% and consult the table" two dozen times, and a table
+printed in a journal page is a table somebody reads and then rolls by hand. 26
+of them are RollTables now: mutations and their drawbacks, cybernetic side
+effects and the failed Fortitude save, where a thrown grenade lands, mecha and
+starship critical hits, meteoroid encounters, what a celestial or a fiend is
+immune to, what a trench coat of useful items produces, how a confused
+character behaves. Each carries an `@UUID` link to the page of the rules it was
+printed on, which `check_rules_links.py` resolves along with all the others.
+
+They are read out of the rules pages rather than out of the scraped table dump,
+because the caption that names a table sits on the page beside it and the dump
+keeps only the grid. Three things the reading has to get right, and each is a
+rule rather than a special case:
+
+- **A table printed in two columns is one table.** "Sources of Weakness" is d%
+  1-50 beside d% 51-100 under one heading, and the fiend and celestial tables
+  are three different tables side by side — immunity, resistance and damage
+  reduction, rolled at once. What tells them apart is the heading over the
+  outcome: the same heading twice is one table, 74 results long.
+- **A percentile die reads its zero as a hundred.** The last row of a d% table
+  is printed "97-00", and read as 97 to 0 it is a range no roll can land in.
+- **The header can be wrong and the rows cannot.** The third scatter table has
+  twelve rows under a heading that says d8, and the sentence above it says
+  *"For ranges of up to five range increments (31 to 50 feet), roll 1d12."*
+  Where the rows outrun the heading, the die is the smallest real one that
+  covers them.
+
+`check_packs.py` holds every table to its own formula: a result outside the die
+is a row nobody can roll, a result that overlaps another is one nobody can get
+to, and both were in the first build — the d8-with-twelve-rows and two tables
+whose last row said "00".
+
+Two names are corrected, cited where they are corrected: the SRD prints "Table:
+Celectial Immunities" and heads a column "Bhavior". A compendium lists its
+tables by name, and a typo there is a search nobody can make.
+
 ## The compendium browser
 
 Foundry's own compendium browser is one pack at a time with a name search,
@@ -1200,7 +1239,7 @@ python3 scripts/check_globals.py     # no globals Foundry v14 removed
 python3 scripts/check_lang.py        # every referenced i18n key exists
 python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
 python3 scripts/check_shadowing.py   # no module-level name defined twice
-python3 scripts/check_packs.py       # folders, keys, ids and tokens a compendium needs
+python3 scripts/check_packs.py       # folders, keys, ids, tokens and table ranges
 python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
 python3 scripts/check_rules_links.py # every link into the rules resolves, every roll it asks for rolls
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
@@ -1240,6 +1279,7 @@ to trust any of them:
 | `check_shadowing.py` / `no-redeclare` | two parsers in one week were named over an existing definition — `ability_key` over the psionics one, `DAMAGE_TYPES` over the spells one — and the later definition silently won |
 | `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
 | `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
+| `check_packs.py` (tables) | the first build of the random tables had a d8 with twelve rows and two tables whose last row read "00" as zero — a roll with no result looks like an empty draw and nothing else |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |
 | `check_packs.py` (folders) | Urban Arcana's feats arrived, the pack grew its first folders, and the ninety-five feats already there stayed at the compendium root beside an empty "d20 Modern" folder |

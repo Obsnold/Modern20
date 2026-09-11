@@ -1,0 +1,124 @@
+{
+  "_id": "BZsr7K04HTRhsgrL",
+  "name": "Personality (Silent Walkers)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.3lDORI4MhNo6KUtY.JournalEntryPage.2lO3msTcJdi0VWu8]{Silent Walkers}",
+  "formula": "1d20",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "5um7q2yqdfQVuPJh",
+      "type": "text",
+      "text": "Bloodthirsty",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.5um7q2yqdfQVuPJh"
+    },
+    {
+      "_id": "LVUzjJBgbJtyGKy4",
+      "type": "text",
+      "text": "Violent",
+      "img": null,
+      "weight": 1,
+      "range": [
+        2,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.LVUzjJBgbJtyGKy4"
+    },
+    {
+      "_id": "CSUkZ8myilvn6zoW",
+      "type": "text",
+      "text": "Angry",
+      "img": null,
+      "weight": 1,
+      "range": [
+        4,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.CSUkZ8myilvn6zoW"
+    },
+    {
+      "_id": "eTonaUow3vWRsuvF",
+      "type": "text",
+      "text": "Impatient",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.eTonaUow3vWRsuvF"
+    },
+    {
+      "_id": "CNUMRQZ5NO3yDavn",
+      "type": "text",
+      "text": "Patient",
+      "img": null,
+      "weight": 1,
+      "range": [
+        11,
+        14
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.CNUMRQZ5NO3yDavn"
+    },
+    {
+      "_id": "KXFrVi1XbpwVTGX8",
+      "type": "text",
+      "text": "Soothing",
+      "img": null,
+      "weight": 1,
+      "range": [
+        15,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.KXFrVi1XbpwVTGX8"
+    },
+    {
+      "_id": "nr2SlV9CNsnKeHwc",
+      "type": "text",
+      "text": "Insightful",
+      "img": null,
+      "weight": 1,
+      "range": [
+        18,
+        19
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.nr2SlV9CNsnKeHwc"
+    },
+    {
+      "_id": "kc4SdKkeoU9SYvgy",
+      "type": "text",
+      "text": "Peace Loving",
+      "img": null,
+      "weight": 1,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "_key": "!tables.results!BZsr7K04HTRhsgrL.kc4SdKkeoU9SYvgy"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "source": "urbanorg.html"
+    }
+  },
+  "_key": "!tables!BZsr7K04HTRhsgrL",
+  "folder": "PkdN6lH20W8cYUmP"
+}

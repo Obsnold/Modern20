@@ -1,0 +1,189 @@
+{
+  "_id": "TyGt7lCDSlLQFBtx",
+  "name": "Result (Trench Coat of Useful Items)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.2hU9ZZRM0S0b1rRS]{Trench Coat of Useful Items}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "3qoodkBPWcPcDwOv",
+      "type": "text",
+      "text": "Bundle of cash (increase Wealth bonus by +2)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.3qoodkBPWcPcDwOv"
+    },
+    {
+      "_id": "GLelEsXVYhKr5lFF",
+      "type": "text",
+      "text": "Loaded flare gun (with 3 extra rounds)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        15
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.GLelEsXVYhKr5lFF"
+    },
+    {
+      "_id": "BHJFVDQXRU57wZpA",
+      "type": "text",
+      "text": "Gas mask (with an extra filter canister)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        16,
+        22
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.BHJFVDQXRU57wZpA"
+    },
+    {
+      "_id": "RRWYcRrmD1uOeknd",
+      "type": "text",
+      "text": "Night vision goggles",
+      "img": null,
+      "weight": 1,
+      "range": [
+        23,
+        30
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.RRWYcRrmD1uOeknd"
+    },
+    {
+      "_id": "JFLRDsZbAnMud41Y",
+      "type": "text",
+      "text": "24-foot-long metal ladder",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        44
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.JFLRDsZbAnMud41Y"
+    },
+    {
+      "_id": "qEEcODCgUEEgKeKZ",
+      "type": "text",
+      "text": "Diamondback X-20 mountain bike",
+      "img": null,
+      "weight": 1,
+      "range": [
+        45,
+        51
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.qEEcODCgUEEgKeKZ"
+    },
+    {
+      "_id": "wAN940GRqdaWYRfi",
+      "type": "text",
+      "text": "Steel handcuffs",
+      "img": null,
+      "weight": 1,
+      "range": [
+        52,
+        59
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.wAN940GRqdaWYRfi"
+    },
+    {
+      "_id": "gOuw0YK8lkOZeQ5y",
+      "type": "text",
+      "text": "Portable generator (with full tank of gas)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        60,
+        68
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.gOuw0YK8lkOZeQ5y"
+    },
+    {
+      "_id": "HsDZoalpkOsqpTVL",
+      "type": "text",
+      "text": "Fire exitinguisher",
+      "img": null,
+      "weight": 1,
+      "range": [
+        69,
+        75
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.HsDZoalpkOsqpTVL"
+    },
+    {
+      "_id": "nd1lWp2H3kF2SeSi",
+      "type": "text",
+      "text": "Small bag of jewels (increase Wealth bonus by +4)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        83
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.nd1lWp2H3kF2SeSi"
+    },
+    {
+      "_id": "3Efi3kSLargJOUqb",
+      "type": "text",
+      "text": "Cell phone (connects to any cellular network and works for 8 hours before becoming useless)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        84,
+        90
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.3Efi3kSLargJOUqb"
+    },
+    {
+      "_id": "R3Uh95T7AOo53Yi0",
+      "type": "text",
+      "text": "First aid kit",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        96
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.R3Uh95T7AOo53Yi0"
+    },
+    {
+      "_id": "9vxHYHhDSw3uxdb4",
+      "type": "text",
+      "text": "Roll twice more, ignoring results of 97-00",
+      "img": null,
+      "weight": 1,
+      "range": [
+        97,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!TyGt7lCDSlLQFBtx.9vxHYHhDSw3uxdb4"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "source": "urbanfxitem.html"
+    }
+  },
+  "_key": "!tables!TyGt7lCDSlLQFBtx",
+  "folder": "PkdN6lH20W8cYUmP"
+}

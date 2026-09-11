@@ -1,0 +1,176 @@
+{
+  "_id": "E29bbtLkw0QgBUyB",
+  "name": "Side Effects",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.URad6EPfCjxrRKdV.JournalEntryPage.VtNrYQCd8wphJwQu]{Cybernetics}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "iGsclH34XY0AiWn8",
+      "type": "text",
+      "text": "Blurred Vision: Character suffers a 20% miss chance on all attacks.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.iGsclH34XY0AiWn8"
+    },
+    {
+      "_id": "2pfbTdHRoGP2PsWB",
+      "type": "text",
+      "text": "Constant Trembling: Character takes a -2 penalty on Dexterity-based skill checks.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        9,
+        17
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.2pfbTdHRoGP2PsWB"
+    },
+    {
+      "_id": "FBIwPuJWEOhIwzYl",
+      "type": "text",
+      "text": "Cybernetic Rejection: Character suffers 1d4 points of Constitution damage per day.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        18,
+        25
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.FBIwPuJWEOhIwzYl"
+    },
+    {
+      "_id": "PN7H4lXoBBx6IGy5",
+      "type": "text",
+      "text": "Dizziness: Character takes a -1 penalty on attack rolls, saving throws, ability checks, and skill checks.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        26,
+        34
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.PN7H4lXoBBx6IGy5"
+    },
+    {
+      "_id": "SOth1pj2B3fl8tUx",
+      "type": "text",
+      "text": "Impaired Hearing: Static distortion imposes a -2 penalty on all Listen checks.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        35,
+        42
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.SOth1pj2B3fl8tUx"
+    },
+    {
+      "_id": "LqWinIutipj0BUfu",
+      "type": "text",
+      "text": "Impaired Vision: Distorted images impose a -2 penalty on Spot checks.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        43,
+        50
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.LqWinIutipj0BUfu"
+    },
+    {
+      "_id": "EZpn9vDUxdIqN7Lj",
+      "type": "text",
+      "text": "Insomnia: Character can only sleep for minutes at a time and gains insufficient rest to heal naturally.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        59
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.EZpn9vDUxdIqN7Lj"
+    },
+    {
+      "_id": "v2jnO6SlduEKWAzH",
+      "type": "text",
+      "text": "Muscle Cramps: Character moves at half speed.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        60,
+        67
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.v2jnO6SlduEKWAzH"
+    },
+    {
+      "_id": "gqHUv48k6JNBsHoH",
+      "type": "text",
+      "text": "Muscle Fatigue: Character takes a -2 penalty on Strength-based skill checks.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        68,
+        76
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.gqHUv48k6JNBsHoH"
+    },
+    {
+      "_id": "S93xNXTiA4XyKGq5",
+      "type": "text",
+      "text": "Power Surge: Character is shaken for 1 round if wounded; a successful Fortitude save (DC 12) negates.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        77,
+        84
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.S93xNXTiA4XyKGq5"
+    },
+    {
+      "_id": "lHdcvxGq5rteJFRp",
+      "type": "text",
+      "text": "Psychosis: Character suffers 1d4 points of Charisma damage per day, lapsing into a coma if the score drops to 0.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        85,
+        93
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.lHdcvxGq5rteJFRp"
+    },
+    {
+      "_id": "76j7oI2xbPh5j5Me",
+      "type": "text",
+      "text": "Sensory Overload: Character is stunned for 1 round if wounded; a successful Fortitude save (DC 15) negates.",
+      "img": null,
+      "weight": 1,
+      "range": [
+        94,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!E29bbtLkw0QgBUyB.76j7oI2xbPh5j5Me"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Future",
+      "source": "futurecybernetics.html"
+    }
+  },
+  "_key": "!tables!E29bbtLkw0QgBUyB",
+  "folder": "nYWxFtWojpl6Liv5"
+}

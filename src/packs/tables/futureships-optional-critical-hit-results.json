@@ -1,0 +1,176 @@
+{
+  "_id": "C2ieFqqqziw0siX2",
+  "name": "Optional Critical Hit Results",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.XYiKGGd6U6iYHdWf.JournalEntryPage.2ddhmyLnTTX15W5I]{Starship Combat}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "W2JGhYOf7UrxjuXR",
+      "type": "text",
+      "text": "Normal critical hit",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        35
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.W2JGhYOf7UrxjuXR"
+    },
+    {
+      "_id": "M3HwdBAS8b9njiDs",
+      "type": "text",
+      "text": "Normal critical hit, crew casualties",
+      "img": null,
+      "weight": 1,
+      "range": [
+        36,
+        50
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.M3HwdBAS8b9njiDs"
+    },
+    {
+      "_id": "Nzdu3JQUTArjSNAd",
+      "type": "text",
+      "text": "Severe critical hit, artificial gravity disabled",
+      "img": null,
+      "weight": 1,
+      "range": [
+        51,
+        55
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.Nzdu3JQUTArjSNAd"
+    },
+    {
+      "_id": "gagl85YFdDFAeJHP",
+      "type": "text",
+      "text": "Severe critical hit, crew casualties",
+      "img": null,
+      "weight": 1,
+      "range": [
+        56,
+        60
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.gagl85YFdDFAeJHP"
+    },
+    {
+      "_id": "jF8VgGTrRPJy5L75",
+      "type": "text",
+      "text": "Damaged system: comm system",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        65
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.jF8VgGTrRPJy5L75"
+    },
+    {
+      "_id": "qGYXNMWRmTG1eT90",
+      "type": "text",
+      "text": "Damaged system: defense system",
+      "img": null,
+      "weight": 1,
+      "range": [
+        66,
+        70
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.qGYXNMWRmTG1eT90"
+    },
+    {
+      "_id": "qqR1lzen0NVtH5CB",
+      "type": "text",
+      "text": "Damaged system: engines",
+      "img": null,
+      "weight": 1,
+      "range": [
+        71,
+        75
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.qqR1lzen0NVtH5CB"
+    },
+    {
+      "_id": "fpEtJSu3b3PKfWih",
+      "type": "text",
+      "text": "Damaged system: sensors",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.fpEtJSu3b3PKfWih"
+    },
+    {
+      "_id": "118XtItTtXgjcxgO",
+      "type": "text",
+      "text": "Damaged system: targeting system",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        85
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.118XtItTtXgjcxgO"
+    },
+    {
+      "_id": "bASQ1aYy7hJTfxbP",
+      "type": "text",
+      "text": "Damaged system: weapon",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        90
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.bASQ1aYy7hJTfxbP"
+    },
+    {
+      "_id": "gEpFPpLfeZHGI9Ty",
+      "type": "text",
+      "text": "Destroyed defensive system",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        95
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.gEpFPpLfeZHGI9Ty"
+    },
+    {
+      "_id": "BgoFPkw0zkhclReq",
+      "type": "text",
+      "text": "Destroyed Weapon",
+      "img": null,
+      "weight": 1,
+      "range": [
+        96,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C2ieFqqqziw0siX2.BgoFPkw0zkhclReq"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Future",
+      "source": "futurecombat.html"
+    }
+  },
+  "_key": "!tables!C2ieFqqqziw0siX2",
+  "folder": "nYWxFtWojpl6Liv5"
+}

@@ -49,6 +49,11 @@ BASELINE = os.path.join(ROOT, "data", "coverage.json")
 UUID = re.compile(
     r"^Compendium\.modern20\.rules\.JournalEntry\.(\w{16})\.JournalEntryPage\.(\w{16})$")
 LINK = re.compile(r'"(Compendium\.modern20\.rules\.[^"]+)"')
+
+# The same UUID as prose rather than as a JSON value, which is how a random
+# table cites the page it was printed on.
+CITED = re.compile(r"Compendium\.modern20\.rules\.JournalEntry\.\w{16}"
+                   r"\.JournalEntryPage\.\w{16}")
 TOPIC_BLOCK = re.compile(r"RULES_TOPICS = \{(.*?)\n\};", re.S)
 TOPIC = re.compile(r'"([\w]+)":\s*"([^"]+)"')
 
@@ -93,10 +98,15 @@ def resolves(uuid: str, rules: dict[str, set[str]]) -> str:
 
 
 def documents():
-    """Every document in every pack but the rules, with its embedded ones."""
+    """Every document that carries a rules link, with its embedded ones.
+
+    Not the rules themselves, and not the random tables: a roll table has no
+    system data, and the page it came from is cited in its description rather
+    than stamped in a field.
+    """
     for path in sorted(glob.glob(os.path.join(PACKS, "*", "*.json"))):
         pack = os.path.basename(os.path.dirname(path))
-        if pack == "rules":
+        if pack in ("rules", "tables"):
             continue
         with open(path, encoding="utf-8") as handle:
             document = json.load(handle)
@@ -269,6 +279,21 @@ def main() -> int:
         problems += 1
         print(f"FAIL  {problem}")
     print(f"{listed} documents listed by the pages they are the rules for")
+
+    # A random table says which page of the rules printed it, which is a link
+    # like any other and dies as quietly.
+    cited = 0
+    for path in sorted(glob.glob(os.path.join(PACKS, "tables", "*.json"))):
+        with open(path, encoding="utf-8") as handle:
+            table = json.load(handle)
+        for uuid in CITED.findall(table.get("description") or ""):
+            cited += 1
+            problem = resolves(uuid, rules)
+            if problem:
+                problems += 1
+                print(f"FAIL  the \"{table['name']}\" table cites a page that {problem}")
+    if cited:
+        print(f"{cited} random tables cite the page they are printed on")
 
     asked, unrollable = rolls(rules_files)
     for problem in unrollable:

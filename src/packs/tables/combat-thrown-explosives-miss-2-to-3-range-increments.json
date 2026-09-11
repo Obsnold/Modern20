@@ -1,0 +1,124 @@
+{
+  "_id": "t8BFJbIWFQM5KpT8",
+  "name": "Thrown Explosives (Miss 2 to 3 Range Increments)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.BW08qOlRSlaENtxF.JournalEntryPage.ZVIRSi83JXUEeVf3]{Special Attacks}",
+  "formula": "1d8",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "eZ0HDiCOHMGbsHtd",
+      "type": "text",
+      "text": "upper right corner, one square beyond target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.eZ0HDiCOHMGbsHtd"
+    },
+    {
+      "_id": "N3zyzPIfOfU0baJL",
+      "type": "text",
+      "text": "upper right corner, one square right of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.N3zyzPIfOfU0baJL"
+    },
+    {
+      "_id": "XyRaMvCZhRQQbCq4",
+      "type": "text",
+      "text": "lower right corner, one square right of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.XyRaMvCZhRQQbCq4"
+    },
+    {
+      "_id": "pummFKR1RYSD07Kp",
+      "type": "text",
+      "text": "lower right corner, one square short of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.pummFKR1RYSD07Kp"
+    },
+    {
+      "_id": "4OpLgSj7A3TmWYro",
+      "type": "text",
+      "text": "lower left corner, one square short of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.4OpLgSj7A3TmWYro"
+    },
+    {
+      "_id": "GDMLRsardZPRdbSA",
+      "type": "text",
+      "text": "lower left corner, one square left of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.GDMLRsardZPRdbSA"
+    },
+    {
+      "_id": "KXXXqisnnGMVK0cR",
+      "type": "text",
+      "text": "upper left corner, one square left of target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.KXXXqisnnGMVK0cR"
+    },
+    {
+      "_id": "JBiZixjQ9pB7BEtw",
+      "type": "text",
+      "text": "upper left corner, one square beyond target",
+      "img": null,
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "_key": "!tables.results!t8BFJbIWFQM5KpT8.JBiZixjQ9pB7BEtw"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "combatsa.html"
+    }
+  },
+  "_key": "!tables!t8BFJbIWFQM5KpT8",
+  "folder": "UHfmkPt1QMSvg0Ap"
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "61FqxxPOEJ47hwj7",
+  "name": "Thrown Explosives (hit)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.BW08qOlRSlaENtxF.JournalEntryPage.ZVIRSi83JXUEeVf3]{Special Attacks}",
+  "formula": "1d4",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "GVsiqKeDeEithFgy",
+      "type": "text",
+      "text": "Upper left",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_key": "!tables.results!61FqxxPOEJ47hwj7.GVsiqKeDeEithFgy"
+    },
+    {
+      "_id": "sVGZdYkMi5VGKC69",
+      "type": "text",
+      "text": "Upper Right",
+      "img": null,
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_key": "!tables.results!61FqxxPOEJ47hwj7.sVGZdYkMi5VGKC69"
+    },
+    {
+      "_id": "CnBpg4PvDJU9r4jO",
+      "type": "text",
+      "text": "Lower Right",
+      "img": null,
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_key": "!tables.results!61FqxxPOEJ47hwj7.CnBpg4PvDJU9r4jO"
+    },
+    {
+      "_id": "XWagdezdJjmwxRzi",
+      "type": "text",
+      "text": "Lower Left",
+      "img": null,
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_key": "!tables.results!61FqxxPOEJ47hwj7.XWagdezdJjmwxRzi"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "combatsa.html"
+    }
+  },
+  "_key": "!tables!61FqxxPOEJ47hwj7",
+  "folder": "UHfmkPt1QMSvg0Ap"
+}

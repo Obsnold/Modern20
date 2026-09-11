@@ -273,6 +273,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "tables",
+      "label": "Random Tables",
+      "path": "packs/tables",
+      "type": "RollTable",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "grid": {

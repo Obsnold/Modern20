@@ -1,0 +1,137 @@
+{
+  "_id": "rDrdZICRKEFEL7qH",
+  "name": "Meteoroid Encounters",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.ErdBvdcpDCm2fGAr.JournalEntryPage.4e3Pw5K04nky21b4]{Realistic Space Travel}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "BlLkHDp5KusuGv8c",
+      "type": "text",
+      "text": "No meteoroid — Collision Damage 1: - — Computer Use Check DC: - — Pilot Check DC: - — Defense: - — Hardness: - — Hit Points: -",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        75
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.BlLkHDp5KusuGv8c"
+    },
+    {
+      "_id": "0thhlQNAA3UFIxg1",
+      "type": "text",
+      "text": "Diminutive — Collision Damage 1: 1d6 — Computer Use Check DC: 35 — Pilot Check DC: 5 — Defense: 9 — Hardness: 8 — Hit Points: 15",
+      "img": null,
+      "weight": 1,
+      "range": [
+        76,
+        80
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.0thhlQNAA3UFIxg1"
+    },
+    {
+      "_id": "tODJfVSHKlccC8pb",
+      "type": "text",
+      "text": "Tiny — Collision Damage 1: 2d6 — Computer Use Check DC: 30 — Pilot Check DC: 10 — Defense: 7 — Hardness: 8 — Hit Points: 30",
+      "img": null,
+      "weight": 1,
+      "range": [
+        81,
+        85
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.tODJfVSHKlccC8pb"
+    },
+    {
+      "_id": "dcIPuapyBnCPR6ju",
+      "type": "text",
+      "text": "Small — Collision Damage 1: 3d6 — Computer Use Check DC: 25 — Pilot Check DC: 15 — Defense: 6 — Hardness: 8 — Hit Points: 90",
+      "img": null,
+      "weight": 1,
+      "range": [
+        86,
+        88
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.dcIPuapyBnCPR6ju"
+    },
+    {
+      "_id": "rtnqCcQIf1jsxObs",
+      "type": "text",
+      "text": "Medium-size — Collision Damage 1: 4d6 — Computer Use Check DC: 15 — Pilot Check DC: 25 — Defense: 4 — Hardness: 8 — Hit Points: 225",
+      "img": null,
+      "weight": 1,
+      "range": [
+        89,
+        91
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.rtnqCcQIf1jsxObs"
+    },
+    {
+      "_id": "Lq6oaMnozG9lsvxG",
+      "type": "text",
+      "text": "Large — Collision Damage 1: 1d6x5 — Computer Use Check DC: 15 — Pilot Check DC: 25 — Defense: 4 — Hardness: 8 — Hit Points: 1,125",
+      "img": null,
+      "weight": 1,
+      "range": [
+        92,
+        94
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.Lq6oaMnozG9lsvxG"
+    },
+    {
+      "_id": "zSxOF8dMe4t2FgWd",
+      "type": "text",
+      "text": "Huge — Collision Damage 1: 3d6x5 — Computer Use Check DC: 10 — Pilot Check DC: 30 — Defense: 3 — Hardness: 8 — Hit Points: 4,500",
+      "img": null,
+      "weight": 1,
+      "range": [
+        95,
+        97
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.zSxOF8dMe4t2FgWd"
+    },
+    {
+      "_id": "KRN8Uc1wtRvOGgVQ",
+      "type": "text",
+      "text": "Gargantuan — Collision Damage 1: 6d6x5 — Computer Use Check DC: 5 — Pilot Check DC: 35 — Defense: 1 — Hardness: 8 — Hit Points: 9,000",
+      "img": null,
+      "weight": 1,
+      "range": [
+        98,
+        99
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.KRN8Uc1wtRvOGgVQ"
+    },
+    {
+      "_id": "6Ra9CCLqGzcuGMM8",
+      "type": "text",
+      "text": "Colossal — Collision Damage 1: 12d6x5 — Computer Use Check DC: 0 — Pilot Check DC: 40 — Defense: -3 — Hardness: 8 — Hit Points: 36,000",
+      "img": null,
+      "weight": 1,
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!rDrdZICRKEFEL7qH.6Ra9CCLqGzcuGMM8"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Future",
+      "source": "futurereal.html"
+    }
+  },
+  "_key": "!tables!rDrdZICRKEFEL7qH",
+  "folder": "nYWxFtWojpl6Liv5"
+}

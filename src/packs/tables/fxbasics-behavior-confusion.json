@@ -1,0 +1,72 @@
+{
+  "_id": "HhTERNrakhKi1eJX",
+  "name": "Behavior (Confusion)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.2oUeVqfBqGKpJmiU]{Confusion}",
+  "formula": "1d10",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "pkChzErFLNfcawbt",
+      "type": "text",
+      "text": "Wander away for 1 minute (unless prevented)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_key": "!tables.results!HhTERNrakhKi1eJX.pkChzErFLNfcawbt"
+    },
+    {
+      "_id": "SI4nMhz5TLzkvtN7",
+      "type": "text",
+      "text": "Do nothing for 1 round",
+      "img": null,
+      "weight": 1,
+      "range": [
+        2,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!HhTERNrakhKi1eJX.SI4nMhz5TLzkvtN7"
+    },
+    {
+      "_id": "bW4INWRet8a7v1RI",
+      "type": "text",
+      "text": "Attack nearest creature for 1 round",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!HhTERNrakhKi1eJX.bW4INWRet8a7v1RI"
+    },
+    {
+      "_id": "skHF43zCFVkoebP1",
+      "type": "text",
+      "text": "Act normally for 1 round",
+      "img": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!HhTERNrakhKi1eJX.skHF43zCFVkoebP1"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "d20 Modern",
+      "source": "fxspelldesc1.html"
+    }
+  },
+  "_key": "!tables!HhTERNrakhKi1eJX",
+  "folder": "UHfmkPt1QMSvg0Ap"
+}

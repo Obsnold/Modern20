@@ -1,0 +1,176 @@
+{
+  "_id": "C1AhBQ8sidckDp1M",
+  "name": "Sidhe Immunities and Resistances: Immunity",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.Ht5pxWFzTfBoYCw8]{Sidhe}",
+  "formula": "1d100",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "PiYsQHU9iQeJbPkz",
+      "type": "text",
+      "text": "Acid damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.PiYsQHU9iQeJbPkz"
+    },
+    {
+      "_id": "g9URi9o1bojKVjAy",
+      "type": "text",
+      "text": "Cold damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        12
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.g9URi9o1bojKVjAy"
+    },
+    {
+      "_id": "3KJQ5jx5Mg2FoK0g",
+      "type": "text",
+      "text": "Sonic/concussion damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        13,
+        18
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.3KJQ5jx5Mg2FoK0g"
+    },
+    {
+      "_id": "uiDaaxOezUZ2hSr3",
+      "type": "text",
+      "text": "Electricity damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        19,
+        24
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.uiDaaxOezUZ2hSr3"
+    },
+    {
+      "_id": "BmGqaIuKEV8ykgJp",
+      "type": "text",
+      "text": "Fire damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        25,
+        30
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.BmGqaIuKEV8ykgJp"
+    },
+    {
+      "_id": "Twnf87LCgVxX8OQS",
+      "type": "text",
+      "text": "Ballistic damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        31,
+        36
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.Twnf87LCgVxX8OQS"
+    },
+    {
+      "_id": "j9rp8IdGQy5JY7GQ",
+      "type": "text",
+      "text": "Bludgeoning damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        37,
+        42
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.j9rp8IdGQy5JY7GQ"
+    },
+    {
+      "_id": "wFjH6eEbVNtN6pj6",
+      "type": "text",
+      "text": "Piercing damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        43,
+        48
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.wFjH6eEbVNtN6pj6"
+    },
+    {
+      "_id": "KBwHXSSgpS0NjT3p",
+      "type": "text",
+      "text": "Slashing damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        49,
+        54
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.KBwHXSSgpS0NjT3p"
+    },
+    {
+      "_id": "Ez7EPA6BCK054Rsx",
+      "type": "text",
+      "text": "Poison damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        55,
+        60
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.Ez7EPA6BCK054Rsx"
+    },
+    {
+      "_id": "u8aIqk3swgJcs1xd",
+      "type": "text",
+      "text": "Radiation damage",
+      "img": null,
+      "weight": 1,
+      "range": [
+        61,
+        66
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.u8aIqk3swgJcs1xd"
+    },
+    {
+      "_id": "Om6LATL2LzAX2VvL",
+      "type": "text",
+      "text": "Choose one, and roll again",
+      "img": null,
+      "weight": 1,
+      "range": [
+        67,
+        100
+      ],
+      "drawn": false,
+      "_key": "!tables.results!C1AhBQ8sidckDp1M.Om6LATL2LzAX2VvL"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "source": "urbanmonst3.html"
+    }
+  },
+  "_key": "!tables!C1AhBQ8sidckDp1M",
+  "folder": "PkdN6lH20W8cYUmP"
+}

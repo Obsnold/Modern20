@@ -1,0 +1,72 @@
+{
+  "_id": "srbIegHz5aFcOG14",
+  "name": "Behavior (Sigil of Lyssa)",
+  "img": "icons/svg/book.svg",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.xn8s6Hnxdn5JTB27.JournalEntryPage.pF00Fzxlwwfkn6Hj]{Sigil of Lyssa}",
+  "formula": "1d10",
+  "replacement": true,
+  "displayRoll": true,
+  "results": [
+    {
+      "_id": "gCVphU3XrntZUubI",
+      "type": "text",
+      "text": "Wander away for 1 minute (unless prevented)",
+      "img": null,
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_key": "!tables.results!srbIegHz5aFcOG14.gCVphU3XrntZUubI"
+    },
+    {
+      "_id": "D8QZbla1PSKbD18y",
+      "type": "text",
+      "text": "Do nothing for 1 round",
+      "img": null,
+      "weight": 1,
+      "range": [
+        2,
+        6
+      ],
+      "drawn": false,
+      "_key": "!tables.results!srbIegHz5aFcOG14.D8QZbla1PSKbD18y"
+    },
+    {
+      "_id": "wovpjM2IOwqI7gmv",
+      "type": "text",
+      "text": "Attack nearest creature for 1 round",
+      "img": null,
+      "weight": 1,
+      "range": [
+        7,
+        9
+      ],
+      "drawn": false,
+      "_key": "!tables.results!srbIegHz5aFcOG14.wovpjM2IOwqI7gmv"
+    },
+    {
+      "_id": "JtRbbPqbPMP9qOeU",
+      "type": "text",
+      "text": "Act normally for 1 round",
+      "img": null,
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "_key": "!tables.results!srbIegHz5aFcOG14.JtRbbPqbPMP9qOeU"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "source": "urbanincdesc.html"
+    }
+  },
+  "_key": "!tables!srbIegHz5aFcOG14",
+  "folder": "PkdN6lH20W8cYUmP"
+}
