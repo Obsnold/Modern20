@@ -8,6 +8,8 @@
     &middot;
     {{localize "MODERN20.MaxRanks"}}: {{system.skillPoints.maxRanks}}
     ({{localize "MODERN20.CrossClass"}} {{system.skillPoints.maxCrossClassRanks}})
+    {{!-- How skill ranks are bought and what a check is. --}}
+    {{modern20Rules topic="skills"}}
   </div>
 
   <table class="m20-skills">
@@ -30,6 +32,9 @@
             {{else}}
               <span title="{{localize 'MODERN20.Warning.TrainedOnlyShort'}}">{{row.label}}</span>
             {{/if}}
+            {{!-- The skill's own page. A Craft subject has one of its own; a
+                  Knowledge subject does not, and falls back to Knowledge. --}}
+            {{modern20Rules skill=row.key specialty=row.specialty}}
           </td>
           {{#if row.header}}
             <td colspan="4" class="m20-skills__grouphead">{{localize "MODERN20.SpecialtySkill"}}</td>

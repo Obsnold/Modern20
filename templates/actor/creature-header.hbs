@@ -7,6 +7,9 @@
       <span class="m20-tag">{{localize (lookup (lookup config.sizes system.attributes.size) "label")}}</span>
       {{#if system.details.creatureType}}<span class="m20-tag">{{system.details.creatureType}}</span>{{/if}}
       {{#if system.details.hitDice}}<span class="m20-tag">{{system.details.hitDice}}</span>{{/if}}
+      {{!-- The stat block as the book prints it, which is where everything
+            this sheet cannot automate is written down. --}}
+      {{modern20Rules uuid=system.rulesPage label=(localize "MODERN20.Rules.Label")}}
     </div>
   </div>
 
@@ -20,7 +23,7 @@
     </div>
 
     <div class="m20-stat">
-      <label>{{localize "MODERN20.HitPoints"}}</label>
+      <label>{{localize "MODERN20.HitPoints"}} {{modern20Rules topic="massiveDamage"}}</label>
       <span class="m20-stat__value">
         <input type="number" name="system.hp.value" value="{{system.hp.value}}"> / {{system.hp.max}}
       </span>

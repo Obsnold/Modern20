@@ -1,3 +1,5 @@
+import { rulesLink, rulesTopic } from "../rules.mjs";
+
 const { ChatMessage } = foundry.documents;
 
 /**
@@ -32,13 +34,20 @@ const { ChatMessage } = foundry.documents;
  * @param {boolean}  [options.warning]  Style as a warning and raise a toast,
  *   for a rule the player is working against.
  * @param {boolean}  [options.whisper]  Keep it to the GM and the owners.
+ * @param {string}   [options.rules]  A topic from module/rules-links.mjs. The
+ *   card carries a link to it, because a record of a rule being applied is
+ *   exactly where the rule itself is worth reaching: "the character is dying"
+ *   is only useful next to what dying means.
  */
 export async function announce(actor, {
-  title, lines = [], img, warning = false, whisper = false
+  title, lines = [], img, warning = false, whisper = false, rules = ""
 } = {}) {
   const content = await foundry.applications.handlebars.renderTemplate(
     "systems/modern20/templates/chat/record-card.hbs",
-    { title, lines, img: img ?? actor?.img, warning, name: actor?.name }
+    {
+      title, lines, img: img ?? actor?.img, warning, name: actor?.name,
+      rules: rulesLink(rulesTopic(rules))
+    }
   );
 
   const message = {

@@ -1,7 +1,7 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="m20-columns">
     <div class="m20-panel">
-      <h3>{{localize "MODERN20.Abilities"}}</h3>
+      <h3>{{localize "MODERN20.Abilities"}} {{modern20Rules topic="abilities"}}</h3>
       {{#each system.abilities as |ability key|}}
         <div class="m20-row">
           <button type="button" class="m20-roll" data-action="rollAbility" data-ability="{{key}}">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="m20-panel">
-      <h3>{{localize "MODERN20.SavingThrows"}}</h3>
+      <h3>{{localize "MODERN20.SavingThrows"}} {{modern20Rules topic="saves"}}</h3>
       {{#each system.saves as |save key|}}
         <div class="m20-row">
           <button type="button" class="m20-roll" data-action="rollSave" data-save="{{key}}">
@@ -25,7 +25,7 @@
         </div>
       {{/each}}
 
-      <h3>{{localize "MODERN20.Combat"}}</h3>
+      <h3>{{localize "MODERN20.Combat"}} {{modern20Rules topic="combat"}}</h3>
       <div class="m20-row">
         <label>{{localize "MODERN20.BaseAttack"}}</label>
         <span class="m20-mod">{{modern20Signed system.attributes.baseAttack}}</span>
@@ -62,6 +62,7 @@
     <div class="m20-panel m20-turn" data-player-allowed>
       <h3>
         {{localize "MODERN20.Action.Title"}}
+        {{modern20Rules topic="actions"}}
         <button type="button" class="m20-button m20-button--small" data-action="endTurn">
           {{localize "MODERN20.Action.Reset"}}
         </button>

@@ -7,6 +7,8 @@
   <header class="m20-chat__header">
     {{#if img}}<img src="{{img}}" alt="{{name}}">{{/if}}
     <span class="m20-chat__title">{{title}}</span>
+    {{!-- The rule this record is an application of, where it names one. --}}
+    {{{rules}}}
   </header>
   {{#each lines as |line|}}
     <p class="m20-hint">{{line}}</p>

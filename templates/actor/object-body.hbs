@@ -6,13 +6,16 @@
       <span class="m20-tag">{{localize (lookup (lookup config.sizes system.size) "label")}}</span>
       <span class="m20-tag">{{localize "MODERN20.Defense"}} {{system.defense}}</span>
       <span class="m20-tag">{{localize "MODERN20.Object.Hardness"}} {{system.hardness}}</span>
+      {{!-- An object's own entry where it has one, and otherwise the rules for
+            attacking objects, which is where its hardness comes from. --}}
+      {{modern20Rules uuid=system.rulesPage label=(localize "MODERN20.Rules.Label")}}
     </div>
   </div>
 </header>
 
 <section class="m20-body">
   <div class="m20-panel">
-    <h3>{{localize "MODERN20.Object.Title"}}</h3>
+    <h3>{{localize "MODERN20.Object.Title"}} {{modern20Rules topic="objects"}}</h3>
 
     <div class="m20-row">
       <label for="m20-object-size">{{localize "MODERN20.Label.Size"}}</label>

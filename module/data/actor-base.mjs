@@ -200,7 +200,20 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
         stance: new fields.StringField({ initial: "" })
       }),
 
-      biography: new fields.HTMLField({ initial: "" })
+      biography: new fields.HTMLField({ initial: "" }),
+
+      /**
+       * Where this stat block came from.
+       *
+       * The creature compendium has carried all three of these since it was
+       * imported and the schema defined none of them, so every creature's
+       * provenance was dropped on load: a gargoyle knew nothing about the book
+       * it is printed in. `rulesPage` is the page of the rules compendium the
+       * stat block is on, which the creature sheet shows as a link.
+       */
+      source: new fields.StringField({ initial: "" }),
+      srdUrl: new fields.StringField({ initial: "" }),
+      rulesPage: new fields.StringField({ initial: "" })
     };
   }
 

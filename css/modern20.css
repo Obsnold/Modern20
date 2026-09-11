@@ -148,6 +148,34 @@
 
 .modern20 .m20-hint { font-size: 0.72rem; color: var(--m20-muted); font-style: italic; }
 
+/* --- Rules links -------------------------------------------------------
+   A book icon beside anything the rules reference has a page for, opening
+   that page in the journal. Written twice because chat cards render outside
+   the sheet, where neither the .modern20 scope nor its variables exist. */
+
+.modern20 .m20-rules,
+.m20-chat .m20-rules {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex: 0 0 auto;
+  color: #6b645c;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.modern20 .m20-rules:hover,
+.m20-chat .m20-rules:hover { color: #8c2f1e; text-shadow: none; }
+
+/* The label, where one is shown, sits at the icon's own size rather than the
+   heading's: these hang off headings and stat labels. */
+.modern20 .m20-rules i,
+.m20-chat .m20-rules i { font-size: 0.85em; }
+
 /* --- Buttons ----------------------------------------------------------- */
 
 .modern20 .m20-roll {

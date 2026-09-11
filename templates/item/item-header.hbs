@@ -3,6 +3,9 @@
   <div class="m20-header__identity">
     <input class="m20-name" type="text" name="name" value="{{document.name}}">
     <span class="m20-tag">{{localize (modern20Concat "MODERN20.ItemType." document.type)}}</span>
+    {{!-- The rules for this item, in the world's own compendium, and the page
+          of the SRD they were read from. --}}
+    {{modern20Rules uuid=system.rulesPage label=(localize "MODERN20.Rules.Label")}}
     {{#if system.srdUrl}}
       <a class="m20-hint" href="{{system.srdUrl}}" target="_blank" rel="noopener">{{localize "MODERN20.ViewSRD"}}</a>
     {{/if}}

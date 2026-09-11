@@ -8,6 +8,7 @@
       <span class="m20-tag">{{localize (lookup (lookup config.restrictions system.restriction) "label")}}</span>
       <button type="button" class="m20-button m20-button--small" data-action="purchaseVehicle"
               title="{{localize 'MODERN20.BuyHint'}}">{{localize "MODERN20.Purchase"}}</button>
+      {{modern20Rules uuid=system.rulesPage label=(localize "MODERN20.Rules.Label")}}
     </div>
   </div>
 </header>

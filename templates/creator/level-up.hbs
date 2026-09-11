@@ -1,6 +1,9 @@
 <div class="m20-levelscreen">
   <div class="m20-panel">
-    <h3>{{classItem.name}} {{plan.from}} &rarr; {{plan.to}}</h3>
+    <h3>
+      {{classItem.name}} {{plan.from}} &rarr; {{plan.to}}
+      {{modern20Rules uuid=classItem.system.rulesPage}}
+    </h3>
     <p class="m20-hint">
       {{localize "MODERN20.CharacterLevel"}} {{plan.characterLevel}}
       {{#if features.length}}

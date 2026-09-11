@@ -232,7 +232,11 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
         hitDie: d.system.hitDie,
         skillPoints: d.system.skillPointsPerLevel,
         wealthBonus: d.system.wealthBonus,
-        summary: d.system.description || ""
+        summary: d.system.description || "",
+        // What the book says about this class or occupation, which is most of
+        // what the choice is: the sheet shows the numbers and the page says
+        // what playing one is like.
+        rulesPage: d.system.rulesPage
       }))
       .sort((a, b) => a.name.localeCompare(b.name));
 
