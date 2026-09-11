@@ -260,7 +260,7 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Drive checks and Pilot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:drive]{Drive check}s and @Check[skill:pilot]{Pilot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -274,7 +274,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Demonic autos are immune to mind-influencing effects and to poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a Fortitude save unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
+        "description": "<p>Demonic autos are immune to mind-influencing effects and to poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -354,7 +354,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The demonic auto can trample smaller creatures by running over them. The demonic auto’s trample attack deals 2d6+9 points of damage if traveling at alley speed and 4d6+9 points of damage at higher speeds. A successful Reflex save (DC 23) halves the damage. The demonic auto takes this damage as well, but its damage reduction applies.</p>",
+        "description": "<p>The demonic auto can trample smaller creatures by running over them. The demonic auto’s trample attack deals 2d6+9 points of damage if traveling at alley speed and 4d6+9 points of damage at higher speeds. A successful @Check[save:ref|dc:23]{Reflex save (DC 23)} halves the damage. The demonic auto takes this damage as well, but its damage reduction applies.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -370,7 +370,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Demonic autos cannot heal damage on their own but can be repaired using the Repair skill. A successful Repair check (DC 30) heals 1d10 points of damage, and each check represents 1 hour of work. A demonic auto can repair itself.</p>",
+        "description": "<p>Demonic autos cannot heal damage on their own but can be repaired using the Repair skill. A successful @Check[skill:repair|dc:30]{Repair check (DC 30)} heals 1d10 points of damage, and each check represents 1 hour of work. A demonic auto can repair itself.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

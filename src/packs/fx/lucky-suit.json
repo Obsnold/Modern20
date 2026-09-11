@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>A polyester suit consisting of a garish plaid jacket and lime green pants, the lucky suit protects the wearer from ranged attacks as though he had total concealment (50% miss chance). The suit doesn’t actually conceal or displace the wearer, but helps the wearer avoid range attacks that might normally hit. The concealment doesn’t apply to melee attacks. The wearer also gains a +2 luck bonus on Reflex saves.</p>",
+    "description": "<p>A polyester suit consisting of a garish plaid jacket and lime green pants, the lucky suit protects the wearer from ranged attacks as though he had total concealment (50% miss chance). The suit doesn’t actually conceal or displace the wearer, but helps the wearer avoid range attacks that might normally hit. The concealment doesn’t apply to melee attacks. The wearer also gains a +2 luck bonus on @Check[save:ref]{Reflex save}s.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.t3HMf5eU7sM4Vdwp",

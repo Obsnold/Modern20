@@ -348,7 +348,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The harriken can assume the appearance of a specific Medium-size humanoid creature by attaching the creature’s severed head to its body. The illusion lasts as long as the head remains attached. The harriken does not gain any of the creature’s abilities, mannerisms, or knowledge, but it gains a +10 bonus on Disguise checks. Other creatures get a Will save (DC 10 + 1/2 the harriken’s Hit Dice + its Charisma modifier) to pierce the illusion if they interact with it (such as by touching the harriken and having that sensory input not match what they see). A true seeing spell reveals the harriken’s actual horrific appearance.</p>",
+        "description": "<p>The harriken can assume the appearance of a specific Medium-size humanoid creature by attaching the creature’s severed head to its body. The illusion lasts as long as the head remains attached. The harriken does not gain any of the creature’s abilities, mannerisms, or knowledge, but it gains a +10 bonus on @Check[skill:disguise]{Disguise check}s. Other creatures get a @Check[save:will]{Will save} (DC 10 + 1/2 the harriken’s Hit Dice + its Charisma modifier) to pierce the illusion if they interact with it (such as by touching the harriken and having that sensory input not match what they see). A true seeing spell reveals the harriken’s actual horrific appearance.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

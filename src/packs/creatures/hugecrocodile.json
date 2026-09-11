@@ -196,7 +196,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Crocodiles can move in water without making Swim checks and cannot drown in water.</p>",
+        "description": "<p>Crocodiles can move in water without making @Check[skill:swim]{Swim check}s and cannot drown in water.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -244,7 +244,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Crocodiles gain a +12 species bonus on Hide checks when submerged.</p>",
+        "description": "<p>Crocodiles gain a +12 species bonus on @Check[skill:hide]{Hide check}s when submerged.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

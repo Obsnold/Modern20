@@ -445,7 +445,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mawmlYXqaF5J2G2K",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:ref]{Reflex saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -525,7 +525,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.rhmGNFuHbtu5UDsJ",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "When running, the character moves a maximum of five times his or her normal speed instead of four times. If the character is in heavy armor, the character can move four times his or her speed rather than three times. If the character makes a long jump, the character gains a +2 competence bonus on his or her Jump check.",
+        "benefit": "When running, the character moves a maximum of five times his or her normal speed instead of four times. If the character is in heavy armor, the character can move four times his or her speed rather than three times. If the character makes a long jump, the character gains a +2 competence bonus on his or her @Check[skill:jump]{Jump check}.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -653,7 +653,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A revenant is terrified of any specific items directly associated with its cause of death. Only something directly associated with the revenant’s death can cause this fear; the creature cannot be deceived by illusions or duplicates. When the revenant sees the item it fears, it must succeed at a Will saving throw (DC 15) or be shaken for 24 hours. Success leaves it shaken for only 1d4 rounds. If that item is used to deal damage to the revenant that matches its special vulnerability, the revenant must succeed at a Will saving throw (DC 20) or be panicked for 1 minute and shaken for 24 hours thereafter. Success indicates that the revenant is shaken for 1 minute. The time that a revenant is shaken or panicked from this effect does not stack.</p>",
+        "description": "<p>A revenant is terrified of any specific items directly associated with its cause of death. Only something directly associated with the revenant’s death can cause this fear; the creature cannot be deceived by illusions or duplicates. When the revenant sees the item it fears, it must succeed at a @Check[save:will|dc:15]{Will saving throw (DC 15)} or be shaken for 24 hours. Success leaves it shaken for only 1d4 rounds. If that item is used to deal damage to the revenant that matches its special vulnerability, the revenant must succeed at a @Check[save:will|dc:20]{Will saving throw (DC 20)} or be panicked for 1 minute and shaken for 24 hours thereafter. Success indicates that the revenant is shaken for 1 minute. The time that a revenant is shaken or panicked from this effect does not stack.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

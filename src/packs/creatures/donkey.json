@@ -195,7 +195,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Donkeys gain a +2 species bonus on Balance checks.</p>",
+        "description": "<p>Donkeys gain a +2 species bonus on @Check[skill:balance]{Balance check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

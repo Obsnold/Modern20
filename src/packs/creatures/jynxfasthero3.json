@@ -247,7 +247,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.WNAXtvgtyiic73kt",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Jump checks and Tumble checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.",
         "normal": "",
         "special": "Remember that the Tumble skill can’t be used untrained.",
         "repeatable": false
@@ -268,8 +268,8 @@
         "prerequisites": [
           "Pilot 4 ranks."
         ],
-        "benefit": "The character takes no penalty on Pilot checks or attack rolls made when operating an aircraft of the selected class.",
-        "normal": "Characters without this feat take a –4 penalty on Pilot checks made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.",
+        "benefit": "The character takes no penalty on @Check[skill:pilot]{Pilot check}s or attack rolls made when operating an aircraft of the selected class.",
+        "normal": "Characters without this feat take a –4 penalty on @Check[skill:pilot]{Pilot check}s made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.",
         "special": "The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.",
         "repeatable": false
       },
@@ -289,8 +289,8 @@
         "prerequisites": [
           "Pilot 4 ranks."
         ],
-        "benefit": "The character takes no penalty on Pilot checks or attack rolls made when operating an aircraft of the selected class.",
-        "normal": "Characters without this feat take a –4 penalty on Pilot checks made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.",
+        "benefit": "The character takes no penalty on @Check[skill:pilot]{Pilot check}s or attack rolls made when operating an aircraft of the selected class.",
+        "normal": "Characters without this feat take a –4 penalty on @Check[skill:pilot]{Pilot check}s made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.",
         "special": "The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.",
         "repeatable": false
       },
@@ -466,7 +466,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A jynx gains a +4 species bonus on Disable Device checks.</p>",
+        "description": "<p>A jynx gains a +4 species bonus on @Check[skill:disableDevice]{Disable Device check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

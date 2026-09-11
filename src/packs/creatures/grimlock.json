@@ -353,7 +353,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A grimlock’s dull gray skin helps it hide in its native terrain, conferring a +10 species bonus on Hide checks in rocky terrain or underground.</p>",
+        "description": "<p>A grimlock’s dull gray skin helps it hide in its native terrain, conferring a +10 species bonus on @Check[skill:hide]{Hide check}s in rocky terrain or underground.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

@@ -246,7 +246,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -281,7 +281,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A doom hag can use confusion three times per day, as the spell cast by a 9th-level Mage (Will save negates; save DC 14 + the doom hag’s Charisma modifier).</p>",
+        "description": "<p>A doom hag can use confusion three times per day, as the spell cast by a 9th-level Mage (@Check[save:will]{Will save} negates; save DC 14 + the doom hag’s Charisma modifier).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -341,7 +341,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>During daylight, a doom hag is naturally invisible and remains so even when attacking. Any creature that correctly discerns the doom hag’s location despite being unable to see it has a 50% miss chance on melee and ranged attacks. This ability is always active, but the doom hag can suppress it for 1 round with a successful Concentration check (DC 15). A new check at the same DC is required for each subsequent round that it wishes to remain visible. The doom hag is visible from sundown to sunup.</p>",
+        "description": "<p>During daylight, a doom hag is naturally invisible and remains so even when attacking. Any creature that correctly discerns the doom hag’s location despite being unable to see it has a 50% miss chance on melee and ranged attacks. This ability is always active, but the doom hag can suppress it for 1 round with a successful @Check[skill:concentration|dc:15]{Concentration check (DC 15)}. A new check at the same DC is required for each subsequent round that it wishes to remain visible. The doom hag is visible from sundown to sunup.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -389,7 +389,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A doom hag blends into the gloom, gaining a +4 species bonus on Hide checks at night or in darkness.</p>",
+        "description": "<p>A doom hag blends into the gloom, gaining a +4 species bonus on @Check[skill:hide]{Hide check}s at night or in darkness.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

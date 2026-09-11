@@ -241,7 +241,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -276,7 +276,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A wyrm can breathe a 60-foot-long, 5-foot-wide line of fire every 1d4 rounds as an attack action. Any creature in the line of fire takes 10d10 points of damage, or half damage if a Reflex save (DC 25) succeeds.</p>",
+        "description": "<p>A wyrm can breathe a 60-foot-long, 5-foot-wide line of fire every 1d4 rounds as an attack action. Any creature in the line of fire takes 10d10 points of damage, or half damage if a @Check[save:ref|dc:25]{Reflex save (DC 25)} succeeds.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -320,7 +320,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A creature stung by a wyrm must succeed on a Fortitude save (DC 25) or take 2d6 points of temporary Constitution damage. After 1 minute has elapsed, the creature must succeed on a second save (DC 25) or take another 2d6 points of temporary Constitution damage.</p>",
+        "description": "<p>A creature stung by a wyrm must succeed on a @Check[save:fort|dc:25]{Fortitude save (DC 25)} or take 2d6 points of temporary Constitution damage. After 1 minute has elapsed, the creature must succeed on a second save (DC 25) or take another 2d6 points of temporary Constitution damage.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -412,7 +412,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Wyrms receive a +3 species bonus on Spot checks during daylight hours.</p>",
+        "description": "<p>Wyrms receive a +3 species bonus on @Check[skill:spot]{Spot check}s during daylight hours.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

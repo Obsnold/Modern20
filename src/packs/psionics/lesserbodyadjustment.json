@@ -4,7 +4,7 @@
   "type": "psiPower",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>The manifester recovers 1d8 hit points, or gains a +1 bonus on his or her next Fortitude save against poison or disease, or heals 1 point of temporary ability damage. The manifester chooses one benefit for a single manifestation.</p>",
+    "description": "<p>The manifester recovers 1d8 hit points, or gains a +1 bonus on his or her next @Check[save:fort]{Fortitude save} against poison or disease, or heals 1 point of temporary ability damage. The manifester chooses one benefit for a single manifestation.</p>",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.zZpVM5gOpB39ezaf",

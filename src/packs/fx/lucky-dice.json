@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>These ordinary looking, casino-grade dice grant a +5 luck bonus on Gamble checks when used for any dice games (such as craps). Because they work for anyone who uses them, the user typically palms them between throws to avoid suspicion (requiring a separate Sleight of Hand check).</p>",
+    "description": "<p>These ordinary looking, casino-grade dice grant a +5 luck bonus on @Check[skill:gamble]{Gamble check}s when used for any dice games (such as craps). Because they work for anyone who uses them, the user typically palms them between throws to avoid suspicion (requiring a separate @Check[skill:sleightOfHand]{Sleight of Hand check}).</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.Oh0EMTx4xVKByF1w",

@@ -280,7 +280,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dhezLjTJWP7r3Rtl",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:fort]{Fortitude saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -378,7 +378,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Minotaurs receive a +4 species bonus on Search, Spot, and Listen checks.</p>",
+        "description": "<p>Minotaurs receive a +4 species bonus on Search, Spot, and @Check[skill:listen]{Listen check}s.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

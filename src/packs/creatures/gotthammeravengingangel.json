@@ -349,7 +349,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A righteous aura surrounds the avenging angel. Any hostile creature within a 20-foot radius of a gotthammer must succeed at a Will save (DC 21) or take a –2 morale penalty on attacks, AC, and saves for one day or until they successfully injure the gotthammer generating the aura. A creature that has resisted or broken the effect cannot be affected again by the gotthammer’s aura for one day.</p>",
+        "description": "<p>A righteous aura surrounds the avenging angel. Any hostile creature within a 20-foot radius of a gotthammer must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or take a –2 morale penalty on attacks, AC, and saves for one day or until they successfully injure the gotthammer generating the aura. A creature that has resisted or broken the effect cannot be affected again by the gotthammer’s aura for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

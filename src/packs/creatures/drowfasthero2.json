@@ -442,7 +442,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Drow are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects. They also gain a +2 species bonus on Will saves against spells and spell-like abilities.</p>",
+        "description": "<p>Drow are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects. They also gain a +2 species bonus on @Check[save:will]{Will save}s against spells and spell-like abilities.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -490,7 +490,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Drow gain a +2 species bonus on Listen, Search, and Spot checks. A drow who merely passes within 5 feet of a secret or concealed door is entitled to a Search check (as a free action) to notice it as if she were actively looking for the door.</p>",
+        "description": "<p>Drow gain a +2 species bonus on Listen, Search, and @Check[skill:spot]{Spot check}s. A drow who merely passes within 5 feet of a secret or concealed door is entitled to a @Check[skill:search]{Search check} (as a free action) to notice it as if she were actively looking for the door.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

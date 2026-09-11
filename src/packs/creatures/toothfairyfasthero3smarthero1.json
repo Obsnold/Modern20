@@ -385,7 +385,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s.",
         "normal": "",
         "special": "",
         "repeatable": false

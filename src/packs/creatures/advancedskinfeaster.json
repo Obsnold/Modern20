@@ -267,7 +267,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>With a successful melee touch attack, the skin feaster causes lumps of flesh to fall from the target’s body, dealing 1d3 points of Constitution damage; a successful Fortitude save negates (DC 10 + 1/2 the skin feaster’s Hit Dice + its Charisma modifier). On a failed save, the target must attempt a second Fortitude save at the same DC. Failure indicates that 1 point of the Constitution damage already taken becomes Constitution drain instead.</p>",
+        "description": "<p>With a successful melee touch attack, the skin feaster causes lumps of flesh to fall from the target’s body, dealing 1d3 points of Constitution damage; a successful @Check[save:fort]{Fortitude save} negates (DC 10 + 1/2 the skin feaster’s Hit Dice + its Charisma modifier). On a failed save, the target must attempt a second @Check[save:fort]{Fortitude save} at the same DC. Failure indicates that 1 point of the Constitution damage already taken becomes Constitution drain instead.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

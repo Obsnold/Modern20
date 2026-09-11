@@ -4,7 +4,7 @@
   "type": "talent",
   "img": "icons/svg/statue.svg",
   "system": {
-    "description": "The Dedicated hero is intuitively aware of his or her surroundings. The hero adds his or her base Will saving throw bonus to Listen or Spot checks to avoid surprise.",
+    "description": "The Dedicated hero is intuitively aware of his or her surroundings. The hero adds his or her base @Check[save:will]{Will saving throw} bonus to Listen or @Check[skill:spot]{Spot check}s to avoid surprise.",
     "source": "d20 Modern SRD",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.6nLO3rC9vpHjroyx",

@@ -268,7 +268,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The chemical toxyderm breathes a 50-foot cone of acid that deals 15d6 points of damage, or half damage if a Reflex save succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Unlike the garbage toxyderm, the chemical toxyderm takes no damage from its own breath weapon.</p>",
+        "description": "<p>The chemical toxyderm breathes a 50-foot cone of acid that deals 15d6 points of damage, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Unlike the garbage toxyderm, the chemical toxyderm takes no damage from its own breath weapon.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

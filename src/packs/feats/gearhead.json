@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.XKVfpPRAjgzLnz8F",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Computer Use checks and Repair checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:computerUse]{Computer Use check}s and @Check[skill:repair]{Repair check}s.",
     "normal": "",
     "special": "Remember that the Computer Use skill and the Repair skill can only be used untrained in certain situations.",
     "repeatable": false

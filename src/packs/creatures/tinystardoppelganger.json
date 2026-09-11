@@ -319,7 +319,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -338,7 +338,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.YqJNNpB0lxX6SkIO",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Climb checks and Swim checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:climb]{Climb check}s and @Check[skill:swim]{Swim check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -469,7 +469,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any creature within 60 feet of a star doppelganger in its normal form must succeed on a Will saving throw (DC 10 + 1/2 star doppelganger’s Hit Dice + its Charisma modifier) or be stunned for 1d4 rounds by its hideous appearance and otherworldly appendages. An opponent that cannot see the star doppelganger is immune to this effect.</p><p>Whether or not the save is successful, the creature cannot be affected again by that star doppelganger’s fear aura for 24 hours.</p>",
+        "description": "<p>Any creature within 60 feet of a star doppelganger in its normal form must succeed on a @Check[save:will]{Will saving throw} (DC 10 + 1/2 star doppelganger’s Hit Dice + its Charisma modifier) or be stunned for 1d4 rounds by its hideous appearance and otherworldly appendages. An opponent that cannot see the star doppelganger is immune to this effect.</p><p>Whether or not the save is successful, the creature cannot be affected again by that star doppelganger’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -497,7 +497,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A star doppelganger can transfer its own flesh to a helpless living creature or a living creature that it has pinned in a grapple for 3 consecutive rounds. As an attack action, the star doppelganger sloughs flesh from its own body onto the helpless or pinned foe, thereby transforming the latter’s body into star doppelganger flesh. The opponent may attempt a Fortitude save (DC 10 + 1/2 star doppelganger’s Hit Dice + its Constitution modifier) to resist. Success indicates that the star doppelganger has failed to transfer its flesh to the opponent, but it can attempt to do so again using another attack action assuming that the proper conditions are still in place. Failure indicates that the flesh transfer was successful and the opponent’s body has begun to transform into star doppelganger flesh. The opponent is then helpless for the remainder of the process.</p><p>The star doppelganger must stay in physical contact with the target for 1d4 additional rounds before the transfer is complete. At that point, the opponent can be either absorbed by the star doppelganger or converted into a new star doppelganger (see Absorb and Convert, above), at the attacker’s option. If the star doppelganger is physically separated from the opponent or killed before the flesh transfer is complete, the opponent takes 1d4 points of Constitution drain and remains helpless for 2d4 rounds.</p><p>An opponent smaller than Tiny or larger than Large cannot be either absorbed or converted. If the opponent cannot be either absorbed, and a creature with less than 1 Hit Die or more than 16 Hit Dice cannot be converted, it simply becomes a dead star doppelganger when the process is complete.</p>",
+        "description": "<p>A star doppelganger can transfer its own flesh to a helpless living creature or a living creature that it has pinned in a grapple for 3 consecutive rounds. As an attack action, the star doppelganger sloughs flesh from its own body onto the helpless or pinned foe, thereby transforming the latter’s body into star doppelganger flesh. The opponent may attempt a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 star doppelganger’s Hit Dice + its Constitution modifier) to resist. Success indicates that the star doppelganger has failed to transfer its flesh to the opponent, but it can attempt to do so again using another attack action assuming that the proper conditions are still in place. Failure indicates that the flesh transfer was successful and the opponent’s body has begun to transform into star doppelganger flesh. The opponent is then helpless for the remainder of the process.</p><p>The star doppelganger must stay in physical contact with the target for 1d4 additional rounds before the transfer is complete. At that point, the opponent can be either absorbed by the star doppelganger or converted into a new star doppelganger (see Absorb and Convert, above), at the attacker’s option. If the star doppelganger is physically separated from the opponent or killed before the flesh transfer is complete, the opponent takes 1d4 points of Constitution drain and remains helpless for 2d4 rounds.</p><p>An opponent smaller than Tiny or larger than Large cannot be either absorbed or converted. If the opponent cannot be either absorbed, and a creature with less than 1 Hit Die or more than 16 Hit Dice cannot be converted, it simply becomes a dead star doppelganger when the process is complete.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -605,7 +605,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Because of its near-perfect mimicry ability, a star doppelganger gains a +30 circumstance bonus on Disguise checks and a +10 circumstance bonus on Bluff checks when acting as the creature it is mimicking. These bonuses are not accounted for in the statistics blocks below.</p>",
+        "description": "<p>Because of its near-perfect mimicry ability, a star doppelganger gains a +30 circumstance bonus on @Check[skill:disguise]{Disguise check}s and a +10 circumstance bonus on @Check[skill:bluff]{Bluff check}s when acting as the creature it is mimicking. These bonuses are not accounted for in the statistics blocks below.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

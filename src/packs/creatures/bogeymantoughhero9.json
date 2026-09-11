@@ -271,7 +271,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.g6mYoBCrtF8kAzzw",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gains a +4 bonus on the following checks and saves: hourly Swim checks to avoid becoming fatigued, Constitution checks to continue running, Constitution checks to hold the character’s breath, Constitution checks to avoid damage from starvation or thirst, Fortitude saves to avoid damage from hot or cold environments, and Fortitude saves to resist suffocation or drowning.",
+        "benefit": "The character gains a +4 bonus on the following checks and saves: hourly @Check[skill:swim]{Swim check}s to avoid becoming fatigued, @Check[ability:con]{Constitution check}s to continue running, @Check[ability:con]{Constitution check}s to hold the character’s breath, @Check[ability:con]{Constitution check}s to avoid damage from starvation or thirst, @Check[save:fort]{Fortitude save}s to avoid damage from hot or cold environments, and @Check[save:fort]{Fortitude save}s to resist suffocation or drowning.",
         "normal": "A character without this feat who sleeps in armor is automatically fatigued the following day.",
         "special": "",
         "repeatable": false
@@ -290,7 +290,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dhezLjTJWP7r3Rtl",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:fort]{Fortitude saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false

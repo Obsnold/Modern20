@@ -280,7 +280,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Cats receive a +8 species bonus on Balance checks and a +4 species bonus on Hide and Move Silently checks. In areas of tall grass or heavy undergrowth, the cat’s Hide bonus rises to +8. Cats use their Dexterity modifier for Climb checks.</p>",
+        "description": "<p>Cats receive a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide and @Check[skill:moveSilently]{Move Silently check}s. In areas of tall grass or heavy undergrowth, the cat’s Hide bonus rises to +8. Cats use their Dexterity modifier for @Check[skill:climb]{Climb check}s.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

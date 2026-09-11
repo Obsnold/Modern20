@@ -350,7 +350,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A kinori can turn its skin white as a free action, much as a chameleon changes its color. It gains a +4 species bonus on Hide checks when concealed against a white background, such as snow and ice.</p>",
+        "description": "<p>A kinori can turn its skin white as a free action, much as a chameleon changes its color. It gains a +4 species bonus on @Check[skill:hide]{Hide check}s when concealed against a white background, such as snow and ice.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

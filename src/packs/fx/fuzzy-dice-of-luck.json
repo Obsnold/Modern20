@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>These gaudy, hot-pink fuzzy dice must be hung from the rearview mirror of the vehicle to be activated. Once per day, the driver of the vehicle can reroll any Drive check, but must take the new result regardless of the outcome.</p>",
+    "description": "<p>These gaudy, hot-pink fuzzy dice must be hung from the rearview mirror of the vehicle to be activated. Once per day, the driver of the vehicle can reroll any @Check[skill:drive]{Drive check}, but must take the new result regardless of the outcome.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.8mTLqCyWisQzhwj9",

@@ -400,7 +400,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dQ8whv6F6ZX89bmY",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Diplomacy checks and Gather Information checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:diplomacy]{Diplomacy check}s and @Check[skill:gatherInformation]{Gather Information check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -461,7 +461,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>When in its fire form (see below), an elohim projects an aura of righteous wrath that is fearsome to behold. Each creature within 30 feet must succeed on a Will save (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) or cower until the elohim moves out of range, until it stops using its fire form ability, or until 10 rounds have elapsed. Thereafter, the creature is shaken for 24 hours.</p><p>A creature that makes a successful saving throw or has stopped cowering after a failure is immune to that elohim’s fear aura for 24 hours.</p>",
+        "description": "<p>When in its fire form (see below), an elohim projects an aura of righteous wrath that is fearsome to behold. Each creature within 30 feet must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) or cower until the elohim moves out of range, until it stops using its fire form ability, or until 10 rounds have elapsed. Thereafter, the creature is shaken for 24 hours.</p><p>A creature that makes a successful saving throw or has stopped cowering after a failure is immune to that elohim’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -489,7 +489,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>At will, an elohim can assume fire form, changing its body and equipment into a pillar of living, semisolid flame. In this form, the elohim can use its flame shield ability and swing its flame sword normally, but any normal, unattended objects it touches immediately catch on fire. Any creature that touches or is touched by an elohim in fire form takes 2d6 points of fire damage; a successful Reflex save (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) halves the damage. A creature that grapples with an elohim in this form takes 4d6 points of fire damage per round of grappling (no saving throw). In fire form, the elohim can deal an extra 2d6 points of fire damage to an opponent with a successful unarmed attack, though it usually prefers to use its flame sword. An elohim in fire form can fly at a speed of 60 feet with perfect maneuverability, and it gains damage reduction 10/+1 and a +10 circumstance bonus on Escape Artist checks. Assuming fire form or reverting to human form requires a full-round action. An elohim that is killed or knocked unconscious while in fire form instantly reverts to its human form.</p>",
+        "description": "<p>At will, an elohim can assume fire form, changing its body and equipment into a pillar of living, semisolid flame. In this form, the elohim can use its flame shield ability and swing its flame sword normally, but any normal, unattended objects it touches immediately catch on fire. Any creature that touches or is touched by an elohim in fire form takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) halves the damage. A creature that grapples with an elohim in this form takes 4d6 points of fire damage per round of grappling (no saving throw). In fire form, the elohim can deal an extra 2d6 points of fire damage to an opponent with a successful unarmed attack, though it usually prefers to use its flame sword. An elohim in fire form can fly at a speed of 60 feet with perfect maneuverability, and it gains damage reduction 10/+1 and a +10 circumstance bonus on @Check[skill:escapeArtist]{Escape Artist check}s. Assuming fire form or reverting to human form requires a full-round action. An elohim that is killed or knocked unconscious while in fire form instantly reverts to its human form.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -538,7 +538,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>At will as an attack action, an elohim can summon a shield of semisolid fire that floats near its body. This shield grants the creature a +2 bonus to Defense, and any adjacent foe that makes a melee attack against the elohim takes 1d6 points of fire damage from the shield.</p><p>If desired, the elohim can use an attack action to send the flame shield hurtling toward a foe up to 100 feet away with no range penalty. On a successful ranged touch attack, the shield deals 3d6 points of fire damage to the designated foe; a successful Reflex save (DC 10 + 1/2 the elohim’s Hit Dice + the elohim’s Charisma modifier) halves the damage. The elohim loses the shield’s other benefits, and the shield itself disappears.</p>",
+        "description": "<p>At will as an attack action, an elohim can summon a shield of semisolid fire that floats near its body. This shield grants the creature a +2 bonus to Defense, and any adjacent foe that makes a melee attack against the elohim takes 1d6 points of fire damage from the shield.</p><p>If desired, the elohim can use an attack action to send the flame shield hurtling toward a foe up to 100 feet away with no range penalty. On a successful ranged touch attack, the shield deals 3d6 points of fire damage to the designated foe; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim’s Hit Dice + the elohim’s Charisma modifier) halves the damage. The elohim loses the shield’s other benefits, and the shield itself disappears.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

@@ -208,7 +208,7 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -279,7 +279,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Undead are immune to poison, sleep, paralysis, stunning, disease, necromantic effects, and mind-affecting effects. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or effects of massive damage, or any effect requiring a Fortitude save unless the effect also works on objects or is harmless. They may be healed by application of negative energy (such as an inflict light wounds spell). They are destroyed if reduced to 0 hit points or less.</p>",
+        "description": "<p>Undead are immune to poison, sleep, paralysis, stunning, disease, necromantic effects, and mind-affecting effects. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or effects of massive damage, or any effect requiring a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They may be healed by application of negative energy (such as an inflict light wounds spell). They are destroyed if reduced to 0 hit points or less.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -295,7 +295,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>An ash wraith can be harmed only by other incorporeal creatures, +1 or better magic weapons, and spells, spell-like abilities, and supernatural abilities. It is immune to nonmagical attack forms. Even when hit by spells or magic weapons, it has a 50% chance to ignore damage from a corporeal source (except for force effects, such as magic missile, or attacks made with ghost touch weapons). It can pass through solid objects at will, but not force effects (such as a wall of force). Its attacks ignore natural armor, armor, and shields, although deflection bonuses and force effects (such as mage armor) work normally against it.</p><p>An ash wraith moves silently and cannot be heard with Listen checks. It has no Strength score, so its Dexterity modifier applies both to its melee and ranged attacks. Nonvisual senses, such as blindsight and scent, do not function against an ash wraith. An ash wraith cannot be tripped or grappled by a corporeal attacker.</p>",
+        "description": "<p>An ash wraith can be harmed only by other incorporeal creatures, +1 or better magic weapons, and spells, spell-like abilities, and supernatural abilities. It is immune to nonmagical attack forms. Even when hit by spells or magic weapons, it has a 50% chance to ignore damage from a corporeal source (except for force effects, such as magic missile, or attacks made with ghost touch weapons). It can pass through solid objects at will, but not force effects (such as a wall of force). Its attacks ignore natural armor, armor, and shields, although deflection bonuses and force effects (such as mage armor) work normally against it.</p><p>An ash wraith moves silently and cannot be heard with @Check[skill:listen]{Listen check}s. It has no Strength score, so its Dexterity modifier applies both to its melee and ranged attacks. Nonvisual senses, such as blindsight and scent, do not function against an ash wraith. An ash wraith cannot be tripped or grappled by a corporeal attacker.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -311,7 +311,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The touch of an ash wraith deals 3d6 points of fire damage, and creatures hit by an ash wraith must succeed at a Reflex save (DC 15) or catch on fire.</p>",
+        "description": "<p>The touch of an ash wraith deals 3d6 points of fire damage, and creatures hit by an ash wraith must succeed at a @Check[save:ref|dc:15]{Reflex save (DC 15)} or catch on fire.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

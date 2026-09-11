@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>This ring pulses dimly when electronic devices are monitoring the wearer. The ring can detect a working video camera, microphone, motion detector, or other sensor within 50 feet. By taking a full-round action, the wearer can locate the direction and distance to the device. It grants a +5 circumstance bonus on Search checks when trying to find concealed monitoring devices.</p>",
+    "description": "<p>This ring pulses dimly when electronic devices are monitoring the wearer. The ring can detect a working video camera, microphone, motion detector, or other sensor within 50 feet. By taking a full-round action, the wearer can locate the direction and distance to the device. It grants a +5 circumstance bonus on @Check[skill:search]{Search check}s when trying to find concealed monitoring devices.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.Pjp1RYbu04kL1dG9",

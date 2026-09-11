@@ -195,7 +195,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any creature grappling with a Mongolian death worm must make a successful Fortitude save (DC 10 + 1/2 the worm’s Hit Dice + its Constitution modifier) each round or gain one negative level that lasts only until the grapple ends (no saving throw needed for removal).</p><p>Most Mongolian death worms use this ability purely in self-defense, but some of the larger ones learn that it can be a swift means of killing prey.</p>",
+        "description": "<p>Any creature grappling with a Mongolian death worm must make a successful @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the worm’s Hit Dice + its Constitution modifier) each round or gain one negative level that lasts only until the grapple ends (no saving throw needed for removal).</p><p>Most Mongolian death worms use this ability purely in self-defense, but some of the larger ones learn that it can be a swift means of killing prey.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

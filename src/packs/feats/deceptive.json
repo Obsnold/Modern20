@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.DgpDCeNyPKCCmSV9",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Bluff checks and Disguise checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:bluff]{Bluff check}s and @Check[skill:disguise]{Disguise check}s.",
     "normal": "",
     "special": "",
     "repeatable": false

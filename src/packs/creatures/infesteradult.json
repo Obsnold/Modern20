@@ -163,7 +163,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The bite of an infester grub releases an anesthetic that numbs nerves. An opponent that does not actually witness the attack must make a successful Wisdom check (DC 20) to notice it.</p>",
+        "description": "<p>The bite of an infester grub releases an anesthetic that numbs nerves. An opponent that does not actually witness the attack must make a successful @Check[ability:wis|dc:20]{Wisdom check (DC 20)} to notice it.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -195,7 +195,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or Listen checks to notice creatures within range of its blindsight ability.</p>",
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
@@ -243,7 +243,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once inside its host, an infester grub slowly makes its way through the bloodstream until it reaches the torso, where it takes up residence and begins drawing nutrients from the host’s body. During this period, its boost host ability (see above) is constantly in effect.</p><p>Because of the infester’s unique nutritional needs, even a normally herbivorous host gains an insatiable appetite for raw meat—particularly that of its own species. Some instances of cannibalism are the result of infesters that drove their hosts beyond the brink of sanity with their lust for meat.</p><p>After one month of incubation, the infester reaches its full adult size and starts chewing its way out of the host’s torso. This process takes 1d6 minutes, during which the host experiences excruciating pain. The victim must make a Fortitude save (DC 20) or die when the infester bursts from its torso. Even on a successful save, the host still takes 6d6 points of damage.</p><p>Once freed from the host, the adult infester seeks out a pool of filth and mud in which to live. It defends itself against any attacks but otherwise avoids conflict. After 1d6 days, the infester gives birth to thousands of grubs and then perishes, its body providing nourishment for its brood. Only a few of these offspring survive beyond the first few hours. The remaining grubs wait patiently until another unsuspecting creature comes along to repeat the cycle.</p><p>A successful Treat Injury check (DC 25) reveals the presence of an infester inside a host. The parasite can be removed with surgery (Treat Injury DC 30). A failure by 5 or more irritates the infester, which begins burrowing out of the host prematurely, dealing 2d6 points of damage to its host (Fortitude DC 20 half).</p>",
+        "description": "<p>Once inside its host, an infester grub slowly makes its way through the bloodstream until it reaches the torso, where it takes up residence and begins drawing nutrients from the host’s body. During this period, its boost host ability (see above) is constantly in effect.</p><p>Because of the infester’s unique nutritional needs, even a normally herbivorous host gains an insatiable appetite for raw meat—particularly that of its own species. Some instances of cannibalism are the result of infesters that drove their hosts beyond the brink of sanity with their lust for meat.</p><p>After one month of incubation, the infester reaches its full adult size and starts chewing its way out of the host’s torso. This process takes 1d6 minutes, during which the host experiences excruciating pain. The victim must make a @Check[save:fort|dc:20]{Fortitude save (DC 20)} or die when the infester bursts from its torso. Even on a successful save, the host still takes 6d6 points of damage.</p><p>Once freed from the host, the adult infester seeks out a pool of filth and mud in which to live. It defends itself against any attacks but otherwise avoids conflict. After 1d6 days, the infester gives birth to thousands of grubs and then perishes, its body providing nourishment for its brood. Only a few of these offspring survive beyond the first few hours. The remaining grubs wait patiently until another unsuspecting creature comes along to repeat the cycle.</p><p>A successful @Check[skill:treatInjury|dc:25]{Treat Injury check (DC 25)} reveals the presence of an infester inside a host. The parasite can be removed with surgery (Treat Injury DC 30). A failure by 5 or more irritates the infester, which begins burrowing out of the host prematurely, dealing 2d6 points of damage to its host (Fortitude DC 20 half).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -259,7 +259,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Infesters have blindsight out to a range of 60 feet. They are immune to mind-affecting effects and gain a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "description": "<p>Infesters have blindsight out to a range of 60 feet. They are immune to mind-affecting effects and gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

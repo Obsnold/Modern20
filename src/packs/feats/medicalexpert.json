@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2P4S9HkUhITAEPHm",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Craft (pharmaceutical) checks and Treat Injury checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s and @Check[skill:treatInjury]{Treat Injury check}s.",
     "normal": "",
     "special": "Remember that the Craft (pharmaceutical) skill can’t be used untrained.",
     "repeatable": false

@@ -232,7 +232,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -261,7 +261,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A mothfolk projects an aura of fear around itself in a 20-foot radius. Creatures within this area that wish to remain must attempt a Will save (DC 10 + ½ the mothman’s Hit Dice + its Charisma modifier) or be affected as by a fear spell. A mothfolk is immune to the fear auras of other mothfolk.</p>",
+        "description": "<p>A mothfolk projects an aura of fear around itself in a 20-foot radius. Creatures within this area that wish to remain must attempt a @Check[save:will]{Will save} (DC 10 + ½ the mothman’s Hit Dice + its Charisma modifier) or be affected as by a fear spell. A mothfolk is immune to the fear auras of other mothfolk.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -305,7 +305,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Mothfolk gain a +4 species bonus on Balance, Climb, Listen, and Move Silently checks.</p>",
+        "description": "<p>Mothfolk gain a +4 species bonus on Balance, Climb, Listen, and @Check[skill:moveSilently]{Move Silently check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

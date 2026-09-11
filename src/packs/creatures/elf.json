@@ -337,7 +337,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Elves gain a +2 species bonus on Listen, Search, and Spot checks. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door.</p>",
+        "description": "<p>Elves gain a +2 species bonus on Listen, Search, and @Check[skill:spot]{Spot check}s. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a @Check[skill:search]{Search check} to notice it as if she were actively looking for the door.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

@@ -333,7 +333,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Every 1d4 rounds, a thunderbird can breathe a 60-foot-long cone of sonic energy as an attack action. Any creature in the cone takes 1d10 points of sonic damage per 2 Hit Dice of the thunderbird (8d10 for the typical adult specimen). A successful Reflex save (DC 10 + 1/2 the thunderbird’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>Every 1d4 rounds, a thunderbird can breathe a 60-foot-long cone of sonic energy as an attack action. Any creature in the cone takes 1d10 points of sonic damage per 2 Hit Dice of the thunderbird (8d10 for the typical adult specimen). A successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the thunderbird’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -377,7 +377,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any creature within 60 feet of a thunderbird must succeed on a Will save (DC 10 + 1/2 the thunderbird’s Hit Dice + its Charisma modifier) or be shaken for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that thunderbird’s fear aura for 24 hours.</p>",
+        "description": "<p>Any creature within 60 feet of a thunderbird must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the thunderbird’s Hit Dice + its Charisma modifier) or be shaken for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that thunderbird’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

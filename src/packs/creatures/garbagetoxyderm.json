@@ -290,7 +290,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Hantavirus—slam. Fortitude save (DC 14) negates; incubation period 1 day; initial damage 1d2 Str; secondary damage 1d2 Str (temporary or permanent) and 1d2 Con (temporary or permanent).</p>",
+        "description": "<p>Hantavirus—slam. @Check[save:fort|dc:14]{Fortitude save (DC 14)} negates; incubation period 1 day; initial damage 1d2 Str; secondary damage 1d2 Str (temporary or permanent) and 1d2 Con (temporary or permanent).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -306,7 +306,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The garbage toxyderm can expel some of its mass in a 50-foot cone. This deals 10d6 points of bludgeoning damage, or half damage if a Reflex save succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Each time the toxyderm uses its breath weapon, it takes 20 points of damage. Furthermore, any creature that takes damage from the cone must succeed at a Fortitude save (DC 14) or contract a disease (see above).</p>",
+        "description": "<p>The garbage toxyderm can expel some of its mass in a 50-foot cone. This deals 10d6 points of bludgeoning damage, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Each time the toxyderm uses its breath weapon, it takes 20 points of damage. Furthermore, any creature that takes damage from the cone must succeed at a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or contract a disease (see above).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

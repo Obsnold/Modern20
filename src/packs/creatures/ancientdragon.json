@@ -357,7 +357,7 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -515,7 +515,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A breath weapon attack usually causes damage and is often based on some type of energy. It allows a Reflex save for half damage with a DC equal to 10 + ½ breathing creature’s HD + breathing creature’s Constitution modifier (the exact DC is given in the creature’s Species Traits). A creature is immune to its own breath weapon and those of others of its kind unless noted otherwise.</p>",
+        "description": "<p>A breath weapon attack usually causes damage and is often based on some type of energy. It allows a @Check[save:ref]{Reflex save} for half damage with a DC equal to 10 + ½ breathing creature’s HD + breathing creature’s Constitution modifier (the exact DC is given in the creature’s Species Traits). A creature is immune to its own breath weapon and those of others of its kind unless noted otherwise.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "source": "d20 Modern SRD",
         "abilityType": "supernatural",
@@ -531,7 +531,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A fear aura either operates continuously or can be used at will. In either case, it’s a free action. This ability can freeze an opponent or cause opponents to become panicked. Other effects are possible. Negating the fear effect requires a successful Will save with a DC equal to 10 + 1/2 fearsome creature’s HD + fearsome creature’s Charisma modifier (the exact DC is given in the creature’s descriptive text).</p>",
+        "description": "<p>A fear aura either operates continuously or can be used at will. In either case, it’s a free action. This ability can freeze an opponent or cause opponents to become panicked. Other effects are possible. Negating the fear effect requires a successful @Check[save:will]{Will save} with a DC equal to 10 + 1/2 fearsome creature’s HD + fearsome creature’s Charisma modifier (the exact DC is given in the creature’s descriptive text).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "source": "d20 Modern SRD",
         "abilityType": "supernatural",
@@ -659,7 +659,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or Listen checks to notice creatures within range of its blindsight ability.</p>",
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "source": "d20 Modern SRD",
         "abilityType": "extraordinary",

@@ -203,7 +203,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A viper injects venom with a successful bite. The victim must succeed on a Fortitude save or take 1d6 points of temporary Constitution damage; a second Fortitude save must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). The save DC is equal to 11 + 1/2 the snake’s Hit Dice + the snake’s Constitution modifier (DC 11 for a Tiny viper).</p>",
+        "description": "<p>A viper injects venom with a successful bite. The victim must succeed on a @Check[save:fort]{Fortitude save} or take 1d6 points of temporary Constitution damage; a second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). The save DC is equal to 11 + 1/2 the snake’s Hit Dice + the snake’s Constitution modifier (DC 11 for a Tiny viper).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -299,7 +299,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Snakes receive a +8 species bonus on Balance checks and a +4 species bonus on Hide, Listen, and Spot checks. Snakes apply either their Strength or Dexterity modifier, whichever is higher, to Climb checks.</p>",
+        "description": "<p>Snakes receive a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide, Listen, and @Check[skill:spot]{Spot check}s. Snakes apply either their Strength or Dexterity modifier, whichever is higher, to @Check[skill:climb]{Climb check}s.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

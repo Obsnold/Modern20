@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dQ8whv6F6ZX89bmY",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Diplomacy checks and Gather Information checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:diplomacy]{Diplomacy check}s and @Check[skill:gatherInformation]{Gather Information check}s.",
     "normal": "",
     "special": "",
     "repeatable": false

@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.YqJNNpB0lxX6SkIO",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Climb checks and Swim checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:climb]{Climb check}s and @Check[skill:swim]{Swim check}s.",
     "normal": "",
     "special": "",
     "repeatable": false

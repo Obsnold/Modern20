@@ -282,7 +282,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Invisible stalkers are consummate trackers and make Spot checks instead of Survival checks to track a creature’s passage.</p>",
+        "description": "<p>Invisible stalkers are consummate trackers and make @Check[skill:spot]{Spot check}s instead of @Check[skill:survival]{Survival check}s to track a creature’s passage.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

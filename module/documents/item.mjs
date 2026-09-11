@@ -1,4 +1,5 @@
 import { MODERN20 } from "../config.mjs";
+import { enrichProse } from "../enrichers.mjs";
 import { resolveAttack, postAttackCard, postSaveCard, postCastCard, rollItemDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
 import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazineSize } from "../apps/accessories.mjs";
@@ -434,9 +435,14 @@ export class Modern20Item extends Item {
   }
 
   async toChat() {
+    // Enriched, like the cast and save cards already are: the item's own text
+    // states the checks and saves it asks for, and on a card nobody can click
+    // a sentence.
+    const enriched = await enrichProse(this);
+
     const content = await foundry.applications.handlebars.renderTemplate(
       "systems/modern20/templates/chat/item-card.hbs",
-      { item: this, system: this.system }
+      { item: this, system: this.system, ...enriched }
     );
     return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),

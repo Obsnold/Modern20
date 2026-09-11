@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.HsVilKryF2fbZuF9",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Gamble checks and Intimidate checks, and on level checks to resist intimidation.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:gamble]{Gamble check}s and @Check[skill:intimidate]{Intimidate check}s, and on level checks to resist intimidation.",
     "normal": "",
     "special": "",
     "repeatable": false

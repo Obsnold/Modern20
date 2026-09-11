@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>This vehicle alarm triggers whenever an attempt is made to break into the vehicle (for example, by smashing a window or bypassing a door lock), unless the intruder succeeds at a Disable Device check (DC 30).</p><p>When activated, the paralytic alarm emits a hypnotic pulse that paralyzes any creature within 30 feet for 2d6 rounds. A successful Will save (DC 15) negates this mind-affecting enchantment.</p>",
+    "description": "<p>This vehicle alarm triggers whenever an attempt is made to break into the vehicle (for example, by smashing a window or bypassing a door lock), unless the intruder succeeds at a @Check[skill:disableDevice|dc:30]{Disable Device check (DC 30)}.</p><p>When activated, the paralytic alarm emits a hypnotic pulse that paralyzes any creature within 30 feet for 2d6 rounds. A successful @Check[save:will|dc:15]{Will save (DC 15)} negates this mind-affecting enchantment.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.SmeUxgHIPwwTwRu8",

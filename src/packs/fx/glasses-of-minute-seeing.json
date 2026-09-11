@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>These normal looking glasses have specially crafted lenses. When worn, they grant the wearer a +5 equipment bonus on Search checks to locate or identify features such as tiny seams, marks, cracks, or imperfections.</p>",
+    "description": "<p>These normal looking glasses have specially crafted lenses. When worn, they grant the wearer a +5 equipment bonus on @Check[skill:search]{Search check}s to locate or identify features such as tiny seams, marks, cracks, or imperfections.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.bFD8RKxbaFTckmVL",

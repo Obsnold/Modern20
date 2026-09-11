@@ -370,7 +370,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, a breathsnatcher can expel a 30-foot cone of magic smoke. The smoke grants one-half concealment to creatures in its periphery and full concealment to characters obscured by more than 5 feet of smoke. In addition, any creature within the cone must succeed at a Fortitude save (DC 14) or get smoke in their lungs.</p><p>Holding one’s breath doesn’t help, as tendrils of smoke actively try to invade the lungs. This magic smoke begins to rip at the lungs and surrounding organs, dealing 3d4 points of damage per round. The affected creature can attempt another Fortitude save each subsequent round to cough out the semivaporous menace.</p>",
+        "description": "<p>Once every 1d4 rounds, a breathsnatcher can expel a 30-foot cone of magic smoke. The smoke grants one-half concealment to creatures in its periphery and full concealment to characters obscured by more than 5 feet of smoke. In addition, any creature within the cone must succeed at a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or get smoke in their lungs.</p><p>Holding one’s breath doesn’t help, as tendrils of smoke actively try to invade the lungs. This magic smoke begins to rip at the lungs and surrounding organs, dealing 3d4 points of damage per round. The affected creature can attempt another @Check[save:fort]{Fortitude save} each subsequent round to cough out the semivaporous menace.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

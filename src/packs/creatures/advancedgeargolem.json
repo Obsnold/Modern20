@@ -151,7 +151,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Gear golems are immune to mind-influencing effects as well as poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a Fortitude save unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
+        "description": "<p>Gear golems are immune to mind-influencing effects as well as poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -199,7 +199,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>When a gear golem is reduced to 0 or fewer hit points, it explodes in a 20-foot-radius burst of serrated gears and shrapnel. The explosion deals 12d8 points of slashing damage to creatures caught in the radius; a successful Reflex save (DC 19) halves the damage.</p>",
+        "description": "<p>When a gear golem is reduced to 0 or fewer hit points, it explodes in a 20-foot-radius burst of serrated gears and shrapnel. The explosion deals 12d8 points of slashing damage to creatures caught in the radius; a successful @Check[save:ref|dc:19]{Reflex save (DC 19)} halves the damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -280,7 +280,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Gear golems cannot heal damage on their own but can be repaired using the Repair skill. A successful Repair check (DC 30) heals 1d10 points of damage, and each check represents 1 hour of work. A gear golem cannot repair itself.</p>",
+        "description": "<p>Gear golems cannot heal damage on their own but can be repaired using the Repair skill. A successful @Check[skill:repair|dc:30]{Repair check (DC 30)} heals 1d10 points of damage, and each check represents 1 hour of work. A gear golem cannot repair itself.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

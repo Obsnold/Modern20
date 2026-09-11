@@ -16,8 +16,10 @@ into the compendium:
     nothing links to is a page chosen for no reason
   - every document a rules page lists in its footer, which has to exist, be
     named what the footer calls it, and point back at that page
-  - every `@Check[...]` the rules text carries, which has to name a skill, an
-    ability or a save the system actually has, and a subject that skill has
+  - every `@Check[...]` written anywhere in this system - the rules pages and
+    the prose the documents carry, a spell's description and a creature
+    ability's text alike - which has to name a skill, an ability or a save the
+    system actually has, and a subject that skill has
 
 It also holds the coverage, recorded per pack in data/coverage.json: how many
 documents carry a link, and how many distinct pages those links reach. The
@@ -40,6 +42,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import build_packs  # noqa: E402
 import srd  # noqa: E402
 
 ROOT = srd.ROOT
@@ -181,8 +184,29 @@ def footers(rules_files: list[str], packs: dict[str, tuple[str, str]]) -> tuple[
     return listed, problems
 
 
+def written_rolls(rules_files: list[str]):
+    """Every piece of text a roll can be written in, and where it is.
+
+    Two places, because the rules say what to roll in both: the SRD's own pages
+    and the prose the documents built from them carry — a spell's description,
+    a feat's benefit, a creature ability's rules text.
+    """
+    for path in rules_files:
+        with open(path, encoding="utf-8") as handle:
+            entry = json.load(handle)
+        for page in entry.get("pages") or []:
+            yield f'{entry["name"]}: "{page["name"]}"', page["text"]["content"]
+
+    for pack, label, document, _embedded in documents():
+        system = document.get("system") or {}
+        for field in build_packs.PROSE_FIELDS:
+            text = system.get(field)
+            if isinstance(text, str) and text.strip():
+                yield f"{label} ({field})", text
+
+
 def rolls(rules_files: list[str]) -> tuple[int, list[str]]:
-    """Check every roll the rules text offers.
+    """Check every roll the text of this system offers.
 
     The failure mode is the same as a dead link and quieter still: a check
     naming a skill the system does not have renders as its own words again, so
@@ -195,37 +219,33 @@ def rolls(rules_files: list[str]) -> tuple[int, list[str]]:
 
     found = 0
     problems = []
-    for path in rules_files:
-        with open(path, encoding="utf-8") as handle:
-            entry = json.load(handle)
-        for page in entry.get("pages") or []:
-            for match in ROLL.finditer(page["text"]["content"]):
-                found += 1
-                where = f'{entry["name"]}: "{page["name"]}"'
-                terms = {}
-                for term in match.group(1).split("|"):
-                    key, _, value = term.partition(":")
-                    terms[key.strip()] = value.strip()
+    for where, text in written_rolls(rules_files):
+        for match in ROLL.finditer(text):
+            found += 1
+            terms = {}
+            for term in match.group(1).split("|"):
+                key, _, value = term.partition(":")
+                terms[key.strip()] = value.strip()
 
-                if match.group(2) is not None and not match.group(3).strip():
-                    problems.append(f"{where} has a roll with an empty label")
-                if terms.get("dc") and not terms["dc"].isdigit():
-                    problems.append(f'{where}: DC "{terms["dc"]}" is not a number')
+            if match.group(2) is not None and not match.group(3).strip():
+                problems.append(f"{where} has a roll with an empty label")
+            if terms.get("dc") and not terms["dc"].isdigit():
+                problems.append(f'{where}: DC "{terms["dc"]}" is not a number')
 
-                if "skill" in terms:
-                    if terms["skill"] not in skills:
-                        problems.append(f'{where} rolls a skill called "{terms["skill"]}"')
-                        continue
-                    options = (specialties.get(terms["skill"]) or {}).get("options") or []
-                    subject = terms.get("specialty")
-                    # An open list - Profession, the two languages - takes any
-                    # subject, which is what "open" means.
-                    if subject and options and subject not in options:
-                        problems.append(f'{where} rolls {skills[terms["skill"]]} '
-                                        f'({subject}), which the SRD does not list')
-                elif terms.get("ability") not in ABILITIES and terms.get("save") not in SAVES:
-                    problems.append(f"{where} rolls {match.group(1)!r}, "
-                                    "which is not a skill, an ability or a save")
+            if "skill" in terms:
+                if terms["skill"] not in skills:
+                    problems.append(f'{where} rolls a skill called "{terms["skill"]}"')
+                    continue
+                options = (specialties.get(terms["skill"]) or {}).get("options") or []
+                subject = terms.get("specialty")
+                # An open list - Profession, the two languages - takes any
+                # subject, which is what "open" means.
+                if subject and options and subject not in options:
+                    problems.append(f'{where} rolls {skills[terms["skill"]]} '
+                                    f'({subject}), which the SRD does not list')
+            elif terms.get("ability") not in ABILITIES and terms.get("save") not in SAVES:
+                problems.append(f"{where} rolls {match.group(1)!r}, "
+                                "which is not a skill, an ability or a save")
     return found, problems
 
 
@@ -299,7 +319,7 @@ def main() -> int:
     for problem in unrollable:
         problems += 1
         print(f"FAIL  {problem}")
-    print(f"{asked} rolls the rules ask for checked")
+    print(f"{asked} rolls the rules and the packs' own text ask for checked")
 
     declared = topics()
     for topic, uuid in declared.items():

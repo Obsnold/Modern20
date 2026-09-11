@@ -196,7 +196,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.WNAXtvgtyiic73kt",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Jump checks and Tumble checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.",
         "normal": "",
         "special": "Remember that the Tumble skill can’t be used untrained.",
         "repeatable": false
@@ -209,7 +209,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful Reflex save (DC 10 + 1/2 the jumping jack’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the jumping jack’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

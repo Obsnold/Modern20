@@ -191,7 +191,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.YqJNNpB0lxX6SkIO",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Climb checks and Swim checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:climb]{Climb check}s and @Check[skill:swim]{Swim check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -229,7 +229,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:will]{Will saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -339,7 +339,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Any humanoid hit by a werewolf’s bite attack (in wolf or hybrid form) must succeed on a Fortitude save (DC 15) or contract lycanthropy.</p>",
+        "description": "<p>Any humanoid hit by a werewolf’s bite attack (in wolf or hybrid form) must succeed on a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract lycanthropy.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -403,7 +403,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A werewolf can communicate with wolves in any form and gains a +4 species bonus on Diplomacy checks when influencing a wolf’s attitude. A friendly wolf understands and heeds simple commands, such as “wait,” “chase,” “flee,” and “attack.”</p>",
+        "description": "<p>A werewolf can communicate with wolves in any form and gains a +4 species bonus on @Check[skill:diplomacy]{Diplomacy check}s when influencing a wolf’s attitude. A friendly wolf understands and heeds simple commands, such as “wait,” “chase,” “flee,” and “attack.”</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

@@ -5,13 +5,19 @@ import { MODERN20 } from "./config.mjs";
  *
  * The SRD says what to roll constantly — "a DC 15 Climb check", "a Fortitude
  * save (DC 14)" — and on a journal page that is a sentence. The import rewrites
- * 2,054 of those sentences as `@Check[skill:climb|dc:15]{DC 15 Climb check}`,
+ * 3,103 of those sentences as `@Check[skill:climb|dc:15]{DC 15 Climb check}`,
  * and this is what turns one into something to click: the SRD's own words, with
  * a die in front of them.
  *
  * Registered as a text enricher, so it applies to every piece of enriched
  * content in the world and not only to the pages the import wrote — a GM who
  * types `@Check[save:ref|dc:20]` into their own notes gets the same button.
+ *
+ * Which is also why anything that displays this system's own prose has to
+ * enrich it: the rules say what to roll in an item's text as much as on a
+ * page — 1,052 times across the packs, in a spell's description, a feat's
+ * benefit, a creature ability's rules text — and text put on screen without
+ * being enriched shows the markup itself.
  */
 
 /** `@Check[skill:knowledge|specialty:Streetwise|dc:20]{the printed words}`. */
@@ -19,6 +25,28 @@ const CHECK = /@Check\[([^\]]+)\](?:\{([^}]+)\})?/g;
 
 export function registerEnrichers() {
   CONFIG.TextEditor.enrichers.push({ pattern: CHECK, enricher: enrichCheck });
+}
+
+/** The fields the import writes rolls into, and so the fields to enrich. */
+export const PROSE_FIELDS = ["description", "benefit", "normal", "special"];
+
+/**
+ * The prose a document carries, enriched: the fields the SRD prints its rules
+ * text in, ready to put on a sheet or a chat card.
+ *
+ * One helper rather than a call per field, because forgetting one is invisible
+ * — the text renders, and only the roll is missing.
+ */
+export async function enrichProse(document, { secrets = false } = {}) {
+  const { TextEditor } = foundry.applications.ux;
+  const system = document.system ?? {};
+  const out = {};
+  for (const field of PROSE_FIELDS) {
+    out[field] = await TextEditor.implementation.enrichHTML(system[field] ?? "", {
+      secrets, relativeTo: document
+    });
+  }
+  return out;
 }
 
 /** `skill:climb|dc:15` as an object. */

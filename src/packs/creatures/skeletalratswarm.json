@@ -129,7 +129,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Skeletal rat swarms are immune to poison, sleep, paralysis, stunning, disease, necromantic effects, and mindaffecting effects. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or effects of massive damage, or any effect requiring a Fortitude save unless the effect also works on objects or is harmless. They may be healed by application of negative energy (such as an inflict light wounds spell). The swarm is destroyed if reduced to 0 hit points or less.</p>",
+        "description": "<p>Skeletal rat swarms are immune to poison, sleep, paralysis, stunning, disease, necromantic effects, and mindaffecting effects. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or effects of massive damage, or any effect requiring a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They may be healed by application of negative energy (such as an inflict light wounds spell). The swarm is destroyed if reduced to 0 hit points or less.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

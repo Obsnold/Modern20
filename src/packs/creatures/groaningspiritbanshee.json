@@ -260,7 +260,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A groaning spirit can moan as an attack action. All living creatures within a 30-foot spread must succeed at a Will save (DC 10 + spirit’s Hit Dice + spirit’s Charisma modifier) or become panicked for 2d4 rounds. A panicked creature flees as fast as possible, cowers if unable to get away, and defends normally (but cannot attack). This is a sonic, necromantic, mind-affecting fear effect. A creature that successfully saves against the moan cannot be affected by the same spirit’s moan for one day.</p>",
+        "description": "<p>A groaning spirit can moan as an attack action. All living creatures within a 30-foot spread must succeed at a @Check[save:will]{Will save} (DC 10 + spirit’s Hit Dice + spirit’s Charisma modifier) or become panicked for 2d4 rounds. A panicked creature flees as fast as possible, cowers if unable to get away, and defends normally (but cannot attack). This is a sonic, necromantic, mind-affecting fear effect. A creature that successfully saves against the moan cannot be affected by the same spirit’s moan for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

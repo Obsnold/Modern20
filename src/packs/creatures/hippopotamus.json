@@ -189,7 +189,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A hippopotamus is agile in the water, gaining a +4 species bonus on Swim checks.</p>",
+        "description": "<p>A hippopotamus is agile in the water, gaining a +4 species bonus on @Check[skill:swim]{Swim check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

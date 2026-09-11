@@ -368,7 +368,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A jynx gains a +4 species bonus on Disable Device checks.</p>",
+        "description": "<p>A jynx gains a +4 species bonus on @Check[skill:disableDevice]{Disable Device check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

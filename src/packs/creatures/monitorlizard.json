@@ -219,7 +219,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Monitor lizards gain a +4 species bonus on Hide and Move Silently checks. In forested or overgrown areas, the bonus on Hide checks improves to +8.</p>",
+        "description": "<p>Monitor lizards gain a +4 species bonus on Hide and @Check[skill:moveSilently]{Move Silently check}s. In forested or overgrown areas, the bonus on @Check[skill:hide]{Hide check}s improves to +8.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

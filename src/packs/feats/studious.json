@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.hXMJTt5gsddJTUkS",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Decipher Script checks and Research checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:decipherScript]{Decipher Script check}s and @Check[skill:research]{Research check}s.",
     "normal": "",
     "special": "",
     "repeatable": false

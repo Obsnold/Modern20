@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.PGKnoJ0kEWbRRFpi",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Investigate checks and Sense Motive checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:investigate]{Investigate check}s and @Check[skill:senseMotive]{Sense Motive check}s.",
     "normal": "",
     "special": "Remember that the Investigate skill can’t be used untrained.",
     "repeatable": false

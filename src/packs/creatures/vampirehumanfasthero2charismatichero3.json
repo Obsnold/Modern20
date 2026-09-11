@@ -325,7 +325,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -422,7 +422,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:will]{Will saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -441,7 +441,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mawmlYXqaF5J2G2K",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:ref]{Reflex saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -498,7 +498,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.LSbvyW4I5aDmtXKT",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -517,7 +517,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.w9EpyKbWNBwI1oOV",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks.",
+        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.",
         "normal": "",
         "special": "A character can select this feat multiple times. Each time, both of its effects stack.",
         "repeatable": false
@@ -562,7 +562,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>As an attack action, a vampire can crush an opponent’s will just by gazing into his or her eyes. The vampire can attempt to dominate only one target at a time, and the target must be within 30 feet and able to see the vampire. A target that fails a Will save (DC 10 + 1/2 vampire’s Hit Dice + vampire’s Charisma modifier) becomes the vampire’s thrall for 1 day per Hit Die of the vampire. The thrall temporarily loses all previous allegiances and adopts a singular, unswerving allegiance to the vampire. If the vampire commands its thrall to do something blatantly self-destructive, the target can make a Will save to break the vampire’s control. If the save succeeds, the target becomes free-willed and regains its previous allegiances.</p>",
+        "description": "<p>As an attack action, a vampire can crush an opponent’s will just by gazing into his or her eyes. The vampire can attempt to dominate only one target at a time, and the target must be within 30 feet and able to see the vampire. A target that fails a @Check[save:will]{Will save} (DC 10 + 1/2 vampire’s Hit Dice + vampire’s Charisma modifier) becomes the vampire’s thrall for 1 day per Hit Die of the vampire. The thrall temporarily loses all previous allegiances and adopts a singular, unswerving allegiance to the vampire. If the vampire commands its thrall to do something blatantly self-destructive, the target can make a @Check[save:will]{Will save} to break the vampire’s control. If the save succeeds, the target becomes free-willed and regains its previous allegiances.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -830,7 +830,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The merest sliver of sunlight deals 2d6 points of damage to a vampire. A vampire exposed to direct sunlight for 1 full round must succeed on a Fortitude save (DC 20) or be consumed by fire and destroyed utterly.</p>",
+        "description": "<p>The merest sliver of sunlight deals 2d6 points of damage to a vampire. A vampire exposed to direct sunlight for 1 full round must succeed on a @Check[save:fort|dc:20]{Fortitude save (DC 20)} or be consumed by fire and destroyed utterly.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

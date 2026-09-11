@@ -119,7 +119,8 @@ def with_page(system: dict, uuid: str) -> dict:
 
 
 def link(document: dict, built: dict | None, pack: str, index: rules_pages.RulesIndex,
-         counts: collections.Counter, *, corrected: bool = False) -> bool:
+         counts: collections.Counter, rollable: list, *,
+         corrected: bool = False) -> bool:
     """Reconcile one document, and its embedded ones, with the import.
 
     `corrected` marks a document recorded in data/overrides/packs as
@@ -141,6 +142,16 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     if book and book not in (system.get("source") or ""):
         system["source"] = build_packs.source_for(url)
         counts["book"] += 1
+        changed = True
+
+    # What the document's own text tells the reader to roll. Written over the
+    # text on disk rather than taken from the import, so a corrected
+    # description keeps its correction and gains the rolls it names; the
+    # rewrite only wraps the SRD's own words, and a roll already written is
+    # left alone, so this converges and re-running changes nothing.
+    written = build_packs.link_field_checks(document, rollable)
+    if written:
+        counts["rolls"] += written
         changed = True
 
     # The effect a feat's own sentence states, which no import can add to a
@@ -195,7 +206,7 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     # an id is regenerated on every import and a name is not.
     children = {child["name"]: child for child in ((built or {}).get("items") or [])}
     for child in (document.get("items") or []):
-        if link(child, children.get(child["name"]), pack, index, counts,
+        if link(child, children.get(child["name"]), pack, index, counts, rollable,
                 corrected=corrected):
             changed = True
     return changed
@@ -273,6 +284,7 @@ def main() -> int:
 
     index = rules_pages.default()
     built = imported()
+    rollable = build_packs.check_patterns()
     counts: collections.Counter = collections.Counter()
     written = 0
     unlinked = []
@@ -294,7 +306,7 @@ def main() -> int:
         slug = os.path.basename(path)[:-5]
         before = json.dumps(document, ensure_ascii=False)
         changed = link(document, built.get((pack, slug)), pack, index, counts,
-                       corrected=slug in build_packs.hand_edited(pack))
+                       rollable, corrected=slug in build_packs.hand_edited(pack))
         uuid = (document.get("system") or {}).get("rulesPage")
         if not uuid:
             unlinked.append(f"{pack}/{slug}")
@@ -321,6 +333,8 @@ def main() -> int:
         print(f"{counts['token']} actor(s) took the token the import derives")
     if counts["measured"]:
         print(f"{counts['measured']} space and reach value(s) corrected")
+    if counts["rolls"]:
+        print(f"{counts['rolls']} field(s) of prose now say what they roll")
     if arguments.report and unlinked:
         print("\nNo rules page at all:")
         for name in unlinked:

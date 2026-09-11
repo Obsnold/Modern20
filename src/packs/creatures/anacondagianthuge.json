@@ -294,7 +294,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A giant anaconda gains a +8 species bonus on Balance, Climb, and Swim checks and a +4 species bonus on Hide, Listen, and Spot checks.</p>",
+        "description": "<p>A giant anaconda gains a +8 species bonus on Balance, Climb, and @Check[skill:swim]{Swim check}s and a +4 species bonus on Hide, Listen, and @Check[skill:spot]{Spot check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

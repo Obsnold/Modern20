@@ -184,7 +184,7 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -217,7 +217,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Skunk apes exude a stench reminiscent of rotting vegetation, ammonia, and decay. When frightened or angry, they can intensify this odor such that all creatures within 30 feet of the skunk ape must succeed at a Fortitude save (DC 12) or be nauseated for 2d6 rounds. A nauseated creature may take only a single move action per turn and may not perform actions requiring concentration or attention. Skunk apes are immune to their own stench but not to the stench of other creatures.</p>",
+        "description": "<p>Skunk apes exude a stench reminiscent of rotting vegetation, ammonia, and decay. When frightened or angry, they can intensify this odor such that all creatures within 30 feet of the skunk ape must succeed at a @Check[save:fort|dc:12]{Fortitude save (DC 12)} or be nauseated for 2d6 rounds. A nauseated creature may take only a single move action per turn and may not perform actions requiring concentration or attention. Skunk apes are immune to their own stench but not to the stench of other creatures.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

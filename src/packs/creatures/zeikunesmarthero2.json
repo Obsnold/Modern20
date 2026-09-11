@@ -267,7 +267,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mawmlYXqaF5J2G2K",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:ref]{Reflex saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false

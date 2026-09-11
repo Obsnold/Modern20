@@ -329,7 +329,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>The sea serpent’s coloration and shape grant it a +10 species bonus on Hide checks made while it is in water.</p>",
+        "description": "<p>The sea serpent’s coloration and shape grant it a +10 species bonus on @Check[skill:hide]{Hide check}s made while it is in water.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

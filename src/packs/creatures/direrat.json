@@ -191,7 +191,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Dire rats carry a Shadow disease called filth fever. Filth fever—bite: Fortitude save (DC 12) negates; incubation period 1d3 days; initial and secondary damage 1d3 Dex and 1d3 Con.</p>",
+        "description": "<p>Dire rats carry a Shadow disease called filth fever. Filth fever—bite: @Check[save:fort|dc:12]{Fortitude save (DC 12)} negates; incubation period 1d3 days; initial and secondary damage 1d3 Dex and 1d3 Con.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -239,7 +239,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Dire rats gain a +8 species bonus on Swim checks. Dire rats apply their Strength or Dexterity bonus (whichever is higher) to Climb and Swim checks.</p>",
+        "description": "<p>Dire rats gain a +8 species bonus on @Check[skill:swim]{Swim check}s. Dire rats apply their Strength or Dexterity bonus (whichever is higher) to Climb and @Check[skill:swim]{Swim check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

@@ -322,7 +322,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Big cats gain a +8 species bonus on Balance checks and a +4 species bonus on Hide, Jump, and Move Silently checks (for running jumps, the Jump bonus is +8).</p>",
+        "description": "<p>Big cats gain a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide, Jump, and @Check[skill:moveSilently]{Move Silently check}s (for running jumps, the Jump bonus is +8).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

@@ -390,7 +390,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Changelings gain a +2 species bonus on Bluff and Sleight of Hand checks.</p>",
+        "description": "<p>Changelings gain a +2 species bonus on Bluff and @Check[skill:sleightOfHand]{Sleight of Hand check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

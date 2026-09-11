@@ -8,6 +8,6 @@
   {{#if system.prerequisites.length}}
     <p class="m20-hint">{{localize "MODERN20.Prerequisites"}}: {{#each system.prerequisites}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
   {{/if}}
-  <div class="m20-chat__body">{{{system.description}}}</div>
-  {{#if system.benefit}}<div class="m20-chat__body"><strong>{{localize "MODERN20.Benefit"}}:</strong> {{{system.benefit}}}</div>{{/if}}
+  <div class="m20-chat__body">{{{description}}}</div>
+  {{#if system.benefit}}<div class="m20-chat__body"><strong>{{localize "MODERN20.Benefit"}}:</strong> {{{benefit}}}</div>{{/if}}
 </div>

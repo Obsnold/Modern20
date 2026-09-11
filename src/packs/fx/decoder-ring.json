@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "icons/svg/daze.svg",
   "system": {
-    "description": "<p>This cheap-looking tin ring has a small dial adorned with letters of the alphabet. It grants its wearer a +10 equipment bonus on Decipher Script checks. Note that understanding does not necessarily imply spell use.</p>",
+    "description": "<p>This cheap-looking tin ring has a small dial adorned with letters of the alphabet. It grants its wearer a +10 equipment bonus on @Check[skill:decipherScript]{Decipher Script check}s. Note that understanding does not necessarily imply spell use.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.hOkNvegbhCwfCydz",

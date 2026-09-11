@@ -12,8 +12,8 @@
     "prerequisites": [
       "Pilot 4 ranks."
     ],
-    "benefit": "The character takes no penalty on Pilot checks or attack rolls made when operating an aircraft of the selected class.",
-    "normal": "Characters without this feat take a –4 penalty on Pilot checks made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.",
+    "benefit": "The character takes no penalty on @Check[skill:pilot]{Pilot check}s or attack rolls made when operating an aircraft of the selected class.",
+    "normal": "Characters without this feat take a –4 penalty on @Check[skill:pilot]{Pilot check}s made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.",
     "special": "The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.",
     "repeatable": false
   },

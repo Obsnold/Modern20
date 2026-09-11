@@ -461,7 +461,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>Because of its size and ferocious appearance, a sasquatch gains a +4 species bonus on Intimidate checks.</p>",
+        "description": "<p>Because of its size and ferocious appearance, a sasquatch gains a +4 species bonus on @Check[skill:intimidate]{Intimidate check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

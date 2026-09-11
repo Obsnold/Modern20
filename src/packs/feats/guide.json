@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.lZOKUMqX40rNoLBN",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets a +2 bonus on all Navigate checks and Survival checks.",
+    "benefit": "The character gets a +2 bonus on all @Check[skill:navigate]{Navigate check}s and @Check[skill:survival]{Survival check}s.",
     "normal": "",
     "special": "",
     "repeatable": false

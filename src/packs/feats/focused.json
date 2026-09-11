@@ -10,7 +10,7 @@
     "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.HKXTbFcvY8QkdE6c",
     "featType": "general",
     "prerequisites": [],
-    "benefit": "The character gets get a +2 bonus on all Balance checks and Concentration checks.",
+    "benefit": "The character gets get a +2 bonus on all @Check[skill:balance]{Balance check}s and @Check[skill:concentration]{Concentration check}s.",
     "normal": "",
     "special": "",
     "repeatable": false

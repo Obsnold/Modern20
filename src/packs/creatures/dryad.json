@@ -245,7 +245,7 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "benefit": "The character gets a +2 bonus on all @Check[save:fort]{Fortitude saving throw}s.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -326,7 +326,7 @@
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
-        "description": "<p>A dryad can use body language, vocalizations, and demeanor to improve the attitude of an animal. This ability functions like a Diplomacy check made to improve the attitude of a person. The dryad rolls 1d20 +10 (+6 species bonus, +4 Charisma bonus) to determine the wild empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals are usually unfriendly.</p>",
+        "description": "<p>A dryad can use body language, vocalizations, and demeanor to improve the attitude of an animal. This ability functions like a @Check[skill:diplomacy]{Diplomacy check} made to improve the attitude of a person. The dryad rolls 1d20 +10 (+6 species bonus, +4 Charisma bonus) to determine the wild empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals are usually unfriendly.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
