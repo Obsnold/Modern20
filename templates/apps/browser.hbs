@@ -1,0 +1,100 @@
+<div class="m20-browser">
+  <div class="m20-browser__filters">
+    <input type="search" id="m20-browser-text" data-filter="text" value="{{filters.text}}"
+           placeholder="{{localize 'MODERN20.Browser.Search'}}">
+
+    <select id="m20-browser-pack" data-filter="pack">
+      <option value="">{{localize "MODERN20.Browser.AnyPack"}}</option>
+      {{#each packs as |entry|}}
+        <option value="{{entry.name}}" {{#if (eq entry.name ../filters.pack)}}selected{{/if}}>
+          {{entry.label}}
+        </option>
+      {{/each}}
+    </select>
+
+    <select id="m20-browser-book" data-filter="book">
+      <option value="">{{localize "MODERN20.Browser.AnyBook"}}</option>
+      {{#each books as |book|}}
+        <option value="{{book}}" {{#if (eq book ../filters.book)}}selected{{/if}}>{{book}}</option>
+      {{/each}}
+    </select>
+
+    {{!-- "If the character's Wealth bonus is equal to or greater than the
+          purchase DC, the character can purchase the object automatically." --}}
+    <label class="m20-browser__wealth" for="m20-browser-wealth">
+      {{localize "MODERN20.Browser.Affordable"}}
+      <input id="m20-browser-wealth" type="number" min="0" data-filter="wealth"
+             value="{{filters.wealth}}" placeholder="—">
+    </label>
+
+    <select id="m20-browser-restriction" data-filter="restriction">
+      <option value="">{{localize "MODERN20.Browser.AnyRestriction"}}</option>
+      {{#each restrictions as |restriction key|}}
+        <option value="{{key}}" {{#if (eq key ../filters.restriction)}}selected{{/if}}>
+          {{localize restriction.label}}
+        </option>
+      {{/each}}
+    </select>
+
+    {{#if progressLevels.length}}
+      <select id="m20-browser-progress" data-filter="progress">
+        <option value="">{{localize "MODERN20.Browser.AnyProgressLevel"}}</option>
+        {{#each progressLevels as |level|}}
+          <option value="{{level}}" {{#if (eq level ../filters.progress)}}selected{{/if}}>
+            {{localize "MODERN20.Browser.ProgressLevel"}} {{level}}
+          </option>
+        {{/each}}
+      </select>
+    {{/if}}
+
+    <button type="button" class="m20-button m20-button--small" data-action="clearFilters">
+      {{localize "MODERN20.Browser.Clear"}}
+    </button>
+  </div>
+
+  <p class="m20-hint m20-browser__count">
+    {{localize "MODERN20.Browser.Found" found=found total=total}}
+    {{#if truncated}}&middot; {{localize "MODERN20.Browser.Truncated" limit=limit}}{{/if}}
+  </p>
+
+  <div class="m20-browser__scroll">
+    <table class="m20-browser__table">
+      <thead>
+        <tr>
+          <th>{{localize "MODERN20.Header.Name"}}</th>
+          <th>{{localize "MODERN20.Browser.Pack"}}</th>
+          <th>{{localize "MODERN20.Browser.Book"}}</th>
+          <th class="m20-browser__number">{{localize "MODERN20.PurchaseDCShort"}}</th>
+          <th>{{localize "MODERN20.Restriction"}}</th>
+          <th class="m20-browser__number">{{localize "MODERN20.Browser.PL"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each rows as |row|}}
+          <tr class="m20-browser__row" draggable="true"
+              data-uuid="{{row.uuid}}" data-document-name="{{row.documentName}}">
+            <td>
+              <button type="button" class="m20-roll" data-action="openEntry"
+                      data-uuid="{{row.uuid}}">
+                <img src="{{row.img}}" alt=""> {{row.name}}
+              </button>
+            </td>
+            <td>{{row.packLabel}}</td>
+            <td>{{row.book}}</td>
+            <td class="m20-browser__number">{{#if row.purchaseDC}}{{row.purchaseDC}}{{/if}}</td>
+            <td>
+              {{#unless (eq row.restriction "none")}}
+                {{localize (lookup (lookup ../restrictions row.restriction) "label")}}
+              {{/unless}}
+            </td>
+            <td class="m20-browser__number">
+              {{#if row.progressLevel}}{{row.progressLevel}}{{/if}}
+            </td>
+          </tr>
+        {{else}}
+          <tr><td colspan="6" class="m20-hint">{{localize "MODERN20.Browser.Empty"}}</td></tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
