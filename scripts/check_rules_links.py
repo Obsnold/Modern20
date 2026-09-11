@@ -14,6 +14,8 @@ into the compendium:
   - every topic and skill in module/rules-links.mjs
   - that every topic is referenced by a template or a module, since a topic
     nothing links to is a page chosen for no reason
+  - every document a rules page lists in its footer, which has to exist, be
+    named what the footer calls it, and point back at that page
 
 It also holds the coverage, recorded per pack in data/coverage.json: how many
 documents carry a link, and how many distinct pages those links reach. The
@@ -29,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import html
 import json
 import os
 import re
@@ -46,6 +49,12 @@ UUID = re.compile(
 LINK = re.compile(r'"(Compendium\.modern20\.rules\.[^"]+)"')
 TOPIC_BLOCK = re.compile(r"RULES_TOPICS = \{(.*?)\n\};", re.S)
 TOPIC = re.compile(r'"([\w]+)":\s*"([^"]+)"')
+
+# What a rules page says it is the rules for: the footer scripts/link_rules.py
+# writes, and each document it lists.
+FOOTER = re.compile(r'<section class="m20-in-world">(.*?)</section>', re.S)
+LISTED = re.compile(
+    r"@UUID\[Compendium\.modern20\.(\w+)\.(?:Item|Actor)\.(\w{16})\]\{([^}]*)\}")
 
 
 def pages() -> dict[str, set[str]]:
@@ -116,6 +125,42 @@ def referenced() -> set[str]:
     return used
 
 
+def footers(rules_files: list[str], packs: dict[str, tuple[str, str]]) -> tuple[int, list[str]]:
+    """Check what each page says it is the rules for.
+
+    A footer is generated, so its failure mode is staleness rather than a typo:
+    a document renamed on its own sheet, or deleted, leaves a page offering
+    something that is not there any more.
+    """
+    listed = 0
+    problems = []
+    for path in rules_files:
+        with open(path, encoding="utf-8") as handle:
+            entry = json.load(handle)
+        for page in entry.get("pages") or []:
+            block = FOOTER.search(page["text"]["content"])
+            if not block:
+                continue
+            uuid = (f"Compendium.modern20.rules.JournalEntry.{entry['_id']}"
+                    f".JournalEntryPage.{page['_id']}")
+            for pack, document_id, label in LISTED.findall(block.group(1)):
+                listed += 1
+                found = packs.get(document_id)
+                where = f'{entry["name"]}: "{page["name"]}"'
+                if not found:
+                    problems.append(f"{where} lists {pack}/{document_id}, "
+                                    "which is not in any pack")
+                    continue
+                name, points_at = found
+                if html.escape(name) != label:
+                    problems.append(f'{where} lists {document_id} as "{label}", '
+                                    f'which is called "{name}"')
+                if points_at != uuid:
+                    problems.append(f'{where} lists "{name}", whose rules page '
+                                    "is a different one")
+    return listed, problems
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--update", action="store_true",
@@ -129,6 +174,8 @@ def main() -> int:
 
     problems = 0
     checked = 0
+    # Every document by id, for checking what the pages say they are about.
+    by_id: dict[str, tuple[str, str]] = {}
     # Per pack: how many documents have a link, and how many pages those links
     # reach between them.
     coverage: dict[str, dict[str, int]] = {}
@@ -152,10 +199,18 @@ def main() -> int:
             continue
         counts["linked"] += 1
         reached[pack].add(uuid)
+        by_id[document["_id"]] = (document["name"], uuid)
     for pack, counts in coverage.items():
         counts["pages"] = len(reached[pack])
 
     print(f"{checked} document links checked against src/packs/rules")
+
+    listed, stale = footers(
+        sorted(glob.glob(os.path.join(PACKS, "rules", "*.json"))), by_id)
+    for problem in stale:
+        problems += 1
+        print(f"FAIL  {problem}")
+    print(f"{listed} documents listed by the pages they are the rules for")
 
     declared = topics()
     for topic, uuid in declared.items():

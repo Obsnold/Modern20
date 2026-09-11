@@ -35,7 +35,7 @@ fighting it forever, so this is a standalone game system.
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
-| Everything links to it | All 1,391 compendium documents carry the page their rules are on; the sheets link 19 topics and every skill |
+| Everything links to it | All 1,391 compendium documents carry the page their rules are on, and 686 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
@@ -604,7 +604,7 @@ the rules compendium its own rules are printed on — and so do the parts of the
 system that are not documents at all.
 
 ```bash
-python3 scripts/link_rules.py         # stamp the documents already in src/packs
+python3 scripts/link_rules.py         # stamp the documents, and the pages they point at
 python3 scripts/gen_rules_links.py    # regenerate module/rules-links.mjs
 python3 scripts/check_rules_links.py  # every link resolves to a page that exists
 ```
@@ -647,6 +647,16 @@ book actually uses: the size off the front, the class and level off the back,
 the parenthesis off the end. It is safe to be that aggressive because a variant
 is only ever looked for among the pages of the one SRD page the stat block was
 printed on.
+
+**Each page says what it is the rules for.** The link goes both ways: a footer
+on the gargoyle's page offers the gargoyle, the Handguns page offers its
+twenty-three handguns, and the feats chapter offers each feat as the item to
+drag onto a sheet — 686 pages, listing 1,391 documents between them. Reading a
+rule and reaching for the thing it describes is most of what a rules reference
+is for. The footer is a generated block confined to the end of the page, so the
+SRD's own text is never edited, and it is replaced whole on every run;
+`check_rules_links.py` holds it to the packs, since a document renamed on its
+own sheet would otherwise leave a page offering something that is not there.
 
 **What the sheets link** is in `module/rules-links.mjs`, generated: 19 topics
 and a page for each of the 41 skills, including the seven Craft subjects the
@@ -831,7 +841,7 @@ additive, and never argues with the pack.
 python3 scripts/scrape.py             # crawl the SRD into data/
 python3 scripts/build_packs.py        # import what the packs do not have yet
 python3 scripts/build_packs.py --overwrite weapons   # take the import for one pack
-python3 scripts/link_rules.py         # give the documents already there their rules page
+python3 scripts/link_rules.py         # link the documents and the rules pages to each other
 scripts/capture_edits.py              # bring edits made in Foundry home
 ```
 

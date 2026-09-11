@@ -176,6 +176,13 @@
 .modern20 .m20-rules i,
 .m20-chat .m20-rules i { font-size: 0.85em; }
 
+/* The footer link_rules.py writes at the foot of a rules page, listing the
+   compendium documents that page is the rules for. Unscoped for the same
+   reason as the chat cards: a journal sheet is core's, not the system's. */
+
+.m20-in-world { margin-top: 1.2rem; color: #6b645c; font-size: 0.9em; }
+.m20-in-world p { margin: 0.4rem 0 0; line-height: 1.8; }
+
 /* --- Buttons ----------------------------------------------------------- */
 
 .modern20 .m20-roll {
