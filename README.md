@@ -38,6 +38,7 @@ fighting it forever, so this is a standalone game system.
 | Everything links to it | All 1,590 compendium documents carry the page their rules are on, and 854 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
 | The rules roll themselves | 2,054 sentences across 693 pages — "a DC 15 Climb check" is the roll, clicked where it is printed |
 | Feats that apply themselves | 22 of the 189 feats and talents state a bonus plainly enough to carry an Active Effect; the rest stay text |
+| Compendium browser | All 1,590 documents in one window, filtered by book, compendium, restriction rating, progress level and what a Wealth bonus can afford |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
@@ -93,6 +94,7 @@ module/
   rules.mjs              Links into the rules compendium; rules-links.mjs is generated
   enrichers.mjs          The rolls the rules text asks for, as rolls
   effects.mjs            What an item applies, in the sheet's own words
+  apps/browser.mjs       One window over every compendium, filtered the SRD's way
 templates/               Handlebars templates (actor, item, chat)
 css/modern20.css         Styling, scoped under .modern20
 lang/en.json             Localization
@@ -812,6 +814,36 @@ compared as one value differs on every round trip, and all 22 feats would come
 home reporting an edit nobody made. Compared document by document, an effect a
 GM switches off comes home switched off — which `check_capture.py` now drags
 through the round trip to prove.
+
+## The compendium browser
+
+Foundry's own compendium browser is one pack at a time with a name search,
+which is enough for a bestiary and not for an equipment list. What a d20 Modern
+table asks is "what can this character afford", "what is legal to carry" and
+"what exists at this progress level" — three questions about fields every
+purchasable document already stores and nothing could sort on: 741 documents
+carry a purchase DC and a restriction rating, 656 a progress level, and all
+1,590 name their book.
+
+So one window over all thirteen packs, filtered by name, compendium, book,
+restriction rating, progress level, and the number that matters most —
+*"If the character's Wealth bonus is equal to or greater than the purchase DC,
+the character can purchase the object automatically."* Type a Wealth bonus and
+what is left is what that character can simply buy. Rows drag onto a sheet or
+the canvas, and clicking one opens it.
+
+It searches the **index**, never the documents. A pack's index is a few fields
+per entry and is already in memory; `getDocuments` on thirteen packs is 1,590
+documents built to read a purchase DC off each. The filter lists are built from
+what the index actually holds rather than from a list written here, so a world
+that adds a pack of its own shows up in them. Three hundred rows are drawn at
+most, with the count of what matched, because a table nobody scrolls is cost
+without value.
+
+It opens from a button added to core's own compendium sidebar — inside a `try`,
+because a change to core's markup should cost a button rather than the sidebar
+— and from `game.modern20.browser()`, which is what a macro or a module would
+reach for.
 
 ## FX items
 

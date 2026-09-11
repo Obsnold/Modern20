@@ -1187,6 +1187,24 @@
     "BaseAttack": "Base Attack",
     "Benefit": "Benefit",
     "BlackMarket": "Black market surcharge",
+    "Browser": {
+      "Affordable": "Affordable at Wealth",
+      "AnyBook": "Every book",
+      "AnyPack": "Every compendium",
+      "AnyProgressLevel": "Any progress level",
+      "AnyRestriction": "Any restriction",
+      "Book": "Book",
+      "Clear": "Clear",
+      "Empty": "Nothing matches these filters.",
+      "Found": "{found} of {total} documents",
+      "Open": "Browse the compendia",
+      "PL": "PL",
+      "Pack": "Compendium",
+      "ProgressLevel": "PL",
+      "Search": "Search by name",
+      "Title": "Compendium Browser",
+      "Truncated": "only the first {limit} are listed; narrow the search"
+    },
     "BuyHint": "Buy with a Wealth check. Shift-click to use the black market.",
     "CR": "CR",
     "Cargo": "Cargo",
@@ -1462,6 +1480,7 @@
     "Handling": "Handling",
     "Hardness": "Hardness",
     "Header": {
+      "Name": "Name",
       "Skill": "Skill"
     },
     "Hint": {

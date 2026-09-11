@@ -176,6 +176,58 @@
 .modern20 .m20-rules i,
 .m20-chat .m20-rules i { font-size: 0.85em; }
 
+/* --- The compendium browser ---------------------------------------------
+   One window over every pack: a filter bar that wraps, and a table that
+   scrolls inside it rather than growing the window. */
+
+.modern20.browser .window-content { padding: 0; }
+
+.m20-browser { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+
+.m20-browser__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.6rem;
+  border-bottom: 1px solid var(--m20-rule);
+}
+
+.m20-browser__filters input[type="search"] { flex: 1 1 11rem; min-width: 8rem; }
+.m20-browser__filters select { flex: 0 1 auto; max-width: 12rem; }
+.m20-browser__wealth { display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap; }
+.m20-browser__wealth input { width: 3.5rem; text-align: center; }
+
+.m20-browser__count { padding: 0.3rem 0.6rem 0; }
+
+/* The one thing that scrolls, so the filter bar stays put. */
+.m20-browser__scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 0.6rem 0.6rem; }
+
+.m20-browser__table { width: 100%; border-collapse: collapse; }
+.m20-browser__table th {
+  position: sticky;
+  top: 0;
+  background: var(--m20-panel);
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--m20-muted);
+  border-bottom: 1px solid var(--m20-rule);
+  padding: 0.3rem 0.4rem;
+}
+.m20-browser__table td { padding: 0.2rem 0.4rem; border-bottom: 1px solid var(--m20-rule); }
+.m20-browser__table img { width: 20px; height: 20px; border: none; vertical-align: -0.3em; }
+.m20-browser__number { text-align: right; font-variant-numeric: tabular-nums; }
+.m20-browser__row { cursor: grab; }
+.m20-browser__row:hover { background: #e8e1d4; }
+
+/* The button added to core's own compendium sidebar. */
+.m20-browse {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
 /* A roll the rules text asks for: the SRD's own sentence with a die on the
    front. Unscoped, like the rules footer below and for the same reason — these
    are inside journal pages, which core renders, not this system. */

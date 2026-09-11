@@ -26,6 +26,7 @@ import { bindDamageControls } from "./apps/damage.mjs";
 import { registerConditions } from "./conditions.mjs";
 import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.mjs";
 import { registerEnrichers } from "./enrichers.mjs";
+import { Modern20Browser } from "./apps/browser.mjs";
 import { CONDITIONS } from "./condition-list.mjs";
 import { ACTIVITY_TYPES } from "./data/activity.mjs";
 
@@ -87,6 +88,9 @@ Hooks.once("init", () => {
     Modern20Item,
     rollWealthCheck,
     lossFormulaForGap,
+    // One window over every pack, which a macro can open as well as the
+    // button below: game.modern20.browser().
+    browser: () => Modern20Browser.show(),
     config: MODERN20
   };
 });
@@ -165,6 +169,32 @@ Hooks.on("combatStart", async (combat) => {
     if (!actor) continue;
     if (setting("autoTurnReset")) await actor.startTurn();
     if (flatFooted) await actor.toggleStatusEffect("flatfooted", { active: true });
+  }
+});
+
+/**
+ * A way into the browser from where the packs are.
+ *
+ * The compendium sidebar is core's, so the button is added to the rendered
+ * directory rather than to a template of ours — and inside a try, because a
+ * change to core's own markup should cost a button rather than the sidebar.
+ */
+Hooks.on("renderCompendiumDirectory", (app, html) => {
+  try {
+    // v13 hands the hook an element; older cores handed it jQuery. Neither
+    // HTMLElement nor jQuery is a global this system may reach for.
+    const element = html?.nodeType === 1 ? html : html?.[0];
+    if (!element || element.querySelector(".m20-browse")) return;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "m20-browse";
+    button.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> `
+      + game.i18n.localize("MODERN20.Browser.Open");
+    button.addEventListener("click", () => Modern20Browser.show());
+    (element.querySelector(".directory-footer") ?? element).append(button);
+  } catch (error) {
+    console.warn(`${SYSTEM_ID} | could not add the browser button to the sidebar`, error);
   }
 });
 
