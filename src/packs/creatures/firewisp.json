@@ -85,8 +85,8 @@
         "cold"
       ],
       "massiveDamageThreshold": null,
-      "reach": 1,
-      "space": 5
+      "reach": 0,
+      "space": 1.0
     },
     "details": {
       "creatureType": "elemental",
@@ -301,5 +301,22 @@
       "_key": "!actors.items!sDwnA4DgCcBCYKxB.AGYssl5XGnGzjslm"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 0.5,
+    "height": 0.5,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 60,
+        "enabled": true
+      }
+    ]
+  }
 }

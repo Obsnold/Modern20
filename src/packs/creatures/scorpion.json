@@ -80,8 +80,8 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": 4,
-      "reach": 6,
-      "space": 5
+      "reach": 0,
+      "space": 0.5
     },
     "details": {
       "creatureType": "vermin",
@@ -331,5 +331,20 @@
       "_key": "!actors.items!bzfpJutBfkCp2qnT.1C94DDTAqkXR4brG"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 0.5,
+    "height": 0.5,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 30,
+      "visionMode": "darkvision"
+    }
+  }
 }

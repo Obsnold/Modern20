@@ -85,8 +85,8 @@
         "sonic"
       ],
       "massiveDamageThreshold": null,
-      "reach": 30,
-      "space": 5
+      "reach": 15,
+      "space": 30.0
     },
     "details": {
       "creatureType": "ooze",
@@ -224,5 +224,22 @@
       "_key": "!actors.items!bDQCrm7Hav8vopiU.WyK3Mfd4pEcONrKw"
     }
   ],
-  "folder": "a4aNUGB5Hmo04l08"
+  "folder": "a4aNUGB5Hmo04l08",
+  "prototypeToken": {
+    "width": 6.0,
+    "height": 6.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 60,
+        "enabled": true
+      }
+    ]
+  }
 }

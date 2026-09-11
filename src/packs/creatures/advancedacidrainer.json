@@ -85,8 +85,8 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": null,
-      "reach": 20,
-      "space": 5
+      "reach": 25,
+      "space": 20.0
     },
     "details": {
       "creatureType": "elemental",
@@ -376,5 +376,20 @@
       "_key": "!actors.items!LEQChrxP0XHypfnC.pybrAOgd7UYFMRKu"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 4.0,
+    "height": 4.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 60,
+      "visionMode": "darkvision"
+    }
+  }
 }

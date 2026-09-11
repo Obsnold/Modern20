@@ -81,7 +81,7 @@
       "vulnerabilities": [],
       "massiveDamageThreshold": 19,
       "reach": 10,
-      "space": 5
+      "space": 10.0
     },
     "details": {
       "creatureType": "animal",
@@ -239,5 +239,15 @@
       "_key": "!actors.items!hAM5878o783fTVYZ.Pbn7oJ4ir4KLkq45"
     }
   ],
-  "folder": "a4aNUGB5Hmo04l08"
+  "folder": "a4aNUGB5Hmo04l08",
+  "prototypeToken": {
+    "width": 2.0,
+    "height": 2.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    }
+  }
 }

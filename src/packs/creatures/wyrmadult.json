@@ -80,8 +80,8 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": 23,
-      "reach": 15,
-      "space": 5
+      "reach": 10,
+      "space": 15.0
     },
     "details": {
       "creatureType": "dragon",
@@ -461,5 +461,20 @@
       "_key": "!actors.items!OJOC5b8vtyD7iAv3.eUixxUYr1vTBasxL"
     }
   ],
-  "folder": "a4aNUGB5Hmo04l08"
+  "folder": "a4aNUGB5Hmo04l08",
+  "prototypeToken": {
+    "width": 3.0,
+    "height": 3.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 60,
+      "visionMode": "darkvision"
+    }
+  }
 }

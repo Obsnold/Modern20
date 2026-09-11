@@ -13,8 +13,11 @@ deliberately differ from the SRD, and why.
     scripts/capture_edits.py --dry-run --exit-code   # fail if anything has
 
 Only fields the build actually sets are compared. Foundry fills in every
-default a document does not carry - a prototype token, empty effects, the
-whole light configuration - and none of that is an edit. HTML is compared
+default a document does not carry - empty effects, the whole light
+configuration, the token fields the build leaves alone - and none of that is an
+edit. Which cuts the other way as the build sets more: a prototype token is
+derived and stored now, so a token resized in Foundry is an edit and comes
+home. HTML is compared
 normalised, because the editor rewrites `<br />` as `<br>` and reflows
 whitespace on any page it opens, which is not an edit either.
 """
@@ -330,8 +333,8 @@ def main() -> int:
             # The edit belongs in the pack source, which is what compiles and
             # what a reader reads. Applied onto the document already there
             # rather than taking Foundry's copy wholesale, so the file keeps
-            # its own shape - Foundry's copy carries a prototype token, a
-            # light configuration and a dozen other defaults we do not store.
+            # its own shape - Foundry's copy carries a light configuration, a
+            # detection-mode list and a dozen other defaults we do not store.
             if write_back and not args.dry_run:
                 for pack_name, slug, override in write_back:
                     path = os.path.join(PACKS, pack_name, f"{slug}.json")

@@ -38,7 +38,8 @@ fighting it forever, so this is a standalone game system.
 | Everything links to it | All 1,535 compendium documents carry the page their rules are on, and 797 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
-| Creature special abilities, senses, skills, feats and damage reduction | 1,972 ability items, 1,743 with the SRD's own rules text, 93 rollable |
+| Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
+| Prototype tokens | All 399 actors: the size the stat block fills, the senses it sees with, hit points on the bar |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
@@ -374,6 +375,34 @@ H from "alfling Fast Hero 1/Charismatic Hero 1", and Urban Arcana prints no
 size-and-type line for the lizard at all — the row every other stat block heads
 with one is blank, and the book's index gives nothing either, so animal is
 recorded as what the entry itself describes.
+
+**Every actor drops onto the canvas as the size the book gives it.** A
+prototype token is derived, not authored — there is no judgement in it, only
+arithmetic — and every actor in the compendium had none, so a Gargantuan wyrm
+arrived as a one-square token with no vision. The size comes from the SRD's own
+Space column: a square is five feet, so Large is two squares, Huge three,
+Gargantuan four and Colossal six, with half a square as the floor for Tiny and
+smaller, which occupy less than that between them. 124 creatures are bigger
+than one square and 31 smaller. Darkvision becomes the token's own vision at
+the range printed — 152 creatures have it — and blindsight, blindsense and
+tremorsense become detection modes, 36 of them. Low-light vision and scent stay
+what they were: an ability item with the SRD's text on it, because Foundry has
+no mode for either. Hit points go on the bar, and a creature is hostile where a
+vehicle or an object is neutral.
+
+Deriving that turned up a line being read twice. **FS/Reach is one line and two
+numbers** — "15 ft. by 15 ft./10 ft." is a space of fifteen feet and a reach of
+ten — and the import took the first number out of the whole line, so every
+creature's reach was its space: the wyrm threatened twenty feet because that is
+what it occupies, and every Tiny creature reached two and a half feet where the
+SRD prints none at all. 259 values across the bestiary were wrong, and `space`
+had to stop being an integer to hold the two and a half feet a Tiny creature
+fills.
+
+The token is sized from the size category rather than that printed space,
+because seven creatures print prose in the space column rather than a
+footprint: the udoroot is Huge and fills "5 ft. by 5 ft. per stalk", the
+anaconda "5 ft. by 5 ft. (coiled)".
 
 **Special abilities.** A stat block prints its abilities twice: once as the SQ
 line — *"Cold subtype, constrict, darkvision 60 ft., improved grab"* — and once
@@ -811,8 +840,11 @@ to throw away.
 
 Two kinds of noise had to be ignored to make any of this work, and both were
 found by running it. Foundry fills in every default a document does not carry —
-a prototype token, empty effects, an entire light configuration — so only
-fields the build actually sets are compared. And the editor rewrites `<br />`
+empty effects, an entire light configuration, the token fields the build leaves
+alone — so only fields the build actually sets are compared. Which cuts the
+other way as the build sets more: now that a prototype token is derived and
+stored, a token resized in Foundry is an edit, and `check_capture.py` drags one
+home to prove it. And the editor rewrites `<br />`
 as `<br>` and reflows whitespace on any page it opens, so HTML is compared
 normalised. Without the second one, opening a page to read it counts as editing
 it.
@@ -874,6 +906,12 @@ goes stale, since section pages link to the sub-pages holding the actual tables.
 Pages are cached in `.cache/` and the site is hit once. Output lands in `data/`
 and is committed, so a parser change means re-running `build_packs.py`, not
 re-scraping.
+
+**A comma inside a number is not a list separator.** The SQ line is split on
+commas, and the three great dragons see "darkvision 1,200 ft." — which arrived
+as an ability called "Darkvision 1" and a second one called "200 ft.", and as a
+token that saw one foot in the dark. Splitting now skips a comma with a digit
+on each side.
 
 **Feats come from both alphabetical listings**, core first, so that where the
 two books print the same feat the core entry is kept and the reprint reported —
@@ -1002,7 +1040,7 @@ python3 scripts/check_globals.py     # no globals Foundry v14 removed
 python3 scripts/check_lang.py        # every referenced i18n key exists
 python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
 python3 scripts/check_shadowing.py   # no module-level name defined twice
-python3 scripts/check_packs.py       # folders, keys and ids a compendium needs
+python3 scripts/check_packs.py       # folders, keys, ids and tokens a compendium needs
 python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
 python3 scripts/check_rules_links.py # every link into the rules resolves to a page
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
@@ -1041,6 +1079,7 @@ to trust any of them:
 | `check_templates.mjs` | `{{formField fields.typo}}` renders as nothing with no console error — a blank row, not a crash |
 | `check_shadowing.py` / `no-redeclare` | two parsers in one week were named over an existing definition — `ability_key` over the psionics one, `DAMAGE_TYPES` over the spells one — and the later definition silently won |
 | `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
+| `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |
 | `check_packs.py` (folders) | Urban Arcana's feats arrived, the pack grew its first folders, and the ninety-five feats already there stayed at the compendium root beside an empty "d20 Modern" folder |

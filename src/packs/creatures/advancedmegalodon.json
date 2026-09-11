@@ -80,8 +80,8 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": 28,
-      "reach": 30,
-      "space": 5
+      "reach": 10,
+      "space": 30.0
     },
     "details": {
       "creatureType": "animal",
@@ -244,5 +244,20 @@
       "_key": "!actors.items!u7J8wKrCSLBwBEua.IFDz60pjfxEF3MsM"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 6.0,
+    "height": 6.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 60,
+      "visionMode": "darkvision"
+    }
+  }
 }

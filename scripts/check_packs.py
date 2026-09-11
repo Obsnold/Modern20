@@ -7,6 +7,10 @@ names a folder that is not in the pack lands in the compendium root, a folder
 typed for the wrong document class holds nothing, and a `_key` with the wrong
 prefix produces a compendium that opens empty.
 
+An actor's prototype token is checked here for the same reason. Nothing rejects
+a token that is one square when the creature is Gargantuan; it just arrives on
+the map that size, and the GM resizes it by hand every time.
+
     python3 scripts/check_packs.py
 """
 import collections
@@ -29,6 +33,17 @@ COLLECTIONS = {
 DEFAULT = ("Item", "!items!")
 
 ID = re.compile(r"^[A-Za-z0-9]{16}$")
+
+# What a creature of each size fills, in grid squares: the SRD's own Space
+# column divided by the five feet a square is, with half a square as the floor
+# for everything Tiny and smaller.
+TOKEN_SQUARES = {
+    "fine": 0.5, "diminutive": 0.5, "tiny": 0.5, "small": 1, "medium": 1,
+    "large": 2, "huge": 3, "gargantuan": 4, "colossal": 6,
+}
+
+# Foundry's TOKEN_DISPOSITIONS, the two a pack actor is built with.
+DISPOSITIONS = {-1, 0}
 
 # The embedded collections the Foundry CLI stores as entries of their own: an
 # actor's items and a journal entry's pages are documents in the compiled
@@ -113,6 +128,35 @@ def main() -> int:
                     fail(f"{pack}: \"{entry['name']}\" / \"{child.get('name')}\" is keyed "
                          f"{child.get('_key')!r}, expected {want!r}")
 
+        # Every actor drops onto the canvas as its prototype token, and
+        # everything about that token is derived: there is no judgement in it
+        # to get wrong, only arithmetic to get stale.
+        if kind == "Actor":
+            for entry in contents:
+                token = entry.get("prototypeToken")
+                if not token:
+                    fail(f"{pack}: \"{entry['name']}\" has no prototype token")
+                    continue
+                system = entry.get("system") or {}
+                size = (system.get("attributes") or {}).get("size") or system.get("size")
+                want = TOKEN_SQUARES.get(size, 1)
+                if token.get("width") != want or token.get("height") != want:
+                    fail(f"{pack}: \"{entry['name']}\" is {size} and its token is "
+                         f"{token.get('width')}x{token.get('height')}, not {want}")
+                if token.get("disposition") not in DISPOSITIONS:
+                    fail(f"{pack}: \"{entry['name']}\" has disposition "
+                         f"{token.get('disposition')!r}")
+                if (token.get("bar1") or {}).get("attribute") != "hp":
+                    fail(f"{pack}: \"{entry['name']}\" does not show hit points on a bar")
+                # A range of zero is a sense that detects nothing, which is
+                # how a misread "darkvision 1,200 ft." looks from here.
+                if (token.get("sight") or {}).get("enabled") and token["sight"].get("range", 0) < 5:
+                    fail(f"{pack}: \"{entry['name']}\" sees {token['sight'].get('range')!r} feet")
+                for mode in token.get("detectionModes") or []:
+                    if mode.get("range", 0) < 5:
+                        fail(f"{pack}: \"{entry['name']}\" detects with "
+                             f"{mode.get('id')} at {mode.get('range')!r} feet")
+
         used = {entry.get("folder") for entry in contents}
         for folder in folders:
             if folder["_id"] not in used:
@@ -125,8 +169,11 @@ def main() -> int:
             continue
         for path in glob.glob(os.path.join(PACKS, pack, "*.json")):
             embedded += len(json.load(open(path, encoding="utf-8")).get(field) or [])
+    tokens = sum(1 for pack in packs if COLLECTIONS.get(pack, DEFAULT)[0] == "Actor"
+                 for path in glob.glob(os.path.join(PACKS, pack, "*.json"))
+                 if json.load(open(path, encoding="utf-8")).get("prototypeToken"))
     print(f"\n{len(packs)} packs, {documents} documents, {embedded} embedded items, "
-          f"{folders_seen} folders checked")
+          f"{folders_seen} folders, {tokens} prototype tokens checked")
     return 1 if problems else 0
 
 

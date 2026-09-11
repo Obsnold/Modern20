@@ -81,7 +81,7 @@
       "vulnerabilities": [],
       "massiveDamageThreshold": 16,
       "reach": 10,
-      "space": 5
+      "space": 10.0
     },
     "details": {
       "creatureType": "giant",
@@ -437,5 +437,15 @@
       "_key": "!actors.items!fH0HjegvNXVvLgtu.NZwro6EsYPhqKelm"
     }
   ],
-  "folder": "a4aNUGB5Hmo04l08"
+  "folder": "a4aNUGB5Hmo04l08",
+  "prototypeToken": {
+    "width": 2.0,
+    "height": 2.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    }
+  }
 }

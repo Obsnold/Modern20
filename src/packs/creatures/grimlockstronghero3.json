@@ -467,5 +467,22 @@
       "_key": "!actors.items!aF65nKApnyN5CYB0.O5p7j4E1EHxCBRhI"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 1.0,
+    "height": 1.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 40,
+        "enabled": true
+      }
+    ]
+  }
 }

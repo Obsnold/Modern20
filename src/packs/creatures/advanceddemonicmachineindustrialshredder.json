@@ -80,8 +80,8 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": null,
-      "reach": 15,
-      "space": 5
+      "reach": 10,
+      "space": 15.0
     },
     "details": {
       "creatureType": "construct",
@@ -346,5 +346,15 @@
       "_key": "!actors.items!Xqa5bQGQZepLID8g.dMURK0V11TAB3nnY"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 3.0,
+    "height": 3.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    }
+  }
 }

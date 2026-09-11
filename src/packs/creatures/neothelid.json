@@ -81,7 +81,7 @@
       "vulnerabilities": [],
       "massiveDamageThreshold": 27,
       "reach": 20,
-      "space": 5
+      "space": 20.0
     },
     "details": {
       "creatureType": "aberration",
@@ -388,5 +388,22 @@
       "_key": "!actors.items!6pXQK3Vh5Is0ldid.4815VlIe1fn6ADo4"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 4.0,
+    "height": 4.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 500,
+        "enabled": true
+      }
+    ]
+  }
 }

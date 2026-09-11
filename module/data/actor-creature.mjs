@@ -1,6 +1,6 @@
 import { CREATURE_TYPES } from "../creature-types.mjs";
 import { creatureType } from "../apps/creature-types.mjs";
-import { Modern20ActorBase, attributeFields, int } from "./actor-base.mjs";
+import { Modern20ActorBase, attributeFields } from "./actor-base.mjs";
 
 const fields = foundry.data.fields;
 
@@ -25,7 +25,11 @@ export class Modern20Creature extends Modern20ActorBase {
       // Fresh field instances: a DataField cannot be shared between schemas.
       attributes: new fields.SchemaField({
         ...attributeFields(),
-        space: int(5)
+        // What the creature fills, in feet, from the stat block's own FS/Reach
+        // line. Not an integer: a Tiny creature occupies two and a half feet
+        // and a Fine one six inches, and rounding those to whole feet is how
+        // every creature ended up on a one-square token.
+        space: new fields.NumberField({ required: true, initial: 5, min: 0 })
       }),
       senses: new fields.StringField({ initial: "" }),
       specialQualities: new fields.StringField({ initial: "" })

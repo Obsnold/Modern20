@@ -88,7 +88,7 @@
       ],
       "vulnerabilities": [],
       "massiveDamageThreshold": null,
-      "reach": 5,
+      "reach": 10,
       "space": 5
     },
     "details": {
@@ -194,5 +194,22 @@
       "_key": "!actors.items!1ToGTCFMo5icWXnv.TBCFBL1WCMSVaJbG"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 3.0,
+    "height": 3.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 40,
+        "enabled": true
+      }
+    ]
+  }
 }

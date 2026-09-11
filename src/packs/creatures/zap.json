@@ -82,8 +82,8 @@
       ],
       "vulnerabilities": [],
       "massiveDamageThreshold": null,
-      "reach": 6,
-      "space": 5
+      "reach": 0,
+      "space": 0.5
     },
     "details": {
       "creatureType": "elemental",
@@ -240,5 +240,20 @@
       "_key": "!actors.items!64G64GtN3QzbYZ3I.t7B6ZyjHGLs72EDh"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 0.5,
+    "height": 0.5,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 60,
+      "visionMode": "darkvision"
+    }
+  }
 }
