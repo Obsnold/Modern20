@@ -16,5 +16,27 @@
     "repeatable": false
   },
   "_key": "!items!wYFze6qv1I83gTLx",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "VWR6ar858Uvr35D5",
+      "name": "Gearhead",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.skills.computerUse.misc",
+          "value": "2",
+          "type": "add"
+        },
+        {
+          "key": "system.skills.repair.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!wYFze6qv1I83gTLx.VWR6ar858Uvr35D5"
+    }
+  ]
 }

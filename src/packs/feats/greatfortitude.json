@@ -16,5 +16,22 @@
     "repeatable": false
   },
   "_key": "!items!nUlJLOAL4pSXJcZx",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "xLvfq34zwny9jVL4",
+      "name": "Great Fortitude",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.saves.fort.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!nUlJLOAL4pSXJcZx.xLvfq34zwny9jVL4"
+    }
+  ]
 }

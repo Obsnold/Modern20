@@ -16,5 +16,22 @@
     "repeatable": false
   },
   "_key": "!items!7EJvPhguvlkH2MCq",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "H9yNVkz6tBLrqKUD",
+      "name": "Lightning Reflexes",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.saves.ref.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!7EJvPhguvlkH2MCq.H9yNVkz6tBLrqKUD"
+    }
+  ]
 }

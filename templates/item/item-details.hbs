@@ -48,6 +48,13 @@
     {{formField fields.sourceClass value=system.sourceClass}}
   {{/if}}
 
+  {{#if applies}}
+    {{!-- The bonus the item's own text states, which the sheet is applying
+          for the character rather than leaving to be remembered. --}}
+    <p class="m20-hint">{{localize "MODERN20.Effect.Applies"}}:
+      {{#each applies}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+  {{/if}}
+
   {{#if (eq document.type "feat")}}
     {{formField fields.featType value=system.featType}}
     {{!-- Metamagic, metapsionic, initial: the book's own filing, and only

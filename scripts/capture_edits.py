@@ -45,6 +45,13 @@ NODE_BIN = "/opt/node/current/bin"
 # Bookkeeping Foundry owns, which differs every time and means nothing here.
 SKIP = {"_id", "_key", "_slug", "_stats", "ownership", "sort", "folder"}
 
+# The embedded collections, which are compared document by document rather
+# than as one value. Foundry fills an effect out with a duration, a tint, a
+# description and a dozen other defaults the build does not set, so an effect
+# compared whole differs on every round trip and every feat that carries one
+# would come home reporting an edit nobody made.
+EMBEDDED_FIELDS = ("items", "pages", "effects")
+
 # Dropped from a document brought back whole. The Foundry CLI calls these
 # volatile and drops them too: they say who last touched the document and when,
 # which is git's job here.
@@ -101,7 +108,7 @@ def flatten(document: dict, prefix: str = "") -> dict:
     """Every leaf the build set, as a dotted path."""
     out = {}
     for key, value in (document or {}).items():
-        if key in SKIP or key in ("items", "pages"):
+        if key in SKIP or key in EMBEDDED_FIELDS:
             continue
         path = f"{prefix}{key}"
         if isinstance(value, dict) and value:
@@ -144,7 +151,7 @@ def differences(built: dict, live: dict) -> dict:
     if built.get("folder") != live.get("folder"):
         override["folder"] = live.get("folder")
 
-    for collection in ("items", "pages"):
+    for collection in EMBEDDED_FIELDS:
         by_id = {child["_id"]: child for child in (built.get(collection) or [])}
         for child in live.get(collection) or []:
             was_child = by_id.get(child.get("_id"))

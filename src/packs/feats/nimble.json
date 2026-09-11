@@ -16,5 +16,27 @@
     "repeatable": false
   },
   "_key": "!items!Gfx8ZD2qWMNcFxfv",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "VgjIhiHqWgDcQliu",
+      "name": "Nimble",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.skills.sleightOfHand.misc",
+          "value": "2",
+          "type": "add"
+        },
+        {
+          "key": "system.skills.escapeArtist.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!Gfx8ZD2qWMNcFxfv.VgjIhiHqWgDcQliu"
+    }
+  ]
 }

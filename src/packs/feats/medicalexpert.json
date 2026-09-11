@@ -16,5 +16,22 @@
     "repeatable": false
   },
   "_key": "!items!YoX8OzOpsV5SW1zU",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "yQF5ZIjsn6tfhsHO",
+      "name": "Medical Expert",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.skills.treatInjury.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!YoX8OzOpsV5SW1zU.yQF5ZIjsn6tfhsHO"
+    }
+  ]
 }

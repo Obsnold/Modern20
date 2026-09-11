@@ -16,5 +16,27 @@
     "repeatable": false
   },
   "_key": "!items!ydS2zMF435gpmiN4",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "t375wG86JhyVGESb",
+      "name": "Alertness",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.skills.listen.misc",
+          "value": "2",
+          "type": "add"
+        },
+        {
+          "key": "system.skills.spot.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!ydS2zMF435gpmiN4.t375wG86JhyVGESb"
+    }
+  ]
 }

@@ -12,5 +12,22 @@
     "sourceClass": "Dedicated Hero",
     "prerequisites": []
   },
-  "_key": "!items!2WCRBq5rVfimQxjI"
+  "_key": "!items!2WCRBq5rVfimQxjI",
+  "effects": [
+    {
+      "_id": "LxWa4HKxU0Sd8th3",
+      "name": "Healing Knack",
+      "img": "icons/svg/statue.svg",
+      "changes": [
+        {
+          "key": "system.skills.treatInjury.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!2WCRBq5rVfimQxjI.LxWa4HKxU0Sd8th3"
+    }
+  ]
 }

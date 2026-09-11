@@ -16,5 +16,27 @@
     "repeatable": false
   },
   "_key": "!items!Fyt0VJkcCuyWBb1v",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "ZoFdCvG0y0ag4V3X",
+      "name": "Attentive",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.skills.senseMotive.misc",
+          "value": "2",
+          "type": "add"
+        },
+        {
+          "key": "system.skills.investigate.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!Fyt0VJkcCuyWBb1v.ZoFdCvG0y0ag4V3X"
+    }
+  ]
 }
