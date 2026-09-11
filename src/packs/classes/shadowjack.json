@@ -1,0 +1,240 @@
+{
+  "_id": "TVMCILab3xcxBHxB",
+  "name": "Shadowjack",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Shadowjack, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Read/write code"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Online presence"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Virtual incantations"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanshadowjack.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.VFbWgQIeUzdI5nsz.JournalEntryPage.tbou2N4c2vZBvGfM"
+  },
+  "_key": "!items!TVMCILab3xcxBHxB",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "JBsET4jgD7BbMNfq",
+  "name": "Transporter",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Skilled drivers and pilots, transporters move people, information, and precious cargo safely from one destination to another. They treat their vehicles as extensions of their bodies and are most comfortable behind the wheels of skycabs or the thruster controls of cargo shuttles.",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html",
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "craft",
+        "label": "Craft (mechanical) (Int)",
+        "specialties": [
+          "Mechanical"
+        ]
+      },
+      {
+        "skill": "drive",
+        "label": "Drive (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (current events, popular culture, or streetwise) (Int)",
+        "specialties": [
+          "Current Events",
+          "Popular Culture",
+          "Or Streetwise"
+        ]
+      },
+      {
+        "skill": "navigate",
+        "label": "Navigate (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "pilot",
+        "label": "Pilot (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      },
+      {
+        "skill": "repair",
+        "label": "Repair (Int)",
+        "specialties": [
+          "Int"
+        ]
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "Spacer",
+      "Vehicle Expert"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 18+"
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.sXYhzimKCAEKevkY.JournalEntryPage.7nsPMgi8cbR4meXJ"
+  },
+  "_key": "!items!JBsET4jgD7BbMNfq",
+  "folder": "xqvZ8r6zuNXOPDyS"
+}

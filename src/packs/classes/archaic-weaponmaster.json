@@ -1,0 +1,212 @@
+{
+  "_id": "vNpTpgDtgr6uosfs",
+  "name": "Archaic Weaponmaster",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become an Archaic Weaponsmaster, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Weapon specialization"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Imbue weapon +1"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Quick weapon draw"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Expert in your field"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Weapon stun"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Imbue weapon +2"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Increased weapon critical"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweaponmaster.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.VFbWgQIeUzdI5nsz.JournalEntryPage.UJuwaiS6wYr63eI5"
+  },
+  "_key": "!items!vNpTpgDtgr6uosfs",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

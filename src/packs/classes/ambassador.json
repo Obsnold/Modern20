@@ -1,0 +1,216 @@
+{
+  "_id": "BVR7G038xgmyzPOC",
+  "name": "Ambassador",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become an Ambassador, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Diplomatic immunity"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Open arms"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Information access"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Stipend"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Restricted access"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Stipend"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Select consuls"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureamb.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.ZQV8aE5Ogs4blbwy.JournalEntryPage.7P24XfD2XbavsanH"
+  },
+  "_key": "!items!BVR7G038xgmyzPOC",
+  "folder": "eZS2LclwY2ycImKx"
+}

@@ -1,0 +1,405 @@
+{
+  "_id": "UUARwZDDiDPd5o8p",
+  "name": "Techno Mage",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Techno Mage, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Arcane skills",
+          "arcane spells"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Machine empathy",
+          "arcane spells"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "arcane spells",
+          "program spell"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Create homunculus",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Arcane spontaneous casting",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 3,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Spell focus",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Online casting",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 4,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Quicken spells",
+          "arcane spells"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 5,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "arcane",
+      "ability": "int",
+      "perDay": [
+        [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          3,
+          2
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            0,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            0,
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbantechnomage.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.VFbWgQIeUzdI5nsz.JournalEntryPage.YaNzOIbYhkJn0Xsx"
+  },
+  "_key": "!items!UUARwZDDiDPd5o8p",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

@@ -1,0 +1,73 @@
+{
+  "_id": "OflUwGK3pMiggRnk",
+  "name": "Colonist",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Colonists are wayfaring pioneers who set the foundations of new societies on far-flung continents, planets, or moons. To survive in their new surroundings, they learn to live off the land and defend themselves against indigenous predatory life forms and hostile forces of nature.",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html",
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "computerUse",
+        "label": "Computer Use (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (electronic, mechanical, or structural) (Int)",
+        "specialties": [
+          "Electronic",
+          "Mechanical",
+          "Or Structural"
+        ]
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (earth and life sciences or physical sciences) (Int)",
+        "specialties": [
+          "Earth And Life Sciences Or Physical Sciences"
+        ]
+      },
+      {
+        "skill": "navigate",
+        "label": "Navigate (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "repair",
+        "label": "Repair (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "survival",
+        "label": "Survival (Wis)",
+        "specialties": [
+          "Wis"
+        ]
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "Select Builder",
+      "Guide",
+      "Planetary Adaptation"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.sXYhzimKCAEKevkY.JournalEntryPage.Jh5CyyGbw2SyY6zj"
+  },
+  "_key": "!items!OflUwGK3pMiggRnk",
+  "folder": "xqvZ8r6zuNXOPDyS"
+}

@@ -1,0 +1,66 @@
+{
+  "_id": "WWzgMOaGGEFtnIcJ",
+  "name": "Hedge Wizard",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "A hedge wizard is someone who has spent a great deal of time studying the arcane arts without the benefit of having any formal training or mentoring.",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html",
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "concentration",
+        "label": "Concentration",
+        "specialties": []
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (chemical or writing)",
+        "specialties": [
+          "Chemical Or Writing"
+        ]
+      },
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script",
+        "specialties": []
+      },
+      {
+        "skill": "gatherInformation",
+        "label": "Gather Information",
+        "specialties": []
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore, art, earth and life sciences, history, or physical sciences)",
+        "specialties": [
+          "Arcane Lore",
+          "Art",
+          "Earth And Life Sciences",
+          "History",
+          "Or Physical Sciences"
+        ]
+      },
+      {
+        "skill": "research",
+        "label": "Research",
+        "specialties": []
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      ": Magical Heritage",
+      "Magical Affinity"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Intelligence 10."
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.K8QdJPS6eZ1OCwAO.JournalEntryPage.U7WA3hDL6u5WoJWG"
+  },
+  "_key": "!items!WWzgMOaGGEFtnIcJ",
+  "folder": "LRAr92Lr1amGxdQO"
+}

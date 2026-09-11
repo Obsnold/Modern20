@@ -1,0 +1,206 @@
+{
+  "_id": "v2Z6CbIn2PzgvEWs",
+  "name": "Artificer",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "prestige",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become an Artificer, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Craft artifice"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Craft artifice",
+          "bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Craft artifice"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Craft artifice",
+          "bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Craft artifice"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanartificer.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.M3kFJmlDxRzMuWOg.JournalEntryPage.vjZ5FzF3xPU2hoIA"
+  },
+  "_key": "!items!v2Z6CbIn2PzgvEWs",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

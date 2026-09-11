@@ -1,0 +1,223 @@
+{
+  "_id": "lANj95GZuOOZOD7O",
+  "name": "Xenophile",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Xenophile, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Xenolore",
+          "xenotype (1st)"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 2,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Xenoresistance (+1)"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Xenotype (2nd)"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 4,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Xenodefense (+1)",
+          "xenoresistance (+2)"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Xenotype (3rd)"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Xenoresistance (+3)"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 2,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 3,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Xenodefense (+2)",
+          "xenotype (4th)"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 3,
+        "will": 7,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurexenophile.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.ZQV8aE5Ogs4blbwy.JournalEntryPage.F6sFUn7uI9k3qngh"
+  },
+  "_key": "!items!lANj95GZuOOZOD7O",
+  "folder": "eZS2LclwY2ycImKx"
+}

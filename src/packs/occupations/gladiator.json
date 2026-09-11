@@ -1,0 +1,56 @@
+{
+  "_id": "F0gdCPVkplveFOeA",
+  "name": "Gladiator",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Gladiators have been fighting all their lives, whether on the streets or in some form of arena. They include disenchanted youths and poverty-stricken hoodlums looking to trade fists for cash, clones bred in secret labs to fight from birth, and low-ranking members of a society’s warrior caste.",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html",
+    "skillChoiceCount": 1,
+    "skillOptions": [
+      {
+        "skill": "balance",
+        "label": "Balance (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      },
+      {
+        "skill": "intimidate",
+        "label": "Intimidate (Cha)",
+        "specialties": [
+          "Cha"
+        ]
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (streetwise) (Int)",
+        "specialties": [
+          "Streetwise"
+        ]
+      },
+      {
+        "skill": "tumble",
+        "label": "Tumble (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "Brawl",
+      "Combat Martial Arts"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 18+"
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.sXYhzimKCAEKevkY.JournalEntryPage.HvzXYBt7dyYupa3L"
+  },
+  "_key": "!items!F0gdCPVkplveFOeA",
+  "folder": "xqvZ8r6zuNXOPDyS"
+}

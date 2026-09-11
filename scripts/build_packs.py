@@ -553,6 +553,11 @@ def build_classes() -> list[dict]:
                 "srdUrl": entry["srdUrl"],
             },
             "_key": f"!items!{doc_id}",
+            # Named like every other builder's. The classes were the one pack
+            # without a slug on their documents, and every reconciliation that
+            # matches a file on disk to the document the import made — the
+            # rules page, the book, the folder — skipped all of them for it.
+            "_slug": slug,
         })
     return documents
 

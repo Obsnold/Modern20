@@ -3,9 +3,66 @@
     "id": "acolyte",
     "name": "Acolyte",
     "tier": "advanced",
-    "hitDie": "The Acolyte gains 1d8 hit points per level. The character’s Constitution modifier applies.",
-    "skillPointsPerLevel": 3,
-    "classSkills": [],
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
     "requirements": "To qualify to become an Acolyte, a character must fulfill the following criteria.",
     "actionPoints": "The Acolyte gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
     "progression": [
@@ -1068,7 +1125,7 @@
     "name": "Daredevil",
     "tier": "advanced",
     "hitDie": "1d10",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "balance",
@@ -1748,7 +1805,7 @@
     "name": "Field Medic",
     "tier": "advanced",
     "hitDie": "1d8",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "computerUse",
@@ -1964,7 +2021,7 @@
     "name": "Field Scientist",
     "tier": "advanced",
     "hitDie": "1d8",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 7,
     "classSkills": [
       {
         "skill": "computerUse",
@@ -2188,11 +2245,2606 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fieldscientist.html"
   },
   {
+    "id": "ambassador",
+    "name": "Ambassador",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Ambassador, a character must fulfill the following criteria.",
+    "actionPoints": "",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Diplomatic immunity"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Open arms"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Information access"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Stipend"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Restricted access"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Stipend"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Select consuls"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureamb.html"
+  },
+  {
+    "id": "dogfighter",
+    "name": "Dogfighter",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Dogfighter, a character must fulfill the following criteria.",
+    "actionPoints": "The Dogfighter gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Defender of the universe"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 3,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Shake",
+          "rattle",
+          "and roll (1/day)"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "To the max!"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Shake",
+          "rattle",
+          "and roll (2/day)"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Keep it together"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 6,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 6,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Shake",
+          "rattle",
+          "and roll (3/day)"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 7,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuredogfight.html"
+  },
+  {
+    "id": "dreadnought",
+    "name": "Dreadnought",
+    "tier": "advanced",
+    "hitDie": "1d12",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Dreadnought, a character must fulfill the following criteria.",
+    "actionPoints": "The Dreadnought gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Fearless",
+          "stability",
+          "unhindered"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 1,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Ability surge (1/day)",
+          "steamroller"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Master defender (+2)"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Ability surge (2/day)",
+          "knockdown"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Master defender (+4)"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Ability surge (3/day)",
+          "heavy artillery"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Master defender (+6)"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuredreadnought.html"
+  },
+  {
+    "id": "engineer",
+    "name": "Engineer",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Engineer, a character must fulfill the following criteria.",
+    "actionPoints": "The Engineer gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Builder",
+          "improve kit (+1)"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 0,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Quick craft",
+          "superior repair"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Improve kit (+2)",
+          "reconfigure weapon",
+          "sabotage"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Craft XP reserve",
+          "quick craft"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "craft XP reserve"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Craft XP reserve",
+          "improve kit (+3)",
+          "quick fix"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Craft XP reserve",
+          "weapon upgrade"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "craft XP reserve"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Craft XP reserve",
+          "unflustered"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 5,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureengine.html"
+  },
+  {
+    "id": "explorer",
+    "name": "Explorer",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Explorer, a character must fulfill the following criteria.",
+    "actionPoints": "The Explorer gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Explorer lore",
+          "survivalist"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Resolve",
+          "skilled searcher"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Trap sense (+1)"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Extra step"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Trap sense (+2)"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Explorer’s evasion"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Extra step",
+          "trap sense (+3)"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureexplorer.html"
+  },
+  {
+    "id": "helixWarrior",
+    "name": "Helix Warrior",
+    "tier": "advanced",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Helix Warrior, a character must fulfill the following criteria.",
+    "actionPoints": "The Helix Warrior gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Haul",
+          "light sleeper",
+          "survivor"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 0,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Darkvision (60 ft.)"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Strong as an ox"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 1,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Darkvision (90 ft.)",
+          "superior conditioning"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 2,
+        "will": 3,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Improved reaction"
+        ],
+        "baseAttack": 7,
+        "fort": 4,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Darkvision (120 ft.)"
+        ],
+        "baseAttack": 8,
+        "fort": 4,
+        "ref": 2,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 9,
+        "fort": 4,
+        "ref": 3,
+        "will": 4,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Decisive attack"
+        ],
+        "baseAttack": 10,
+        "fort": 5,
+        "ref": 3,
+        "will": 5,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurehelix.html"
+  },
+  {
+    "id": "fieldOfficer",
+    "name": "Field Officer",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Field Officer, a character must fulfill the following criteria.",
+    "actionPoints": "The Field Officer gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Leadership"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Uncanny survival"
+        ],
+        "baseAttack": 2,
+        "fort": 0,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Tactical expertise"
+        ],
+        "baseAttack": 4,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "August leadership"
+        ],
+        "baseAttack": 5,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Tactical mastery"
+        ],
+        "baseAttack": 7,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Commanding presence"
+        ],
+        "baseAttack": 8,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 9,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Action trust"
+        ],
+        "baseAttack": 10,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureofficer.html"
+  },
+  {
+    "id": "spaceMonkey",
+    "name": "Space Monkey",
+    "tier": "advanced",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Space Monkey, a character must fulfill the following criteria.",
+    "actionPoints": "The Space Monkey gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Hibernation trance"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 1,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Monkey’s wrench"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Monkeys unite"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Know location (+2)"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 3,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 3,
+        "will": 2,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Monkey shines"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Know location (+4)",
+          "space suitable"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 4,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Monkey shot"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 5,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuresmonkey.html"
+  },
+  {
+    "id": "swindler",
+    "name": "Swindler",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Swindler, a character must fulfill the following criteria.",
+    "actionPoints": "The Swindler gains a number of action points equal to 7 + one-half his character level, rounded down, every time he attains a new level in this class. (The Swindler’s ability to manipulate probability entitles him to a higher number of action points per class level than other advanced classes.)",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Cheat fate"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 2,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Thousand faces"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 3,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Fortune’s favor (+2)"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 2,
+        "will": 4,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Warp probability (30 ft.)"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 4,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 3,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Fortune’s favor (+4)"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 4,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Warp probability (60 ft.)"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 4,
+        "will": 6,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 4,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Fortune’s favor (+6)"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 5,
+        "will": 7,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureswindler.html"
+  },
+  {
+    "id": "technosavant",
+    "name": "Technosavant",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electrical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Technosavant, a character must fulfill the following criteria.",
+    "actionPoints": "The Technosavant gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Salvage",
+          "Technocant"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Robomancer",
+          "technophile"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Cybermancer",
+          "skilled salvager"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Down with robots (+1d6/+4)",
+          "exotic weapon adept"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Super cybersurgeon",
+          "virtual Houdini"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Down with robots (+2d6/+8)",
+          "expeditious salvager"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Build prototype"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuretechno.html"
+  },
+  {
+    "id": "tracer",
+    "name": "Tracer",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Tracer, a character must fulfill the following criteria.",
+    "actionPoints": "The Tracer gains a number of action points equal to 6 + one-half his character level, rounded down, every time he attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Target species",
+          "Urban Tracking"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Swift strike +1d6"
+        ],
+        "baseAttack": 2,
+        "fort": 0,
+        "ref": 3,
+        "will": 0,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Uncanny stealth (full speed)"
+        ],
+        "baseAttack": 4,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Swift strike +2d6"
+        ],
+        "baseAttack": 5,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Uncanny stealth (charge/run)"
+        ],
+        "baseAttack": 7,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Swift strike +3d6"
+        ],
+        "baseAttack": 8,
+        "fort": 2,
+        "ref": 6,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 9,
+        "fort": 3,
+        "ref": 6,
+        "will": 3,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Swift tracking"
+        ],
+        "baseAttack": 10,
+        "fort": 3,
+        "ref": 7,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuretracer.html"
+  },
+  {
+    "id": "xenophile",
+    "name": "Xenophile",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Xenophile, a character must fulfill the following criteria.",
+    "actionPoints": "The Xenophile gains a number of action points equal to 6 + one-half her character level, rounded down, every time she attains a new level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Xenolore",
+          "xenotype (1st)"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 2,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Xenoresistance (+1)"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Xenotype (2nd)"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 1,
+        "will": 4,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Xenodefense (+1)",
+          "xenoresistance (+2)"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Xenotype (3rd)"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 2,
+        "will": 5,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Xenoresistance (+3)"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 2,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 3,
+        "will": 6,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Xenodefense (+2)",
+          "xenotype (4th)"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 3,
+        "will": 7,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futurexenophile.html"
+  },
+  {
     "id": "gunslinger",
     "name": "Gunslinger",
     "tier": "advanced",
     "hitDie": "1d10",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "bluff",
@@ -2408,7 +5060,7 @@
     "name": "Infiltrator",
     "tier": "advanced",
     "hitDie": "1d8",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 7,
     "classSkills": [
       {
         "skill": "balance",
@@ -2640,7 +5292,7 @@
     "name": "Investigator",
     "tier": "advanced",
     "hitDie": "1d6",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "bluff",
@@ -2863,7 +5515,7 @@
     "name": "Mage",
     "tier": "advanced",
     "hitDie": "1d6",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 7,
     "classSkills": [
       {
         "skill": "concentration",
@@ -3672,8 +6324,8 @@
     "id": "occultist",
     "name": "Occultist",
     "tier": "advanced",
-    "hitDie": "The Occultist gains 1d6 hit points per level. The character’s Constitution modifier applies.",
-    "skillPointsPerLevel": 3,
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "decipherScript",
@@ -3866,7 +6518,7 @@
     "name": "Personality",
     "tier": "advanced",
     "hitDie": "1d6",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "bluff",
@@ -4073,7 +6725,7 @@
     "id": "shadowSlayer",
     "name": "Shadow Slayer",
     "tier": "advanced",
-    "hitDie": "The Shadow Slayer gains 1d8 hit points per level. The character’s Constitution modifier applies.",
+    "hitDie": "1d8",
     "skillPointsPerLevel": 3,
     "classSkills": [
       {
@@ -4558,7 +7210,7 @@
     "name": "Soldier",
     "tier": "advanced",
     "hitDie": "1d10",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "demolitions",
@@ -4962,7 +7614,7 @@
     "name": "Techie",
     "tier": "advanced",
     "hitDie": "1d6",
-    "skillPointsPerLevel": 3,
+    "skillPointsPerLevel": 7,
     "classSkills": [
       {
         "skill": "computerUse",
@@ -5177,8 +7829,8 @@
     "id": "telepath",
     "name": "Telepath",
     "tier": "advanced",
-    "hitDie": "The Telepath gains 1d6 hit points per level. The character’s Constitution modifier applies.",
-    "skillPointsPerLevel": 3,
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
     "classSkills": [
       {
         "skill": "bluff",
@@ -5701,5 +8353,3630 @@
       "powersKnown": []
     },
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
+  },
+  {
+    "id": "archmage",
+    "name": "Archmage",
+    "tier": "prestige",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Civics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Archmage, a character must fulfill the following criteria.",
+    "actionPoints": "Archmages gain a number of action points equal to 7 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Total spellcasting"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Increased spells/day"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Gifted incantations"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Increased spells/day"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Granted incantations"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanarchmage.html"
+  },
+  {
+    "id": "arcaneArranger",
+    "name": "Arcane Arranger",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Arcane Arranger, a character must fulfill the following criteria.",
+    "actionPoints": "Arcane Arrangers gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Word on the street"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 1,
+        "defense": 0,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "False allegiance"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Shadow resources"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Pack rat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 3,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 7,
+        "features": [
+          "Expert in your field"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 4,
+        "defense": 2,
+        "reputation": 4
+      },
+      {
+        "level": 8,
+        "features": [
+          "Up my sleeve"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 4,
+        "defense": 3,
+        "reputation": 4
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 4,
+        "defense": 3,
+        "reputation": 4
+      },
+      {
+        "level": 10,
+        "features": [
+          "Up my sleeve"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 5,
+        "defense": 3,
+        "reputation": 5
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanarranger.html"
+  },
+  {
+    "id": "artificer",
+    "name": "Artificer",
+    "tier": "prestige",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Business"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Artificer, a character must fulfill the following criteria.",
+    "actionPoints": "The Artificer gain a number of action points equal to 7 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Craft artifice"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Craft artifice",
+          "bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Craft artifice"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Craft artifice",
+          "bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Craft artifice"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanartificer.html"
+  },
+  {
+    "id": "ecclesiarch",
+    "name": "Ecclesiarch",
+    "tier": "prestige",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "Any"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Ecclesiarch, a character must fulfill the following criteria.",
+    "actionPoints": "Ecclesiarches gain a number of action points equal to 7 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Total spellcasting"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Increased spells/day"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Total turning"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Increased spells/day"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Innovative turning"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanecclesiarch.html"
+  },
+  {
+    "id": "glamourist",
+    "name": "Glamourist",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "disguise",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Sing"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Glamourist, a character must fulfill the following criteria.",
+    "actionPoints": "Glamourists gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Self-confidence"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Hidden motives"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 3,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Hidden allegiance"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Audience"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Daze"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Utterly convincing"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 6,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 6,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Charm person"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 7,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanglamourist.html"
+  },
+  {
+    "id": "shadowHunter",
+    "name": "Shadow Hunter",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Cultures"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Shadow Hunter, a character must fulfill the following criteria. High Strength and Charisma scores are also useful.",
+    "actionPoints": "Shadow Hunters gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Target bonus +1"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Swift track"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "No trace",
+          "target bonus +2"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Play a hunch"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 3,
+        "will": 3,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 3,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Target bonus +3"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Detect magical aura"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 4,
+        "will": 4,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Locate target"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 5,
+        "will": 5,
+        "defense": 7,
+        "reputation": 5
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanhunter.html"
+  },
+  {
+    "id": "holyUnholyKnight",
+    "name": "Holy/Unholy Knight",
+    "tier": "prestige",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Holy/Unholy Knight, a character must fulfill the following criteria.",
+    "actionPoints": "Holy/Unholy Knights gain a number of action points equal to 7 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Divine grace",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 0,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Sense allegiance",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Smite allegiance",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Divine touch",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Turn undead",
+          "divine spells"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "divine",
+      "ability": "",
+      "perDay": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanknight.html"
+  },
+  {
+    "id": "mystic",
+    "name": "Mystic",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Sing"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stand-Up"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Mystic, a character must fulfill the following criteria.",
+    "actionPoints": "Mystics gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Arcane skills",
+          "divine spells"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Turn undead",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Combat casting",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Brew potion",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 5,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 7,
+        "features": [
+          "Discern lie",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 5,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 8,
+        "features": [
+          "Turn humans",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 4
+      },
+      {
+        "level": 10,
+        "features": [
+          "Empower spell",
+          "divine spells"
+        ],
+        "baseAttack": 5,
+        "fort": 7,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 5
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "arcane",
+      "ability": "wis",
+      "perDay": [
+        [
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          4,
+          3,
+          0,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          3,
+          2
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          4,
+          3
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 1,
+          "max": 1,
+          "bonus": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmystic.html"
+  },
+  {
+    "id": "shadowjack",
+    "name": "Shadowjack",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "forgery",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "search",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Shadowjack, a character must fulfill the following criteria.",
+    "actionPoints": "Shadowjacks gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Read/write code"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Online presence"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Shadowjack abilities"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Virtual incantations"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanshadowjack.html"
+  },
+  {
+    "id": "speedDemon",
+    "name": "Speed Demon",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Speed Demon, a character must fulfill the following criteria.",
+    "actionPoints": "Speed Demons gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Uncanny dodge X"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Hit the weak spot"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 3,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "vehicle empathy"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Need for speed"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Nursing the turns"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "commandeer"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Leadfoot"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Redlining the needle"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 6,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat. restore vehicle"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 6,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "One with the machine"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 7,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspeeddemon.html"
+  },
+  {
+    "id": "streetWarrior",
+    "name": "Street Warrior",
+    "tier": "advanced",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 5,
+    "classSkills": [],
+    "requirements": "To qualify to become a Street Warrior, a character must fulfill the following criteria.",
+    "actionPoints": "Street Warriors gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Urban survival"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Improvised weapons"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Street cred"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Improved streetfighting"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Weapon specialization"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Improvised weapon damage"
+        ],
+        "baseAttack": 8,
+        "fort": 6,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 9,
+        "fort": 6,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Advanced streetfighting"
+        ],
+        "baseAttack": 10,
+        "fort": 7,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanstreetwarrior.html"
+  },
+  {
+    "id": "swashbuckler",
+    "name": "Swashbuckler",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Swashbuckler, a character must fulfill the following criteria.",
+    "actionPoints": "Swashbucklers gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Weapon focus"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Quick weapon draw"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 3,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Weapon specialization"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Find the mark"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 4,
+        "will": 1,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Greater weapon specialization"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 5,
+        "will": 2,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Deflect missiles"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 2,
+        "defense": 6,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 3,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Touché"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 7,
+        "will": 3,
+        "defense": 7,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanswash.html"
+  },
+  {
+    "id": "technoMage",
+    "name": "Techno Mage",
+    "tier": "advanced",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electronic"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "decipherScript",
+        "specialty": ""
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Techno Mage, a character must fulfill the following criteria.",
+    "actionPoints": "Techno Mages gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Arcane skills",
+          "arcane spells"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Machine empathy",
+          "arcane spells"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "arcane spells",
+          "program spell"
+        ],
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Create homunculus",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Arcane spontaneous casting",
+          "arcane spells"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 3,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 3,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Spell focus",
+          "arcane spells"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Online casting",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "arcane spells"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 4,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Quicken spells",
+          "arcane spells"
+        ],
+        "baseAttack": 5,
+        "fort": 3,
+        "ref": 5,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "arcane",
+      "ability": "int",
+      "perDay": [
+        [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          4,
+          4,
+          3,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          4,
+          4,
+          4,
+          3,
+          3,
+          2
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            0,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            0,
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbantechnomage.html"
+  },
+  {
+    "id": "thrasher",
+    "name": "Thrasher",
+    "tier": "advanced",
+    "hitDie": "1d12",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Thrasher, a character must fulfill the following criteria.",
+    "actionPoints": "Thrashers gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Tough Defense"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 1,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Ability surge 1/day"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Uncanny dodge X"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Ability surge 2/day"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 3,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 3,
+        "will": 2,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Damage reduction 5/+1"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 3,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Ability surge 3/day"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 4,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Damage reduction 10/+1"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 5,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanthrasher.html"
+  },
+  {
+    "id": "archaicWeaponmaster",
+    "name": "Archaic Weaponmaster",
+    "tier": "advanced",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Structural"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Art"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Writing"
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become an Archaic Weaponsmaster, a character must fulfill the following criteria.",
+    "actionPoints": "Archaic Weaponsmasters gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Weapon specialization"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Imbue weapon +1"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Quick weapon draw"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Expert in your field"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Weapon stun"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Imbue weapon +2"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Increased weapon critical"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanweaponmaster.html"
+  },
+  {
+    "id": "wildlord",
+    "name": "Wildlord",
+    "tier": "advanced",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "requirements": "To qualify to become a Wildlord, a character must fulfill the following criteria.",
+    "actionPoints": "Wildlords gain a number of action points equal to 6 plus one-half their character level, rounded down, every time they advance a level in this class.",
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Animal empathy"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Track",
+          "animal companion"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "fast climb"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Resist venom",
+          "call companion"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Skill mastery"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 5,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Expert in your field"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 5,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Command/rebuke animals"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 6,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "transform companion"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 6,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Command/rebuke magical beasts"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 7,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanwildlord.html"
   }
 ]

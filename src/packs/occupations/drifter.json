@@ -1,0 +1,102 @@
+{
+  "_id": "XCSCU8O4MXcW3agp",
+  "name": "Drifter",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Drifters are aimless wanderers and worldwise jacks-of-all-trades who move between cities or star systems, working odd jobs until boredom or fate leads them elsewhere. Along the way, they learn strange customs and pick up interesting and diverse skills.",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html",
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "bluff",
+        "label": "Bluff (Cha)",
+        "specialties": [
+          "Cha"
+        ]
+      },
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "disableDevice",
+        "label": "Disable Device (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "disguise",
+        "label": "Disguise (Cha)",
+        "specialties": [
+          "Cha"
+        ]
+      },
+      {
+        "skill": "forgery",
+        "label": "Forgery (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "gamble",
+        "label": "Gamble (Wis)",
+        "specialties": [
+          "Wis"
+        ]
+      },
+      {
+        "skill": "gatherInformation",
+        "label": "Gather Information (Cha)",
+        "specialties": [
+          "Cha"
+        ]
+      },
+      {
+        "skill": "hide",
+        "label": "Hide (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (streetwise) (Int)",
+        "specialties": [
+          "Streetwise"
+        ]
+      },
+      {
+        "skill": "navigate",
+        "label": "Navigate (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "sleightOfHand",
+        "label": "Sleight of Hand (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.sXYhzimKCAEKevkY.JournalEntryPage.J5QG4rwmwBABtddy"
+  },
+  "_key": "!items!XCSCU8O4MXcW3agp",
+  "folder": "xqvZ8r6zuNXOPDyS"
+}

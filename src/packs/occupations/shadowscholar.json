@@ -1,0 +1,67 @@
+{
+  "_id": "L3ibT7NRridQECTP",
+  "name": "Shadow Scholar",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Shadow scholars fall into two categories—learned Shadowkind and mundane folk who have spent time studying Shadow culture, magic, and other supernatural occurrences.",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html",
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script",
+        "specialties": []
+      },
+      {
+        "skill": "gatherInformation",
+        "label": "Gather Information",
+        "specialties": []
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore, art, behavioral sciences, earth and life sciences, history, physical sciences, tactics, or theology and philosophy)",
+        "specialties": [
+          "Arcane Lore",
+          "Art",
+          "Behavioral Sciences",
+          "Earth And Life Sciences",
+          "History",
+          "Physical Sciences",
+          "Tactics",
+          "Or Theology And Philosophy"
+        ]
+      },
+      {
+        "skill": "research",
+        "label": "Research",
+        "specialties": []
+      },
+      {
+        "skill": "readWriteLanguage",
+        "label": "Read/Write Language",
+        "specialties": []
+      },
+      {
+        "skill": "speakLanguage",
+        "label": "Speak Language",
+        "specialties": []
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "Arcane Skills",
+      "Educated"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+."
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.K8QdJPS6eZ1OCwAO.JournalEntryPage.xHRx8HoaORvDq1W0"
+  },
+  "_key": "!items!L3ibT7NRridQECTP",
+  "folder": "LRAr92Lr1amGxdQO"
+}

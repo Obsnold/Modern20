@@ -1,0 +1,66 @@
+{
+  "_id": "1ZnZ296KSXIsQj8e",
+  "name": "Novitiate",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Novitiates draw quiet strength from their belief in a greater power. They do not necessarily have ties to a specific religion or denomination—their faith is enough. Some novitiates are lay clergy, counselors, motivational speakers, social workers, or any other position involved with helping people who have lost hope and faith.",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html",
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "concentration",
+        "label": "Concentration",
+        "specialties": []
+      },
+      {
+        "skill": "craft",
+        "label": "Craft (writing)",
+        "specialties": [
+          "Writing"
+        ]
+      },
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script",
+        "specialties": []
+      },
+      {
+        "skill": "diplomacy",
+        "label": "Diplomacy",
+        "specialties": []
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore, art, behavioral sciences, history, or theology and philosophy)",
+        "specialties": [
+          "Arcane Lore",
+          "Art",
+          "Behavioral Sciences",
+          "History",
+          "Or Theology And Philosophy"
+        ]
+      },
+      {
+        "skill": "senseMotive",
+        "label": "Sense Motive",
+        "specialties": []
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      ": Divine Heritage",
+      "Magical Affinity"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Wisdom 10."
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.K8QdJPS6eZ1OCwAO.JournalEntryPage.zZcZKtGfp16ClrTE"
+  },
+  "_key": "!items!1ZnZ296KSXIsQj8e",
+  "folder": "LRAr92Lr1amGxdQO"
+}

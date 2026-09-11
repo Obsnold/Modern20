@@ -29,13 +29,13 @@ fighting it forever, so this is a standalone game system.
 | Specialty skills — Knowledge (streetwise), Craft (chemical), … | Working |
 | Wealth checks, purchase DCs, restriction ratings, black market surcharge | Working |
 | Action points, massive damage threshold and Fortitude save | Working |
-| Class progression folding into attack, saves, Defense and Reputation | Working |
-| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 1,002 items, built from the SRD |
+| Class progression folding into attack, saves, Defense and Reputation | Working, for all 52 classes in three books |
+| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 1,044 items, built from the SRD |
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 399 actors, built from the SRD — every creature in all three books |
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
-| Everything links to it | All 1,535 compendium documents carry the page their rules are on, and 797 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
+| Everything links to it | All 1,577 compendium documents carry the page their rules are on, and 839 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
@@ -58,8 +58,8 @@ class feature. Numbers are applied before the prompt, so dismissing it still
 leaves a correctly levelled character. Multiclassing is just a second class
 item; character level is the sum.
 
-Across the 180 progression rows the SRD defines, that is 30 talent picks, 66
-bonus feats and 87 named features. Only two of the named features match a feat
+Across the 500 progression rows the SRD defines, that is 30 talent picks, 159
+bonus feats and 432 named features. Only two of the named features match a feat
 that exists in the compendium, so the rest are recorded as class-feature
 talents — they are described in the class's own page prose, not as reusable
 feats.
@@ -655,7 +655,7 @@ python3 scripts/gen_rules_links.py    # regenerate module/rules-links.mjs
 python3 scripts/check_rules_links.py  # every link resolves to a page that exists
 ```
 
-All 1,535 documents are linked, between them reaching 797 of the 1,685 pages,
+All 1,577 documents are linked, between them reaching 839 of the 1,685 pages,
 plus 3,251 embedded ones — a creature's own attacks, abilities and feats. How
 each was found is worth stating, because it is the measure of how precise a
 link is: 717 by their own name, 140 as a variant of another entry, 602 by the
@@ -697,7 +697,7 @@ printed on.
 **Each page says what it is the rules for.** The link goes both ways: a footer
 on the gargoyle's page offers the gargoyle, the Handguns page offers its
 twenty-three handguns, and the feats chapter offers each feat as the item to
-drag onto a sheet — 797 pages, listing 1,535 documents between them. Reading a
+drag onto a sheet — 839 pages, listing 1,577 documents between them. Reading a
 rule and reaching for the thing it describes is most of what a rules reference
 is for. The footer is a generated block confined to the end of the page, so the
 SRD's own text is never edited, and it is replaced whole on every run;
@@ -906,6 +906,37 @@ goes stale, since section pages link to the sub-pages holding the actual tables.
 Pages are cached in `.cache/` and the site is hit once. Output lands in `data/`
 and is committed, so a parser change means re-running `build_packs.py`, not
 re-scraping.
+
+**Classes and occupations come from every book's own index.** Each book that
+adds either publishes a list of them, and all the lists are the same shape, so
+each is read the same way: 28 more classes — Urban Arcana's twelve advanced and
+four prestige, d20 Future's twelve — and 14 more occupations, six and eight.
+The tier comes from which index linked the page, prestige last so a page both
+lists is a prestige class.
+
+Reading them meant meeting the same rule written three ways, which is what the
+expansions cost. The Hit Die is a die on d20 Modern's pages and a sentence on
+everything else — "Mystics gain 1d6 hit points per level" — and four of d20
+Modern's own classes are written the second way, so the Acolyte, the Occultist,
+the Telepath and the Shadow Slayer had all been taking the fallback d8. The
+colon sits on either side of the tag break: d20 Modern splits
+`["Prerequisite", ": Age 20+."]` and d20 Future `["Prerequisite:", "Age 21+"]`,
+and reading only the first shape found nothing at all on d20 Future's pages —
+every one of its occupations was skipped for having no prerequisite, and the
+Wealth Bonus Increase of the one above became an occupation called "+2". The
+skill list is on the line after the sentence that introduces it, and which line
+that is cannot be told by looking for a bracket, since "the Arcane Arranger's
+class skills (and the key ability for each skill) are:" has one — so each line
+after the label is parsed and the first that yields a skill is the list.
+
+Ten of the twenty-nine expansion class pages carry no "Table: The Mystic"
+caption either, so the name comes from the banner over the page —
+"ADVANCED CLASSES - EXPLORER" — and only then from the file name, which reads
+like what it is: "Urbanmystic".
+
+One class is corrected by hand. The mirror prints the Street Warrior's class
+skills as an empty italic tag, and the list is in the RTF release the SRD also
+shipped as, so `data/overrides/classes.json` carries it with that citation.
 
 **A comma inside a number is not a list separator.** The SQ line is split on
 commas, and the three great dragons see "darkvision 1,200 ft." — which arrived
@@ -1119,16 +1150,14 @@ Roughly in the order worth doing it:
    leaving it to the player to decide and click.
 4. **The rest of d20 Future and Urban Arcana.** The equipment is in: every
    weapon, suit of armor, piece of gear and vehicle those books price is built
-   from its own table, and so are Urban Arcana's creatures, spells, powers, FX
-   items and feats. The *text* of everything else arrived with the rules
+   from its own table, and so are their classes and occupations, and Urban
+   Arcana's creatures, spells, powers, FX items and feats. The *text* of everything else arrived with the rules
    journal, so it is readable and linkable in the world today; what is left is
    documents to drag onto a sheet. Measured by the rules pages nothing points
    at, in the order the work gets harder:
 
    | Missing | Entries | Why it is not in yet |
    |---|---|---|
-   | Urban Arcana advanced and prestige classes | 12 + 5 | the class scrape is pointed at d20 Modern's index pages only |
-   | d20 Future advanced classes and occupations | 12 + 7 | the same |
    | d20 Future and Menace Manual feats | 29 + 5 | those two listings are laid out differently enough that the feat parser reads prerequisite lines as names |
    | Shadowkind species | 21 | species-trait bundles; no importer |
    | Incantations and their seeds | 46 | spell-shaped; no importer, and `urbanseed.html` is past the crawl |

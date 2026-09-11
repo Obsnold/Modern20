@@ -1,0 +1,68 @@
+{
+  "_id": "PPp5pftEYqeXZbEN",
+  "name": "Psychic",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Psychics can be people with innate, low-level psionic abilities or simply con-artists looking to make a buck off those gullible enough to believe their ruses.",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html",
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "bluff",
+        "label": "Bluff",
+        "specialties": []
+      },
+      {
+        "skill": "concentration",
+        "label": "Concentration",
+        "specialties": []
+      },
+      {
+        "skill": "diplomacy",
+        "label": "Diplomacy",
+        "specialties": []
+      },
+      {
+        "skill": "gatherInformation",
+        "label": "Gather Information",
+        "specialties": []
+      },
+      {
+        "skill": "intimidate",
+        "label": "Intimidate",
+        "specialties": []
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (behavioral sciences, current events, popular culture, or streetwise)",
+        "specialties": [
+          "Behavioral Sciences",
+          "Current Events",
+          "Popular Culture",
+          "Or Streetwise"
+        ]
+      },
+      {
+        "skill": "senseMotive",
+        "label": "Sense Motive",
+        "specialties": []
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "Iron Will",
+      "Wild Talent"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+."
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.K8QdJPS6eZ1OCwAO.JournalEntryPage.oChvLiKpp6KdxFM9"
+  },
+  "_key": "!items!PPp5pftEYqeXZbEN",
+  "folder": "LRAr92Lr1amGxdQO"
+}

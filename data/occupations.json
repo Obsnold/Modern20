@@ -183,6 +183,137 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
   },
   {
+    "id": "apothecary",
+    "name": "Apothecary",
+    "description": "Apothecaries are people who study the science of mixing chemicals, elements, and naturally occurring",
+    "prerequisites": [
+      "Age 20+."
+    ],
+    "skills": "Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Craft (chemical, mechanical, pharmaceutical, or writing), Disable Device, Knowledge (arcane lore, earth and life sciences, history, or physical sciences), Repair, Research.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "craft",
+          "label": "Craft (chemical, mechanical, pharmaceutical, or writing)",
+          "specialties": [
+            "Chemical",
+            "Mechanical",
+            "Pharmaceutical",
+            "Or Writing"
+          ]
+        },
+        {
+          "skill": "disableDevice",
+          "label": "Disable Device",
+          "specialties": []
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, earth and life sciences, history, or physical sciences)",
+          "specialties": [
+            "Arcane Lore",
+            "Earth And Life Sciences",
+            "History",
+            "Or Physical Sciences"
+          ]
+        },
+        {
+          "skill": "repair",
+          "label": "Repair",
+          "specialties": []
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialties": []
+        }
+      ]
+    },
+    "bonusFeat": "Select either Arcane Skills or Educated.",
+    "bonusFeatOptions": [
+      "Arcane Skills",
+      "Educated"
+    ],
+    "wealthBonus": 3,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html"
+  },
+  {
+    "id": "astronautTrainee",
+    "name": "Astronaut Trainee",
+    "description": "As scientists and pioneers, astronaut trainees have prepared their minds and bodies for the rigors of space travel and life in space. They are elite members of a sophisticated space program, waiting for the opportunity to hurl themselves into the void to advance humanity’s understanding of science and shed light on the mysteries of the universe.",
+    "prerequisites": [
+      "Age 21+"
+    ],
+    "skills": "Choose two of the following skills as permanent class skills. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Computer Use (Int), Craft (electronic, mechanical, or pharmaceutical) (Int), Knowledge (earth and life sciences, physical sciences, or technology) (Int), Navigate (Int), Pilot (Dex), Repair (Int), Survival (Wis).",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "computerUse",
+          "label": "Computer Use (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (electronic, mechanical, or pharmaceutical) (Int)",
+          "specialties": [
+            "Electronic",
+            "Mechanical",
+            "Or Pharmaceutical"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (earth and life sciences, physical sciences, or technology) (Int)",
+          "specialties": [
+            "Earth And Life Sciences",
+            "Physical Sciences",
+            "Or Technology"
+          ]
+        },
+        {
+          "skill": "navigate",
+          "label": "Navigate (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "pilot",
+          "label": "Pilot (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "repair",
+          "label": "Repair (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "survival",
+          "label": "Survival (Wis)",
+          "specialties": [
+            "Wis"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "Select either Aircraft Operation (spacecraft) or Zero-G Training",
+    "bonusFeatOptions": [
+      "Aircraft Operation (spacecraft) or Zero-G Training"
+    ],
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
+  },
+  {
     "id": "athlete",
     "name": "Athlete",
     "description": "Athletes include amateur athletes of Olympic quality and professional athletes of all types, including gymnasts, weight trainers, wrestlers, boxers, martial artists, swimmers, skaters, and those who engage in any type of competitive sport.",
@@ -351,6 +482,73 @@
     "wealthBonus": 4,
     "reputationBonus": 1,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
+  },
+  {
+    "id": "colonist",
+    "name": "Colonist",
+    "description": "Colonists are wayfaring pioneers who set the foundations of new societies on far-flung continents, planets, or moons. To survive in their new surroundings, they learn to live off the land and defend themselves against indigenous predatory life forms and hostile forces of nature.",
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "skills": "Choose two of the following skills as permanent class skills. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Computer Use (Int), Craft (electronic, mechanical, or structural) (Int), Knowledge (earth and life sciences or physical sciences) (Int), Navigate (Int), Repair (Int), Survival (Wis).",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "computerUse",
+          "label": "Computer Use (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (electronic, mechanical, or structural) (Int)",
+          "specialties": [
+            "Electronic",
+            "Mechanical",
+            "Or Structural"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (earth and life sciences or physical sciences) (Int)",
+          "specialties": [
+            "Earth And Life Sciences Or Physical Sciences"
+          ]
+        },
+        {
+          "skill": "navigate",
+          "label": "Navigate (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "repair",
+          "label": "Repair (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "survival",
+          "label": "Survival (Wis)",
+          "specialties": [
+            "Wis"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "Select Builder, Guide, or Planetary Adaptation",
+    "bonusFeatOptions": [
+      "Select Builder",
+      "Guide",
+      "Planetary Adaptation"
+    ],
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
   },
   {
     "id": "creative",
@@ -585,6 +783,102 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
   },
   {
+    "id": "drifter",
+    "name": "Drifter",
+    "description": "Drifters are aimless wanderers and worldwise jacks-of-all-trades who move between cities or star systems, working odd jobs until boredom or fate leads them elsewhere. Along the way, they learn strange customs and pick up interesting and diverse skills.",
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "skills": "Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Bluff (Cha), Decipher Script (Int), Disable Device (Int), Disguise (Cha), Forgery (Int), Gamble (Wis), Gather Information (Cha), Hide (Dex), Knowledge (streetwise) (Int), Navigate (Int), Sleight of Hand (Dex).",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "bluff",
+          "label": "Bluff (Cha)",
+          "specialties": [
+            "Cha"
+          ]
+        },
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "disableDevice",
+          "label": "Disable Device (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "disguise",
+          "label": "Disguise (Cha)",
+          "specialties": [
+            "Cha"
+          ]
+        },
+        {
+          "skill": "forgery",
+          "label": "Forgery (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "gamble",
+          "label": "Gamble (Wis)",
+          "specialties": [
+            "Wis"
+          ]
+        },
+        {
+          "skill": "gatherInformation",
+          "label": "Gather Information (Cha)",
+          "specialties": [
+            "Cha"
+          ]
+        },
+        {
+          "skill": "hide",
+          "label": "Hide (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (streetwise) (Int)",
+          "specialties": [
+            "Streetwise"
+          ]
+        },
+        {
+          "skill": "navigate",
+          "label": "Navigate (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "sleightOfHand",
+          "label": "Sleight of Hand (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "",
+    "bonusFeatOptions": [],
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
+  },
+  {
     "id": "emergencyServices",
     "name": "Emergency Services",
     "description": "Rescue workers, firefighters, paramedics, hazardous material handlers, and emergency medical technicians fall under this category.",
@@ -694,6 +988,182 @@
     "wealthBonus": 4,
     "reputationBonus": 1,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
+  },
+  {
+    "id": "gladiator",
+    "name": "Gladiator",
+    "description": "Gladiators have been fighting all their lives, whether on the streets or in some form of arena. They include disenchanted youths and poverty-stricken hoodlums looking to trade fists for cash, clones bred in secret labs to fight from birth, and low-ranking members of a society’s warrior caste.",
+    "prerequisites": [
+      "Age 18+"
+    ],
+    "skills": "Choose one of the following skills as a permanent class skill. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Balance (Dex), Intimidate (Cha), Knowledge (streetwise) (Int), Tumble (Dex)",
+    "skillChoices": {
+      "count": 1,
+      "options": [
+        {
+          "skill": "balance",
+          "label": "Balance (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "intimidate",
+          "label": "Intimidate (Cha)",
+          "specialties": [
+            "Cha"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (streetwise) (Int)",
+          "specialties": [
+            "Streetwise"
+          ]
+        },
+        {
+          "skill": "tumble",
+          "label": "Tumble (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "Select either Brawl or Combat Martial Arts",
+    "bonusFeatOptions": [
+      "Brawl",
+      "Combat Martial Arts"
+    ],
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
+  },
+  {
+    "id": "hedgeWizard",
+    "name": "Hedge Wizard",
+    "description": "A hedge wizard is someone who has spent a great deal of time studying the arcane arts without the benefit of having any formal training or mentoring.",
+    "prerequisites": [
+      "Intelligence 10."
+    ],
+    "skills": "Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Concentration, Craft (chemical or writing), Decipher Script, Gather Information, Knowledge (arcane lore, art, earth and life sciences, history, or physical sciences), Research.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "concentration",
+          "label": "Concentration",
+          "specialties": []
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (chemical or writing)",
+          "specialties": [
+            "Chemical Or Writing"
+          ]
+        },
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script",
+          "specialties": []
+        },
+        {
+          "skill": "gatherInformation",
+          "label": "Gather Information",
+          "specialties": []
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, art, earth and life sciences, history, or physical sciences)",
+          "specialties": [
+            "Arcane Lore",
+            "Art",
+            "Earth And Life Sciences",
+            "History",
+            "Or Physical Sciences"
+          ]
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialties": []
+        }
+      ]
+    },
+    "bonusFeat": "Select either: Magical Heritage or Magical Affinity.",
+    "bonusFeatOptions": [
+      ": Magical Heritage",
+      "Magical Affinity"
+    ],
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html"
+  },
+  {
+    "id": "heir",
+    "name": "Heir",
+    "description": "Heirs are the elite sons and daughters of powerful magnates, influential nobles, and imperial monarchs. Unlike dilettantes, however, they are bound by their lineage to certain responsibilities, with the assumption that they might someday rise to lead their families into the future . . . assuming the stars are properly aligned and they do nothing to jeopardize their birthright.",
+    "prerequisites": [
+      "Age 21+"
+    ],
+    "skills": "Choose two of the following skills as permanent class skills. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Craft (visual art or writing) (Int), Knowledge (art, business, civics, current events, or history) (Int), Perform (act, dance, keyboards, percussion instruments, sing, stringed instruments, or wind instruments) (Cha), Ride (Dex), Sense Motive (Wis). Pre-Selected Feat: An heir must choose the Educated feat as one of her starting feats at 1st level.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "craft",
+          "label": "Craft (visual art or writing) (Int)",
+          "specialties": [
+            "Visual Art Or Writing"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (art, business, civics, current events, or history) (Int)",
+          "specialties": [
+            "Art",
+            "Business",
+            "Civics",
+            "Current Events",
+            "Or History"
+          ]
+        },
+        {
+          "skill": "perform",
+          "label": "Perform (act, dance, keyboards, percussion instruments, sing, stringed instruments, or wind instruments) (Cha)",
+          "specialties": [
+            "Act",
+            "Dance",
+            "Keyboards",
+            "Percussion Instruments",
+            "Sing",
+            "Stringed Instruments",
+            "Or Wind Instruments"
+          ]
+        },
+        {
+          "skill": "ride",
+          "label": "Ride (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "senseMotive",
+          "label": "Sense Motive (Wis). Pre-Selected Feat: An heir must choose the Educated feat as one of her starting feats at 1st level",
+          "specialties": [
+            "Wis"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "+1",
+    "bonusFeatOptions": [
+      "+1"
+    ],
+    "wealthBonus": 6,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
   },
   {
     "id": "investigative",
@@ -909,6 +1379,191 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
   },
   {
+    "id": "novitiate",
+    "name": "Novitiate",
+    "description": "Novitiates draw quiet strength from their belief in a greater power. They do not necessarily have ties to a specific religion or denomination—their faith is enough. Some novitiates are lay clergy, counselors, motivational speakers, social workers, or any other position involved with helping people who have lost hope and faith.",
+    "prerequisites": [
+      "Wisdom 10."
+    ],
+    "skills": "Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Concentration, Craft (writing), Decipher Script, Diplomacy, Knowledge (arcane lore, art, behavioral sciences, history, or theology and philosophy), Sense Motive.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "concentration",
+          "label": "Concentration",
+          "specialties": []
+        },
+        {
+          "skill": "craft",
+          "label": "Craft (writing)",
+          "specialties": [
+            "Writing"
+          ]
+        },
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script",
+          "specialties": []
+        },
+        {
+          "skill": "diplomacy",
+          "label": "Diplomacy",
+          "specialties": []
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, art, behavioral sciences, history, or theology and philosophy)",
+          "specialties": [
+            "Arcane Lore",
+            "Art",
+            "Behavioral Sciences",
+            "History",
+            "Or Theology And Philosophy"
+          ]
+        },
+        {
+          "skill": "senseMotive",
+          "label": "Sense Motive",
+          "specialties": []
+        }
+      ]
+    },
+    "bonusFeat": "Select either: Divine Heritage or Magical Affinity.",
+    "bonusFeatOptions": [
+      ": Divine Heritage",
+      "Magical Affinity"
+    ],
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html"
+  },
+  {
+    "id": "outcast",
+    "name": "Outcast",
+    "description": "“Outcast” is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.",
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "skills": "Choose one of the following skills as a permanent class skill. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Disguise (Cha), Hide (Dex), Knowledge (streetwise) (Int), Search (Int), Survival (Wis), Treat Injury (Wis).",
+    "skillChoices": {
+      "count": 1,
+      "options": [
+        {
+          "skill": "disguise",
+          "label": "Disguise (Cha)",
+          "specialties": [
+            "Cha"
+          ]
+        },
+        {
+          "skill": "hide",
+          "label": "Hide (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (streetwise) (Int)",
+          "specialties": [
+            "Streetwise"
+          ]
+        },
+        {
+          "skill": "search",
+          "label": "Search (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "survival",
+          "label": "Survival (Wis)",
+          "specialties": [
+            "Wis"
+          ]
+        },
+        {
+          "skill": "treatInjury",
+          "label": "Treat Injury (Wis)",
+          "specialties": [
+            "Wis"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "Toughness",
+    "bonusFeatOptions": [
+      "Toughness"
+    ],
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
+  },
+  {
+    "id": "psychic",
+    "name": "Psychic",
+    "description": "Psychics can be people with innate, low-level psionic abilities or simply con-artists looking to make a buck off those gullible enough to believe their ruses.",
+    "prerequisites": [
+      "Age 15+."
+    ],
+    "skills": "Choose two of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Bluff, Concentration, Diplomacy, Gather Information, Intimidate, Knowledge (behavioral sciences, current events, popular culture, or streetwise), Sense Motive.",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "bluff",
+          "label": "Bluff",
+          "specialties": []
+        },
+        {
+          "skill": "concentration",
+          "label": "Concentration",
+          "specialties": []
+        },
+        {
+          "skill": "diplomacy",
+          "label": "Diplomacy",
+          "specialties": []
+        },
+        {
+          "skill": "gatherInformation",
+          "label": "Gather Information",
+          "specialties": []
+        },
+        {
+          "skill": "intimidate",
+          "label": "Intimidate",
+          "specialties": []
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (behavioral sciences, current events, popular culture, or streetwise)",
+          "specialties": [
+            "Behavioral Sciences",
+            "Current Events",
+            "Popular Culture",
+            "Or Streetwise"
+          ]
+        },
+        {
+          "skill": "senseMotive",
+          "label": "Sense Motive",
+          "specialties": []
+        }
+      ]
+    },
+    "bonusFeat": "Select either Iron Will or Wild Talent.",
+    "bonusFeatOptions": [
+      "Iron Will",
+      "Wild Talent"
+    ],
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html"
+  },
+  {
     "id": "religious",
     "name": "Religious",
     "description": "Ordained clergy of all persuasions, as well as theological scholars and experts on religious studies fall within the scope of this starting occupation.",
@@ -1015,6 +1670,191 @@
     "wealthBonus": 1,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
+  },
+  {
+    "id": "scavenger",
+    "name": "Scavenger",
+    "description": "Scavengers turn society’s wreckage and discarded trash into useful tools or items for trade, and if they’re lucky, their endeavors might even yield one or two objects of special value. They effortlessly navigate and strip clean the most treacherous places, and their playgrounds are abandoned space stations, gutted buildings, and smoking battlefields.",
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "skills": "Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Decipher Script (Int), Disable Device (Int), Knowledge (technology) (Int), Move Silently (Dex), Repair (Int), Search (Int), Spot (Wis), Survival (Wis)",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "disableDevice",
+          "label": "Disable Device (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (technology) (Int)",
+          "specialties": [
+            "Technology"
+          ]
+        },
+        {
+          "skill": "moveSilently",
+          "label": "Move Silently (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "repair",
+          "label": "Repair (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "search",
+          "label": "Search (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "spot",
+          "label": "Spot (Wis)",
+          "specialties": [
+            "Wis"
+          ]
+        },
+        {
+          "skill": "survival",
+          "label": "Survival (Wis)",
+          "specialties": [
+            "Wis"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "",
+    "bonusFeatOptions": [],
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
+  },
+  {
+    "id": "shadowScholar",
+    "name": "Shadow Scholar",
+    "description": "Shadow scholars fall into two categories—learned Shadowkind and mundane folk who have spent time studying Shadow culture, magic, and other supernatural occurrences.",
+    "prerequisites": [
+      "Age 15+."
+    ],
+    "skills": "Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Decipher Script, Gather Information, Knowledge (arcane lore, art, behavioral sciences, earth and life sciences, history, physical sciences, tactics, or theology and philosophy), Research, or add a new Read/Write Language or a new Speak Language.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "decipherScript",
+          "label": "Decipher Script",
+          "specialties": []
+        },
+        {
+          "skill": "gatherInformation",
+          "label": "Gather Information",
+          "specialties": []
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (arcane lore, art, behavioral sciences, earth and life sciences, history, physical sciences, tactics, or theology and philosophy)",
+          "specialties": [
+            "Arcane Lore",
+            "Art",
+            "Behavioral Sciences",
+            "Earth And Life Sciences",
+            "History",
+            "Physical Sciences",
+            "Tactics",
+            "Or Theology And Philosophy"
+          ]
+        },
+        {
+          "skill": "research",
+          "label": "Research",
+          "specialties": []
+        },
+        {
+          "skill": "readWriteLanguage",
+          "label": "Read/Write Language",
+          "specialties": []
+        },
+        {
+          "skill": "speakLanguage",
+          "label": "Speak Language",
+          "specialties": []
+        }
+      ]
+    },
+    "bonusFeat": "Select either Arcane Skills or Educated.",
+    "bonusFeatOptions": [
+      "Arcane Skills",
+      "Educated"
+    ],
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html"
+  },
+  {
+    "id": "squire",
+    "name": "Squire",
+    "description": "Squires serve as assistants to warriors in hopes of learning the skills they will need to be warriors themselves one day.",
+    "prerequisites": [
+      "Strength 13 or Dexterity 13."
+    ],
+    "skills": "Choose three of the following skills as permanent class skills. If a skill you select is already a class skill, you receive a +1 competence bonus on checks using that skill. Balance, Climb, Handle Animal, Jump, Ride, Tumble.",
+    "skillChoices": {
+      "count": 3,
+      "options": [
+        {
+          "skill": "balance",
+          "label": "Balance",
+          "specialties": []
+        },
+        {
+          "skill": "climb",
+          "label": "Climb",
+          "specialties": []
+        },
+        {
+          "skill": "handleAnimal",
+          "label": "Handle Animal",
+          "specialties": []
+        },
+        {
+          "skill": "jump",
+          "label": "Jump",
+          "specialties": []
+        },
+        {
+          "skill": "ride",
+          "label": "Ride",
+          "specialties": []
+        },
+        {
+          "skill": "tumble",
+          "label": "Tumble",
+          "specialties": []
+        }
+      ]
+    },
+    "bonusFeat": "Select either Archaic Weapons Proficiency or Armor Proficiency (light).",
+    "bonusFeatOptions": [],
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html"
   },
   {
     "id": "student",
@@ -1130,6 +1970,72 @@
     "wealthBonus": 3,
     "reputationBonus": 0,
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html"
+  },
+  {
+    "id": "transporter",
+    "name": "Transporter",
+    "description": "Skilled drivers and pilots, transporters move people, information, and precious cargo safely from one destination to another. They treat their vehicles as extensions of their bodies and are most comfortable behind the wheels of skycabs or the thruster controls of cargo shuttles.",
+    "prerequisites": [
+      "Age 18+"
+    ],
+    "skills": "Choose two of the following skills as permanent class skills. If a skill you select is already a class skill, you gain a +1 competence bonus on checks using that skill. Craft (mechanical) (Int), Drive (Dex), Knowledge (current events, popular culture, or streetwise) (Int), Navigate (Int), Pilot (Dex), Repair (Int).",
+    "skillChoices": {
+      "count": 2,
+      "options": [
+        {
+          "skill": "craft",
+          "label": "Craft (mechanical) (Int)",
+          "specialties": [
+            "Mechanical"
+          ]
+        },
+        {
+          "skill": "drive",
+          "label": "Drive (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "knowledge",
+          "label": "Knowledge (current events, popular culture, or streetwise) (Int)",
+          "specialties": [
+            "Current Events",
+            "Popular Culture",
+            "Or Streetwise"
+          ]
+        },
+        {
+          "skill": "navigate",
+          "label": "Navigate (Int)",
+          "specialties": [
+            "Int"
+          ]
+        },
+        {
+          "skill": "pilot",
+          "label": "Pilot (Dex)",
+          "specialties": [
+            "Dex"
+          ]
+        },
+        {
+          "skill": "repair",
+          "label": "Repair (Int)",
+          "specialties": [
+            "Int"
+          ]
+        }
+      ]
+    },
+    "bonusFeat": "Select either Spacer or Vehicle Expert",
+    "bonusFeatOptions": [
+      "Spacer",
+      "Vehicle Expert"
+    ],
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html"
   },
   {
     "id": "whiteCollar",
