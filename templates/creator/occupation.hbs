@@ -16,7 +16,7 @@
 
     {{#if chosenOccupation}}
       <div class="m20-panel">
-        <h3>{{chosenOccupation.name}}</h3>
+        <h3>{{chosenOccupation.name}} {{modern20Rules uuid=chosenOccupation.rulesPage}}</h3>
         <p class="m20-hint">{{localize "MODERN20.Creator.WealthBonus"}}: +{{chosenOccupation.wealthBonus}}</p>
 
         {{#if occupationSkillCount}}

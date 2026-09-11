@@ -171,7 +171,8 @@ export class Modern20Actor extends Actor {
           title: game.i18n.format("MODERN20.Damage.NonlethalExceeds", {
             name: this.name, total, hp: hp.value
           }),
-          warning: true
+          warning: true,
+          rules: "nonlethalDamage"
         });
       }
       return { value: hp.value, nonlethal: total };
@@ -398,7 +399,8 @@ export class Modern20Actor extends Actor {
     await this.update({ "system.hp.value": value });
     await announce(this, {
       title: game.i18n.format("MODERN20.Death.Bleeds", { name: this.name, hp: value }),
-      warning: true
+      warning: true,
+      rules: "injuryAndDeath"
     });
     return value;
   }

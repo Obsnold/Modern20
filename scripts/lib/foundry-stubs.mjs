@@ -193,7 +193,14 @@ export function installStubs() {
     },
   };
   globalThis.ui = { notifications: { warn: () => {}, error: () => {} } };
-  globalThis.Handlebars = { registerHelper: () => {} };
+  globalThis.Handlebars = {
+    registerHelper: () => {},
+    escapeExpression: (text) => String(text),
+    SafeString: class { constructor(html) { this.html = html; } toString() { return this.html; } },
+  };
+  // The ready hook installs one delegated click handler for rules links, and
+  // the checks run every hook they recorded.
+  globalThis.document = { addEventListener: () => {} };
 
   globalThis.foundry = {
     data: {

@@ -35,6 +35,7 @@ fighting it forever, so this is a standalone game system.
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
+| Everything links to it | All 1,391 compendium documents carry the page their rules are on; the sheets link 19 topics and every skill |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
@@ -86,6 +87,7 @@ module/
   documents/             Actor and Item classes: rolls, purchases, damage
   sheets/                ApplicationV2 sheets
   dice/wealth.mjs        The Wealth economy
+  rules.mjs              Links into the rules compendium; rules-links.mjs is generated
 templates/               Handlebars templates (actor, item, chat)
 css/modern20.css         Styling, scoped under .modern20
 lang/en.json             Localization
@@ -594,6 +596,75 @@ since a journal sheet has nowhere to jump to, and the two appendices the menu
 offers that the server does not actually have go the same way rather than
 becoming dead links.
 
+### Everything points at it
+
+A page per entry is only worth the split if something points at the pages.
+Every document in every pack now carries one — `system.rulesPage`, the page of
+the rules compendium its own rules are printed on — and so do the parts of the
+system that are not documents at all.
+
+```bash
+python3 scripts/link_rules.py         # stamp the documents already in src/packs
+python3 scripts/gen_rules_links.py    # regenerate module/rules-links.mjs
+python3 scripts/check_rules_links.py  # every link resolves to a page that exists
+```
+
+All 1,391 documents are linked, between them reaching 694 of the 1,685 pages,
+plus 2,005 embedded ones — a creature's own attacks, abilities and feats. How
+each was found is worth stating, because it is the measure of how precise a
+link is: 622 by their own name, 77 as a variant of another entry, 607 by the
+category the SRD sold them under, 52 by the class whose talent tree they are
+in, and 33 that reached only the chapter they were printed in.
+
+**The match is made in widening scopes** — the pages of the SRD page the
+document was scraped from, then the pages of that chapter, then the whole SRD.
+A magic item cites `fxitems.html` and its page is under `urbanfxweapon.html`,
+the same chapter in a different file, so the middle scope is what finds it.
+Embedded documents stop at the second: a creature's attack is named in the
+creature's own words — "Claw (x2)", "Slam" — and reaching across the whole SRD
+for one of those put an ape's claws on a PL 5 robot accessory.
+
+**The equipment is linked while the table is still being read**, because a
+heading like "Handguns" is a page of the rules and is known only there. By the
+time a handgun is an item in a pack, all it carries is the proficiency it
+needs, which is not what the SRD filed it under. So the importer stamps those
+as it builds them, and `link_rules.py` takes the importer's answer for every
+document it recognises rather than working it out again from the file.
+
+That script exists because `src/packs` is the source of truth: the import adds
+documents the packs do not have and leaves the rest alone, so a *new field*
+cannot arrive that way — it would report 1,391 documents as differing and write
+none of them. `link_rules.py` writes that one field and nothing else, and is
+safe to re-run, since the page is derived rather than chosen and the ids in a
+UUID are hashes of the pack and the slug.
+
+**A creature the book prints as a variant lands on the entry it varies.** The
+compendium holds "Advanced Chemical Golem", "Huge Crocodile Zombie", "Etoile
+Techie 5" and "Anaconda, Giant (Gargantuan)", none of which the SRD gives a
+page — the advanced version is on the acid rainer's page and the statted-up one
+on the creature's. Those are matched by taking the name apart in the shapes the
+book actually uses: the size off the front, the class and level off the back,
+the parenthesis off the end. It is safe to be that aggressive because a variant
+is only ever looked for among the pages of the one SRD page the stat block was
+printed on.
+
+**What the sheets link** is in `module/rules-links.mjs`, generated: 19 topics
+and a page for each of the 41 skills, including the seven Craft subjects the
+SRD describes one at a time. The skills table links a row to its own skill, the
+panel headings link to the chapter behind them — Ability Scores, Combat,
+Actions in Combat — and the header boxes link to the chapters they *are*:
+Wealth, Action Points, Reputation, massive damage. A record card links to the
+rule it is an application of, so "the character is dying" arrives next to what
+dying means. Which page a topic means is a judgement and is written down in the
+generator; the UUIDs are derived, and a page title that stops existing fails
+the generator rather than producing a link into nothing.
+
+The links are rendered by the system rather than by Foundry's `@UUID`
+enricher, which is asynchronous — a skills table would need forty-one of them
+per render. What that costs is one delegated click handler, installed at ready
+in `module/rules.mjs`, which also means a link on a chat card still works long
+after the sheet that posted it has closed.
+
 ### Why not the RTF releases
 
 They were used first, and the whole of that import was a fight with them.
@@ -760,6 +831,7 @@ additive, and never argues with the pack.
 python3 scripts/scrape.py             # crawl the SRD into data/
 python3 scripts/build_packs.py        # import what the packs do not have yet
 python3 scripts/build_packs.py --overwrite weapons   # take the import for one pack
+python3 scripts/link_rules.py         # give the documents already there their rules page
 scripts/capture_edits.py              # bring edits made in Foundry home
 ```
 
@@ -868,6 +940,7 @@ python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
 python3 scripts/check_shadowing.py   # no module-level name defined twice
 python3 scripts/check_packs.py       # folders, keys and ids a compendium needs
 python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
+python3 scripts/check_rules_links.py # every link into the rules resolves to a page
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
@@ -904,6 +977,7 @@ to trust any of them:
 | `check_templates.mjs` | `{{formField fields.typo}}` renders as nothing with no console error — a blank row, not a crash |
 | `check_shadowing.py` / `no-redeclare` | two parsers in one week were named over an existing definition — `ability_key` over the psionics one, `DAMAGE_TYPES` over the spells one — and the later definition silently won |
 | `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
+| `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |
 | `check_capture.py` | renaming a creature on its sheet filed a second copy of it beside the first, and a folder made in Foundry was left behind so everything in it landed in the compendium root — both found by reading 1,400 documents of output against a live host |
 

@@ -44,7 +44,9 @@ export class Modern20Object extends foundry.abstract.TypeDataModel {
       defenseMisc: int(0),
       description: new fields.HTMLField({ initial: "" }),
       source: new fields.StringField({ initial: "" }),
-      srdUrl: new fields.StringField({ initial: "" })
+      srdUrl: new fields.StringField({ initial: "" }),
+      // The page of the rules compendium this is printed on.
+      rulesPage: new fields.StringField({ initial: "" })
     };
   }
 

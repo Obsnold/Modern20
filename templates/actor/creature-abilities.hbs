@@ -1,6 +1,7 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
   <div class="m20-panel">
-    <h3>{{localize "MODERN20.Senses"}}</h3>
+    {{!-- The glossary the stat block's senses and qualities are defined in. --}}
+    <h3>{{localize "MODERN20.Senses"}} {{modern20Rules topic="specialAbilities"}}</h3>
     <div class="m20-row">
       <input type="text" name="system.senses" value="{{system.senses}}"
              placeholder="{{localize 'MODERN20.Creature.SensesHint'}}">

@@ -24,6 +24,7 @@ import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
 import { bindDamageControls } from "./apps/damage.mjs";
 import { registerConditions } from "./conditions.mjs";
+import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.mjs";
 import { CONDITIONS } from "./condition-list.mjs";
 import { ACTIVITY_TYPES } from "./data/activity.mjs";
 
@@ -165,6 +166,8 @@ Hooks.on("combatStart", async (combat) => {
 });
 
 Hooks.once("ready", () => {
+  // One delegated handler for every rules link on every sheet, card and app.
+  activateRulesLinks();
   console.log(`${SYSTEM_ID} | Ready`);
 });
 
@@ -225,4 +228,21 @@ function registerHandlebarsHelpers() {
 
   // Core has no way to write a literal list in a template.
   Handlebars.registerHelper("array", (...args) => args.slice(0, -1));
+
+  /**
+   * A link into the rules compendium: `{{modern20Rules topic="wealth"}}`,
+   * `{{modern20Rules uuid=system.rulesPage}}` or
+   * `{{modern20Rules skill=row.key specialty=row.specialty}}`.
+   *
+   * Named arguments because the three ways of naming a page are not
+   * interchangeable, and a helper that took one positional argument would
+   * leave every template working out which it had.
+   */
+  Handlebars.registerHelper("modern20Rules", (options) => {
+    const { topic, uuid, skill, specialty, label } = options?.hash ?? {};
+    const page = uuid
+      || (topic ? rulesTopic(topic) : "")
+      || (skill ? skillRules(skill, specialty) : "");
+    return new Handlebars.SafeString(rulesLink(page, { label }));
+  });
 }

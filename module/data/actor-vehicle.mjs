@@ -34,7 +34,9 @@ export class Modern20Vehicle extends foundry.abstract.TypeDataModel {
       // Shipped in the compendium since vehicles were imported, and dropped
       // on the way in for want of a field to land in.
       source: new fields.StringField({ initial: "" }),
-      srdUrl: new fields.StringField({ initial: "" })
+      srdUrl: new fields.StringField({ initial: "" }),
+      // The page of the rules compendium this is printed on.
+      rulesPage: new fields.StringField({ initial: "" })
     };
   }
 }

@@ -13,6 +13,11 @@ export class Modern20ItemBase extends foundry.abstract.TypeDataModel {
       description: new fields.HTMLField({ initial: "" }),
       source: new fields.StringField({ initial: "" }),
       srdUrl: new fields.StringField({ initial: "" }),
+      // The page of the rules compendium this item's own rules are on, as a
+      // UUID. Stamped by the import - one page per feat, spell, creature and
+      // equipment category - and shown in the header as a link, which is the
+      // offline half of what srdUrl is the online half of.
+      rulesPage: new fields.StringField({ initial: "" }),
       // Every item type can carry activities, so a magic gadget or a piece of
       // gear can act without needing a new document type.
       activities: activitiesField()

@@ -2,6 +2,8 @@
   <header class="m20-chat__header">
     <img src="{{item.img}}" alt="{{item.name}}">
     <span class="m20-chat__title">{{item.name}}</span>
+    {{!-- The item's own rules, for whoever is reading the card. --}}
+    {{modern20Rules uuid=item.system.rulesPage}}
   </header>
   {{#if system.prerequisites.length}}
     <p class="m20-hint">{{localize "MODERN20.Prerequisites"}}: {{#each system.prerequisites}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>

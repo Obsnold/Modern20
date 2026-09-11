@@ -364,8 +364,8 @@
             "label": "Spellcasting"
           },
           "spellcasting.casterLevelOverride": {
-            "label": "Caster level",
-            "hint": "Blank derives it from character level."
+            "hint": "Blank derives it from character level.",
+            "label": "Caster level"
           },
           "turn": {
             "label": "Turn"
@@ -681,8 +681,8 @@
             "label": "Spellcasting"
           },
           "spellcasting.casterLevelOverride": {
-            "label": "Caster level",
-            "hint": "Blank derives it from character level."
+            "hint": "Blank derives it from character level.",
+            "label": "Caster level"
           },
           "turn": {
             "label": "Turn"
@@ -1008,8 +1008,8 @@
             "label": "Spellcasting"
           },
           "spellcasting.casterLevelOverride": {
-            "label": "Caster level",
-            "hint": "Blank derives it from character level."
+            "hint": "Blank derives it from character level.",
+            "label": "Caster level"
           },
           "turn": {
             "label": "Turn"
@@ -1380,13 +1380,13 @@
       "WealthBonus": "Wealth bonus"
     },
     "Creature": {
+      "Abilities": "Str {str} · Dex {dex} · Con {con} for this size",
       "Advance": "Advance a size",
       "AdvanceHint": "Step up one size category and apply the SRD's ability and natural armor adjustments.",
       "Advanced": "{from} to {to}: Str {str}, Dex {dex}, Con {con}, natural armor {natural}",
+      "Applied": "{type}, {hitDice} — attacks at {attack}",
       "Apply": "Apply type",
       "ApplyHint": "Set base attack and saves from the type and Hit Dice, and show the ability ranges and natural attacks for this size.",
-      "Applied": "{type}, {hitDice} — attacks at {attack}",
-      "Abilities": "Str {str} · Dex {dex} · Con {con} for this size",
       "BypassHint": "silver",
       "NaturalAttacks": "Natural attacks: {attacks}",
       "NoLargerSize": "Colossal is as large as the SRD advances a creature.",
@@ -1773,15 +1773,15 @@
             "label": "Shape"
           },
           "areaShape.size": {
-            "label": "Area radius (ft.)",
-            "hint": "Drawn on the canvas when the spell is cast. 0 for a spell with no measured area."
+            "hint": "Drawn on the canvas when the spell is cast. 0 for a spell with no measured area.",
+            "label": "Area radius (ft.)"
           },
           "castingTime": {
             "label": "Casting Time"
           },
           "damage": {
-            "label": "Damage",
-            "hint": "The expression before caster level scaling, e.g. 1d6."
+            "hint": "The expression before caster level scaling, e.g. 1d6.",
+            "label": "Damage"
           },
           "damageType": {
             "label": "Damage Type"
@@ -1808,12 +1808,12 @@
             "label": "Range"
           },
           "saveAbility": {
-            "label": "Saving throw",
-            "hint": "fort, ref or will. Blank for a spell that allows none."
+            "hint": "fort, ref or will. Blank for a spell that allows none.",
+            "label": "Saving throw"
           },
           "saveEffect": {
-            "label": "A successful save",
-            "hint": "half, negate, partial, harmless or none."
+            "hint": "half, negate, partial, harmless or none.",
+            "label": "A successful save"
           },
           "savingThrow": {
             "label": "Saving Throw"
@@ -1822,12 +1822,12 @@
             "label": "Scaling"
           },
           "scaling.max": {
-            "label": "Maximum dice",
-            "hint": "The cap the SRD prints, e.g. 10 for \"(maximum 10d6)\". 0 for no cap."
+            "hint": "The cap the SRD prints, e.g. 10 for \"(maximum 10d6)\". 0 for no cap.",
+            "label": "Maximum dice"
           },
           "scaling.per": {
-            "label": "Extra die per N caster levels",
-            "hint": "1 for \"per caster level\", 2 for \"per two caster levels\", 0 for damage that does not scale."
+            "hint": "1 for \"per caster level\", 2 for \"per two caster levels\", 0 for damage that does not scale.",
+            "label": "Extra die per N caster levels"
           },
           "source": {
             "label": "Source"
@@ -1877,8 +1877,8 @@
             "label": "Shape"
           },
           "areaShape.size": {
-            "label": "Area radius (ft.)",
-            "hint": "Drawn on the canvas when the spell is cast. 0 for a spell with no measured area."
+            "hint": "Drawn on the canvas when the spell is cast. 0 for a spell with no measured area.",
+            "label": "Area radius (ft.)"
           },
           "castingTime": {
             "label": "Casting Time"
@@ -1887,8 +1887,8 @@
             "label": "Components"
           },
           "damage": {
-            "label": "Damage",
-            "hint": "The expression before caster level scaling, e.g. 1d6."
+            "hint": "The expression before caster level scaling, e.g. 1d6.",
+            "label": "Damage"
           },
           "damageType": {
             "label": "Damage Type"
@@ -1906,12 +1906,12 @@
             "label": "Lists"
           },
           "lists.arcane": {
-            "label": "Arcane list level",
-            "hint": "Blank if the spell is not on the arcane list."
+            "hint": "Blank if the spell is not on the arcane list.",
+            "label": "Arcane list level"
           },
           "lists.divine": {
-            "label": "Divine list level",
-            "hint": "Blank if the spell is not on the divine list."
+            "hint": "Blank if the spell is not on the divine list.",
+            "label": "Divine list level"
           },
           "prepared": {
             "label": "Prepared"
@@ -1920,12 +1920,12 @@
             "label": "Range"
           },
           "saveAbility": {
-            "label": "Saving throw",
-            "hint": "fort, ref or will. Blank for a spell that allows none."
+            "hint": "fort, ref or will. Blank for a spell that allows none.",
+            "label": "Saving throw"
           },
           "saveEffect": {
-            "label": "A successful save",
-            "hint": "half, negate, partial, harmless or none."
+            "hint": "half, negate, partial, harmless or none.",
+            "label": "A successful save"
           },
           "savingThrow": {
             "label": "Saving Throw"
@@ -1934,12 +1934,12 @@
             "label": "Scaling"
           },
           "scaling.max": {
-            "label": "Maximum dice",
-            "hint": "The cap the SRD prints, e.g. 10 for \"(maximum 10d6)\". 0 for no cap."
+            "hint": "The cap the SRD prints, e.g. 10 for \"(maximum 10d6)\". 0 for no cap.",
+            "label": "Maximum dice"
           },
           "scaling.per": {
-            "label": "Extra die per N caster levels",
-            "hint": "1 for \"per caster level\", 2 for \"per two caster levels\", 0 for damage that does not scale."
+            "hint": "1 for \"per caster level\", 2 for \"per two caster levels\", 0 for damage that does not scale.",
+            "label": "Extra die per N caster levels"
           },
           "school": {
             "label": "School"
@@ -1960,8 +1960,8 @@
             "label": "Target"
           },
           "tradition": {
-            "label": "Cast as",
-            "hint": "Which list this caster learned it from; it sets the save DC's ability."
+            "hint": "Which list this caster learned it from; it sets the save DC's ability.",
+            "label": "Cast as"
           }
         }
       },
@@ -2241,6 +2241,11 @@
       "None": "Unrestricted",
       "Restricted": "Restricted (+2)"
     },
+    "Rules": {
+      "Label": "Rules",
+      "Open": "Open the rules for this",
+      "ProgressLevel": "Progress levels"
+    },
     "Save": {
       "Fort": "Fortitude",
       "Ref": "Reflex",
@@ -2250,50 +2255,50 @@
     "Senses": "Senses",
     "Settings": {
       "actionBudget": {
-        "name": "Action budget",
-        "hint": "What happens when a character has already spent the action something costs. The SRD leaves five actions as \"varies\", so warning is the default.",
-        "warn": "Warn, but allow it",
         "block": "Refuse the action",
-        "off": "Do not track actions"
+        "hint": "What happens when a character has already spent the action something costs. The SRD leaves five actions as \"varies\", so warning is the default.",
+        "name": "Action budget",
+        "off": "Do not track actions",
+        "warn": "Warn, but allow it"
       },
       "actionPointDie": {
-        "name": "Action point die",
-        "hint": "The die an action point adds to a roll. The SRD's is 1d6."
+        "hint": "The die an action point adds to a roll. The SRD's is 1d6.",
+        "name": "Action point die"
       },
       "attackDialog": {
-        "name": "Attack modifiers",
-        "hint": "When to ask which circumstances apply — flanking, cover, concealment — before rolling an attack. Your own preference; it does not affect anyone else.",
         "always": "Ask, unless shift is held",
-        "shift": "Only when shift is held",
-        "never": "Never ask"
+        "hint": "When to ask which circumstances apply — flanking, cover, concealment — before rolling an attack. Your own preference; it does not affect anyone else.",
+        "name": "Attack modifiers",
+        "never": "Never ask",
+        "shift": "Only when shift is held"
       },
       "autoFlatFooted": {
-        "name": "Flat-footed at the start of a battle",
-        "hint": "Apply the condition to everyone when combat begins, clearing it as each combatant's first turn arrives."
+        "hint": "Apply the condition to everyone when combat begins, clearing it as each combatant's first turn arrives.",
+        "name": "Flat-footed at the start of a battle"
       },
       "autoTurnReset": {
-        "name": "Refill actions each turn",
-        "hint": "Reset the action budget and drop any stance when a combatant's turn comes round."
+        "hint": "Reset the action budget and drop any stance when a combatant's turn comes round.",
+        "name": "Refill actions each turn"
       },
       "deathStates": {
-        "name": "Track disabled, dying and dead",
-        "hint": "Apply the conditions hit points call for — Disabled at 0, Dying below it, Dead at -10 — and bleed a dying character for 1 hit point each round until they die or are stabilised."
+        "hint": "Apply the conditions hit points call for — Disabled at 0, Dying below it, Dead at -10 — and bleed a dying character for 1 hit point each round until they die or are stabilised.",
+        "name": "Track disabled, dying and dead"
       },
       "encumbranceSpeed": {
-        "name": "Encumbrance slows characters",
-        "hint": "A medium or heavy load reduces speed. The load is always shown either way."
+        "hint": "A medium or heavy load reduces speed. The load is always shown either way.",
+        "name": "Encumbrance slows characters"
       },
       "lockPlayerSheets": {
-        "name": "Lock player sheets",
-        "hint": "Players build characters in the creator and the level-up screen, which apply the rules. Unlock to let them edit their sheets directly."
+        "hint": "Players build characters in the creator and the level-up screen, which apply the rules. Unlock to let them edit their sheets directly.",
+        "name": "Lock player sheets"
       },
       "massiveDamage": {
-        "name": "Massive damage",
-        "hint": "Damage at or above a character's threshold forces a Fortitude save or a drop to -1 hit points. The SRD's rule; turn it off for a less lethal game."
+        "hint": "Damage at or above a character's threshold forces a Fortitude save or a drop to -1 hit points. The SRD's rule; turn it off for a less lethal game.",
+        "name": "Massive damage"
       },
       "massiveDamageDC": {
-        "name": "Massive damage save DC",
-        "hint": "The SRD's is 15."
+        "hint": "The SRD's is 15.",
+        "name": "Massive damage save DC"
       }
     },
     "SheetLabel": {
@@ -2429,6 +2434,7 @@
       "NoActionPointsLeft": "No action points remaining.",
       "NoBreaker": "Select the character trying to break it.",
       "NoBuyer": "Select a character with a Wealth bonus to make the purchase.",
+      "NoRulesPage": "The rules compendium has no page for this.",
       "NoWealth": "This actor has no Wealth bonus.",
       "NotPurchasable": "This item has no purchase DC.",
       "TrainedOnly": "{skill} is trained only and this character has no ranks in it.",

@@ -27,7 +27,7 @@
     </div>
 
     <div class="m20-stat">
-      <label>{{localize "MODERN20.HitPoints"}}</label>
+      <label>{{localize "MODERN20.HitPoints"}} {{modern20Rules topic="massiveDamage"}}</label>
       <span class="m20-stat__value">
         <input type="number" name="system.hp.value" value="{{system.hp.value}}"> / {{system.hp.max}}
       </span>
@@ -51,15 +51,18 @@
     </div>
 
     <div class="m20-stat">
-      <label>{{localize "MODERN20.Wealth"}}</label>
+      <label>{{localize "MODERN20.Wealth"}} {{modern20Rules topic="wealth"}}</label>
       <span class="m20-stat__value">
         <input type="number" name="system.wealth.bonus" value="{{system.wealth.bonus}}">
       </span>
-      <span class="m20-stat__sub">{{localize "MODERN20.Reputation"}} {{modern20Signed system.reputation.value}}</span>
+      <span class="m20-stat__sub">
+        {{localize "MODERN20.Reputation"}} {{modern20Signed system.reputation.value}}
+        {{modern20Rules topic="reputation"}}
+      </span>
     </div>
 
     <div class="m20-stat">
-      <label>{{localize "MODERN20.ActionPoints"}}</label>
+      <label>{{localize "MODERN20.ActionPoints"}} {{modern20Rules topic="actionPoints"}}</label>
       <span class="m20-stat__value">
         <input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}"> / {{system.actionPoints.max}}
       </span>
