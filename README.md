@@ -37,6 +37,7 @@ fighting it forever, so this is a standalone game system.
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
 | Everything links to it | All 1,590 compendium documents carry the page their rules are on, and 854 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
 | The rules roll themselves | 2,054 sentences across 693 pages — "a DC 15 Climb check" is the roll, clicked where it is printed |
+| Feats that apply themselves | 22 of the 189 feats and talents state a bonus plainly enough to carry an Active Effect; the rest stay text |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
@@ -91,6 +92,7 @@ module/
   dice/wealth.mjs        The Wealth economy
   rules.mjs              Links into the rules compendium; rules-links.mjs is generated
   enrichers.mjs          The rolls the rules text asks for, as rolls
+  effects.mjs            What an item applies, in the sheet's own words
 templates/               Handlebars templates (actor, item, chat)
 css/modern20.css         Styling, scoped under .modern20
 lang/en.json             Localization
@@ -768,6 +770,48 @@ divided into pages, each with a name and a place in a tree. It also carries
 what the RTF import never reached — Shadowkind, incantations, prestige
 classes, starships, mecha, robots, cybernetics, mutations, organizations —
 because those were never a parsing problem, they were pages nothing had read.
+
+## Feats that apply themselves
+
+Twenty-two of the 189 feats and talents carry an Active Effect built from their
+own benefit text, so the +2 arrives on the sheet rather than in the player's
+memory: Acrobatic adds two to Jump and Tumble, Great Fortitude two to Fortitude
+saves, Improved Initiative four to initiative.
+
+**The other 167 state nothing a sheet can apply**, and the rule for telling
+which is which is written in the parser rather than in a list of feat names. An
+effect is written only where a sentence states a number, a target this system
+has a field for, and no condition on either:
+
+- A sentence that opens with a circumstance is about that circumstance.
+  "When making an unarmed attack, the character receives a +1 competence bonus
+  on attack rolls" is not a bonus on attack rolls, and Brawl gets nothing.
+- A target the sentence narrows keeps its condition: "Bluff checks made to
+  feint in melee combat", "hourly Swim checks to avoid becoming fatigued",
+  "Defense against melee attacks". The bonus is real and the sheet cannot know
+  when it applies, so Improved Feint, Endurance and Defensive Martial Arts stay
+  as they were.
+- Skills taken per subject are left out, open subject lists as much as closed
+  ones. Knowledge, Craft, Perform, Profession and the two languages are a row
+  per subject on the sheet, and a bonus on the skill itself reaches none of
+  those rows — which is why Windfall's "+1 bonus on all Profession checks" is
+  still a sentence, and why Medical Expert applies its Treat Injury half and
+  not its Craft (pharmaceutical) half.
+
+Every change is additive, typed `add` rather than the numeric mode Foundry
+removes at v16, and transfers to the character while the item is on the sheet.
+And every one of them is **shown**: the item sheet says "Applies: Jump +2,
+Tumble +2", because an effect nobody can see is worse than one nobody has.
+
+An item's effects are embedded documents in a compiled pack, keyed
+`!items.effects!<item id>.<effect id>` the way an actor's items are, which
+`check_packs.py` now holds them to. They also had to be taught to
+`capture_edits.py`: Foundry fills an effect out with a duration, a tint, a
+description and a dozen other defaults the build does not set, so an effect
+compared as one value differs on every round trip, and all 22 feats would come
+home reporting an edit nobody made. Compared document by document, an effect a
+GM switches off comes home switched off — which `check_capture.py` now drags
+through the round trip to prove.
 
 ## FX items
 

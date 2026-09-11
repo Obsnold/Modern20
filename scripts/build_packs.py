@@ -650,9 +650,10 @@ def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extr
 
 
 # The embedded collections the Foundry CLI stores as entries of their own, by
-# the collection its parent lives in. An actor's items and a journal entry's
-# pages are documents in the compiled pack, not fields of their parent.
-EMBEDDED = {"actors": "items", "journal": "pages"}
+# the collection its parent lives in. An actor's items, a journal entry's pages
+# and an item's active effects are documents in the compiled pack, not fields of
+# their parent.
+EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects"}
 
 
 def key_embedded(collection: str, doc_id: str, document: dict) -> None:
@@ -1078,6 +1079,102 @@ MINOR_WORDS = {"a", "and", "of", "or", "the", "to", "in", "with"}
 UNITS = {"ft", "feet", "in", "sq"}
 
 
+# A bonus the sheet can apply for the character, out of the sentence that
+# states it. Written only where the sentence states a number, a target this
+# system has a field for, and no condition on either — which is most of what
+# the SRD's feats do and almost none of what its talents do.
+EFFECT_BONUS = re.compile(r"\+(\d+)\s+(?:\w+\s+)?bonus\s+(?:on|to)\s+([^.;:]+)", re.I)
+
+# A sentence that opens with a circumstance is about that circumstance: "When
+# making an unarmed attack, the character receives a +1 competence bonus on
+# attack rolls" is not a bonus on attack rolls.
+CONDITIONAL = re.compile(r"^\W*(?:when|while|whenever|if|once|on a|in addition)\b", re.I)
+
+# What follows a target and narrows it: "Bluff checks made to feint", "Swim
+# checks to avoid becoming fatigued", "Defense against melee attacks". The
+# bonus is real and the sheet cannot know when it applies.
+NARROWED = re.compile(r"^\s*(?:to|against|made|when|while|with|from|in|for|of|at)\b", re.I)
+
+# Where a bonus lands. Saves and initiative carry a misc field the same way
+# skills do; nothing else the feats name does.
+SAVE_TARGETS = {"fortitude": "fort", "reflex": "ref", "will": "will"}
+
+
+def effect_changes(text: str, skills: list[dict], specialties: dict) -> list[dict]:
+    """The Active Effect changes a printed bonus amounts to.
+
+    Skills taken per subject are left out — an open subject list as much as a
+    closed one. Knowledge, Craft, Perform, Profession and the two languages are
+    a row per subject on the sheet, and a bonus on the skill itself reaches
+    none of those rows, so Windfall's "+1 bonus on all Profession checks" stays
+    what it was: a sentence on the feat.
+    """
+    # Longest first, so Move Silently is matched before Move.
+    named = sorted(((skill["name"], skill["id"]) for skill in skills
+                    if skill["id"] not in specialties and skill["ability"]),
+                   key=lambda pair: -len(pair[0]))
+
+    changes = []
+    for sentence in re.split(r"(?<=[.;])\s+", text or ""):
+        if CONDITIONAL.match(sentence):
+            continue
+        for match in EFFECT_BONUS.finditer(sentence):
+            value, targets = match.group(1), match.group(2)
+
+            for name, key in named:
+                # "Treat Injury skill checks" is a Treat Injury check.
+                for found in re.finditer(rf"\b{re.escape(name)}\s+(?:skill\s+)?checks?\b",
+                                         targets, re.I):
+                    if NARROWED.match(targets[found.end():]):
+                        continue
+                    changes.append({"key": f"system.skills.{key}.misc", "value": value})
+            for name, key in SAVE_TARGETS.items():
+                for found in re.finditer(rf"\b{name}\s+(?:saving throws?|saves?)\b",
+                                         targets, re.I):
+                    if NARROWED.match(targets[found.end():]):
+                        continue
+                    changes.append({"key": f"system.saves.{key}.misc", "value": value})
+            for found in re.finditer(r"\binitiative\s+checks?\b", targets, re.I):
+                if NARROWED.match(targets[found.end():]):
+                    continue
+                changes.append({"key": "system.attributes.initiative.misc", "value": value})
+
+    # The same target twice in one sentence is the same bonus read twice.
+    seen = set()
+    unique = []
+    for change in changes:
+        if change["key"] in seen:
+            continue
+        seen.add(change["key"])
+        # Every change is additive: the SRD's feats grant bonuses, and a
+        # bonus adds. `type` rather than `mode`, which Foundry removes at v16.
+        unique.append({**change, "type": "add"})
+    return unique
+
+
+def bonus_effect(pack: str, slug: str, name: str, changes: list[dict], img: str) -> dict:
+    """One transferring effect, or nothing where the sentence stated none.
+
+    Returned as the fields to merge into the document rather than as a list, so
+    an item with no effect carries no key for one: 167 of the 189 feats and
+    talents state nothing a sheet can apply, and an empty array in each of
+    their files says nothing.
+    """
+    if not changes:
+        return {}
+    effect_id = document_id(f"{pack}-effects", slug)
+    return {"effects": [{
+        "_id": effect_id,
+        "name": name,
+        "img": img,
+        "changes": changes,
+        "disabled": False,
+        # Applied to the character while the item is on the sheet, which is
+        # what having a feat means.
+        "transfer": True,
+    }]}
+
+
 def title_case(text: str) -> str:
     """A printed quality as a name, keeping what is already capitalised.
 
@@ -1220,6 +1317,9 @@ def build_spells() -> list[dict]:
 
 
 def build_feats() -> list[dict]:
+    skills = load_dataset("skills")
+    specialties = json.load(open(os.path.join(srd.DATA, "skill_specialties.json"),
+                                 encoding="utf-8"))
     return simple_pack("feats", "feat", "feats", "icons/svg/upgrade.svg", lambda e: {
         "featType": "general",
         "category": e.get("category", ""),
@@ -1228,15 +1328,27 @@ def build_feats() -> list[dict]:
         "normal": e.get("normal", ""),
         "special": e.get("special", ""),
         "repeatable": "can be taken multiple times" in (e.get("special") or "").lower(),
-    })
+    }, extra=lambda e: bonus_effect(
+        # The bonus the benefit states, applied by the sheet rather than
+        # remembered by the player — where the sentence states one plainly.
+        "feats", srd.slugify(e["name"]), e["name"],
+        effect_changes(" ".join(filter(None, [e.get("benefit"), e.get("special")])),
+                       skills, specialties),
+        "icons/svg/upgrade.svg"))
 
 
 def build_talents() -> list[dict]:
+    skills = load_dataset("skills")
+    specialties = json.load(open(os.path.join(srd.DATA, "skill_specialties.json"),
+                                 encoding="utf-8"))
     return simple_pack("talents", "talent", "talents", "icons/svg/statue.svg", lambda e: {
         "tree": e.get("tree", ""),
         "sourceClass": e.get("sourceClass", ""),
         "prerequisites": e.get("prerequisites", []),
-    })
+    }, extra=lambda e: bonus_effect(
+        "talents", srd.slugify(e["name"]), e["name"],
+        effect_changes(e.get("description", ""), skills, specialties),
+        "icons/svg/statue.svg"))
 
 
 def build_occupations() -> list[dict]:
@@ -1975,9 +2087,10 @@ def apply_document_override(document: dict, override: dict) -> None:
     which is what the weapons corrections have always been. The newer one -
     what scripts/capture_edits.py writes - names where each value goes:
 
-        "system": {"attributes.speed": 400},
-        "pages":  {"Charisma": {"text.content": "<p>..."}},
-        "items":  {"Bite": {"system.damage": "1d6"}}
+        "system":  {"attributes.speed": 400},
+        "pages":   {"Charisma": {"text.content": "<p>..."}},
+        "items":   {"Bite": {"system.damage": "1d6"}},
+        "effects": {"Acrobatic": {"disabled": true}}
     """
     for key, value in override.items():
         if key == "why":
@@ -1994,12 +2107,13 @@ def apply_document_override(document: dict, override: dict) -> None:
         elif key == "system" and isinstance(value, dict):
             for path, setting in value.items():
                 set_path(document["system"], path, setting)
-        elif key in ("items", "pages") and isinstance(value, dict):
+        elif key in ("items", "pages", "effects") and isinstance(value, dict):
             children = {child.get("name"): child for child in document.get(key) or []}
             for name, fields in value.items():
                 child = children.get(name)
                 if child is None:
-                    print(f"  ! override names no {key[:-1]} called {name!r}", file=sys.stderr)
+                    print(f"  ! override names no {key.rstrip('s')} called {name!r}",
+                          file=sys.stderr)
                     continue
                 for path, setting in fields.items():
                     set_path(child, path, setting)

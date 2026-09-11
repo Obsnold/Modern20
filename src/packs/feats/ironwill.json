@@ -16,5 +16,22 @@
     "repeatable": false
   },
   "_key": "!items!ykcdRJdkR8iCxnkC",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "N12G3bDyQQHXwG6P",
+      "name": "Iron Will",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.saves.will.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!ykcdRJdkR8iCxnkC.N12G3bDyQQHXwG6P"
+    }
+  ]
 }

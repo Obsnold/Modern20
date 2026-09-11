@@ -29,6 +29,10 @@ FOLDER = "aaaaaaaaaaaaaaaa"
 GOBLIN = "bbbbbbbbbbbbbbbb"
 CLUB = "cccccccccccccccc"
 WIDGET = "dddddddddddddddd"
+EFFECT = "iiiiiiiiiiiiiiii"
+# A second gear item, so the effect edited above and the deletion that must
+# never be acted on are not the same document.
+DOODAD = "jjjjjjjjjjjjjjjj"
 
 
 def pack_source(root: str) -> None:
@@ -54,9 +58,22 @@ def pack_source(root: str) -> None:
                    "_key": f"!actors.items!{GOBLIN}.{CLUB}"}],
         "_key": f"!actors!{GOBLIN}",
     })
+    write(root, "gear", "doodad", {
+        "_id": DOODAD, "name": "Doodad", "type": "gear",
+        "system": {"purchaseDC": 3}, "_key": f"!items!{DOODAD}",
+    })
     write(root, "gear", "widget", {
         "_id": WIDGET, "name": "Widget", "type": "gear",
         "system": {"purchaseDC": 5}, "_key": f"!items!{WIDGET}",
+        # An item that applies something, which is an embedded document of its
+        # own in the compiled pack — and which Foundry fills out with a dozen
+        # defaults the build does not set.
+        "effects": [{
+            "_id": EFFECT, "name": "Widget", "img": "icons/svg/upgrade.svg",
+            "changes": [{"key": "system.skills.spot.misc", "value": "2", "type": "add"}],
+            "disabled": False, "transfer": True,
+            "_key": f"!items.effects!{WIDGET}.{EFFECT}",
+        }],
     })
 
 
@@ -79,6 +96,13 @@ def live_copy(source: str, destination: str) -> None:
                 document = json.load(handle)
             # Foundry fills in the defaults a document does not carry, and
             # stamps who touched it last. Neither is an edit.
+            for effect in document.get("effects") or []:
+                # Foundry's own defaults on an effect. None of them is an edit.
+                effect.setdefault("duration", {"startTime": None})
+                effect.setdefault("description", "")
+                effect.setdefault("tint", "#ffffff")
+                effect.setdefault("statuses", [])
+                effect["_stats"] = {"lastModifiedBy": "someone"}
             document.setdefault("prototypeToken", {})
             document["prototypeToken"].setdefault("sight", {"enabled": False})
             document["prototypeToken"].setdefault("light", {"dim": 0, "bright": 0})
@@ -132,8 +156,17 @@ def edit(live: str) -> None:
         "folder": None, "system": {"attributes": {"hp": {"value": 3}}},
     })
 
-    # And a deletion, which must never be acted on.
-    os.remove(os.path.join(live, "gear", f"Widget_{WIDGET}.json"))
+    # The widget's effect switched off, which is a decision about how this
+    # world plays and has to come home.
+    path = os.path.join(live, "gear", f"Widget_{WIDGET}.json")
+    with open(path, encoding="utf-8") as handle:
+        widget = json.load(handle)
+    widget["effects"][0]["disabled"] = True
+    write(live, "gear", f"Widget_{WIDGET}", widget)
+
+    # And a deletion, which must never be acted on. A different pack from the
+    # one above, so the two cases do not collide.
+    os.remove(os.path.join(live, "gear", f"Doodad_{DOODAD}.json"))
 
 
 def at(document: dict, *path: str):
@@ -238,10 +271,20 @@ def main() -> int:
         want("Loose Beast is outside the pack's folders" in said,
              "a document left outside the folders was not reported, and the "
              "next deploy would fail on it")
-        want(os.path.exists(os.path.join(packs, "gear", "widget.json")),
+        want(os.path.exists(os.path.join(packs, "gear", "doodad.json")),
              "a document missing from Foundry was deleted from the pack source")
-        want("Widget is in the pack source but not in Foundry" in said,
+        want("Doodad is in the pack source but not in Foundry" in said,
              "a document missing from Foundry was not reported")
+
+        widget = load(os.path.join(packs, "gear", "widget.json"))
+        effect = (widget.get("effects") or [{}])[0]
+        want(effect.get("disabled") is True,
+             "an effect switched off in Foundry came back switched on")
+        want(effect.get("changes") == [{"key": "system.skills.spot.misc",
+                                       "value": "2", "type": "add"}],
+             "an effect's changes were rewritten on the way home")
+        want("duration" not in effect and "_stats" not in effect,
+             "Foundry's own defaults on an effect came home with it")
 
         # Nothing edited must be nothing captured, or every deploy carries noise.
         second = io.StringIO()

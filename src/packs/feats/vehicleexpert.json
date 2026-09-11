@@ -16,5 +16,27 @@
     "repeatable": false
   },
   "_key": "!items!qCOQG2vLT1Jc2OIu",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "G0pMx1NkrkO27MY4",
+      "name": "Vehicle Expert",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.skills.drive.misc",
+          "value": "2",
+          "type": "add"
+        },
+        {
+          "key": "system.skills.pilot.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!qCOQG2vLT1Jc2OIu.G0pMx1NkrkO27MY4"
+    }
+  ]
 }

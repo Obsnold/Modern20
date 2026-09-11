@@ -17,7 +17,12 @@ Urban Arcana's spells and powers and d20 Future's vehicles all said "d20
 Modern SRD". A document whose source already names the right book is left
 exactly as it is, whatever it calls it.
 
-The fourth is the prototype token, which is derived rather than authored: the
+The fourth is the effect a feat or talent states in its own benefit text —
+"+2 bonus on all Listen checks and Spot checks" — which the sheet can apply
+instead of the player remembering it. Only onto an item that has none: an
+effect somebody has edited or disabled is theirs.
+
+The fifth is the prototype token, which is derived rather than authored: the
 size the stat block says the creature fills, the senses it says the creature
 sees with, and a disposition from what kind of actor it is. Every actor in the
 compendium had none, so a Gargantuan wyrm arrived on the canvas as a one-square
@@ -136,6 +141,15 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     if book and book not in (system.get("source") or ""):
         system["source"] = build_packs.source_for(url)
         counts["book"] += 1
+        changed = True
+
+    # The effect a feat's own sentence states, which no import can add to a
+    # document that is already on disk. Only where the document has none: an
+    # effect a GM has edited, disabled or added to is theirs.
+    effects = (built or {}).get("effects")
+    if effects and not document.get("effects"):
+        document["effects"] = effects
+        counts["applied"] += 1
         changed = True
 
     token = (built or {}).get("prototypeToken")
@@ -301,6 +315,8 @@ def main() -> int:
         print(f"{counts['book']} document(s) were filed under the wrong book")
     if counts["filed"]:
         print(f"{counts['filed']} document(s) were in no folder and now are")
+    if counts["applied"]:
+        print(f"{counts['applied']} item(s) took the effect their own text states")
     if counts["token"]:
         print(f"{counts['token']} actor(s) took the token the import derives")
     if counts["measured"]:

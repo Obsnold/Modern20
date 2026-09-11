@@ -46,9 +46,9 @@ TOKEN_SQUARES = {
 DISPOSITIONS = {-1, 0}
 
 # The embedded collections the Foundry CLI stores as entries of their own: an
-# actor's items and a journal entry's pages are documents in the compiled
-# pack, keyed from their parent, not fields of it.
-EMBEDDED = {"actors": "items", "journal": "pages"}
+# actor's items, a journal entry's pages and an item's active effects are
+# documents in the compiled pack, keyed from their parent, not fields of it.
+EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects"}
 
 
 def main() -> int:

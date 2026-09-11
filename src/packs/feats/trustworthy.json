@@ -16,5 +16,27 @@
     "repeatable": false
   },
   "_key": "!items!AfQUMQcK92zgCx6V",
-  "folder": "RSMQKzWREDkdP266"
+  "folder": "RSMQKzWREDkdP266",
+  "effects": [
+    {
+      "_id": "astDPjtsyUlVQAoh",
+      "name": "Trustworthy",
+      "img": "icons/svg/upgrade.svg",
+      "changes": [
+        {
+          "key": "system.skills.gatherInformation.misc",
+          "value": "2",
+          "type": "add"
+        },
+        {
+          "key": "system.skills.diplomacy.misc",
+          "value": "2",
+          "type": "add"
+        }
+      ],
+      "disabled": false,
+      "transfer": true,
+      "_key": "!items.effects!AfQUMQcK92zgCx6V.astDPjtsyUlVQAoh"
+    }
+  ]
 }

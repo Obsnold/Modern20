@@ -1,5 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { maxRange, maxIncrements } from "../apps/attack.mjs";
+import { describeEffects } from "../effects.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -103,6 +104,10 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       fields: item.system.schema.fields.activities.element.getField?.(activity.type)?.fields ?? null
     }));
     context.activityTypes = Object.keys(CONFIG.MODERN20?.activityTypes ?? {});
+
+    // What the item applies while it is carried, so an effect the sheet is
+    // quietly adding is one the reader can see.
+    context.applies = describeEffects(item);
 
     context.enrichedDescription =
       await foundry.applications.ux.TextEditor.implementation.enrichHTML(
