@@ -2233,6 +2233,10 @@
     "Maneuver": "Maneuver",
     "Massive": "Massive",
     "MaxRanks": "Max ranks",
+    "Migration": {
+      "Done": "Modern20 updated this world: {tokens} actors and {placed} placed tokens given the size their stat block gives them.",
+      "Failed": "Modern20 could not finish updating this world. Nothing was recorded; the console has the error."
+    },
     "Misc": "Misc",
     "NoAllegiances": "No allegiances declared.",
     "NoClasses": "No class",
@@ -2330,6 +2334,10 @@
       "massiveDamageDC": {
         "hint": "The SRD's is 15.",
         "name": "Massive damage save DC"
+      },
+      "worldVersion": {
+        "hint": "The system version this world was last brought up to date with. Set by the system; changing it by hand makes the next load repeat or skip a migration.",
+        "name": "World data version"
       }
     },
     "SheetLabel": {

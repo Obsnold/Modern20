@@ -28,6 +28,7 @@ import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.m
 import { registerEnrichers } from "./enrichers.mjs";
 import { Modern20Browser } from "./apps/browser.mjs";
 import { registerHotbarDrop, rollItem } from "./macros.mjs";
+import { migrateWorld } from "./migrate.mjs";
 import { CONDITIONS } from "./condition-list.mjs";
 import { ACTIVITY_TYPES } from "./data/activity.mjs";
 
@@ -206,6 +207,9 @@ Hooks.once("ready", () => {
   activateRulesLinks();
   // An item dropped on the hotbar becomes a macro that uses it.
   registerHotbarDrop();
+  // Derived data that arrived after this world did. Not awaited: the world is
+  // playable while it runs, and a failure inside it says so itself.
+  migrateWorld();
   console.log(`${SYSTEM_ID} | Ready`);
 });
 

@@ -82,6 +82,18 @@ export const SETTINGS = {
    * Client-scoped: it is a preference about how you like to roll, not a rule,
    * so two players at the same table can differ.
    */
+  /**
+   * The version this world was last migrated to.
+   *
+   * Not shown: it is bookkeeping rather than a decision. Derived data that
+   * arrives after a world does — a prototype token for a creature imported
+   * last month — needs a pass over the world, and this is what stops that
+   * pass running on every load. See module/migrate.mjs.
+   */
+  worldVersion: {
+    scope: "world", config: false, type: String, default: ""
+  },
+
   attackDialog: {
     scope: "client", config: true, type: String, default: "always",
     choices: {
