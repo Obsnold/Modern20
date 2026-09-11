@@ -36,6 +36,7 @@ fighting it forever, so this is a standalone game system.
 | Compendia: creatures, vehicles, objects | 399 actors, built from the SRD — every creature in all three books |
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
 | Everything links to it | All 1,590 compendium documents carry the page their rules are on, and 854 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
+| The rules roll themselves | 2,054 sentences across 693 pages — "a DC 15 Climb check" is the roll, clicked where it is printed |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
@@ -89,6 +90,7 @@ module/
   sheets/                ApplicationV2 sheets
   dice/wealth.mjs        The Wealth economy
   rules.mjs              Links into the rules compendium; rules-links.mjs is generated
+  enrichers.mjs          The rolls the rules text asks for, as rolls
 templates/               Handlebars templates (actor, item, chat)
 css/modern20.css         Styling, scoped under .modern20
 lang/en.json             Localization
@@ -704,6 +706,35 @@ SRD's own text is never edited, and it is replaced whole on every run;
 `check_rules_links.py` holds it to the packs, since a document renamed on its
 own sheet would otherwise leave a page offering something that is not there.
 
+**The rules roll themselves.** The SRD says what to roll constantly, and on a
+page that is a sentence. 2,054 of those sentences across 693 pages are
+rewritten at import into `@Check[skill:climb|dc:15]{DC 15 Climb check}`, which
+`module/enrichers.mjs` renders as the SRD's own words with a die in front of
+them: clicking rolls for the character assigned to the user, or the token they
+have selected, and where the SRD printed a DC the card says whether the roll
+beat it — *"If the result equals or exceeds the DC, the character succeeds."*
+1,360 are skill checks, 574 saves and 120 ability checks; 399 carry a DC.
+
+The phrases come from the scraped skill list rather than a list written here,
+so a skill the SRD names and this system has cannot go quietly unlinked, and a
+specialty is matched before its skill — "Knowledge (arcane lore) check" before
+"Knowledge check" — because the longer phrase is the more specific roll. Only
+prose is rewritten: a tag's attributes are markup, and so is the label of a
+link, whether it is an `@UUID` — a page named "Skill Checks" is linked from
+thirty places — or an anchor out to the web, since a roll inside a link is a
+link inside a link.
+
+Not rewritten: the Wealth check, which the SRD names 64 times. It is a roll
+this system has, but the only thing that makes one is a purchase, and a
+purchase spends Wealth — which is not what a reader clicking a phrase in a
+rulebook is asking for.
+
+Registered as an enricher rather than baked into the pages, so it applies to
+every piece of enriched content in the world: a GM who types
+`@Check[save:ref|dc:20]` into their own notes gets the same button, and a
+check that names a skill this system does not have renders as its own words
+again rather than as a button that cannot roll.
+
 **What the sheets link** is in `module/rules-links.mjs`, generated: 19 topics
 and a page for each of the 41 skills, including the seven Craft subjects the
 SRD describes one at a time. The skills table links a row to its own skill, the
@@ -1095,7 +1126,7 @@ python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
 python3 scripts/check_shadowing.py   # no module-level name defined twice
 python3 scripts/check_packs.py       # folders, keys, ids and tokens a compendium needs
 python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
-python3 scripts/check_rules_links.py # every link into the rules resolves to a page
+python3 scripts/check_rules_links.py # every link into the rules resolves, every roll it asks for rolls
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
@@ -1133,7 +1164,7 @@ to trust any of them:
 | `check_shadowing.py` / `no-redeclare` | two parsers in one week were named over an existing definition — `ability_key` over the psionics one, `DAMAGE_TYPES` over the spells one — and the later definition silently won |
 | `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
 | `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
-| `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works |
+| `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |
 | `check_packs.py` (folders) | Urban Arcana's feats arrived, the pack grew its first folders, and the ninety-five feats already there stayed at the compendium root beside an empty "d20 Modern" folder |
 | `check_capture.py` | renaming a creature on its sheet filed a second copy of it beside the first, and a folder made in Foundry was left behind so everything in it landed in the compendium root — both found by reading 1,400 documents of output against a live host |

@@ -1,4 +1,5 @@
 import { RULES_TOPICS, SKILL_RULES } from "./rules-links.mjs";
+import { checkRoll } from "./enrichers.mjs";
 
 /**
  * Links from the system into the rules compendium.
@@ -75,19 +76,59 @@ export async function openRulesPage(uuid) {
 }
 
 /**
+ * Roll what a rules page asked for.
+ *
+ * Rolled by whoever is playing rather than by the page: the character assigned
+ * to this user, or the token they have selected. A rule saying "make a
+ * Fortitude save" names no one, which is why nothing happens here until
+ * somebody does.
+ */
+export async function rollCheck(written) {
+  const roll = checkRoll(written);
+  if (!roll) return null;
+
+  const actor = game.user.character ?? canvas.tokens?.controlled?.[0]?.actor;
+  if (!actor) {
+    ui.notifications.warn(game.i18n.localize("MODERN20.Warning.NoRoller"));
+    return null;
+  }
+
+  const options = { dc: roll.dc };
+  if (roll.save) return actor.rollSave(roll.save, options);
+  if (roll.ability) return actor.rollAbility(roll.ability, options);
+
+  // The rules name a subject — Knowledge (streetwise) — that this character
+  // may have no row for. Rolling the skill itself is what the SRD's own
+  // untrained rule amounts to, and is better than refusing to roll at all.
+  const specialties = actor.system.skills?.[roll.skill]?.specialties ?? [];
+  const subject = specialties.some((entry) => entry.name === roll.specialty)
+    ? roll.specialty
+    : null;
+  return actor.rollSkill(roll.skill, { specialty: subject, ...options });
+}
+
+/**
  * Listen for clicks on every rules link there will ever be.
  *
  * One delegated handler on the document, installed at ready, rather than one
  * per application: the links are on every sheet, on the creation and level-up
- * screens and on chat cards, which outlive the sheet that posted them. A
- * handler bound per application is one that is missing from whatever renders
- * next.
+ * screens and on chat cards, which outlive the sheet that posted them, and the
+ * rolls are inside journal pages this system does not render at all. A handler
+ * bound per application is one that is missing from whatever renders next.
  */
 export function activateRulesLinks() {
   document.addEventListener("click", (event) => {
     const link = event.target.closest?.(`a.${LINK_CLASS}[data-rules-uuid]`);
-    if (!link) return;
-    event.preventDefault();
-    openRulesPage(link.dataset.rulesUuid);
+    if (link) {
+      event.preventDefault();
+      openRulesPage(link.dataset.rulesUuid);
+      return;
+    }
+
+    const check = event.target.closest?.("a.m20-check[data-check]");
+    if (check) {
+      event.preventDefault();
+      rollCheck(check.dataset.check);
+    }
   });
 }

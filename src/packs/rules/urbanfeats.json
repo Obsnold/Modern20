@@ -316,7 +316,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedoverrun\">Improved Overrun</a></h5>\n<p>You are skilled at knocking down opponents.</p>\n<p><b>Prerequisite</b>: Power Attack, Strength 13.</p>\n<p><b>Benefit</b>: When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 competence bonus on the Strength check to knock down your opponent.</p>\n<p><b>Normal</b>: Without this feat, the target of an overrun can choose to avoid you or to block you.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.05NZmNTfLFgFBrpI]{Improved Overrun}</p></section>"
+        "content": "<h5><a name=\"improvedoverrun\">Improved Overrun</a></h5>\n<p>You are skilled at knocking down opponents.</p>\n<p><b>Prerequisite</b>: Power Attack, Strength 13.</p>\n<p><b>Benefit</b>: When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 competence bonus on the @Check[ability:str]{Strength check} to knock down your opponent.</p>\n<p><b>Normal</b>: Without this feat, the target of an overrun can choose to avoid you or to block you.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.05NZmNTfLFgFBrpI]{Improved Overrun}</p></section>"
       },
       "sort": 2000000,
       "flags": {},
@@ -332,7 +332,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedheal\">Improved Natural Healing</a></h5>\n<p>You recover from wounds and injury faster than normal.</p>\n<p><b>Prerequisite</b>: Base Fortitude save bonus +5.</p>\n<p><b>Benefit</b>: You recover 2 hit points per character level per rest period (8 hours of sleep). If you undergo complete bed rest (doing nothing for the entire day), you recover 4 hit points per character level per day. Ability damage returns at 2 points for resting 8 hours, or 4 points per day with complete bed rest.</p>\n<p><b>Normal</b>: Normal natural healing is 1 hit point per character level for 8 hours rest, or 2 hit points per character level per day for complete bed rest. Ability damage returns at 1 point for 8 hours rest, or 2 points per day with complete bed rest.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.MFrE91UYtrW7uEp5]{Improved Natural Healing}</p></section>"
+        "content": "<h5><a name=\"improvedheal\">Improved Natural Healing</a></h5>\n<p>You recover from wounds and injury faster than normal.</p>\n<p><b>Prerequisite</b>: Base @Check[save:fort]{Fortitude save} bonus +5.</p>\n<p><b>Benefit</b>: You recover 2 hit points per character level per rest period (8 hours of sleep). If you undergo complete bed rest (doing nothing for the entire day), you recover 4 hit points per character level per day. Ability damage returns at 2 points for resting 8 hours, or 4 points per day with complete bed rest.</p>\n<p><b>Normal</b>: Normal natural healing is 1 hit point per character level for 8 hours rest, or 2 hit points per character level per day for complete bed rest. Ability damage returns at 1 point for 8 hours rest, or 2 points per day with complete bed rest.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.MFrE91UYtrW7uEp5]{Improved Natural Healing}</p></section>"
       },
       "sort": 2100000,
       "flags": {},

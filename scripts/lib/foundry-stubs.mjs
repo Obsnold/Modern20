@@ -165,6 +165,9 @@ export function installStubs() {
     statusEffects: statusEffectsProxy(),
     // Foundry maps a few effects to engine behaviour (defeated, blind, ...).
     specialStatusEffects: {},
+    // The text enrichers a system adds to, which is how the rules text's own
+    // "DC 15 Climb check" becomes something to click.
+    TextEditor: { enrichers: [] },
   };
   const registeredSettings = new Map();
 
@@ -198,9 +201,12 @@ export function installStubs() {
     escapeExpression: (text) => String(text),
     SafeString: class { constructor(html) { this.html = html; } toString() { return this.html; } },
   };
-  // The ready hook installs one delegated click handler for rules links, and
-  // the checks run every hook they recorded.
-  globalThis.document = { addEventListener: () => {} };
+  // The ready hook installs one delegated click handler for rules links and
+  // rules rolls, and the checks run every hook they recorded.
+  globalThis.document = {
+    addEventListener: () => {},
+    createElement: () => ({ dataset: {}, classList: { add: () => {} }, append: () => {} }),
+  };
 
   globalThis.foundry = {
     data: {

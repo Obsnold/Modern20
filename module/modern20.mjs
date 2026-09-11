@@ -25,6 +25,7 @@ import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
 import { bindDamageControls } from "./apps/damage.mjs";
 import { registerConditions } from "./conditions.mjs";
 import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.mjs";
+import { registerEnrichers } from "./enrichers.mjs";
 import { CONDITIONS } from "./condition-list.mjs";
 import { ACTIVITY_TYPES } from "./data/activity.mjs";
 
@@ -74,6 +75,8 @@ Hooks.once("init", () => {
   registerSheets();
   registerHandlebarsHelpers();
   registerPartials();
+  // The rolls the rules text asks for, wherever enriched content is rendered.
+  registerEnrichers();
   // After config: several conditions enumerate the skill list.
   registerConditions(CONDITIONS);
 

@@ -28,7 +28,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"acrobatic\">Acrobatic</a></h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Jump checks and Tumble checks.</p>\n<p><b>Special</b>: Remember that the Tumble skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.pZQ6uVULy6CmToX4]{Acrobatic}</p></section>"
+        "content": "<h5><a name=\"acrobatic\">Acrobatic</a></h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.</p>\n<p><b>Special</b>: Remember that the Tumble skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.pZQ6uVULy6CmToX4]{Acrobatic}</p></section>"
       },
       "sort": 200000,
       "flags": {},
@@ -108,7 +108,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"aircraftop\"></a>Aircraft Operation</h5>\n<p>Select a class of aircraft (heavy aircraft, helicopters, jet fighters, or spacecraft). The character is proficient at operating that class of aircraft.</p>\n<p>The heavy aircraft class includes jumbo passenger airplanes, large cargo planes, heavy bombers, and any other aircraft with three or more engines. Helicopters include transport and combat helicopters of all types. Jet fighters include military fighter and ground attack jets. Spacecraft are vehicles such as the space shuttle and the lunar lander.</p>\n<p><b>Prerequisite</b>: Pilot 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on Pilot checks or attack rolls made when operating an aircraft of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on Pilot checks made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.</p>\n<p><b>Special</b>: The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Tab9hmxXo8Xt9ruc]{Aircraft Operation}</p></section>"
+        "content": "<h5><a name=\"aircraftop\"></a>Aircraft Operation</h5>\n<p>Select a class of aircraft (heavy aircraft, helicopters, jet fighters, or spacecraft). The character is proficient at operating that class of aircraft.</p>\n<p>The heavy aircraft class includes jumbo passenger airplanes, large cargo planes, heavy bombers, and any other aircraft with three or more engines. Helicopters include transport and combat helicopters of all types. Jet fighters include military fighter and ground attack jets. Spacecraft are vehicles such as the space shuttle and the lunar lander.</p>\n<p><b>Prerequisite</b>: Pilot 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on @Check[skill:pilot]{Pilot check}s or attack rolls made when operating an aircraft of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on @Check[skill:pilot]{Pilot check}s made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.</p>\n<p><b>Special</b>: The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Tab9hmxXo8Xt9ruc]{Aircraft Operation}</p></section>"
       },
       "sort": 700000,
       "flags": {},
@@ -124,7 +124,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"alertness\"></a>Alertness</h5>\n<p><b>Prerequisite</b>: The character gets a +2 bonus on all Listen checks and Spot checks. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ydS2zMF435gpmiN4]{Alertness}</p></section>"
+        "content": "<h5><a name=\"alertness\"></a>Alertness</h5>\n<p><b>Prerequisite</b>: The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ydS2zMF435gpmiN4]{Alertness}</p></section>"
       },
       "sort": 800000,
       "flags": {},
@@ -140,7 +140,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"animalaffinity\"></a>Animal Affinity</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Handle Animal checks and Ride checks. </p>\n<p><b>Special</b>: Remember that the Handle Animal skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.TRH4hlpWIxC9RykR]{Animal Affinity}</p></section>"
+        "content": "<h5><a name=\"animalaffinity\"></a>Animal Affinity</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:handleAnimal]{Handle Animal check}s and @Check[skill:ride]{Ride check}s. </p>\n<p><b>Special</b>: Remember that the Handle Animal skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.TRH4hlpWIxC9RykR]{Animal Affinity}</p></section>"
       },
       "sort": 900000,
       "flags": {},
@@ -188,7 +188,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"armorplight\"></a>Armor Proficiency (light)</h5>\n<p><b>Benefit</b>: When a character wears a type of armor with which he or she is proficient, the character gets to add the armor’s equipment bonus to his or her Defense. Also, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, and Tumble checks.</p>\n<p><b>Normal</b>: A character who wears armor with which he or she is not proficient adds only the armor’s nonproficient equipment bonus to his or her Defense. Also, he or she suffers its armor check penalty on attack rolls and on all skill checks that involve moving.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.QWsmClIbhg4CjhjA]{Armor Proficiency (light)}</p></section>"
+        "content": "<h5><a name=\"armorplight\"></a>Armor Proficiency (light)</h5>\n<p><b>Benefit</b>: When a character wears a type of armor with which he or she is proficient, the character gets to add the armor’s equipment bonus to his or her Defense. Also, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, and @Check[skill:tumble]{Tumble check}s.</p>\n<p><b>Normal</b>: A character who wears armor with which he or she is not proficient adds only the armor’s nonproficient equipment bonus to his or her Defense. Also, he or she suffers its armor check penalty on attack rolls and on all skill checks that involve moving.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.QWsmClIbhg4CjhjA]{Armor Proficiency (light)}</p></section>"
       },
       "sort": 1200000,
       "flags": {},
@@ -220,7 +220,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"athletic\"></a>Athletic</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Climb checks and Swim checks. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.i4jQdppheYhNzakn]{Athletic}</p></section>"
+        "content": "<h5><a name=\"athletic\"></a>Athletic</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:climb]{Climb check}s and @Check[skill:swim]{Swim check}s. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.i4jQdppheYhNzakn]{Athletic}</p></section>"
       },
       "sort": 1400000,
       "flags": {},
@@ -236,7 +236,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"attentive\"></a>Attentive</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Investigate checks and Sense Motive checks. </p>\n<p><b>Special</b>: Remember that the Investigate skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Fyt0VJkcCuyWBb1v]{Attentive}</p></section>"
+        "content": "<h5><a name=\"attentive\"></a>Attentive</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:investigate]{Investigate check}s and @Check[skill:senseMotive]{Sense Motive check}s. </p>\n<p><b>Special</b>: Remember that the Investigate skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Fyt0VJkcCuyWBb1v]{Attentive}</p></section>"
       },
       "sort": 1500000,
       "flags": {},
@@ -380,7 +380,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"combatthrow\"></a>Combat Throw</h5>\n<p><b>Prerequisite</b>: Defensive Martial Arts.</p>\n<p><b>Benefit</b>: The character gains a +2 bonus on opposed Strength and Dexterity checks any time the character attempts trip or grapple attacks, or when the character trys to avoid a trip or grapple attack made against him or her.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.xAuE4rUyps8xUyx5]{Combat Throw}</p></section>"
+        "content": "<h5><a name=\"combatthrow\"></a>Combat Throw</h5>\n<p><b>Prerequisite</b>: Defensive Martial Arts.</p>\n<p><b>Benefit</b>: The character gains a +2 bonus on opposed Strength and @Check[ability:dex]{Dexterity check}s any time the character attempts trip or grapple attacks, or when the character trys to avoid a trip or grapple attack made against him or her.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.xAuE4rUyps8xUyx5]{Combat Throw}</p></section>"
       },
       "sort": 2400000,
       "flags": {},
@@ -396,7 +396,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"confident\"></a>Confident</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Gamble checks and Intimidate checks, and on level checks to resist intimidation.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.aERYkkfD88paddta]{Confident}</p></section>"
+        "content": "<h5><a name=\"confident\"></a>Confident</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:gamble]{Gamble check}s and @Check[skill:intimidate]{Intimidate check}s, and on level checks to resist intimidation.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.aERYkkfD88paddta]{Confident}</p></section>"
       },
       "sort": 2500000,
       "flags": {},
@@ -444,7 +444,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"deceptive\"></a>Deceptive</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Bluff checks and Disguise checks.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.kXLbvE25pRgZUrjA]{Deceptive}</p></section>"
+        "content": "<h5><a name=\"deceptive\"></a>Deceptive</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:bluff]{Bluff check}s and @Check[skill:disguise]{Disguise check}s.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.kXLbvE25pRgZUrjA]{Deceptive}</p></section>"
       },
       "sort": 2800000,
       "flags": {},
@@ -556,7 +556,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"endurance\"></a>Endurance</h5>\n<p><b>Benefit</b>: The character gains a +4 bonus on the following checks and saves: hourly Swim checks to avoid becoming fatigued, Constitution checks to continue running, Constitution checks to hold the character’s breath, Constitution checks to avoid damage from starvation or thirst, Fortitude saves to avoid damage from hot or cold environments, and Fortitude saves to resist suffocation or drowning.</p>\n<p>Also, the character may sleep in medium or light armor without becoming fatigued.</p>\n<p><b>Normal</b>: A character without this feat who sleeps in armor is automatically fatigued the following day.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ipoS72vYsA65Mk4K]{Endurance}</p></section>"
+        "content": "<h5><a name=\"endurance\"></a>Endurance</h5>\n<p><b>Benefit</b>: The character gains a +4 bonus on the following checks and saves: hourly @Check[skill:swim]{Swim check}s to avoid becoming fatigued, @Check[ability:con]{Constitution check}s to continue running, @Check[ability:con]{Constitution check}s to hold the character’s breath, @Check[ability:con]{Constitution check}s to avoid damage from starvation or thirst, @Check[save:fort]{Fortitude save}s to avoid damage from hot or cold environments, and @Check[save:fort]{Fortitude save}s to resist suffocation or drowning.</p>\n<p>Also, the character may sleep in medium or light armor without becoming fatigued.</p>\n<p><b>Normal</b>: A character without this feat who sleeps in armor is automatically fatigued the following day.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ipoS72vYsA65Mk4K]{Endurance}</p></section>"
       },
       "sort": 3500000,
       "flags": {},
@@ -620,7 +620,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"focused\"></a>Focused</h5>\n<p><b>Benefit</b>: The character gets get a +2 bonus on all Balance checks and Concentration checks.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.zmhog8dX0nkFhNAO]{Focused}</p></section>"
+        "content": "<h5><a name=\"focused\"></a>Focused</h5>\n<p><b>Benefit</b>: The character gets get a +2 bonus on all @Check[skill:balance]{Balance check}s and @Check[skill:concentration]{Concentration check}s.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.zmhog8dX0nkFhNAO]{Focused}</p></section>"
       },
       "sort": 3900000,
       "flags": {},
@@ -636,7 +636,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"forcestop\"></a>Force Stop</h5>\n<p><b>Prerequisite</b>: Drive 4 ranks, Vehicle Expert.</p>\n<p><b>Benefit</b>: When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character’s turn number.</p>\n<p>After succeeding on the check to attempt the sideswipe, the character makes a Drive check opposed by the other driver. If the character succeeds, turn the other vehicle 90 degrees across the front of the character’s, so that they form a tee. Move them forward a distance equal to the character’s turn number. The vehicles end their movement at that location, at stationary speed, and take their normal sideswipe damage.</p>\n<p>If the character fails the check, resolve the sideswipe normally.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Vpkvf3xX0Bj5HMX2]{Force Stop}</p></section>"
+        "content": "<h5><a name=\"forcestop\"></a>Force Stop</h5>\n<p><b>Prerequisite</b>: Drive 4 ranks, Vehicle Expert.</p>\n<p><b>Benefit</b>: When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character’s turn number.</p>\n<p>After succeeding on the check to attempt the sideswipe, the character makes a @Check[skill:drive]{Drive check} opposed by the other driver. If the character succeeds, turn the other vehicle 90 degrees across the front of the character’s, so that they form a tee. Move them forward a distance equal to the character’s turn number. The vehicles end their movement at that location, at stationary speed, and take their normal sideswipe damage.</p>\n<p>If the character fails the check, resolve the sideswipe normally.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Vpkvf3xX0Bj5HMX2]{Force Stop}</p></section>"
       },
       "sort": 4000000,
       "flags": {},
@@ -652,7 +652,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"frightful\"></a>Frightful Presence</h5>\n<p><b>Prerequisite</b>: Charisma 15, Intimidate 9 ranks.</p>\n<p><b>Benefit</b>: When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.</p>\n<p>A successful save indicates that the opponent is immune to the character’s use of this feat for 24 hours. This feat does not affect creatures with an Intelligence of 3 or lower.</p>\n<p>If the character has the Renown feat, the Will saving throw’s DC increases by 5.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iYWWrS0YBc8dihUu]{Frightful Presence}</p></section>"
+        "content": "<h5><a name=\"frightful\"></a>Frightful Presence</h5>\n<p><b>Prerequisite</b>: Charisma 15, Intimidate 9 ranks.</p>\n<p><b>Benefit</b>: When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.</p>\n<p>A successful save indicates that the opponent is immune to the character’s use of this feat for 24 hours. This feat does not affect creatures with an Intelligence of 3 or lower.</p>\n<p>If the character has the Renown feat, the @Check[save:will]{Will saving throw}’s DC increases by 5.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iYWWrS0YBc8dihUu]{Frightful Presence}</p></section>"
       },
       "sort": 4100000,
       "flags": {},
@@ -668,7 +668,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"gearhead\"></a>Gearhead</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Computer Use checks and Repair checks. </p>\n<p><b>Special</b>: Remember that the Computer Use skill and the Repair skill can only be used untrained in certain situations.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.wYFze6qv1I83gTLx]{Gearhead}</p></section>"
+        "content": "<h5><a name=\"gearhead\"></a>Gearhead</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:computerUse]{Computer Use check}s and @Check[skill:repair]{Repair check}s. </p>\n<p><b>Special</b>: Remember that the Computer Use skill and the Repair skill can only be used untrained in certain situations.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.wYFze6qv1I83gTLx]{Gearhead}</p></section>"
       },
       "sort": 4200000,
       "flags": {},
@@ -700,7 +700,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"greatfort\"></a>Great Fortitude</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Fortitude saving throws.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.nUlJLOAL4pSXJcZx]{Great Fortitude}</p></section>"
+        "content": "<h5><a name=\"greatfort\"></a>Great Fortitude</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[save:fort]{Fortitude saving throw}s.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.nUlJLOAL4pSXJcZx]{Great Fortitude}</p></section>"
       },
       "sort": 4400000,
       "flags": {},
@@ -716,7 +716,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"guide\"></a>Guide</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Navigate checks and Survival checks. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.RAkHjUn1g4BYuSmw]{Guide}</p></section>"
+        "content": "<h5><a name=\"guide\"></a>Guide</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:navigate]{Navigate check}s and @Check[skill:survival]{Survival check}s. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.RAkHjUn1g4BYuSmw]{Guide}</p></section>"
       },
       "sort": 4500000,
       "flags": {},
@@ -844,7 +844,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedfeint\"></a>Improved Feint</h5>\n<p><b>Prerequisite</b>: Intelligence 13, Brawl, Streetfighting.</p>\n<p><b>Benefit</b>: The character can make a Bluff check in combat as a move action. The character receives a +2 bonus on Bluff checks made to feint in melee combat.</p>\n<p><b>Normal</b>: Feinting in combat requires an attack action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iOHoFygfyydxJeAC]{Improved Feint}</p></section>"
+        "content": "<h5><a name=\"improvedfeint\"></a>Improved Feint</h5>\n<p><b>Prerequisite</b>: Intelligence 13, Brawl, Streetfighting.</p>\n<p><b>Benefit</b>: The character can make a @Check[skill:bluff]{Bluff check} in combat as a move action. The character receives a +2 bonus on @Check[skill:bluff]{Bluff check}s made to feint in melee combat.</p>\n<p><b>Normal</b>: Feinting in combat requires an attack action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iOHoFygfyydxJeAC]{Improved Feint}</p></section>"
       },
       "sort": 5300000,
       "flags": {},
@@ -924,7 +924,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"ironwill\"></a>Iron Will</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Will saving throws.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ykcdRJdkR8iCxnkC]{Iron Will}</p></section>"
+        "content": "<h5><a name=\"ironwill\"></a>Iron Will</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[save:will]{Will saving throw}s.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ykcdRJdkR8iCxnkC]{Iron Will}</p></section>"
       },
       "sort": 5800000,
       "flags": {},
@@ -956,7 +956,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"lightningreflex\"></a>Lightning Reflexes</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Reflex saving throws.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.7EJvPhguvlkH2MCq]{Lightning Reflexes}</p></section>"
+        "content": "<h5><a name=\"lightningreflex\"></a>Lightning Reflexes</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[save:ref]{Reflex saving throw}s.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.7EJvPhguvlkH2MCq]{Lightning Reflexes}</p></section>"
       },
       "sort": 6000000,
       "flags": {},
@@ -988,7 +988,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"medicalexp\"></a>Medical Expert</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Craft (pharmaceutical) checks and Treat Injury checks.</p>\n<p><b>Special</b>: Remember that the Craft (pharmaceutical) skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.YoX8OzOpsV5SW1zU]{Medical Expert}</p></section>"
+        "content": "<h5><a name=\"medicalexp\"></a>Medical Expert</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s and @Check[skill:treatInjury]{Treat Injury check}s.</p>\n<p><b>Special</b>: Remember that the Craft (pharmaceutical) skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.YoX8OzOpsV5SW1zU]{Medical Expert}</p></section>"
       },
       "sort": 6200000,
       "flags": {},
@@ -1004,7 +1004,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"meticulous\"></a>Meticulous</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Forgery checks and Search checks.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ywXXV4OzZMXUQqYx]{Meticulous}</p></section>"
+        "content": "<h5><a name=\"meticulous\"></a>Meticulous</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:forgery]{Forgery check}s and @Check[skill:search]{Search check}s.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ywXXV4OzZMXUQqYx]{Meticulous}</p></section>"
       },
       "sort": 6300000,
       "flags": {},
@@ -1036,7 +1036,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"nimble\"></a>Nimble</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Escape Artist checks and Sleight of Hand checks.</p>\n<p><b>Special</b>: Remember that the Sleight of Hand skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Gfx8ZD2qWMNcFxfv]{Nimble}</p></section>"
+        "content": "<h5><a name=\"nimble\"></a>Nimble</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:escapeArtist]{Escape Artist check}s and @Check[skill:sleightOfHand]{Sleight of Hand check}s.</p>\n<p><b>Special</b>: Remember that the Sleight of Hand skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Gfx8ZD2qWMNcFxfv]{Nimble}</p></section>"
       },
       "sort": 6500000,
       "flags": {},
@@ -1164,7 +1164,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"run\"></a>Run</h5>\n<p><b>Benefit</b>: When running, the character moves a maximum of five times his or her normal speed instead of four times. If the character is in heavy armor, the character can move four times his or her speed rather than three times. If the character makes a long jump, the character gains a +2 competence bonus on his or her Jump check.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.J2LKhsFdOhrKj7k4]{Run}</p></section>"
+        "content": "<h5><a name=\"run\"></a>Run</h5>\n<p><b>Benefit</b>: When running, the character moves a maximum of five times his or her normal speed instead of four times. If the character is in heavy armor, the character can move four times his or her speed rather than three times. If the character makes a long jump, the character gains a +2 competence bonus on his or her @Check[skill:jump]{Jump check}.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.J2LKhsFdOhrKj7k4]{Run}</p></section>"
       },
       "sort": 7300000,
       "flags": {},
@@ -1244,7 +1244,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"stealthy\"></a>Stealthy</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Hide checks and Move Silently checks. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.wmMsesf7cNEIPkXT]{Stealthy}</p></section>"
+        "content": "<h5><a name=\"stealthy\"></a>Stealthy</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:hide]{Hide check}s and @Check[skill:moveSilently]{Move Silently check}s. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.wmMsesf7cNEIPkXT]{Stealthy}</p></section>"
       },
       "sort": 7800000,
       "flags": {},
@@ -1292,7 +1292,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"studious\"></a>Studious</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Decipher Script checks and Research checks. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.DzHnffMCEef9Whrs]{Studious}</p></section>"
+        "content": "<h5><a name=\"studious\"></a>Studious</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:decipherScript]{Decipher Script check}s and @Check[skill:research]{Research check}s. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.DzHnffMCEef9Whrs]{Studious}</p></section>"
       },
       "sort": 8100000,
       "flags": {},
@@ -1324,7 +1324,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"surfacevo\"></a>Surface Vehicle Operation</h5>\n<p>Select a class of surface vehicle (heavy wheeled, powerboat, sailboat, ship, or tracked). The character is proficient at operating that class of vehicle.</p>\n<p>The heavy wheeled class includes all kinds of semi-trucks and tractor-trailers, as well as wheeled construction vehicles (such as earth movers) and wheeled armored vehicles (such as some armored personnel carriers). Powerboats are engine-powered water vessels designed for operation by a single person and usually no more than 100 feet in length. Sailboats are wind-powered water vessels. Ships are large, multicrewed water vessels. Tracked vehicles include bulldozers and tanks and other military vehicles.</p>\n<p><b>Prerequisite</b>: Drive 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on Drive checks or attack rolls made when operating a surface vehicle of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on Drive checks made to operate a surface vehicle that falls under any of these classes, and to attacks made with vehicle weapons. There is no penalty when you operate a general-purpose surface vehicle.</p>\n<p><b>Special</b>: A character can gain this feat as many as five times. Each time the character takes the feat, he or she selects a different class of surface vehicle.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.x8PpFk4O2VqdygOf]{Surface Vehicle Operation}</p></section>"
+        "content": "<h5><a name=\"surfacevo\"></a>Surface Vehicle Operation</h5>\n<p>Select a class of surface vehicle (heavy wheeled, powerboat, sailboat, ship, or tracked). The character is proficient at operating that class of vehicle.</p>\n<p>The heavy wheeled class includes all kinds of semi-trucks and tractor-trailers, as well as wheeled construction vehicles (such as earth movers) and wheeled armored vehicles (such as some armored personnel carriers). Powerboats are engine-powered water vessels designed for operation by a single person and usually no more than 100 feet in length. Sailboats are wind-powered water vessels. Ships are large, multicrewed water vessels. Tracked vehicles include bulldozers and tanks and other military vehicles.</p>\n<p><b>Prerequisite</b>: Drive 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on @Check[skill:drive]{Drive check}s or attack rolls made when operating a surface vehicle of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on @Check[skill:drive]{Drive check}s made to operate a surface vehicle that falls under any of these classes, and to attacks made with vehicle weapons. There is no penalty when you operate a general-purpose surface vehicle.</p>\n<p><b>Special</b>: A character can gain this feat as many as five times. Each time the character takes the feat, he or she selects a different class of surface vehicle.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.x8PpFk4O2VqdygOf]{Surface Vehicle Operation}</p></section>"
       },
       "sort": 8300000,
       "flags": {},
@@ -1340,7 +1340,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"surgery\"></a>Surgery</h5>\n<p><b>Prerequisite</b>: Treat Injury 4 ranks.</p>\n<p><b>Benefit</b>: The character can use the Treat Injury skill to perform surgery without penalty.  See the Treat Injury skill description.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on Treat Injury checks made to perform surgery.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ay58GHII5YV9oMln]{Surgery}</p></section>"
+        "content": "<h5><a name=\"surgery\"></a>Surgery</h5>\n<p><b>Prerequisite</b>: Treat Injury 4 ranks.</p>\n<p><b>Benefit</b>: The character can use the Treat Injury skill to perform surgery without penalty.  See the Treat Injury skill description.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on @Check[skill:treatInjury]{Treat Injury check}s made to perform surgery.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ay58GHII5YV9oMln]{Surgery}</p></section>"
       },
       "sort": 8400000,
       "flags": {},
@@ -1372,7 +1372,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"track\"></a>Track</h5>\n<p><b>Benefit</b>: To find tracks or follow them for one mile requires a Survival check. The character must make another Survival check every time the tracks become difficult to follow.</p>\n<p class=\"close\">The character moves at half his or her normal speed (or at the character’s normal speed with a –5 penalty on the check, or at up to twice the character’s speed with a –20 penalty on the check). The DC depends on the surface and the prevailing conditions.</p>\n<table cellspacing=\"0\" width=\"120\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"50\">Surface</th>\n\t<th width=\"70\" align=\"center\">Track DC</th>\n    </tr>\n    <tr>\n\t<td>Very Soft</td>\n\t<td align=\"center\">5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Soft</td>\n\t<td align=\"center\">10</td>\n    </tr>\n    <tr>\n\t<td>Firm</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"last-row\">Hard</td>\n\t<td class=\"last-row\" align=\"center\">20</td>\n    </tr>\n  </tbody>\n</table>\n<p><b>Very Soft</b>: Any surface (fresh snow, thick dust, wet mud) that holds deep, clear impressions of footprints.</p>\n<p><b>Soft</b>: Any surface soft enough to yield to pressure, but firmer than wet mud or fresh snow, in which the quarry leaves frequent but shallow footprints.</p>\n<p><b>Hard</b>: Most normal outdoor or exceptionally soft or dirty indoor surfaces. The quarry might leave some traces of its passage, but only occasional or partial footprints can be found.</p>\n<p><b>Firm</b>: Any surface that doesn’t hold footprints at all, such as bare rock, concrete, metal deckings, or indoor floors. The quarry leaves only traces, such as scuff marks.</p>\n<p>If the character fails a Survival check, he or she can retry after 1 hour (outdoors) or 10 minutes (indoors) of searching.</p>\n<p class=\"close\"><b>Normal</b>: A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.</p>\n<table cellspacing=\"0\" width=\"450\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"350\">Condition</th>\n\t<th width=\"100\" align=\"center\">DC Modifier</th>\n    </tr>\n    <tr>\n\t<td>Every three targets in the group being tracked</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td><i>Size of targets being tracked:<sup>1</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Fine</td>\n\t<td align=\"center\">+8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Diminutive</td>\n\t<td align=\"center\">+4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Tiny</td>\n\t<td align=\"center\">+2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Small</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Medium-size</td>\n\t<td align=\"center\">+0</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Large</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Huge</td>\n\t<td align=\"center\">-2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Gargantuan</td>\n\t<td align=\"center\">-4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Colossal</td>\n\t<td align=\"center\">-8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Every 34 hours since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td>Every hour of rain since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Fresh snow cover since the trail was made</td>\n\t<td align=\"center\">+10</td>\n    </tr>\n    <tr>\n\t<td><i>Poor visibility:<sup>2</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Overcast or moonless night</td>\n\t<td align=\"center\">+6</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Moonlight</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>For or precipitation</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Tracked target hides trail (and moves at half speed)</td>\n\t<td class=\"last-row\" align=\"center\">+5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td colspan=\"2\">1 For a group of mixed sizes, apply only the modifier for the largest size category represented.</td>\n    </tr>\n    <tr>\n\t<td colspan=\"2\" class=\"last-row\">2 Apply only the largest modifier from this category.</td>\n    </tr>\n  </tbody>\n</table><br>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ognuhTfudCHBfr0h]{Track}</p></section>"
+        "content": "<h5><a name=\"track\"></a>Track</h5>\n<p><b>Benefit</b>: To find tracks or follow them for one mile requires a @Check[skill:survival]{Survival check}. The character must make another @Check[skill:survival]{Survival check} every time the tracks become difficult to follow.</p>\n<p class=\"close\">The character moves at half his or her normal speed (or at the character’s normal speed with a –5 penalty on the check, or at up to twice the character’s speed with a –20 penalty on the check). The DC depends on the surface and the prevailing conditions.</p>\n<table cellspacing=\"0\" width=\"120\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"50\">Surface</th>\n\t<th width=\"70\" align=\"center\">Track DC</th>\n    </tr>\n    <tr>\n\t<td>Very Soft</td>\n\t<td align=\"center\">5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Soft</td>\n\t<td align=\"center\">10</td>\n    </tr>\n    <tr>\n\t<td>Firm</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"last-row\">Hard</td>\n\t<td class=\"last-row\" align=\"center\">20</td>\n    </tr>\n  </tbody>\n</table>\n<p><b>Very Soft</b>: Any surface (fresh snow, thick dust, wet mud) that holds deep, clear impressions of footprints.</p>\n<p><b>Soft</b>: Any surface soft enough to yield to pressure, but firmer than wet mud or fresh snow, in which the quarry leaves frequent but shallow footprints.</p>\n<p><b>Hard</b>: Most normal outdoor or exceptionally soft or dirty indoor surfaces. The quarry might leave some traces of its passage, but only occasional or partial footprints can be found.</p>\n<p><b>Firm</b>: Any surface that doesn’t hold footprints at all, such as bare rock, concrete, metal deckings, or indoor floors. The quarry leaves only traces, such as scuff marks.</p>\n<p>If the character fails a @Check[skill:survival]{Survival check}, he or she can retry after 1 hour (outdoors) or 10 minutes (indoors) of searching.</p>\n<p class=\"close\"><b>Normal</b>: A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.</p>\n<table cellspacing=\"0\" width=\"450\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"350\">Condition</th>\n\t<th width=\"100\" align=\"center\">DC Modifier</th>\n    </tr>\n    <tr>\n\t<td>Every three targets in the group being tracked</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td><i>Size of targets being tracked:<sup>1</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Fine</td>\n\t<td align=\"center\">+8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Diminutive</td>\n\t<td align=\"center\">+4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Tiny</td>\n\t<td align=\"center\">+2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Small</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Medium-size</td>\n\t<td align=\"center\">+0</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Large</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Huge</td>\n\t<td align=\"center\">-2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Gargantuan</td>\n\t<td align=\"center\">-4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Colossal</td>\n\t<td align=\"center\">-8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Every 34 hours since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td>Every hour of rain since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Fresh snow cover since the trail was made</td>\n\t<td align=\"center\">+10</td>\n    </tr>\n    <tr>\n\t<td><i>Poor visibility:<sup>2</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Overcast or moonless night</td>\n\t<td align=\"center\">+6</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Moonlight</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>For or precipitation</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Tracked target hides trail (and moves at half speed)</td>\n\t<td class=\"last-row\" align=\"center\">+5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td colspan=\"2\">1 For a group of mixed sizes, apply only the modifier for the largest size category represented.</td>\n    </tr>\n    <tr>\n\t<td colspan=\"2\" class=\"last-row\">2 Apply only the largest modifier from this category.</td>\n    </tr>\n  </tbody>\n</table><br>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ognuhTfudCHBfr0h]{Track}</p></section>"
       },
       "sort": 8600000,
       "flags": {},
@@ -1388,7 +1388,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"trustworthy\"></a>Trustworthy</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Diplomacy checks and Gather Information checks. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.AfQUMQcK92zgCx6V]{Trustworthy}</p></section>"
+        "content": "<h5><a name=\"trustworthy\"></a>Trustworthy</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:diplomacy]{Diplomacy check}s and @Check[skill:gatherInformation]{Gather Information check}s. </p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.AfQUMQcK92zgCx6V]{Trustworthy}</p></section>"
       },
       "sort": 8700000,
       "flags": {},
@@ -1452,7 +1452,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"vehicleexpert\"></a>Vehicle Expert</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all Drive checks and Pilot checks.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.qCOQG2vLT1Jc2OIu]{Vehicle Expert}</p></section>"
+        "content": "<h5><a name=\"vehicleexpert\"></a>Vehicle Expert</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:drive]{Drive check}s and @Check[skill:pilot]{Pilot check}s.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.qCOQG2vLT1Jc2OIu]{Vehicle Expert}</p></section>"
       },
       "sort": 9100000,
       "flags": {},
@@ -1532,7 +1532,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"windfall\"></a>Windfall</h5>\n<p><b>Benefit</b>: The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks.</p>\n<p><b>Special</b>: A character can select this feat multiple times. Each time, both of its effects stack.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.UN4njpwVWq19GDae]{Windfall}</p></section>"
+        "content": "<h5><a name=\"windfall\"></a>Windfall</h5>\n<p><b>Benefit</b>: The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.</p>\n<p><b>Special</b>: A character can select this feat multiple times. Each time, both of its effects stack.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.UN4njpwVWq19GDae]{Windfall}</p></section>"
       },
       "sort": 9600000,
       "flags": {},

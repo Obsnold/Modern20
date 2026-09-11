@@ -1227,6 +1227,12 @@
       "MassiveDamage": "Massive damage! Fortitude DC {dc}",
       "WealthCheck": "Wealth check for {item} (DC {dc})"
     },
+    "Check": {
+      "Beat": "DC {dc}, made it",
+      "DC": "DC",
+      "Missed": "DC {dc}, missed it",
+      "Roll": "Roll {check}"
+    },
     "Class": {
       "Charismatic": "Charismatic Hero",
       "Dedicated": "Dedicated Hero",
@@ -2437,6 +2443,7 @@
       "NoActionPointsLeft": "No action points remaining.",
       "NoBreaker": "Select the character trying to break it.",
       "NoBuyer": "Select a character with a Wealth bonus to make the purchase.",
+      "NoRoller": "Select the character making the check.",
       "NoRulesPage": "The rules compendium has no page for this.",
       "NoWealth": "This actor has no Wealth bonus.",
       "NotPurchasable": "This item has no purchase DC.",
