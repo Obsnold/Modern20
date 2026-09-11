@@ -60,7 +60,7 @@
     "name": "Fragmentation Grenade of Distance",
     "category": "Weapons",
     "book": "d20 Modern",
-    "description": "<p>The range increment of this fragmentation grenade is double normal (20 feet instead of 10 feet).</p><p>The purchase DC given below is for a box of six grenades.</p>",
+    "description": "<p>The range increment of this fragmentation grenade is double normal (20 feet instead of 10 feet).</p>",
     "itemType": "Weapon (magic)",
     "casterLevel": "7th (+1 or +2), 10th (+3)",
     "purchaseDC": 35,
@@ -312,7 +312,7 @@
     "name": "Ring of the Ram",
     "category": "Rings",
     "book": "d20 Modern",
-    "description": "<p>The wearer can command the ring to issue forth a ramlike force. This force strikes a single target, dealing 1d6 points of damage if 1 charge is expended, 2d6 points if 2 charges are used, or 3d6 points if 3 charges (the maximum) are used. Treat this as a ranged attack with a 50-foot maximum range and no penalties for distance.</p><p>The force of the blow is considerable, and those struck by the ring are subject to a bull rush if within 30 feet of the ring wearer. (The force has Strength 25 and is considered Large.) The force gains a +1 bonus on the bull rush attempt if 2 charges are expended, or +2 if 3 charges are expended.</p><p>In addition to its attack mode, the ring of the ram also has the power to open doors as if it were a character with Strength 25. If 2 charges are expended, the effect is equivalent to a character with Strength 27. If 3 charges are expended, the effect is that of a character with Strength 29.</p><p>A newly created ring has 50 charges. When all the charges are expended, the ring becomes a nonmagical item.</p>",
+    "description": "<p>The wearer can command the ring to issue forth a ramlike force. This force strikes a single target, dealing 1d6 points of damage if 1 charge is expended, 2d6 points if 2 charges are used, or 3d6 points if 3 charges (the maximum) are used. Treat this as a ranged attack with a 50-foot maximum range and no penalties for distance.</p><p>In addition to its attack mode, the ring of the ram also has the power to open doors as if it were a character with Strength 25.</p><p>If 2 charges are expended, the effect is equivalent to a character with Strength 27. If 3 charges are expended, the effect is that of a character with Strength 29.</p><p>A newly created ring has 50 charges. When all the charges are expended, the ring becomes a nonmagical item.</p>",
     "itemType": "Ring (magic)",
     "casterLevel": "9th",
     "purchaseDC": 34,
@@ -326,7 +326,7 @@
     "name": "Scroll of Fireball",
     "category": "Scrolls",
     "book": "d20 Modern",
-    "description": "<p>Reading the scroll activates a fireball spell. The spell functions exactly like a spell prepared and cast the normal way, except that no components are required.</p>",
+    "description": "",
     "itemType": "Scroll",
     "casterLevel": "5th",
     "purchaseDC": 23,
@@ -382,7 +382,7 @@
     "name": "Staff of Illumination",
     "category": "Staffs",
     "book": "d20 Modern",
-    "description": "<p>The staff has three uses, each identical to the corresponding divine spell. Each time the staff is used, it depletes a certain number of charges.</p><p>Light; uses no charges.</p><p>Searing light (4d8 points of damage, or 9d6 points of damage to undead; Reflex save DC 15); uses 1 charge.</p><p>True seeing (lasts 9 minutes; Will save DC 17); uses 2 charges.</p>",
+    "description": "<p>The staff has three uses, each identical to the corresponding divine spell. Each time the staff is used, it depletes a certain number of charges.</p><p>Light; uses no charges.</p><p>Searing light (4d8 points of damage, or 9d6 points of damage to undead; Reflex save DC 15);</p><p>True seeing (lasts 9 minutes; Will save DC 17); uses 2 charges.</p>",
     "itemType": "Staff (magic)",
     "casterLevel": "9th (divine)",
     "purchaseDC": 41,
@@ -410,7 +410,7 @@
     "name": "Tattoo of Body Adjustment",
     "category": "Tattoos",
     "book": "d20 Modern",
-    "description": "<p>This tattoo has one of three effects, which the bearer chooses at the time of activation:</p><p>Instantly heal 3d6 points of damage.</p><p>Gain a +7 bonus on the bearer’s next Fortitude save to negate further damage from any one disease or poison currently afflicting the bearer.</p><p>Instantly heal 2 points of temporary ability damage.</p>",
+    "description": "<p>This tattoo has one of three effects, which the bearer chooses at the time of activation:</p>",
     "itemType": "Tattoo (psionic)",
     "casterLevel": "3rd",
     "purchaseDC": 20,
@@ -494,7 +494,7 @@
     "name": "Chemical Light Stick of Revealing",
     "category": "Wondrous",
     "book": "d20 Modern",
-    "description": "<p>This FX item reveals invisible creatures and objects within its 5-foot light radius. This magic item usually comes in packs of five, and each light stick lasts 6 hours.</p><p>The purchase DC and weight given below are for a pack of five.</p>",
+    "description": "<p>This FX item reveals invisible creatures and objects within its 5-foot light radius.</p><p>This magic item usually comes in packs of five, and each light stick lasts 6 hours.</p><p>The purchase DC and weight given below are for a pack of five.</p>",
     "itemType": "Wondrous Item (magic)",
     "casterLevel": "3rd",
     "purchaseDC": 29,
@@ -616,11 +616,11 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html"
   },
   {
-    "id": "stoneOfThunder",
-    "name": "Stone of Thunder",
+    "id": "sixDemonBag",
+    "name": "Six-Demon Bag",
     "category": "Wondrous",
     "book": "d20 Modern",
-    "description": "<p>This stone releases a burst of sonic/concussion energy.</p><p>Once all six stones are thrown, the six-demon bag loses all of its magic properties.</p>",
+    "description": "<p>So long as the bag remains bound, the possessor gains a +1 luck bonus on all saves. Opening or sealing the bag is a move action that provokes attacks of opportunity.</p><p>Inside the bag are six small stones. Each stone can be hurled up to 60 feet, exploding at any point within range as designated by the possessor. Each stone releases a 15-foot-radius burst of energy or shrapnel that deals 5d6 points of damage, or half damage if a Reflex save (DC 15) succeeds.</p><p>Stone of Acid Rain: This stone releases a burst of acid.</p><p>Stone of Earth: This stone releases a burst of stony shards that deals slashing damage.</p><p>Stone of Fire: This stone releases a burst of fire.</p><p>Stone of Hail: This stone releases a burst of cold.</p><p>Stone of Lightning: This stone releases a burst of electricity.</p><p>Stone of Thunder: This stone releases a burst of sonic/concussion energy.</p><p>Once all six stones are thrown, the six-demon bag loses all of its magic properties.</p>",
     "itemType": "Wondrous Item (magic)",
     "casterLevel": "5th",
     "purchaseDC": 34,
@@ -644,6 +644,20 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html"
   },
   {
+    "id": "bulletproofShirt",
+    "name": "Bulletproof Shirt",
+    "category": "Armor",
+    "book": "Urban Arcana",
+    "description": "<p>This light shirt provides the same protection as a +1 leather jacket. In addition, the wearer gains the benefits of a continuous protection from arrows/bullets spell (damage reduction 5/+1 against arrows, bullets, and crossbow bolts).</p>",
+    "itemType": "Armor (magic)",
+    "casterLevel": "3rd",
+    "purchaseDC": 22,
+    "purchaseDCText": "22",
+    "weight": 1.0,
+    "weightText": "1 lb",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
     "id": "riotShieldOfFear",
     "name": "Riot Shield of Fear",
     "category": "Armor",
@@ -652,9 +666,9 @@
     "itemType": "Armor (magic)",
     "casterLevel": "3rd",
     "purchaseDC": 26,
-    "purchaseDCText": "26 (+1), 31 (+2), 36 (+3)",
-    "weight": 6.0,
-    "weightText": "6 lb",
+    "purchaseDCText": "26 (+1), 31 (+2), 36 (3)",
+    "weight": 15.0,
+    "weightText": "15 lb",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -662,7 +676,7 @@
     "name": "Scalemail of the Dragon",
     "category": "Armor",
     "book": "Urban Arcana",
-    "description": "<p>This suit, which weighs half as much as a normal suit of scalemail, provides an enhancement bonus to Defense (+1 to +3). In addition, the armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor penalty. Speed while wearing scalemail of the dragon is 30 feet for Medium creatures and 20 feet for Small creatures.</p>",
+    "description": "<p>This suit, which weighs half as much as a normal suit of scalemail, provides an enhancement bonus to Defense (+1 to +3). In addition, the armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor penalty.</p><p>Speed while wearing scalemail of the dragon is 30 feet for Medium creatures and 20 feet for Small creatures.</p>",
     "itemType": "Armor (magic)",
     "casterLevel": "7th",
     "purchaseDC": 33,
@@ -692,7 +706,7 @@
     "book": "Urban Arcana",
     "description": "<p>This battered chain saw has a +1 to +3 enhancement bonus. It constantly drips oil and small amounts of blood, and it does not require gas to activate. The chain saw deals x 3 damage (instead of x 2 damage) on a successful critical hit.</p><p>Any creature with a good allegiance who handles a chain saw of the psycho gains two negative levels. These negative levels remain so long as the chain saw is in hand and disappear when it is no longer wielded. These negative levels never result in actual level loss, but they cannot be overcome in any way while the chain saw is wielded.</p>",
     "itemType": "Weapon (magic)",
-    "casterLevel": "10th",
+    "casterLevel": "10rg",
     "purchaseDC": 25,
     "purchaseDCText": "25 (+1), 30 (+2), 35 (+3)",
     "weight": 10.0,
@@ -732,7 +746,7 @@
     "name": "Demolition Hammer",
     "category": "Weapons",
     "book": "Urban Arcana",
-    "description": "<p>This weapon resembles a standard sledgehammer (use the warhammer statistics) with runes carved into its wooden handle. Besides its enhancement bonus (+1 to +3), the hammer has a destroy seed incantation bound into it that the wielder may activate once per day after a successful melee attack. The target must succeed at a Fortitude save (DC 20) or take 10d6 points of damage. If the target is reduced to –10 hit points or less (or a construct, object, or undead is reduced to 0 hit points), it is destroyed as if disintegrated, leaving behind only a trace of fine dust.</p>",
+    "description": "<p>This weapon resembles a standard sledgehammer (use the warhammer statistics) with runes carved into its wooden handle.</p><p>Besides its enhancement bonus (+1 to +3), the hammer has a destroy seed incantation bound into it that the wielder may activate once per day after a successful melee attack. The target must succeed at a Fortitude save (DC 20) or take 10d6 points of damage. If the target is reduced to –10 hit points or less (or a construct, object, or undead is reduced to 0 hit points), it is destroyed as if disintegrated, leaving behind only a trace of fine dust.</p>",
     "itemType": "Weapon (magic)",
     "casterLevel": "11th*",
     "purchaseDC": 30,
@@ -758,7 +772,7 @@
   {
     "id": "dopplerStaff",
     "name": "Doppler Staff",
-    "category": "Weapons",
+    "category": "Staffs",
     "book": "Urban Arcana",
     "description": "<p>This staff is unusual in that it performs only one function— albeit a considerable one. Crafted from sandalwood carved with cloud patterns spiraling up its shaft, the doppler staff requires that the user hold it above her head using both hands. The staff enables its user to cast a control weather incantation without secondary casters. The staff also grants a +4 equipment bonus on all Knowledge (arcane lore) checks to successfully complete the incantation. Each attempted use costs one charge, even if the incantation fails.</p>",
     "itemType": "Staff (magic)",
@@ -772,9 +786,9 @@
   {
     "id": "staffOfSwarms",
     "name": "Staff of Swarms",
-    "category": "Weapons",
+    "category": "Staffs",
     "book": "Urban Arcana",
-    "description": "<p>This polished black staff often doubles as a walking cane, one end of which is capped with a ornate silver insect or arachnid. The staff has a number of uses, some identical to the corresponding divine spell. Each time the staff is used, it depletes a certain number of charges. A fully-charged staff holds 50 charges.</p><p>• Shadowmoth plague (lasts 9 minutes); uses 1 charge.</p><p>• Crawling carpet (lasts 9 minutes); uses 1 charge.</p><p>• Rage of bees (lasts 9 minutes); uses 2 charges.</p>",
+    "description": "<p>This polished black staff often doubles as a walking cane, one end of which is capped with a ornate silver insect or arachnid. The staff has a number of uses, some identical to the corresponding divine spell. Each time the staff is used, it depletes a certain number of charges. A fully-charged staff holds 50 charges.</p>",
     "itemType": "Staff (magic)",
     "casterLevel": "9th (divine)",
     "purchaseDC": 45,
@@ -784,11 +798,25 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
+    "id": "staffOfTheUrbanJungle",
+    "name": "Staff of the Urban Jungle",
+    "category": "Staffs",
+    "book": "Urban Arcana",
+    "description": "<p>This staff is crafted from a long piece of rebar and topped with a variety of bangles, including doll heads, wires, and bolts. It requires that the user hold it forth in at least one hand.</p><p>The staff has a number of uses, some identical to the corresponding arcane spell. Each time the staff is used, it depletes a certain number of charges. A fully-charged staff holds 50 charges.</p>",
+    "itemType": "Staff (magic)",
+    "casterLevel": "9th (arcane)",
+    "purchaseDC": 45,
+    "purchaseDCText": "45",
+    "weight": 5.0,
+    "weightText": "5 lb",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
     "id": "staffOfVoltage",
     "name": "Staff of Voltage",
-    "category": "Weapons",
+    "category": "Staffs",
     "book": "Urban Arcana",
-    "description": "<p>This staff is made from a solid piece of copper and etched with lightning bolts or electrical symbols resembling circuitry. It requires that the user hold it forth in at least one hand. A fully-charged staff holds 50 charges. The staff has a number of uses, some identical to the corresponding arcane spell. Each time the staff is used, it depletes a certain number of charges.</p><p>• Degauss (by touch); uses 1 charge.</p><p>• Electromagnetic pulse (DC 15); uses 1 charge.</p><p>• Lightning bolt (9d6 points of electricity damage; Reflex save DC 15); uses 1 charge.</p>",
+    "description": "<p>This staff is made from a solid piece of copper and etched with lightning bolts or electrical symbols resembling circuitry. It requires that the user hold it forth in at least one hand. A fully-charged staff holds 50 charges. The staff has a number of uses, some identical to the corresponding arcane spell. Each time the staff is used, it depletes a certain number of charges.</p>",
     "itemType": "Staff (magic)",
     "casterLevel": "9th (arcane)",
     "purchaseDC": 40,
@@ -808,7 +836,7 @@
     "purchaseDC": 20,
     "purchaseDCText": "20",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -822,7 +850,7 @@
     "purchaseDC": 16,
     "purchaseDCText": "16",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -836,7 +864,7 @@
     "purchaseDC": 16,
     "purchaseDCText": "16",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -845,12 +873,12 @@
     "category": "Potions",
     "book": "Urban Arcana",
     "description": "<p>This viscid potion allows its imbiber to move across vertical surfaces or ceilings as easily as he can walk on the ground, and hold items and wield weapons normally while doing so.</p>",
-    "itemType": "Potion (magic)",
+    "itemType": ")",
     "casterLevel": "6th",
     "purchaseDC": 16,
     "purchaseDCText": "16",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -864,7 +892,7 @@
     "purchaseDC": 25,
     "purchaseDCText": "25",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -878,7 +906,7 @@
     "purchaseDC": 37,
     "purchaseDCText": "37",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -892,7 +920,7 @@
     "purchaseDC": 30,
     "purchaseDCText": "30",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -906,7 +934,7 @@
     "purchaseDC": 36,
     "purchaseDCText": "36",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -920,7 +948,7 @@
     "purchaseDC": 30,
     "purchaseDCText": "30",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -934,7 +962,7 @@
     "purchaseDC": 28,
     "purchaseDCText": "28",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -948,7 +976,7 @@
     "purchaseDC": 37,
     "purchaseDCText": "37",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -962,7 +990,7 @@
     "purchaseDC": 30,
     "purchaseDCText": "30",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -976,7 +1004,7 @@
     "purchaseDC": 32,
     "purchaseDCText": "32",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -986,11 +1014,11 @@
     "book": "Urban Arcana",
     "description": "<p>The bearer of the tattoo, which usually looks like a broken arrow, gains damage reduction 10/+2 against ranged weapons that fire arrows, bolts, or bullets (as per the protection from arrows/bullets spell). The effect lasts for 50 minutes.</p>",
     "itemType": "Tattoo (magic)",
-    "casterLevel": "5th (arcane)",
+    "casterLevel": "5th (Arcane)",
     "purchaseDC": 20,
     "purchaseDCText": "20",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1004,7 +1032,7 @@
     "purchaseDC": 17,
     "purchaseDCText": "17",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1018,7 +1046,7 @@
     "purchaseDC": 26,
     "purchaseDCText": "26",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1032,7 +1060,7 @@
     "purchaseDC": 24,
     "purchaseDCText": "24",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1054,13 +1082,41 @@
     "name": "Animated Tools",
     "category": "Wondrous",
     "book": "Urban Arcana",
-    "description": "<p>Two different sets of animated tools exist: the “mechanoset” is designed for mechanical devices, while the “electroset” is intended for electrical devices. When used like ordinary tools, animated tools operate as a deluxe tool kit of the appropriate type (+2 equipment bonus on Repair checks), although they have the same size and weight as a basic kit.</p><p>On command, the tool animate and begin repairing a single damaged item of the appropriate type. The animated tools must be placed within 5 feet of the item to be repaired, and the user must remain within 30 feet for the duration of the repairs. When used in this manner, the animated tools act as though they have 10 ranks in the Repair skill (Repair +10). The animated tools have a hardness of 10 and 10 hit points (total). They cannot be commanded to attack.</p>",
+    "description": "<p>Two different sets of animated tools exist: the “mechanoset” is designed for mechanical devices, while the “electroset” is intended for electrical devices. When used like ordinary tools, animated tools operate as a deluxe tool kit of the appropriate type (+2 equipment bonus on Repair checks), although they have the same size and weight as a basic kit.</p><p>On command, the tool animate and begin repairing a single damaged item of the appropriate type. The animated tools must be placed within 5 feet of the item to be repaired, and the user must remain within 30 feet for the duration of the repairs.</p><p>When used in this manner, the animated tools act as though they have 10 ranks in the Repair skill (Repair +10). The animated tools have a hardness of 10 and 10 hit points (total). They cannot be commanded to attack.</p>",
     "itemType": "Wondrous Item (magic)",
     "casterLevel": "9th",
     "purchaseDC": 34,
     "purchaseDCText": "34",
     "weight": 12.0,
     "weightText": "12 lb. (electronic) or 22 lb.(mechanical)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "arcanobotsActionFigure",
+    "name": "ARCANOBOTS Action Figure",
+    "category": "Wondrous",
+    "book": "Urban Arcana",
+    "description": "<p>ARCANOBOTS action figures are durable, articulated, collectible robots powered by magic (though to most of the world, this is just marketing hyperbole). When powered by magic batteries (as opposed to normal batteries), they respond to the verbal commands of their owners. They come equipped with pop-out jet wings and miniature “death ray” guns that deal light sonic/ concussion damage (unless powered by normal batteries, in which case they fire harmless beams of light).</p><p>An ARCANOBOT filled with magic batteries operates for 24 hours, at which point it becomes an inanimate, normal toy.</p><p>Magic batteries can be obtained from the manufacturer’s web site (purchase DC 36); most visitors to the web site (who don’t recognize the arcanobots’ true magical nature) assume that the high-cost “magic” batteries are a joke or publicity stunt. Only those with a true understanding of Shadow are likely to pay the price to unlock the Arcanobots actual potential. An ARCANOBOT action figure has the following statistics:</p><p>Arcanobot: CR 1/4; Diminutive construct; HD 1/8d10; hp 1; Mas —; Init +3; Spd 10 ft., fly 30 ft. (good); Defense 17, touch 17, flat-footed 14 (+3 Dex, +4 size); BAB +0; Grap –16; Atk +0 melee (1d2–4 nonlethal, unarmed strike) or +3 ranged touch (1d3 sonic/concussion, “death ray”); Full Atk +0 melee (1d2–4 nonlethal, unarmed strike) or +3 ranged touch (1d3 sonic/concussion, “death ray”); FS 1 ft. by 1 ft.; Reach 0 ft.; SQ darkvision 60 ft., construct immunities; AL creator or owner; SV Fort +0, Ref +3, Will –5; AP 0; Rep +0; Str 3, Dex 16, Con —, Int —, Wis 1, Cha 1.</p>",
+    "itemType": "Wondrous Item (magic)",
+    "casterLevel": "10th",
+    "purchaseDC": 5,
+    "purchaseDCText": "5 (does not include magic batteries)",
+    "weight": 1.0,
+    "weightText": "1 lb",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "backpackOfHolding",
+    "name": "Backpack of Holding",
+    "category": "Wondrous",
+    "book": "Urban Arcana",
+    "description": "<p>This appears to be a common daypack, typically used by students and hikers. The backpack of holding opens into a nondimensional space: Its inside is larger than its outside dimensions. Regardless of what is put into the backpack, it weighs a fixed amount. This weight, and the limits in weight and volume of the backpack’s contents, depend on the backpack’s type, as shown below.</p><p>If the backpack is overloaded, or if sharp objects pierce it (from inside or outside), the bag ruptures and is ruined. All contents are lost forever. If a backpack of holding is turned inside out, its contents spill out, unharmed, but the backpack must be put right before it can be used again. If living creatures are placed within the backpack, they can survive for up to 10 minutes, after which time they suffocate. Retrieving a specific item from a backpack of holding is a move action unless the bag contains more than an ordinary backpack would hold, in which case retrieving a specific item is a full-round action.</p>",
+    "itemType": "Wondrous Item (magic)",
+    "casterLevel": "9th",
+    "purchaseDC": 0,
+    "purchaseDCText": "Varies",
+    "weight": 0.0,
+    "weightText": "Varies",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1074,7 +1130,21 @@
     "purchaseDC": 39,
     "purchaseDCText": "39 (often sold as a mundane hair clip, purchase DC 1)",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "cameraOfSoulStealing",
+    "name": "Camera of Soul Stealing",
+    "category": "Wondrous",
+    "book": "Urban Arcana",
+    "description": "<p>This bulky, old-fashioned instant camera steals the life force of anyone caught in its field of view. Once per day, the user of the camera of soul stealing can take a picture (the camera does not need to be loaded with film). Anyone within a 30-foot cone must succeed at a Will save (DC 20) or gain 1d4 negative levels. If a creature successfully makes the Will save, it is permanently immune to the effects of that camera of soul stealing.</p><p>The pictures taken by the camera of soul stealing are black and white, and they possess a horrific, mind-bending quality such that people look gaunt and haunted, objects are twisted in a sinister way, and shadows seem darker and menacing.</p>",
+    "itemType": "Wondrous Item (magic)",
+    "casterLevel": "10th",
+    "purchaseDC": 37,
+    "purchaseDCText": "37",
+    "weight": 5.0,
+    "weightText": "5 lb",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1099,10 +1169,10 @@
     "description": "<p>These snug, leather racing gloves provide a +5 equipment bonus on all Drive checks while operating a land vehicle (no benefit for boats, planes, or helicopters). Both gloves must be worn for the magic to be effective.</p>",
     "itemType": "Wondrous Item (magic)",
     "casterLevel": "5th",
-    "purchaseDC": 33,
-    "purchaseDCText": "33",
+    "purchaseDC": 31,
+    "purchaseDCText": "31",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1116,7 +1186,7 @@
     "purchaseDC": 31,
     "purchaseDCText": "31",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1130,7 +1200,7 @@
     "purchaseDC": 32,
     "purchaseDCText": "32",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1158,7 +1228,7 @@
     "purchaseDC": 29,
     "purchaseDCText": "29 (per bottle)",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1172,7 +1242,7 @@
     "purchaseDC": 31,
     "purchaseDCText": "31",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1204,11 +1274,11 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
-    "id": "freezeUses3Charges",
-    "name": "Freeze (uses 3 charges)",
+    "id": "instantIceBox",
+    "name": "Instant Ice Box",
     "category": "Wondrous",
     "book": "Urban Arcana",
-    "description": "<p>If all three buttons are pressed, the box chills all the contents to a temperature of –27°F (–32.75°C), about the temperature used for storing freeze-dried medical supplies.</p><p>An instant ice box drained of all charges functions as an ordinary cooler.</p>",
+    "description": "<p>This item looks like an ordinary 1-foot-wide, 3-foot-long, and 1.5-foot-deep picnic cooler with a 2-inch-thick plastic cover.</p><p>The only apparent difference are the three buttons on the hasp. When the lid is closed and one or more of the buttons are pressed, the instant ice box will magically cool any materials placed inside for as long as the lid remains closed. If the lid is opened, the effect ends. The cooler has a total of 50 charges that can be spent in three different ways.</p><p>An instant ice box drained of all charges functions as an ordinary cooler.</p>",
     "itemType": "Wondrous Item (magic)",
     "casterLevel": "7th",
     "purchaseDC": 33,
@@ -1242,7 +1312,7 @@
     "purchaseDC": 31,
     "purchaseDCText": "31",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1256,7 +1326,7 @@
     "purchaseDC": 31,
     "purchaseDCText": "31",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1284,7 +1354,7 @@
     "purchaseDC": 30,
     "purchaseDCText": "30",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1298,7 +1368,7 @@
     "purchaseDC": 26,
     "purchaseDCText": "26",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1323,8 +1393,8 @@
     "description": "<p>This winter parka grants cold resistance 10 to the wearer. Unless the wearer takes actual damage, the parka of warmth keeps him at a constant comfortable temperature. This ability overlaps (does not stack) with any other cold resistance the wearer might have.</p>",
     "itemType": "Wondrous Item (magic)",
     "casterLevel": "5th",
-    "purchaseDC": 33,
-    "purchaseDCText": "33",
+    "purchaseDC": 35,
+    "purchaseDCText": "35",
     "weight": 3.0,
     "weightText": "3 lb",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
@@ -1340,7 +1410,7 @@
     "purchaseDC": 29,
     "purchaseDCText": "29",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1372,6 +1442,20 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
+    "id": "rodOfTechnology",
+    "name": "Rod of Technology",
+    "category": "Wondrous",
+    "book": "Urban Arcana",
+    "description": "<p>This 18-inch-long metal rod is covered in wires and diodes, and topped with a large crystal. Six switches are built into its length. Each switch activates a special power of the rod.</p><p>The first button turns the rod into a portable satellite telephone.</p><p>The second button transforms the rod into a metal detector.</p><p>The third switch turns the rod into a lock release gun.</p><p>The fourth button transforms the rod into a GPS receiver.</p><p>The fifth switch causes the rod’s crystal tip to shed bright light equivalent to a light spell.</p><p>The sixth button delivers an electrical pulse to any device touched by the rod’s crystal tip, duplicating the effects of a power device or degauss spell (at the wielder’s discretion).</p>",
+    "itemType": "Wondrous Item (magic)",
+    "casterLevel": "1st",
+    "purchaseDC": 29,
+    "purchaseDCText": "29",
+    "weight": 6.0,
+    "weightText": "6 lb",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
     "id": "shadowDetector",
     "name": "Shadow Detector",
     "category": "Wondrous",
@@ -1396,7 +1480,7 @@
     "purchaseDC": 39,
     "purchaseDCText": "39",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1410,7 +1494,35 @@
     "purchaseDC": 32,
     "purchaseDCText": "32 (per book)",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "tempusFugitWatch",
+    "name": "Tempus Fugit Watch",
+    "category": "Wondrous",
+    "book": "Urban Arcana",
+    "description": "<p>The tempus fugit watch is an antique gold pocket watch with numerous hands that do not seem to conform to the standard array of hours, minutes, and seconds. It uses long-forgotten and extremely powerful magic to stop time for a short while while enabling its wearer to move about freely. These watches are only found, as the secret of their manufacture has been lost.</p><p>Once per day, the tempus fugit watch can make time cease to flow for everyone but the wearer. In reality, the wearer speeds up so greatly that all other creatures seem frozen, though they are moving at their regular speed. The wearer is free to act for 1d4+1 rounds of apparent time. While the time stop is in effect, other creatures are invulnerable to the wearer’s attacks and spells. A spell that affects an area and has a duration longer than the remaining duration of the time stop (such as cloudkill) have their normal effects on other creatures once the time-stopping effect ends. Normal and magical fire, cold, gas, and the like can still harm the wearer during the time stop. The wearer cannot move or harm items held, carried, or worn by a creature stuck in normal time, but the wearer can affect any item that is not in another creature’s possession. The wearer is not detectable while the effect lasts.</p><p>There is a 1% chance per use that the watch ceases to function after its last use. Once it ceases to function, the watch cannot be repaired.</p>",
+    "itemType": "Wondrous Item (magic)",
+    "casterLevel": "10th",
+    "purchaseDC": 37,
+    "purchaseDCText": "37",
+    "weight": 0.0,
+    "weightText": "-",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "tokenOfFriendship",
+    "name": "Token of Friendship",
+    "category": "Wondrous",
+    "book": "Urban Arcana",
+    "description": "<p>Tokens of friendship are tiny silver charms in various shapes strung on silver necklaces or bracelets. Groups of up to 10 charms (all of the same design) are enchanted at the same time with a version of the satellite tracking incantation. Anyone wearing one of these charms can, as a move equivalent action, determine the exact location of any other single person wearing another of the matched charms. As per the incantation, the charms provide only GPS coordinates.</p>",
+    "itemType": "Wondrous Item (magic)",
+    "casterLevel": "13th",
+    "purchaseDC": 41,
+    "purchaseDCText": "41",
+    "weight": 0.0,
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1424,7 +1536,21 @@
     "purchaseDC": 33,
     "purchaseDCText": "33",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "trenchCoatOfUsefulItems",
+    "name": "Trench Coat of Useful Items",
+    "category": "Wondrous",
+    "book": "Urban Arcana",
+    "description": "<p>This appears to be an unremarkable black trench coat, but a character who dons it notes that it is adorned with small cloth patches in various shapes. Only the wearer of trench coat can see these patches, recognize them for what items they become, and detach them. One patch can be detached each round. Detaching a patch causes it to become an actual item, as indicated below. A newly created trench coat of useful items always has two each of the following patches:</p><p>In addition, the trench coat has 2d6+4 other items, determined by rolling on the table below.</p>",
+    "itemType": "Wondrous Item (magic)",
+    "casterLevel": "9th",
+    "purchaseDC": 35,
+    "purchaseDCText": "35",
+    "weight": 1.0,
+    "weightText": "1 lb",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1452,7 +1578,7 @@
     "purchaseDC": 29,
     "purchaseDCText": "29",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1480,7 +1606,7 @@
     "purchaseDC": 33,
     "purchaseDCText": "33",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1490,7 +1616,7 @@
     "book": "Urban Arcana",
     "description": "<p>This is the shield that Julius Caesar carried with him from Britain to Egypt and back to Rome. The shield is said to have disappeared at roughly the same time Caesar was slain by ambitious senators. It has reportedly surfaced from time to time, appearing on auction blocks and being alternately decried as a forgery and contested in bidding wars more savage than any of Caesar’s campaigns.</p><p>This +3 large shield, emblazoned with the image of a roaring lion’s head, allows the bearer to wield any weapon as though he was proficient in its use. It also grants whatever weapon its bearer uses a +3 enhancement bonus. The bearer has damage reduction 10/+1 while grasping Caesar’s shield as well.</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "-",
     "purchaseDC": 70,
     "purchaseDCText": "70",
     "weight": 15.0,
@@ -1498,17 +1624,31 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
-    "id": "waning",
-    "name": "Waning",
+    "id": "crescentOfTheMoon",
+    "name": "Crescent of the Moon",
     "category": "Artifacts",
     "book": "Urban Arcana",
-    "description": "<p>During the period of time between full and new moon, the crescent grants its wielder the scent special quality.</p>",
+    "description": "<p>Legend says that the stone blade of this ancient scythe is carved from rock that came from the moon. Given the age of the specimen, this seems patently impossible, but its previous owners have been unwilling to submit the crescent to scientific examination. Experts estimate that it was made during the early iron age, though why one would make a stone blade when metal ones were widely available, no one can say. The crescent has a long and colorful history as an object both desired and feared by pagan sects.</p><p>This +3 scythe, with images of the lunar cycle and baying wolves carved into its shaft, also has the quality of lycanthrope bane (gaining an additional +2 enhancement bonus and dealing an additional +2d6 points of damage to werewolves, wererats, and other lycanthropes).</p><p>The crescent of the moon has other enchantments that activate only during specific phases of the lunar cycle. The following effects are active only from dusk to dawn on the days in question:</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "--",
     "purchaseDC": 68,
     "purchaseDCText": "68",
     "weight": 12.0,
     "weightText": "12 lb",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "cupOfCuring",
+    "name": "Cup of Curing",
+    "category": "Artifacts",
+    "book": "Urban Arcana",
+    "description": "<p>The origins of this gold chalice, crafted in intricate baroque patters and encrusted with dozens of jewels, are as mysterious as its powers. At various times in history, the cup has an object of worship for nearly every major religion—indeed, there is evidence that its possession has precipitated innumerable wars.</p><p>Any liquid drunk from the cup takes on amazing curative powers. One swallow cures all diseases, blindness, deafness, hit point damage, and all temporary ability damage. It also neutralizes poisons in the drinker’s system (so that no additional damage or effects are suffered) and cures mental disorders caused by spells or injury to the brain.</p><p>A second swallow in the same sitting removes negative levels and restores permanently drained levels and ability scores.</p><p>A third swallow grants the drinker a +5 bonus on saving throws, attack rolls, and skill checks for one day.</p><p>A fourth swallow causes the drinker to glow with a brilliant white light. One round later, as the light grows brighter, anyone looking at the person must succeed at a Fortitude save (DC 25) or be struck blind for 2d6 minutes. On the next round, the drinker’s body is completely consumed as the light flares—anyone still watching must succeed at a Fortitude save (DC 35) or be struck permanently blind. The following round the light ceases, and the cup of curing disappears along with any trace of the greedy drinker. No spell can divine where the cup goes or when it will surface again.</p><p>A character may drink from the cup on up to five different occasions. The sixth time, he immediately suffers consequences identical to drinking four times in a sitting.</p><p>Drinking from the cup is a move action that provokes attacks of opportunity.</p>",
+    "itemType": "Artifact (magic)",
+    "casterLevel": "-",
+    "purchaseDC": 51,
+    "purchaseDCText": "51",
+    "weight": 3.0,
+    "weightText": "3 lb",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1518,7 +1658,7 @@
     "book": "Urban Arcana",
     "description": "<p>The curved, black blade of this dagger leads into a hilt inlaid with human bones ending in a large black onyx gem. It is a relic formerly used by a cult that performed ritual sacrifices then brought their victims back from the grave as the walking undead. The dagger has a +3 enhancement bonus plus a secondary enchantment.</p><p>Three times per day, if the dagger is used in a successful coup de grace, the wielder may choose to have the blade cast animate dead on the victim. This creates a zombie under the control of the dagger’s wielder. If the dagger changes hands, so too does the zombie’s loyalty.</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "-",
     "purchaseDC": 47,
     "purchaseDCText": "47",
     "weight": 1.0,
@@ -1532,11 +1672,11 @@
     "book": "Urban Arcana",
     "description": "<p>This short length of gold chain with a belt clip on one end and a wooden fetish at the other once belonged to the famed stage magician Harry Houdini. The fetish is a crude, tiny carving of a human figure with strange glyphs gouged into its chest and back. Houdini, it is said, was never seen without this fob hooked to his belt—never, that is, except for the night that he died.</p><p>In the intervening years, the fob has passed through the hands of several collectors, all of whom swear that they will give the artifact a permanent home. Each owner, though, has fallen on hard times, passed away, or come to a particularly valid reason to sell the item less than a year after taking possession. The fob, it seems, does not want to stay in one place.</p><p>Anyone wearing the fob gains a +3 luck bonus on Reflex saves, as well as a +6 luck bonus on Balance, Bluff, Climb, Disguise, Escape Artist, Move Silently, and Tumble checks. Furthermore, the fob grants the wearer the Improved Initiative feat.</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "-",
     "purchaseDC": 50,
     "purchaseDCText": "50",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1546,7 +1686,7 @@
     "book": "Urban Arcana",
     "description": "<p>There are four copies of this large, leather-bound, illuminated tome believed to exist (although rumors perpetually circulate about more). They represent the life’s work of a monk identified only as Ranald de St. Augustine (exactly which site named for St. Augustine remains unclear). They are Latin translations of a series of Greek scrolls attributed to Aristarchus of Samothrace —the last known librarian of the Great Library of Alexandria —that purport to be a complete index to the 40,000 volumes housed in that legendary temple to knowledge.</p><p>Reading the Index takes 40 days (which do not have to occur in a row). At the end of each day, the reader must make a Decipher Script check (DC 30) or that day’s effort is lost.</p><p>Upon completing the book, the reader gains +4 Intelligence, +2 Wisdom, and a +3 insight bonus on all Knowledge (arcane lore, art, civics, earth and life sciences, history, physical sciences, tactics, or theology and philosophy) checks.</p><p>After completely reading the book, a person may return to the volume to try to glean specific information or insight on matters of ancient history, languages and translation, various sciences, theology, and philosophy. (It is up to the GM to decide whether or not a specific subject falls into one or more of these categories.) This requires 2d6 hours and a successful Research check (DC 25).</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "-",
     "purchaseDC": 60,
     "purchaseDCText": "60",
     "weight": 30.0,
@@ -1560,25 +1700,25 @@
     "book": "Urban Arcana",
     "description": "<p>A sphere of annihilation is a globe of absolute blackness, a ball of nothingness 2 feet in diameter. The sphere is actually a hole in the continuity of the universe. Any matter that comes in contact with a sphere is instantly sucked into the void, gone, and utterly destroyed.</p><p>There are several known spheres of annihilation. Most belong to government agencies, some to universities or private research groups, and a few to private collectors. It is even feared that one or two have fallen into the hands of radical terrorist groups.</p><p>The origin of the spheres is uncertain, but the most common rumor is that they are all small pieces of a single original globe of annihilation. It is said that the globe is over 200 feet in diameter and that the U.S. government has it secreted away in an underground bunker in the Nevada desert.</p><p>A sphere of annihilation is static, resting in some spot as if it were a normal hole. It can be caused to move, however, by mental effort. The brain waves of the individual concentrating on moving it bend spatial fabrics, causing the hole to slide. The range of this control is 40 feet initially, then 40 feet + 10 feet per character level once control is established. Control is based on the character’s Intelligence and level. (The higher his level, the greater his mental discipline.) The character adds his Intelligence bonus and character level and then applies the total to a 1d20 roll. To control the sphere, the DC is 30. The sphere’s speed is 10 feet per round + 1 foot for every point by which the control check result exceeds 30.</p><p>If two or more characters vie for control of a sphere of annihilation, the rolls are opposed. If none is successful, the sphere slips toward the one who rolled lowest.</p><p>Should a teleport incantation be cast upon a sphere of annihilation, there is a 50% chance (a 01–50 result on d%) that the spell destroys it, a 34% chance (51–85) that the spell does nothing, and a 15% chance (86–100) that a gap is torn in the spatial fabric, resulting in a tremendous explosion. Everything within a 60-foot radius takes 2d6x10 points of damage. Dispel magic has no effect on the sphere, although a greater dispel magic incantation has a chance of succeeding (treat the sphere as a spell effect created by a 20th-level spellcaster for this purpose).</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "-",
     "purchaseDC": 40,
     "purchaseDCText": "40",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
-    "id": "retributiveStrike",
-    "name": "Retributive Strike",
+    "id": "staffOfSorcerousMight",
+    "name": "Staff of Sorcerous Might",
     "category": "Artifacts",
     "book": "Urban Arcana",
-    "description": "<p>The staff of sorcerous might can be broken for a retributive strike. Such an act must be purposeful and declared by the wielder. All charges in the staff are released in a 30-foot spread. All within 10 feet of the broken staff take points of damage equal to 8 times the number of charges in the staff, those between 11 feet and 20 feet away take points equal to 6 times the number of charges, and those 21 feet to 30 feet distant take 4 times the number of charges.</p><p>A successful Reflex save (DC 17) reduce damage by half. The character breaking the staff is destroyed in the explosion.</p><p>Only the staff of sorcerous might is capable of a retributive strike—this is not an act that can be performed with any other staff, wand, or magic item.</p>",
+    "description": "<p>A long wooden staff, shod in iron and inscribed with sigils and runes of all types, this potent artifact had been sitting in a display case in the British National Museum for decades. No one knows exactly what caused it to release a lightning bolt, shattering the case along with any illusions that it was just an ordinary decorative walking stick. Some people say it belonged to Merlin, Circe, or any one of a dozen other literary or historical sorcerers. Others say that it is just another magical piece of detritus that has come through Shadow in recent years. No one truly knows whether it is one of a kind, or if there are other staffs like it waiting to be found. In any case, it is one of the most powerful items that any spellcaster could possess.</p><p>The staff of sorcerous might gives the wielder spell resistance 23. It has several other spell powers, as well. Some the staff’s powers drain charges, while others don’t. A fully-charged staff of sorcerous might has 50 charges. The following powers do not drain charges:</p><p>The following powers drain 1 charge per usage:</p><p>These powers drain 2 charges per usage:</p><p>A staff of sorcerous might has the following additional spell-like abilities:</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
-    "purchaseDC": 95,
-    "purchaseDCText": "95",
-    "weight": 5.0,
-    "weightText": "5 lb",
+    "casterLevel": "-",
+    "purchaseDC": 35,
+    "purchaseDCText": "35",
+    "weight": 0.0,
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1588,11 +1728,11 @@
     "book": "Urban Arcana",
     "description": "<p>A divine spellcaster with an allegiance to good who possesses this item can cause a flaming crack to open at the feet of a divine spellcaster with an allegiance to evil who is up to 100 feet away. The intended victim is swallowed up forever and sent hurtling to the center of the earth. The wielder of the talisman must have an allegiance to good, and if he is not exceptionally pure in thought and deed (GM’s discretion), the evil character gains a Reflex saving throw (DC 19) to leap away from the crack. Obviously, the target must be standing on solid ground for this item to function. (In the air, in a highrise building, or on a boat or airplane are all places of safety against this otherwise potent item.)</p><p>A talisman of pure good has 7 charges. If a divine spellcaster without an allegiance to good touches one of these medallions, he takes 6d6 points of damage. If a divine spellcaster with an allegiance to evil touches one, he takes 8d6 points of damage.</p><p>All other characters are unaffected by this item.</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "-",
     "purchaseDC": 35,
     "purchaseDCText": "35",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1600,13 +1740,13 @@
     "name": "Talisman of Ultimate Evil",
     "category": "Artifacts",
     "book": "Urban Arcana",
-    "description": "<p>A divine spellcaster with an allegiance to evil who possesses this item can cause a flaming crack to open at the feet of a divine spellcaster with an allegiance to good who is up to 100 feet away. The intended victim is swallowed up forever and sent hurtling to the center of the earth. The wielder of the talisman must have an allegiance to evil, and if he is not exceptionally foul and perverse (GM’s discretion), the good character gains a Reflex saving throw (DC 19) to leap away from the crack. Obviously, the target must be standing on solid ground for this item to function. (In the air, in a high-rise building, or on a boat or airplane are all places of safety against this otherwise potent item.)</p><p>A talisman of ultimate evil has 6 charges. If a divine spellcaster without an allegiance to evil touches one of these medallions, he takes 6d6 points of damage. If a divine spellcaster with an allegiance to good touches one, he takes 8d6 points of damage. All other characters are unaffected by this item.</p>",
+    "description": "<p>A divine spellcaster with an allegiance to evil who possesses this item can cause a flaming crack to open at the feet of a divine spellcaster with an allegiance to good who is up to 100 feet away. The intended victim is swallowed up forever and sent hurtling to the center of the earth. The wielder of the talisman must have an allegiance to evil, and if he is not exceptionally foul and perverse (GM’s discretion), the good character gains a Reflex saving throw (DC 19) to leap away from the crack. Obviously, the target must be standing on solid ground for this item to function. (In the air, in a high-rise building, or on a boat or airplane are all places of safety against this otherwise potent item.)</p><p>A talisman of ultimate evil has 6 charges. If a divine spellcaster without an allegiance to evil touches one of these medallions, he takes 6d6 points of damage. If a divine spellcaster with an allegiance to good touches one, he takes 8d6 points of damage.</p><p>All other characters are unaffected by this item.</p>",
     "itemType": "Artifact (magic)",
-    "casterLevel": "—",
+    "casterLevel": "-",
     "purchaseDC": 35,
     "purchaseDCText": "35",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1616,11 +1756,11 @@
     "book": "Urban Arcana",
     "description": "<p>A vehicle coated in this nigh unscratchable silvery-gray paint gains 5 points of hardness. It has no effect on any vehicle with a hardness of 10 or higher.</p>",
     "itemType": "Wondrous Item (vehicular)",
-    "casterLevel": "5th",
+    "casterLevel": "9th",
     "purchaseDC": 28,
     "purchaseDCText": "28",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1652,11 +1792,11 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
-    "id": "religious",
-    "name": "Religious",
+    "id": "dashboardFigurine",
+    "name": "Dashboard Figurine",
     "category": "Vehicular",
     "book": "Urban Arcana",
-    "description": "<p>This is an icon of a saint, the Virgin Mary, or some other being of religious or spiritual significance. This type of dashboard figurine provides a +2 deflection bonus to the vehicle’s Defense.</p>",
+    "description": "<p>A dashboard figurine appears to be a statue of an animal or person 4 to 6 inches tall. When placed upon the dashboard of a vehicle, it sticks in place and can only be removed by the owner with a command word. Once in place, the figurine grants a special ability to the vehicle and the driver.</p><p>Three different types of dashboard figurines are available: humorous, monstrous, and religious.</p>",
     "itemType": "Wondrous Item (vehicular)",
     "casterLevel": "3rd",
     "purchaseDC": 26,
@@ -1704,7 +1844,7 @@
     "purchaseDC": 25,
     "purchaseDCText": "25",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1722,6 +1862,48 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
+    "id": "hornOfBlasting",
+    "name": "Horn of Blasting",
+    "category": "Vehicular",
+    "book": "Urban Arcana",
+    "description": "<p>Up to three times per day, this horn can emit a shrieking sound that deafens and damages creatures caught in its path. Any creature within a 30-foot cone directly in front of the vehicle takes 2d6 points of sonic/concussion damage and is deafened for 2d6 rounds. A successful Fortitude save (DC 16) halves the damage and negates the deafening effect. Crystalline creatures in the cone take quadruple damage (8d6 points) from the sonic blast.</p><p>Vehicle windows and windshields may shatter if they take sufficient damage from the blast. Headlights are also susceptible to the horn of blasting and should be treated as windows for this purpose.</p>",
+    "itemType": "Wondrous Item (vehicular)",
+    "casterLevel": "29",
+    "purchaseDC": 0,
+    "purchaseDCText": "",
+    "weight": 0.0,
+    "weightText": "— (factored into the vehicle’s weight)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "hornOfDread",
+    "name": "Horn of Dread",
+    "category": "Vehicular",
+    "book": "Urban Arcana",
+    "description": "<p>Up to three times per day, this horn can emit a terrifying noise. Anyone within 50 feet of the horn’s sound must succeed a Will save (DC 15) or be affected by a cause fear spell (as if cast by a 5th-level Acolyte).</p>",
+    "itemType": "Wondrous Item (vehicular)",
+    "casterLevel": "5th",
+    "purchaseDC": 27,
+    "purchaseDCText": "27",
+    "weight": 0.0,
+    "weightText": "— (factored into the vehicle’s weight)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
+    "id": "imperviousTires",
+    "name": "Impervious Tires",
+    "category": "Vehicular",
+    "book": "Urban Arcana",
+    "description": "<p>These tires are usually sold in sets of two or four, and each tire in the set has a hardness of 20.</p><p>If one of the tires is punctured and ruined, the remaining impervious tires continue to function.</p>",
+    "itemType": "Wondrous Item (vehicular)",
+    "casterLevel": "5th",
+    "purchaseDC": 28,
+    "purchaseDCText": "28 (per set)",
+    "weight": 0.0,
+    "weightText": "— (factored into the vehicle’s weight)",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
+  },
+  {
     "id": "nondescriptPaintJob",
     "name": "Nondescript Paint Job",
     "category": "Vehicular",
@@ -1732,7 +1914,7 @@
     "purchaseDC": 28,
     "purchaseDCText": "28",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1746,7 +1928,7 @@
     "purchaseDC": 27,
     "purchaseDCText": "27",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1760,7 +1942,7 @@
     "purchaseDC": 28,
     "purchaseDCText": "28",
     "weight": 0.0,
-    "weightText": "— (factored into the vehicle’s weight)",
+    "weightText": "— (factored into the vehicle’s weight",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1768,13 +1950,13 @@
     "name": "Reinflating Tires",
     "category": "Vehicular",
     "book": "Urban Arcana",
-    "description": "<p>These tires (usually sold in sets of two or four) are slightly spongy to the touch. If a tire is punctured, it instantly reinflates and is restored to full hit points. Once a tire magically reinflates, it becomes a nonmagical tire and cannot reinflate</p><p>again.</p>",
+    "description": "<p>These tires (usually sold in sets of two or four) are slightly spongy to the touch. If a tire is punctured, it instantly reinflates and is restored to full hit points. Once a tire magically reinflates, it becomes a nonmagical tire and cannot reinflate again.</p>",
     "itemType": "Wondrous Item (vehicular)",
     "casterLevel": "3rd",
     "purchaseDC": 23,
     "purchaseDCText": "23 (per tire) or 26 (per set)",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1838,7 +2020,7 @@
     "name": "Trunk of Masking",
     "category": "Vehicular",
     "book": "Urban Arcana",
-    "description": "<p>Whenever this trunk is opened, it creates a powerful illusion to conceal its true contents. The owner decides what the trunk appears to contain, and its contents seem real in every respect. Illusory items can be removed, handled, and manipulated. However, illusory tools provide no benefits to their users, and illusory items disappear if taken more than 30 feet</p><p>from the vehicle.</p><p>Gleaning the true contents of the trunk requires a true seeing spell or similar magic. Creatures that suspect the presence of an illusion are entitled to a Will save (DC 16) to disbelieve it; if the save succeeds, they can perceive the true contents of the trunk of masking.</p>",
+    "description": "<p>Whenever this trunk is opened, it creates a powerful illusion to conceal its true contents. The owner decides what the trunk appears to contain, and its contents seem real in every respect. Illusory items can be removed, handled, and manipulated. However, illusory tools provide no benefits to their users, and illusory items disappear if taken more than 30 feet from the vehicle.</p><p>Gleaning the true contents of the trunk requires a true seeing spell or similar magic. Creatures that suspect the presence of an illusion are entitled to a Will save (DC 16) to disbelieve it; if the save succeeds, they can perceive the true contents of the trunk of masking.</p>",
     "itemType": "Wondrous Item (vehicular)",
     "casterLevel": "7th",
     "purchaseDC": 30,
@@ -1858,7 +2040,7 @@
     "purchaseDC": 26,
     "purchaseDCText": "26",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   },
   {
@@ -1872,7 +2054,7 @@
     "purchaseDC": 32,
     "purchaseDCText": "32 (per set)",
     "weight": 0.0,
-    "weightText": "—",
+    "weightText": "-",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html"
   }
 ]

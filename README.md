@@ -35,8 +35,8 @@ fighting it forever, so this is a standalone game system.
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
 | Compendia: creatures, vehicles, objects | 399 actors, built from the SRD — every creature in all three books |
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
-| Everything links to it | All 1,577 compendium documents carry the page their rules are on, and 839 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
-| FX items | 134 magic and psionic items, priced and described |
+| Everything links to it | All 1,590 compendium documents carry the page their rules are on, and 854 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
+| FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
 | Prototype tokens | All 399 actors: the size the stat block fills, the senses it sees with, hit points on the bar |
@@ -655,7 +655,7 @@ python3 scripts/gen_rules_links.py    # regenerate module/rules-links.mjs
 python3 scripts/check_rules_links.py  # every link resolves to a page that exists
 ```
 
-All 1,577 documents are linked, between them reaching 839 of the 1,685 pages,
+All 1,590 documents are linked, between them reaching 854 of the 1,685 pages,
 plus 3,251 embedded ones — a creature's own attacks, abilities and feats. How
 each was found is worth stating, because it is the measure of how precise a
 link is: 717 by their own name, 140 as a variant of another entry, 602 by the
@@ -697,7 +697,7 @@ printed on.
 **Each page says what it is the rules for.** The link goes both ways: a footer
 on the gargoyle's page offers the gargoyle, the Handguns page offers its
 twenty-three handguns, and the feats chapter offers each feat as the item to
-drag onto a sheet — 839 pages, listing 1,577 documents between them. Reading a
+drag onto a sheet — 854 pages, listing 1,590 documents between them. Reading a
 rule and reaching for the thing it describes is most of what a rules reference
 is for. The footer is a generated block confined to the end of the page, so the
 SRD's own text is never edited, and it is replaced whole on every run;
@@ -743,15 +743,39 @@ because those were never a parsing problem, they were pages nothing had read.
 Magic and psionic items are the one body of SRD content priced in prose rather
 than in a table, which is why the purchase-table pipeline never saw them: a
 potion of Charisma is a paragraph, and its purchase DC is in the sentence after
-it. They come out of the rules text instead — 134 of them, from potions, rings,
+it. They come out of the rules text instead — 147 of them, from potions, rings,
 scrolls, staffs, tattoos, wands and wondrous items through to Urban Arcana's
 artifacts and its magic vehicle accessories.
 
-Both books print the same stat line and neither prints the same thing around
-it: Urban Arcana bolds the item's name on a line of its own, d20 Modern runs
-it into the description behind a colon. So the stat line — *"Type: Weapon
-(magic); Caster Level: 10th; Purchase DC: 25 (+1), 30 (+2), 35 (+3); Weight: 3
-lb."* — is what the parser looks for, and the name is whatever precedes it.
+The stat line is what the parser looks for, because it is the one thing both
+books print the same way: *"Type: Weapon (magic); Caster Level: 10th; Purchase
+DC: 25 (+1), 30 (+2), 35 (+3); Weight: 3 lb."* Everything around it differs.
+d20 Modern runs a dozen items down one page with each name bolded in front of
+its description, so an item is the run of paragraphs ending at its stat line
+and the first of them names it — read forwards, because what sits between the
+name and the stat line is more description, and the staff of fire bolds each of
+its three charges exactly as it bolds its name. Urban Arcana gives each item a
+page, which since the rules were split means the page's own heading is the
+name, in the SRD's own casing: the page is titled "Universal Id" because the
+importer title-cased a banner, and the heading says "Universal ID".
+
+Four things the site does that the RTF releases it was first written against
+did not. It marks a paragraph after a page break `<p class="close">`, and
+reading only bare `<p>` tags dropped eight items and the description of every
+Urban Arcana one. It prints the three wands' stat line with a semicolon where
+every other item has a colon — "Type; Wand (magic)" — which is also the field
+separator, so the label lost its value. The Arcanobots action figure lists
+"Arcanobot:" among the things it does, so a page that is one item is named from
+its heading and its prose is not searched at all. And the Horn of Blasting is
+printed with no purchase DC at all, which is kept as the absence it is.
+
+The category comes from the Type line rather than from the page, which is what
+makes it right for the eight items whose section heading the split swallowed.
+The five documents this replaced were fragments of items the old parser
+misnamed — "Retributive Strike" is part of the staff of sorcerous might,
+"Stone of Thunder" one of the six stones in a six-demon bag, "Waning" a phase
+of the crescent of the moon — and every one of those items is now in the pack
+under its own name.
 
 They build as **gear**, not as weapons and armor. A magic weapon in the SRD is
 not a weapon entry: it is "a +1 to +3 machete that deals fire damage", priced
@@ -953,14 +977,12 @@ the book's own taxonomy rather than part of the name, so it comes off into
 `system.category`: ten metamagic, eight metapsionic, three initial.
 
 **A parser that suddenly finds nothing has drifted, and writing that over a
-dataset loses it silently.** `scrape_fx_items` still keys on the entry ids the
+dataset loses it silently.** `scrape_fx_items` was keyed on the entry ids the
 RTF import used, and the rules have come from the website since; re-running the
 scrape wrote an empty `data/fx_items.json` over the 134 magic items, with no
 error and no check going red — they survived only because `src/packs` is the
-source of truth and the import is additive. The scrape now keeps what is there
-and says so instead. Rewriting that parser is outstanding, and the split rules
-pages should make it easier than it was: a magic item is a page of its own now,
-named for the item.
+source of truth and the import is additive. The scrape keeps what is there and
+says so now, and the parser is rewritten.
 
 `data/` is no longer the content, then: it is the SRD as parsed, which is what
 new imports are built from and what the checks hold the packs against. Which

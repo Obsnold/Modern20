@@ -1,0 +1,30 @@
+{
+  "_id": "QT98lyVgArBraYWF",
+  "name": "Instant Ice Box",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This item looks like an ordinary 1-foot-wide, 3-foot-long, and 1.5-foot-deep picnic cooler with a 2-inch-thick plastic cover.</p><p>The only apparent difference are the three buttons on the hasp. When the lid is closed and one or more of the buttons are pressed, the instant ice box will magically cool any materials placed inside for as long as the lid remains closed. If the lid is opened, the effect ends. The cooler has a total of 50 charges that can be spent in three different ways.</p><p>An instant ice box drained of all charges functions as an ordinary cooler.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 5.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 33,
+    "restriction": "none",
+    "progressLevel": 0,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.SM0axmsT0dzLXn9a"
+  },
+  "_key": "!items!QT98lyVgArBraYWF",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "33",
+      "weight": "5 lb",
+      "casterLevel": "7th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

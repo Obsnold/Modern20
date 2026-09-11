@@ -1,0 +1,30 @@
+{
+  "_id": "soTSPjyZ6HTn9ueP",
+  "name": "Trench Coat of Useful Items",
+  "type": "gear",
+  "img": "icons/svg/daze.svg",
+  "system": {
+    "description": "<p>This appears to be an unremarkable black trench coat, but a character who dons it notes that it is adorned with small cloth patches in various shapes. Only the wearer of trench coat can see these patches, recognize them for what items they become, and detach them. One patch can be detached each round. Detaching a patch causes it to become an actual item, as indicated below. A newly created trench coat of useful items always has two each of the following patches:</p><p>In addition, the trench coat has 2d6+4 other items, determined by rolling on the table below.</p>",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "category": "Wondrous",
+    "weight": 1.0,
+    "quantity": 1,
+    "equipped": false,
+    "purchaseDC": 35,
+    "restriction": "none",
+    "progressLevel": 0,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.2hU9ZZRM0S0b1rRS"
+  },
+  "_key": "!items!soTSPjyZ6HTn9ueP",
+  "flags": {
+    "modern20": {
+      "book": "Urban Arcana",
+      "purchaseDC": "35",
+      "weight": "1 lb",
+      "casterLevel": "9th",
+      "itemType": "Wondrous Item (magic)"
+    }
+  },
+  "folder": "6S9vdicFWO4tneOi"
+}

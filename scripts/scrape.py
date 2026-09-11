@@ -2979,14 +2979,59 @@ def scrape_advancement() -> dict:
 
 # A magic item's stat line, which is what marks the end of one entry: "Type:
 # Weapon (magic); Caster Level: 9th; Purchase DC: 25 (+1); Weight: 10 lb."
-FX_STATS = re.compile(r"^type:\s", re.I)
+# The stat line every FX item carries. The three wands print a semicolon where
+# every other item has a colon — "Type; Wand (magic)" — and the fields are
+# separated by semicolons, so the label loses its value as well as its colon.
+FX_STATS = re.compile(r"^type\s*[;:]\s", re.I)
 FX_FIELD = re.compile(r"(type|caster level|manifester level|purchase dc|weight)\s*:\s*"
                       r"([^;]*?)(?=;|$)", re.I)
-FX_PARAGRAPH = re.compile(r"<p>(.*?)</p>", re.S)
+# Any paragraph, attributes and all: the site marks a paragraph that follows a
+# page break `<p class="close">`, and reading only bare <p> tags dropped eight
+# items whose description happened to sit across one — and the description of
+# every Urban Arcana item, all of which are written that way.
+FX_PARAGRAPH = re.compile(r"<p[^>]*>(.*?)</p>", re.S)
 
 
 def fx_text(markup: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", markup))).strip()
+
+
+# The two chapters that sell FX items, by the entry id the rules import gives
+# them, and the mirror page each cites. The ids moved when the rules stopped
+# coming from the RTF releases and started coming from the website, which is
+# how this parser came to find nothing at all: it was still looking for
+# "msrdFXitems" and "ArcanaFXItems".
+FX_ENTRIES = {"fxbasics": "fxitems.html", "urbanfx": "urbanfx.html"}
+
+# What the SRD files an item under, out of the Type line every one carries:
+# "Wondrous Item (magic)" is a wondrous item, "Potion" a potion. A wondrous
+# item that is a vehicle is filed as one, which is what the parenthetical says.
+FX_CATEGORIES = {
+    "wondrous item": "Wondrous", "potion": "Potions", "ring": "Rings",
+    "staff": "Staffs", "wand": "Wands", "scroll": "Scrolls",
+    "tattoo": "Tattoos", "weapon": "Weapons", "armor": "Armor",
+    "artifact": "Artifacts",
+}
+
+# A page that is the section rather than an item in it. Urban Arcana's items
+# are a page each since the rules were split, and the section pages sit in
+# front of them in the order the book prints, so the last one seen is the
+# category of everything after it - which is what an item whose Type line the
+# mirror mangled falls back on.
+FX_SECTIONS = {"potions", "rings", "staffs", "tatoo", "tattoos", "wands",
+               "scrolls", "wondrous items", "artifacts", "weapons", "armor"}
+
+# The name of an item, printed at the head of its own paragraph and followed by
+# the description: "<b>Potion of Charisma</b>: This potion adds...".
+FX_NAME = re.compile(r"\s*<(b|strong|i|em)>(.*?)</\1>\s*:?\s*(.*)$", re.S)
+
+
+def fx_category(printed: str, section: str) -> str:
+    """The category an item's Type line puts it in."""
+    kind = re.split(r"[(;]", printed or "", maxsplit=1)[0].strip().lower()
+    if "vehicular" in (printed or "").lower():
+        return "Vehicular"
+    return FX_CATEGORIES.get(kind) or section or ""
 
 
 def scrape_fx_items(rules: list[dict]) -> list[dict]:
@@ -2996,40 +3041,47 @@ def scrape_fx_items(rules: list[dict]) -> list[dict]:
     table, which is why the purchase-table pipeline never saw them: a potion of
     Charisma is a paragraph, and its purchase DC is in the sentence after it.
 
-    Both books print the same stat line and neither prints it the same way
-    around it - Urban Arcana bolds the item's name on a line of its own, d20
-    Modern runs it into the description with a colon - so the stat line is what
-    is searched for, and the name is whatever precedes it.
+    What it reads is the stat line - "Type: Potion; Caster Level: 5th; Purchase
+    DC: 23; Weight: -" - because that is the one thing both books print the
+    same way. Everything around it differs: d20 Modern runs a dozen items down
+    one page with each name bolded in front of its description, and Urban
+    Arcana gives each item a page of its own, which since the rules were split
+    means the page's name is the item's name.
     """
-    # The rules text carries no page of its own, so each book's FX chapter is
-    # pointed at the mirror page that prints the same thing.
-    sources = {"msrdFXitems": "fxitems.html", "ArcanaFXItems": "urbanfx.html"}
-
     items, seen = [], set()
     for entry in rules:
-        if entry["id"] not in sources:
+        if entry["id"] not in FX_ENTRIES:
             continue
 
+        section = ""
         for page in entry["pages"]:
-            category = re.sub(r"\s*(and Shields|Magic Items|Items)$", "", page["name"]).strip()
-            paragraphs = [(fx_text(m.group(1)), m.group(1))
-                          for m in FX_PARAGRAPH.finditer(page["html"])]
+            blocks = [(fx_text(m.group(1)), m.group(1))
+                      for m in FX_PARAGRAPH.finditer(page["html"])]
+            lines = [index for index, (text, _) in enumerate(blocks)
+                     if FX_STATS.match(text) and "purchase dc" in text.lower()]
+            if not lines:
+                if page["name"].strip().lower() in FX_SECTIONS:
+                    section = page["name"].strip()
+                continue
 
-            for index, (text, _) in enumerate(paragraphs):
-                if not FX_STATS.match(text) or "purchase dc" not in text.lower():
-                    continue
+            for index in lines:
+                text, _ = blocks[index]
+                # "Type; Wand (magic)" - the three wands are printed with a
+                # semicolon where every other item has a colon, and the fields
+                # are separated by semicolons, so the label loses its value.
+                fields = {key.lower(): value.strip(" .") for key, value
+                          in FX_FIELD.findall(re.sub(r"^type\s*;", "Type:", text, flags=re.I))}
 
-                name, description = fx_entry(paragraphs, index)
+                name, description = fx_entry(blocks, index, fx_page_name(page),
+                                             many=len(lines) > 1)
                 if not name or name.lower() in seen:
                     continue
                 seen.add(name.lower())
 
-                fields = {key.lower(): value.strip(" .")
-                          for key, value in FX_FIELD.findall(text)}
                 items.append({
                     "id": camel(name),
                     "name": name,
-                    "category": category or page["name"],
+                    "category": fx_category(fields.get("type", ""), section),
                     "book": entry["book"],
                     "description": description,
                     "itemType": fields.get("type", ""),
@@ -3041,28 +3093,74 @@ def scrape_fx_items(rules: list[dict]) -> list[dict]:
                     "purchaseDCText": fields.get("purchase dc", ""),
                     "weight": parse_fx_weight(fields.get("weight", "")),
                     "weightText": fields.get("weight", ""),
-                    "srdUrl": srd.page_url(sources[entry["id"]]),
+                    "srdUrl": srd.page_url(FX_ENTRIES[entry["id"]]),
                 })
     return items
 
 
-def fx_entry(paragraphs: list[tuple[str, str]], index: int) -> tuple[str, str]:
-    """The name and description belonging to a stat line."""
-    description = []
-    for position in range(index - 1, max(-1, index - 8), -1):
-        text, markup = paragraphs[position]
-        if not text:
+# The heading a page that is one item carries, which is where that item's name
+# is printed in the SRD's own casing: the page is titled "Universal Id" because
+# the importer title-cased a banner, and the heading says "Universal ID".
+FX_HEADING = re.compile(r"<h[3-6][^>]*>(.*?)</h[3-6]>", re.S)
+
+# A bolded lead-in that is not an item's name. The category pages state the
+# rule for pricing the category the same way an item states its own name.
+FX_NOT_A_NAME = {"purchase dc", "type", "caster level", "manifester level",
+                 "weight", "note", "special"}
+
+
+def fx_entry(blocks: list[tuple[str, str]], index: int, page_name: str,
+             many: bool) -> tuple[str, str]:
+    """The name and description belonging to one stat line.
+
+    An item is a run of paragraphs ending in its stat line, and the first of
+    them names it: "<b>Staff of Fire</b>: The staff has three uses...". Read
+    forwards through that run rather than backwards from the stat line, because
+    what sits between the two is more description — the staff lists what each
+    of its three charges does, each of those lines bolded exactly as the name
+    is, and the last one before the stat line is not the item's name.
+
+    A page holding one item names it in its title rather than in its prose,
+    which is what Urban Arcana's items became when the rules were split. On a
+    page of a dozen, a stat line whose name cannot be found is not an item.
+    """
+    start = next((position + 1 for position in range(index - 1, -1, -1)
+                  if FX_STATS.match(blocks[position][0])), 0)
+
+    # A page that is one item is named in its heading, and the prose is not
+    # searched at all: the Arcanobots action figure lists "Arcanobot:" among
+    # the things it does, and a scan for a bolded lead-in finds that first.
+    if not many and page_name.strip().lower() not in FX_SECTIONS:
+        described = [text for text, _ in blocks[start:index] if text]
+        return page_name, "".join(paragraph(text) for text in described)
+
+    for position in range(start, index):
+        text, markup = blocks[position]
+        named = FX_NAME.match(markup)
+        if not named:
             continue
-        # Urban Arcana: the name alone, in bold, on its own line.
-        if re.fullmatch(r"<strong>.*?</strong>\s*", markup, re.S):
-            return fx_text(markup), "".join(f"<p>{p}</p>" for p in reversed(description))
-        # d20 Modern: "Potion of Charisma: This potion adds..."
-        head, _, rest = text.partition(":")
-        if rest and len(head.split()) <= 6 and head[:1].isupper():
-            description.append(rest.strip())
-            return head.strip(), "".join(f"<p>{p}</p>" for p in reversed(description))
-        description.append(text)
-    return "", ""
+        head = fx_text(named.group(2))
+        if not head or len(head.split()) > 8 or head.lower().strip(" .:") in FX_NOT_A_NAME:
+            continue
+        described = [fx_text(named.group(3))]
+        described += [other for other, _ in blocks[position + 1:index] if other]
+        return head, "".join(paragraph(part) for part in described)
+
+    if many:
+        return "", ""
+    described = [text for text, _ in blocks[start:index] if text]
+    return page_name, "".join(paragraph(text) for text in described)
+
+
+def fx_page_name(page: dict) -> str:
+    """What a page that holds one FX item calls that item."""
+    heading = FX_HEADING.search(page["html"])
+    return fx_text(heading.group(1)) if heading else page["name"]
+
+
+def paragraph(text: str) -> str:
+    """One paragraph of description, or nothing where there is no text."""
+    return f"<p>{text}</p>" if text.strip() else ""
 
 
 def parse_fx_weight(printed: str) -> float:
