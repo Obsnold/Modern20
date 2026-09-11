@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Give every document in src/packs the page and the book it came from.
+"""Reconcile the fields src/packs cannot receive from a re-import.
 
 src/packs is the source of truth: the importer adds documents it does not have
 and leaves the rest alone, because a difference there is as likely to be a hand
@@ -7,14 +7,24 @@ correction as a parser improvement. So a new field cannot arrive by re-running
 the import — it would report 1,391 documents as differing and write none of
 them.
 
-This writes two fields and nothing else, both of them facts about where the
-document came from. `system.rulesPage` is added beside `srdUrl` — where the
+This writes the handful of fields the import derives and nothing else. Three of
+them say where a document came from: `system.rulesPage` is added beside
+`srdUrl` — where the
 rules for it are, in the compendium rather than on the web. And
 `system.source` is corrected where it names the wrong book: everything built
 from a scraped dataset claimed to be core, so the Menace Manual's creatures,
 Urban Arcana's spells and powers and d20 Future's vehicles all said "d20
 Modern SRD". A document whose source already names the right book is left
 exactly as it is, whatever it calls it.
+
+The fourth is the prototype token, which is derived rather than authored: the
+size the stat block says the creature fills, the senses it says the creature
+sees with, and a disposition from what kind of actor it is. Every actor in the
+compendium had none, so a Gargantuan wyrm arrived on the canvas as a one-square
+token with no vision. That one is taken from the import whole, along with the
+space and reach it is computed from — unless the document is recorded in
+`data/overrides/packs/` as deliberately differing from the import, which is
+where a hand correction says so.
 
 A document with no folder is filed in the one the import would have put it in,
 which is the same problem again: the feats pack held one book and needed no
@@ -104,8 +114,14 @@ def with_page(system: dict, uuid: str) -> dict:
 
 
 def link(document: dict, built: dict | None, pack: str, index: rules_pages.RulesIndex,
-         counts: collections.Counter) -> bool:
-    """Set the rules page on one document and its embedded ones."""
+         counts: collections.Counter, *, corrected: bool = False) -> bool:
+    """Reconcile one document, and its embedded ones, with the import.
+
+    `corrected` marks a document recorded in data/overrides/packs as
+    deliberately differing from the SRD import. Its links and its book are
+    still kept current — those are facts about where it came from, not
+    decisions — but nothing the correction might be about is touched.
+    """
     changed = False
     system = document.get("system")
     if system is None:
@@ -121,6 +137,23 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
         system["source"] = build_packs.source_for(url)
         counts["book"] += 1
         changed = True
+
+    token = (built or {}).get("prototypeToken")
+    if token and not corrected and document.get("prototypeToken") != token:
+        document["prototypeToken"] = token
+        counts["token"] += 1
+        changed = True
+
+    # The two numbers the token size is computed from, which were one number
+    # read twice: every creature's reach was its space.
+    printed = ((built or {}).get("system") or {}).get("attributes") or {}
+    mine = system.get("attributes")
+    if mine and not corrected:
+        for field in ("space", "reach"):
+            if field in printed and mine.get(field) != printed[field]:
+                mine[field] = printed[field]
+                counts["measured"] += 1
+                changed = True
 
     folder = (built or {}).get("folder")
     if folder and not document.get("folder"):
@@ -148,7 +181,8 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     # an id is regenerated on every import and a name is not.
     children = {child["name"]: child for child in ((built or {}).get("items") or [])}
     for child in (document.get("items") or []):
-        if link(child, children.get(child["name"]), pack, index, counts):
+        if link(child, children.get(child["name"]), pack, index, counts,
+                corrected=corrected):
             changed = True
     return changed
 
@@ -245,7 +279,8 @@ def main() -> int:
 
         slug = os.path.basename(path)[:-5]
         before = json.dumps(document, ensure_ascii=False)
-        changed = link(document, built.get((pack, slug)), pack, index, counts)
+        changed = link(document, built.get((pack, slug)), pack, index, counts,
+                       corrected=slug in build_packs.hand_edited(pack))
         uuid = (document.get("system") or {}).get("rulesPage")
         if not uuid:
             unlinked.append(f"{pack}/{slug}")
@@ -266,6 +301,10 @@ def main() -> int:
         print(f"{counts['book']} document(s) were filed under the wrong book")
     if counts["filed"]:
         print(f"{counts['filed']} document(s) were in no folder and now are")
+    if counts["token"]:
+        print(f"{counts['token']} actor(s) took the token the import derives")
+    if counts["measured"]:
+        print(f"{counts['measured']} space and reach value(s) corrected")
     if arguments.report and unlinked:
         print("\nNo rules page at all:")
         for name in unlinked:

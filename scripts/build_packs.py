@@ -1130,8 +1130,10 @@ def build_creatures() -> list[dict]:
                 "immunities": e["damageTraits"]["immunities"],
                 "vulnerabilities": e["damageTraits"]["vulnerabilities"],
                 "massiveDamageThreshold": e["massiveDamageThreshold"],
-                "reach": srd.to_int(e["reach"], 5) or 5,
-                "space": 5,
+                # Both halves of the stat block's FS/Reach line, which is one
+                # line and two numbers: what it fills and what it threatens.
+                "reach": space_and_reach(e["reach"], e["size"])[1],
+                "space": space_and_reach(e["reach"], e["size"])[0],
             },
             "details": {
                 "creatureType": e["creatureType"],
@@ -1162,7 +1164,23 @@ def build_creatures() -> list[dict]:
                        system, document_class="Actor",
                        extra=lambda e: {
                            "items": creature_weapons(e) + creature_feats(e, feats_by_name)
-                                    + abilities[e["id"]]
+                                    + abilities[e["id"]],
+                           # A creature is something a GM drops on a map to
+                           # fight, so its token is hostile, fills the space the
+                           # stat block gives it, and sees with the senses the
+                           # stat block prints.
+                           # The token is the size category's space, not the
+                           # printed one. They agree for all but seven
+                           # creatures, and those seven are prose about the
+                           # footprint rather than a different footprint: the
+                           # udoroot is Huge and fills "5 ft. by 5 ft. per
+                           # stalk", the anaconda "5 ft. by 5 ft. (coiled)".
+                           "prototypeToken": prototype_token(
+                               space=SPACE_FT.get(e["size"], 5.0),
+                               senses=", ".join(
+                                   ability["name"] for ability in abilities[e["id"]]
+                                   if ability["system"].get("sense")),
+                               hostile=True),
                        })
 
 
@@ -1278,6 +1296,107 @@ def source_for(url: str) -> str:
     """
     book = book_of(url)
     return "d20 Modern SRD" if book in ("", "d20 Modern") else book
+
+
+# The SRD's own Space column, in feet, for a creature whose stat block does not
+# print one: Fine half a foot, Diminutive one, Tiny two and a half, Small and
+# Medium five, Large ten, Huge fifteen, Gargantuan twenty, Colossal thirty.
+SPACE_FT = {
+    "fine": 0.5, "diminutive": 1.0, "tiny": 2.5, "small": 5.0, "medium": 5.0,
+    "large": 10.0, "huge": 15.0, "gargantuan": 20.0, "colossal": 30.0,
+}
+
+# A measurement as a stat block prints it: "5 ft.", "2 1/2 ft.", "6 in.".
+MEASURE = re.compile(r"(\d+\s+\d+/\d+|\d+/\d+|\d+)\s*(ft|in)\b", re.I)
+
+# Foundry's own constants, written out because a compiled pack is JSON and
+# cannot reach CONST: TOKEN_DISPOSITIONS.HOSTILE and .NEUTRAL, and
+# TOKEN_DISPLAY_MODES.OWNER_HOVER — the name and the bar on the GM's hover and
+# on nobody else's, which is the conservative default for a bestiary.
+HOSTILE, NEUTRAL, OWNER_HOVER = -1, 0, 20
+
+# What a printed sense becomes on a token. Foundry has no low-light mode and no
+# notion of scent, so those two stay what they already are: an ability item on
+# the creature, with the SRD's own text on it.
+DETECTION = {
+    "blindsight": "seeAll",
+    "blindsense": "seeAll",
+    "tremorsense": "feelTremor",
+    # Tremorsense through water, which is the same detection with a different
+    # medium; Foundry has one mode for both.
+    "wavesense": "feelTremor",
+}
+
+
+def to_feet(measure: str, unit: str) -> float:
+    """'2 1/2' feet is 2.5; '6' inches is half a foot."""
+    whole, _, fraction = measure.strip().partition(" ")
+    value = float(whole) if "/" not in whole else 0.0
+    for part in ([whole] if "/" in whole else ([fraction] if fraction else [])):
+        top, _, bottom = part.partition("/")
+        value += float(top) / float(bottom)
+    return value / 12 if unit.lower() == "in" else value
+
+
+def space_and_reach(printed: str, size: str) -> tuple[float, int]:
+    """What a stat block's FS/Reach line says a creature fills and threatens.
+
+    "15 ft. by 15 ft./10 ft." is a space of fifteen feet and a reach of ten.
+    Reading the first number out of the whole line — which is what this did —
+    gave every creature its space as its reach, so the wyrm threatened twenty
+    feet because that is what it occupies, and every Tiny creature reached two
+    and a half feet where the SRD prints none at all.
+    """
+    face, _, threat = (printed or "").rpartition("/")
+    if not face:
+        face, threat = threat, ""
+
+    space = next((to_feet(*m) for m in MEASURE.findall(face)), SPACE_FT.get(size, 5.0))
+    reach = next((to_feet(*m) for m in MEASURE.findall(threat)), None)
+    return space, int(reach) if reach is not None else 5
+
+
+def token_squares(space: float) -> float:
+    """A space in feet as a token's size in grid squares.
+
+    Half a square is the floor: Fine, Diminutive and Tiny creatures occupy less
+    than that between them, and a token smaller than half a square cannot be
+    clicked.
+    """
+    return max(0.5, round(space / 5 * 2) / 2)
+
+
+def prototype_token(*, space: float, senses: str = "", hostile: bool = False) -> dict:
+    """The token a pack actor drops onto the canvas as.
+
+    Everything here is in the stat block already: the size it occupies, the
+    senses it sees with. Without it every creature in the compendium arrives as
+    a one-square token with no vision, whatever the book says it is.
+    """
+    squares = token_squares(space)
+    token = {
+        "width": squares,
+        "height": squares,
+        "disposition": HOSTILE if hostile else NEUTRAL,
+        "displayName": OWNER_HOVER,
+        "displayBars": OWNER_HOVER,
+        "bar1": {"attribute": "hp"},
+    }
+
+    modes = []
+    for sense, range_ft in re.findall(
+            r"([A-Za-z-]+(?:sight|sense|vision))\s*([\d,]+)?\s*(?:ft)?", senses or "", re.I):
+        name = sense.lower()
+        distance = int(range_ft.replace(",", "")) if range_ft else 0
+        if name == "darkvision" and distance:
+            # The one sense Foundry draws rather than detects: the token sees
+            # in the dark to the range the stat block prints.
+            token["sight"] = {"enabled": True, "range": distance, "visionMode": "darkvision"}
+        elif name in DETECTION and distance:
+            modes.append({"id": DETECTION[name], "range": distance, "enabled": True})
+    if modes:
+        token["detectionModes"] = modes
+    return token
 
 
 def book_of(url: str) -> str:
@@ -1556,6 +1675,9 @@ def build_objects() -> list[dict]:
             },
             "_key": f"!actors!{doc_id}",
             "_slug": slug,
+            # An object is scenery until somebody shoots it: neutral, and with
+            # its hit points on the bar so the damage shows.
+            "prototypeToken": prototype_token(space=SPACE_FT["medium"]),
         })
     return documents
 
@@ -1576,7 +1698,11 @@ def build_vehicles() -> list[dict]:
         "size": e["size"],
         "purchaseDC": e["purchaseDC"],
         "restriction": parse_restriction(e["restriction"]),
-    }, document_class="Actor")
+    }, document_class="Actor", extra=lambda e: {
+        # A vehicle is neutral until somebody drives it at you, and it fills
+        # the space its size category gives.
+        "prototypeToken": prototype_token(space=SPACE_FT.get(e["size"], 5.0)),
+    })
 
 
 def build() -> dict[str, list[dict]]:

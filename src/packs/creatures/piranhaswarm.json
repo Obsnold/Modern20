@@ -79,7 +79,7 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": 12,
-      "reach": 5,
+      "reach": 0,
       "space": 5
     },
     "details": {
@@ -183,5 +183,15 @@
       "_key": "!actors.items!lKNSC2IJundKUSex.m0o96YmENCzzrNGo"
     }
   ],
-  "folder": "WSv2CNoH59kcGHWJ"
+  "folder": "WSv2CNoH59kcGHWJ",
+  "prototypeToken": {
+    "width": 1.0,
+    "height": 1.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    }
+  }
 }

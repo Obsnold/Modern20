@@ -89,7 +89,7 @@
       "vulnerabilities": [],
       "massiveDamageThreshold": 17,
       "reach": 10,
-      "space": 5
+      "space": 10.0
     },
     "details": {
       "creatureType": "outsider",
@@ -414,5 +414,20 @@
       "_key": "!actors.items!KGI3fMbn9GlrsPf8.v0ImPiq9o2qWJ3xT"
     }
   ],
-  "folder": "a4aNUGB5Hmo04l08"
+  "folder": "a4aNUGB5Hmo04l08",
+  "prototypeToken": {
+    "width": 2.0,
+    "height": 2.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 60,
+      "visionMode": "darkvision"
+    }
+  }
 }

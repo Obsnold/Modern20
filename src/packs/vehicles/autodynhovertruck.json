@@ -25,5 +25,15 @@
     "restriction": "lic"
   },
   "_key": "!actors!iUDPc4JLdWeIEP1D",
-  "folder": "U2kfb2SiBQoIelsq"
+  "folder": "U2kfb2SiBQoIelsq",
+  "prototypeToken": {
+    "width": 4.0,
+    "height": 4.0,
+    "disposition": 0,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    }
+  }
 }

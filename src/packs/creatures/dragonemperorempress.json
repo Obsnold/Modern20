@@ -7,7 +7,6 @@
     "description": "",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.00opBo7DXF6l7tPA",
     "abilities": {
       "str": {
         "value": 43,
@@ -80,8 +79,8 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": 34,
-      "reach": 30,
-      "space": 5
+      "reach": 15,
+      "space": 30.0
     },
     "details": {
       "creatureType": "dragon",
@@ -208,9 +207,10 @@
         "strength": "none"
       }
     ],
-    "senses": "Blindsight 360 ft., Low-Light Vision, Darkvision 1",
+    "senses": "Blindsight 360 ft., Low-Light Vision, Darkvision 1,200 ft.",
     "specialQualities": "breath weapon, fear aura 360 ft., crush 4d8+24, tail sweep 2d8+24, spells, spell-like abilities, immunities, SR 32, damage reduction 20/+3, blindsight 360 ft., low-light vision, darkvision 1,200 ft.",
-    "biography": "<p><strong>Attack:</strong> +52 melee (4d8+24, bite)</p><p><strong>Full Attack:</strong> +52 melee (4d8+16, bite), +50 melee (4d6+8, 2 claws), +50 melee (2d8+8, 2 wings), +50 melee (4d6+24, tail slap)</p><p><strong>Skills:</strong> Concentration +25, Bluff +28, Diplomacy +28, Hide -16, Jump +34, Knowledge (arcane lore) +28, Knowledge (current events) +23, Knowledge (history) +23, Listen +30, Read/Write Draconic, Read/Write Language (any ten), Search +28, Sense Motive +28, Speak Draconic, Speak Language (any ten), Spot +30.</p><p><strong>Feats:</strong> Alertness, Cleave, Combat Reflexes, Great Cleave, Improved Bull Rush, Improved Damage Threshold, Multiattack, Power Attack, Renown, Sunder.</p><p><strong>Talents:</strong> </p>"
+    "biography": "<p><strong>Attack:</strong> +52 melee (4d8+24, bite)</p><p><strong>Full Attack:</strong> +52 melee (4d8+16, bite), +50 melee (4d6+8, 2 claws), +50 melee (2d8+8, 2 wings), +50 melee (4d6+24, tail slap)</p><p><strong>Skills:</strong> Concentration +25, Bluff +28, Diplomacy +28, Hide -16, Jump +34, Knowledge (arcane lore) +28, Knowledge (current events) +23, Knowledge (history) +23, Listen +30, Read/Write Draconic, Read/Write Language (any ten), Search +28, Sense Motive +28, Speak Draconic, Speak Language (any ten), Spot +30.</p><p><strong>Feats:</strong> Alertness, Cleave, Combat Reflexes, Great Cleave, Improved Bull Rush, Improved Damage Threshold, Multiattack, Power Attack, Renown, Sunder.</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.00opBo7DXF6l7tPA"
   },
   "_key": "!actors!fzu6lxoZYc0hOqmI",
   "items": [
@@ -223,7 +223,6 @@
         "description": "<p>+52 melee (4d8+16, bite), +50 melee (4d6+8, 2 claws), +50 melee (2d8+8, 2 wings), +50 melee (4d6+24, tail slap)</p>",
         "source": "Urban Arcana",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "category": "unarmed",
         "damage": "4d8+16",
         "damageType": "bludgeoning",
@@ -243,7 +242,8 @@
               "addAbility": false
             }
           }
-        }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.u8rRrZK8HzcDMjjq"
     },
@@ -256,7 +256,6 @@
         "description": "<p>+52 melee (4d8+16, bite), +50 melee (4d6+8, 2 claws), +50 melee (2d8+8, 2 wings), +50 melee (4d6+24, tail slap)</p>",
         "source": "Urban Arcana",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "category": "unarmed",
         "damage": "4d6+8",
         "damageType": "bludgeoning",
@@ -276,7 +275,8 @@
               "addAbility": false
             }
           }
-        }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.M6c9BnXSwtqDn06E"
     },
@@ -289,7 +289,6 @@
         "description": "<p>+52 melee (4d8+16, bite), +50 melee (4d6+8, 2 claws), +50 melee (2d8+8, 2 wings), +50 melee (4d6+24, tail slap)</p>",
         "source": "Urban Arcana",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "category": "unarmed",
         "damage": "2d8+8",
         "damageType": "bludgeoning",
@@ -309,7 +308,8 @@
               "addAbility": false
             }
           }
-        }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.sxmpB6e8ilJPZckF"
     },
@@ -322,7 +322,6 @@
         "description": "<p>+52 melee (4d8+16, bite), +50 melee (4d6+8, 2 claws), +50 melee (2d8+8, 2 wings), +50 melee (4d6+24, tail slap)</p>",
         "source": "Urban Arcana",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "category": "unarmed",
         "damage": "4d6+24",
         "damageType": "bludgeoning",
@@ -342,7 +341,8 @@
               "addAbility": false
             }
           }
-        }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.pi1mXMpO0XVBaSa0"
     },
@@ -480,13 +480,13 @@
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "featType": "general",
         "prerequisites": [],
         "benefit": "",
         "normal": "",
         "special": "",
-        "repeatable": false
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.mKc1OYRNOk14QBQ8"
     },
@@ -592,11 +592,11 @@
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
         "abilityType": "",
         "sense": false,
-        "activities": {}
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.NsJKdczsXkJFcusn"
     },
@@ -608,11 +608,11 @@
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
         "abilityType": "",
         "sense": false,
-        "activities": {}
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.YrNRSFMhKF60QLRN"
     },
@@ -640,11 +640,11 @@
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
         "abilityType": "",
         "sense": false,
-        "activities": {}
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.HzxwAViJrm5MGMYQ"
     },
@@ -656,11 +656,11 @@
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
         "abilityType": "",
         "sense": false,
-        "activities": {}
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.wOPyivmudxhleAhs"
     },
@@ -672,11 +672,11 @@
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
         "abilityType": "",
         "sense": false,
-        "activities": {}
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
       },
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.GMdhHzITYCfTANkZ"
     },
@@ -729,8 +729,8 @@
       "_key": "!actors.items!fzu6lxoZYc0hOqmI.jWf99z9VU4u2wmCJ"
     },
     {
-      "_id": "u8geq9qqkYWgJd8U",
-      "name": "Darkvision 1",
+      "_id": "b3vhKfBODAJMq85g",
+      "name": "Darkvision 1,200 ft.",
       "type": "specialAbility",
       "img": "icons/svg/aura.svg",
       "system": {
@@ -742,24 +742,30 @@
         "activities": {},
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
       },
-      "_key": "!actors.items!fzu6lxoZYc0hOqmI.u8geq9qqkYWgJd8U"
-    },
-    {
-      "_id": "lv9cbQw0GTq3O6Rp",
-      "name": "200 ft.",
-      "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
-      "system": {
-        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
-        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
-        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
-        "source": "Urban Arcana",
-        "abilityType": "",
-        "sense": false,
-        "activities": {}
-      },
-      "_key": "!actors.items!fzu6lxoZYc0hOqmI.lv9cbQw0GTq3O6Rp"
+      "_key": "!actors.items!fzu6lxoZYc0hOqmI.b3vhKfBODAJMq85g"
     }
   ],
+  "prototypeToken": {
+    "width": 6.0,
+    "height": 6.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 1200,
+      "visionMode": "darkvision"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 360,
+        "enabled": true
+      }
+    ]
+  },
   "folder": "WSv2CNoH59kcGHWJ"
 }

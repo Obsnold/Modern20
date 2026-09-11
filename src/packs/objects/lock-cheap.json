@@ -19,5 +19,15 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/combatsa.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.BW08qOlRSlaENtxF.JournalEntryPage.ZVIRSi83JXUEeVf3"
   },
-  "_key": "!actors!9m8FQ1NDWR2kwwzu"
+  "_key": "!actors!9m8FQ1NDWR2kwwzu",
+  "prototypeToken": {
+    "width": 1.0,
+    "height": 1.0,
+    "disposition": 0,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    }
+  }
 }

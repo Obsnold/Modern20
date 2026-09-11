@@ -43,6 +43,11 @@ def pack_source(root: str) -> None:
     })
     write(root, "creatures", "goblin", {
         "_id": GOBLIN, "name": "Goblin", "type": "creature", "folder": FOLDER,
+        # The build derives a prototype token now, so it is a field of the
+        # document rather than a default Foundry fills in — which means a GM
+        # resizing a token is an edit like any other, and has to come home.
+        "prototypeToken": {"width": 1, "height": 1, "disposition": -1,
+                           "bar1": {"attribute": "hp"}},
         "system": {"attributes": {"hp": {"value": 5}}, "description": "<p>A goblin.</p>"},
         "items": [{"_id": CLUB, "name": "Club", "type": "weapon",
                    "system": {"damage": "1d6"},
@@ -74,7 +79,9 @@ def live_copy(source: str, destination: str) -> None:
                 document = json.load(handle)
             # Foundry fills in the defaults a document does not carry, and
             # stamps who touched it last. Neither is an edit.
-            document.setdefault("prototypeToken", {"sight": {"enabled": False}})
+            document.setdefault("prototypeToken", {})
+            document["prototypeToken"].setdefault("sight", {"enabled": False})
+            document["prototypeToken"].setdefault("light", {"dim": 0, "bright": 0})
             document["_stats"] = {"lastModifiedBy": "someone"}
             document["ownership"] = {"default": 0}
             stem = document["name"].replace(" ", "_") + "_" + document["_id"]
@@ -92,6 +99,10 @@ def edit(live: str) -> None:
     goblin["name"] = "Goblin Scout"
     goblin["system"]["attributes"]["hp"]["value"] = 6
     goblin["items"][0]["system"]["damage"] = "1d8"
+    # And its token dragged out to two squares, which is a GM deciding this
+    # goblin is bigger than the book says.
+    goblin["prototypeToken"]["width"] = 2
+    goblin["prototypeToken"]["height"] = 2
     # The editor reflows any HTML it opens. Not an edit.
     goblin["system"]["description"] = "<p>A goblin.</p>  "
     os.remove(path)
@@ -190,6 +201,11 @@ def main() -> int:
              "the edited hit points were not captured")
         want(child(goblin, "system", "damage") == "1d8",
              "the edit to an embedded item was not captured")
+        want(at(goblin, "prototypeToken", "width") == 2
+             and at(goblin, "prototypeToken", "height") == 2,
+             "a token resized in Foundry came back the size the book gives it")
+        want("light" not in (goblin.get("prototypeToken") or {}),
+             "Foundry's own token defaults came home with the document")
         want(goblin.get("_key") == f"!actors!{GOBLIN}", "the document's key was rewritten")
         want(goblin.get("folder") == "eeeeeeeeeeeeeeee",
              "a creature dragged into another folder came back where it was")

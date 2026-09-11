@@ -721,15 +721,21 @@ def split_outside_brackets(text: str) -> list[str]:
 
     "Educated (Knowledge [physical sciences], Knowledge [technology])" is one
     feat, and "Knowledge (technology) +11; Repair +13" is two skills — the SRD
-    uses both separators and nests brackets inside entries.
+    uses both separators and nests brackets inside entries. A comma inside a
+    number is neither.
     """
     parts, depth, current = [], 0, []
-    for character in text:
+    for position, character in enumerate(text):
         if character in "([":
             depth += 1
         elif character in ")]":
             depth = max(0, depth - 1)
-        if character in ",;" and depth == 0:
+        # A comma between two digits is a thousands separator, not a list
+        # separator: the great dragons see 1,200 feet in the dark, and
+        # splitting there left them with "darkvision 1" and a stray "200 ft."
+        grouped = (character == "," and position and text[position - 1].isdigit()
+                   and position + 1 < len(text) and text[position + 1].isdigit())
+        if character in ",;" and depth == 0 and not grouped:
             parts.append("".join(current))
             current = []
             continue
@@ -872,8 +878,9 @@ def quality_key(text: str) -> str:
     text = re.sub(r"\blowlight\b", "low-light", text)
     text = re.sub(r"\s+", " ", text).strip(" .,;:")
     # A trailing range, rating or amount belongs to this creature rather than
-    # to the ability: "darkvision 60 ft.", "damage reduction 15/+1".
-    text = re.sub(r"\s+\d[\d/+.'’a-z-]*(\s+(?:ft|feet|foot)\.?)?$", "", text)
+    # to the ability: "darkvision 60 ft.", "damage reduction 15/+1", and — for
+    # the three great dragons — "darkvision 1,200 ft.".
+    text = re.sub(r"\s+\d[\d/+.,'’a-z-]*(\s+(?:ft|feet|foot)\.?)?$", "", text)
     return text.strip(" .,;:")
 
 

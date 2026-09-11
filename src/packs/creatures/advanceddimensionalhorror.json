@@ -80,8 +80,8 @@
       "immunities": [],
       "vulnerabilities": [],
       "massiveDamageThreshold": 24,
-      "reach": 20,
-      "space": 5
+      "reach": 15,
+      "space": 20.0
     },
     "details": {
       "creatureType": "outsider",
@@ -382,5 +382,27 @@
       "_key": "!actors.items!mmhJ4EEoE5IcdnhO.CnfPABfMecs0BC6h"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 4.0,
+    "height": 4.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "sight": {
+      "enabled": true,
+      "range": 60,
+      "visionMode": "darkvision"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 30,
+        "enabled": true
+      }
+    ]
+  }
 }

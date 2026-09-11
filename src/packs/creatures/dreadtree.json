@@ -82,8 +82,8 @@
         "fire"
       ],
       "massiveDamageThreshold": null,
-      "reach": 15,
-      "space": 5
+      "reach": 10,
+      "space": 15.0
     },
     "details": {
       "creatureType": "plant",
@@ -306,5 +306,22 @@
       "_key": "!actors.items!pd6k9banx6B6GGfg.YdsIStbAltKDITSm"
     }
   ],
-  "folder": "Xy98uByp1hGr1qSR"
+  "folder": "Xy98uByp1hGr1qSR",
+  "prototypeToken": {
+    "width": 3.0,
+    "height": 3.0,
+    "disposition": -1,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "detectionModes": [
+      {
+        "id": "seeAll",
+        "range": 30,
+        "enabled": true
+      }
+    ]
+  }
 }
