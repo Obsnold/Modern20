@@ -860,7 +860,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">FIRE EXTINGUISHER (PL 5)</h6>\n<p class=\"close\">This unit, available only to Small or larger robots, ejects enough extinguishing chemicals during a move action to put out a fire in a 10- foot-by-10-foot square. A robot’s extinguisher tank holds a number of shots of chemical spray based on the robot’s frame size: Small 2, Medium-size 4, Large 8, Huge 16, Gargantuan 32, Colossal 64.</p>\n<p class=\"close\"><b>Purchase DC:</b> 5 + one-quarter the base purchase DC of the robot’s frame.</p>\n<p><b>Restriction:</b> None</p>"
+        "content": "<h6 class=\"close\">FIRE EXTINGUISHER (PL 5)</h6>\n<p class=\"close\">This unit, available only to Small or larger robots, ejects enough extinguishing chemicals during a move action to put out a fire in a 10- foot-by-10-foot square. A robot’s extinguisher tank holds a number of shots of chemical spray based on the robot’s frame size: Small 2, Medium-size 4, Large 8, Huge 16, Gargantuan 32, Colossal 64.</p>\n<p class=\"close\"><b>Purchase DC:</b> 5 + one-quarter the base purchase DC of the robot’s frame.</p>\n<p><b>Restriction:</b> None</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.gear.Item.JsmFqABeD8qScMTM]{Fire extinguisher}</p></section>"
       },
       "sort": 5400000,
       "flags": {},
@@ -1100,7 +1100,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">POLYVOX (PL 7)</h6>\n<p class=\"close\">This unit translates any language spoken within range of the robot’s audio sensors into a language familiar to the robot (or binary code, if the robot has no Speak Language skills). A polyvox does not grant the ability to speak languages the robot does not know.</p>\n<p class=\"close\"><b>Purchase DC:</b> 17</p>\n<p><b>Restriction:</b> None</p>"
+        "content": "<h6 class=\"close\">POLYVOX (PL 7)</h6>\n<p class=\"close\">This unit translates any language spoken within range of the robot’s audio sensors into a language familiar to the robot (or binary code, if the robot has no Speak Language skills). A polyvox does not grant the ability to speak languages the robot does not know.</p>\n<p class=\"close\"><b>Purchase DC:</b> 17</p>\n<p><b>Restriction:</b> None</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.gear.Item.qFrlDkOBbCatsuDq]{Polyvox}</p></section>"
       },
       "sort": 6900000,
       "flags": {},
