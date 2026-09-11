@@ -176,6 +176,22 @@
 .modern20 .m20-rules i,
 .m20-chat .m20-rules i { font-size: 0.85em; }
 
+/* A roll the rules text asks for: the SRD's own sentence with a die on the
+   front. Unscoped, like the rules footer below and for the same reason — these
+   are inside journal pages, which core renders, not this system. */
+
+.m20-check {
+  display: inline;
+  color: #8c2f1e;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  white-space: normal;
+}
+
+.m20-check:hover { background: rgba(140, 47, 30, 0.08); text-shadow: none; }
+.m20-check i { font-size: 0.85em; margin-right: 0.25em; }
+
 /* The footer link_rules.py writes at the foot of a rules page, listing the
    compendium documents that page is the rules for. Unscoped for the same
    reason as the chat cards: a journal sheet is core's, not the system's. */

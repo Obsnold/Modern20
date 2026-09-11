@@ -40,19 +40,21 @@ export class Modern20Actor extends Actor {
     return data;
   }
 
-  async rollAbility(abilityKey, { flavor } = {}) {
+  async rollAbility(abilityKey, { flavor, dc = null } = {}) {
     const ability = this.system.abilities?.[abilityKey];
     if (!ability) throw new Error(`Unknown ability "${abilityKey}"`);
     return this.#d20Roll(ability.mod, {
-      flavor: flavor ?? game.i18n.localize(MODERN20.abilities[abilityKey])
+      flavor: flavor ?? game.i18n.localize(MODERN20.abilities[abilityKey]),
+      dc
     });
   }
 
-  async rollSave(saveKey, { flavor } = {}) {
+  async rollSave(saveKey, { flavor, dc = null } = {}) {
     const save = this.system.saves?.[saveKey];
     if (!save) throw new Error(`Unknown save "${saveKey}"`);
     return this.#d20Roll(save.value, {
-      flavor: flavor ?? game.i18n.localize(MODERN20.saves[saveKey].label)
+      flavor: flavor ?? game.i18n.localize(MODERN20.saves[saveKey].label),
+      dc
     });
   }
 
@@ -60,7 +62,7 @@ export class Modern20Actor extends Actor {
    * Roll a skill, or one specialty of a skill such as Knowledge (streetwise).
    * Trained-only skills with no ranks are refused rather than rolled at a penalty.
    */
-  async rollSkill(skillKey, { specialty = null, flavor } = {}) {
+  async rollSkill(skillKey, { specialty = null, flavor, dc = null } = {}) {
     const skill = this.system.skills?.[skillKey];
     if (!skill) throw new Error(`Unknown skill "${skillKey}"`);
 
@@ -80,7 +82,8 @@ export class Modern20Actor extends Actor {
 
     const label = game.i18n.localize(MODERN20.skills[skillKey].label);
     return this.#d20Roll(entry.total, {
-      flavor: flavor ?? (specialty ? `${label} (${specialty})` : label)
+      flavor: flavor ?? (specialty ? `${label} (${specialty})` : label),
+      dc
     });
   }
 
@@ -657,11 +660,22 @@ export class Modern20Actor extends Actor {
     return hasCreatureType(this.system, "construct", "elemental", "ooze", "plant", "undead");
   }
 
-  async #d20Roll(modifier, { flavor } = {}) {
+  /**
+   * One d20 check, and what it came to against a DC where one is given.
+   *
+   * "If the result equals or exceeds the DC, the character succeeds." A check
+   * rolled from a sheet has no DC — the GM sets one, or does not — and a check
+   * rolled from a rules page usually has the one the SRD printed, which is
+   * what makes clicking the sentence worth anything.
+   */
+  async #d20Roll(modifier, { flavor, dc = null } = {}) {
     const roll = await new Roll("1d20 + @mod", { mod: modifier }).evaluate();
+    const against = dc === null ? "" : game.i18n.format(
+      roll.total >= dc ? "MODERN20.Check.Beat" : "MODERN20.Check.Missed", { dc }
+    );
     await roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor
+      flavor: [flavor, against].filter(Boolean).join(" — ")
     });
     return roll;
   }

@@ -172,7 +172,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">AUTOMAC TAXI (PL 6)</h6>\n<p class=\"close\">The AutoMac is a computer-driven taxi equipped with a driver autocomp (see Vehicle Gear). It features two facing bench seats with room for six passengers, and a small view screen and speaker that hang down from the ceiling. The friendly voice of “Mac” requests destination information as well as displaying the question on the view screen. The computer calculates the fare and pre-charges the passenger. In case of emergency, a manual stop button mounted in the middle of the speaker allows passengers to safely halt the vehicle. Although there are no manual controls, the computer is equipped with an access jack behind the front seat. A notebook computer or PDA with the appropriate interface program can be plugged into this jack to override the computer and allow an occupant to manually control the vehicle with a successful Computer Use check (DC 20).<p>\n<p>The AutoMac taxi is 2 squares wide and 3 squares long. Its drivercomp has a Drive skill modifier of +8.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.vehicles.Actor.cYpdHiNunSMnu13y]{AutoMac taxi}</p></section>"
+        "content": "<h6 class=\"close\">AUTOMAC TAXI (PL 6)</h6>\n<p class=\"close\">The AutoMac is a computer-driven taxi equipped with a driver autocomp (see Vehicle Gear). It features two facing bench seats with room for six passengers, and a small view screen and speaker that hang down from the ceiling. The friendly voice of “Mac” requests destination information as well as displaying the question on the view screen. The computer calculates the fare and pre-charges the passenger. In case of emergency, a manual stop button mounted in the middle of the speaker allows passengers to safely halt the vehicle. Although there are no manual controls, the computer is equipped with an access jack behind the front seat. A notebook computer or PDA with the appropriate interface program can be plugged into this jack to override the computer and allow an occupant to manually control the vehicle with a successful @Check[skill:computerUse|dc:20]{Computer Use check (DC 20)}.<p>\n<p>The AutoMac taxi is 2 squares wide and 3 squares long. Its drivercomp has a Drive skill modifier of +8.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.vehicles.Actor.cYpdHiNunSMnu13y]{AutoMac taxi}</p></section>"
       },
       "sort": 1100000,
       "flags": {},
@@ -588,7 +588,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\"><a name=\"gear1\">ANTI-ACCIDENT SYSTEM</a></h6>\n<p class=\"close\">Anti-accident systems use airbags, fire-retardant foam, no-skid brakes, gyroscopic stabilizers, and other safety features to improve a driver’s chances of surviving or averting accidents.</p>\n<p class=\"close\">The system reduces collision damage by half, though this only applies to the vehicle equipped with an anti-accident system.</p>\n<p class=\"close\">Further, the operator of a vehicle so equipped gains a +2 equipment bonus on Drive or Pilot checks to make hard brake or hard turn maneuvers.</p>\n<p class=\"close\"><b>Purchase DC:</b> 17</p>\n<p><b>Restriction:</b> None</p>"
+        "content": "<h6 class=\"close\"><a name=\"gear1\">ANTI-ACCIDENT SYSTEM</a></h6>\n<p class=\"close\">Anti-accident systems use airbags, fire-retardant foam, no-skid brakes, gyroscopic stabilizers, and other safety features to improve a driver’s chances of surviving or averting accidents.</p>\n<p class=\"close\">The system reduces collision damage by half, though this only applies to the vehicle equipped with an anti-accident system.</p>\n<p class=\"close\">Further, the operator of a vehicle so equipped gains a +2 equipment bonus on Drive or @Check[skill:pilot]{Pilot check}s to make hard brake or hard turn maneuvers.</p>\n<p class=\"close\"><b>Purchase DC:</b> 17</p>\n<p><b>Restriction:</b> None</p>"
       },
       "sort": 3700000,
       "flags": {},
@@ -604,7 +604,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\"><a name=\"gear2\">AUTOCOMP, DRIVER</a></h6>\n<p class=\"close\">A driver autocomp consists of an onboard computer with AI software capable to operating a vehicle, thereby removing the need for a driver or pilot. Most vehicles equipped with a driver autocomp still retain a driver’s seat, allowing the vehicle to be controlled manually if the autocomp is deactivated or disabled. Disabling a driver autocomp requires a successful Disable Device check (DC 15).</p>\n<p class=\"close\">The driver autocomp’s modifier on all Drive or Pilot checks, as well as its purchase DC, depends on the quality of the system’s AI software; see Table: Driver Autocomps for details.</p>\n<p class=\"close\"><b>Purchase DC:</b> See Table 8-8</p>\n<p><b>Restriction:</b> None</p><br />\n<p><a name=\"tab1\"><b>Table: Driver Autocomps</b></a></p>\n<table cellspacing=\"0\" width=\"40%\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"40%\" valign=\"bottom\">Driver Autocomp </th>\n\t<th width=\"30%\" align=\"center\">Drive or Pilot Check Modifier</th>\n\t<th width=\"30%\" align=\"center\"  valign=\"bottom\">Purchase DC</th>\n    </tr>\n    <tr>\n\t<td>Roadlord AI-DA </td>\n\t<td align=\"center\">+0</td>\n\t<td align=\"center\">12</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Pegasus AI-200 </td>\n\t<td align=\"center\">+2</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr>\n\t<td>Dervish AI-400 </td>\n\t<td align=\"center\">+4</td>\n\t<td align=\"center\">18</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Twister AI-800 </td>\n\t<td align=\"center\">+8</td>\n\t<td align=\"center\">21</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Zephyr AI-1200 </td>\n\t<td class=\"last-row\" align=\"center\">+12</td>\n\t<td class=\"last-row\" align=\"center\">24</td>\n    </tr>\n  </tbody>\n</table><br />"
+        "content": "<h6 class=\"close\"><a name=\"gear2\">AUTOCOMP, DRIVER</a></h6>\n<p class=\"close\">A driver autocomp consists of an onboard computer with AI software capable to operating a vehicle, thereby removing the need for a driver or pilot. Most vehicles equipped with a driver autocomp still retain a driver’s seat, allowing the vehicle to be controlled manually if the autocomp is deactivated or disabled. Disabling a driver autocomp requires a successful @Check[skill:disableDevice|dc:15]{Disable Device check (DC 15)}.</p>\n<p class=\"close\">The driver autocomp’s modifier on all Drive or @Check[skill:pilot]{Pilot check}s, as well as its purchase DC, depends on the quality of the system’s AI software; see Table: Driver Autocomps for details.</p>\n<p class=\"close\"><b>Purchase DC:</b> See Table 8-8</p>\n<p><b>Restriction:</b> None</p><br />\n<p><a name=\"tab1\"><b>Table: Driver Autocomps</b></a></p>\n<table cellspacing=\"0\" width=\"40%\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"40%\" valign=\"bottom\">Driver Autocomp </th>\n\t<th width=\"30%\" align=\"center\">Drive or @Check[skill:pilot]{Pilot Check} Modifier</th>\n\t<th width=\"30%\" align=\"center\"  valign=\"bottom\">Purchase DC</th>\n    </tr>\n    <tr>\n\t<td>Roadlord AI-DA </td>\n\t<td align=\"center\">+0</td>\n\t<td align=\"center\">12</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Pegasus AI-200 </td>\n\t<td align=\"center\">+2</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr>\n\t<td>Dervish AI-400 </td>\n\t<td align=\"center\">+4</td>\n\t<td align=\"center\">18</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Twister AI-800 </td>\n\t<td align=\"center\">+8</td>\n\t<td align=\"center\">21</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Zephyr AI-1200 </td>\n\t<td class=\"last-row\" align=\"center\">+12</td>\n\t<td class=\"last-row\" align=\"center\">24</td>\n    </tr>\n  </tbody>\n</table><br />"
       },
       "sort": 3800000,
       "flags": {},
@@ -620,7 +620,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\"><a name=\"gear3\">AUTOCOMP, GUNNER</a></h6>\n<p class=\"close\">A gunner autocomp is an onboard computer with AI software capable of automatically aiming and firing all of a vehicle’s mounted weapons, thereby removing the need for one or more gunners. Most vehicles equipped with a gunner autocomp still allow the vehicle’s weapons to be controlled manually if the autocomp is deactivated or disabled. Disabling a gunner autocomp requires a successful Disable Device check (DC 15).</p>\n<p class=\"close\">The gunner autocomp’s attack bonus, as well as its purchase DC, depends on the quality of the system’s AI software; see Table: Gunner Autocomps for details.</p>\n<p class=\"close\"><b>Purchase DC:</b> See Table, and increase the purchase DC by +1 for each additional weapon after the first.</p>\n<p><b>Restriction:</b> Licensed (+1)</p><br />\n<p><a name=\"tab2\"><b>Table: Gunner Autocomps</b></a></p>\n<table cellspacing=\"0\" width=\"50%\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"40%\">Gunner Autocomp </th>\n\t<th width=\"30%\" align=\"center\">Attack Bonus</th>\n\t<th width=\"30%\" align=\"center\">Purchase DC<sup>1</sup></th>\n    </tr>\n    <tr>\n\t<td>Marksman AI-GA </td>\n\t<td align=\"center\">-2</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Rattlesnake AI-GX </td>\n\t<td align=\"center\">+0</td>\n\t<td align=\"center\">18</td>\n    </tr>\n    <tr>\n\t<td>Adder AI-G2 </td>\n\t<td align=\"center\">+2</td>\n\t<td align=\"center\">21</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Deadeye AI-G4 </td>\n\t<td align=\"center\">+4</td>\n\t<td align=\"center\">24</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Hotshot AI-G8 </td>\n\t<td class=\"last-row\" align=\"center\">+8/+3</td>\n\t<td class=\"last-row\" align=\"center\">27</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\" colspan=\"3\">Hotshot AI-G8 </td>\n    </tr>\n  </tbody>\n</table><br />"
+        "content": "<h6 class=\"close\"><a name=\"gear3\">AUTOCOMP, GUNNER</a></h6>\n<p class=\"close\">A gunner autocomp is an onboard computer with AI software capable of automatically aiming and firing all of a vehicle’s mounted weapons, thereby removing the need for one or more gunners. Most vehicles equipped with a gunner autocomp still allow the vehicle’s weapons to be controlled manually if the autocomp is deactivated or disabled. Disabling a gunner autocomp requires a successful @Check[skill:disableDevice|dc:15]{Disable Device check (DC 15)}.</p>\n<p class=\"close\">The gunner autocomp’s attack bonus, as well as its purchase DC, depends on the quality of the system’s AI software; see Table: Gunner Autocomps for details.</p>\n<p class=\"close\"><b>Purchase DC:</b> See Table, and increase the purchase DC by +1 for each additional weapon after the first.</p>\n<p><b>Restriction:</b> Licensed (+1)</p><br />\n<p><a name=\"tab2\"><b>Table: Gunner Autocomps</b></a></p>\n<table cellspacing=\"0\" width=\"50%\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"40%\">Gunner Autocomp </th>\n\t<th width=\"30%\" align=\"center\">Attack Bonus</th>\n\t<th width=\"30%\" align=\"center\">Purchase DC<sup>1</sup></th>\n    </tr>\n    <tr>\n\t<td>Marksman AI-GA </td>\n\t<td align=\"center\">-2</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Rattlesnake AI-GX </td>\n\t<td align=\"center\">+0</td>\n\t<td align=\"center\">18</td>\n    </tr>\n    <tr>\n\t<td>Adder AI-G2 </td>\n\t<td align=\"center\">+2</td>\n\t<td align=\"center\">21</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Deadeye AI-G4 </td>\n\t<td align=\"center\">+4</td>\n\t<td align=\"center\">24</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Hotshot AI-G8 </td>\n\t<td class=\"last-row\" align=\"center\">+8/+3</td>\n\t<td class=\"last-row\" align=\"center\">27</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\" colspan=\"3\">Hotshot AI-G8 </td>\n    </tr>\n  </tbody>\n</table><br />"
       },
       "sort": 3900000,
       "flags": {},
@@ -636,7 +636,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\"><a name=\"gear4\">REMOTE SHUTDOWN SYSTEM</a></h6>\n<p class=\"close\">This public safety feature, introduced at Progress Level 6, is required by law on all civilian vehicles. The remote shutdown system consists of a microcomputer attached to the vehicle’s electrical system plus a microantenna. At a coded signal from an authorized law enforcement officer (via a dashboard-mounted unit installed in most police cruisers), the remote shutdown system switches off the vehicle, bringing it to a slow, safe stop (and, in the case of flying or hovering vehicles, a safe descent).</p>\n<p class=\"close\">Law enforcement agencies maintain huge databases of codes for civilian vehicles, enabling officers to quickly determine the code for a vehicle by make, model, year, or license plate. Searching for a code requires a full-round action. Entering the code to shut down the vehicle is an attack action.</p>\n<p class=\"close\">This system is installed on all civilian vehicles. Acquiring a civilian vehicle without a remote shutdown system or acquiring a vehicle with an altered code (so that the owner can shut it down, but no one else can) is treated like buying an illegal item. Removing the system—an illegal act—requires a successful Disable Device check (DC 15). Changing the code—also an illegal act—requires a successful Computer Use check (DC 30).</p>\n<p>An installed remote shutdown system does not increase a vehicle’s purchase DC.</p>"
+        "content": "<h6 class=\"close\"><a name=\"gear4\">REMOTE SHUTDOWN SYSTEM</a></h6>\n<p class=\"close\">This public safety feature, introduced at Progress Level 6, is required by law on all civilian vehicles. The remote shutdown system consists of a microcomputer attached to the vehicle’s electrical system plus a microantenna. At a coded signal from an authorized law enforcement officer (via a dashboard-mounted unit installed in most police cruisers), the remote shutdown system switches off the vehicle, bringing it to a slow, safe stop (and, in the case of flying or hovering vehicles, a safe descent).</p>\n<p class=\"close\">Law enforcement agencies maintain huge databases of codes for civilian vehicles, enabling officers to quickly determine the code for a vehicle by make, model, year, or license plate. Searching for a code requires a full-round action. Entering the code to shut down the vehicle is an attack action.</p>\n<p class=\"close\">This system is installed on all civilian vehicles. Acquiring a civilian vehicle without a remote shutdown system or acquiring a vehicle with an altered code (so that the owner can shut it down, but no one else can) is treated like buying an illegal item. Removing the system—an illegal act—requires a successful @Check[skill:disableDevice|dc:15]{Disable Device check (DC 15)}. Changing the code—also an illegal act—requires a successful @Check[skill:computerUse|dc:30]{Computer Use check (DC 30)}.</p>\n<p>An installed remote shutdown system does not increase a vehicle’s purchase DC.</p>"
       },
       "sort": 4000000,
       "flags": {},
@@ -652,7 +652,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"arm1\">VEHICULAR ARMOR</a></h5>\n<p>Armor can be welded or otherwise fixed securely to a vehicle’s chassis, providing an equipment bonus to the vehicle’s Defense. Vehicular armor also makes a vehicle more ungainly, imposing a penalty on the vehicle operator’s Drive or Pilot checks. Vehicular armor does not require a special license to purchase.</p>\n<p>Installing armor on a vehicle requires 12 hours and a Craft (mechanical) check (DC 20). Armor can be removed in half the time with a successful Repair check (DC 20).</p>\n<p>Different types of vehicular armor are described below, complete with the following statistics:</p>\n<p><b>Equipment Bonus:</b> The equipment bonus that the armor provides to the vehicle.</p>\n<p><b>Drive/Pilot Check Penalty:</b> Apply this penalty to the vehicle operator’s Drive or Pilot checks.</p>\n<p><b>Purchase DC:</b> The cost of the vehicular armor.</p>"
+        "content": "<h5><a name=\"arm1\">VEHICULAR ARMOR</a></h5>\n<p>Armor can be welded or otherwise fixed securely to a vehicle’s chassis, providing an equipment bonus to the vehicle’s Defense. Vehicular armor also makes a vehicle more ungainly, imposing a penalty on the vehicle operator’s Drive or @Check[skill:pilot]{Pilot check}s. Vehicular armor does not require a special license to purchase.</p>\n<p>Installing armor on a vehicle requires 12 hours and a @Check[skill:craft|specialty:Mechanical|dc:20]{Craft (mechanical) check (DC 20)}. Armor can be removed in half the time with a successful @Check[skill:repair|dc:20]{Repair check (DC 20)}.</p>\n<p>Different types of vehicular armor are described below, complete with the following statistics:</p>\n<p><b>Equipment Bonus:</b> The equipment bonus that the armor provides to the vehicle.</p>\n<p><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> Apply this penalty to the vehicle operator’s Drive or @Check[skill:pilot]{Pilot check}s.</p>\n<p><b>Purchase DC:</b> The cost of the vehicular armor.</p>"
       },
       "sort": 4100000,
       "flags": {},
@@ -668,7 +668,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">ALUMISTEEL ARMOR (PL 5)</h6>\n<p class=\"close\">This easy-to-acquire alloy is lightweight and reasonably strong.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +5</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -3</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">ALUMISTEEL ARMOR (PL 5)</h6>\n<p class=\"close\">This easy-to-acquire alloy is lightweight and reasonably strong.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +5</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -3</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
       },
       "sort": 4200000,
       "flags": {},
@@ -684,7 +684,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">DURAPLASTIC ARMOR (PL 5)</h6>\n<p class=\"close\">Duraplastic armor is made of advanced plastic polymers, like carbon fiber and high-grade fiberglass. Although relatively cheap and light, it doesn’t offer tremendous protection.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +3</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -2</p>\n<p><b>Purchase DC:</b> 10 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">DURAPLASTIC ARMOR (PL 5)</h6>\n<p class=\"close\">Duraplastic armor is made of advanced plastic polymers, like carbon fiber and high-grade fiberglass. Although relatively cheap and light, it doesn’t offer tremendous protection.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +3</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -2</p>\n<p><b>Purchase DC:</b> 10 + the vehicle’s hardness</p>"
       },
       "sort": 4300000,
       "flags": {},
@@ -700,7 +700,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">DURALLOY ARMOR (PL 6)</h6>\n<p class=\"close\">Duralloy is harder, heavier, and more durable than alumisteel.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +8</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -4</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">DURALLOY ARMOR (PL 6)</h6>\n<p class=\"close\">Duralloy is harder, heavier, and more durable than alumisteel.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +8</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -4</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
       },
       "sort": 4400000,
       "flags": {},
@@ -716,7 +716,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">RESILIUM ARMOR (PL 6)</h6>\n<p class=\"close\">Resilium is more malleable alloy than duralloy, although not as strong.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +6</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -2</p>\n<p><b>Purchase DC:</b> 10 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">RESILIUM ARMOR (PL 6)</h6>\n<p class=\"close\">Resilium is more malleable alloy than duralloy, although not as strong.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +6</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -2</p>\n<p><b>Purchase DC:</b> 10 + the vehicle’s hardness</p>"
       },
       "sort": 4500000,
       "flags": {},
@@ -732,7 +732,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">CRYSTAL CARBON ARMOR (PL 7)</h6>\n<p class=\"close\">“Grown” in orbital laboratories, crystal carbon is a composite fiber material that narrowly outperforms neovulcanium (see below) on the battlefield.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +10</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -4</p>\n<p><b>Purchase DC:</b> 20 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">CRYSTAL CARBON ARMOR (PL 7)</h6>\n<p class=\"close\">“Grown” in orbital laboratories, crystal carbon is a composite fiber material that narrowly outperforms neovulcanium (see below) on the battlefield.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +10</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -4</p>\n<p><b>Purchase DC:</b> 20 + the vehicle’s hardness</p>"
       },
       "sort": 4600000,
       "flags": {},
@@ -748,7 +748,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">NEOVULCANIUM ARMOR (PL 7)</h6>\n<p class=\"close\">Similar to duralloy, neovulcanium uses plasma-forging techniques to create an alloy of surprising resilience.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +10</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -5</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">NEOVULCANIUM ARMOR (PL 7)</h6>\n<p class=\"close\">Similar to duralloy, neovulcanium uses plasma-forging techniques to create an alloy of surprising resilience.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +10</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -5</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
       },
       "sort": 4700000,
       "flags": {},
@@ -764,7 +764,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">MEGATANIUM ARMOR (PL 8)</h6>\n<p class=\"close\">Sandwiched layers of crystal carbon and neovulcanium held in a magnetic matrix, megatanium is exceedingly hard and durable.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +12</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -5</p>\n<p><b>Purchase DC:</b> 20 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">MEGATANIUM ARMOR (PL 8)</h6>\n<p class=\"close\">Sandwiched layers of crystal carbon and neovulcanium held in a magnetic matrix, megatanium is exceedingly hard and durable.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +12</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -5</p>\n<p><b>Purchase DC:</b> 20 + the vehicle’s hardness</p>"
       },
       "sort": 4800000,
       "flags": {},
@@ -780,7 +780,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h6 class=\"close\">REACTIVE ARMOR (PL 8)</h6>\n<p class=\"close\">Consisting of layers of insulating gel or compressed gas between cerametal sheets, reactive armor provides the same protection as crystal carbon armor but is considerably cheaper and easier to produce.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +8</p>\n<p class=\"close\"><b>Drive/Pilot Check Penalty:</b> -2</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
+        "content": "<h6 class=\"close\">REACTIVE ARMOR (PL 8)</h6>\n<p class=\"close\">Consisting of layers of insulating gel or compressed gas between cerametal sheets, reactive armor provides the same protection as crystal carbon armor but is considerably cheaper and easier to produce.</p>\n<p class=\"close\"><b>Equipment Bonus:</b> +8</p>\n<p class=\"close\"><b>Drive/@Check[skill:pilot]{Pilot Check} Penalty:</b> -2</p>\n<p><b>Purchase DC:</b> 15 + the vehicle’s hardness</p>"
       },
       "sort": 4900000,
       "flags": {},

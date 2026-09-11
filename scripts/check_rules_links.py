@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail if a link into the rules compendium points at nothing.
+"""Fail if a reference the rules text carries points at nothing.
 
 Every document in every pack carries the page its rules are on, and the sheets
 carry a link per topic and per skill. All of those are UUIDs written into JSON
@@ -16,6 +16,8 @@ into the compendium:
     nothing links to is a page chosen for no reason
   - every document a rules page lists in its footer, which has to exist, be
     named what the footer calls it, and point back at that page
+  - every `@Check[...]` the rules text carries, which has to name a skill, an
+    ability or a save the system actually has, and a subject that skill has
 
 It also holds the coverage, recorded per pack in data/coverage.json: how many
 documents carry a link, and how many distinct pages those links reach. The
@@ -55,6 +57,14 @@ TOPIC = re.compile(r'"([\w]+)":\s*"([^"]+)"')
 FOOTER = re.compile(r'<section class="m20-in-world">(.*?)</section>', re.S)
 LISTED = re.compile(
     r"@UUID\[Compendium\.modern20\.(\w+)\.(?:Item|Actor)\.(\w{16})\]\{([^}]*)\}")
+
+# A roll the rules ask for: "@Check[skill:climb|dc:15]{DC 15 Climb check}".
+ROLL = re.compile(r"@Check\[([^\]]*)\](\{([^}]*)\})?")
+
+# The three ability and save keys are the system's own; the skills come from
+# the scrape, which check_config.py already holds config.mjs to.
+ABILITIES = {"str", "dex", "con", "int", "wis", "cha"}
+SAVES = {"fort", "ref", "will"}
 
 
 def pages() -> dict[str, set[str]]:
@@ -161,6 +171,54 @@ def footers(rules_files: list[str], packs: dict[str, tuple[str, str]]) -> tuple[
     return listed, problems
 
 
+def rolls(rules_files: list[str]) -> tuple[int, list[str]]:
+    """Check every roll the rules text offers.
+
+    The failure mode is the same as a dead link and quieter still: a check
+    naming a skill the system does not have renders as its own words again, so
+    the sentence reads correctly and the die is simply gone.
+    """
+    with open(os.path.join(ROOT, "data", "skills.json"), encoding="utf-8") as handle:
+        skills = {skill["id"]: skill["name"] for skill in json.load(handle)}
+    with open(os.path.join(ROOT, "data", "skill_specialties.json"), encoding="utf-8") as handle:
+        specialties = json.load(handle)
+
+    found = 0
+    problems = []
+    for path in rules_files:
+        with open(path, encoding="utf-8") as handle:
+            entry = json.load(handle)
+        for page in entry.get("pages") or []:
+            for match in ROLL.finditer(page["text"]["content"]):
+                found += 1
+                where = f'{entry["name"]}: "{page["name"]}"'
+                terms = {}
+                for term in match.group(1).split("|"):
+                    key, _, value = term.partition(":")
+                    terms[key.strip()] = value.strip()
+
+                if match.group(2) is not None and not match.group(3).strip():
+                    problems.append(f"{where} has a roll with an empty label")
+                if terms.get("dc") and not terms["dc"].isdigit():
+                    problems.append(f'{where}: DC "{terms["dc"]}" is not a number')
+
+                if "skill" in terms:
+                    if terms["skill"] not in skills:
+                        problems.append(f'{where} rolls a skill called "{terms["skill"]}"')
+                        continue
+                    options = (specialties.get(terms["skill"]) or {}).get("options") or []
+                    subject = terms.get("specialty")
+                    # An open list - Profession, the two languages - takes any
+                    # subject, which is what "open" means.
+                    if subject and options and subject not in options:
+                        problems.append(f'{where} rolls {skills[terms["skill"]]} '
+                                        f'({subject}), which the SRD does not list')
+                elif terms.get("ability") not in ABILITIES and terms.get("save") not in SAVES:
+                    problems.append(f"{where} rolls {match.group(1)!r}, "
+                                    "which is not a skill, an ability or a save")
+    return found, problems
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--update", action="store_true",
@@ -205,12 +263,18 @@ def main() -> int:
 
     print(f"{checked} document links checked against src/packs/rules")
 
-    listed, stale = footers(
-        sorted(glob.glob(os.path.join(PACKS, "rules", "*.json"))), by_id)
+    rules_files = sorted(glob.glob(os.path.join(PACKS, "rules", "*.json")))
+    listed, stale = footers(rules_files, by_id)
     for problem in stale:
         problems += 1
         print(f"FAIL  {problem}")
     print(f"{listed} documents listed by the pages they are the rules for")
+
+    asked, unrollable = rolls(rules_files)
+    for problem in unrollable:
+        problems += 1
+        print(f"FAIL  {problem}")
+    print(f"{asked} rolls the rules ask for checked")
 
     declared = topics()
     for topic, uuid in declared.items():

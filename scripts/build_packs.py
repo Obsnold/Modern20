@@ -1515,6 +1515,99 @@ def text_only(markup: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", markup)).strip()
 
 
+# Text inside a tag, and the label of a link already written, are not prose:
+# rewriting either breaks the markup around it. The rules text is full of pages
+# named for the thing they are about, and "Skill Checks" is one of them.
+TAG = re.compile(r"(<[^>]+>)")
+PROTECTED = re.compile(
+    r"@(?:UUID|Check)\[[^\]]*\](?:\{[^}]*\})?"   # a link or a roll already written
+    r"|<a\b[^>]*>.*?</a>",                          # a link out to the web
+    re.S | re.I)
+
+
+
+def check_patterns() -> list[tuple[re.Pattern, dict]]:
+    """The phrases in the rules that name a roll, and what each one rolls.
+
+    Built from the scraped skill list rather than written out, so a skill the
+    SRD names and this list does not cannot go quietly unlinked. A specialty is
+    matched before its skill - "Knowledge (arcane lore) check" before
+    "Knowledge check" - because the longer phrase is the more specific roll.
+
+    Not here: the Wealth check. It is a roll the system has, but the only thing
+    that makes one is a purchase, and a purchase spends Wealth — which is not
+    what a reader clicking a phrase in a rulebook is asking for.
+    """
+    skills = json.load(open(os.path.join(srd.DATA, "skills.json"), encoding="utf-8"))
+    specialties = json.load(open(os.path.join(srd.DATA, "skill_specialties.json"),
+                                 encoding="utf-8"))
+
+    named: list[tuple[str, dict]] = []
+    for skill in skills:
+        for option in (specialties.get(skill["id"]) or {}).get("options") or []:
+            named.append((rf"{re.escape(skill['name'])}\s*\({re.escape(option)}\)",
+                          {"skill": skill["id"], "specialty": option}))
+        named.append((re.escape(skill["name"]), {"skill": skill["id"]}))
+    for key, label in (("str", "Strength"), ("dex", "Dexterity"), ("con", "Constitution"),
+                       ("int", "Intelligence"), ("wis", "Wisdom"), ("cha", "Charisma")):
+        named.append((label, {"ability": key}))
+
+    # Longest first, so a specialty is never read as its skill.
+    named.sort(key=lambda pair: -len(pair[0]))
+
+    patterns = [
+        (re.compile(rf"\b(?:DC\s+(?P<before>\d+)\s+)?(?P<phrase>{name}\s+check)"
+                    r"(?:\s*\(DC\s+(?P<after>\d+)\))?", re.I), roll)
+        for name, roll in named
+    ]
+    # The same three names the creature abilities are read with, above.
+    patterns += [
+        (re.compile(rf"\b(?:DC\s+(?P<before>\d+)\s+)?"
+                    rf"(?P<phrase>{name}\s+(?:save|saving throw))"
+                    r"(?:\s*\(DC\s+(?P<after>\d+)\))?", re.I), {"save": key})
+        for name, key in SAVE_NAMES.items()
+    ]
+    return patterns
+
+
+def link_checks(markup: str, patterns: list[tuple[re.Pattern, dict]]) -> str:
+    """The SRD's own "DC 15 Climb check", as a roll the reader can make.
+
+    The rules say what to roll constantly, and on the page it is a sentence.
+    `@Check[skill:climb|dc:15]` is the same sentence with the roll attached to
+    it: module/enrichers.mjs renders it as the SRD's own words with a die on
+    the front, and clicking it rolls for the selected character.
+
+    Only prose is rewritten. A tag's attributes are markup; so is the label of
+    a link, whether it was written as an @UUID - a page named "Skill Checks" is
+    linked from thirty places - or is still an anchor out to the web. A roll
+    inside a link is a link inside a link, which no browser renders.
+    """
+    def rewrite(prose: str) -> str:
+        for part in TAG.split(prose):
+            if part.startswith("<"):
+                yield part
+                continue
+            for pattern, roll in patterns:
+                def replace(match, roll=roll):
+                    dc = match.group("before") or match.group("after")
+                    terms = [f"{key}:{value}" for key, value in roll.items()]
+                    if dc:
+                        terms.append(f"dc:{dc}")
+                    return f"@Check[{'|'.join(terms)}]{{{match.group(0)}}}"
+                part = pattern.sub(replace, part)
+            yield part
+
+    out = []
+    position = 0
+    for protected in PROTECTED.finditer(markup):
+        out += rewrite(markup[position:protected.start()])
+        out.append(protected.group(0))
+        position = protected.end()
+    out += rewrite(markup[position:])
+    return "".join(out)
+
+
 # The sentence Wizards heads each SRD document with. The mirror carries it
 # once, on its legal page, because a website is one document; a compendium is
 # fifty, and any one of them can be exported on its own.
@@ -1548,6 +1641,8 @@ def build_rules() -> list[dict]:
     # cannot end up pointing at different pages.
     index = rules_pages.RulesIndex(entries)
     targets = index.anchors
+    # What the rules tell the reader to roll, so that the telling is the roll.
+    rollable = check_patterns()
     # Three titles appear in two books each - Psionics, Advanced Classes and
     # Vehicles - and two identical rows in a search result help nobody, so
     # those say which book they are from. The rest keep the SRD's own name.
@@ -1566,7 +1661,7 @@ def build_rules() -> list[dict]:
         pages = []
         for position, page in enumerate(entry["pages"]):
             page_id = document_id("rules", f"{slug}-{position}")
-            content = link_rules(page["html"], targets, split)
+            content = link_checks(link_rules(page["html"], targets, split), rollable)
             # Each entry opens with the notice, the way each of the SRD's own
             # documents does. The legal entry is the licence itself, and the
             # chapters taken from the RTF releases already say it: that is the
