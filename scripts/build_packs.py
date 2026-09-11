@@ -16,13 +16,13 @@ rebuild updates documents in place instead of duplicating them.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import rules_pages  # noqa: E402
 import srd  # noqa: E402
 
 OUT = os.path.join(srd.ROOT, "src", "packs")
@@ -104,16 +104,9 @@ def table_kind(header: list[str]) -> str:
     return ""
 
 
-def document_id(pack: str, slug: str) -> str:
-    """A stable 16-character Foundry id, so rebuilds update rather than duplicate."""
-    digest = hashlib.sha1(f"{pack}/{slug}".encode()).hexdigest()
-    alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    value = int(digest, 16)
-    out = []
-    for _ in range(16):
-        value, index = divmod(value, len(alphabet))
-        out.append(alphabet[index])
-    return "".join(out)
+# Lives in srd.py because the links into the rules compendium are built from
+# these ids too, and one definition is the only way the two agree.
+document_id = srd.document_id
 
 
 def parse_restriction(cell: str) -> str:
@@ -643,6 +636,9 @@ def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extr
         }
         if extra:
             document.update(extra(entry))
+        # The SRD's own heading, which for a vehicle is the page it is sold on:
+        # "Civilian Cars", "Military Vehicles".
+        rules_pages.default().link(document, pack, category=entry.get("category", ""))
         key_embedded(collection, doc_id, document)
         documents.append(document)
     return documents
@@ -1404,26 +1400,11 @@ def build_rules() -> list[dict]:
     entries = json.load(open(os.path.join(srd.DATA, "rules.json"), encoding="utf-8"))
 
     # Where each of the SRD's own pages ended up, so a reference to it can be
-    # rewritten as a link. Built before anything else, because a page early in
-    # the book refers to one at the end of it.
-    targets = {}
-    sources: dict[str, int] = {}
-    for entry in entries:
-        slug = srd.slugify(entry["id"])
-        for position, page in enumerate(entry["pages"]):
-            if not page.get("source"):
-                continue
-            uuid = (f"Compendium.modern20.rules.JournalEntry."
-                    f"{document_id('rules', slug)}.JournalEntryPage."
-                    f"{document_id('rules', f'{slug}-{position}')}")
-            # A reference to a page that has been split into one page per
-            # creature lands on the first of them; a reference to an anchor
-            # inside it lands on the creature, which is what the Menace
-            # Manual's own A-Z index is made of.
-            targets.setdefault(page["source"], uuid)
-            for anchor in page.get("anchors") or []:
-                targets.setdefault(f"{page['source']}#{anchor}", uuid)
-            sources[page["source"]] = sources.get(page["source"], 0) + 1
+    # rewritten as a link — and, since the same index is what stamps
+    # `system.rulesPage` on everything else, a citation and a link from an item
+    # cannot end up pointing at different pages.
+    index = rules_pages.RulesIndex(entries)
+    targets = index.anchors
     # Three titles appear in two books each - Psionics, Advanced Classes and
     # Vehicles - and two identical rows in a search result help nobody, so
     # those say which book they are from. The rest keep the SRD's own name.
@@ -1431,10 +1412,10 @@ def build_rules() -> list[dict]:
               if [e["title"] for e in entries].count(title) > 1}
 
     # The SRD pages this build divided into one page per entry.
-    split = {source for source, count in sources.items() if count > 1}
+    split = index.split
     notice = ogc_notice(targets.get("legal.html"))
 
-    for index, entry in enumerate(entries):
+    for order, entry in enumerate(entries):
         name = (f"{entry['title']} ({entry['book']})"
                 if entry["title"] in shared else entry["title"])
         slug = srd.slugify(entry["id"])
@@ -1465,7 +1446,7 @@ def build_rules() -> list[dict]:
             "_id": doc_id,
             "name": name,
             "pages": pages,
-            "sort": (index + 1) * 1000,
+            "sort": (order + 1) * 1000,
             "flags": {"modern20": {"book": entry["book"], "source": entry["source"]}},
             "_key": f"!journal!{doc_id}",
             "_slug": slug,
@@ -1591,6 +1572,12 @@ def build() -> dict[str, list[dict]]:
     packs: dict[str, list[dict]] = {}
     seen: dict[str, set[str]] = {}
     reprinted: list[str] = []
+    # Which page of the rules reference each document belongs on. Stamped here
+    # rather than afterwards for the equipment, because the heading the SRD
+    # printed a table under is a page of the rules and is known only while the
+    # table is being read: by the time a handgun is an item, all it carries is
+    # the proficiency it needs.
+    rules = rules_pages.default()
 
     for table in tables:
         book = SOURCE_BOOKS.get(table["page"])
@@ -1660,7 +1647,7 @@ def build() -> dict[str, list[dict]]:
                 continue
             bucket.add(slug)
 
-            packs.setdefault(pack, []).append({
+            document = {
                 "_id": document_id(pack, slug),
                 "name": name,
                 "type": ITEM_TYPE.get(builder, builder),
@@ -1677,7 +1664,9 @@ def build() -> dict[str, list[dict]]:
                 },
                 "_key": f"!items!{document_id(pack, slug)}",
                 "_slug": slug,
-            })
+            }
+            rules.link(document, pack, category=category)
+            packs.setdefault(pack, []).append(document)
 
     if reprinted:
         print(f"  {len(reprinted)} reprinted name(s) kept from d20 Modern: "
@@ -1699,6 +1688,18 @@ def build() -> dict[str, list[dict]]:
         documents = builder()
         if documents:
             packs[name] = documents
+
+    # Everything else knows its own page by name: a feat, a spell, a creature
+    # and a talent's class all have one. The rules are the pages themselves.
+    for pack, documents in packs.items():
+        if pack == "rules":
+            continue
+        for document in documents:
+            if document.get("_key", "").startswith("!folders!"):
+                continue
+            if not (document.get("system") or {}).get("rulesPage"):
+                rules.link(document, pack)
+    print(rules.report())
 
     # Seven packs hold more than one book: the equipment three, the creatures,
     # the spells, the powers and the vehicles. Each gets a folder per book.

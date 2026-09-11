@@ -1,5 +1,5 @@
 {
-  "_comment": "How much of each SRD document the packs cover, by scripts/check_coverage.py. A document with nothing matched is either rules text the system implements in code, or content not imported yet; the review in the README says which. Regenerate with --update after importing more, never to make a failure go away.",
+  "_comment": "How much of each SRD document the packs cover, by scripts/check_coverage.py. A document with nothing matched is either rules text the system implements in code, or content not imported yet; the review in the README says which. Regenerate with --update after importing more, never to make a failure go away. The \"links\" block is the same measure for the rules links: how many documents in each pack point at a page of the rules compendium, and how many of those reach their own entry rather than the chapter they were printed in, by scripts/check_rules_links.py.",
   "documents": {
     "legal": {
       "book": "d20 Modern",
@@ -318,6 +318,73 @@
       "title": "Creatures",
       "sections": 161,
       "matched": 104
+    }
+  },
+  "links": {
+    "armor": {
+      "documents": 40,
+      "linked": 40,
+      "pages": 10
+    },
+    "classes": {
+      "documents": 24,
+      "linked": 24,
+      "pages": 24
+    },
+    "creatures": {
+      "documents": 198,
+      "linked": 198,
+      "pages": 116
+    },
+    "feats": {
+      "documents": 95,
+      "linked": 95,
+      "pages": 95
+    },
+    "fx": {
+      "documents": 134,
+      "linked": 134,
+      "pages": 92
+    },
+    "gear": {
+      "documents": 289,
+      "linked": 289,
+      "pages": 20
+    },
+    "objects": {
+      "documents": 14,
+      "linked": 14,
+      "pages": 1
+    },
+    "occupations": {
+      "documents": 19,
+      "linked": 19,
+      "pages": 19
+    },
+    "psionics": {
+      "documents": 87,
+      "linked": 87,
+      "pages": 87
+    },
+    "spells": {
+      "documents": 174,
+      "linked": 174,
+      "pages": 174
+    },
+    "talents": {
+      "documents": 52,
+      "linked": 52,
+      "pages": 6
+    },
+    "vehicles": {
+      "documents": 85,
+      "linked": 85,
+      "pages": 38
+    },
+    "weapons": {
+      "documents": 180,
+      "linked": 180,
+      "pages": 12
     }
   }
 }

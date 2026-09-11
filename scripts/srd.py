@@ -6,6 +6,7 @@ Standard library only: no install step.
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import os
 import re
@@ -237,6 +238,23 @@ def to_int(text: str, default: int = 0) -> int:
 def slugify(name: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
     return slug or "unnamed"
+
+
+def document_id(pack: str, slug: str) -> str:
+    """A stable 16-character Foundry id, so rebuilds update rather than duplicate.
+
+    Shared rather than private to the importer: a link into the rules
+    compendium is a UUID made of these ids, and the two have to agree or every
+    link points at a page that does not exist.
+    """
+    digest = hashlib.sha1(f"{pack}/{slug}".encode()).hexdigest()
+    alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    value = int(digest, 16)
+    out = []
+    for _ in range(16):
+        value, index = divmod(value, len(alphabet))
+        out.append(alphabet[index])
+    return "".join(out)
 
 
 def page_url(page: str) -> str:
