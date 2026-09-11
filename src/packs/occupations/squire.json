@@ -1,0 +1,55 @@
+{
+  "_id": "86pgcUkMA8pVYbKj",
+  "name": "Squire",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Squires serve as assistants to warriors in hopes of learning the skills they will need to be warriors themselves one day.",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html",
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "balance",
+        "label": "Balance",
+        "specialties": []
+      },
+      {
+        "skill": "climb",
+        "label": "Climb",
+        "specialties": []
+      },
+      {
+        "skill": "handleAnimal",
+        "label": "Handle Animal",
+        "specialties": []
+      },
+      {
+        "skill": "jump",
+        "label": "Jump",
+        "specialties": []
+      },
+      {
+        "skill": "ride",
+        "label": "Ride",
+        "specialties": []
+      },
+      {
+        "skill": "tumble",
+        "label": "Tumble",
+        "specialties": []
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Strength 13 or Dexterity 13."
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.K8QdJPS6eZ1OCwAO.JournalEntryPage.g2f7ZUWgyV9no7lr"
+  },
+  "_key": "!items!86pgcUkMA8pVYbKj",
+  "folder": "LRAr92Lr1amGxdQO"
+}

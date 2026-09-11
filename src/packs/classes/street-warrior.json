@@ -1,0 +1,228 @@
+{
+  "_id": "zR6lRuDCmQOhPUj5",
+  "name": "Street Warrior",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Street Warrior, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Urban survival"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Improvised weapons"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Street cred"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Improved streetfighting"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 1,
+        "will": 1,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 7,
+        "features": [
+          "Weapon specialization"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 8,
+        "features": [
+          "Improvised weapon damage"
+        ],
+        "baseAttack": 8,
+        "fort": 6,
+        "ref": 2,
+        "will": 2,
+        "defense": 4,
+        "reputation": 3
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 9,
+        "fort": 6,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 3
+      },
+      {
+        "level": 10,
+        "features": [
+          "Advanced streetfighting"
+        ],
+        "baseAttack": 10,
+        "fort": 7,
+        "ref": 3,
+        "will": 3,
+        "defense": 5,
+        "reputation": 4
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanstreetwarrior.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.VFbWgQIeUzdI5nsz.JournalEntryPage.fvvTK37fHuSemqu7"
+  },
+  "_key": "!items!zR6lRuDCmQOhPUj5",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

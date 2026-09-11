@@ -1,0 +1,63 @@
+{
+  "_id": "pUxMMY2QbUW6XFV3",
+  "name": "Apothecary",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Apothecaries are people who study the science of mixing chemicals, elements, and naturally occurring",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanoccs.html",
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "craft",
+        "label": "Craft (chemical, mechanical, pharmaceutical, or writing)",
+        "specialties": [
+          "Chemical",
+          "Mechanical",
+          "Pharmaceutical",
+          "Or Writing"
+        ]
+      },
+      {
+        "skill": "disableDevice",
+        "label": "Disable Device",
+        "specialties": []
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (arcane lore, earth and life sciences, history, or physical sciences)",
+        "specialties": [
+          "Arcane Lore",
+          "Earth And Life Sciences",
+          "History",
+          "Or Physical Sciences"
+        ]
+      },
+      {
+        "skill": "repair",
+        "label": "Repair",
+        "specialties": []
+      },
+      {
+        "skill": "research",
+        "label": "Research",
+        "specialties": []
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "Arcane Skills",
+      "Educated"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 3,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 20+."
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.K8QdJPS6eZ1OCwAO.JournalEntryPage.lGbTXpE5zP5nLQ5e"
+  },
+  "_key": "!items!pUxMMY2QbUW6XFV3",
+  "folder": "LRAr92Lr1amGxdQO"
+}

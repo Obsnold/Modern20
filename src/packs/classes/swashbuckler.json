@@ -1,0 +1,220 @@
+{
+  "_id": "PVPYMcWXZ4YORM7M",
+  "name": "Swashbuckler",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d8",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "escapeArtist",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "listen",
+        "specialty": ""
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Swashbuckler, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Weapon focus"
+        ],
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Quick weapon draw"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 3,
+        "will": 0,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 2,
+        "ref": 3,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Weapon specialization"
+        ],
+        "baseAttack": 3,
+        "fort": 2,
+        "ref": 4,
+        "will": 1,
+        "defense": 3,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Find the mark"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 4,
+        "will": 1,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 3,
+        "ref": 5,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Greater weapon specialization"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 5,
+        "will": 2,
+        "defense": 5,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Deflect missiles"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 2,
+        "defense": 6,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 4,
+        "ref": 6,
+        "will": 3,
+        "defense": 6,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Touché"
+        ],
+        "baseAttack": 7,
+        "fort": 5,
+        "ref": 7,
+        "will": 3,
+        "defense": 7,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanswash.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.VFbWgQIeUzdI5nsz.JournalEntryPage.lgELBGGNKyqOrrRq"
+  },
+  "_key": "!items!PVPYMcWXZ4YORM7M",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

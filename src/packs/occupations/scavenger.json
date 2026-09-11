@@ -1,0 +1,81 @@
+{
+  "_id": "sEf4naQxAkFb5GBi",
+  "name": "Scavenger",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Scavengers turn society’s wreckage and discarded trash into useful tools or items for trade, and if they’re lucky, their endeavors might even yield one or two objects of special value. They effortlessly navigate and strip clean the most treacherous places, and their playgrounds are abandoned space stations, gutted buildings, and smoking battlefields.",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html",
+    "skillChoiceCount": 3,
+    "skillOptions": [
+      {
+        "skill": "decipherScript",
+        "label": "Decipher Script (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "disableDevice",
+        "label": "Disable Device (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (technology) (Int)",
+        "specialties": [
+          "Technology"
+        ]
+      },
+      {
+        "skill": "moveSilently",
+        "label": "Move Silently (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      },
+      {
+        "skill": "repair",
+        "label": "Repair (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "search",
+        "label": "Search (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "spot",
+        "label": "Spot (Wis)",
+        "specialties": [
+          "Wis"
+        ]
+      },
+      {
+        "skill": "survival",
+        "label": "Survival (Wis)",
+        "specialties": [
+          "Wis"
+        ]
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "wealthBonus": 2,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.sXYhzimKCAEKevkY.JournalEntryPage.FqQWAwyzXbBebFbe"
+  },
+  "_key": "!items!sEf4naQxAkFb5GBi",
+  "folder": "xqvZ8r6zuNXOPDyS"
+}

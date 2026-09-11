@@ -1,0 +1,197 @@
+{
+  "_id": "l8WlM2CEAE5juXGK",
+  "name": "Dreadnought",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d12",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Dreadnought, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Fearless",
+          "stability",
+          "unhindered"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 0,
+        "will": 1,
+        "defense": 0,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Ability surge (1/day)",
+          "steamroller"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 0,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Master defender (+2)"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 2,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Ability surge (2/day)",
+          "knockdown"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 1,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 2,
+        "will": 3,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Master defender (+4)"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 2,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Ability surge (3/day)",
+          "heavy artillery"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 2,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 3,
+        "will": 4,
+        "defense": 3,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Master defender (+6)"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 3,
+        "will": 4,
+        "defense": 3,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuredreadnought.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.ZQV8aE5Ogs4blbwy.JournalEntryPage.JU7eoNsiu9BHQiP8"
+  },
+  "_key": "!items!l8WlM2CEAE5juXGK",
+  "folder": "eZS2LclwY2ycImKx"
+}

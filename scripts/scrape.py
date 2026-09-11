@@ -106,14 +106,82 @@ def labelled_value(lines: list[str], label: str) -> str:
     return ""
 
 
+# The banner an expansion heads a class page with, where d20 Modern's pages
+# carry a "Table: The Soldier" caption instead: "ADVANCED CLASSES - EXPLORER".
+CLASS_BANNER = re.compile(
+    r"^(?:NEW\s+)?(?:BASIC|ADVANCED|PRESTIGE)\s+CLASS(?:ES)?\s*[-–—]\s*(.+)$")
+
+# "Mystics gain 1d6 hit points per level", "1d8". Two books state the Hit Die
+# as a sentence and one as the die, and four of d20 Modern's own classes are
+# written the first way — which is why the Acolyte, the Occultist, the Telepath
+# and the Shadow Slayer all had the fallback d8 rather than their own d6.
+HIT_DIE = re.compile(r"\b(\d*d\d+)\b")
+
+# The SRD prints a class's skill list under one of two labels, and the
+# expansions put the list on the line after the sentence that introduces it.
+SKILL_POINTS_LABELS = ("Skill Points at Each Additional Level", "Skill Points at Each Level")
+
+
+def class_name(lines: list[str], page: str) -> str:
+    """What a class page calls its class.
+
+    d20 Modern names it in the caption of its progression table; the
+    expansions name it in the banner over the page and leave the caption off
+    ten of the twenty-nine they add. The page's own file name is the last
+    resort, and it reads like one: "Urbanmystic".
+    """
+    caption = next((line for line in lines if line.lower().startswith("table: the ")), "")
+    if caption:
+        return caption[len("Table: The "):].strip()
+    for line in lines:
+        banner = CLASS_BANNER.match(line)
+        if banner:
+            # Printed in capitals, like every banner on the site.
+            return banner.group(1).strip().title()
+    return page.replace(".html", "").title()
+
+
+def class_skills_text(lines: list[str], skill_names: list[tuple[str, str]]) -> str:
+    """The printed class skill list.
+
+    Urban Arcana and d20 Future write "The Mystic's class skills are as
+    follows:" and put the list on the next line, so the value under the label
+    is a sentence rather than a list. Which line it is cannot be told by
+    looking for a bracket — "the Arcane Arranger's class skills (and the key
+    ability for each skill) are:" has one — so each line after the label is
+    parsed and the first that yields a skill is the list.
+    """
+    for index, line in enumerate(lines):
+        if line.rstrip(":").strip().lower() != "class skills":
+            continue
+        for tail in lines[index + 1:index + 4]:
+            text = tail.lstrip(":").strip()
+            if parse_class_skills(text, skill_names):
+                return text
+        break
+    return labelled_value(lines, "Class Skills")
+
+
 def class_pages() -> dict[str, str]:
-    """Class page -> tier, discovered from the two index pages."""
+    """Class page -> tier, discovered from the index pages.
+
+    Every book that adds classes publishes an index of them, and they are all
+    the same shape, so each one is read the same way: d20 Modern's basic and
+    advanced lists, the FX chapter's own list of the classes that cast, and the
+    two expansions'. What comes back is every page those indexes link to, which
+    includes the chapter pages their navigation menus carry; a page with no
+    class progression table on it is passed over in scrape_classes.
+    """
     pages = {}
-    # The FX chapter keeps its advanced classes - the ones that cast - on an
-    # index of their own, so they are not reachable from advancedclasses.html.
     for index_page, tier in (("basicclasses.html", "basic"),
                              ("advancedclasses.html", "advanced"),
-                             ("fxadvanced.html", "advanced")):
+                             ("fxadvanced.html", "advanced"),
+                             ("urbanadv.html", "advanced"),
+                             ("futureadv.html", "advanced"),
+                             # Last, so a page both lists is a prestige class:
+                             # Urban Arcana's index of them links four pages
+                             # its advanced index does not.
+                             ("urbanprestige.html", "prestige")):
         try:
             html_text = srd.fetch(index_page)
         except Exception:
@@ -307,6 +375,10 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
     skill_names = sorted(((s["name"], s["id"]) for s in skills), key=lambda p: -len(p[0]))
 
     out = []
+    # Pages an index links that turn out not to be a class: the chapter pages
+    # in the navigation menu, and the FX chapter's own sub-indexes. Counted
+    # rather than listed one by one, since the figure is the useful part.
+    passed_over = []
     for page, tier in sorted(class_pages().items()):
         try:
             page_html = srd.fetch(page)
@@ -323,21 +395,21 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
             None,
         )
         if not table:
-            print(f"  ! {page}: no progression table found", file=sys.stderr)
+            passed_over.append(page)
             continue
 
-        caption = next((l for l in lines if l.lower().startswith("table: the ")), "")
-        name = caption[len("Table: The "):].strip() if caption else page.replace(".html", "").title()
-
-        class_skills_text = labelled_value(lines, "Class Skills")
-        class_skills = parse_class_skills(class_skills_text, skill_names)
+        name = class_name(lines, page)
+        class_skills = parse_class_skills(class_skills_text(lines, skill_names), skill_names)
 
         out.append({
             "id": camel(name),
             "name": name,
             "tier": tier,
-            "hitDie": labelled_value(lines, "Hit Die") or "1d8",
-            "skillPointsPerLevel": srd.to_int(labelled_value(lines, "Skill Points at Each Additional Level"), 3),
+            # The die out of whichever way the page states it.
+            "hitDie": next(iter(HIT_DIE.findall(labelled_value(lines, "Hit Die"))), "1d8"),
+            "skillPointsPerLevel": next(
+                (srd.to_int(labelled_value(lines, label), 3) for label in SKILL_POINTS_LABELS
+                 if labelled_value(lines, label)), 3),
             "classSkills": class_skills,
             "requirements": labelled_value(lines, "Requirements"),
             "actionPoints": labelled_value(lines, "Action Points"),
@@ -346,6 +418,8 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
             "srdUrl": srd.page_url(page),
         })
 
+    if passed_over:
+        print(f"  {len(passed_over)} linked page(s) carry no class progression table")
     return out
 
 
@@ -355,7 +429,9 @@ def scrape_classes(skills: list[dict]) -> list[dict]:
 FEAT_LABELS = {"prerequisite", "prerequisites", "benefit", "normal", "special"}
 OCCUPATION_LABELS = {
     "prerequisite", "prerequisites", "skills", "bonus feat",
+    # Urban Arcana drops the "Increase", and means the same thing by it.
     "wealth bonus increase", "reputation bonus increase",
+    "wealth bonus", "reputation bonus",
 }
 PREREQ_LABELS = {"prerequisite", "prerequisites"}
 
@@ -373,12 +449,43 @@ def value_of(line: str) -> str:
 
 
 def collect_labels(lines: list[str], start: int, end: int, labels: set[str]) -> dict[str, str]:
-    """Read every label/value pair in a slice, keyed by lowercased label."""
+    """Read every label/value pair in a slice, keyed by lowercased label.
+
+    The colon sits on either side of the tag break. d20 Modern splits
+    ["Prerequisite", ": Age 20+."] and d20 Future ["Prerequisite:", "Age 21+"],
+    and reading only the first shape found nothing at all on d20 Future's
+    pages: every one of its occupations was skipped for having no prerequisite.
+    """
     found = {}
     for i in range(start, min(end, len(lines) - 1)):
-        if is_label(lines[i], labels) and is_value(lines[i + 1]):
+        if not is_label(lines[i], labels):
+            continue
+        if is_value(lines[i + 1]) or lines[i].rstrip().endswith(":"):
             found[lines[i].rstrip(":").strip().lower()] = value_of(lines[i + 1])
     return found
+
+
+def labelled_block(lines: list[str], start: int, end: int,
+                   label: str, labels: set[str]) -> str:
+    """A label's value, plus the lines that continue it.
+
+    The expansions print the sentence under the label and the list it refers to
+    on the line after: "Choose three of the following skills as permanent class
+    skills." then "Craft (chemical, mechanical...), Disable Device, ...". Both
+    are the value, and the skill choices cannot be read from either alone.
+    """
+    for i in range(start, min(end, len(lines) - 1)):
+        if not is_label(lines[i], labels):
+            continue
+        if lines[i].rstrip(":").strip().lower() != label.lower():
+            continue
+        parts = [value_of(lines[i + 1])]
+        for tail in lines[i + 2:min(end, len(lines))]:
+            if is_label(tail, labels) or is_value(tail):
+                break
+            parts.append(tail)
+        return " ".join(part for part in parts if part)
+    return ""
 
 
 def trailing_prose(lines: list[str], start: int, end: int, labels: set[str]) -> str:
@@ -447,6 +554,11 @@ def entry_starts(lines: list[str], labels: set[str], lookahead: int = 3,
         # an entry name truncates the real entry's description.
         if i + 1 < len(lines) and is_value(lines[i + 1]):
             continue
+        # A line after a label that carries its own colon is that label's
+        # value, and reading it as a name gave d20 Future an occupation called
+        # "+2" — the Wealth Bonus Increase of the one above it.
+        if i and is_label(lines[i - 1], labels) and lines[i - 1].rstrip().endswith(":"):
+            continue
         window = lines[i + 1: i + 1 + lookahead]
         if any(is_label(w, labels) for w in window):
             candidates.append(i)
@@ -514,12 +626,32 @@ def scrape_feats() -> list[dict]:
     return [feats[k] for k in sorted(feats)]
 
 
+# Each book's starting occupations, core first: where two books print the same
+# occupation the core entry is the one kept, as with the equipment and the
+# feats.
+OCCUPATION_PAGES = ("occupations.html", "urbanoccs.html", "futureocc.html")
+
+
 def scrape_occupations(skills: list[dict]) -> list[dict]:
     """Starting occupations: skill choices, a bonus feat and a Wealth bump."""
     skill_names = sorted(((s["name"], s["id"]) for s in skills), key=lambda p: -len(p[0]))
-    lines = text_lines(srd.fetch(srd.PAGES["occupations"]))
-    starts = entry_starts(lines, OCCUPATION_LABELS, lookahead=3)
 
+    occupations = {}
+    reprinted = []
+    for page in OCCUPATION_PAGES:
+        lines = text_lines(srd.fetch(page))
+        starts = entry_starts(lines, OCCUPATION_LABELS, lookahead=3)
+        occupations.update(page_occupations(lines, starts, page, skill_names, reprinted,
+                                            known=set(occupations)))
+
+    if reprinted:
+        print(f"  {len(reprinted)} occupation(s) reprinted, kept from the core list: "
+              + ", ".join(reprinted))
+    return [occupations[k] for k in sorted(occupations)]
+
+
+def page_occupations(lines, starts, page, skill_names, reprinted, known) -> dict:
+    """The occupations on one page, by name."""
     occupations = {}
     for position, start in enumerate(starts):
         end = starts[position + 1] if position + 1 < len(starts) else len(lines)
@@ -528,24 +660,30 @@ def scrape_occupations(skills: list[dict]) -> list[dict]:
         # Every occupation states a prerequisite, even if only an age.
         if not (fields.keys() & PREREQ_LABELS):
             continue
+        if name in known:
+            reprinted.append(f"{name} ({page})")
+            continue
 
         prereq = fields.get("prerequisites") or fields.get("prerequisite") or ""
+        skills_text = labelled_block(lines, start + 1, end, "Skills", OCCUPATION_LABELS)
         occupations[name] = {
             "id": camel(name),
             "name": name,
             # The line after the name is the flavour paragraph.
             "description": lines[start + 1] if start + 1 < len(lines) and not is_label(lines[start + 1], OCCUPATION_LABELS) else "",
             "prerequisites": [p.strip() for p in prereq.split(",") if p.strip()],
-            "skills": fields.get("skills", ""),
-            "skillChoices": parse_skill_choices(fields.get("skills", ""), skill_names),
+            "skills": skills_text,
+            "skillChoices": parse_skill_choices(skills_text, skill_names),
             "bonusFeat": fields.get("bonus feat", ""),
             "bonusFeatOptions": parse_feat_choices(fields.get("bonus feat", "")),
-            "wealthBonus": srd.to_int(fields.get("wealth bonus increase", "")),
-            "reputationBonus": srd.to_int(fields.get("reputation bonus increase", "")),
-            "srdUrl": srd.page_url(srd.PAGES["occupations"]),
+            "wealthBonus": srd.to_int(fields.get("wealth bonus increase")
+                                      or fields.get("wealth bonus", "")),
+            "reputationBonus": srd.to_int(fields.get("reputation bonus increase")
+                                          or fields.get("reputation bonus", "")),
+            "srdUrl": srd.page_url(page),
         }
 
-    return [occupations[k] for k in sorted(occupations)]
+    return occupations
 
 
 def scrape_talents() -> list[dict]:

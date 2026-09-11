@@ -1,0 +1,234 @@
+{
+  "_id": "k6TA2vYcUIzhKSue",
+  "name": "Technosavant",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 7,
+    "classSkills": [
+      {
+        "skill": "computerUse",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Electrical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Mechanical"
+      },
+      {
+        "skill": "demolitions",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Physical Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "navigate",
+        "specialty": ""
+      },
+      {
+        "skill": "pilot",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "repair",
+        "specialty": ""
+      },
+      {
+        "skill": "research",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Technosavant, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Salvage",
+          "Technocant"
+        ],
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Robomancer",
+          "technophile"
+        ],
+        "baseAttack": 1,
+        "fort": 0,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Cybermancer",
+          "skilled salvager"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 1
+      },
+      {
+        "level": 5,
+        "features": [
+          "Down with robots (+1d6/+4)",
+          "exotic weapon adept"
+        ],
+        "baseAttack": 3,
+        "fort": 1,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 2,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Super cybersurgeon",
+          "virtual Houdini"
+        ],
+        "baseAttack": 5,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 8,
+        "features": [
+          "Down with robots (+2d6/+8)",
+          "expeditious salvager"
+        ],
+        "baseAttack": 6,
+        "fort": 2,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 2
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 3,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Build prototype"
+        ],
+        "baseAttack": 7,
+        "fort": 3,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 3
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futuretechno.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.ZQV8aE5Ogs4blbwy.JournalEntryPage.VC9vz0Xv3NX9WYzB"
+  },
+  "_key": "!items!k6TA2vYcUIzhKSue",
+  "folder": "eZS2LclwY2ycImKx"
+}

@@ -1,0 +1,208 @@
+{
+  "_id": "s5PWDYuV690SSckz",
+  "name": "Holy/Unholy Knight",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "prestige",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d10",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "handleAnimal",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Arcane Lore"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Current Events"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "History"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Technology"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Holy/Unholy Knight, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Divine grace",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 2,
+        "ref": 0,
+        "will": 2,
+        "defense": 0,
+        "reputation": 1
+      },
+      {
+        "level": 2,
+        "features": [
+          "Sense allegiance",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 0,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 3,
+        "features": [
+          "Smite allegiance",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 3,
+        "ref": 1,
+        "will": 3,
+        "defense": 1,
+        "reputation": 1
+      },
+      {
+        "level": 4,
+        "features": [
+          "Divine touch",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 5,
+        "features": [
+          "Turn undead",
+          "divine spells"
+        ],
+        "baseAttack": 5,
+        "fort": 4,
+        "ref": 1,
+        "will": 4,
+        "defense": 2,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "divine",
+      "ability": "",
+      "perDay": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanknight.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.M3kFJmlDxRzMuWOg.JournalEntryPage.CImZsNyo03NlGhmJ"
+  },
+  "_key": "!items!s5PWDYuV690SSckz",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "HsbAWLYRBTwk7Ah7",
+  "name": "Heir",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "Heirs are the elite sons and daughters of powerful magnates, influential nobles, and imperial monarchs. Unlike dilettantes, however, they are bound by their lineage to certain responsibilities, with the assumption that they might someday rise to lead their families into the future . . . assuming the stars are properly aligned and they do nothing to jeopardize their birthright.",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html",
+    "skillChoiceCount": 2,
+    "skillOptions": [
+      {
+        "skill": "craft",
+        "label": "Craft (visual art or writing) (Int)",
+        "specialties": [
+          "Visual Art Or Writing"
+        ]
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (art, business, civics, current events, or history) (Int)",
+        "specialties": [
+          "Art",
+          "Business",
+          "Civics",
+          "Current Events",
+          "Or History"
+        ]
+      },
+      {
+        "skill": "perform",
+        "label": "Perform (act, dance, keyboards, percussion instruments, sing, stringed instruments, or wind instruments) (Cha)",
+        "specialties": [
+          "Act",
+          "Dance",
+          "Keyboards",
+          "Percussion Instruments",
+          "Sing",
+          "Stringed Instruments",
+          "Or Wind Instruments"
+        ]
+      },
+      {
+        "skill": "ride",
+        "label": "Ride (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      },
+      {
+        "skill": "senseMotive",
+        "label": "Sense Motive (Wis). Pre-Selected Feat: An heir must choose the Educated feat as one of her starting feats at 1st level",
+        "specialties": [
+          "Wis"
+        ]
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "+1"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 6,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 21+"
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.sXYhzimKCAEKevkY.JournalEntryPage.cCbyYF4UHChEWssq"
+  },
+  "_key": "!items!HsbAWLYRBTwk7Ah7",
+  "folder": "xqvZ8r6zuNXOPDyS"
+}

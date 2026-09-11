@@ -1,0 +1,69 @@
+{
+  "_id": "Q5HsT4ErrYHXtqD5",
+  "name": "Outcast",
+  "type": "occupation",
+  "img": "icons/svg/village.svg",
+  "system": {
+    "description": "“Outcast” is not so much an occupation as a forced way of life. Persecuted and exiled for being different, outcasts are lone pariahs or shunned members of a culture whose customs or characteristics society finds deviant or abhorrent. Outcasts lurk on the fringes of civilization. Some strive for acceptance, while others are trapped by their own feelings of resentment, self-loathing, or hopelessness.",
+    "source": "d20 Future",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/futureocc.html",
+    "skillChoiceCount": 1,
+    "skillOptions": [
+      {
+        "skill": "disguise",
+        "label": "Disguise (Cha)",
+        "specialties": [
+          "Cha"
+        ]
+      },
+      {
+        "skill": "hide",
+        "label": "Hide (Dex)",
+        "specialties": [
+          "Dex"
+        ]
+      },
+      {
+        "skill": "knowledge",
+        "label": "Knowledge (streetwise) (Int)",
+        "specialties": [
+          "Streetwise"
+        ]
+      },
+      {
+        "skill": "search",
+        "label": "Search (Int)",
+        "specialties": [
+          "Int"
+        ]
+      },
+      {
+        "skill": "survival",
+        "label": "Survival (Wis)",
+        "specialties": [
+          "Wis"
+        ]
+      },
+      {
+        "skill": "treatInjury",
+        "label": "Treat Injury (Wis)",
+        "specialties": [
+          "Wis"
+        ]
+      }
+    ],
+    "skillsChosen": [],
+    "bonusFeatOptions": [
+      "Toughness"
+    ],
+    "bonusFeatChosen": "",
+    "wealthBonus": 1,
+    "reputationBonus": 0,
+    "prerequisites": [
+      "Age 15+"
+    ],
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.sXYhzimKCAEKevkY.JournalEntryPage.XYvbdZSxCa2x34OW"
+  },
+  "_key": "!items!Q5HsT4ErrYHXtqD5",
+  "folder": "xqvZ8r6zuNXOPDyS"
+}

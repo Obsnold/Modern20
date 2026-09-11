@@ -1,0 +1,408 @@
+{
+  "_id": "EpWKMDmkKDliS32L",
+  "name": "Mystic",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d6",
+    "skillPointsPerLevel": 5,
+    "classSkills": [
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "craft",
+        "specialty": "Chemical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Pharmaceutical"
+      },
+      {
+        "skill": "craft",
+        "specialty": "Visual Arts"
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Art"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Behavioral Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Earth And Life Sciences"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Theology And Philosophy"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Act"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Dance"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Sing"
+      },
+      {
+        "skill": "perform",
+        "specialty": "Stand-Up"
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "sleightOfHand",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "treatInjury",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become a Mystic, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Arcane skills",
+          "divine spells"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 1,
+        "will": 1,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 2,
+        "features": [
+          "Turn undead",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 2,
+        "will": 2,
+        "defense": 1,
+        "reputation": 2
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 2
+      },
+      {
+        "level": 4,
+        "features": [
+          "Combat casting",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 2,
+        "will": 2,
+        "defense": 2,
+        "reputation": 3
+      },
+      {
+        "level": 5,
+        "features": [
+          "Brew potion",
+          "divine spells"
+        ],
+        "baseAttack": 2,
+        "fort": 4,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 5,
+        "ref": 3,
+        "will": 3,
+        "defense": 3,
+        "reputation": 3
+      },
+      {
+        "level": 7,
+        "features": [
+          "Discern lie",
+          "divine spells"
+        ],
+        "baseAttack": 3,
+        "fort": 5,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 8,
+        "features": [
+          "Turn humans",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 4,
+        "will": 4,
+        "defense": 4,
+        "reputation": 4
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat",
+          "divine spells"
+        ],
+        "baseAttack": 4,
+        "fort": 6,
+        "ref": 4,
+        "will": 4,
+        "defense": 5,
+        "reputation": 4
+      },
+      {
+        "level": 10,
+        "features": [
+          "Empower spell",
+          "divine spells"
+        ],
+        "baseAttack": 5,
+        "fort": 7,
+        "ref": 5,
+        "will": 5,
+        "defense": 5,
+        "reputation": 5
+      }
+    ],
+    "casting": {
+      "kind": "spells",
+      "tradition": "arcane",
+      "ability": "wis",
+      "perDay": [
+        [
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          5,
+          4,
+          4,
+          3,
+          0,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          0
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          3,
+          2
+        ],
+        [
+          6,
+          5,
+          5,
+          4,
+          4,
+          3
+        ]
+      ],
+      "bonusByScore": [
+        {
+          "min": 1,
+          "max": 1,
+          "bonus": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "min": 12,
+          "max": 13,
+          "bonus": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 14,
+          "max": 15,
+          "bonus": [
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 16,
+          "max": 17,
+          "bonus": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "min": 18,
+          "max": 19,
+          "bonus": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "min": 20,
+          "max": 21,
+          "bonus": [
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "min": 22,
+          "max": 23,
+          "bonus": [
+            2,
+            2,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmystic.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.VFbWgQIeUzdI5nsz.JournalEntryPage.QP7d16QtYMoLyYpM"
+  },
+  "_key": "!items!EpWKMDmkKDliS32L",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}

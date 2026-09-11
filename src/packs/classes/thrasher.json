@@ -1,0 +1,204 @@
+{
+  "_id": "PNZ7OSxZ7Dn4SXBJ",
+  "name": "Thrasher",
+  "type": "class",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "tier": "advanced",
+    "levels": 1,
+    "keyAbility": "",
+    "hitDie": "1d12",
+    "skillPointsPerLevel": 3,
+    "classSkills": [
+      {
+        "skill": "balance",
+        "specialty": ""
+      },
+      {
+        "skill": "climb",
+        "specialty": ""
+      },
+      {
+        "skill": "concentration",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "readWriteLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "ride",
+        "specialty": ""
+      },
+      {
+        "skill": "speakLanguage",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "swim",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      },
+      {
+        "skill": "tumble",
+        "specialty": ""
+      }
+    ],
+    "prerequisites": [
+      "To qualify to become an Thrasher, a character must fulfill the following criteria."
+    ],
+    "progression": [
+      {
+        "level": 1,
+        "features": [
+          "Tough Defense"
+        ],
+        "baseAttack": 0,
+        "fort": 2,
+        "ref": 1,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 2,
+        "features": [
+          "Ability surge 1/day"
+        ],
+        "baseAttack": 1,
+        "fort": 3,
+        "ref": 2,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      {
+        "level": 3,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 2,
+        "fort": 3,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 4,
+        "features": [
+          "Uncanny dodge X"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 2,
+        "will": 1,
+        "defense": 2,
+        "reputation": 0
+      },
+      {
+        "level": 5,
+        "features": [
+          "Ability surge 2/day"
+        ],
+        "baseAttack": 3,
+        "fort": 4,
+        "ref": 3,
+        "will": 1,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 6,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 4,
+        "fort": 5,
+        "ref": 3,
+        "will": 2,
+        "defense": 3,
+        "reputation": 1
+      },
+      {
+        "level": 7,
+        "features": [
+          "Damage reduction 5/+1"
+        ],
+        "baseAttack": 5,
+        "fort": 5,
+        "ref": 3,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 8,
+        "features": [
+          "Ability surge 3/day"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 4,
+        "will": 2,
+        "defense": 4,
+        "reputation": 1
+      },
+      {
+        "level": 9,
+        "features": [
+          "Bonus feat"
+        ],
+        "baseAttack": 6,
+        "fort": 6,
+        "ref": 4,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      },
+      {
+        "level": 10,
+        "features": [
+          "Damage reduction 10/+1"
+        ],
+        "baseAttack": 7,
+        "fort": 7,
+        "ref": 5,
+        "will": 3,
+        "defense": 5,
+        "reputation": 2
+      }
+    ],
+    "casting": {
+      "kind": "",
+      "tradition": "",
+      "ability": "",
+      "perDay": [],
+      "bonusByScore": [],
+      "pointsPerDay": [],
+      "bonusPointsByScore": [],
+      "powersKnown": []
+    },
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanthrasher.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.VFbWgQIeUzdI5nsz.JournalEntryPage.Zp8XUjS6gibDfKZL"
+  },
+  "_key": "!items!PNZ7OSxZ7Dn4SXBJ",
+  "folder": "Wt0KbSkKFlxq5KT9"
+}
