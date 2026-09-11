@@ -1,0 +1,15 @@
+{
+  "_comment": "Hand corrections merged over scraped creatures by build_packs.py, keyed by creature id. Each entry needs a 'why' so the next reader can tell a fix from an opinion.",
+  "alflingFastHero1CharismaticHero1": {
+    "why": "The mirror's own markup drops the H: the column is headed <th>alfling Fast Hero 1/Charismatic Hero 1</th> beside the halfling it is a build of. See https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "name": "Halfling Fast Hero 1/Charismatic Hero 1"
+  },
+  "lizard": {
+    "why": "Urban Arcana prints no size-and-type line for the lizard: the row every other stat block heads with one is blank, and the book's own A-Z index gives no type either. Animal is what the entry itself describes - Intelligence 2, no allegiance, the d8 Hit Die it is written with, and species traits of low-light vision and a climb bonus. See https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "creatureType": "animal"
+  },
+  "giantLizard": {
+    "why": "Urban Arcana prints no size-and-type line for the lizard: the row every other stat block heads with one is blank, and the book's own A-Z index gives no type either. Animal is what the entry itself describes - Intelligence 2, no allegiance, the d8 Hit Die it is written with, and species traits of low-light vision and a climb bonus. See https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "creatureType": "animal"
+  }
+}

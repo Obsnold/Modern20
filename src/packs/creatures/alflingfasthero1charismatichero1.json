@@ -1,0 +1,533 @@
+{
+  "_id": "i6I1vg0bXHsmjWTB",
+  "name": "Halfling Fast Hero 1/Charismatic Hero 1",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 11,
+      "max": 11,
+      "temp": 0,
+      "formula": "1d8 plus 1d6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 3,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "small",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 10,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "humanoid",
+      "subtype": "shadowkind",
+      "challengeRating": "2",
+      "hitDice": "1d8 plus 1d6",
+      "advancement": "By character class.",
+      "organization": "",
+      "treasure": "Slingshot, knife, loaded Pathfinder (.22 revolver), speed loader (with 6 extra .22 rounds), taser, casual clothes, disposable camera."
+    },
+    "skills": {
+      "balance": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "climb": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "gatherInformation": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "jump": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "current events",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "popular culture",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          },
+          {
+            "name": "streetwise",
+            "ranks": 1,
+            "misc": 1,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "perform": {
+        "specialties": [
+          {
+            "name": "any one",
+            "ranks": 0,
+            "misc": 1,
+            "classSkill": false
+          }
+        ]
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Halfling",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any three",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "sleightOfHand": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 3,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Halfling",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any three",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "tumble": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "varies",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "special combat bonuses",
+    "biography": "<p><strong>Attack:</strong> +1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p><p><strong>Full Attack:</strong> +1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p><p><strong>Skills:</strong> Balance +5, Bluff +3, Climb +2, Diplomacy +3, Escape Artist +5, Gather Information +3, Hide +11, Jump +2, Knowledge (current events) +3, Knowledge (popular culture) +4, Knowledge (streetwise) +4, Listen +3, Move Silently +7, Perform (any one) +2, Read/Write Halfling, Read/Write Language (any three), Sleight of Hand +7, Speak Halfling, Speak Language (any three), Tumble +7.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Personal Firearms Proficiency, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> (Fast Hero): Evasion. (Charismatic Hero): Fast-talk</p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.6BrGFB6PTjFiW2V8"
+  },
+  "_key": "!actors!i6I1vg0bXHsmjWTB",
+  "items": [
+    {
+      "_id": "2KT07ppyfk4vubMi",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "category": "simple",
+        "damage": "1d3",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.2KT07ppyfk4vubMi"
+    },
+    {
+      "_id": "TDNV6Pu0seDW9Io2",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "",
+        "critical": "19-20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.TDNV6Pu0seDW9Io2"
+    },
+    {
+      "_id": "CycYQObJ6PmH9BVa",
+      "name": "Pathfinder",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "category": "simple",
+        "damage": "2d4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.CycYQObJ6PmH9BVa"
+    },
+    {
+      "_id": "emTHqSmlZXeZGr7c",
+      "name": "Taser",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "electricity",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.emTHqSmlZXeZGr7c"
+    },
+    {
+      "_id": "dikJZF7iThAGDUzM",
+      "name": "Slingshot",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d3 nonlethal, unarmed strike) or +1 melee (1d4/ 19-20, knife) or +4 ranged (2d4, Pathfinder) or +4 ranged (1d4 electricity plus paralysis, taser) or +5 ranged (1d3, slingshot)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "category": "simple",
+        "damage": "1d3",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "small",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        },
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.dikJZF7iThAGDUzM"
+    },
+    {
+      "_id": "HdVlluq65oM7fejX",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.HdVlluq65oM7fejX"
+    },
+    {
+      "_id": "TVBK8WyFJWKoyxOL",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.TVBK8WyFJWKoyxOL"
+    },
+    {
+      "_id": "YuXPg3syj1AgyrXL",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.YuXPg3syj1AgyrXL"
+    },
+    {
+      "_id": "nMcF5L0VJolLNkIo",
+      "name": "Special Combat Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Halflings gain a +1 species bonus on attacks with thrown weapons and slings.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.nMcF5L0VJolLNkIo"
+    },
+    {
+      "_id": "NYtYQ1WZVxd9IgZy",
+      "name": "Saving Throw Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Halflings gain a +1 species bonus on all saving throws. In addition, they gain an additional +2 morale bonus on saving throws against fear.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.NYtYQ1WZVxd9IgZy"
+    },
+    {
+      "_id": "DHZzzTj91qA4at8J",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Halflings gain a +2 species bonus on Climb, Jump, Listen, and Move Silently checks. In addition, halflings gain the bonus skills Read/Write Language (any one) and Speak Language (any one).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.DHZzzTj91qA4at8J"
+    },
+    {
+      "_id": "VvuUB1aWWMEVzBU5",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Halflings gain the bonus feat Archaic Weapons Proficiency.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu"
+      },
+      "_key": "!actors.items!i6I1vg0bXHsmjWTB.VvuUB1aWWMEVzBU5"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

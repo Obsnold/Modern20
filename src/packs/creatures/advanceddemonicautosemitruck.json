@@ -1,0 +1,479 @@
+{
+  "_id": "yqYlLC9lKaJtSdOe",
+  "name": "Advanced Demonic Auto (Semi Truck)",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+    "abilities": {
+      "str": {
+        "value": 31,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 5,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 223,
+      "max": 223,
+      "temp": 0,
+      "formula": "26d10+80"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 19,
+      "misc": -4
+    },
+    "saves": {
+      "fort": {
+        "base": 10,
+        "misc": 0
+      },
+      "ref": {
+        "base": 8,
+        "misc": 0
+      },
+      "will": {
+        "base": 10,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 18,
+      "size": "gargantuan",
+      "speed": 400,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 20,
+        "bypass": "+1"
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "construct",
+      "subtype": "",
+      "challengeRating": "16",
+      "hitDice": "26d10+80",
+      "advancement": "27-45 (Gargantuan)",
+      "organization": "",
+      "treasure": "Flame job (see Chapter Four: Magic Items)."
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 25,
+        "classSkill": false
+      },
+      "drive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 31,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 22,
+        "classSkill": false
+      },
+      "navigate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 25,
+        "classSkill": false
+      },
+      "repair": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 24,
+        "classSkill": false
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 25,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 29,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "chaos",
+        "strength": "none"
+      },
+      {
+        "name": "evil",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 120 ft.",
+    "specialQualities": "construct, outsider traits, damage reduction 20/+1, vehicle movement, no limbs, trample (DC 33; 2d8+15 at alley speed or 4d8+15 at higher speeds), repairable, darkvision 120 ft.",
+    "biography": "<p><strong>Attack:</strong> +25 melee (1d8+15, slam)</p><p><strong>Full Attack:</strong> +25/+20/+15/+10 melee (1d8+10, slam)</p><p><strong>Skills:</strong> Bluff +22, Drive +32, Hide +10, Intimidate +19, Navigate +25, Repair +25, Sense Motive +25, Spot +29.</p><p><strong>Feats:</strong> Drive-By Attack, Great Fortitude, Force Stop, Iron Will, Vehicle Dodge, Vehicle Expert, Weapon Focus (slam).</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.zF3gDPl2Nj1J0oxT"
+  },
+  "_key": "!actors!yqYlLC9lKaJtSdOe",
+  "items": [
+    {
+      "_id": "FWZ3t0AuLkIxKIiz",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+25/+20/+15/+10 melee (1d8+10, slam)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d8+10",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.FWZ3t0AuLkIxKIiz"
+    },
+    {
+      "_id": "Ex4u4TRNdI2mC6n9",
+      "name": "Drive-By Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no vehicle speed penalty when making an attack while in a moving vehicle. Also, if the character is the driver, he or she can take his or her attack action to make an attack at any point along the vehicle’s movement.",
+        "normal": "When attacking from a moving vehicle, a character takes a penalty based on the vehicle’s speed. Passengers can ready an action to make an attack when their vehicle reaches a particular location, but the driver must make his or her attack action either before or after the vehicle’s movement.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.zWsEWEsPcih17UyQ"
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.Ex4u4TRNdI2mC6n9"
+    },
+    {
+      "_id": "0bpAy6TlZqcpZTKB",
+      "name": "Great Fortitude",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dhezLjTJWP7r3Rtl"
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.0bpAy6TlZqcpZTKB"
+    },
+    {
+      "_id": "aIPSxigqkTNrq99W",
+      "name": "Force Stop",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Drive 4 ranks",
+          "Vehicle Expert."
+        ],
+        "benefit": "When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character’s turn number.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2y1zIaYqUFoJBV0r"
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.aIPSxigqkTNrq99W"
+    },
+    {
+      "_id": "a3iouG2KBc3aZ1mp",
+      "name": "Iron Will",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE"
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.a3iouG2KBc3aZ1mp"
+    },
+    {
+      "_id": "nitmY47nytuuAYq7",
+      "name": "Vehicle Dodge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13",
+          "Drive 6 ranks or Pilot 6 ranks",
+          "Vehicle Expert."
+        ],
+        "benefit": "When driving a vehicle, during the character’s action the character designates an opposing vehicle or a single opponent. The character’s vehicle and everyone aboard it receive a +1 dodge bonus to Defense against attacks from that vehicle or opponent. The character can select a new vehicle or opponent on any action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.owKimnp8SlqEcC9i"
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.nitmY47nytuuAYq7"
+    },
+    {
+      "_id": "XZJX7uBWQif5oSk7",
+      "name": "Vehicle Expert",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Drive checks and Pilot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.DFrYIEuGiLd0FQi6"
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.XZJX7uBWQif5oSk7"
+    },
+    {
+      "_id": "qkIWB5JWzlGHKJO5",
+      "name": "Weapon Focus",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Proficient with weapon",
+          "base attack bonus +1."
+        ],
+        "benefit": "The character gains a +1 bonus on all attack rolls he or she makes using the selected weapon.",
+        "normal": "",
+        "special": "A character can gain this feat multiple times. Each time the character takes the feat, the character must select a different weapon.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.cKbrRSExYiWlC3pX"
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.qkIWB5JWzlGHKJO5"
+    },
+    {
+      "_id": "aIAez2nbaXb1o7Yv",
+      "name": "Construct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Demonic autos are immune to mind-influencing effects and to poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a Fortitude save unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.aIAez2nbaXb1o7Yv"
+    },
+    {
+      "_id": "EbXPOp6yjNaoQZLk",
+      "name": "Outsider Traits",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>While they are technically constructs, demonic autos are animated by a fell presence from beyond Shadow. They gain skills and feats as if they were outsiders, and they have an Intelligence score.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.EbXPOp6yjNaoQZLk"
+    },
+    {
+      "_id": "otwU5JyekTArkSMO",
+      "name": "Damage Reduction 20/+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A demonic auto ignores the first 20 points of damage dealt by a nonmagical weapon.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.otwU5JyekTArkSMO"
+    },
+    {
+      "_id": "831Wn0KZnvbCJnyv",
+      "name": "Vehicle Movement",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The demonic car moves as a vehicle, not as a character. It has a top speed of 320 squares at character scale (32 squares at chase scale). It maneuvers as a vehicle, using its Drive score, and it must choose a speed category (alley, street, highway, or all-out speed) at the beginning of each action. The demonic auto’s speed category may increase its Defense and penalize skill checks.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.831Wn0KZnvbCJnyv"
+    },
+    {
+      "_id": "CX0anN4vN2Hg3RFT",
+      "name": "No Limbs",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The demonic auto has no limbs and thus can’t grapple, nor can it manipulate or throw an object. However, it can open and close its car doors, hood, or trunk rapidly to make a slam attack.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.CX0anN4vN2Hg3RFT"
+    },
+    {
+      "_id": "a9IFyiHKIV81j0LA",
+      "name": "Trample (DC 33; 2d8+15 at alley speed or 4d8+15 at higher speeds)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The demonic auto can trample smaller creatures by running over them. The demonic auto’s trample attack deals 2d6+9 points of damage if traveling at alley speed and 4d6+9 points of damage at higher speeds. A successful Reflex save (DC 23) halves the damage. The demonic auto takes this damage as well, but its damage reduction applies.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Trample",
+            "actionType": "varies",
+            "save": {
+              "ability": "ref",
+              "calculation": "flat",
+              "dc": 33,
+              "onSuccess": "negate"
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.a9IFyiHKIV81j0LA"
+    },
+    {
+      "_id": "7bd2c92DTVkh4GnG",
+      "name": "Repairable",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Demonic autos cannot heal damage on their own but can be repaired using the Repair skill. A successful Repair check (DC 30) heals 1d10 points of damage, and each check represents 1 hour of work. A demonic auto can repair itself.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.7bd2c92DTVkh4GnG"
+    },
+    {
+      "_id": "mvQA4KZ3j8l08poh",
+      "name": "Darkvision 120 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Demonic autos can see in the dark up to 120 feet. Darkvision is black and white only, but it is otherwise like normal sight, and demonic auros can function with no light at all.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!yqYlLC9lKaJtSdOe.mvQA4KZ3j8l08poh"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

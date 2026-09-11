@@ -1,5 +1,5 @@
 {
-  "_comment": "How much of each SRD document the packs cover, by scripts/check_coverage.py. A document with nothing matched is either rules text the system implements in code, or content not imported yet; the review in the README says which. Regenerate with --update after importing more, never to make a failure go away. The \"links\" block is the same measure for the rules links: how many documents in each pack point at a page of the rules compendium, and how many of those reach their own entry rather than the chapter they were printed in, by scripts/check_rules_links.py.",
+  "_comment": "How much of each SRD document the packs cover, by scripts/check_coverage.py. A document with nothing matched is either rules text the system implements in code, or content not imported yet; the review in the README says which. Regenerate with --update after importing more, never to make a failure go away.",
   "documents": {
     "legal": {
       "book": "d20 Modern",
@@ -41,7 +41,7 @@
       "book": "d20 Modern",
       "title": "Basic Classes",
       "sections": 74,
-      "matched": 16
+      "matched": 17
     },
     "occupations": {
       "book": "d20 Modern",
@@ -77,7 +77,7 @@
       "book": "d20 Modern",
       "title": "Combat",
       "sections": 96,
-      "matched": 2
+      "matched": 4
     },
     "msrddeathdyinghealing": {
       "book": "d20 Modern",
@@ -113,13 +113,13 @@
       "book": "d20 Modern",
       "title": "Environment and Hazards",
       "sections": 15,
-      "matched": 3
+      "matched": 4
     },
     "fxbasics": {
       "book": "d20 Modern",
       "title": "FX Basics",
       "sections": 345,
-      "matched": 210
+      "matched": 213
     },
     "arcana": {
       "book": "Urban Arcana",
@@ -131,7 +131,7 @@
       "book": "Urban Arcana",
       "title": "Shadowkind",
       "sections": 59,
-      "matched": 8
+      "matched": 20
     },
     "urbanoccs": {
       "book": "Urban Arcana",
@@ -143,7 +143,7 @@
       "book": "Urban Arcana",
       "title": "Feats",
       "sections": 72,
-      "matched": 3
+      "matched": 66
     },
     "urbanequ": {
       "book": "Urban Arcana",
@@ -167,13 +167,13 @@
       "book": "Urban Arcana",
       "title": "Spells",
       "sections": 84,
-      "matched": 59
+      "matched": 62
     },
     "urbaninc": {
       "book": "Urban Arcana",
       "title": "Incantations",
       "sections": 58,
-      "matched": 1
+      "matched": 2
     },
     "urbanpsi": {
       "book": "Urban Arcana",
@@ -185,7 +185,7 @@
       "book": "Urban Arcana",
       "title": "Creatures",
       "sections": 77,
-      "matched": 0
+      "matched": 44
     },
     "urbanfx": {
       "book": "Urban Arcana",
@@ -227,7 +227,7 @@
       "book": "d20 Future",
       "title": "Feats",
       "sections": 60,
-      "matched": 4
+      "matched": 6
     },
     "futureadv": {
       "book": "d20 Future",
@@ -257,7 +257,7 @@
       "book": "d20 Future",
       "title": "Traveler Science",
       "sections": 53,
-      "matched": 0
+      "matched": 1
     },
     "futureships": {
       "book": "d20 Future",
@@ -281,7 +281,7 @@
       "book": "d20 Future",
       "title": "Robots",
       "sections": 197,
-      "matched": 9
+      "matched": 11
     },
     "futurecybernetics": {
       "book": "d20 Future",
@@ -317,7 +317,7 @@
       "book": "Menace Manual",
       "title": "Creatures",
       "sections": 161,
-      "matched": 104
+      "matched": 106
     }
   },
   "links": {
@@ -332,14 +332,14 @@
       "pages": 24
     },
     "creatures": {
-      "documents": 198,
-      "linked": 198,
-      "pages": 116
+      "documents": 300,
+      "linked": 300,
+      "pages": 183
     },
     "feats": {
-      "documents": 95,
-      "linked": 95,
-      "pages": 95
+      "documents": 137,
+      "linked": 137,
+      "pages": 137
     },
     "fx": {
       "documents": 134,
@@ -379,7 +379,7 @@
     "vehicles": {
       "documents": 85,
       "linked": 85,
-      "pages": 38
+      "pages": 40
     },
     "weapons": {
       "documents": 180,

@@ -1,0 +1,304 @@
+{
+  "_id": "zqQrVSX1V1WCvtoY",
+  "name": "Otyugh",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+    "abilities": {
+      "str": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 5,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 45,
+      "max": 45,
+      "temp": 0,
+      "formula": "6d8+18"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 8,
+      "misc": -1
+    },
+    "saves": {
+      "fort": {
+        "base": 2,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 5,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 4,
+      "size": "large",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 17,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "aberration",
+      "subtype": "",
+      "challengeRating": "4",
+      "hitDice": "6d8+18",
+      "advancement": "7-8 HD (Large); 9-15 HD (Huge)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "any one",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "darkvision 60 ft., improved grab, constrict 1d6+4, disease;",
+    "biography": "<p><strong>Attack:</strong> +7 melee (1d6+6, tentacle rake)</p><p><strong>Full Attack:</strong> +7 melee (1d6+4, 2 tentacle rakes), +2 melee (2d6+2 plus disease, bite)</p><p><strong>Skills:</strong> Hide +5 (+13 in lair), Listen +9, Speak Language (any one), Spot +9</p><p><strong>Feats:</strong> Alertness</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.hMDhpBiXKT4iAkdB"
+  },
+  "_key": "!actors!zqQrVSX1V1WCvtoY",
+  "items": [
+    {
+      "_id": "z6IylpjRSJou3Lpq",
+      "name": "Tentacle rake (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+7 melee (1d6+4, 2 tentacle rakes), +2 melee (2d6+2 plus disease, bite)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d6+4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.z6IylpjRSJou3Lpq"
+    },
+    {
+      "_id": "oaJlapG2payRI2Gp",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+7 melee (1d6+4, 2 tentacle rakes), +2 melee (2d6+2 plus disease, bite)</p><p><strong>Plus:</strong> disease</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "2d6+2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -5,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.oaJlapG2payRI2Gp"
+    },
+    {
+      "_id": "sC6khqdXzokIKlJv",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx"
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.sC6khqdXzokIKlJv"
+    },
+    {
+      "_id": "O4ngrIa9wG9ylKsv",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Otyughs can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and otyughs can function with no light at all.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.O4ngrIa9wG9ylKsv"
+    },
+    {
+      "_id": "cAZqweuWztxEUSwX",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>To use this ability, the otyugh must hit an opponent at least one size category smaller than itself with a tentacle attack. If it gets a hold, it can constrict (see below).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.cAZqweuWztxEUSwX"
+    },
+    {
+      "_id": "XbNqajHOqWXq94qI",
+      "name": "Constrict 1d6+4",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An otyugh deals automatic tentacle damage to a creature smaller than itself with a successful grapple check.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.XbNqajHOqWXq94qI"
+    },
+    {
+      "_id": "uo4CkHPz2dD1hFTO",
+      "name": "Disease",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An otyugh’s bite carries a nasty disease called filth fever. Filth fever—bite: Fortitude save (DC 16) negates; incubation period 1d3 days; initial and secondary damage 1d3 Dex and 1d3 Con.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.uo4CkHPz2dD1hFTO"
+    },
+    {
+      "_id": "Ng6cuwscAMl3LZxr",
+      "name": "Skill Bonus",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An otyugh gains a +8 species bonus on Hide checks when in its lair, due to its natural coloration.</p><p>A platonic is a powerful entity of Shadow devoted to a particular cause or abstract concept. A platonic is compelled to protect and advance its cause at every opportunity, which often brings it into contact with mortals whose goals are more complex and nebulous.</p><p>Platonics can change their appearance at a whim, but most choose to appear as handsome humans of either gender. If they aren’t bothering to disguise their otherworldly origin, their skin has a faint luminescent quality.</p><p>Each platonic has an abstract principle to which it is fanatically devoted. Platonics are beholden to what they call the Pact of the Boundless. A series of rules that all platonics follow, the Pact mandates that when possible, platonics won’t reveal their true nature to mundanes. Furthermore, platonics are compelled to act as subtly as possible.</p><p>Platonics naturally speak all languages. They choose their height and weight, but generally pick something within human norms.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!zqQrVSX1V1WCvtoY.Ng6cuwscAMl3LZxr"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

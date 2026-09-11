@@ -2,6 +2,7 @@
   {
     "id": "acrobatic",
     "name": "Acrobatic",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Jump checks and Tumble checks.",
     "normal": "",
@@ -11,6 +12,7 @@
   {
     "id": "advancedCombatMartialArts",
     "name": "Advanced Combat Martial Arts",
+    "category": "",
     "prerequisites": [
       "Combat Martial Arts",
       "Improved Combat Martial Arts",
@@ -24,6 +26,7 @@
   {
     "id": "advancedFirearmsProficiency",
     "name": "Advanced Firearms Proficiency",
+    "category": "",
     "prerequisites": [
       "Personal Firearms Proficiency."
     ],
@@ -35,6 +38,7 @@
   {
     "id": "advancedTwoWeaponFighting",
     "name": "Advanced Two-Weapon Fighting",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Two-Weapon Fighting",
@@ -49,6 +53,7 @@
   {
     "id": "agileRiposte",
     "name": "Agile Riposte",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Dodge."
@@ -61,6 +66,7 @@
   {
     "id": "aircraftOperation",
     "name": "Aircraft Operation",
+    "category": "",
     "prerequisites": [
       "Pilot 4 ranks."
     ],
@@ -72,6 +78,7 @@
   {
     "id": "alertness",
     "name": "Alertness",
+    "category": "",
     "prerequisites": [
       "The character gets a +2 bonus on all Listen checks and Spot checks."
     ],
@@ -83,6 +90,7 @@
   {
     "id": "animalAffinity",
     "name": "Animal Affinity",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Handle Animal checks and Ride checks.",
     "normal": "",
@@ -92,6 +100,7 @@
   {
     "id": "archaicWeaponsProficiency",
     "name": "Archaic Weapons Proficiency",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
     "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
@@ -101,6 +110,7 @@
   {
     "id": "armorProficiencyHeavy",
     "name": "Armor Proficiency (heavy)",
+    "category": "",
     "prerequisites": [
       "Armor Proficiency (light)",
       "Armor Proficiency (medium)."
@@ -113,6 +123,7 @@
   {
     "id": "armorProficiencyLight",
     "name": "Armor Proficiency (light)",
+    "category": "",
     "prerequisites": [],
     "benefit": "When a character wears a type of armor with which he or she is proficient, the character gets to add the armor’s equipment bonus to his or her Defense. Also, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, and Tumble checks.",
     "normal": "A character who wears armor with which he or she is not proficient adds only the armor’s nonproficient equipment bonus to his or her Defense. Also, he or she suffers its armor check penalty on attack rolls and on all skill checks that involve moving.",
@@ -122,6 +133,7 @@
   {
     "id": "armorProficiencyMedium",
     "name": "Armor Proficiency (medium)",
+    "category": "",
     "prerequisites": [
       "Armor Proficiency (light)."
     ],
@@ -133,6 +145,7 @@
   {
     "id": "athletic",
     "name": "Athletic",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Climb checks and Swim checks.",
     "normal": "",
@@ -142,6 +155,7 @@
   {
     "id": "attentive",
     "name": "Attentive",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Investigate checks and Sense Motive checks.",
     "normal": "",
@@ -151,6 +165,7 @@
   {
     "id": "blindFight",
     "name": "Blind-Fight",
+    "category": "",
     "prerequisites": [],
     "benefit": "In melee combat, every time the character misses because of concealment, the character can reroll the miss chance roll one time to see if the character actually hits.",
     "normal": "",
@@ -160,6 +175,7 @@
   {
     "id": "brawl",
     "name": "Brawl",
+    "category": "",
     "prerequisites": [],
     "benefit": "When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier.",
     "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
@@ -169,6 +185,7 @@
   {
     "id": "builder",
     "name": "Builder",
+    "category": "",
     "prerequisites": [],
     "benefit": "Pick two of the following skills: Craft (chemical), Craft (electronic), Craft (mechanical), and Craft (structural). The character gets a +2 bonus on all checks with those skills.",
     "normal": "",
@@ -178,6 +195,7 @@
   {
     "id": "burstFire",
     "name": "Burst Fire",
+    "category": "",
     "prerequisites": [
       "Wisdom 13",
       "Personal Firearms Proficiency",
@@ -191,6 +209,7 @@
   {
     "id": "cleave",
     "name": "Cleave",
+    "category": "",
     "prerequisites": [
       "Strength 13",
       "Power Attack."
@@ -203,6 +222,7 @@
   {
     "id": "combatExpertise",
     "name": "Combat Expertise",
+    "category": "",
     "prerequisites": [
       "Intelligence 13."
     ],
@@ -214,6 +234,7 @@
   {
     "id": "combatMartialArts",
     "name": "Combat Martial Arts",
+    "category": "",
     "prerequisites": [
       "Base attack bonus +1."
     ],
@@ -225,6 +246,7 @@
   {
     "id": "combatReflexes",
     "name": "Combat Reflexes",
+    "category": "",
     "prerequisites": [],
     "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
     "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
@@ -234,6 +256,7 @@
   {
     "id": "combatThrow",
     "name": "Combat Throw",
+    "category": "",
     "prerequisites": [
       "Defensive Martial Arts."
     ],
@@ -245,6 +268,7 @@
   {
     "id": "confident",
     "name": "Confident",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Gamble checks and Intimidate checks, and on level checks to resist intimidation.",
     "normal": "",
@@ -254,6 +278,7 @@
   {
     "id": "creative",
     "name": "Creative",
+    "category": "",
     "prerequisites": [],
     "benefit": "Pick two of the following skills: Craft (visual art), Craft (writing), Perform (act), Perform (dance), Perform (keyboards), Perform (percussion instruments), Perform (sing), Perform (stand-up), Perform (string instruments), and Perform (wind instruments). The character gets a +2 bonus on all checks with those two skills.",
     "normal": "",
@@ -263,6 +288,7 @@
   {
     "id": "deadAim",
     "name": "Dead Aim",
+    "category": "",
     "prerequisites": [
       "Wisdom 13",
       "Far Shot."
@@ -275,6 +301,7 @@
   {
     "id": "deceptive",
     "name": "Deceptive",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Bluff checks and Disguise checks.",
     "normal": "",
@@ -284,6 +311,7 @@
   {
     "id": "defensiveMartialArts",
     "name": "Defensive Martial Arts",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gains a +1 dodge bonus to Defense against melee attacks.",
     "normal": "",
@@ -291,8 +319,31 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "delayPower",
+    "name": "Delay Power",
+    "category": "Metapsionic",
+    "prerequisites": [],
+    "benefit": "A delayed power doesn’t activate until 1 to 5 rounds after you finish manifesting it. You determine the delay when manifesting the power, and it cannot be changed once set. The power activates just before your turn on the round you designate. Only area, personal, and touch powers may be affected by this feat. Any decisions you would make about the power (including attack rolls, designating targets, or determining or shaping an area) are decided when the power is manifested, while any effects resolved by those affected by the power (including saving throws) are decided when the power triggers. A delayed power may be negated normally during the delay, and can be detected normally in the area or on the target with powers that can detect psionic effects. A delayed power costs a number of power points equal to its standard cost +6.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "divineHeritage",
+    "name": "Divine Heritage",
+    "category": "Initial",
+    "prerequisites": [
+      "Wisdom 10."
+    ],
+    "benefit": "Choose three 0-level divine spells (“orisons”). You may cast each of these spells once per day per your divine spellcasting level (minimum 1).",
+    "normal": "",
+    "special": "You may only take this feat as a 1st-level character.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "dodge",
     "name": "Dodge",
+    "category": "",
     "prerequisites": [
       "Dexterity 13."
     ],
@@ -304,6 +355,7 @@
   {
     "id": "doubleTap",
     "name": "Double Tap",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Point Blank Shot."
@@ -316,6 +368,7 @@
   {
     "id": "driveByAttack",
     "name": "Drive-By Attack",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character takes no vehicle speed penalty when making an attack while in a moving vehicle. Also, if the character is the driver, he or she can take his or her attack action to make an attack at any point along the vehicle’s movement.",
     "normal": "When attacking from a moving vehicle, a character takes a penalty based on the vehicle’s speed. Passengers can ready an action to make an attack when their vehicle reaches a particular location, but the driver must make his or her attack action either before or after the vehicle’s movement.",
@@ -325,6 +378,7 @@
   {
     "id": "educated",
     "name": "Educated",
+    "category": "",
     "prerequisites": [],
     "benefit": "Pick two Knowledge skills. The character gets a +2 bonus on all checks with those skills.",
     "normal": "",
@@ -334,6 +388,7 @@
   {
     "id": "elusiveTarget",
     "name": "Elusive Target",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Defensive Martial Arts."
@@ -344,8 +399,32 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "empowerSpell",
+    "name": "Empower Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "All variable, numeric effects of an empowered spell are increased by one-half. An empowered spell deals half again as much damage as normal, cures half again as many hit points, affects half again as many targets, and so forth, as appropriate. For example, an empowered magic missile deals 1 1/2 times normal damage (roll 1d4+1 and multiply the result by 1.5 for each missile). Saving throws and opposed rolls (such as the one you make when you cast dispel magic) are not affected. Spells without random variables are not affected.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "empowerTurning",
+    "name": "Empower Turning",
+    "category": "",
+    "prerequisites": [
+      "Ability to turn or rebuke one or more creature types",
+      "Charisma 13."
+    ],
+    "benefit": "If you take a –2 penalty on your roll to turn or rebuke (or awe or command) a group of creatures, you can add +2d6 to your turning damage roll.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "endurance",
     "name": "Endurance",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gains a +4 bonus on the following checks and saves: hourly Swim checks to avoid becoming fatigued, Constitution checks to continue running, Constitution checks to hold the character’s breath, Constitution checks to avoid damage from starvation or thirst, Fortitude saves to avoid damage from hot or cold environments, and Fortitude saves to resist suffocation or drowning.",
     "normal": "A character without this feat who sleeps in armor is automatically fatigued the following day.",
@@ -353,8 +432,39 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "enlargePower",
+    "name": "Enlarge Power",
+    "category": "Metapsionic",
+    "prerequisites": [],
+    "benefit": "An enlarged power has its range doubled. Powers whose ranges are not defined by distance do not have their ranges increased. Determine an enlarged power’s area or effect as if you were two manifester levels higher than you actually are. An enlarged power costs a number of power points equal to its standard cost +2.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "enlargeSpell",
+    "name": "Enlarge Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "An enlarged spell has its range doubled. Spells whose ranges are not defined by distance do not have their ranges increased. A spell whose area or effect is determined by its range (such as bless or a cone spell) has the dimensions of its area or effect increased proportionally.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "eschewMaterials",
+    "name": "Eschew Materials",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "An eschewed spell can be cast with no material components. Spells without material components or whose material components have a Purchase DC of 4 or greater are not affected by this feat.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "exoticFirearmsProficiency",
     "name": "Exotic Firearms Proficiency",
+    "category": "",
     "prerequisites": [
       "Personal Firearms Proficiency",
       "Advanced Firearms Proficiency."
@@ -367,6 +477,7 @@
   {
     "id": "exoticMeleeWeaponProficiency",
     "name": "Exotic Melee Weapon Proficiency",
+    "category": "",
     "prerequisites": [
       "Base attack bonus +1."
     ],
@@ -376,8 +487,41 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "extendPower",
+    "name": "Extend Power",
+    "category": "Metapsionic",
+    "prerequisites": [],
+    "benefit": "An extended power lasts twice as long as normal. Powers with a concentration, instantaneous, or permanent duration are not extended. An extended power costs a number of power points equal to its standard cost +2.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "extendSpell",
+    "name": "Extend Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "An extended spell lasts twice as long as normal. Spells with a concentration, instantaneous, or permanent duration are not affected by this feat.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "extraTurning",
+    "name": "Extra Turning",
+    "category": "",
+    "prerequisites": [
+      "Ability to turn or rebuke one or more creature types."
+    ],
+    "benefit": "Each time you take this feat, you can turn or rebuke a particular creature type four more times per day than normal.",
+    "normal": "Without this feat, a character can typically turn or rebuke a creature type (usually undead) a number of times per day equal to three plus his Charisma modifier.",
+    "special": "You can gain this feat multiple times. Each time you take the feat, you may apply its effects to one creature type you can turn or rebuke. Its effects stack.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "farShot",
     "name": "Far Shot",
+    "category": "",
     "prerequisites": [],
     "benefit": "When the character uses a firearm or archaic ranged weapon, its range increment increases by one-half (multiply by 1.5). When the character throws a weapon, its range increment is doubled.",
     "normal": "",
@@ -385,8 +529,21 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "fleetOfFoot",
+    "name": "Fleet of Foot",
+    "category": "",
+    "prerequisites": [
+      "Run."
+    ],
+    "benefit": "When running or charging, you can make a single direction change of 90 degrees or less. You cannot use this feat while wearing medium or heavy armor, or if you’re carrying a medium or heavy load.",
+    "normal": "Without this feat, you can run or charge only in a straight line.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "focused",
     "name": "Focused",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets get a +2 bonus on all Balance checks and Concentration checks.",
     "normal": "",
@@ -396,6 +553,7 @@
   {
     "id": "forceStop",
     "name": "Force Stop",
+    "category": "",
     "prerequisites": [
       "Drive 4 ranks",
       "Vehicle Expert."
@@ -408,6 +566,7 @@
   {
     "id": "frightfulPresence",
     "name": "Frightful Presence",
+    "category": "",
     "prerequisites": [
       "Charisma 15",
       "Intimidate 9 ranks."
@@ -420,6 +579,7 @@
   {
     "id": "gearhead",
     "name": "Gearhead",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Computer Use checks and Repair checks.",
     "normal": "",
@@ -429,6 +589,7 @@
   {
     "id": "greatCleave",
     "name": "Great Cleave",
+    "category": "",
     "prerequisites": [
       "Strength 13",
       "Power Attack",
@@ -443,6 +604,7 @@
   {
     "id": "greatFortitude",
     "name": "Great Fortitude",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
     "normal": "",
@@ -450,8 +612,34 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "greaterSpellFocus",
+    "name": "Greater Spell Focus",
+    "category": "",
+    "prerequisites": [
+      "Spell Focus",
+      "caster level 6."
+    ],
+    "benefit": "Add +2 to the Difficulty Class for all saving throws against spells from the focused school of magic you select. This overlaps (does not stack) with the bonus from Spell Focus (see below).",
+    "normal": "",
+    "special": "You can gain this feat multiple times. Its effects do not stack with itself. Each time you take the feat, it applies to a new school of magic.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "greaterSpellPenetration",
+    "name": "Greater Spell Penetration",
+    "category": "",
+    "prerequisites": [
+      "Spell Penetration."
+    ],
+    "benefit": "You get a +4 bonus on caster level checks (1d20 + caster level) to beat a creature’s spell resistance. This overlaps (does not stack) with the bonus from Spell Penetration (see below).",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "guide",
     "name": "Guide",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Navigate checks and Survival checks.",
     "normal": "",
@@ -459,8 +647,29 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "heightenPower",
+    "name": "Heighten Power",
+    "category": "Metapsionic",
+    "prerequisites": [],
+    "benefit": "A heightened power has a higher psionic power level than normal. Unlike other metapsionic feats, Heighten Power actually increases the effective level of the power that it modifies. All effects dependent on power level (such as saving throw DCs) are calculated according to the heightened level. The heightened power costs as many power points as a power of its effective level.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "heightenSpell",
+    "name": "Heighten Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "A heightened spell has a higher spell level than normal. Unlike other metamagic feats, Heighten Spell actually increases the effective level of the spell that it modifies. All effects dependent on spell level (such as saving throw DCs) are calculated according to the heightened level. The heightened spell is as difficult to prepare and cast as a spell of its effective level.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "heroicSurge",
     "name": "Heroic Surge",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character may take an extra move action or attack action in a round, either before or after the character’s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
     "normal": "",
@@ -468,8 +677,19 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "hidePower",
+    "name": "Hide Power",
+    "category": "Metapsionic",
+    "prerequisites": [],
+    "benefit": "A psionic power can be manifested without one associated display characteristic chosen by you when you take the feat: auditory, material, mental, olfactory, or visual.",
+    "normal": "",
+    "special": "You can take this feat multiple times, each time choosing a different display characteristic to hide while manifesting a given power.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "improvedBrawl",
     "name": "Improved Brawl",
+    "category": "",
     "prerequisites": [
       "Brawl",
       "base attack bonus +3."
@@ -482,6 +702,7 @@
   {
     "id": "improvedBullRush",
     "name": "Improved Bull Rush",
+    "category": "",
     "prerequisites": [
       "Strength 13",
       "Power Attack."
@@ -494,6 +715,7 @@
   {
     "id": "improvedCombatMartialArts",
     "name": "Improved Combat Martial Arts",
+    "category": "",
     "prerequisites": [
       "Combat Martial Arts",
       "base attack bonus +4."
@@ -506,6 +728,7 @@
   {
     "id": "improvedCombatThrow",
     "name": "Improved Combat Throw",
+    "category": "",
     "prerequisites": [
       "Defensive Martial Arts",
       "Combat Throw",
@@ -519,6 +742,7 @@
   {
     "id": "improvedDamageThreshold",
     "name": "Improved Damage Threshold",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character increases his or her massive damage threshold by 3 points.",
     "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
@@ -528,6 +752,7 @@
   {
     "id": "improvedDisarm",
     "name": "Improved Disarm",
+    "category": "",
     "prerequisites": [
       "Intelligence 13",
       "Combat Expertise."
@@ -540,6 +765,7 @@
   {
     "id": "improvedFeint",
     "name": "Improved Feint",
+    "category": "",
     "prerequisites": [
       "Intelligence 13",
       "Brawl",
@@ -551,8 +777,22 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "improvedGrapple",
+    "name": "Improved Grapple",
+    "category": "",
+    "prerequisites": [
+      "Brawl",
+      "Dexterity 13."
+    ],
+    "benefit": "You do not provoke an attack of opportunity when you make a touch attack to start a grapple. You also gain a +4 competence bonus on all grapple checks (regardless of whether you started the grapple).",
+    "normal": "Characters without this feat provoke an attack of opportunity when they initiate a grapple.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "improvedInitiative",
     "name": "Improved Initiative",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
     "normal": "",
@@ -562,6 +802,7 @@
   {
     "id": "improvedKnockoutPunch",
     "name": "Improved Knockout Punch",
+    "category": "",
     "prerequisites": [
       "Brawl",
       "Knockout Punch",
@@ -573,8 +814,34 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "improvedNaturalHealing",
+    "name": "Improved Natural Healing",
+    "category": "",
+    "prerequisites": [
+      "Base Fortitude save bonus +5."
+    ],
+    "benefit": "You recover 2 hit points per character level per rest period (8 hours of sleep). If you undergo complete bed rest (doing nothing for the entire day), you recover 4 hit points per character level per day. Ability damage returns at 2 points for resting 8 hours, or 4 points per day with complete bed rest.",
+    "normal": "Normal natural healing is 1 hit point per character level for 8 hours rest, or 2 hit points per character level per day for complete bed rest. Ability damage returns at 1 point for 8 hours rest, or 2 points per day with complete bed rest.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "improvedOverrun",
+    "name": "Improved Overrun",
+    "category": "",
+    "prerequisites": [
+      "Power Attack",
+      "Strength 13."
+    ],
+    "benefit": "When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 competence bonus on the Strength check to knock down your opponent.",
+    "normal": "Without this feat, the target of an overrun can choose to avoid you or to block you.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "improvedTrip",
     "name": "Improved Trip",
+    "category": "",
     "prerequisites": [
       "Intelligence 13",
       "Combat Expertise."
@@ -585,8 +852,21 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "improvedTurning",
+    "name": "Improved Turning",
+    "category": "",
+    "prerequisites": [
+      "Ability to turn or rebuke a creature type."
+    ],
+    "benefit": "You gain a +2 bonus on your turning checks. This feat may be taken multiple times, though each time must be applied to a different creature type which you may normally turn.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "improvedTwoWeaponFighting",
     "name": "Improved Two-Weapon Fighting",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Two-Weapon Fighting",
@@ -600,6 +880,7 @@
   {
     "id": "ironWill",
     "name": "Iron Will",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Will saving throws.",
     "normal": "",
@@ -607,8 +888,21 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "jackOfAllTrades",
+    "name": "Jack of All Trades",
+    "category": "",
+    "prerequisites": [
+      "Character level 8."
+    ],
+    "benefit": "You may use any skill untrained, including arcane and psionic skills. You cannot, however, gain ranks in a skill unless you are normally allowed to gain ranks in the skill.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "knockoutPunch",
     "name": "Knockout Punch",
+    "category": "",
     "prerequisites": [
       "Brawl",
       "base attack bonus +3."
@@ -621,6 +915,7 @@
   {
     "id": "lightningReflexes",
     "name": "Lightning Reflexes",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
     "normal": "",
@@ -630,6 +925,7 @@
   {
     "id": "lowProfile",
     "name": "Low Profile",
+    "category": "",
     "prerequisites": [],
     "benefit": "Reduce the character’s Reputation bonus by 3 points.",
     "normal": "",
@@ -637,8 +933,31 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "magicalAffinity",
+    "name": "Magical Affinity",
+    "category": "",
+    "prerequisites": [],
+    "benefit": "You gain a +2 bonus on all Spellcraft checks and Use Magic Device checks.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "magicalHeritage",
+    "name": "Magical Heritage",
+    "category": "Initial",
+    "prerequisites": [
+      "Intelligence 10."
+    ],
+    "benefit": "Choose three 0-level arcane spells (“cantrips”). You may cast each of these spells once per day per your arcane spellcasting level (minimum 1). You are treated as a Mage for purposes of arcane spell failure chance when you are wearing armor.",
+    "normal": "",
+    "special": "You may only take this feat as a 1st-level character.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "medicalExpert",
     "name": "Medical Expert",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Craft (pharmaceutical) checks and Treat Injury checks.",
     "normal": "",
@@ -648,6 +967,7 @@
   {
     "id": "meticulous",
     "name": "Meticulous",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Forgery checks and Search checks.",
     "normal": "",
@@ -657,6 +977,7 @@
   {
     "id": "mobility",
     "name": "Mobility",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Dodge."
@@ -669,6 +990,7 @@
   {
     "id": "nimble",
     "name": "Nimble",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Escape Artist checks and Sleight of Hand checks.",
     "normal": "",
@@ -676,8 +998,31 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "nonlethalSpell",
+    "name": "Nonlethal Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "You may modify a spell that deals lethal damage to deal nonlethal damage instead. All other effects of the spell remain normal (for example, a nonlethal fireball may still set flammable objects ablaze).",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "persistentPower",
+    "name": "Persistent Power",
+    "category": "Metapsionic",
+    "prerequisites": [
+      "Extend Power."
+    ],
+    "benefit": "A persistent power has a duration of 24 hours. The persistent power must have a personal range or a fixed range; you can’t use this feat on a power with a variable range, or on a power with an instantaneous duration. Note that you must concentrate on some powers to use their effects (for example, detect psionics and detect thoughts); concentration on such a power is an attack or move action that does not provoke an attack of opportunity. A persistent power costs a number of power points equal to its standard cost +8.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "personalFirearmsProficiency",
     "name": "Personal Firearms Proficiency",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character can fire any personal firearm without penalty.",
     "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
@@ -687,6 +1032,7 @@
   {
     "id": "pointBlankShot",
     "name": "Point Blank Shot",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +1 bonus on attack and damage rolls with ranged weapons against opponents within 30 feet.",
     "normal": "",
@@ -696,6 +1042,7 @@
   {
     "id": "powerAttack",
     "name": "Power Attack",
+    "category": "",
     "prerequisites": [
       "Strength 13."
     ],
@@ -705,8 +1052,22 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "powerCrit",
+    "name": "Power Crit",
+    "category": "",
+    "prerequisites": [
+      "Base attack bonus +10",
+      "proficiency with weapon."
+    ],
+    "benefit": "You may spend an action point before making an attack with a weapon with which you are proficient. If the attack hits, it automatically threatens a critical hit (regardless of whether the attack roll falls within the weapon’s actual threat range). You must roll to confirm the critical hit, as normal. This is a supernatural ability.",
+    "normal": "You must roll in the threat range of a weapon, then confirm that threat to score a critical hit.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "preciseShot",
     "name": "Precise Shot",
+    "category": "",
     "prerequisites": [
       "Point Blank Shot."
     ],
@@ -716,8 +1077,31 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "preciseStrike",
+    "name": "Precise Strike",
+    "category": "",
+    "prerequisites": [
+      "Base attack bonus +5."
+    ],
+    "benefit": "Before making an attack on your turn, choose a single opponent and spend an action point. Until the beginning of your next turn, any attacks you make against that opponent use that opponent’s touch Defense instead of the opponent’s normal Defense.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "psionicSkills",
+    "name": "Psionic Skills",
+    "category": "",
+    "prerequisites": [],
+    "benefit": "The character gains the following class skills, as described under the Telepath advanced class: Autohypnosis, Concentration, and Psicraft. This feat does not in and of itself grant psionic ability.",
+    "normal": "Psionic skills are special skills available to the Telepath and Battle Mind advanced classes. Other classes may not buy ranks in these skills without this feat.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "quickDraw",
     "name": "Quick Draw",
+    "category": "",
     "prerequisites": [
       "Base attack bonus +1."
     ],
@@ -729,6 +1113,7 @@
   {
     "id": "quickReload",
     "name": "Quick Reload",
+    "category": "",
     "prerequisites": [
       "Base attack bonus +1."
     ],
@@ -738,8 +1123,29 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "quickenPower",
+    "name": "Quicken Power",
+    "category": "Metapsionic",
+    "prerequisites": [],
+    "benefit": "You can perform another action, even manifest another power, in the same round as you manifest a quickened power. You may only manifest one quickened power per round. A power whose manifesting time is more than 1 full round cannot be quickened.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "reachSpell",
+    "name": "Reach Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "You may cast a spell that normally has a range of “touch” at any distance up to 30 feet. You must succeed at a ranged touch attack to cast the spell upon the recipient. A reach spell uses up a spell slot two levels higher than the spell’s actual level.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "renown",
     "name": "Renown",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character’s Reputation bonus increases by +3.",
     "normal": "",
@@ -749,6 +1155,7 @@
   {
     "id": "run",
     "name": "Run",
+    "category": "",
     "prerequisites": [],
     "benefit": "When running, the character moves a maximum of five times his or her normal speed instead of four times. If the character is in heavy armor, the character can move four times his or her speed rather than three times. If the character makes a long jump, the character gains a +2 competence bonus on his or her Jump check.",
     "normal": "",
@@ -756,8 +1163,39 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "sacredSpell",
+    "name": "Sacred Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "Half of the damage dealt by a sacred spell is converted into divine energy, and as such is not prevented by abilities or spells that reduce or prevent damage from a particular type of energy. For example, half the damage from a sacred flaming wrath spell would not be negated by fire resistance or fire immunity. Only divine spells that deal damage may be made into sacred spells.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "shadowHeritage",
+    "name": "Shadow Heritage",
+    "category": "Initial",
+    "prerequisites": [],
+    "benefit": "You gain a +1 inherent bonus on one saving throw of your choice. You also gain low-light vision, which allows you to see twice as far as a normal human in starlight, moonlight, torchlight, and similar conditions of poor illumination. You retain the ability to distinguish color and detail under these conditions.",
+    "normal": "",
+    "special": "You may only take this feat as a 1st-level character.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "shadowbaneSpell",
+    "name": "Shadowbane Spell",
+    "category": "",
+    "prerequisites": [],
+    "benefit": "Creatures of Shadow and characters with shadowblood (humans of shadow heritage, or elves and dwarves, for example) take a –4 penalty on the spell’s saving throw.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "shotOnTheRun",
     "name": "Shot on the Run",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Point Blank Shot",
@@ -770,8 +1208,31 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "signatureSpell",
+    "name": "Signature Spell",
+    "category": "",
+    "prerequisites": [
+      "Spell Mastery ability."
+    ],
+    "benefit": "Each time you take this feat, choose a spell that you have mastered with Spell Mastery. You may now convert prepared arcane spells of that spell’s level or higher into this signature spell, just as an Acolyte of good allegiance may spontaneously cast prepared spells as cure spells.",
+    "normal": "",
+    "special": "You may gain this feat multiple times. Each time you take the feat, it applies to a new spell that meets the prerequisites.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "silentSpell",
+    "name": "Silent Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "A silent spell can be cast with no verbal components. Spells without verbal components are not affected. A silent spell uses up a spell slot one level higher than the spell’s actual level.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "simpleWeaponsProficiency",
     "name": "Simple Weapons Proficiency",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character makes attack rolls with simple weapons normally.",
     "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
@@ -781,6 +1242,7 @@
   {
     "id": "skipShot",
     "name": "Skip Shot",
+    "category": "",
     "prerequisites": [
       "Point Blank Shot",
       "Precise Shot."
@@ -791,8 +1253,41 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "spellFocus",
+    "name": "Spell Focus",
+    "category": "",
+    "prerequisites": [],
+    "benefit": "Add +1 to the Difficulty Class for all saving throws against spells from the school of magic you select to focus on.",
+    "normal": "",
+    "special": "You can gain this feat multiple times. Its effects do not stack. Each time you take the feat, it applies to a new school of magic.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "spellPenetration",
+    "name": "Spell Penetration",
+    "category": "",
+    "prerequisites": [],
+    "benefit": "You gain a +2 bonus on caster level checks (1d20 + caster level) to beat a creature’s spell resistance.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
+    "id": "spellslinger",
+    "name": "Spellslinger",
+    "category": "",
+    "prerequisites": [
+      "Intelligence 13 (for arcane spellcasters) or Wisdom 13 (for divine spellcasters)."
+    ],
+    "benefit": "For any one spellcasting advanced class in which you have levels, you can prepare and cast one additional spell per spell level known. For instance, Lily Parrish, a 3rd-level Dedicated Hero/3rd-level Acolyte, can prepare and cast an additional 0-level, 1st-level, and 2nd-level divine spell per day (since she can cast up to and including 2nd-level divine spells).",
+    "normal": "",
+    "special": "You may gain this feat multiple times. Each time you take the feat, it applies to a new spellcasting class.",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "springAttack",
     "name": "Spring Attack",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Dodge",
@@ -807,6 +1302,7 @@
   {
     "id": "stealthy",
     "name": "Stealthy",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Hide checks and Move Silently checks.",
     "normal": "",
@@ -814,8 +1310,19 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "stillSpell",
+    "name": "Still Spell",
+    "category": "Metamagic",
+    "prerequisites": [],
+    "benefit": "A still spell can be cast with no somatic components. Spells without somatic components are not affected. A still spell uses up a spell slot one level higher than the spell’s actual level.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "strafe",
     "name": "Strafe",
+    "category": "",
     "prerequisites": [
       "Personal Firearms Proficiency",
       "Advanced Firearms Proficiency."
@@ -828,6 +1335,7 @@
   {
     "id": "streetFighter",
     "name": "Street Fighter",
+    "category": "",
     "prerequisites": [
       "Brawl",
       "base attack bonus +2."
@@ -840,6 +1348,7 @@
   {
     "id": "studious",
     "name": "Studious",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Decipher Script checks and Research checks.",
     "normal": "",
@@ -849,6 +1358,7 @@
   {
     "id": "sunder",
     "name": "Sunder",
+    "category": "",
     "prerequisites": [
       "Strength 13",
       "Power Attack."
@@ -859,8 +1369,21 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "supernaturalStrike",
+    "name": "Supernatural Strike",
+    "category": "",
+    "prerequisites": [
+      "Base attack bonus +2 or better."
+    ],
+    "benefit": "When you roll a threat against a creature normally unaffected by critical hits (such as a construct, ooze, or undead), you may check for a critical hit and deal the increased damage if the threat is confirmed. Creatures unaffected by massive damage are still unaffected by massive damage resulting from a critical hit. This is a supernatural ability.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "surfaceVehicleOperation",
     "name": "Surface Vehicle Operation",
+    "category": "",
     "prerequisites": [
       "Drive 4 ranks."
     ],
@@ -872,6 +1395,7 @@
   {
     "id": "surgery",
     "name": "Surgery",
+    "category": "",
     "prerequisites": [
       "Treat Injury 4 ranks."
     ],
@@ -883,6 +1407,7 @@
   {
     "id": "toughness",
     "name": "Toughness",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gains +3 hit points.",
     "normal": "",
@@ -892,6 +1417,7 @@
   {
     "id": "track",
     "name": "Track",
+    "category": "",
     "prerequisites": [],
     "benefit": "To find tracks or follow them for one mile requires a Survival check. The character must make another Survival check every time the tracks become difficult to follow.",
     "normal": "A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.",
@@ -901,6 +1427,7 @@
   {
     "id": "trustworthy",
     "name": "Trustworthy",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Diplomacy checks and Gather Information checks.",
     "normal": "",
@@ -908,8 +1435,19 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "twinPower",
+    "name": "Twin Power",
+    "category": "Metapsionic",
+    "prerequisites": [],
+    "benefit": "Manifesting a power altered by this feat causes the power to take effect twice on the target, as if you were simultaneously manifesting the same power two times on the same location or target. Any variables in the power (such as targets, shaping an area, and so on) apply to both of the resulting powers. The target suffers all the effects of both powers individually and receives a saving throw for each. In some cases, failure of both of the target’s saving throws results in redundant effects, such as a twinned charm person, although any ally of the target would have to succeed at two negate attempts in order to free the target from the charm. A twinned power costs a number of power points equal to its standard cost +8.",
+    "normal": "",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "twoWeaponFighting",
     "name": "Two-Weapon Fighting",
+    "category": "",
     "prerequisites": [
       "Dexterity 13."
     ],
@@ -921,6 +1459,7 @@
   {
     "id": "unbalanceOpponent",
     "name": "Unbalance Opponent",
+    "category": "",
     "prerequisites": [
       "Defensive Martial Arts",
       "base attack bonus +6."
@@ -933,6 +1472,7 @@
   {
     "id": "vehicleDodge",
     "name": "Vehicle Dodge",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Drive 6 ranks or Pilot 6 ranks",
@@ -946,6 +1486,7 @@
   {
     "id": "vehicleExpert",
     "name": "Vehicle Expert",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character gets a +2 bonus on all Drive checks and Pilot checks.",
     "normal": "",
@@ -953,8 +1494,19 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "vehicleSpecialization",
+    "name": "Vehicle Specialization",
+    "category": "",
+    "prerequisites": [],
+    "benefit": "The character gains the following class skills, as described under the Mage advanced class: Concentration, Craft (chemical), and Spellcraft. Further, the character gains Use Magic Device as a class skill, as described under the Occultist advanced class.",
+    "normal": "Arcane skills are special class skills available to the Acolyte, Occultist, Mage, Mystic, and Techno Mage advanced classes. Other classes may not buy ranks in these skills without this feat.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "weaponFinesse",
     "name": "Weapon Finesse",
+    "category": "",
     "prerequisites": [
       "Proficient with weapon",
       "base attack bonus +1."
@@ -967,6 +1519,7 @@
   {
     "id": "weaponFocus",
     "name": "Weapon Focus",
+    "category": "",
     "prerequisites": [
       "Proficient with weapon",
       "base attack bonus +1."
@@ -979,6 +1532,7 @@
   {
     "id": "whirlwindAttack",
     "name": "Whirlwind Attack",
+    "category": "",
     "prerequisites": [
       "Dexterity 13",
       "Intelligence 13",
@@ -996,6 +1550,7 @@
   {
     "id": "wildTalent",
     "name": "Wild Talent",
+    "category": "",
     "prerequisites": [],
     "benefit": "Select one 0-level psionic power. The character can manifest this power up to three times in a 24-hour period. There is no power point cost for using this power. For effects that depends on manifester level the character is considered 1st level or his or her manifester level, whichever is higher.",
     "normal": "",
@@ -1005,6 +1560,7 @@
   {
     "id": "windfall",
     "name": "Windfall",
+    "category": "",
     "prerequisites": [],
     "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all Profession checks.",
     "normal": "",

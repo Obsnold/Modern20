@@ -549,7 +549,7 @@ def build_classes() -> list[dict]:
                 "prerequisites": [entry["requirements"]] if entry.get("requirements") else [],
                 "progression": entry["progression"],
                 "casting": entry["casting"],
-                "source": "d20 Modern SRD",
+                "source": source_for(entry["srdUrl"]),
                 "srdUrl": entry["srdUrl"],
             },
             "_key": f"!items!{doc_id}",
@@ -627,7 +627,7 @@ def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extr
             "img": img,
             "system": {
                 "description": entry.get("description", ""),
-                "source": "d20 Modern SRD",
+                "source": source_for(entry.get("srdUrl", "")),
                 "srdUrl": entry.get("srdUrl", ""),
                 **mapper(entry),
             },
@@ -749,7 +749,7 @@ def creature_weapons(entry: dict) -> list[dict]:
             "img": "icons/svg/sword.svg",
             "system": {
                 "description": "".join(described),
-                "source": "d20 Modern SRD",
+                "source": source_for(entry["srdUrl"]),
                 "srdUrl": entry["srdUrl"],
                 "category": "unarmed" if natural else "simple",
                 "damage": attack["damage"],
@@ -853,7 +853,7 @@ def creature_feats(entry: dict, feats_by_name: dict) -> list[dict]:
             "img": "icons/svg/upgrade.svg",
             "system": {
                 "description": "" if source else UNDEFINED_FEAT,
-                "source": "d20 Modern SRD",
+                "source": source_for(source["srdUrl"] if source else entry["srdUrl"]),
                 "srdUrl": source["srdUrl"] if source else entry["srdUrl"],
                 "featType": "general",
                 "prerequisites": source.get("prerequisites", []) if source else [],
@@ -1052,10 +1052,11 @@ def ability_item(entry: dict, name: str, sense: bool, trait: dict | None,
         "img": "icons/svg/aura.svg",
         "system": {
             "description": description or UNDEFINED_ABILITY,
-            "source": "d20 Modern SRD",
             # The creature's own traits are on its page; a shared definition
             # is on the Special Abilities page.
             "srdUrl": entry["srdUrl"] if trait or not defined else defined["srdUrl"],
+            "source": source_for(entry["srdUrl"] if trait or not defined
+                                 else defined["srdUrl"]),
             "abilityType": (trait or {}).get("kind") or (defined or {}).get("kind", ""),
             "sense": sense,
             # Where the SRD states a DC, the ability is something to roll
@@ -1198,6 +1199,7 @@ def build_spells() -> list[dict]:
 def build_feats() -> list[dict]:
     return simple_pack("feats", "feat", "feats", "icons/svg/upgrade.svg", lambda e: {
         "featType": "general",
+        "category": e.get("category", ""),
         "prerequisites": e.get("prerequisites", []),
         "benefit": e.get("benefit", ""),
         "normal": e.get("normal", ""),
@@ -1259,6 +1261,23 @@ BOOK_PREFIXES = (
     ("arcana", "Urban Arcana"),
     ("future", "d20 Future"),
 )
+
+
+def source_for(url: str) -> str:
+    """What a document should say it came from, from the page it cites.
+
+    Everything built from a scraped dataset said "d20 Modern SRD" whatever page
+    it was read off, because the one place that sets it is shared by every
+    dataset: the Menace Manual's hundred and twenty creatures, Urban Arcana's
+    spells and powers and d20 Future's vehicles all claimed to be core. The
+    folders were right, since those come from the page, which is why nothing
+    noticed until someone read a sheet.
+
+    The core spelling keeps the "SRD" the equipment tables use. The expansions
+    are named as the books name themselves.
+    """
+    book = book_of(url)
+    return "d20 Modern SRD" if book in ("", "d20 Modern") else book
 
 
 def book_of(url: str) -> str:
@@ -1532,7 +1551,7 @@ def build_objects() -> list[dict]:
                 "breakDC": entry["breakDC"],
                 "defenseMisc": 0,
                 "description": "",
-                "source": "d20 Modern SRD",
+                "source": source_for(entry["srdUrl"]),
                 "srdUrl": entry["srdUrl"],
             },
             "_key": f"!actors!{doc_id}",

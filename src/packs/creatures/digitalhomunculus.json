@@ -1,0 +1,214 @@
+{
+  "_id": "Sz0w9ttS9Plng5tk",
+  "name": "Digital Homunculus",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "abilities": {
+      "str": {
+        "value": 7,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 7,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 11,
+      "max": 11,
+      "temp": 0,
+      "formula": "2d10"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 4
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "tiny",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 2,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "construct",
+      "subtype": "",
+      "challengeRating": "1",
+      "hitDice": "2d10",
+      "advancement": "3-6 HD (Tiny)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "master",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "construct, repairable, darkvision 60 ft., electronic interface",
+    "biography": "<p><strong>Attack:</strong> +1 melee (1d4-2, bite)</p><p><strong>Full Attack:</strong> +1 melee (1d4-2, bite)</p><p><strong>Skills:</strong> Hide +10</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.NLS3xFMEqCvIxzZ3"
+  },
+  "_key": "!actors!Sz0w9ttS9Plng5tk",
+  "items": [
+    {
+      "_id": "UpWXZElZ8xNzIyhr",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+1 melee (1d4-2, bite)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d4-2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "tiny",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!Sz0w9ttS9Plng5tk.UpWXZElZ8xNzIyhr"
+    },
+    {
+      "_id": "XsRDbFvVDNlzYUT6",
+      "name": "Construct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Sz0w9ttS9Plng5tk.XsRDbFvVDNlzYUT6"
+    },
+    {
+      "_id": "jjWGAqHHfy9EEOdl",
+      "name": "Repairable",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Sz0w9ttS9Plng5tk.jjWGAqHHfy9EEOdl"
+    },
+    {
+      "_id": "ICnvwzGPvcHBY6gW",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!Sz0w9ttS9Plng5tk.ICnvwzGPvcHBY6gW"
+    },
+    {
+      "_id": "2UMEjmb2NqgyZEfj",
+      "name": "Electronic Interface",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A digital homunculus can attach itself to an electronic device, such as a cell phone or computer, and provide a direct link between the device and its master. Provided the homunculus and its master are within 1 mile of each other, the master can use the homunculus’s interface to operate the device by remote. The homunculus also provides a +2 equipment bonus on its master’s Computer Use and Disable Device skill checks provided it can attach itself to the computer or device through which (or against which) these skills are applied.</p><p>The digital homunculus must succeed at a melee touch attack to attach to any device in another creature’s possession. It loses its Dexterity bonus to Defense while connected to a device.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!Sz0w9ttS9Plng5tk.2UMEjmb2NqgyZEfj"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

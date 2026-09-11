@@ -1,0 +1,341 @@
+{
+  "_id": "PY9lAcDQbCF1To55",
+  "name": "Dryad",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 14,
+      "max": 14,
+      "temp": 0,
+      "formula": "4d6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 3,
+        "misc": 0
+      },
+      "ref": {
+        "base": 4,
+        "misc": 0
+      },
+      "will": {
+        "base": 4,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 11,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "fey",
+      "subtype": "",
+      "challengeRating": "3",
+      "hitDice": "4d6",
+      "advancement": "3-4 HD (Medium).",
+      "organization": "",
+      "treasure": "None"
+    },
+    "skills": {
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "handleAnimal": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 6,
+        "classSkill": false
+      },
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "life science",
+            "ranks": 1,
+            "misc": 8,
+            "classSkill": false
+          }
+        ]
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "ride": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      },
+      "survival": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 7,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "chaotic good",
+        "strength": "none"
+      },
+      {
+        "name": "nature",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "DR 5/+1, spell-like abilities, tree dependent, wild empathy",
+    "biography": "<p><strong>Attack:</strong> +2 melee (1d4, dagger) or +6 ranged (1d8, masterwork longbow)</p><p><strong>Full Attack:</strong> +2 melee (1d4, dagger) or +6 ranged (1d8, masterwork longbow)</p><p><strong>Skills:</strong> Escape Artist +11, Handle Animal +11, Hide +11, Knowledge (life science) +11, Listen +9, Move Silently +11, Ride +6, Spot +9, Survival +9.</p><p><strong>Feats:</strong> Great Fortitude, Improved Initiative.</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.tPwonRYAmoFf807o"
+  },
+  "_key": "!actors!PY9lAcDQbCF1To55",
+  "items": [
+    {
+      "_id": "37wamhJlnLqWLmOM",
+      "name": "Dagger",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4, dagger) or +6 ranged (1d8, masterwork longbow)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.37wamhJlnLqWLmOM"
+    },
+    {
+      "_id": "Q8wUzClKR4Ol7HHl",
+      "name": "Masterwork longbow",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4, dagger) or +6 ranged (1d8, masterwork longbow)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d8",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 1,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.Q8wUzClKR4Ol7HHl"
+    },
+    {
+      "_id": "M5mtpiBvvsro11Vi",
+      "name": "Great Fortitude",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dhezLjTJWP7r3Rtl"
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.M5mtpiBvvsro11Vi"
+    },
+    {
+      "_id": "1PqCvT13brMDQys0",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.cwSHh1LODru7iHSp"
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.1PqCvT13brMDQys0"
+    },
+    {
+      "_id": "30XkRYHAeLpW45Ng",
+      "name": "DR 5/+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.30XkRYHAeLpW45Ng"
+    },
+    {
+      "_id": "3gSvhWdBfFwenPlM",
+      "name": "Spell-Like Abilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>At will—entangle (DC 13), speak with plants, tree shape; 3/day—charm person (DC 13), deep slumber (DC 15), tree stride; 1/day—suggestion (DC 15). 6th-level caster. The save DCs are Wisdom-based.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.3gSvhWdBfFwenPlM"
+    },
+    {
+      "_id": "d3zc4DFTOttHYtmD",
+      "name": "Tree Dependent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Each dryad is mystically bound to a single, enormous tree, or a copse of trees situated in one place (such as a lobby atrium) and must never stray more than 300 yards from it. Any who do stray from their trees become ill and die within 4d6 hours. A dryad’s tree does not radiate magic.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.d3zc4DFTOttHYtmD"
+    },
+    {
+      "_id": "LCfC5xKAwNleJhwI",
+      "name": "Wild Empathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A dryad can use body language, vocalizations, and demeanor to improve the attitude of an animal. This ability functions like a Diplomacy check made to improve the attitude of a person. The dryad rolls 1d20 +10 (+6 species bonus, +4 Charisma bonus) to determine the wild empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals are usually unfriendly.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!PY9lAcDQbCF1To55.LCfC5xKAwNleJhwI"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

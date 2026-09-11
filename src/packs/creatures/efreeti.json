@@ -1,0 +1,488 @@
+{
+  "_id": "MBgBHdFGEa1LYyMh",
+  "name": "Efreeti",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "abilities": {
+      "str": {
+        "value": 23,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 17,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 65,
+      "max": 65,
+      "temp": 0,
+      "formula": "10d8+20"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 6,
+      "misc": -1
+    },
+    "saves": {
+      "fort": {
+        "base": 7,
+        "misc": 0
+      },
+      "ref": {
+        "base": 7,
+        "misc": 0
+      },
+      "will": {
+        "base": 7,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 10,
+      "size": "large",
+      "speed": 30,
+      "initiative": {
+        "misc": 4
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [
+        "fire"
+      ],
+      "vulnerabilities": [
+        "cold"
+      ],
+      "massiveDamageThreshold": 14,
+      "reach": 10,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "outsider",
+      "subtype": "",
+      "challengeRating": "8",
+      "hitDice": "10d8+20",
+      "advancement": "11-15 HD (Large); 16-30 HD (Huge); or as character class",
+      "organization": "",
+      "treasure": "None"
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "concentration": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "craft": {
+        "specialties": [
+          {
+            "name": "any one",
+            "ranks": 0,
+            "misc": 7,
+            "classSkill": false
+          }
+        ]
+      },
+      "escapeArtist": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 11,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "readWriteLanguage": {
+        "specialties": [
+          {
+            "name": "Auran",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Ignan",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Infernal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any one",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "senseMotive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 9,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Auran",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Ignan",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "Infernal",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          },
+          {
+            "name": "any one",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 10,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "evil",
+        "strength": "none"
+      },
+      {
+        "name": "law",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "heat, spell-like abilities, polymorph (self only), immune to fire, cold vulnerability, telepathy, darkvision 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +15 melee (1d8+9 plus 1d6 fire, slam)</p><p><strong>Full Attack:</strong> +15/+10 melee (1d8+9 plus 1d6 fire, slam)</p><p><strong>Skills:</strong> Bluff +12, Concentration +12, Craft (any one) +8, Escape Artist +11, Intimidate +13, Listen +12, Move Silently +11, Read/Write Auran, Read/Write Ignan, Read/Write Infernal, Read/Write Language (any one), Sense Motive +11, Speak Auran, Speak Ignan, Speak Infernal, Speak Language (any one), Spellcraft +9, Spot +12.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Combat Reflexes, Dodge, Improved Initiative.</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.jml9YKudtIye5D2I"
+  },
+  "_key": "!actors!MBgBHdFGEa1LYyMh",
+  "items": [
+    {
+      "_id": "iia9XMa0yNdqAZgw",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+15/+10 melee (1d8+9 plus 1d6 fire, slam)</p><p><strong>Plus:</strong> 1d6 fire</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d8+9",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "large",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.iia9XMa0yNdqAZgw"
+    },
+    {
+      "_id": "j7USU7sbu1EclohQ",
+      "name": "Archaic Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.j7USU7sbu1EclohQ"
+    },
+    {
+      "_id": "QjUIq6bdPMwxBDch",
+      "name": "Combat Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5"
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.QjUIq6bdPMwxBDch"
+    },
+    {
+      "_id": "eGVb55YapnYn4WsY",
+      "name": "Dodge",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13."
+        ],
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.USPpLIhpI8GaU7Bq"
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.eGVb55YapnYn4WsY"
+    },
+    {
+      "_id": "TfIUuzea1YBrzDj9",
+      "name": "Improved Initiative",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +4 circumstance bonus on initiative checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.cwSHh1LODru7iHSp"
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.TfIUuzea1YBrzDj9"
+    },
+    {
+      "_id": "E73qkuMOWt1HpH0v",
+      "name": "Heat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An efreeti deals 1d6 points of additional fire damage whenever it hits in melee or each round it maintains a hold while grappling.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.E73qkuMOWt1HpH0v"
+    },
+    {
+      "_id": "h9S1EaigeN3HFESf",
+      "name": "Spell-like Abilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>1/day—detect magical aura, gaseous form, invisibility, wall of fire (save DC 16). These abilities are as the spells cast by a 10th-level Mage (save DC 12 + spell level). The DCs are Charisma-based.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.h9S1EaigeN3HFESf"
+    },
+    {
+      "_id": "TY9mPMoaNAie3Ysy",
+      "name": "Polymorph (self only)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An efreeti can cast polymorph, at will, as a move action. This ability is similar to the polymorph incantation except that no skill checks or components are required, the efreeti cannot transform any creature other than itself, and the efreeti can remain in its new form indefinitely.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.TY9mPMoaNAie3Ysy"
+    },
+    {
+      "_id": "B0PJlx4e08KXBtDa",
+      "name": "Immune to Fire",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.B0PJlx4e08KXBtDa"
+    },
+    {
+      "_id": "h8Pr4D3UbGHahwL0",
+      "name": "Cold Vulnerability",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Efreet take 50% more damage when they fail a save against any cold-based attack.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.h8Pr4D3UbGHahwL0"
+    },
+    {
+      "_id": "YBHHo38t347WdQyY",
+      "name": "Telepathy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>An efreeti can communicate telepathically with any creature within 100 feet that has a language.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.YBHHo38t347WdQyY"
+    },
+    {
+      "_id": "Yd6yTGlzGFdVDA3y",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Efreet can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and efreet can function with no light at all.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.Yd6yTGlzGFdVDA3y"
+    },
+    {
+      "_id": "7ZXXqFWhynSXgI1b",
+      "name": "Grant Wishes",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Some efreeti (1% of the total population) are “noble” and can grant up to three wishes to any being (non-genies only) who captures them. Noble efreet perform no other services and, upon granting the third wish, are free of their servitude. Whenever possible, an efreeti will twist the words of a wish to bring pain and destruction upon the wisher. A wish can produce any one of the following effects, at the GM’s discretion:</p><p>Duplicate any spell, psionic power, or incantation (including raise dead).</p><p>Undo the harmful effects of a spell, psionic power, or incantation.</p><p>Increase one creature’s Wealth bonus by +20.</p><p>Bequeath one nonmagical item with a purchase DC of 60 or less.</p><p>Bequeath one magic item with a purchase DC of 45 or less.</p><p>Remove all injuries and afflictions affecting one creature.</p><p>Transport a number of creatures equal to the efreeti’s Hit Dice to any place the wisher chooses.</p><p>Undo a single recent event.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "spellLike",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.7ZXXqFWhynSXgI1b"
+    },
+    {
+      "_id": "rpxBv258mzSoTCZF",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Efreet are immune to fire.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!MBgBHdFGEa1LYyMh.rpxBv258mzSoTCZF"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

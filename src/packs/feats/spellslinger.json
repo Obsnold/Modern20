@@ -1,0 +1,23 @@
+{
+  "_id": "M0xfYpty07EqojgC",
+  "name": "Spellslinger",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html",
+    "featType": "general",
+    "category": "",
+    "prerequisites": [
+      "Intelligence 13 (for arcane spellcasters) or Wisdom 13 (for divine spellcasters)."
+    ],
+    "benefit": "For any one spellcasting advanced class in which you have levels, you can prepare and cast one additional spell per spell level known. For instance, Lily Parrish, a 3rd-level Dedicated Hero/3rd-level Acolyte, can prepare and cast an additional 0-level, 1st-level, and 2nd-level divine spell per day (since she can cast up to and including 2nd-level divine spells).",
+    "normal": "",
+    "special": "You may gain this feat multiple times. Each time you take the feat, it applies to a new spellcasting class.",
+    "repeatable": false,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.oBssTonXaMm5r8gd"
+  },
+  "_key": "!items!M0xfYpty07EqojgC",
+  "folder": "2W3VHg09JuaKFTS0"
+}

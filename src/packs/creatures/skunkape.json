@@ -1,0 +1,280 @@
+{
+  "_id": "x7uCteUbtXDO8sir",
+  "name": "Skunk Ape",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+    "abilities": {
+      "str": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 4,
+      "max": 4,
+      "temp": 0,
+      "formula": "1d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 2,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 2,
+        "misc": 0
+      },
+      "will": {
+        "base": 2,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 11,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "monstrousHumanoid",
+      "subtype": "",
+      "challengeRating": "1/2",
+      "hitDice": "1d8",
+      "advancement": "By character class",
+      "organization": "",
+      "treasure": "N/A"
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "speakLanguage": {
+        "specialties": [
+          {
+            "name": "Skunk Ape",
+            "ranks": 1,
+            "misc": 0,
+            "classSkill": false
+          }
+        ]
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "good",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "stench, woodland stride, darkvision 60 ft.",
+    "biography": "<p><strong>Attack:</strong> +2 melee (1d4+1, claw)</p><p><strong>Full Attack:</strong> +2 melee (1d4+1, 2 claws) or +2 ranged)</p><p><strong>Skills:</strong> Hide +5, Listen +5, Move Silently +5, Speak Skunk Ape, Spot +5</p><p><strong>Feats:</strong> Alertness, Simple Weapons Proficiency</p><p><strong>Talents:</strong> N/A</p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.JhCm2K9BuPi4PXVk"
+  },
+  "_key": "!actors!x7uCteUbtXDO8sir",
+  "items": [
+    {
+      "_id": "txZJOewypDRX8Sql",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+2 melee (1d4+1, 2 claws) or +2 ranged)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d4+1",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!x7uCteUbtXDO8sir.txZJOewypDRX8Sql"
+    },
+    {
+      "_id": "2AQIk5KC8W1QuiOQ",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx"
+      },
+      "_key": "!actors.items!x7uCteUbtXDO8sir.2AQIk5KC8W1QuiOQ"
+    },
+    {
+      "_id": "1xn8Xwzpe1VlMiat",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!x7uCteUbtXDO8sir.1xn8Xwzpe1VlMiat"
+    },
+    {
+      "_id": "lSRGOSZgf8vPfZ2T",
+      "name": "Stench",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Skunk apes exude a stench reminiscent of rotting vegetation, ammonia, and decay. When frightened or angry, they can intensify this odor such that all creatures within 30 feet of the skunk ape must succeed at a Fortitude save (DC 12) or be nauseated for 2d6 rounds. A nauseated creature may take only a single move action per turn and may not perform actions requiring concentration or attention. Skunk apes are immune to their own stench but not to the stench of other creatures.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!x7uCteUbtXDO8sir.lSRGOSZgf8vPfZ2T"
+    },
+    {
+      "_id": "PqIUD5LHNqbjyb0g",
+      "name": "Woodland Stride",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The oily fur of the skunk ape allows it to pass through any sort of undergrowth (thorn bushes, briars, cranberry bogs, and other overgrown areas) at normal speed.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!x7uCteUbtXDO8sir.PqIUD5LHNqbjyb0g"
+    },
+    {
+      "_id": "auyJy7zyzPMap4P1",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Skunk apes can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and skunk apes can function with no light at all.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!x7uCteUbtXDO8sir.auyJy7zyzPMap4P1"
+    },
+    {
+      "_id": "NEbqs5eWhuHhCzLx",
+      "name": "Bonus Feat",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Skunk apes gain the bonus feat Alertness.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!x7uCteUbtXDO8sir.NEbqs5eWhuHhCzLx"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

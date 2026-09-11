@@ -1,0 +1,471 @@
+{
+  "_id": "IgXuAnDAM0NvcGB6",
+  "name": "Advanced Garbage Toxyderm",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+    "abilities": {
+      "str": {
+        "value": 36,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 7,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 24,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 6,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 11,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 483,
+      "max": 483,
+      "temp": 0,
+      "formula": "42d8+294"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 10,
+      "misc": -2
+    },
+    "saves": {
+      "fort": {
+        "base": 30,
+        "misc": 0
+      },
+      "ref": {
+        "base": 16,
+        "misc": 0
+      },
+      "will": {
+        "base": 16,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 32,
+      "size": "gargantuan",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 20,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "elemental",
+      "subtype": "",
+      "challengeRating": "18",
+      "hitDice": "42d8+294",
+      "advancement": "43-54 HD (Gargantuan)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": -12,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 39,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 39,
+        "classSkill": false
+      },
+      "swim": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 20,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft",
+    "specialQualities": "elemental, engulf (DC 29), disease, breath weapon (60-foot cone; DC 38), darkvision 60 ft",
+    "biography": "<p><strong>Attack:</strong> +41 melee (2d8+19 plus disease, slam) or +26 ranged)</p><p><strong>Full Attack:</strong> +41/+36/+31/+25 melee (2d8+19 plus disease, slam) or +26/+21/+16/+11 ranged)</p><p><strong>Skills:</strong> Hide -14, Listen +39, Spot +39, Swim +33</p><p><strong>Feats:</strong> Alertness, Cleave, Combat Reflexes, Great Cleave, Great Fortitude, Improved Bull Rush, Iron Will, Lightning Reflexes, Power Attack, Sunder</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.mxNZucOBYJgy7HNH"
+  },
+  "_key": "!actors!IgXuAnDAM0NvcGB6",
+  "items": [
+    {
+      "_id": "ehxpZ4QVmjQddOPd",
+      "name": "Slam",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+41/+36/+31/+25 melee (2d8+19 plus disease, slam) or +26/+21/+16/+11 ranged)</p><p><strong>Plus:</strong> disease</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "2d8+19",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "gargantuan",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.ehxpZ4QVmjQddOPd"
+    },
+    {
+      "_id": "GIxLtNeNEVUEEXuC",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Listen checks and Spot checks.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.GIxLtNeNEVUEEXuC"
+    },
+    {
+      "_id": "I3G3YhXo0vsiJM4c",
+      "name": "Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.GWzDEz5myNqUySzu"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.I3G3YhXo0vsiJM4c"
+    },
+    {
+      "_id": "5C9YyxDUJXa2Garj",
+      "name": "Combat Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.5C9YyxDUJXa2Garj"
+    },
+    {
+      "_id": "gWmigKSIMGxQTGzG",
+      "name": "Great Cleave",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack",
+          "Cleave",
+          "base attack bonus +4."
+        ],
+        "benefit": "As Cleave, except that the character has no limit to the number of times he or she can use it per round.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.3LIyZLMBJltSh21Y"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.gWmigKSIMGxQTGzG"
+    },
+    {
+      "_id": "alBbprG1x6nkxvpf",
+      "name": "Great Fortitude",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Fortitude saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.dhezLjTJWP7r3Rtl"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.alBbprG1x6nkxvpf"
+    },
+    {
+      "_id": "C5wIsAWqr86c17CX",
+      "name": "Improved Bull Rush",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "When the character performs a bull rush, the character does not provoke an attack of opportunity from the defender.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.iyAP3DsBASP6UtQp"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.C5wIsAWqr86c17CX"
+    },
+    {
+      "_id": "R5NQH4YuIlMdUgEB",
+      "name": "Iron Will",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Will saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.vSPOE9BFkn1tVMaE"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.R5NQH4YuIlMdUgEB"
+    },
+    {
+      "_id": "votgrQzhF46AJ6vD",
+      "name": "Lightning Reflexes",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all Reflex saving throws.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mawmlYXqaF5J2G2K"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.votgrQzhF46AJ6vD"
+    },
+    {
+      "_id": "vxCcLCXV8Wtf0n8j",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.wN9oWEMFLOWBLpVj"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.vxCcLCXV8Wtf0n8j"
+    },
+    {
+      "_id": "6aFzgq37yq23OF4H",
+      "name": "Sunder",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13",
+          "Power Attack."
+        ],
+        "benefit": "When the character strikes an object held or carried by an opponent, such as a weapon, the character does not provoke an attack of opportunity.",
+        "normal": "A character without this feat incurs an attack of opportunity when he or she strikes at an object held or carried by another character.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.6eN31US0gJFSmjke"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.6aFzgq37yq23OF4H"
+    },
+    {
+      "_id": "XywZ1mHlUr7GmsHF",
+      "name": "Elemental",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.XywZ1mHlUr7GmsHF"
+    },
+    {
+      "_id": "hBiufKfsO8ALLoGZ",
+      "name": "Engulf (DC 29)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.hBiufKfsO8ALLoGZ"
+    },
+    {
+      "_id": "RA1PlH7kHW7KRTTo",
+      "name": "Disease",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Hantavirus—slam. Fortitude save (DC 14) negates; incubation period 1 day; initial damage 1d2 Str; secondary damage 1d2 Str (temporary or permanent) and 1d2 Con (temporary or permanent).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.RA1PlH7kHW7KRTTo"
+    },
+    {
+      "_id": "V11IDBxbwbaGhTrF",
+      "name": "Breath Weapon (60-foot cone; DC 38)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The garbage toxyderm can expel some of its mass in a 50-foot cone. This deals 10d6 points of bludgeoning damage, or half damage if a Reflex save succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Each time the toxyderm uses its breath weapon, it takes 20 points of damage. Furthermore, any creature that takes damage from the cone must succeed at a Fortitude save (DC 14) or contract a disease (see above).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Breath Weapon",
+            "actionType": "varies",
+            "save": {
+              "ability": "ref",
+              "calculation": "flat",
+              "dc": 38,
+              "onSuccess": "half"
+            },
+            "damage": {
+              "formula": "10d6",
+              "type": "bludgeoning",
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.V11IDBxbwbaGhTrF"
+    },
+    {
+      "_id": "Tl5ImkBniyNPdItH",
+      "name": "Darkvision 60 ft",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!IgXuAnDAM0NvcGB6.Tl5ImkBniyNPdItH"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

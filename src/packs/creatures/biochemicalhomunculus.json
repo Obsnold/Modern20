@@ -1,0 +1,230 @@
+{
+  "_id": "iYMK8iWXhNBJvw8Z",
+  "name": "Biochemical Homunculus",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 7,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 11,
+      "max": 11,
+      "temp": 0,
+      "formula": "2d10"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 3
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 1,
+      "size": "tiny",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": null,
+      "reach": 2,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "construct",
+      "subtype": "incorporeal",
+      "challengeRating": "1",
+      "hitDice": "2d10",
+      "advancement": "3-6 HD (Tiny)",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "master",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "construct, repairable, incorporeal, darkvision 60 ft., creature meld",
+    "biography": "<p><strong>Attack:</strong> +5 melee (1d2, bite)</p><p><strong>Full Attack:</strong> +5 melee (1d2, bite)</p><p><strong>Skills:</strong> Hide +10</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.lwXeUzuErdBaqbkR"
+  },
+  "_key": "!actors!iYMK8iWXhNBJvw8Z",
+  "items": [
+    {
+      "_id": "t6DZLsrkVKRIA7u8",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+5 melee (1d2, bite)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "1d2",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 2,
+        "size": "tiny",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!iYMK8iWXhNBJvw8Z.t6DZLsrkVKRIA7u8"
+    },
+    {
+      "_id": "5UIg49p2zPUHgoa1",
+      "name": "Construct",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iYMK8iWXhNBJvw8Z.5UIg49p2zPUHgoa1"
+    },
+    {
+      "_id": "fho5Iz78JD3rsfGf",
+      "name": "Repairable",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iYMK8iWXhNBJvw8Z.fho5Iz78JD3rsfGf"
+    },
+    {
+      "_id": "HtKBxyEhomcHzzLI",
+      "name": "Incorporeal",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A biochemical homunculus can be harmed only by other incorporeal creatures, +1 or better magic weapons, and spells, spell-like abilities, and supernatural abilities. It is immune to nonmagical attack forms. Even when hit by spells or magic weapons, it has a 50% chance to ignore damage from a corporeal source (except for force effects, such as magic missile, or attacks made with ghost touch weapons). It can pass through solid objects at will, but not force effects (such as a wall of force). Its attacks ignore natural armor, armor, and shields, although deflection bonuses and force effects (such as mage armor) work normally against it.</p><p>A biochemical homunculi moves silently and cannot be heard with Listen checks. It has no Strength score, so its Dexterity modifier applies both to its melee and ranged attacks. Nonvisual senses, such as blindsight and scent, do not function against biochemical homunculi. A biochemical homunculi cannot be tripped or grappled by a corporeal attacker.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iYMK8iWXhNBJvw8Z.HtKBxyEhomcHzzLI"
+    },
+    {
+      "_id": "UFvaieBoCdeqa3Aq",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!iYMK8iWXhNBJvw8Z.UFvaieBoCdeqa3Aq"
+    },
+    {
+      "_id": "EiyHIIYxiGBIQn9N",
+      "name": "Creature Meld",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>With a successful melee touch attack, a biochemical homunculus can meld with a living organism of Tiny size or larger and see through that creature’s eyes. It gains none of the host creature’s other senses and exerts no telepathic control over the host creature. If a melded biochemical homunculus is taken more than 1 mile from its creator, it separates from the host creature as a move action and returns to its master with all due haste. If its host creature is slain, the melded biochemical homunculus is immediately destroyed as well.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!iYMK8iWXhNBJvw8Z.EiyHIIYxiGBIQn9N"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

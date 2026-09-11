@@ -1,0 +1,405 @@
+{
+  "_id": "E47lP42GHWQx7RwW",
+  "name": "Changeling (Half-Human) Charismatic Hero 1",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+    "abilities": {
+      "str": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 18,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 19,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 8,
+      "max": 8,
+      "temp": 0,
+      "formula": "1d6+2 (includes Toughness feat)"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 1
+    },
+    "saves": {
+      "fort": {
+        "base": 1,
+        "misc": 0
+      },
+      "ref": {
+        "base": 1,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 5,
+        "bypass": "+1"
+      },
+      "resistances": [
+        {
+          "type": "fire",
+          "value": 10
+        }
+      ],
+      "immunities": [
+        "electricity"
+      ],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 8,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "fey",
+      "subtype": "",
+      "challengeRating": "3",
+      "hitDice": "1d6+2 (includes Toughness feat)",
+      "advancement": "",
+      "organization": "",
+      "treasure": "Leather jacket, loaded Ruger Service-Six (.385 revolver), stolen BMW M3 sports coupe, coat, casual clothes, sunglasses, first aid kit (in car’s trunk)."
+    },
+    "skills": {
+      "bluff": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "diplomacy": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "disguise": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "drive": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "gamble": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "gatherInformation": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 4,
+        "classSkill": false
+      },
+      "knowledge": {
+        "specialties": [
+          {
+            "name": "streetwise",
+            "ranks": 1,
+            "misc": 3,
+            "classSkill": false
+          }
+        ]
+      },
+      "sleightOfHand": {
+        "specialties": [],
+        "ranks": 1,
+        "misc": 3,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "chaos",
+        "strength": "none"
+      }
+    ],
+    "senses": "",
+    "specialQualities": "spell-like abilities, immune to electricity, fire resistance 10, damage reduction 5/+1",
+    "biography": "<p><strong>Attack:</strong> -1 melee (1d3-1 nonlethal, unarmed strike) or +4 ranged (2d6, Ruger Service-Six)</p><p><strong>Full Attack:</strong> -1 melee (1d3-1 nonlethal, unarmed strike) or +4 ranged (2d6, Ruger Service-Six)</p><p><strong>Skills:</strong> Bluff +10, Diplomacy +8, Disguise +8, Drive +6, Gamble +3, Gather Information +8, Knowledge (streetwise) +5, Sleight of Hand +8.</p><p><strong>Feats:</strong> Personal Firearms Proficiency, Simple Weapons Proficiency, Toughness.</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.jkXqNEvRB6xpv7da"
+  },
+  "_key": "!actors!E47lP42GHWQx7RwW",
+  "items": [
+    {
+      "_id": "NIBrOoOuJIGsyitG",
+      "name": "Unarmed strike",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>-1 melee (1d3-1 nonlethal, unarmed strike) or +4 ranged (2d6, Ruger Service-Six)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d3-1",
+        "damageType": "nonlethal",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.NIBrOoOuJIGsyitG"
+    },
+    {
+      "_id": "yt4p9P3qoFlIpfY7",
+      "name": "Ruger Service-Six",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>-1 melee (1d3-1 nonlethal, unarmed strike) or +4 ranged (2d6, Ruger Service-Six)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "medium",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.yt4p9P3qoFlIpfY7"
+    },
+    {
+      "_id": "DPHLx6AGJBODYg1h",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN"
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.DPHLx6AGJBODYg1h"
+    },
+    {
+      "_id": "FpwTbOUdH7AbmRLw",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.FpwTbOUdH7AbmRLw"
+    },
+    {
+      "_id": "UHQx3hCaHlQw8JKM",
+      "name": "Toughness",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gains +3 hit points.",
+        "normal": "",
+        "special": "A character may gain this feat multiple times. Its effects stack.",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.1ckAHl6RWOowv9d4"
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.UHQx3hCaHlQw8JKM"
+    },
+    {
+      "_id": "AQZydZaEstASl5mx",
+      "name": "Spell-like Abilities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>1/day—charm person, object reading; 3/day—detect magical aura. The changeling’s manifester level is equal to his or her character level.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.AQZydZaEstASl5mx"
+    },
+    {
+      "_id": "rhUtXKQjWuF5bJpe",
+      "name": "Immune to Electricity",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.rhUtXKQjWuF5bJpe"
+    },
+    {
+      "_id": "JRydSSQO0jZ8f4Wt",
+      "name": "Fire Resistance 10",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.JRydSSQO0jZ8f4Wt"
+    },
+    {
+      "_id": "Qy6LglngXkem1VHa",
+      "name": "Damage Reduction 5/+1",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A changeling ignores the first 5 points of damage dealt by a nonmagical weapon. Unlike sidhe, this damage reduction doesn’t increase as the changeling gains Hit Dice or levels.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "supernatural",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.Qy6LglngXkem1VHa"
+    },
+    {
+      "_id": "wsnT21D7AquUFGPD",
+      "name": "Immunities",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A changeling picks one energy type (acid, cold, electricity, fire, or sonic/concussion) to which it is immune.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.wsnT21D7AquUFGPD"
+    },
+    {
+      "_id": "n1i0N2IHigxLvNeq",
+      "name": "Resistance to Energy",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A changeling gains energy resistance 10 to one energy type (acid, cold, electricity, fire, or sonic/concussion). A changeling cannot be resistant to an energy type to which it is immune (see above).</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.n1i0N2IHigxLvNeq"
+    },
+    {
+      "_id": "fahbNY7bHGDLt7M8",
+      "name": "Skill Bonuses",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Changelings gain a +2 species bonus on Bluff and Sleight of Hand checks.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!E47lP42GHWQx7RwW.fahbNY7bHGDLt7M8"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

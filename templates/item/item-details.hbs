@@ -50,6 +50,9 @@
 
   {{#if (eq document.type "feat")}}
     {{formField fields.featType value=system.featType}}
+    {{!-- Metamagic, metapsionic, initial: the book's own filing, and only
+          Urban Arcana's feats carry one. --}}
+    {{#if system.category}}{{formField fields.category value=system.category}}{{/if}}
     {{formField fields.repeatable value=system.repeatable}}
     {{formField fields.benefit value=system.benefit toggled=true}}
     {{formField fields.normal value=system.normal toggled=true}}

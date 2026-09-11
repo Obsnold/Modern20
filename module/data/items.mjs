@@ -208,6 +208,12 @@ export class Modern20Feat extends Modern20ItemBase {
         initial: "general",
         choices: Object.keys(MODERN20.featTypes)
       }),
+      // The category the book files the feat under, printed after the name in
+      // capitals: "Empower Spell [METAMAGIC]". A different axis from featType,
+      // which is how a character came by the feat rather than what it is, so
+      // it is free text rather than a second enumeration — the SRD names three
+      // and an expansion can name more.
+      category: new fields.StringField({ initial: "" }),
       prerequisites: prerequisiteField(),
       benefit: new fields.HTMLField({ initial: "" }),
       normal: new fields.HTMLField({ initial: "" }),

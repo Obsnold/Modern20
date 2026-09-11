@@ -1,0 +1,465 @@
+{
+  "_id": "luHktDtDJQbgnKE5",
+  "name": "Grendelspawn Queen",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+    "abilities": {
+      "str": {
+        "value": 26,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 21,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 147,
+      "max": 147,
+      "temp": 0,
+      "formula": "14d10+70"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 12
+    },
+    "saves": {
+      "fort": {
+        "base": 9,
+        "misc": 0
+      },
+      "ref": {
+        "base": 9,
+        "misc": 0
+      },
+      "will": {
+        "base": 4,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 14,
+      "size": "huge",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 21,
+      "reach": 15,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "magicalBeast",
+      "subtype": "",
+      "challengeRating": "12",
+      "hitDice": "14d10+70",
+      "advancement": "15-32 HD (Huge); 33-42 HD (Gargantuan).",
+      "organization": "",
+      "treasure": "None"
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": -8,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 13,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "eggs",
+        "strength": "none"
+      }
+    ],
+    "senses": "Scent, Keen Sight",
+    "specialQualities": "acid spit (at will), rage, improved grab, constrict, scent, keen sight",
+    "biography": "<p><strong>Attack:</strong> +20 melee (2d6+12, bite) or +12 ranged touch (2d6, acid spit)</p><p><strong>Full Attack:</strong> +20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p><p><strong>Skills:</strong> Hide -8, Intimidate +15, Listen +14, Spot +14.</p><p><strong>Feats:</strong> Blind-Fight, Combat Expertise, Frightful Presence, Multiattack, Power Attack.</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.szfx5Ri19WgOk7Vc"
+  },
+  "_key": "!actors!luHktDtDJQbgnKE5",
+  "items": [
+    {
+      "_id": "B4fJnWhFkd0B3KZS",
+      "name": "Claw (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "2d4+8",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.B4fJnWhFkd0B3KZS"
+    },
+    {
+      "_id": "99UYiTV4CymOqrMr",
+      "name": "Bite",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "unarmed",
+        "damage": "2d6+4",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -2,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.99UYiTV4CymOqrMr"
+    },
+    {
+      "_id": "4F5tVH6amkZobOuX",
+      "name": "Tentacle slam (x2)",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "1d6+4",
+        "damageType": "",
+        "critical": "20",
+        "ranged": false,
+        "attackBonus": -2,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.4F5tVH6amkZobOuX"
+    },
+    {
+      "_id": "5MaxQFu9yhEGR5b6",
+      "name": "Acid spit",
+      "type": "weapon",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "category": "simple",
+        "damage": "2d6",
+        "damageType": "",
+        "critical": "20",
+        "ranged": true,
+        "attackBonus": 0,
+        "size": "huge",
+        "equipped": true,
+        "quantity": 1,
+        "weight": 0,
+        "purchaseDC": 0,
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "damage": {
+              "addAbility": false
+            }
+          }
+        }
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.5MaxQFu9yhEGR5b6"
+    },
+    {
+      "_id": "Qq80wSmP1jPfGA25",
+      "name": "Blind-Fight",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "In melee combat, every time the character misses because of concealment, the character can reroll the miss chance roll one time to see if the character actually hits.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.cJMIp396xXEq8f08"
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.Qq80wSmP1jPfGA25"
+    },
+    {
+      "_id": "r7VAdM3W0lStYsPM",
+      "name": "Combat Expertise",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Intelligence 13."
+        ],
+        "benefit": "When the character uses the attack action or the full attack action in melee, the character can take a penalty of up to –5 on his or her attack roll and add the same number (up to +5) to the character’s Defense. This number may not exceed the character’s base attack bonus. The changes to attack rolls and Defense last until the character’s next action. The bonus to the character’s Defense is a dodge bonus (and as such it stacks with other dodge bonuses the character may have).",
+        "normal": "A character without the Combat Expertise feat can fight defensively while using the attack or full attack action to take a –4 penalty on attacks and gain a +2 dodge bonus to Defense.",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.yNavKyWNaqIrCLhd"
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.r7VAdM3W0lStYsPM"
+    },
+    {
+      "_id": "Y1ViMF4nX64Jq9Xm",
+      "name": "Frightful Presence",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Charisma 15",
+          "Intimidate 9 ranks."
+        ],
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a Will saving throw (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.P3imgePG0THKuJKs"
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.Y1ViMF4nX64Jq9Xm"
+    },
+    {
+      "_id": "kxgLTpYR6f4hqJWx",
+      "name": "Multiattack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.kxgLTpYR6f4hqJWx"
+    },
+    {
+      "_id": "IGz7XzaTRhhvpEU2",
+      "name": "Power Attack",
+      "type": "feat",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "featType": "general",
+        "prerequisites": [
+          "Strength 13."
+        ],
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "normal": "",
+        "special": "",
+        "repeatable": false,
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.wN9oWEMFLOWBLpVj"
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.IGz7XzaTRhhvpEU2"
+    },
+    {
+      "_id": "L0OY9gDwGuqkpGJf",
+      "name": "Acid Spit (at Will)",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.L0OY9gDwGuqkpGJf"
+    },
+    {
+      "_id": "VQ6Ox2VKIqZ8cPfi",
+      "name": "Rage",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.VQ6Ox2VKIqZ8cPfi"
+    },
+    {
+      "_id": "AguVaqc8KQ8EGyEb",
+      "name": "Improved Grab",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If the creature hits with a melee weapon it deals normal damage and attempts to start a grapple as a free action, doing so without provoking attacks of opportunity. No initial touch attack is required. Unless otherwise stated, improved grab works only against opponents at least one size category smaller than the creature. A Small or smaller creature using improved grab does not apply its grapple modifier to its grapple check.</p><p>The creature has the option to conduct the grapple normally, or simply use the part of its body it used in the improved grab to hold the opponent. If it chooses to do the latter, it takes a –20 penalty on grapple checks but is not considered grappled itself; the creature does not lose its Dexterity bonus to Defense, still threatens an area, and can use its remaining attacks against other opponents.</p><p>A successful hold does not deal additional damage unless the creature also has the constrict ability (see above). If the creature does not constrict, each successful grapple check it makes during successive rounds automatically deals the damage given for the attack that established the hold.</p><p>When a creature gets a hold after an improved grab attack, it pulls the opponent into its space. This act does not provoke attacks of opportunity. The creature is not considered grappled while it holds the opponent, so it still threatens adjacent squares and retains its Dexterity bonus. It can even move, provided it can drag the opponent’s weight.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.AguVaqc8KQ8EGyEb"
+    },
+    {
+      "_id": "PWsCJQz4pra8mkQX",
+      "name": "Constrict",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The creature crushes the opponent, dealing bludgeoning damage, after making a successful grapple check. The amount of damage is given in the creature’s entry. If the creature also has the improved grab ability (see below), it deals constriction damage in addition to damage dealt by the weapon used to grab.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.PWsCJQz4pra8mkQX"
+    },
+    {
+      "_id": "54VcZjlKsnVEL9hS",
+      "name": "Scent",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>This ability allows the creature to detect approaching enemies, sniff out hidden foes, and track by sense of smell. Creatures with the scent ability can identify familiar odors just as humans do familiar sights.</p><p>The creature can detect opponents within 30 feet by sense of smell. If the opponent is upwind, the range increases to 60 feet; if downwind, it drops to 15 feet. Strong scents can be detected at twice the ranges noted above. Overpowering scents can be detected at triple normal range.</p><p>When a creature detects a scent, the exact location is not revealed—only its presence somewhere within range. The creature can take a move or attack action to note the direction of the scent. If it moves within 5 feet of the source, the creature can pinpoint that source.</p><p>A creature with the scent ability can follow tracks by smell, making a Wisdom check to find or follow a track. The typical DC for a fresh trail is 10 (no matter what kind of surface holds the scent). This DC increases or decreases depending on the strength of the quarry’s odor, the number of creatures being tracked, and the age of the trail. For each hour that the trail is cold, the DC increases by 2. The ability otherwise follows the rules for the Track feat. Creatures tracking by scent ignore the effects of surface conditions and poor visibility.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
+        "source": "d20 Modern SRD",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT"
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.54VcZjlKsnVEL9hS"
+    },
+    {
+      "_id": "ZF3zPxn0wHHhZ8UD",
+      "name": "Keen Sight",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!luHktDtDJQbgnKE5.ZF3zPxn0wHHhZ8UD"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

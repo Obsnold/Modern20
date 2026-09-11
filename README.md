@@ -30,15 +30,15 @@ fighting it forever, so this is a standalone game system.
 | Wealth checks, purchase DCs, restriction ratings, black market surcharge | Working |
 | Action points, massive damage threshold and Fortitude save | Working |
 | Class progression folding into attack, saves, Defense and Reputation | Working |
-| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 960 items, built from the SRD |
+| Compendia: classes, occupations, talents, feats, spells, psionic powers, weapons, armor, gear | 1,002 items, built from the SRD |
 | d20 Future and Urban Arcana equipment | 237 of those items, tagged by book and progress level |
 | Ammunition and containers | 24 ammunition types; 10 bags and cases that hold items |
-| Compendia: creatures, vehicles, objects | 297 actors, built from the SRD |
+| Compendia: creatures, vehicles, objects | 399 actors, built from the SRD — every creature in all three books |
 | Rules reference | 53 journal entries, 1,685 pages — the SRD's own text, in four books, cross-linked |
-| Everything links to it | All 1,391 compendium documents carry the page their rules are on, and 686 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
+| Everything links to it | All 1,535 compendium documents carry the page their rules are on, and 797 pages list the documents they are the rules for; the sheets link 19 topics and every skill |
 | FX items | 134 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
-| Creature special abilities, senses, skills, feats and damage reduction | 1,230 ability items, 1,174 with the SRD's own rules text, 78 rollable |
+| Creature special abilities, senses, skills, feats and damage reduction | 1,972 ability items, 1,743 with the SRD's own rules text, 93 rollable |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
 
 Prerequisites and skill rank caps are surfaced as **warnings, never enforced**.
@@ -343,8 +343,8 @@ deprecated APIs.
 
 ## Creatures
 
-The 198 stat blocks in the SRD's Creatures, Animals and Menace pages import as
-actors. The SRD prints them two ways and both are read: as a table with a
+The 300 stat blocks in the SRD's Creatures, Animals, Menace Manual and Urban
+Arcana pages import as actors. The SRD prints them two ways and both are read: as a table with a
 label column and one column per creature, and as a run of paragraphs under the
 creature's name — `<p class="monster"><b>CR:</b> 1/4</p>` — which is how every
 animal is printed, and eighty-odd of the Menace Manual's creatures. The
@@ -355,14 +355,31 @@ probe, the zap, the neothelid. Everything the SRD prints as a total — attack b
 initiative, skill totals — is stored as the offset that reproduces it, because
 the data model derives the same number from ability scores and Hit Dice. A
 creature that rolls Hide at the wrong bonus looks perfectly normal on a sheet,
-so `check_creatures.mjs` adds the 961 skill totals and 311 attacks back up and
+so `check_creatures.mjs` adds the 1,577 skill totals and 507 attacks back up and
 asserts each one comes to the printed figure.
+
+**Urban Arcana's creatures were missing for one hop.** The crawl that finds
+the SRD's pages reaches the book's creature index and its A-Z list, and stops
+one link short of `urbanmonst1.html` to `urbanmonst4.html`, which is where the
+stat blocks actually are. Every one of its sixty-five creatures was absent from
+the compendium for that, with every check green: nothing measures a page the
+pipeline has never been shown. They are named in `DEEP_PAGES` now, the way the
+psionic powers already were, and the parser needed no changes at all — the
+blocks are the same label/value tables it already reads, and 102 of them
+imported, the creatures and the advanced versions the book prints beside them.
+
+Two of those needed correcting by hand, in `data/overrides/creatures.json`
+where a correction has to state its reason. The mirror's own markup drops the
+H from "alfling Fast Hero 1/Charismatic Hero 1", and Urban Arcana prints no
+size-and-type line for the lizard at all — the row every other stat block heads
+with one is blank, and the book's index gives nothing either, so animal is
+recorded as what the entry itself describes.
 
 **Special abilities.** A stat block prints its abilities twice: once as the SQ
 line — *"Cold subtype, constrict, darkvision 60 ft., improved grab"* — and once
 as prose under SPECIES TRAITS that says what each one does. The import kept the
 line as a single string, which nothing could read, and dropped the prose
-entirely. Both are now parsed, and become 1,230 items, 1,174 of them carrying
+entirely. Both are now parsed, and become 1,972 items, 1,743 of them carrying
 rules text.
 
 Each printed quality takes its rules from the creature's own traits where they
@@ -463,7 +480,7 @@ What is *not* automated: everything else is text on an item. Nothing tracks a
 grapple started by improved grab, or a regeneration that has to be checked
 each round. The SRD writes those as instructions to a GM, and the useful thing
 was to put them where the creature is rather than to guess at a mechanism for
-253 different abilities.
+420 different abilities.
 
 ## The rules reference
 
@@ -609,12 +626,12 @@ python3 scripts/gen_rules_links.py    # regenerate module/rules-links.mjs
 python3 scripts/check_rules_links.py  # every link resolves to a page that exists
 ```
 
-All 1,391 documents are linked, between them reaching 694 of the 1,685 pages,
-plus 2,005 embedded ones — a creature's own attacks, abilities and feats. How
+All 1,535 documents are linked, between them reaching 797 of the 1,685 pages,
+plus 3,251 embedded ones — a creature's own attacks, abilities and feats. How
 each was found is worth stating, because it is the measure of how precise a
-link is: 622 by their own name, 77 as a variant of another entry, 607 by the
+link is: 717 by their own name, 140 as a variant of another entry, 602 by the
 category the SRD sold them under, 52 by the class whose talent tree they are
-in, and 33 that reached only the chapter they were printed in.
+in, and 24 that reached only the chapter they were printed in.
 
 **The match is made in widening scopes** — the pages of the SRD page the
 document was scraped from, then the pages of that chapter, then the whole SRD.
@@ -633,7 +650,7 @@ document it recognises rather than working it out again from the file.
 
 That script exists because `src/packs` is the source of truth: the import adds
 documents the packs do not have and leaves the rest alone, so a *new field*
-cannot arrive that way — it would report 1,391 documents as differing and write
+cannot arrive that way — it would report every document as differing and write
 none of them. `link_rules.py` writes that one field and nothing else, and is
 safe to re-run, since the page is derived rather than chosen and the ids in a
 UUID are hashes of the pack and the slug.
@@ -651,7 +668,7 @@ printed on.
 **Each page says what it is the rules for.** The link goes both ways: a footer
 on the gargoyle's page offers the gargoyle, the Handguns page offers its
 twenty-three handguns, and the feats chapter offers each feat as the item to
-drag onto a sheet — 686 pages, listing 1,391 documents between them. Reading a
+drag onto a sheet — 797 pages, listing 1,535 documents between them. Reading a
 rule and reaching for the thing it describes is most of what a rules reference
 is for. The footer is a generated block confined to the end of the page, so the
 SRD's own text is never edited, and it is replaced whole on every run;
@@ -852,15 +869,33 @@ parser improvement, and it cannot tell which. Taking the imported version is a
 decision, made with `--overwrite` and named per pack, and it is the one path
 that can lose an edit.
 
-`scrape.py` crawls all 98 SRD pages from the index — a hand-maintained page list
+`scrape.py` crawls the 221 SRD pages reachable from the index — a hand-maintained page list
 goes stale, since section pages link to the sub-pages holding the actual tables.
 Pages are cached in `.cache/` and the site is hit once. Output lands in `data/`
 and is committed, so a parser change means re-running `build_packs.py`, not
 re-scraping.
 
+**Feats come from both alphabetical listings**, core first, so that where the
+two books print the same feat the core entry is kept and the reprint reported —
+which is Wild Talent and Vehicle Specialization, and is the rule the equipment
+tables already follow. Urban Arcana tags a feat with the category it files it
+under, in capitals after the name — "Empower Spell [METAMAGIC]" — and that is
+the book's own taxonomy rather than part of the name, so it comes off into
+`system.category`: ten metamagic, eight metapsionic, three initial.
+
+**A parser that suddenly finds nothing has drifted, and writing that over a
+dataset loses it silently.** `scrape_fx_items` still keys on the entry ids the
+RTF import used, and the rules have come from the website since; re-running the
+scrape wrote an empty `data/fx_items.json` over the 134 magic items, with no
+error and no check going red — they survived only because `src/packs` is the
+source of truth and the import is additive. The scrape now keeps what is there
+and says so instead. Rewriting that parser is outstanding, and the split rules
+pages should make it easier than it was: a magic item is a page of its own now,
+named for the item.
+
 `data/` is no longer the content, then: it is the SRD as parsed, which is what
 new imports are built from and what the checks hold the packs against. Which
-matters, because that is what keeps 311 attack bonuses and 961 skill totals
+matters, because that is what keeps 507 attack bonuses and 1,577 skill totals
 verified against the printed figures even though the documents are now editable
 by hand.
 
@@ -890,10 +925,29 @@ tables under one heading.
 d20 Future and Urban Arcana items share the weapons, armor and gear packs with
 d20 Modern's own, the way d20 Future's vehicles have always shared the vehicles
 pack, and each pack is grouped into a folder per book so a d20 Modern game does
-not have to read past the laser rifles to find a Colt. Seven packs hold more
-than one book — the equipment three, the creatures, the spells, the powers and
-the vehicles — and a pack holding one book is left ungrouped, since a single
-folder wrapping everything is a click rather than a grouping.
+not have to read past the laser rifles to find a Colt. Eight packs hold more
+than one book — the equipment three, the creatures, the feats, the spells, the
+powers and the vehicles — and a pack holding one book is left ungrouped, since
+a single folder wrapping everything is a click rather than a grouping.
+
+**Which book a document says it came from is derived, not typed.** It used to
+be typed, once, in the one place every dataset-built pack shares, and it said
+"d20 Modern SRD" whatever page the document had been read off. The Menace
+Manual's hundred and twenty creatures, Urban Arcana's spells and powers and
+d20 Future's vehicles — 1,186 documents counting the creatures' own attacks and
+abilities — all claimed to be core, and nothing noticed because the *folders*
+come from the page and were right. It comes from the page now too, and
+`link_rules.py` corrects a document that names the wrong book while leaving one
+that already names the right book alone, whatever it calls it: "d20 Modern SRD"
+and "d20 Modern" are the same book spelled two ways, and someone's
+"Urban Arcana p.42" is a note rather than a mistake.
+
+The same script files a document that has no folder, which is the same problem
+in a different field: the feats pack held one book and needed no folders, so
+when Urban Arcana's forty-two arrived the ninety-five already there stayed at
+the root while an empty "d20 Modern" folder appeared beside them. A document
+already in a folder is never moved — a GM filing things their own way in
+Foundry is not a mistake to correct.
 
 Splitting the expansions into separate modules was considered and rejected for
 now: it does nothing for the licence, since a module distributing d20 Future
@@ -989,6 +1043,7 @@ to trust any of them:
 | `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |
+| `check_packs.py` (folders) | Urban Arcana's feats arrived, the pack grew its first folders, and the ninety-five feats already there stayed at the compendium root beside an empty "d20 Modern" folder |
 | `check_capture.py` | renaming a creature on its sheet filed a second copy of it beside the first, and a folder made in Foundry was left behind so everything in it landed in the compendium root — both found by reading 1,400 documents of output against a live host |
 
 Two of these bugs took a black screen to find. The Node checks enforce
@@ -1006,6 +1061,14 @@ testable by opening the sheet in a browser. Three shipped bugs lived there.
 transcribed into it by hand. `check_config.py` is what proves the transcription
 is still honest.
 
+And nothing here can see a page the pipeline has never been shown. Every check
+compares the import against the SRD *as crawled*, so a content page one link
+past the crawl is invisible to all of them: Urban Arcana's sixty-five creatures
+were missing for months with the suite green, and were found by reading the
+rules journal's own page list against the crawl's. Twenty-four pages are still
+outside it, and `data/rules.json` — which is built from the site's own
+navigation rather than from the crawl — is the list to diff against.
+
 ## What is left
 
 Roughly in the order worth doing it:
@@ -1017,12 +1080,25 @@ Roughly in the order worth doing it:
    leaving it to the player to decide and click.
 4. **The rest of d20 Future and Urban Arcana.** The equipment is in: every
    weapon, suit of armor, piece of gear and vehicle those books price is built
-   from its own table. The *text* of everything else arrived with the rules
-   journal — Shadowkind, incantations, prestige classes, starship combat,
-   mecha, robots, cybernetics, mutations, xenoforms — so it is all readable
-   and linkable in the world today. What is left is making it mechanical:
-   each of those is a table of modifiers to something the system would first
-   have to model.
+   from its own table, and so are Urban Arcana's creatures, spells, powers, FX
+   items and feats. The *text* of everything else arrived with the rules
+   journal, so it is readable and linkable in the world today; what is left is
+   documents to drag onto a sheet. Measured by the rules pages nothing points
+   at, in the order the work gets harder:
+
+   | Missing | Entries | Why it is not in yet |
+   |---|---|---|
+   | Urban Arcana advanced and prestige classes | 12 + 5 | the class scrape is pointed at d20 Modern's index pages only |
+   | d20 Future advanced classes and occupations | 12 + 7 | the same |
+   | d20 Future and Menace Manual feats | 29 + 5 | those two listings are laid out differently enough that the feat parser reads prerequisite lines as names |
+   | Shadowkind species | 21 | species-trait bundles; no importer |
+   | Incantations and their seeds | 46 | spell-shaped; no importer, and `urbanseed.html` is past the crawl |
+   | Mutations | 73 | feat-shaped, with an MP cost and a d% table |
+   | Cybernetics | 33 | gear-shaped, with a purchase DC |
+   | Robots, mecha and starships | ~290 pages | component catalogues and example units; fifteen of their pages are past the crawl too |
+
+   Organizations stay journal-only: nineteen pages of who-knows-whom, with
+   nothing to roll.
 
 Class skills are granted by the character's class and occupation items rather
 than ticked by hand — removing a class removes what it granted. A hand-ticked

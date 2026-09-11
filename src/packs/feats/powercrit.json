@@ -1,0 +1,24 @@
+{
+  "_id": "xxUu0WnxREwfV8NY",
+  "name": "Power Crit",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html",
+    "featType": "general",
+    "category": "",
+    "prerequisites": [
+      "Base attack bonus +10",
+      "proficiency with weapon."
+    ],
+    "benefit": "You may spend an action point before making an attack with a weapon with which you are proficient. If the attack hits, it automatically threatens a critical hit (regardless of whether the attack roll falls within the weapon’s actual threat range). You must roll to confirm the critical hit, as normal. This is a supernatural ability.",
+    "normal": "You must roll in the threat range of a weapon, then confirm that threat to score a critical hit.",
+    "special": "",
+    "repeatable": false,
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.ud2qiBOU1yg2O055"
+  },
+  "_key": "!items!xxUu0WnxREwfV8NY",
+  "folder": "2W3VHg09JuaKFTS0"
+}

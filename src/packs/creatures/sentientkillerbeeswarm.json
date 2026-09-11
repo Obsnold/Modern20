@@ -1,0 +1,237 @@
+{
+  "_id": "lX8jOtbqIqEBVNTA",
+  "name": "Sentient Killer Bee Swarm",
+  "type": "creature",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+    "abilities": {
+      "str": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 20,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 1,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 2,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 22,
+      "max": 22,
+      "temp": 0,
+      "formula": "5d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "naturalArmor": 0,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 9,
+        "misc": 0
+      },
+      "ref": {
+        "base": 1,
+        "misc": 0
+      },
+      "will": {
+        "base": 1,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 3,
+      "size": "medium",
+      "speed": 20,
+      "initiative": {
+        "misc": 0
+      },
+      "damageReduction": {
+        "value": 0,
+        "bypass": ""
+      },
+      "resistances": [],
+      "immunities": [],
+      "vulnerabilities": [],
+      "massiveDamageThreshold": 10,
+      "reach": 5,
+      "space": 5
+    },
+    "details": {
+      "creatureType": "vermin",
+      "subtype": "swarm of fine vermin",
+      "challengeRating": "5",
+      "hitDice": "5d8",
+      "advancement": "None",
+      "organization": "",
+      "treasure": ""
+    },
+    "skills": {
+      "hide": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "intimidate": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 8,
+        "classSkill": false
+      },
+      "listen": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      },
+      "moveSilently": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 2,
+        "classSkill": false
+      },
+      "spot": {
+        "specialties": [],
+        "ranks": 0,
+        "misc": 6,
+        "classSkill": false
+      }
+    },
+    "allegiances": [
+      {
+        "name": "none",
+        "strength": "none"
+      }
+    ],
+    "senses": "Darkvision 60 ft.",
+    "specialQualities": "swarm, sentience, distraction, poison, resistance to massive damage, darkvision 60 ft.",
+    "biography": "<p><strong>Attack:</strong> swarm (3d6 plus poison, swarm)</p><p><strong>Full Attack:</strong> swarm (3d6 plus poison, swarm)</p><p><strong>Skills:</strong> Hide +7, Intimidate +4, Listen +7, Move Silently +7, Spot +7</p><p><strong>Feats:</strong> None</p><p><strong>Talents:</strong> </p>",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.aLNmr9zkYTi1CI4c"
+  },
+  "_key": "!actors!lX8jOtbqIqEBVNTA",
+  "items": [
+    {
+      "_id": "Y4TqPvUttlp7yE2d",
+      "name": "Swarm",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {},
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.dKgutAR4SJE2Fcc0"
+      },
+      "_key": "!actors.items!lX8jOtbqIqEBVNTA.Y4TqPvUttlp7yE2d"
+    },
+    {
+      "_id": "ahmj2X508a7FYuj9",
+      "name": "Sentience",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!lX8jOtbqIqEBVNTA.ahmj2X508a7FYuj9"
+    },
+    {
+      "_id": "tSbmOlA3siVgfUNN",
+      "name": "Distraction",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!lX8jOtbqIqEBVNTA.tSbmOlA3siVgfUNN"
+    },
+    {
+      "_id": "cNHVNCCo60cgbyYp",
+      "name": "Poison",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Bite—Fortitude save (DC 14) negates; initial and secondary damage 1d3 Con.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!lX8jOtbqIqEBVNTA.cNHVNCCo60cgbyYp"
+    },
+    {
+      "_id": "NrBYCOeT1x5p4oXB",
+      "name": "Resistance to Massive Damage",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sentient killer bee swarm gains a +5 species bonus on Fortitude saves to negate the effects of massive damage.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": false,
+        "activities": {}
+      },
+      "_key": "!actors.items!lX8jOtbqIqEBVNTA.NrBYCOeT1x5p4oXB"
+    },
+    {
+      "_id": "Pu3FGgXUhyDcWWy9",
+      "name": "Darkvision 60 ft.",
+      "type": "specialAbility",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A sentient killer bee swarm can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and the killer bees can function with no light at all.</p>",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
+        "source": "Urban Arcana",
+        "abilityType": "extraordinary",
+        "sense": true,
+        "activities": {}
+      },
+      "_key": "!actors.items!lX8jOtbqIqEBVNTA.Pu3FGgXUhyDcWWy9"
+    }
+  ],
+  "folder": "WSv2CNoH59kcGHWJ"
+}

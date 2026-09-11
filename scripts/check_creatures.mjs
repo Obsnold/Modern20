@@ -201,6 +201,28 @@ console.log("4 size guidance cases checked");
 // their name, so the compendium held a creature called "Huge animal".
 const creatures = JSON.parse(readFileSync(join(ROOT, "data", "creatures.json"), "utf8"));
 
+/**
+ * The corrections the build applies to the scrape before anything is built.
+ *
+ * A different layer from the hand-edited pack documents above: this one fixes
+ * the *data*, keyed by entry id, for things the SRD itself gets wrong or does
+ * not print. Urban Arcana's lizard is the case in point — the row every other
+ * stat block heads with its size and type is simply blank — and reading the
+ * scrape without the correction reports a creature the compendium types
+ * perfectly well as untyped.
+ */
+let corrections = {};
+try {
+  corrections = JSON.parse(
+    readFileSync(join(ROOT, "data", "overrides", "creatures.json"), "utf8")
+  );
+} catch { /* nothing corrected yet */ }
+for (const entry of creatures) {
+  for (const [key, value] of Object.entries(corrections[entry.id] ?? {})) {
+    if (key !== "why") entry[key] = value;
+  }
+}
+
 const untyped = creatures.filter((entry) => !entry.creatureType);
 if (untyped.length) {
   fail(`${untyped.length} creatures have no type: `

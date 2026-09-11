@@ -1,0 +1,23 @@
+{
+  "_id": "5el1lOvf1uha2hkc",
+  "name": "Persistent Power",
+  "type": "feat",
+  "img": "icons/svg/upgrade.svg",
+  "system": {
+    "description": "",
+    "source": "Urban Arcana",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.3BxbemO4gNoJncpB",
+    "featType": "general",
+    "category": "Metapsionic",
+    "prerequisites": [
+      "Extend Power."
+    ],
+    "benefit": "A persistent power has a duration of 24 hours. The persistent power must have a personal range or a fixed range; you can’t use this feat on a power with a variable range, or on a power with an instantaneous duration. Note that you must concentrate on some powers to use their effects (for example, detect psionics and detect thoughts); concentration on such a power is an attack or move action that does not provoke an attack of opportunity. A persistent power costs a number of power points equal to its standard cost +8.",
+    "normal": "",
+    "special": "",
+    "repeatable": false
+  },
+  "_key": "!items!5el1lOvf1uha2hkc",
+  "folder": "2W3VHg09JuaKFTS0"
+}
