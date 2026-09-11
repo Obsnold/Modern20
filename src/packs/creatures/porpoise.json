@@ -2,7 +2,7 @@
   "_id": "dSqrTBTOlSk18Jnv",
   "name": "Porpoise",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -122,7 +122,7 @@
       "_id": "qXpD6KQEuEYMsWBU",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+4 melee (1d4, slam)</p>",
         "source": "Urban Arcana",
@@ -155,7 +155,7 @@
       "_id": "2dANxHMChK52usMs",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -177,7 +177,7 @@
       "_id": "QDRhRRIBoPNxa3Tu",
       "name": "Aquatic",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/splash.svg",
       "system": {
         "description": "<p>Porpoises can move in water without making @Check[skill:swim]{Swim check}s and cannot drown in water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -193,7 +193,7 @@
       "_id": "tWqV78liIgfft2ko",
       "name": "Blindsight",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Porpoises can “see” by emitting high-frequency sounds, inaudible to most other creatures. This form of echolocation allows them to locate objects and creatures within 120 feet. A silence spell negates this and forces the porpoise to rely on its vision, which is approximately as good as a human’s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -209,7 +209,7 @@
       "_id": "02Sgpt9hnX4Sbclu",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Porpoises gain a +4 species bonus on Listen and @Check[skill:spot]{Spot check}s. These bonuses are lost if blindsight is negated.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -225,7 +225,7 @@
       "_id": "Ofw9x71Fm6cNNzGT",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Porpoises gain the bonus feat Weapon Finesse (slam).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

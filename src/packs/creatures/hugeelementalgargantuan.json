@@ -2,7 +2,7 @@
   "_id": "GmPOlNT0AO3ccUxk",
   "name": "Huge elemental (Gargantuan)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -134,7 +134,7 @@
       "_id": "NKXIKCssuiIeVoKO",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+32/+27/+22/+17 melee (2d8+19 plus radiation, slam) or +18/+13/+8/+3 ranged</p><p><strong>Plus:</strong> radiation</p>",
         "source": "Urban Arcana",
@@ -167,7 +167,7 @@
       "_id": "VIB3xPpvHBFz4zVu",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -189,7 +189,7 @@
       "_id": "PtwyXd5QRR0Fkfnr",
       "name": "Great Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -213,7 +213,7 @@
       "_id": "749LskqDTchIT7GG",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -232,7 +232,7 @@
       "_id": "78sXhBWAISNne8P8",
       "name": "Improved Bull Rush",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -254,7 +254,7 @@
       "_id": "XB8D2HuL4L8Tbu9r",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -273,7 +273,7 @@
       "_id": "4FPR0Ii9qROaiL9q",
       "name": "Lightning Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -292,7 +292,7 @@
       "_id": "XRMomNO1vaj1NeML",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -313,7 +313,7 @@
       "_id": "D8mhyCuyJb2uJ5Ug",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -335,7 +335,7 @@
       "_id": "Qo6x7j5WNUvoHwA7",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -351,7 +351,7 @@
       "_id": "7Mnli7C0cqHWc0h8",
       "name": "Radiation",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The area within a quarter-mile of a nuclear toxyderm is considered highly irradiated (see Radiation Sickness, below), so characters receive a low exposure to radiation if they remain in the area for less than a minute and a moderate exposure if they stay longer. If the nuclear toxyderm hits a creature with a slam attack, that creature receives a severe exposure to radiation.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -367,7 +367,7 @@
       "_id": "2IFBzyBbJWFkTFxU",
       "name": "Engulf (DC 25)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -383,7 +383,7 @@
       "_id": "AiTEkTSWbGnct5EX",
       "name": "Breath Weapon (DC 32)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>The nuclear toxyderm’s breath weapon is a 100-foot cone of white-hot nuclear slag and fullspectrum radiation. It deals 20d6 points of damage to all in its path, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Any creature that takes damage from the cone also suffers a high exposure to radiation (see the Radiation Sickness).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -411,7 +411,7 @@
       "_id": "T4r3z1XxMys9hgCX",
       "name": "Chain Reaction",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>If the nuclear toxyderm is reduced to 0 or fewer hit points, it explodes in a blinding flash of light that deals 400 points of damage to everything (creatures and objects alike) within 400 feet and 100 points of damage to everything within a mile; a successful @Check[save:ref]{Reflex save} halves the damage (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Dexterity modifier). This explosion generally results in a milehigh mushroom cloud and a highly radioactive crater a quarter-mile across.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -427,7 +427,7 @@
       "_id": "7Iq5acuH4Ab4LG1o",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

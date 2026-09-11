@@ -2,7 +2,7 @@
   "_id": "cOE3c9wIa3gP1Uql",
   "name": "Mummy Dedicated Hero 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -166,7 +166,7 @@
       "_id": "18tEqvHwuSn7vIyr",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+8 melee (1d6+4 plus mummy rot, slam), or +4 ranged (1d10/19-20, crossbow)</p><p><strong>Plus:</strong> mummy rot</p>",
         "source": "d20 Modern SRD",
@@ -199,7 +199,7 @@
       "_id": "iI8PX9XhepfHXJhN",
       "name": "Crossbow",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+8 melee (1d6+4 plus mummy rot, slam), or +4 ranged (1d10/19-20, crossbow)</p>",
         "source": "d20 Modern SRD",
@@ -232,7 +232,7 @@
       "_id": "FcOo40Tj11BGcjyw",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -251,7 +251,7 @@
       "_id": "dJuyrTWlgBbgNXiu",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -270,7 +270,7 @@
       "_id": "Fpc3x4PzfJhssUeR",
       "name": "Blind-Fight",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -289,7 +289,7 @@
       "_id": "CKTxB7LBWaYmO9jW",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -308,7 +308,7 @@
       "_id": "4cVMo4Rpz4l9KRFp",
       "name": "Toughness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -327,7 +327,7 @@
       "_id": "gGmPev4EbDjk2Y2I",
       "name": "Track",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -346,7 +346,7 @@
       "_id": "ZVnaSLH9lG7QfM5H",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Mummies have the traits and immunities common to undead.</p>",
         "source": "d20 Modern SRD",
@@ -362,7 +362,7 @@
       "_id": "0hQS6h35ptprwmiQ",
       "name": "Despair",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>At the mere sight of a mummy, the viewer must succeed on a @Check[save:will|dc:15]{Will save (DC 15)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that mummy’s despair ability for one day.</p>",
         "source": "d20 Modern SRD",
@@ -378,7 +378,7 @@
       "_id": "v2ey0zFOL295IgBR",
       "name": "Mummy Rot",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>A mummy’s touch carries a horrible rotting disease (Fort save DC 20 negates; incubation period 1 day; damage 1d6 temporary Constitution). The GM may allow characters to create medicine to treat the disease using the Craft (pharmaceutical) skill. In a campaign that uses magic, a remove disease spell can cure this disease. The only other way to halt the disease’s advance is to amputate whatever appendage the mummy touched (usually a hand, arm, leg, or foot). Amputating a limb deals 1d4+1 points of temporary Constitution damage, although a successful @Check[skill:treatInjury|dc:25]{Treat Injury check (DC 25)} reduces the temporary Constitution damage to 1 point.</p><p>An afflicted creature that dies of mummy rot shrivels away and turns to dust.</p>",
         "source": "d20 Modern SRD",
@@ -394,7 +394,7 @@
       "_id": "rYVKUslYWnET9Hwu",
       "name": "Fire Vulnerability",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A mummy takes double damage from fire attacks unless a save is allowed for half damage. A successful save halves the damage, and a failure doubles it.</p>",
         "source": "d20 Modern SRD",
@@ -410,7 +410,7 @@
       "_id": "8hERzFyvj5HV7DOq",
       "name": "Resistant to Blows",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Physical attacks deal only half damage to mummies. Apply this effect before damage reduction.</p>",
         "source": "d20 Modern SRD",
@@ -426,7 +426,7 @@
       "_id": "04J8TMXBk0LeM2Pj",
       "name": "Damage Reduction 5/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>In campaigns without magic weapons, the GM can either disregard the mummy’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
         "source": "d20 Modern SRD",
@@ -442,7 +442,7 @@
       "_id": "1eGZwn7DXERHNG6c",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -458,7 +458,7 @@
       "_id": "y8pcKLWg9gq4xPYg",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Mummies receive the bonus feat Archaic Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -474,7 +474,7 @@
       "_id": "1BruteThIClExgIi",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Mummies read, write, and speak one language.</p>",
         "source": "d20 Modern SRD",

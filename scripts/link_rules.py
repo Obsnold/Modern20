@@ -68,6 +68,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import art  # noqa: E402
 import build_packs  # noqa: E402
 import rules_pages  # noqa: E402
 import srd  # noqa: E402
@@ -120,7 +121,7 @@ def with_page(system: dict, uuid: str) -> dict:
 
 def link(document: dict, built: dict | None, pack: str, index: rules_pages.RulesIndex,
          counts: collections.Counter, rollable: list, *,
-         corrected: bool = False) -> bool:
+         corrected: bool = False, embedded: bool = False) -> bool:
     """Reconcile one document, and its embedded ones, with the import.
 
     `corrected` marks a document recorded in data/overrides/packs as
@@ -129,9 +130,22 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     decisions — but nothing the correction might be about is touched.
     """
     changed = False
+
+    # The icon this kind of document gets. Only over one of the eleven
+    # placeholders the build used to hand out: an image a GM has chosen, or one
+    # a later map already wrote, is not a placeholder. Applied even to a
+    # corrected document, since a picture is not what a correction is about.
+    icon = art.icon_for(pack, document, embedded=embedded)
+    if icon and document.get("img") in art.PLACEHOLDERS:
+        document["img"] = icon
+        counts["pictured"] += 1
+        changed = True
+
+    # Everything below is about where a document's rules are, which a roll
+    # table keeps in its description rather than in system data.
     system = document.get("system")
     if system is None:
-        return False
+        return changed
 
     # The book the page it cites belongs to. Only a document naming the wrong
     # one is corrected: "d20 Modern SRD" and "d20 Modern" are the same book
@@ -207,7 +221,7 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     children = {child["name"]: child for child in ((built or {}).get("items") or [])}
     for child in (document.get("items") or []):
         if link(child, children.get(child["name"]), pack, index, counts, rollable,
-                corrected=corrected):
+                corrected=corrected, embedded=True):
             changed = True
     return changed
 
@@ -333,6 +347,8 @@ def main() -> int:
         print(f"{counts['token']} actor(s) took the token the import derives")
     if counts["measured"]:
         print(f"{counts['measured']} space and reach value(s) corrected")
+    if counts["pictured"]:
+        print(f"{counts['pictured']} document(s) took the icon their kind implies")
     if counts["rolls"]:
         print(f"{counts['rolls']} field(s) of prose now say what they roll")
     if arguments.report and unlinked:

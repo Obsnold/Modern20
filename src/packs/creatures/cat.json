@@ -2,7 +2,7 @@
   "_id": "TDU3SPCiYAJgHy4g",
   "name": "Cat",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -152,7 +152,7 @@
       "_id": "0fRRoMFc7Wnma0zb",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>Atk +4 melee (1d2-4, 2 claws), -1 melee (1d3-4, bite)</p>",
         "source": "d20 Modern SRD",
@@ -185,7 +185,7 @@
       "_id": "0oSxuc3cKyPy3Inc",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>Atk +4 melee (1d2-4, 2 claws), -1 melee (1d3-4, bite)</p>",
         "source": "d20 Modern SRD",
@@ -218,7 +218,7 @@
       "_id": "VrhErsX1ylBUGu7z",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -240,7 +240,7 @@
       "_id": "ChFi7mIw1zSM1gwF",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -262,7 +262,7 @@
       "_id": "pmFmhffhaglu5EfV",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -278,7 +278,7 @@
       "_id": "wZ8wCi8XkzglP30N",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Cats receive a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide and @Check[skill:moveSilently]{Move Silently check}s. In areas of tall grass or heavy undergrowth, the cat’s Hide bonus rises to +8. Cats use their Dexterity modifier for @Check[skill:climb]{Climb check}s.</p>",
         "source": "d20 Modern SRD",
@@ -294,7 +294,7 @@
       "_id": "Z9YhjTw4cfVPInwQ",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A cat gains the bonus feats Weapon Finesse (bite) and Weapon Finesse (claw).</p>",
         "source": "d20 Modern SRD",

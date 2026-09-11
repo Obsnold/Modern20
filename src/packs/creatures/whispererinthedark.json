@@ -2,7 +2,7 @@
   "_id": "iuveLpGBT7V40lhs",
   "name": "Whisperer In The Dark",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -156,7 +156,7 @@
       "_id": "OvcSQuO3V8CJi0lQ",
       "name": "Incorporeal touche (x4)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (2d6 Con, 4 incorporeal touches)</p>",
         "source": "Menace Manual",
@@ -189,7 +189,7 @@
       "_id": "aPG0PVGriORSiZzV",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -208,7 +208,7 @@
       "_id": "zbafWGc4YdLP7x8m",
       "name": "Blind-Fight",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -227,7 +227,7 @@
       "_id": "zr258vCKqCkQJTKI",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -246,7 +246,7 @@
       "_id": "Rtg2mx1YOV2OHNql",
       "name": "Frightful Presence",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -268,7 +268,7 @@
       "_id": "rZIiEvXbABqUL9dF",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -287,7 +287,7 @@
       "_id": "BWIBXz34xNTRs3su",
       "name": "Daylight Powerlessness",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A whisperer in the dark is utterly powerless in natural sunlight and flees from it if possible. If caught in sunlight, it cannot attack and may make only one move or attack action each round. It cannot take full-round actions at all in this situation.</p>",
         "source": "Menace Manual",
@@ -303,7 +303,7 @@
       "_id": "rsoKyRKWMDMq8HzW",
       "name": "Incorporeal",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -319,7 +319,7 @@
       "_id": "lAdJcELe2z8kACXL",
       "name": "Psionics",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>At will—attraction, clairaudience/clairvoyance, concussion, detect psionics, suggestion. Manifester level 10th; save DC 10 + whisperer in the dark’s key ability modifier + power level.</p>",
         "source": "Menace Manual",
@@ -335,7 +335,7 @@
       "_id": "fWXo4yV4szv6db4n",
       "name": "Steal Essence",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>If a creature with an Intelligence score greater than 2 is slain by a whisperer in the dark, its essence is absorbed into the monster’s consciousness within 1d4 rounds, though its physical body remains intact. Stealing a creature’s essence grants the whisperer 12 temporary hit points, and a new screaming face resembling that of the absorbed creature appears permanently within the cloud.</p>",
         "source": "Menace Manual",
@@ -351,7 +351,7 @@
       "_id": "NTze38YsORqVwWSX",
       "name": "Turn Resistance +2",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A whisperer in the dark is treated as having +2 Hit Dice for the purpose of turn or rebuke attempts.</p>",
         "source": "Menace Manual",
@@ -367,7 +367,7 @@
       "_id": "DzMdP8g93iuTnFcX",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A whisperer in the dark has the traits and immunities common to undead.</p>",
         "source": "Menace Manual",
@@ -383,7 +383,7 @@
       "_id": "sTrtCRbsFL00q2Mf",
       "name": "Unnatural Aura",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A whisperer in the dark constantly projects an unnatural aura to a radius of 30 feet around itself. Both wild and domesticated animals can sense this aura and refuse to enter its area. If forced to come closer than 30 feet to the whisperer in the dark, they panic and remain panicked for as long as they are in the area.</p>",
         "source": "Menace Manual",
@@ -399,7 +399,7 @@
       "_id": "PoMGK5xQmpYvdlJG",
       "name": "Incorporeal Subtype",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A whisperer in the dark has no physical form and can be harmed only by other incorporeal creatures, +1 or better magic weapons, or magic, though it has a 50% chance to ignore any damage from a corporeal source. The whisperer in the dark can pass through solid objects at will, and its own attacks pass through armor. The charred one moves in complete silence and cannot be heard at all.</p>",
         "source": "Menace Manual",

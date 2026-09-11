@@ -2,7 +2,7 @@
   "_id": "cL5GqSf38Lj6YYBp",
   "name": "Montauk Monster",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -139,7 +139,7 @@
       "_id": "asHnmmEYHi3feAhW",
       "name": "Energy claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+11 melee (1d8+6 plus 1d6 fire plus 1d6 electricity, 2 energy claws)</p><p><strong>Plus:</strong> 1d6 fire plus 1d6 electricity</p>",
         "source": "Menace Manual",
@@ -172,7 +172,7 @@
       "_id": "6hYVNDcQUJ3E3YL9",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -191,7 +191,7 @@
       "_id": "3Khei4gsfBYvjlwX",
       "name": "Lightning Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -210,7 +210,7 @@
       "_id": "Kyz3wFxT2rGpq0rq",
       "name": "Damage Reduction 20/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A montauk monster ignores the first 20 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the montauk monster’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
@@ -226,7 +226,7 @@
       "_id": "7YcTyofLtPSyEPZj",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -242,7 +242,7 @@
       "_id": "nWk267OayzrMJUB1",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Montauk monsters have all the traits common to elementals.</p>",
         "source": "Menace Manual",
@@ -258,7 +258,7 @@
       "_id": "JVZa5dEVkLycneHt",
       "name": "Energy Claw",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>In addition to its base damage, a Montauk monster’s claw attack deals 1d6 points of electricity damage and 1d6 points of fire damage with a successful hit.</p>",
         "source": "Menace Manual",
@@ -274,7 +274,7 @@
       "_id": "GZj6pPL8fdJ68M77",
       "name": "Energy Form",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Montauk monsters are raw energy given sentience. Their bodies and their melee attacks are force effects.</p>",
         "source": "Menace Manual",
@@ -290,7 +290,7 @@
       "_id": "mlR5qwD6AGA0TGas",
       "name": "Fast Healing 3",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>A montauk monster heals 3 points of damage per round unless it is reduced to –10 or fewer hit points. This ability does not enable a montauk monster to regrow or reattach severed body parts.</p>",
         "source": "Menace Manual",
@@ -306,7 +306,7 @@
       "_id": "9Sof4ZYgPJaJ9qvs",
       "name": "Fire Subtype",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A montauk monster is immune to fire damage and takes 50% more damage from cold attacks.</p>",
         "source": "Menace Manual",
@@ -322,7 +322,7 @@
       "_id": "vEK9QE2689R6LM66",
       "name": "Fuse (DC 15)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once every 1d4 rounds, a montauk monster can cause a creature it has successfully hit with a melee attack to fuse with nearby matter. At the time of the attack, the target creature must be within 5 feet of a solid object with a volume at least equal to its own. (In most cases, the ground or a wall is sufficient.) The target must succeed at a @Check[save:will]{Will saving throw} (DC 10 + 1/2 the montauk monster’s Hit Dice + its Charisma modifier) or be fused with the object and instantly killed. The object’s hardness drops by 2 after the fusion, regardless of the creature’s nature or physical makeup. Such an object continues to function normally, but it is usually cosmetically grotesque, with fleshy fingers or a portion of a face projecting from its surface.</p>",
         "source": "Menace Manual",
@@ -350,7 +350,7 @@
       "_id": "n8Lyltje4S1LTc2D",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Montauk monsters are immune to fire and electricity. They are also immune to force effects such as mage armor, magic missile, and wall of force. The creatures and their melee attacks pass through such effects unharmed and unhindered.</p>",
         "source": "Menace Manual",
@@ -366,7 +366,7 @@
       "_id": "xvbgyMMyCf9gpUF5",
       "name": "Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A montauk monster is naturally invisible, as though constantly under the effect of the invisibility spell (caster level 10th). Like a subject of that spell, the monster becomes visible upon attacking, but it can reinstate its invisibility as a free action once per round.</p>",
         "source": "Menace Manual",

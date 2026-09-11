@@ -2,7 +2,7 @@
   "_id": "qOiggZMFhklE4Ofm",
   "name": "Toad",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -128,7 +128,7 @@
       "_id": "ggHDiEV3K3VYomHv",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A toad’s coloration gives it a +4 species bonus on @Check[skill:hide]{Hide check}s.</p>",
         "source": "d20 Modern SRD",

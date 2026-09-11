@@ -2,7 +2,7 @@
   "_id": "FZ7KtQJr2WG0yIEx",
   "name": "Doom Hag",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -186,7 +186,7 @@
       "_id": "T3GRZCjiHR0dWhJC",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+8 melee (1d4+4, 2 claws)</p>",
         "source": "Menace Manual",
@@ -219,7 +219,7 @@
       "_id": "B5kU1jcgir1kwXln",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -238,7 +238,7 @@
       "_id": "WgZE8yXPr9WaHh9w",
       "name": "Stealthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -257,7 +257,7 @@
       "_id": "VV585CsTkAKRAnZ1",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -279,7 +279,7 @@
       "_id": "OfnZLsfApehAgshY",
       "name": "Confusion (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A doom hag can use confusion three times per day, as the spell cast by a 9th-level Mage (@Check[save:will]{Will save} negates; save DC 14 + the doom hag’s Charisma modifier).</p>",
         "source": "Menace Manual",
@@ -307,7 +307,7 @@
       "_id": "k42hmRpjdj3d7vBV",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -323,7 +323,7 @@
       "_id": "32xvW5VPGnxak32Z",
       "name": "Mimicry",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A doom hag can imitate (but not necessarily understand) the sounds made by any person or animal it hears.</p>",
         "source": "Menace Manual",
@@ -339,7 +339,7 @@
       "_id": "0UJsHhdeMlIUq8jU",
       "name": "Natural Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>During daylight, a doom hag is naturally invisible and remains so even when attacking. Any creature that correctly discerns the doom hag’s location despite being unable to see it has a 50% miss chance on melee and ranged attacks. This ability is always active, but the doom hag can suppress it for 1 round with a successful @Check[skill:concentration|dc:15]{Concentration check (DC 15)}. A new check at the same DC is required for each subsequent round that it wishes to remain visible. The doom hag is visible from sundown to sunup.</p>",
         "source": "Menace Manual",
@@ -355,7 +355,7 @@
       "_id": "hQxkMmSkon849sp9",
       "name": "Rend 1d4+6",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If a doom hag hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. The rending attack deals damage as a claw attack plus 1.5 times the doom hag’s Strength modifier.</p>",
         "source": "Menace Manual",
@@ -371,7 +371,7 @@
       "_id": "yki87VjugLrlnXzS",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A doom hag has the traits and immunities common to undead.</p>",
         "source": "Menace Manual",
@@ -387,7 +387,7 @@
       "_id": "2CrFDVQKt2lYaPLg",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A doom hag blends into the gloom, gaining a +4 species bonus on @Check[skill:hide]{Hide check}s at night or in darkness.</p>",
         "source": "Menace Manual",

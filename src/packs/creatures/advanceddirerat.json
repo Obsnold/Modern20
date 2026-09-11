@@ -2,7 +2,7 @@
   "_id": "8L07nmR4YDc35fSo",
   "name": "Advanced Dire Rat",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -134,7 +134,7 @@
       "_id": "r2TGmceZOlDmSnrJ",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+11 melee (1d8+9, bite)</p>",
         "source": "Urban Arcana",
@@ -167,7 +167,7 @@
       "_id": "7HEvnA96FddaZ76X",
       "name": "Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>Dire rats carry a Shadow disease called filth fever. Filth fever—bite: @Check[save:fort|dc:12]{Fortitude save (DC 12)} negates; incubation period 1d3 days; initial and secondary damage 1d3 Dex and 1d3 Con.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -183,7 +183,7 @@
       "_id": "xiCEld0Wrx9Ai8Xc",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Dire rats can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dire rats can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -199,7 +199,7 @@
       "_id": "B0HR8PUv7yntiuz1",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the dire rat to detect approaching enemies, sniff out hidden foes, and track by scent.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -215,7 +215,7 @@
       "_id": "0Ggm9wuyyu2P89zC",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dire rats gain a +8 species bonus on @Check[skill:swim]{Swim check}s. Dire rats apply their Strength or Dexterity bonus (whichever is higher) to Climb and @Check[skill:swim]{Swim check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -231,7 +231,7 @@
       "_id": "iWoI2oGUanJSD6BY",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Dire rats gain the bonus feat Weapon Finesse (bite). Advanced dire rats lose this feat if their Strength bonus exceeds their Dexterity bonus.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

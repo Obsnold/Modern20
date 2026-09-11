@@ -2,7 +2,7 @@
   "_id": "PY9lAcDQbCF1To55",
   "name": "Dryad",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -172,7 +172,7 @@
       "_id": "37wamhJlnLqWLmOM",
       "name": "Dagger",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d4, dagger) or +6 ranged (1d8, masterwork longbow)</p>",
         "source": "Urban Arcana",
@@ -205,7 +205,7 @@
       "_id": "Q8wUzClKR4Ol7HHl",
       "name": "Masterwork longbow",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d4, dagger) or +6 ranged (1d8, masterwork longbow)</p>",
         "source": "Urban Arcana",
@@ -238,7 +238,7 @@
       "_id": "M5mtpiBvvsro11Vi",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -257,7 +257,7 @@
       "_id": "1PqCvT13brMDQys0",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -276,7 +276,7 @@
       "_id": "30XkRYHAeLpW45Ng",
       "name": "DR 5/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -292,7 +292,7 @@
       "_id": "3gSvhWdBfFwenPlM",
       "name": "Spell-Like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>At will—entangle (DC 13), speak with plants, tree shape; 3/day—charm person (DC 13), deep slumber (DC 15), tree stride; 1/day—suggestion (DC 15). 6th-level caster. The save DCs are Wisdom-based.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -308,7 +308,7 @@
       "_id": "d3zc4DFTOttHYtmD",
       "name": "Tree Dependent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Each dryad is mystically bound to a single, enormous tree, or a copse of trees situated in one place (such as a lobby atrium) and must never stray more than 300 yards from it. Any who do stray from their trees become ill and die within 4d6 hours. A dryad’s tree does not radiate magic.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -324,7 +324,7 @@
       "_id": "LCfC5xKAwNleJhwI",
       "name": "Wild Empathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A dryad can use body language, vocalizations, and demeanor to improve the attitude of an animal. This ability functions like a @Check[skill:diplomacy]{Diplomacy check} made to improve the attitude of a person. The dryad rolls 1d20 +10 (+6 species bonus, +4 Charisma bonus) to determine the wild empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals are usually unfriendly.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

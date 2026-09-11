@@ -2,7 +2,7 @@
   "_id": "AwzCb0NL4Zht4qOo",
   "name": "Puppeteer Host (Human Charismatic Ordinary 5)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -194,7 +194,7 @@
       "_id": "Pt9PMecInlth0blU",
       "name": "Stun gun",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3 electricity plus paralysis, stun gun), or +3 ranged (2d6, Beretta 92F)</p>",
         "source": "d20 Modern SRD",
@@ -227,7 +227,7 @@
       "_id": "Anc7lxJDHClv776h",
       "name": "Beretta 92F",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3 electricity plus paralysis, stun gun), or +3 ranged (2d6, Beretta 92F)</p>",
         "source": "d20 Modern SRD",
@@ -260,7 +260,7 @@
       "_id": "FDUrGs73MddDe0gl",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -279,7 +279,7 @@
       "_id": "yE9ZE5LKNCK7rAQK",
       "name": "Point Blank Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -298,7 +298,7 @@
       "_id": "3c9YqROeLCx2HJYz",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -317,7 +317,7 @@
       "_id": "VijrI7abeJsbDinX",
       "name": "Trustworthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -336,7 +336,7 @@
       "_id": "kPp0x975BMWo7Mzr",
       "name": "Blindsight 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A puppeteer can ascertain creatures by nonvisual means within 60 feet. The puppeteer confers blindsight upon its host.</p>",
         "source": "d20 Modern SRD",
@@ -352,7 +352,7 @@
       "_id": "vHv2oG1jNm4VBV2a",
       "name": "Immune to Mind-Influencing Effects",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "diqz4VsEPCgijRBU",
       "name": "Resistance to Massive Damage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Puppeteers gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage. This ability is conferred upon the puppeteer’s host as well.</p>",
         "source": "d20 Modern SRD",
@@ -384,7 +384,7 @@
       "_id": "phiPhpbFezVgE5lm",
       "name": "Combined Challenge Rating",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The Challenge Rating of a puppeteer with a host is equal to the host’s Challenge Rating +1.</p>",
         "source": "d20 Modern SRD",
@@ -400,7 +400,7 @@
       "_id": "72YYoKFF4N5r9qCO",
       "name": "Glide",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A puppeteer can glide through the air at a speed of 20 feet for up to 16 minutes at a time, with poor maneuverability. The puppeteer cannot manifest psionic powers while gliding.</p>",
         "source": "d20 Modern SRD",
@@ -416,7 +416,7 @@
       "_id": "LEPTqKnccQSdwLre",
       "name": "Psionics",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>3/day—brain lock, lesser domination. These abilities are as the psionic powers of an 8th-level manifester.</p>",
         "source": "d20 Modern SRD",
@@ -432,7 +432,7 @@
       "_id": "XgqB6cAYLRFai7eH",
       "name": "Thrall",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>If a puppeteer successfully uses lesser domination on its host seven times, the final effect is permanent, bonding the host to the puppeteer. The thralled host will carry out the orders of the puppeteer, including self-destructive orders. Actions against the host’s original nature allow the host a @Check[save:will|dc:22]{Will save (DC 22)} to resist, with a –10 penalty on the roll. A successful save negates that particular action (or future occurrences of that action), but the host remains the puppeteer’s thrall.</p>",
         "source": "d20 Modern SRD",
@@ -448,7 +448,7 @@
       "_id": "sj3KtSmMOG7hp8CZ",
       "name": "Shared Host",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When multiple puppeteers prey on a single host, the blood drain can be too great for the host to bear. The extensive blood drain deals 1 point of temporary Constitution damage per day, and a host reduced to 0 Constitution in this fashion dies. The minimum number of puppeteers needed to cause temporary Constitution damage depends on the host’s size: Diminutive 2, Tiny 4, Small 12, Medium-size 20, Large 30, Gargantuan 50, Colossal 90.</p>",
         "source": "d20 Modern SRD",
@@ -464,7 +464,7 @@
       "_id": "bVQ57RWgDEFL3yEY",
       "name": "Host Protection",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An attached puppeteer uses its host’s base saving throw bonuses if they’re better than its own. Effects that target vermin can’t affect a puppeteer riding a humanoid host.</p>",
         "source": "d20 Modern SRD",
@@ -480,7 +480,7 @@
       "_id": "Jxp536UKLXAAicMv",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Puppeteers are immune to mind-influencing effects. This ability is conferred upon the puppeteer’s host as well.</p>",
         "source": "d20 Modern SRD",
@@ -496,7 +496,7 @@
       "_id": "GVAP0VAm9Kw0NPFW",
       "name": "Shared Skills",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The puppeteer retains its skills when it takes a host. The host gains a +4 bonus on Listen and @Check[skill:spot]{Spot check}s.</p>",
         "source": "d20 Modern SRD",

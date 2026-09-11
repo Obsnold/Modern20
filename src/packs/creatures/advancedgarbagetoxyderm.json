@@ -2,7 +2,7 @@
   "_id": "IgXuAnDAM0NvcGB6",
   "name": "Advanced Garbage Toxyderm",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -134,7 +134,7 @@
       "_id": "ehxpZ4QVmjQddOPd",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+41/+36/+31/+25 melee (2d8+19 plus disease, slam) or +26/+21/+16/+11 ranged)</p><p><strong>Plus:</strong> disease</p>",
         "source": "Urban Arcana",
@@ -167,7 +167,7 @@
       "_id": "GIxLtNeNEVUEEXuC",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -186,7 +186,7 @@
       "_id": "I3G3YhXo0vsiJM4c",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -208,7 +208,7 @@
       "_id": "5C9YyxDUJXa2Garj",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -227,7 +227,7 @@
       "_id": "gWmigKSIMGxQTGzG",
       "name": "Great Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -251,7 +251,7 @@
       "_id": "alBbprG1x6nkxvpf",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -270,7 +270,7 @@
       "_id": "C5wIsAWqr86c17CX",
       "name": "Improved Bull Rush",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -292,7 +292,7 @@
       "_id": "R5NQH4YuIlMdUgEB",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -311,7 +311,7 @@
       "_id": "votgrQzhF46AJ6vD",
       "name": "Lightning Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -330,7 +330,7 @@
       "_id": "vxCcLCXV8Wtf0n8j",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -351,7 +351,7 @@
       "_id": "6aFzgq37yq23OF4H",
       "name": "Sunder",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -373,7 +373,7 @@
       "_id": "XywZ1mHlUr7GmsHF",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -389,7 +389,7 @@
       "_id": "hBiufKfsO8ALLoGZ",
       "name": "Engulf (DC 29)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -405,7 +405,7 @@
       "_id": "RA1PlH7kHW7KRTTo",
       "name": "Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>Hantavirus—slam. @Check[save:fort|dc:14]{Fortitude save (DC 14)} negates; incubation period 1 day; initial damage 1d2 Str; secondary damage 1d2 Str (temporary or permanent) and 1d2 Con (temporary or permanent).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -421,7 +421,7 @@
       "_id": "V11IDBxbwbaGhTrF",
       "name": "Breath Weapon (60-foot cone; DC 38)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>The garbage toxyderm can expel some of its mass in a 50-foot cone. This deals 10d6 points of bludgeoning damage, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Each time the toxyderm uses its breath weapon, it takes 20 points of damage. Furthermore, any creature that takes damage from the cone must succeed at a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or contract a disease (see above).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -454,7 +454,7 @@
       "_id": "Tl5ImkBniyNPdItH",
       "name": "Darkvision 60 ft",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",

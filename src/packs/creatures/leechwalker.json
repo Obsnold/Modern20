@@ -2,7 +2,7 @@
   "_id": "ik1y8cvNTqRWXBJd",
   "name": "Leechwalker",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/skoll/long-legged-spider.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -146,7 +146,7 @@
       "_id": "rMYlAvLvqTIAUskE",
       "name": "Tentacle rakes",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+13/+13 melee (1d8+4 plus wounding x2, tentacle rakes)</p><p><strong>Plus:</strong> wounding x2</p>",
         "source": "Urban Arcana",
@@ -179,7 +179,7 @@
       "_id": "35sFikCEiLZysA7t",
       "name": "All-Around Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A leechwalker can see in all directions at once. Because of this, it gains a +4 species bonus on Search and @Check[skill:spot]{Spot check}s, and it cannot be flanked.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -195,7 +195,7 @@
       "_id": "78omNP5NEmz4K5GL",
       "name": "Blood Drink",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A leechwalker can drink the blood of a grabbed victim with a successful grapple check. This attack deals 2d4 points of Constitution damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -211,7 +211,7 @@
       "_id": "3uluhGmDZ0XEWVI1",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>If a leechwalker hits an opponent that is its own size or smaller with a tentacle rake attack, it deals normal damage and attempts to start a grapple as a free action without provoking an attack of opportunity. If it successfully grapples, it can use its blood drink ability in the same round. Thereafter, each successful grapple check automatically deals tentacle rake damage and blood drink damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -227,7 +227,7 @@
       "_id": "KULNFbgoVxJ3QKDt",
       "name": "Vermin Traits",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A leechwalker is immune to all mindaffecting effects. It also has darkvision (60-foot range).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -243,7 +243,7 @@
       "_id": "SEsTlq410sHMmq1L",
       "name": "Wounding",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Damage resulting from the leechwalker’s tentacle rake attack is a wound that bleeds for an additional 3 points of damage every round thereafter. Multiple wounds result in cumulative blood loss (two successful rake attacks mean blood lose of 6 points per round, and so on). The bleeding can be stopped by a successful @Check[skill:treatInjury|dc:10]{Treat Injury check (DC 10)} or the application of a cure spell or some other healing spell.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

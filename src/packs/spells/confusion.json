@@ -2,7 +2,7 @@
   "_id": "v0AIzXkVBvprVCVz",
   "name": "Confusion",
   "type": "spell",
-  "img": "icons/svg/book.svg",
+  "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
   "system": {
     "description": "<p>Creatures affected by this spell behave randomly, as indicated on the following table.</p><p>d10 Roll</p><p>Bhavior</p><p>1</p><p>Wander away for 1 minute (unless prevented)</p><p>2-6</p><p>Do nothing for 1 round</p><p>7-9</p><p>Attack nearest creature for 1 round</p><p>10</p><p>Act normally for 1 round</p><p>Except on a result of 1, roll again each round on the creature’s turn to see what the subject does in that round. Wandering creatures leave the scene as if disinterested. Attackers are not at any special advantage when attacking them. Any confused creature who is attacked automatically attacks its attackers on its next turn.</p>",
     "source": "d20 Modern SRD",

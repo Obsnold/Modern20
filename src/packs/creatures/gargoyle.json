@@ -2,7 +2,7 @@
   "_id": "KSGQZ5O6Us5K2Jpk",
   "name": "Gargoyle",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/beast-eye.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -142,7 +142,7 @@
       "_id": "uZkalkhMSzMDVIZt",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -175,7 +175,7 @@
       "_id": "yCSuCt5LDj1HTw53",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -208,7 +208,7 @@
       "_id": "6V4pJFaCrjo83mOi",
       "name": "Gore",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
       "system": {
         "description": "<p>+6 melee (1d4, 2 claws), +4 melee (1d6, bite), +4 melee (1d6, gore), or +6 ranged)</p>",
         "source": "d20 Modern SRD",
@@ -241,7 +241,7 @@
       "_id": "C85csX5G6u2Esh7Z",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -260,7 +260,7 @@
       "_id": "yLsis7vZgyoMGEqU",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -282,7 +282,7 @@
       "_id": "MJ1Ond4XE04b5Ht3",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -304,7 +304,7 @@
       "_id": "WRIRIkArvnx2w45y",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -326,7 +326,7 @@
       "_id": "At2Yng4idMpMpexi",
       "name": "Freeze",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A gargoyle can hold itself so still it appears to be a statue. An observer must succeed on a @Check[skill:spot|dc:20]{Spot check (DC 20)} to notice the gargoyle is alive.</p>",
         "source": "d20 Modern SRD",
@@ -342,7 +342,7 @@
       "_id": "tRrMLu4A1hOTcOE3",
       "name": "Keen Sight",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Gargoyles have darkvision with a range of 60 feet and low-light vision.</p>",
         "source": "d20 Modern SRD",
@@ -358,7 +358,7 @@
       "_id": "DsdMxSCWbSJ64Dr7",
       "name": "Damage Reduction 15/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>In campaigns without magic weapons, the GM can either disregard the gargoyle’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
         "source": "d20 Modern SRD",
@@ -374,7 +374,7 @@
       "_id": "R2IkNDnOrxtfOikT",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A gargoyle receives a +8 species bonus on @Check[skill:hide]{Hide check}s when concealed against a background of worked stone.</p>",
         "source": "d20 Modern SRD",
@@ -390,7 +390,7 @@
       "_id": "StKnvxRL8PMOPZeX",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gargoyles receive the bonus feats Weapon Finesse (bite), Weapon Finesse (claw), and Weapon Finesse (gore).</p>",
         "source": "d20 Modern SRD",
@@ -406,7 +406,7 @@
       "_id": "SfJu3ADC98KBSTGR",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gargoyles speak (but neither read nor write) Terran.</p>",
         "source": "d20 Modern SRD",

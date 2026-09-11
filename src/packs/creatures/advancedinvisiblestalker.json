@@ -2,7 +2,7 @@
   "_id": "E9s8krq5QPHKikYF",
   "name": "Advanced Invisible Stalker",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -134,7 +134,7 @@
       "_id": "UJtLKzYd16xSlq5I",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+15/+10 melee (2d6+12, slam), or +10 ranged</p>",
         "source": "d20 Modern SRD",
@@ -167,7 +167,7 @@
       "_id": "GEzrbVZS9n0YKM4S",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -186,7 +186,7 @@
       "_id": "Ol4vSCJJBbOD4Yz1",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -207,7 +207,7 @@
       "_id": "I6RoCQxIdFFIIUUx",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -226,7 +226,7 @@
       "_id": "EJKpWIaLnO0aEXUU",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -248,7 +248,7 @@
       "_id": "fqQGgaSflCJDD2FF",
       "name": "Elemental (Air)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Invisible stalkers have the traits and immunities common to elementals.</p>",
         "source": "d20 Modern SRD",
@@ -264,7 +264,7 @@
       "_id": "uFwR3Vc0s0ivm2gQ",
       "name": "Natural Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>An invisible stalker remains invisible even when attacking. Creatures that correctly discern the stalker’s location despite being unable to see it have a 50% miss chance on melee and ranged attacks.</p>",
         "source": "d20 Modern SRD",
@@ -280,7 +280,7 @@
       "_id": "tVCpVntOhjmvqjk7",
       "name": "Improved Tracking",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Invisible stalkers are consummate trackers and make @Check[skill:spot]{Spot check}s instead of @Check[skill:survival]{Survival check}s to track a creature’s passage.</p>",
         "source": "d20 Modern SRD",
@@ -296,7 +296,7 @@
       "_id": "NU6ogc4SkHuT12Qf",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "bhRTCed9z8nU9iL7",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Invisible stalkers speak (but neither read nor write) Auran. They understand (but do not speak, read, or write) two other languages.</p>",
         "source": "d20 Modern SRD",

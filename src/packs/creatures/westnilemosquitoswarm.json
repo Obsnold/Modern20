@@ -2,7 +2,7 @@
   "_id": "Fq7IpmEFzVtnwdSb",
   "name": "West Nile Mosquito Swarm",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/skoll/long-legged-spider.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -122,7 +122,7 @@
       "_id": "Pudamg0AypREOxde",
       "name": "Arm",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/suckered-tentacle.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -138,7 +138,7 @@
       "_id": "YfQYHsBJEFesXVn3",
       "name": "Vermin",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A West Nile mosquito swarm is immune to mindaffecting attacks.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -154,7 +154,7 @@
       "_id": "nlcyXkfyacxZ7yng",
       "name": "Distraction",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -170,7 +170,7 @@
       "_id": "s8NbchzsOPqF7qxK",
       "name": "Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>West Nile virus—bite. @Check[save:fort|dc:12]{Fortitude save (DC 12)} negates; incubation period 1d4 days; initial damage 1 Dex and 1 Con; secondary damage 1d2 Dex (temporary) and 1d2 Con (temporary or permanent).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -186,7 +186,7 @@
       "_id": "tBMgE9vKKWdDXr1g",
       "name": "Resistance to Massive Damage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A West Nile mosquito swarm gains a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -202,7 +202,7 @@
       "_id": "0avyuVNYEEzNUDdG",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A West Nile mosquito swarm can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and the mosquitos can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

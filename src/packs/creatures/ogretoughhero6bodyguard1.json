@@ -2,7 +2,7 @@
   "_id": "fH0HjegvNXVvLgtu",
   "name": "Ogre Tough Hero 6/Bodyguard 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/giant.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -152,7 +152,7 @@
       "_id": "Ook2ZXIxRxFwfKNb",
       "name": "Huge club",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p>",
         "source": "d20 Modern SRD",
@@ -185,7 +185,7 @@
       "_id": "o7tUcYreXBdTikzr",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p>",
         "source": "d20 Modern SRD",
@@ -218,7 +218,7 @@
       "_id": "DYyS71kxJ5o6QPZq",
       "name": "Browning BPS",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p>",
         "source": "d20 Modern SRD",
@@ -251,7 +251,7 @@
       "_id": "TEVlwIY7lwJ71YHX",
       "name": "Armor Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -270,7 +270,7 @@
       "_id": "0vCDPfOLUXY08xjb",
       "name": "Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -289,7 +289,7 @@
       "_id": "UqYvws3VsBl9NRz1",
       "name": "Knockout Punch",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -311,7 +311,7 @@
       "_id": "cdi6tXWnKb7bpJmQ",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -330,7 +330,7 @@
       "_id": "acdmld5yF8EAigPq",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -351,7 +351,7 @@
       "_id": "pma6k49Mgrnaf7Ra",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -370,7 +370,7 @@
       "_id": "nPUR6cwi5cGO6EgH",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -392,7 +392,7 @@
       "_id": "GarGMB4iBSxfOUCx",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -408,7 +408,7 @@
       "_id": "ZGYppz08CRI2pfzg",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An ogre gains the bonus feat Archaic Weapons Proficiency or Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -424,7 +424,7 @@
       "_id": "NZwro6EsYPhqKelm",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Ogres speak (but neither read nor write) Giant or one other language.</p>",
         "source": "d20 Modern SRD",

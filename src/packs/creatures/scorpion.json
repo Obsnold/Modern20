@@ -2,7 +2,7 @@
   "_id": "bzfpJutBfkCp2qnT",
   "name": "Scorpion",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/skoll/long-legged-spider.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -128,7 +128,7 @@
       "_id": "vYocxFMgbfWpkhOo",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+8 melee (1d2-4, 2 claws) and +3 melee (1d2-4 plus poison, sting)</p>",
         "source": "Menace Manual",
@@ -161,7 +161,7 @@
       "_id": "bmKFTUN8N2DKCeAW",
       "name": "Sting",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/wasp-sting.svg",
       "system": {
         "description": "<p>+8 melee (1d2-4, 2 claws) and +3 melee (1d2-4 plus poison, sting)</p><p><strong>Plus:</strong> poison</p>",
         "source": "Menace Manual",
@@ -194,7 +194,7 @@
       "_id": "6hHkbcwLZ8XpO9DQ",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -216,7 +216,7 @@
       "_id": "RE6KsXPaY7rKGjsO",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -238,7 +238,7 @@
       "_id": "5Cd6GdufPSqQXb47",
       "name": "Darkvision 30 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -254,7 +254,7 @@
       "_id": "JwRGk2pmpKPRVmmZ",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the scorpion must hit an opponent of any size category with its claw attack. If it gets a hold, it automatically deals claw damage each round that the hold is maintained, and it can sting in the same round.</p>",
         "source": "Menace Manual",
@@ -270,7 +270,7 @@
       "_id": "Lhf24uGzSXqWFzOL",
       "name": "Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Sting—Fortitude negates; save DC 13; 1d4 Con/1d4 Con.</p>",
         "source": "Menace Manual",
@@ -286,7 +286,7 @@
       "_id": "R2CblvCWPwzNrqZP",
       "name": "Vermin",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A scorpion has darkvision out to a range of 30 feet. It is immune to mind-affecting effects and gains a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "source": "Menace Manual",
@@ -302,7 +302,7 @@
       "_id": "tv1lwp52lgh7xPrC",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A scorpion gains Weapon Finesse (claw) and Weapon Finesse (sting) as bonus feats.</p>",
         "source": "Menace Manual",
@@ -318,7 +318,7 @@
       "_id": "1C94DDTAqkXR4brG",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A scorpion gains a +4 species bonus on Climb, Hide, and @Check[skill:spot]{Spot check}s.</p>",
         "source": "Menace Manual",

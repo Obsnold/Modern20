@@ -2,7 +2,7 @@
   "_id": "kOiBX05cAzFWFEE4",
   "name": "Deinonychus",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -140,7 +140,7 @@
       "_id": "yV6kVmrOQ7HZ9ma7",
       "name": "Rake",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>Atk +6 melee (2d6+4, rake), +1 melee (1d3+2, 2 foreclaws), +1 melee (2d4+2, bite)</p>",
         "source": "d20 Modern SRD",
@@ -173,7 +173,7 @@
       "_id": "GFAC1azdpoM6Gww4",
       "name": "Foreclaw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>Atk +6 melee (2d6+4, rake), +1 melee (1d3+2, 2 foreclaws), +1 melee (2d4+2, bite)</p>",
         "source": "d20 Modern SRD",
@@ -206,7 +206,7 @@
       "_id": "yb3609mTfIgySX6a",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>Atk +6 melee (2d6+4, rake), +1 melee (1d3+2, 2 foreclaws), +1 melee (2d4+2, bite)</p>",
         "source": "d20 Modern SRD",
@@ -239,7 +239,7 @@
       "_id": "KvRsBI1fhwiDnYAa",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -255,7 +255,7 @@
       "_id": "AuSm5EK9brz1483I",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a deinonychus to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "d20 Modern SRD",

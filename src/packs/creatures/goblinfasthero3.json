@@ -2,7 +2,7 @@
   "_id": "ofPV242X4FPFKFDB",
   "name": "Goblin Fast Hero 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -180,7 +180,7 @@
       "_id": "PIqGyOFaCs2wEtjA",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton), or +5 ranged (2d8, Desert Eagle)</p>",
         "source": "d20 Modern SRD",
@@ -213,7 +213,7 @@
       "_id": "mu22F60iy2kIP8S9",
       "name": "Metal baton",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton), or +5 ranged (2d8, Desert Eagle)</p>",
         "source": "d20 Modern SRD",
@@ -246,7 +246,7 @@
       "_id": "HE5X0tOd3Unkqe2W",
       "name": "Desert Eagle",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton), or +5 ranged (2d8, Desert Eagle)</p>",
         "source": "d20 Modern SRD",
@@ -279,7 +279,7 @@
       "_id": "3RE7uxuQjIfGPdU6",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -298,7 +298,7 @@
       "_id": "GZNS2VSOu09cACDJ",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -319,7 +319,7 @@
       "_id": "TgyvT7VTAE4wSc2s",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -338,7 +338,7 @@
       "_id": "PFmDsQ7ZHboFDvYd",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -357,7 +357,7 @@
       "_id": "hBdqhKXKfTpqSwN0",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -373,7 +373,7 @@
       "_id": "aVeWplTch7sXmHs8",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls receive the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -389,7 +389,7 @@
       "_id": "KKdrL9J1MHB7svo3",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls read, write, and speak Gnoll.</p>",
         "source": "d20 Modern SRD",

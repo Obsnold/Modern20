@@ -2,7 +2,7 @@
   "_id": "FltNvDostuplc4LZ",
   "name": "Chimpanzee",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -146,7 +146,7 @@
       "_id": "n7heIw5vrPLL9Fdz",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+3 melee (1d4+2, bite) and -1 melee (1d2+1, 2 slams)</p>",
         "source": "Menace Manual",
@@ -179,7 +179,7 @@
       "_id": "nuuuYVeS3xDkHVu2",
       "name": "Slam (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+3 melee (1d4+2, bite) and -1 melee (1d2+1, 2 slams)</p>",
         "source": "Menace Manual",
@@ -212,7 +212,7 @@
       "_id": "qhQLZaVajs8xkp86",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -234,7 +234,7 @@
       "_id": "4knqehxfvck7kk76",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the chimpanzee must hit a single opponent that is its own size category or smaller with both slam attacks in the same round. During any round that it grapples such a creature, the chimpanzee may make one additional grapple check as a free action at its highest attack bonus. On a successful hit with such an attack, it automatically deals bite and slam damage to its foe.</p>",
         "source": "Menace Manual",
@@ -250,7 +250,7 @@
       "_id": "jfjGfDPQdAg4WKli",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -266,7 +266,7 @@
       "_id": "LXnvCDhkVZ3CHZOj",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A chimpanzee gains Weapon Finesse (slam) as a bonus feat.</p>",
         "source": "Menace Manual",
@@ -282,7 +282,7 @@
       "_id": "rT4NV5uwHe4j4m1F",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A chimpanzee gains a +8 species bonus on @Check[skill:climb]{Climb check}s and a +4 species bonus on @Check[skill:jump]{Jump check}s.</p>",
         "source": "Menace Manual",

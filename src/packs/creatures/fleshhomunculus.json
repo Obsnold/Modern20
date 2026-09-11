@@ -2,7 +2,7 @@
   "_id": "rJY7HVpFQ7bOywkO",
   "name": "Flesh Homunculus",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -116,7 +116,7 @@
       "_id": "rmphFUtUfwBAtjqq",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+1 melee (1d3-2, bite)</p>",
         "source": "Urban Arcana",
@@ -149,7 +149,7 @@
       "_id": "SlhlWNc5N4OJn2y2",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -165,7 +165,7 @@
       "_id": "iwMaVleIXxi3obc3",
       "name": "Repairable",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -181,7 +181,7 @@
       "_id": "h8jWwQ5QSPw9dSJh",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -197,7 +197,7 @@
       "_id": "4URuA2GGP2s8Aosl",
       "name": "Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Venomous bite: @Check[save:fort|dc:11]{Fortitude save (DC 11)}; initial damage sleep for 1 minute; secondary damage sleep for another 5d6 minutes.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -213,7 +213,7 @@
       "_id": "eob5qxAzLYPziWgh",
       "name": "Damage Reduction 5/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A flesh homunculus ignores the first 5 points of damage dealt by a nonmagical weapon.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -229,7 +229,7 @@
       "_id": "alDGM4H4wI61qjsr",
       "name": "Fast Healing 3",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
         "description": "<p>A flesh homunculus heals 3 points of damage each round so long as its master is alive and the homunculus has at least 1 hit point.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

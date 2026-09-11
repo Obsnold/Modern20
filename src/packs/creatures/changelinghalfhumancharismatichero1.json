@@ -2,7 +2,7 @@
   "_id": "E47lP42GHWQx7RwW",
   "name": "Changeling (Half-Human) Charismatic Hero 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -169,7 +169,7 @@
       "_id": "NIBrOoOuJIGsyitG",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>-1 melee (1d3-1 nonlethal, unarmed strike) or +4 ranged (2d6, Ruger Service-Six)</p>",
         "source": "Urban Arcana",
@@ -202,7 +202,7 @@
       "_id": "yt4p9P3qoFlIpfY7",
       "name": "Ruger Service-Six",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>-1 melee (1d3-1 nonlethal, unarmed strike) or +4 ranged (2d6, Ruger Service-Six)</p>",
         "source": "Urban Arcana",
@@ -235,7 +235,7 @@
       "_id": "DPHLx6AGJBODYg1h",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -254,7 +254,7 @@
       "_id": "FpwTbOUdH7AbmRLw",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -273,7 +273,7 @@
       "_id": "UHQx3hCaHlQw8JKM",
       "name": "Toughness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -292,7 +292,7 @@
       "_id": "AQZydZaEstASl5mx",
       "name": "Spell-like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>1/day—charm person, object reading; 3/day—detect magical aura. The changeling’s manifester level is equal to his or her character level.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -308,7 +308,7 @@
       "_id": "rhUtXKQjWuF5bJpe",
       "name": "Immune to Electricity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -324,7 +324,7 @@
       "_id": "JRydSSQO0jZ8f4Wt",
       "name": "Fire Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -340,7 +340,7 @@
       "_id": "Qy6LglngXkem1VHa",
       "name": "Damage Reduction 5/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A changeling ignores the first 5 points of damage dealt by a nonmagical weapon. Unlike sidhe, this damage reduction doesn’t increase as the changeling gains Hit Dice or levels.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -356,7 +356,7 @@
       "_id": "wsnT21D7AquUFGPD",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A changeling picks one energy type (acid, cold, electricity, fire, or sonic/concussion) to which it is immune.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -372,7 +372,7 @@
       "_id": "n1i0N2IHigxLvNeq",
       "name": "Resistance to Energy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A changeling gains energy resistance 10 to one energy type (acid, cold, electricity, fire, or sonic/concussion). A changeling cannot be resistant to an energy type to which it is immune (see above).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -388,7 +388,7 @@
       "_id": "fahbNY7bHGDLt7M8",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Changelings gain a +2 species bonus on Bluff and @Check[skill:sleightOfHand]{Sleight of Hand check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

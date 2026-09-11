@@ -2,7 +2,7 @@
   "_id": "O7F5lMKwFPoJSeOD",
   "name": "Ghoul (Human Strong Ordinary 1/Tough Ordinary 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -190,7 +190,7 @@
       "_id": "XZTbK8KDAghJlqRS",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d3+3, 2 claws) and +2 melee (1d6+1 plus disease, bite) or +3 ranged)</p>",
         "source": "Menace Manual",
@@ -223,7 +223,7 @@
       "_id": "kCm7nhb9c46ZVO2x",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d3+3, 2 claws) and +2 melee (1d6+1 plus disease, bite) or +3 ranged)</p><p><strong>Plus:</strong> disease</p>",
         "source": "Menace Manual",
@@ -256,7 +256,7 @@
       "_id": "23EYKCECPbjCqnbP",
       "name": "Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -275,7 +275,7 @@
       "_id": "JkBu2zyxfh2xZnip",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -294,7 +294,7 @@
       "_id": "De7zfA1l41T0Y3KB",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -313,7 +313,7 @@
       "_id": "SLL0RcGHqJmePbnr",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -332,7 +332,7 @@
       "_id": "q7MXErxik2u45Iun",
       "name": "Create Spawn",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>If a ghoul’s prey contracts advanced necrotizing faciitis (see below) from the wounds it has sustained and dies from the disease, it rises 1d3 days later as a ghoul. A remove disease spell cast on the corpse can prevent it from rising.</p>",
         "source": "Menace Manual",
@@ -348,7 +348,7 @@
       "_id": "R784hREeKcaxL7FP",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -364,7 +364,7 @@
       "_id": "HkkMrPWztmsfw0sB",
       "name": "Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>A ghoul’s bite infects the victim with a supernatural version of streptococcal gangrene (injury; Fort DC 14; incubation period 1d3 days; initial damage 1d3 Con; secondary damage 1d3 Con. If Con damage is sustained, a second saving throw at the same DC is required; failure indicates that 1 point of the Con damage becomes Con drain instead). This disease, known as advanced necrotizing faciitis, first manifests as an area of redness on the skin near the wound. Over the course of a few days, the redness becomes severe inflammation. The skin gradually turns dark purple and forms bloody blisters as the disease devours more and more of the victim’s flesh. The disease can be arrested completely through amputation of the affected limb, but most doctors prefer to combat it by surgical removal of all the affected tissue as well as some nearby healthy tissue. A cure disease spell or a successful @Check[skill:treatInjury]{Treat Injury check} (surgery, DC 25) halts the disease. The GM should roll the check secretly; if it fails, the disease returns again in 1d3 days.</p>",
         "source": "Menace Manual",
@@ -380,7 +380,7 @@
       "_id": "CdoqSnvWFJfrbflP",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a ghoul to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -396,7 +396,7 @@
       "_id": "TR9UKie4tlR0k4z4",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Ghouls have the traits and immunities common to undead.</p>",
         "source": "Menace Manual",
@@ -412,7 +412,7 @@
       "_id": "9vqTjzGfa4sjdmsa",
       "name": "Language(s)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A ghoul can read, write, and speak whatever languages it could in life.</p>",
         "source": "Menace Manual",

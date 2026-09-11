@@ -2,7 +2,7 @@
   "_id": "cbJWLLtwfo9blip8",
   "name": "Orc Strong Hero 2/Tough Hero 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -170,7 +170,7 @@
       "_id": "pXdHvPzUxDSEA2UO",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+7 melee (1d6+5 nonlethal, unarmed strike) or +7 melee (1d12+7/x3, greataxe) or +2 ranged (1d8+4, compound bow)</p>",
         "source": "Urban Arcana",
@@ -203,7 +203,7 @@
       "_id": "ZvKY9hHtke2yBtC2",
       "name": "Greataxe",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+7 melee (1d6+5 nonlethal, unarmed strike) or +7 melee (1d12+7/x3, greataxe) or +2 ranged (1d8+4, compound bow)</p>",
         "source": "Urban Arcana",
@@ -236,7 +236,7 @@
       "_id": "9wQHDfg4xYBW3zkl",
       "name": "Compound bow",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+7 melee (1d6+5 nonlethal, unarmed strike) or +7 melee (1d12+7/x3, greataxe) or +2 ranged (1d8+4, compound bow)</p>",
         "source": "Urban Arcana",
@@ -269,7 +269,7 @@
       "_id": "O6MM491K8NKKu8vU",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -288,7 +288,7 @@
       "_id": "W5hvsyTyPPZcL2Qz",
       "name": "Armor Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -307,7 +307,7 @@
       "_id": "j6Pcx9zZfdpp4oU6",
       "name": "Armor Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -326,7 +326,7 @@
       "_id": "yHnS0LBiewJ8MeFh",
       "name": "Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -345,7 +345,7 @@
       "_id": "S5KcmUyo8hU6kSIC",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -366,7 +366,7 @@
       "_id": "p04iqbbvKRqH3695",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -385,7 +385,7 @@
       "_id": "Qsxolappfx472XYN",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -407,7 +407,7 @@
       "_id": "K2NStUezir51DXzw",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Orcs can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and orcs can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -423,7 +423,7 @@
       "_id": "vicc7b7CmyAdpoxv",
       "name": "Light Sensitivity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Orcs suffer a –1 penalty to attack rolls in bright sunlight or within the radius of effects or spells that duplicate bright sunlight (such as daylight).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -439,7 +439,7 @@
       "_id": "pBPE5AcQmY5jc7ZU",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Orcs receive the bonus feats Archaic Weapons Proficiency, Armor Proficiency (light), and Armor Proficiency (medium). They may treat orc double axes as archaic weapons instead of exotic weapons.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

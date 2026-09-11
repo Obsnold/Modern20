@@ -2,7 +2,7 @@
   "_id": "P7d89p9lvPjwgVvp",
   "name": "Festergog (Vomit Fiend)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -240,7 +240,7 @@
       "_id": "mDUSQ7vz8Ve7cWX0",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+23/+18/+13/+8 melee (2d6+9, slam), or +12/+7/+2/-3 ranged</p>",
         "source": "d20 Modern SRD",
@@ -273,7 +273,7 @@
       "_id": "1oiQSMVmJTghpMeB",
       "name": "Blind-Fight",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -292,7 +292,7 @@
       "_id": "TL4nbFZWESLPQhDz",
       "name": "Frightful Presence",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -314,7 +314,7 @@
       "_id": "CXa7mJc23M1pXEjV",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -333,7 +333,7 @@
       "_id": "Iimc6DjwtVdlpy3p",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -354,7 +354,7 @@
       "_id": "8HPkexR9kj4qKtfl",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -373,7 +373,7 @@
       "_id": "fkSjEbGNRsRQlWxH",
       "name": "Stench",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A festergog’s skin exudes a toxic, foul-smelling pus. Any creature within 10 feet must succeed on a @Check[save:fort|dc:21]{Fortitude save (DC 21)} or become nauseated for as long as it remains in the affected area and for 1d4 rounds afterward. A nauseated creature cannot attack, cast spells, use spell-like abilities, or do anything else requiring attention or concentration. The only action a nauseated creature can take is a single move action per turn. Creatures that successfully save are unaffected and cannot be affected again by the same festergog’s stench for 24 hours.</p>",
         "source": "d20 Modern SRD",
@@ -389,7 +389,7 @@
       "_id": "KaDiJSSn0ko4qnki",
       "name": "Immune to Electricity and Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -405,7 +405,7 @@
       "_id": "9O3GKfxZoUzP09H8",
       "name": "Acid and Fire Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A festergog ignores the first 20 points of damage from any attack that deals acid or fire damage.</p>",
         "source": "d20 Modern SRD",
@@ -421,7 +421,7 @@
       "_id": "yaVFRD1gI5jVBRnG",
       "name": "Damage Reduction 10/Slashing",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A festergog ignores the first 10 points of damage dealt by any nonslashing weapon.</p>",
         "source": "d20 Modern SRD",
@@ -437,7 +437,7 @@
       "_id": "Un5TQU5UlEIOigfv",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -453,7 +453,7 @@
       "_id": "vm817r6UZo4rEmIY",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -469,7 +469,7 @@
       "_id": "4TONoTkfa4bb5osi",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A festergog is immune to electricity and poison.</p>",
         "source": "d20 Modern SRD",

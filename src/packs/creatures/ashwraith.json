@@ -2,7 +2,7 @@
   "_id": "N8460dFIdxjt9q5N",
   "name": "Ash Wraith",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -168,7 +168,7 @@
       "_id": "PCYJA0SMQSwx4eqz",
       "name": "Burning touch",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (3d6 fire, burning touch)</p>",
         "source": "Urban Arcana",
@@ -201,7 +201,7 @@
       "_id": "jyAA624PpXkbjnmU",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -220,7 +220,7 @@
       "_id": "dlPP8lyRTIBvKOMq",
       "name": "Blind-Fight",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -239,7 +239,7 @@
       "_id": "px9yoEOVzvHDhxit",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -258,7 +258,7 @@
       "_id": "wqOc3y505DQmsG0x",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -277,7 +277,7 @@
       "_id": "S9mMxHtHECcCrwi7",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Undead are immune to poison, sleep, paralysis, stunning, disease, necromantic effects, and mind-affecting effects. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or effects of massive damage, or any effect requiring a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They may be healed by application of negative energy (such as an inflict light wounds spell). They are destroyed if reduced to 0 hit points or less.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -293,7 +293,7 @@
       "_id": "PWfA84do9S2LWvr0",
       "name": "Incorporeal",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An ash wraith can be harmed only by other incorporeal creatures, +1 or better magic weapons, and spells, spell-like abilities, and supernatural abilities. It is immune to nonmagical attack forms. Even when hit by spells or magic weapons, it has a 50% chance to ignore damage from a corporeal source (except for force effects, such as magic missile, or attacks made with ghost touch weapons). It can pass through solid objects at will, but not force effects (such as a wall of force). Its attacks ignore natural armor, armor, and shields, although deflection bonuses and force effects (such as mage armor) work normally against it.</p><p>An ash wraith moves silently and cannot be heard with @Check[skill:listen]{Listen check}s. It has no Strength score, so its Dexterity modifier applies both to its melee and ranged attacks. Nonvisual senses, such as blindsight and scent, do not function against an ash wraith. An ash wraith cannot be tripped or grappled by a corporeal attacker.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -309,7 +309,7 @@
       "_id": "KxkL2qlHzyarScU4",
       "name": "Burning Touch",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The touch of an ash wraith deals 3d6 points of fire damage, and creatures hit by an ash wraith must succeed at a @Check[save:ref|dc:15]{Reflex save (DC 15)} or catch on fire.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -325,7 +325,7 @@
       "_id": "E8dJZqNNSvfIWpNy",
       "name": "Spawn",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Any humanoid slain by an ash wraith’s burning touch is immolated and reduced to a pile of ash that rises as an ash wraith in 1d4 rounds. Spawn are under the command of the ash wraith that created them and remain enslaved until its death. They do not possess any of the abilities they had in life.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -341,7 +341,7 @@
       "_id": "zTQlmXiiVLMJp60R",
       "name": "Unnatural Aura",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Both wild and domesticated animals can sense the unnatural presence of an ash wraith at a distance of 30 feet. They will not willingly approach nearer than that and panic if forced to do so; they remain panicked as long as they are within that range.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -357,7 +357,7 @@
       "_id": "yGfbDAtQ9ja8cqqC",
       "name": "Fear of Daylight",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>Ash wraiths exposed to natural sunlight are panicked (no save). A panicked ash wraith flees from the sunlight as fast as possible; it can defend normally but cannot attack while exposed to natural sunlight.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

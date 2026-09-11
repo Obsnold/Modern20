@@ -2,7 +2,7 @@
   "_id": "1ikDDxsYt33D8Wld",
   "name": "Skunk Ape Dedicated Hero 3/Acolyte 2",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -182,7 +182,7 @@
       "_id": "qY4cPhwvB13NzODl",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+5 melee (1d4+1, 2 claws) or +5 ranged (1d4, sling) or +5 ranged touch (special, net)</p>",
         "source": "Urban Arcana",
@@ -215,7 +215,7 @@
       "_id": "LIhY4CbETdetAK8X",
       "name": "Sling",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+5 melee (1d4+1, 2 claws) or +5 ranged (1d4, sling) or +5 ranged touch (special, net)</p><p><strong>Also called:</strong> special, net</p>",
         "source": "Urban Arcana",
@@ -248,7 +248,7 @@
       "_id": "hWae01Hddr0fTMI4",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -267,7 +267,7 @@
       "_id": "IGYcLr3C51gyQVUM",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -286,7 +286,7 @@
       "_id": "vEgKNlvECTI0ldbu",
       "name": "Heroic Surge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -305,7 +305,7 @@
       "_id": "XjoIxlf8ZX1uQwcX",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -324,7 +324,7 @@
       "_id": "QcdTMCUa6Eh4nzlI",
       "name": "Lightning Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -343,7 +343,7 @@
       "_id": "NGXbsxMM53vinGDL",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -362,7 +362,7 @@
       "_id": "R5wha3S6ESu9ICS5",
       "name": "Track",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -381,7 +381,7 @@
       "_id": "b5BX05vOIBXB7RzY",
       "name": "Stench",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Skunk apes exude a stench reminiscent of rotting vegetation, ammonia, and decay. When frightened or angry, they can intensify this odor such that all creatures within 30 feet of the skunk ape must succeed at a @Check[save:fort|dc:12]{Fortitude save (DC 12)} or be nauseated for 2d6 rounds. A nauseated creature may take only a single move action per turn and may not perform actions requiring concentration or attention. Skunk apes are immune to their own stench but not to the stench of other creatures.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -397,7 +397,7 @@
       "_id": "mfknDOOr0aOB6xYL",
       "name": "Woodland Stride",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The oily fur of the skunk ape allows it to pass through any sort of undergrowth (thorn bushes, briars, cranberry bogs, and other overgrown areas) at normal speed.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -413,7 +413,7 @@
       "_id": "pOArDlbkaPT3LriR",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Skunk apes can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and skunk apes can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -429,7 +429,7 @@
       "_id": "D2EIagOVXpxinZrz",
       "name": "Divine Spells",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -445,7 +445,7 @@
       "_id": "Oz8CpYYTLHGFcr4V",
       "name": "Turn or Rebuke Undead 2/day",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
@@ -461,7 +461,7 @@
       "_id": "AXM5m7wULOZCTm9f",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Skunk apes gain the bonus feat Alertness.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",

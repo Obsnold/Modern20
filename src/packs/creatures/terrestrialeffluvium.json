@@ -2,7 +2,7 @@
   "_id": "bDQCrm7Hav8vopiU",
   "name": "Terrestrial Effluvium",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/slime.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -114,7 +114,7 @@
       "_id": "O17VfJmUiOzfXTLM",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+37/+32/+27/+22 melee (2d8+19 plus 1d6 acid, slam)</p><p><strong>Plus:</strong> 1d6 acid</p>",
         "source": "d20 Modern SRD",
@@ -147,7 +147,7 @@
       "_id": "cTnpWMzKZUxEGvHK",
       "name": "Ooze",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Terrestrial effluvium has the traits and immunities common to oozes.</p>",
         "source": "d20 Modern SRD",
@@ -163,7 +163,7 @@
       "_id": "K59yFL4P4ar1WXNp",
       "name": "Acidic Enzymes",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Any creature that takes damage from a terrestrial effluvium’s slam attack also takes 1d6 points of acid damage from the ooze’s digestive enzymes. The enzymes continue to dissolve the victim, dealing 1d6 points of acid damage every round until the wound is washed with at least 1 pint of water (or some other appropriate liquid).</p>",
         "source": "d20 Modern SRD",
@@ -179,7 +179,7 @@
       "_id": "WPcpwLjQWnDChEIC",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Terrestial effluvium is immune to ballistic and piercing weapons.</p>",
         "source": "d20 Modern SRD",
@@ -195,7 +195,7 @@
       "_id": "wDC3KAtyhNOlBPi6",
       "name": "Vulnerabilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Terrestial effluvium takes double damage from attacks that deal sonic or concussion damage. Direct sunlight deals 50 points of damage to the creature each round.</p>",
         "source": "d20 Modern SRD",
@@ -211,7 +211,7 @@
       "_id": "WyK3Mfd4pEcONrKw",
       "name": "Blindsight 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "source": "d20 Modern SRD",

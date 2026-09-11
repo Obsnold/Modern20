@@ -2,7 +2,7 @@
   "_id": "4YUPTPVHYoDOrI3v",
   "name": "Living Dumpster",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -116,7 +116,7 @@
       "_id": "GzfUPVCyNTsfQgSH",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+11 melee (1d8+9, slam)</p>",
         "source": "Urban Arcana",
@@ -149,7 +149,7 @@
       "_id": "HFr3lQkHr37CWoqg",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Living dumpsters are immune to mind-influencing effects, as well as poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -165,7 +165,7 @@
       "_id": "g56AAKWPzzw85jzw",
       "name": "Wheels",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Because the living dumpster relies on small caster wheels for locomotion, its speed is reduced by half on very soft or soft surfaces such as mud or thick lawns. It can’t negotiate stairs, although it can hop up or down a curb without difficulty.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -181,7 +181,7 @@
       "_id": "7lc9CApGlaZQHid0",
       "name": "Wall Smash 2d8+18",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If a living dumpster bull rushes a foe against a wall, it can make a free slam attack against that foe. If the attack succeeds, it deals 2d8+18 points of damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -197,7 +197,7 @@
       "_id": "sgmbeE3dQtbaETnl",
       "name": "Swallow Whole",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/swallower.svg",
       "system": {
         "description": "<p>If a living dumpster successfully grapples a creature smaller than itself, it can attempt to swallow the creature. If the living dumpster succeeds at a second grapple check, the grappled opponent is swallowed whole. Swallowed characters take 1d8+9 points of damage per round from the vigorous shaking of the living dumpster. The swallowed creature can attack the living dumpster from inside using either its natural weapons or a Small, Tiny, or Diminutive weapon. A living dumpster can hold two Medium creatures (or four Small creatures) at a time.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -213,7 +213,7 @@
       "_id": "AfLf931oFLEo7xZW",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Living dumpsters can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and living dumpsters can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

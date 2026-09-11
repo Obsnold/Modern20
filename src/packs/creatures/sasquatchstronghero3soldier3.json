@@ -2,7 +2,7 @@
   "_id": "FDc5lwonC33H0OIH",
   "name": "Sasquatch Strong Hero 3/Soldier 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/giant.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -172,7 +172,7 @@
       "_id": "IRc5SMmxmxe2Qux2",
       "name": "Slam (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+13 melee (1d4+9, 2 slams) or +6 ranged (1d10/19-20, crossbow)</p>",
         "source": "Menace Manual",
@@ -205,7 +205,7 @@
       "_id": "FVrZ0Nn5RtrtpWkD",
       "name": "Crossbow",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+13 melee (1d4+9, 2 slams) or +6 ranged (1d10/19-20, crossbow)</p>",
         "source": "Menace Manual",
@@ -238,7 +238,7 @@
       "_id": "iUswkBrY2vclgDpm",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -260,7 +260,7 @@
       "_id": "agNlaaNP2OlitBpE",
       "name": "Combat Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -281,7 +281,7 @@
       "_id": "MvY7dR0HAnYLJatp",
       "name": "Great Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -305,7 +305,7 @@
       "_id": "BiUCRNu3wBzpGYFj",
       "name": "Improved Combat Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -327,7 +327,7 @@
       "_id": "c4oREPkNNahgEzcp",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -346,7 +346,7 @@
       "_id": "573YIUrIxwrO4vZv",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -367,7 +367,7 @@
       "_id": "t5Ufx3qappFthe5o",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -386,7 +386,7 @@
       "_id": "hb5ayIvIpjwaq891",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -408,7 +408,7 @@
       "_id": "oQejJ9w5vs642D9n",
       "name": "Weapon Specialization",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -427,7 +427,7 @@
       "_id": "EEGlOkpFWcFnXM0F",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -443,7 +443,7 @@
       "_id": "wG6aDDwNDCUOjBIV",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Sasquatches speak Weren—a language of growls, rumbles, and snorts.</p>",
         "source": "Menace Manual",
@@ -459,7 +459,7 @@
       "_id": "GvYqRM6506wNcAt3",
       "name": "Species Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Because of its size and ferocious appearance, a sasquatch gains a +4 species bonus on @Check[skill:intimidate]{Intimidate check}s.</p>",
         "source": "Menace Manual",

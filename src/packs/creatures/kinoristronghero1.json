@@ -2,7 +2,7 @@
   "_id": "HT8e3aBiWXL1aOZU",
   "name": "Kinori Strong Hero 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -161,7 +161,7 @@
       "_id": "6OrE0froW5PxekCE",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d4+2, 2 claws) and +2 melee (1d4+1, bite) or +4 ranged (2d6, Colt Desert Eagle)</p>",
         "source": "Menace Manual",
@@ -194,7 +194,7 @@
       "_id": "8zDvksnUELzofhxZ",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d4+2, 2 claws) and +2 melee (1d4+1, bite) or +4 ranged (2d6, Colt Desert Eagle)</p>",
         "source": "Menace Manual",
@@ -227,7 +227,7 @@
       "_id": "khfGlNf3wKzsPdz6",
       "name": "Colt Desert Eagle",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (1d4+2, 2 claws) and +2 melee (1d4+1, bite) or +4 ranged (2d6, Colt Desert Eagle)</p>",
         "source": "Menace Manual",
@@ -260,7 +260,7 @@
       "_id": "ZVTLRt32VCeJLEXg",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -279,7 +279,7 @@
       "_id": "SlBqD4dEMeAxHcqn",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -298,7 +298,7 @@
       "_id": "kroX0tiYsbmQnwF9",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -317,7 +317,7 @@
       "_id": "kvs3EtS3fVQWv0Qi",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -336,7 +336,7 @@
       "_id": "MYPKfQuvaBZRBO42",
       "name": "Cold Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>A kinori ignores the first 20 points of cold damage from any single attack.</p>",
         "source": "Menace Manual",
@@ -352,7 +352,7 @@
       "_id": "E438UEEgdfvkrqOH",
       "name": "Darkvision 120 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "sQ7l9sOYbMhre35c",
       "name": "Easy Breathing",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Since a kinori requires much less oxygen to breathe than a human does, the creature can hold its breath for up to an hour. If exposed to a dangerous inhaled effect, a kinori gains a +5 species bonus on any required saving throw.</p>",
         "source": "Menace Manual",
@@ -384,7 +384,7 @@
       "_id": "xEXd9p18iinDPwPL",
       "name": "Light Sensitivity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A kinori takes a –2 penalty on attack rolls, checks, and saves in sunlight or other bright light.</p>",
         "source": "Menace Manual",
@@ -400,7 +400,7 @@
       "_id": "tlMZgtamPU8nuR83",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A kinori can turn its skin white as a free action, much as a chameleon changes its color. It gains a +4 species bonus on @Check[skill:hide]{Hide check}s when concealed against a white background, such as snow and ice.</p>",
         "source": "Menace Manual",

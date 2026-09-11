@@ -2,7 +2,7 @@
   "_id": "Ny1qkqzmipUpEo0J",
   "name": "Chemical Golem",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -109,7 +109,7 @@
       "_id": "g5uJKEzmshzkH0s1",
       "name": "Slam (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+11 melee (2d8+6, 2 slams) or +10 ranged</p>",
         "source": "Menace Manual",
@@ -142,7 +142,7 @@
       "_id": "f5j5GAQgYeJtneN7",
       "name": "Berserk",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When a chemical golem enters combat, it has a cumulative 1% chance each round of going berserk. When the uncontrolled golem goes on a rampage, it attacks the nearest living creature. It no creature is within reach, it smashes some object smaller than itself, then moves on to spread more destruction. Once the golem goes berserk, no known method can reestablish control.</p>",
         "source": "Menace Manual",
@@ -158,7 +158,7 @@
       "_id": "ruda6FLASkUEuJqc",
       "name": "Breath Weapon",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>Once every 1d4 rounds, a chemical golem can breathe a 30-foot cone of acid and toxic fumes. Each creature in the area takes 5d6 points of acid damage (Reflex half) and 1d4 points of Constitution damage (Fortitude negates). The DC for both saves is 10 + 1/2 the golem’s Hit Dice.</p>",
         "source": "Menace Manual",
@@ -174,7 +174,7 @@
       "_id": "NCcMygADSUg6Hh8r",
       "name": "Chemical Healing",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A chemical golem does not heal normally, but it can drink toxic liquids (such as acid, poison, or cleaning supplies) to heal itself. The creature heals 1 point of damage per 8 points of Purchase DC that it consumes in toxic chemicals. A chemical golem has no ability to discern which substances can heal it, so its creator must either command it to drink the appropriate chemicals on the spot or provide it with precise commands and a ready supply so that it can heal itself. A chemical golem gains no benefit from drinking a substance not considered immediately harmful to humans. The consumed liquids mix with the chemicals inside the golem and are destroyed.</p>",
         "source": "Menace Manual",
@@ -190,7 +190,7 @@
       "_id": "RLtH4xTMThs71kc1",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A chemical golem has the traits and immunities common to constructs.</p>",
         "source": "Menace Manual",
@@ -206,7 +206,7 @@
       "_id": "n9CBccOgHSUmwoLy",
       "name": "Damage Reduction 15/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A chemical golem ignores the first 15 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the chemical golem’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
@@ -222,7 +222,7 @@
       "_id": "wcPCpu6qv90Ap5kW",
       "name": "Magic Immunity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A chemical golem is immune to all spells, spell-like abilities, and supernatural effects, except one. A neutralize poison spell or effect slows the creature (as the slow spell) for 2d6 rounds, with no saving throw.</p>",
         "source": "Menace Manual",
@@ -238,7 +238,7 @@
       "_id": "CkYj4jy1EyQXzQRm",
       "name": "Rupture",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If the chemical golem takes at least 10 points of damage (after damage reduction) from a single hit with a piercing or slashing weapon, its membrane ruptures, spraying a 10-foot cone of burning liquid and noxious fumes in the direction from which the attack originated. Each creature in the area takes 2d6 points of fire damage (Reflex half) and 1d4 points of Constitution damage (Fortitude negates). The DC for both saves is 10 + 1/2 the golem’s Hit Dice.</p><p>When the chemical golem is reduced to 0 hit points, its membrane collapses, spilling out all the remaining chemicals inside as a 15-foot-radius burst of acid, flame, and deadly gases. Every creature in the area takes 10d6 points of damage (half acid and half fire; Reflex half) and 2d4 points of Constitution damage (Fortitude negates). The DC for both saves is 10 + 1/2 the golem’s Hit Dice.</p>",
         "source": "Menace Manual",

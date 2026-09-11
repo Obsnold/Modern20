@@ -2,7 +2,7 @@
   "_id": "6hAZHH0351zY1J9o",
   "name": "Skin Feaster",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -154,7 +154,7 @@
       "_id": "kyFj9c1Di45b1Oan",
       "name": "Claw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+2 melee (1d4, claw) or +5 ranged</p>",
         "source": "Menace Manual",
@@ -187,7 +187,7 @@
       "_id": "5GkoUMW9O8qqnlDN",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -206,7 +206,7 @@
       "_id": "yAnMVsFdCfpNeZnA",
       "name": "Flesh Weakness",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skin feaster that successfully deals damage to an opponent with its necrotizing touch attack must spend its next turn devouring the flesh that has fallen from that opponent’s body. It takes no other actions during this time but can defend itself normally. It can consume an amount of flesh equivalent to 3 points of Constitution damage (or drain; see below) per round.</p>",
         "source": "Menace Manual",
@@ -222,7 +222,7 @@
       "_id": "uhFiz4m7EvpA7iZm",
       "name": "Necrotizing Touch (DC 13)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>With a successful melee touch attack, the skin feaster causes lumps of flesh to fall from the target’s body, dealing 1d3 points of Constitution damage; a successful @Check[save:fort]{Fortitude save} negates (DC 10 + 1/2 the skin feaster’s Hit Dice + its Charisma modifier). On a failed save, the target must attempt a second @Check[save:fort]{Fortitude save} at the same DC. Failure indicates that 1 point of the Constitution damage already taken becomes Constitution drain instead.</p>",
         "source": "Menace Manual",
@@ -255,7 +255,7 @@
       "_id": "UUFvPF6upxLhYUal",
       "name": "Skin Regrowth",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>If a skin feaster manages to eat an amount of flesh equivalent to 6 points of Constitution damage (or drain; see above) in any 24-hour period, it begins to regrow its skin. This process requires 1d6 hours. For the next 1d3 days thereafter, the skin feaster appears just as it did before its death, excluding scars, moles, or other minor skin imperfections. Only the creature’s appearance changes—it is still an undead with all of its usual species traits except the flesh weakness, which is not active while the skin feaster wears its new skin. Once this period is over, the skin feaster’s regrown skin sloughs off, restoring it to its usual appearance and reactivating its flesh weakness.</p>",
         "source": "Menace Manual",
@@ -271,7 +271,7 @@
       "_id": "87asLGORyKOnUIq5",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Skin feasters have the traits and immunities common to undead.</p>",
         "source": "Menace Manual",
@@ -287,7 +287,7 @@
       "_id": "DNaw4viBfcONDYEC",
       "name": "Automatic Languages",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skin feaster can read, write, and speak any one language that it could in life.</p>",
         "source": "Menace Manual",
@@ -303,7 +303,7 @@
       "_id": "Vfsfan8LrSGjCnaX",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skin feaster gains Simple Weapons Proficiency as a bonus feat.</p>",
         "source": "Menace Manual",

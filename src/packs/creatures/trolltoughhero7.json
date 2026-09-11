@@ -2,7 +2,7 @@
   "_id": "01hzKZixzh3lIPdb",
   "name": "Troll Tough Hero 7",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/giant.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -155,7 +155,7 @@
       "_id": "zWAsnj1vQ6zrpq33",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+14 melee (1d6+6, 2 claws), +12 melee (1d6+3 bite), or +10/+5 ranged (2d8, M16A2)</p>",
         "source": "d20 Modern SRD",
@@ -188,7 +188,7 @@
       "_id": "j3OlqBhvN0W4vCN9",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+14 melee (1d6+6, 2 claws), +12 melee (1d6+3 bite), or +10/+5 ranged (2d8, M16A2)</p>",
         "source": "d20 Modern SRD",
@@ -221,7 +221,7 @@
       "_id": "eMSsMTpfoYDjdl8O",
       "name": "M16A2",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+14 melee (1d6+6, 2 claws), +12 melee (1d6+3 bite), or +10/+5 ranged (2d8, M16A2)</p>",
         "source": "d20 Modern SRD",
@@ -254,7 +254,7 @@
       "_id": "CTq2emLD6igZrT7z",
       "name": "Advanced Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -275,7 +275,7 @@
       "_id": "KM6tM1srZV50vyBy",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -294,7 +294,7 @@
       "_id": "loHdx00TQY0mMH9m",
       "name": "Heroic Surge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -313,7 +313,7 @@
       "_id": "aL4z2ldrCDhUKICy",
       "name": "Improved Bull Rush",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -335,7 +335,7 @@
       "_id": "qjeJWcZQCtWtvAZM",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -354,7 +354,7 @@
       "_id": "ojHGSJD1vnd4O1Ka",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -375,7 +375,7 @@
       "_id": "2D2kWO5Q0bBtIHPt",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -394,7 +394,7 @@
       "_id": "AaM7MFd2LWxjXKoH",
       "name": "Vehicle Expert",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -413,7 +413,7 @@
       "_id": "pBGB5l3Gm5eUdQzL",
       "name": "Rend 2d6+9",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>If a troll hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. This attack automatically deals an additional 2d6+9 points of damage.</p>",
         "source": "d20 Modern SRD",
@@ -429,7 +429,7 @@
       "_id": "X0cFa9tohszq1Qdh",
       "name": "Regeneration 5 (cannot regenerate acid or fire damage)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A troll regenerates 5 points of damage each round but cannot regenerate acid or fire damage. If a troll loses a limb or body part, the lost portion regrows in 3d6 minutes. The creature can reattach the severed member instantly by holding it to the stump.</p>",
         "source": "d20 Modern SRD",
@@ -445,7 +445,7 @@
       "_id": "lvr3csrT5s1jJgnU",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a troll to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "d20 Modern SRD",
@@ -461,7 +461,7 @@
       "_id": "M5ITYjfJiExTFoWz",
       "name": "Darkvision 90 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Instead of the low-light vision normally possessed by creatures of the giant type, trolls have darkvision with a range of 90 feet.</p>",
         "source": "d20 Modern SRD",
@@ -477,7 +477,7 @@
       "_id": "PCO3oL27CHPJ0ma8",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A troll gains either Archaic Weapons Proficiency or Simple Weapons Proficiency as a bonus feat.</p>",
         "source": "d20 Modern SRD",
@@ -493,7 +493,7 @@
       "_id": "ayhDI3xWUGxnBhht",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Trolls speak (but neither read nor write) Giant or one other language.</p>",
         "source": "d20 Modern SRD",

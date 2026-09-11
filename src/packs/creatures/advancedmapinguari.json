@@ -2,7 +2,7 @@
   "_id": "j8YmPJrh2e80DJwb",
   "name": "Advanced Mapinguari",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -122,7 +122,7 @@
       "_id": "LAFl0D3QtATUShv6",
       "name": "Slam (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+19 melee (2d4+10, 2 slams)</p>",
         "source": "Menace Manual",
@@ -155,7 +155,7 @@
       "_id": "YpCtCkczh95TZxaR",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -171,7 +171,7 @@
       "_id": "wa3W83T41SObknav",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a mapinguari to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -187,7 +187,7 @@
       "_id": "Doa8Apm2tcFLelKY",
       "name": "Stench",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The odor of a mapinguari is overpoweringly offensive. Anyone approaching within 60 feet of the creature must make a successful @Check[save:fort|dc:18]{Fortitude save (DC 18)} or become nauseated. The nausea persists for as long as the creature remains in the area and for 1 round thereafter.</p><p>If a creature leaves and reenters the area, a new save is required.</p>",
         "source": "Menace Manual",

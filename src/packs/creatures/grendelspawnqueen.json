@@ -2,7 +2,7 @@
   "_id": "luHktDtDJQbgnKE5",
   "name": "Grendelspawn Queen",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/beast-eye.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -134,7 +134,7 @@
       "_id": "B4fJnWhFkd0B3KZS",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
         "source": "Urban Arcana",
@@ -167,7 +167,7 @@
       "_id": "99UYiTV4CymOqrMr",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
         "source": "Urban Arcana",
@@ -200,7 +200,7 @@
       "_id": "4F5tVH6amkZobOuX",
       "name": "Tentacle slam (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
         "source": "Urban Arcana",
@@ -233,7 +233,7 @@
       "_id": "5MaxQFu9yhEGR5b6",
       "name": "Acid spit",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/acid.svg",
       "system": {
         "description": "<p>+20 melee (2d4+8, 2 claws), +18 melee (2d6+4, bite), +18 melee (1d6+4, 2 tentacle slams) or +12 ranged touch (2d6, acid spit)</p>",
         "source": "Urban Arcana",
@@ -266,7 +266,7 @@
       "_id": "Qq80wSmP1jPfGA25",
       "name": "Blind-Fight",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -285,7 +285,7 @@
       "_id": "r7VAdM3W0lStYsPM",
       "name": "Combat Expertise",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -306,7 +306,7 @@
       "_id": "Y1ViMF4nX64Jq9Xm",
       "name": "Frightful Presence",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -328,7 +328,7 @@
       "_id": "kxgLTpYR6f4hqJWx",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -347,7 +347,7 @@
       "_id": "IGz7XzaTRhhvpEU2",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "L0OY9gDwGuqkpGJf",
       "name": "Acid Spit (at Will)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/acid.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -384,7 +384,7 @@
       "_id": "VQ6Ox2VKIqZ8cPfi",
       "name": "Rage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -400,7 +400,7 @@
       "_id": "AguVaqc8KQ8EGyEb",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>If the creature hits with a melee weapon it deals normal damage and attempts to start a grapple as a free action, doing so without provoking attacks of opportunity. No initial touch attack is required. Unless otherwise stated, improved grab works only against opponents at least one size category smaller than the creature. A Small or smaller creature using improved grab does not apply its grapple modifier to its grapple check.</p><p>The creature has the option to conduct the grapple normally, or simply use the part of its body it used in the improved grab to hold the opponent. If it chooses to do the latter, it takes a –20 penalty on grapple checks but is not considered grappled itself; the creature does not lose its Dexterity bonus to Defense, still threatens an area, and can use its remaining attacks against other opponents.</p><p>A successful hold does not deal additional damage unless the creature also has the constrict ability (see above). If the creature does not constrict, each successful grapple check it makes during successive rounds automatically deals the damage given for the attack that established the hold.</p><p>When a creature gets a hold after an improved grab attack, it pulls the opponent into its space. This act does not provoke attacks of opportunity. The creature is not considered grappled while it holds the opponent, so it still threatens adjacent squares and retains its Dexterity bonus. It can even move, provided it can drag the opponent’s weight.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -416,7 +416,7 @@
       "_id": "PWsCJQz4pra8mkQX",
       "name": "Constrict",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>The creature crushes the opponent, dealing bludgeoning damage, after making a successful grapple check. The amount of damage is given in the creature’s entry. If the creature also has the improved grab ability (see below), it deals constriction damage in addition to damage dealt by the weapon used to grab.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -432,7 +432,7 @@
       "_id": "54VcZjlKsnVEL9hS",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the creature to detect approaching enemies, sniff out hidden foes, and track by sense of smell. Creatures with the scent ability can identify familiar odors just as humans do familiar sights.</p><p>The creature can detect opponents within 30 feet by sense of smell. If the opponent is upwind, the range increases to 60 feet; if downwind, it drops to 15 feet. Strong scents can be detected at twice the ranges noted above. Overpowering scents can be detected at triple normal range.</p><p>When a creature detects a scent, the exact location is not revealed—only its presence somewhere within range. The creature can take a move or attack action to note the direction of the scent. If it moves within 5 feet of the source, the creature can pinpoint that source.</p><p>A creature with the scent ability can follow tracks by smell, making a @Check[ability:wis]{Wisdom check} to find or follow a track. The typical DC for a fresh trail is 10 (no matter what kind of surface holds the scent). This DC increases or decreases depending on the strength of the quarry’s odor, the number of creatures being tracked, and the age of the trail. For each hour that the trail is cold, the DC increases by 2. The ability otherwise follows the rules for the Track feat. Creatures tracking by scent ignore the effects of surface conditions and poor visibility.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -448,7 +448,7 @@
       "_id": "ZF3zPxn0wHHhZ8UD",
       "name": "Keen Sight",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

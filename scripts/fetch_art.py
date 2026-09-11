@@ -1,0 +1,223 @@
+#!/usr/bin/env python3
+"""Vendor the icons `scripts/art.py` names, from game-icons.net.
+
+    python3 scripts/fetch_art.py            # fetch what is missing
+    python3 scripts/fetch_art.py --force    # fetch everything again
+    python3 scripts/fetch_art.py --list     # say what would be fetched
+
+The icons are CC BY 3.0 (a few CC0), which is a licence with a condition: the
+author has to be credited. So the author is not something this guesses. It
+reads the upstream tree at a pinned commit, which files the icons by author —
+`skoll/kevlar-vest.svg`, `john-colburn/pistol-gun.svg` — and keeps that
+filing, so where an icon came from is legible in its own path and
+`assets/icons/CREDITS.md` is generated from the same reading rather than
+written by hand.
+
+Ten subjects were drawn by two authors each. Those are named in the map as
+`author/slug`, because picking one silently would credit the wrong person.
+
+Each file is rewritten on the way in, for one reason that is not decoration:
+game-icons publishes a white glyph with no background, which on Foundry's own
+light item rows is a white square on a white row. Each icon is given the
+system's own paper ground and ink glyph, so it reads on any sheet and in any
+theme, and so a compendium of them looks like one set rather than 147 files
+from the internet.
+
+Pinned to a commit, so this is reproducible: re-running fetches the same bytes
+a year from now, and moving to a newer upstream is an edit to COMMIT here
+rather than something that happens quietly on somebody else's machine.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import sys
+import urllib.error
+import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import art  # noqa: E402
+import srd  # noqa: E402
+
+# game-icons.net's own archive of every icon on the site.
+REPO = "game-icons/icons"
+COMMIT = "82d948812bfe3f269ef8f731dcdb07b08160edc4"  # master, 23 April 2026
+SITE = "https://game-icons.net"
+LICENCE = "CC BY 3.0"
+
+TREE = f"https://api.github.com/repos/{REPO}/git/trees/{COMMIT}?recursive=1"
+RAW = f"https://raw.githubusercontent.com/{REPO}/{COMMIT}/"
+
+ASSETS = os.path.join(srd.ROOT, "assets", "icons")
+
+# The system's own palette, from css/modern20.css: ink on paper.
+INK = "#1c1a17"
+PAPER = "#f6f2ea"
+RULE = "#cfc7bb"
+
+# An icon as it is published: one viewBox, a background rect the site uses for
+# its own previews, and the glyph. The rect is dropped and replaced, since its
+# colour is the site's and not this system's.
+VIEWBOX = re.compile(r'viewBox="([^"]+)"')
+BACKGROUND = re.compile(r"<path[^>]*\bd=\"M0 0h512v512H0z\"[^>]*/>", re.I)
+FILL = re.compile(r'\sfill="[^"]*"')
+
+
+def fetch(url: str) -> bytes:
+    request = urllib.request.Request(url, headers={
+        # GitHub refuses an anonymous request with no agent.
+        "User-Agent": f"modern20-fetch-art (+{SITE})",
+        "Accept": "application/vnd.github+json",
+    })
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return response.read()
+
+
+def upstream() -> dict[str, list[str]]:
+    """Every icon in the pinned tree: slug -> the authors who drew one."""
+    listing = json.loads(fetch(TREE))
+    if listing.get("truncated"):
+        raise SystemExit("the upstream tree came back truncated")
+    by_slug: dict[str, list[str]] = {}
+    for entry in listing.get("tree") or []:
+        path = entry.get("path") or ""
+        if entry.get("type") != "blob" or not path.endswith(".svg"):
+            continue
+        author, _, name = path.rpartition("/")
+        # The repository's own site furniture is not an icon by an author:
+        # `badges/club.svg` is a card suit on a shield, not a cudgel.
+        if not author or author == "badges":
+            continue
+        by_slug.setdefault(name[:-4], []).append(author)
+    return by_slug
+
+
+def resolve(icon: str, by_slug: dict[str, list[str]]) -> str:
+    """The upstream path for an icon the map names.
+
+    A bare slug drawn by one author resolves to that author. A slug two
+    authors drew has to say which, because crediting the wrong one is the one
+    way to get a CC BY licence wrong while looking tidy.
+    """
+    if "/" in icon:
+        author, slug = icon.split("/", 1)
+        if author not in (by_slug.get(slug) or []):
+            raise SystemExit(f"{icon}: {author} has no {slug}.svg upstream")
+        return f"{author}/{slug}.svg"
+
+    authors = by_slug.get(icon)
+    if not authors:
+        raise SystemExit(f"{icon}: no icon of that name upstream")
+    if len(authors) > 1:
+        raise SystemExit(
+            f"{icon}: drawn by {', '.join(sorted(authors))} — name one in art.py")
+    return f"{authors[0]}/{icon}.svg"
+
+
+def restyle(svg: str, path: str) -> str:
+    """The published icon as this system's: ink on paper, in a rounded tile.
+
+    The glyph's own fill is dropped rather than overridden, since a `fill` on
+    the path wins over one on the `<svg>`, and a few icons carry one.
+    """
+    box = VIEWBOX.search(svg)
+    if not box:
+        raise SystemExit(f"{path}: no viewBox")
+    size = box.group(1).split()
+    width = float(size[2])
+    radius = round(width * 0.12, 1)
+
+    body = BACKGROUND.sub("", svg)
+    head, _, rest = body.partition(">")
+    if not rest:
+        raise SystemExit(f"{path}: not an svg element")
+    # The glyph, with its own colours removed so the tile's fill applies.
+    glyph = FILL.sub("", rest.replace("</svg>", "").strip())
+
+    return (
+        f"{head} fill=\"{INK}\">"
+        f"<rect x=\"0\" y=\"0\" width=\"{size[2]}\" height=\"{size[3]}\""
+        f" rx=\"{radius}\" ry=\"{radius}\" fill=\"{PAPER}\""
+        f" stroke=\"{RULE}\" stroke-width=\"{max(1, round(width / 128))}\"/>"
+        f"{glyph}</svg>\n"
+    )
+
+
+def credits(used: dict[str, str]) -> str:
+    """The attribution the licence asks for, from what was actually fetched."""
+    by_author: dict[str, list[str]] = {}
+    for icon, path in sorted(used.items()):
+        by_author.setdefault(path.split("/")[0], []).append(path.split("/")[1][:-4])
+
+    lines = [
+        "# Icon credits",
+        "",
+        f"The {len(used)} icons in this directory are from [game-icons.net]({SITE}),",
+        f"licensed **{LICENCE}** (a few are CC0 — see the upstream",
+        f"[licence]({SITE.replace('game-icons.net', 'game-icons.net/about.html')})).",
+        "",
+        "They are recoloured to this system's palette and given a background",
+        "tile; the artwork is otherwise unchanged. Fetched from",
+        f"[{REPO}](https://github.com/{REPO}) at commit `{COMMIT[:12]}`",
+        "by `scripts/fetch_art.py`, which also generates this file.",
+        "",
+        "## By author",
+        "",
+    ]
+    for author in sorted(by_author):
+        drawn = ", ".join(f"`{name}`" for name in sorted(by_author[author]))
+        lines.append(f"**{author}** — {drawn}")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--force", action="store_true",
+                        help="fetch every icon again, not only the missing ones")
+    parser.add_argument("--list", action="store_true",
+                        help="say what would be fetched and stop")
+    arguments = parser.parse_args()
+
+    wanted = sorted(art.icons())
+    if arguments.list:
+        print(f"{len(wanted)} icon(s) named by scripts/art.py:")
+        for icon in wanted:
+            print(f"  {icon}")
+        return 0
+
+    print(f"reading {REPO} at {COMMIT[:12]}")
+    by_slug = upstream()
+    print(f"  {len(by_slug)} icons upstream")
+
+    os.makedirs(ASSETS, exist_ok=True)
+    used: dict[str, str] = {}
+    fetched = kept = 0
+    for icon in wanted:
+        path = resolve(icon, by_slug)
+        used[icon] = path
+        local = os.path.join(ASSETS, path)
+        if os.path.exists(local) and not arguments.force:
+            kept += 1
+            continue
+        try:
+            svg = fetch(RAW + path).decode("utf-8")
+        except urllib.error.HTTPError as error:
+            raise SystemExit(f"{path}: {error}") from error
+        os.makedirs(os.path.dirname(local), exist_ok=True)
+        with open(local, "w", encoding="utf-8") as handle:
+            handle.write(restyle(svg, path))
+        fetched += 1
+
+    with open(os.path.join(ASSETS, "CREDITS.md"), "w", encoding="utf-8") as handle:
+        handle.write(credits(used))
+
+    print(f"{fetched} fetched, {kept} already here, {len(used)} in assets/icons")
+    print("assets/icons/CREDITS.md written")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

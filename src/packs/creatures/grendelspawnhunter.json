@@ -2,7 +2,7 @@
   "_id": "vv5GdQaMhvIO7Hb4",
   "name": "Grendelspawn Hunter",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/beast-eye.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -138,7 +138,7 @@
       "_id": "DCl5Hh51Lo9f0Z0l",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+14 melee (1d4+5, 2 claws), +12 melee (1d6+2, bite) or +11 ranged touch (2d6, acid spit)</p>",
         "source": "Urban Arcana",
@@ -171,7 +171,7 @@
       "_id": "NBzVi16L6hFG9PNZ",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+14 melee (1d4+5, 2 claws), +12 melee (1d6+2, bite) or +11 ranged touch (2d6, acid spit)</p>",
         "source": "Urban Arcana",
@@ -204,7 +204,7 @@
       "_id": "ssQIlHRudVmSHCbH",
       "name": "Acid spit",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/acid.svg",
       "system": {
         "description": "<p>+14 melee (1d4+5, 2 claws), +12 melee (1d6+2, bite) or +11 ranged touch (2d6, acid spit)</p>",
         "source": "Urban Arcana",
@@ -237,7 +237,7 @@
       "_id": "O28GyK7ju2OKciTa",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -256,7 +256,7 @@
       "_id": "c4a8BgSEQWBdBnAU",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -275,7 +275,7 @@
       "_id": "dqj9oUY3VlBlWSl1",
       "name": "Track",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -294,7 +294,7 @@
       "_id": "oNV7gAcmu5bgbWxC",
       "name": "Acid Spit (2/day)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/acid.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -310,7 +310,7 @@
       "_id": "7GlEa6RyGvNjnVca",
       "name": "Rage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -326,7 +326,7 @@
       "_id": "qYqbkYrvx9ymV1Bc",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the creature to detect approaching enemies, sniff out hidden foes, and track by sense of smell. Creatures with the scent ability can identify familiar odors just as humans do familiar sights.</p><p>The creature can detect opponents within 30 feet by sense of smell. If the opponent is upwind, the range increases to 60 feet; if downwind, it drops to 15 feet. Strong scents can be detected at twice the ranges noted above. Overpowering scents can be detected at triple normal range.</p><p>When a creature detects a scent, the exact location is not revealed—only its presence somewhere within range. The creature can take a move or attack action to note the direction of the scent. If it moves within 5 feet of the source, the creature can pinpoint that source.</p><p>A creature with the scent ability can follow tracks by smell, making a @Check[ability:wis]{Wisdom check} to find or follow a track. The typical DC for a fresh trail is 10 (no matter what kind of surface holds the scent). This DC increases or decreases depending on the strength of the quarry’s odor, the number of creatures being tracked, and the age of the trail. For each hour that the trail is cold, the DC increases by 2. The ability otherwise follows the rules for the Track feat. Creatures tracking by scent ignore the effects of surface conditions and poor visibility.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -342,7 +342,7 @@
       "_id": "JV05ZZ7JBHENbdQA",
       "name": "Keen Sight",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

@@ -2,7 +2,7 @@
   "_id": "fn8ymQQ1XTN38UqL",
   "name": "Human Skeleton",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -109,7 +109,7 @@
       "_id": "rsyyT0m7shz7fGD0",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+0 melee (1d4, 2 claws)</p>",
         "source": "d20 Modern SRD",
@@ -142,7 +142,7 @@
       "_id": "5tYw5Jqw4U0k4TRG",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -161,7 +161,7 @@
       "_id": "mJw3Iv7mDbnvl543",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -180,7 +180,7 @@
       "_id": "qzugXlkYevr24k3h",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "d20 Modern SRD",
@@ -196,7 +196,7 @@
       "_id": "hhOpG58qssTIJ5o3",
       "name": "Skeleton Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A skeleton has cold immunity. Because it lacks flesh and internal organs, a skeleton takes only half damage from ballistic, piercing, or slashing weapons.</p>",
         "source": "d20 Modern SRD",

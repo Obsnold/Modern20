@@ -2,7 +2,7 @@
   "_id": "lpNXGWc0Iq8BW31i",
   "name": "Drop Bear",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -140,7 +140,7 @@
       "_id": "EkgJgGstgxzmMOPI",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+4 melee (1d6+4, bite) and -1 melee (1d4+2, 2 claws)</p>",
         "source": "Menace Manual",
@@ -173,7 +173,7 @@
       "_id": "k7grvO13h1YDvu7m",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d6+4, bite) and -1 melee (1d4+2, 2 claws)</p>",
         "source": "Menace Manual",
@@ -206,7 +206,7 @@
       "_id": "FkjGDD4b97Nj4Tyo",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -222,7 +222,7 @@
       "_id": "FpnzBNDXK8DiEuCg",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a drop bear to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -238,7 +238,7 @@
       "_id": "jxQmYchh8wDBYP3Z",
       "name": "Stealthy Pounce",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "<p>If a drop bear leaps upon a flat-footed foe, it can make a full attack even if it has already taken a move action.</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
         "source": "Menace Manual",

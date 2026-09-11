@@ -2,7 +2,7 @@
   "_id": "6qN3VdhY9B53dQjZ",
   "name": "Tooth Fairy",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -198,7 +198,7 @@
       "_id": "hlG43iGBTKN9pRcm",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d4, knife), or +1 ranged</p>",
         "source": "d20 Modern SRD",
@@ -231,7 +231,7 @@
       "_id": "Dmx7BrrKxSIDg1PB",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -250,7 +250,7 @@
       "_id": "5RuSM2f5hbuQIJpq",
       "name": "Renown",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -269,7 +269,7 @@
       "_id": "oKrQ9fJuYZF0w7ES",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -288,7 +288,7 @@
       "_id": "IWduRdMclfdIiGJE",
       "name": "Fey Rod",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A tooth fairy’s preferred weapon is a 1-foot-long rod of ash wood. A fey rod allows its wielder to cast the following spells as a 3rd-level Mage (save DC 10 + spell level): daze (DC 10), knock, light, magic missile, and sleep (DC 11). Using any of the rod’s powers is an attack action. The fey rod can cast seven spells per day and has a hardness of 5, 1 hit point, and a break DC of 11. A tooth fairy that loses its fey rod fights to the death to retrieve it or takes 1d4 points of temporary Wisdom damage every 24 hours the fairy and the rod remain separated. Destroying the rod instantly slays the tooth fairy, turning both to dust.</p>",
         "source": "d20 Modern SRD",
@@ -304,7 +304,7 @@
       "_id": "vyLxj8ZXmVYtV0sS",
       "name": "Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A tooth fairy can turn itself invisible at will, as a move action. This ability works only after sunset and before sunrise, but the duration of the invisibility is otherwise unlimited. An invisible tooth fairy becomes visible when it attacks.</p>",
         "source": "d20 Modern SRD",
@@ -320,7 +320,7 @@
       "_id": "ZAkzI15UsqkQXchZ",
       "name": "Anyspeak",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A tooth fairy can speak, read, and write any spoken language.</p>",
         "source": "d20 Modern SRD",
@@ -336,7 +336,7 @@
       "_id": "DXfnc108drBXi28U",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -352,7 +352,7 @@
       "_id": "j85ssu3WAFZWym5Z",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Tooth fairies gain the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",

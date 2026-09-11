@@ -2,7 +2,7 @@
   "_id": "MVn4Uu9P43hpyg72",
   "name": "Grimlock",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -150,7 +150,7 @@
       "_id": "PsPgBcf9UphKrtg1",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear) or +3 ranged (1d8+2, spear)</p>",
         "source": "Menace Manual",
@@ -183,7 +183,7 @@
       "_id": "b7tqr8ExWBZUhKa2",
       "name": "Spear",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear) or +3 ranged (1d8+2, spear)</p>",
         "source": "Menace Manual",
@@ -216,7 +216,7 @@
       "_id": "9qT67ryieJNWWAx9",
       "name": "Spear (+3)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+5 melee (1d6+2 nonlethal, unarmed strike) or +4 melee (1d8+2, spear) or +3 ranged (1d8+2, spear)</p>",
         "source": "Menace Manual",
@@ -249,7 +249,7 @@
       "_id": "hSLhnyWLzVjlm5Zg",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -268,7 +268,7 @@
       "_id": "ZMPyvZmYYRS6yEZU",
       "name": "Brawl",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -287,7 +287,7 @@
       "_id": "PYlnBpKuUxdduV5S",
       "name": "Blindsight 40 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock is blind but can ascertain all creatures and objects within 40 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the grimlock.</p><p>Grimlocks are affected normally by loud noises and sonic spells (such as shout or silence) and overpowering odors (such as a troglodyte’s stench or incense-thick air). Negating a grimlock’s sense of either smell or hearing denies it the benefits of blindsight, but the grimlock still functions as though it had the Blind-Fight feat. If both smell and hearing are negated, the grimlock is effectively blind.</p>",
         "source": "Menace Manual",
@@ -303,7 +303,7 @@
       "_id": "Whh1Xr01GVbI9D0F",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock is immune to gaze attacks, visual effects, illusions, and all other attack forms that rely on sight.</p>",
         "source": "Menace Manual",
@@ -319,7 +319,7 @@
       "_id": "Jz3VblOQuEabZuje",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a grimlock to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -335,7 +335,7 @@
       "_id": "H93TWmdIH2XwnRLK",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock can speak (but not read or write) one local surface language.</p>",
         "source": "Menace Manual",
@@ -351,7 +351,7 @@
       "_id": "79IpCYtZvIfbFkUy",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A grimlock’s dull gray skin helps it hide in its native terrain, conferring a +10 species bonus on @Check[skill:hide]{Hide check}s in rocky terrain or underground.</p>",
         "source": "Menace Manual",

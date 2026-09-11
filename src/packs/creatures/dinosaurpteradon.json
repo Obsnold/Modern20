@@ -2,7 +2,7 @@
   "_id": "FTIhOEkI31i8XEWC",
   "name": "Dinosaur, Pteradon",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -128,7 +128,7 @@
       "_id": "ALST0VYfRuM08ayO",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+2 melee (1d8+1, bite) and -3 melee (1d4+1, 2 claws)</p>",
         "source": "Menace Manual",
@@ -161,7 +161,7 @@
       "_id": "GCg7bGJgPH14zw7n",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+2 melee (1d8+1, bite) and -3 melee (1d4+1, 2 claws)</p>",
         "source": "Menace Manual",
@@ -194,7 +194,7 @@
       "_id": "ufnJ0yIpu8Gu0shx",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a pteradon to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",

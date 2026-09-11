@@ -2,7 +2,7 @@
   "_id": "vqlJbRoWGUCQHd5p",
   "name": "Troglodyte",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -126,7 +126,7 @@
       "_id": "X0mIilPUCAqarZaU",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+1 melee (1d4, 2 claws), -1 melee (1d4, bite), or +1 melee (1d6 nonlethal, sap), -4 melee (1d4, bite), or +0 ranged (1d6, javelin)</p>",
         "source": "d20 Modern SRD",
@@ -159,7 +159,7 @@
       "_id": "JxZV457WNwg7eFKu",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+1 melee (1d4, 2 claws), -1 melee (1d4, bite), or +1 melee (1d6 nonlethal, sap), -4 melee (1d4, bite), or +0 ranged (1d6, javelin)</p>",
         "source": "d20 Modern SRD",
@@ -192,7 +192,7 @@
       "_id": "m5lXEpZd0KGjBnnI",
       "name": "Sap",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d4, 2 claws), -1 melee (1d4, bite), or +1 melee (1d6 nonlethal, sap), -4 melee (1d4, bite), or +0 ranged (1d6, javelin)</p>",
         "source": "d20 Modern SRD",
@@ -225,7 +225,7 @@
       "_id": "Hq8gsWdQg6p3T3SO",
       "name": "Bite (-4)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+1 melee (1d4, 2 claws), -1 melee (1d4, bite), or +1 melee (1d6 nonlethal, sap), -4 melee (1d4, bite), or +0 ranged (1d6, javelin)</p>",
         "source": "d20 Modern SRD",
@@ -258,7 +258,7 @@
       "_id": "D08k2Wm6ABjYYbFx",
       "name": "Javelin",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d4, 2 claws), -1 melee (1d4, bite), or +1 melee (1d6 nonlethal, sap), -4 melee (1d4, bite), or +0 ranged (1d6, javelin)</p>",
         "source": "d20 Modern SRD",
@@ -291,7 +291,7 @@
       "_id": "woKr0RVwDyi91h0U",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -310,7 +310,7 @@
       "_id": "ZZFByTwxemAoppDQ",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -329,7 +329,7 @@
       "_id": "J9BMQQxaGKKyVTSc",
       "name": "Stench",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When a troglodyte is angry or frightened, it secretes an oily, musklike chemical that most animal life finds offensive. All living creatures (except troglodytes) within 30 feet of the troglodyte must succeed on a @Check[save:fort|dc:13]{Fortitude save (DC 13)} or take a –2 morale penalty on attack rolls, weapon damage rolls, ability checks, skill checks, and saving throws for 10 rounds. Characters subjected to stench from multiple troglodytes make only one saving throw. Characters affected by a troglodyte’s stench cannot be affected again by any troglodyte’s stench until the current effect expires.</p>",
         "source": "d20 Modern SRD",
@@ -345,7 +345,7 @@
       "_id": "Eg15vzJVnqA61D2O",
       "name": "Darkvision 90 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -361,7 +361,7 @@
       "_id": "6VUrMgYnFuE5vCdd",
       "name": "Species Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A troglodyte’s skin changes color somewhat, allowing it to blend in with its surroundings like a chameleon. A troglodyte gains a +4 species bonus on @Check[skill:hide]{Hide check}s (+8 in a rocky or subterranean setting).</p>",
         "source": "d20 Modern SRD",
@@ -377,7 +377,7 @@
       "_id": "4SRyoP1lUqfZEIjY",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Troglodytes receive the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -393,7 +393,7 @@
       "_id": "thpMV1icLeePyxOp",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Troglodytes read, write, and speak Draconic.</p>",
         "source": "d20 Modern SRD",

@@ -2,7 +2,7 @@
   "_id": "Q3d3yG0bj8Xz2lFR",
   "name": "Tooth Fairy Fast Hero 3/Smart Hero 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -216,7 +216,7 @@
       "_id": "zs7NvN0aDRh6X5A0",
       "name": "Knife",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d4, knife), or +3 ranged (2d6, Colt Double Eagle)</p>",
         "source": "d20 Modern SRD",
@@ -249,7 +249,7 @@
       "_id": "cJXxrM0bILBBQF9l",
       "name": "Colt Double Eagle",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d4, knife), or +3 ranged (2d6, Colt Double Eagle)</p>",
         "source": "d20 Modern SRD",
@@ -282,7 +282,7 @@
       "_id": "Ai8E78rs7xkNPfaK",
       "name": "Heroic Surge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -301,7 +301,7 @@
       "_id": "5KF4Em2hjNDGWXpv",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -320,7 +320,7 @@
       "_id": "jjMbzalfV9sWGxYQ",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -339,7 +339,7 @@
       "_id": "4qNOLBymkjifUVNZ",
       "name": "Renown",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -358,7 +358,7 @@
       "_id": "J4CBAazwZRqw6ulq",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -377,7 +377,7 @@
       "_id": "Hgdi5fQh3PePz6pm",
       "name": "Stealthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -396,7 +396,7 @@
       "_id": "Ns6gBZAplDTdxPun",
       "name": "Fey Rod",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A tooth fairy’s preferred weapon is a 1-foot-long rod of ash wood. A fey rod allows its wielder to cast the following spells as a 3rd-level Mage (save DC 10 + spell level): daze (DC 10), knock, light, magic missile, and sleep (DC 11). Using any of the rod’s powers is an attack action. The fey rod can cast seven spells per day and has a hardness of 5, 1 hit point, and a break DC of 11. A tooth fairy that loses its fey rod fights to the death to retrieve it or takes 1d4 points of temporary Wisdom damage every 24 hours the fairy and the rod remain separated. Destroying the rod instantly slays the tooth fairy, turning both to dust.</p>",
         "source": "d20 Modern SRD",
@@ -412,7 +412,7 @@
       "_id": "qWGE7ScxATn1E2PR",
       "name": "Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A tooth fairy can turn itself invisible at will, as a move action. This ability works only after sunset and before sunrise, but the duration of the invisibility is otherwise unlimited. An invisible tooth fairy becomes visible when it attacks.</p>",
         "source": "d20 Modern SRD",
@@ -428,7 +428,7 @@
       "_id": "dUeFTx7B8baVZbk6",
       "name": "Anyspeak",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A tooth fairy can speak, read, and write any spoken language.</p>",
         "source": "d20 Modern SRD",
@@ -444,7 +444,7 @@
       "_id": "TqBbHYENLBsExTV5",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -460,7 +460,7 @@
       "_id": "woYSMg4rwxarwJOM",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Tooth fairies gain the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",

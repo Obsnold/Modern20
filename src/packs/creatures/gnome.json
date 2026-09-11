@@ -2,7 +2,7 @@
   "_id": "0OXyjUlwKFnSyKPh",
   "name": "Gnome",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -180,7 +180,7 @@
       "_id": "Gr5986oRR5e7hQI8",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d3 electricity plus stun, stun gun) or +1 ranged (blindness, pepper spray)</p>",
         "source": "Urban Arcana",
@@ -213,7 +213,7 @@
       "_id": "GtzsaCTH4OMKRVBF",
       "name": "Stun gun",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d3 electricity plus stun, stun gun) or +1 ranged (blindness, pepper spray)</p><p><strong>Also called:</strong> blindness, pepper spray</p>",
         "source": "Urban Arcana",
@@ -246,7 +246,7 @@
       "_id": "mZAIpkzKHduoW0Zs",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -265,7 +265,7 @@
       "_id": "LjVcfwfqdKLDaNPq",
       "name": "Magical Heritage",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "Urban Arcana",
@@ -286,7 +286,7 @@
       "_id": "uAYiXbcHdmnKreBS",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -305,7 +305,7 @@
       "_id": "QL3REO7o0N6mrm4K",
       "name": "Special Combat Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain a +1 species bonus on attack rolls against bugbears, goblins (and other goblinoids), and kobolds. Gnomes also gain a +4 dodge bonus to their Defense against giant-type creatures (such as ogres and trolls); this bonus represents special training that gnomes undergo, during which they learn tricks that previous generations developed in their battles with giants. Note that any time a gnome loses his positive Dexterity bonus to Defense, such as when he’s caught flat-footed, he loses this dodge bonus, too.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -321,7 +321,7 @@
       "_id": "CsvfpffLEDiM5pX0",
       "name": "Illusion Mastery",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Add +1 to the Difficulty Class for all saving throws against Illusion spells cast by gnomes.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -337,7 +337,7 @@
       "_id": "ymbaJgloX0xvFIZJ",
       "name": "Speak with Animals 1/day",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>Once per day, a gnome can use speak with animals as a spell-like ability to speak with a burrowing mammal (a mole, gopher, ground hog, and so forth). It has a duration of 1 minute, and the gnome is considered a 1st-level caster when he uses this ability, regardless of his actual level.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -353,7 +353,7 @@
       "_id": "rrFsNxExsOfUygJX",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Gnomes can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -369,7 +369,7 @@
       "_id": "8oK4WI3x6Oof1yg4",
       "name": "Saving Throw Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain a +2 species bonus on saving throws against illusions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -385,7 +385,7 @@
       "_id": "hTivE9aH2KSxKczn",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain a +2 species bonus on @Check[skill:listen]{Listen check}s. Gnomes who have one or more ranks in the Craft (pharmaceutical) skill also gain a +2 species bonus on @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -401,7 +401,7 @@
       "_id": "Lcse8oZ5gWclSQHK",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnomes gain the bonus feat Archaic Weapons Proficiency. They may treat gnome hooked hammers as archaic weapons instead of exotic weapons.</p><p>Gnomes with Charisma scores of 10 or higher gain the bonus feat Magical Heritage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

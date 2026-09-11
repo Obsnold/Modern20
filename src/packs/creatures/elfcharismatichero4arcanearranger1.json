@@ -2,7 +2,7 @@
   "_id": "gh5dZA24x2TnoAcb",
   "name": "Elf Charismatic Hero 4/Arcane Arranger 1",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -236,7 +236,7 @@
       "_id": "zszn23n78d8DcwKJ",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3-1 nonlethal, unarmed strike) or +1 melee (1d3 electricity plus paralysis, stun gun) or +5 ranged (2d6, SITES M9)</p>",
         "source": "Urban Arcana",
@@ -269,7 +269,7 @@
       "_id": "xaLDE3lD4kgybfMh",
       "name": "Stun gun",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3-1 nonlethal, unarmed strike) or +1 melee (1d3 electricity plus paralysis, stun gun) or +5 ranged (2d6, SITES M9)</p>",
         "source": "Urban Arcana",
@@ -302,7 +302,7 @@
       "_id": "ER3H3iQHQ2YdE8Hp",
       "name": "SITES M9",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+1 melee (1d3-1 nonlethal, unarmed strike) or +1 melee (1d3 electricity plus paralysis, stun gun) or +5 ranged (2d6, SITES M9)</p>",
         "source": "Urban Arcana",
@@ -335,7 +335,7 @@
       "_id": "A6k6F4FxqfK3V5Ua",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -354,7 +354,7 @@
       "_id": "Zyg2mLGEqPNApWX8",
       "name": "Deceptive",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -373,7 +373,7 @@
       "_id": "krXqHFGe14DS1QwB",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -392,7 +392,7 @@
       "_id": "66jnVfnoUipwvq2Z",
       "name": "Point Blank Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -411,7 +411,7 @@
       "_id": "iNgX7uYSWMy49rpI",
       "name": "Precise Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -432,7 +432,7 @@
       "_id": "izmYydVvuiBy1r6G",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -451,7 +451,7 @@
       "_id": "pkmzMhhjhtHWzSyr",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Elves can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -467,7 +467,7 @@
       "_id": "Mzgu3FLsXHhTl6iG",
       "name": "Spell Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Elves are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -483,7 +483,7 @@
       "_id": "m2BDmKAICZotnm9b",
       "name": "Word On the Street",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -499,7 +499,7 @@
       "_id": "JZoteZX6tjqIr1LU",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Elves gain a +2 species bonus on Listen, Search, and @Check[skill:spot]{Spot check}s. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a @Check[skill:search]{Search check} to notice it as if she were actively looking for the door.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -515,7 +515,7 @@
       "_id": "o0bhzbmjgSfsBfSX",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Elves gain the bonus feat Archaic Weapons Proficiency.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

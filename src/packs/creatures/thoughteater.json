@@ -2,7 +2,7 @@
   "_id": "qrBQuB42awQrbrv7",
   "name": "Thought Eater",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/floating-tentacles.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -128,7 +128,7 @@
       "_id": "EesB8LcB8jbgxxyE",
       "name": "Touch",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee touch (6 power points or 1 Int, touch)</p>",
         "source": "Menace Manual",
@@ -161,7 +161,7 @@
       "_id": "2RBHLvFgydmmUFMA",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -180,7 +180,7 @@
       "_id": "zuzRyUopVEkH63dw",
       "name": "Dimensional Jaunt",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>At will, a thought eater can shift from a different plane of existence into the normal world as part of any move action and shift back again as a free action. During this jaunt, the thought eater is incorporeal.</p><p>In this state, a thought eater has no physical form and can be harmed only by other incorporeal creatures, +1 or better magic weapons, or magic, though it has a 50% chance to ignore any damage from a corporeal source. The thought eater can pass through solid objects at will, and its own attacks pass through armor. It moves in complete silence and cannot be heard at all.</p>",
         "source": "Menace Manual",
@@ -196,7 +196,7 @@
       "_id": "0s1lzwGBJ9fvRfQF",
       "name": "Eat Thoughts",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A thought eater can drain the thoughts of a living being with a successful melee touch attack. Against an opponent with psionics, this ability drains 6 power points from the victim. (If the victim has fewer than 6 power points, the thought eater gains all the remaining power points that the opponent possesses). Against a nonpsionic creature, this attack deals 1 point of Intelligence damage, which provides the thought eater with nourishment equivalent to 6 power points. A thought eater requires the equivalent of 10 power points per day to survive, but it happily gorges itself whenever the opportunity presents itself. Power points consumed in excess of its minimum daily requirement do not count against the next day’s requirement.</p>",
         "source": "Menace Manual",
@@ -212,7 +212,7 @@
       "_id": "osdh1MQxFu9xEjyN",
       "name": "Psionics",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>At will—daze, detect psionics, distract, verve. Manifester level 10th; save DC 10 + thought eater’s key ability modifier + power level.</p>",
         "source": "Menace Manual",
@@ -228,7 +228,7 @@
       "_id": "4F2Zvj958VPaWizj",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A thought eater gains Improved Initiative as a bonus feat.</p>",
         "source": "Menace Manual",

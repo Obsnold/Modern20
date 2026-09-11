@@ -2,7 +2,7 @@
   "_id": "0obMeMZHbUVYHI2A",
   "name": "Minotaur Strong Hero 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -170,7 +170,7 @@
       "_id": "0aUfQXki4zMiNJqO",
       "name": "Chain saw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+13/+8 melee (3d6+7, chain saw), +8 melee (1d8+4, gore, or +13/+8 melee (1d4+7, slam), +8 melee (1d8+4, gore), or +8 ranged</p>",
         "source": "d20 Modern SRD",
@@ -203,7 +203,7 @@
       "_id": "AH0vNlEbzcF3H2Xa",
       "name": "Gore",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
       "system": {
         "description": "<p>+13/+8 melee (3d6+7, chain saw), +8 melee (1d8+4, gore, or +13/+8 melee (1d4+7, slam), +8 melee (1d8+4, gore), or +8 ranged</p>",
         "source": "d20 Modern SRD",
@@ -236,7 +236,7 @@
       "_id": "MyiyDAYET4O7uV7Y",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -255,7 +255,7 @@
       "_id": "SuRcyV2L83xACamy",
       "name": "Combat Reflexes",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -274,7 +274,7 @@
       "_id": "Xr1t31AAHRaZsrbH",
       "name": "Exotic Weapon Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "d20 Modern SRD",
@@ -293,7 +293,7 @@
       "_id": "DvONH8M3qVo0Zp0P",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "Sv35mmkGuJWqJJER",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -333,7 +333,7 @@
       "_id": "mQHHxHg30JZSVmQw",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -352,7 +352,7 @@
       "_id": "vaeqeyxmB2F4zRRn",
       "name": "Charge 4d6+6",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "<p>A minotaur typically begins a battle by charging at an opponent. In addition to the normal benefits and hazards of a charge, the beast can make a single gore attack that deals 4d6+6 points of damage.</p>",
         "source": "d20 Modern SRD",
@@ -368,7 +368,7 @@
       "_id": "Y2ksZgdk6bjVRkjL",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the minotaur to detect approaching enemies, sniff out hidden foes, and track by sense of smell. See Special Qualities for more information.</p>",
         "source": "d20 Modern SRD",
@@ -384,7 +384,7 @@
       "_id": "Pfj1UaPbMdmDXvam",
       "name": "Natural Cunning",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Although minotaurs are not especially intelligent, they possess innate cunning and logical reasoning ability. This prevents them from ever becoming lost. Further, they are never caught flat-footed.</p>",
         "source": "d20 Modern SRD",
@@ -400,7 +400,7 @@
       "_id": "FEChQwxPQlT2EP2Z",
       "name": "Darkvision 60 ft",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -416,7 +416,7 @@
       "_id": "RBDFBf5buBNVfPvx",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Minotaurs receive a +4 species bonus on Search, Spot, and @Check[skill:listen]{Listen check}s.</p>",
         "source": "d20 Modern SRD",
@@ -432,7 +432,7 @@
       "_id": "ydFbHDuq2nclpkrz",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A minotaur gains the bonus feat Archaic Weapons Proficiency or Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -448,7 +448,7 @@
       "_id": "a6FkGGOSwzpogvYf",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Minotaurs speak (but neither read nor write) Giant or one other language.</p>",
         "source": "d20 Modern SRD",

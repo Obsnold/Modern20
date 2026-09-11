@@ -2,7 +2,7 @@
   "_id": "LAW3ST3TB9Huo6kI",
   "name": "Big Cat",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -152,7 +152,7 @@
       "_id": "Ky47X39v9GTAD4N4",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+6 melee (1d6+3, bite), +1 melee (1d3+1, 2 claws)</p>",
         "source": "Urban Arcana",
@@ -185,7 +185,7 @@
       "_id": "FBzotZwpQV6eBAMi",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+6 melee (1d6+3, bite), +1 melee (1d3+1, 2 claws)</p>",
         "source": "Urban Arcana",
@@ -218,7 +218,7 @@
       "_id": "L72P80fSgjpzC0lm",
       "name": "Weapon Finesse",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -240,7 +240,7 @@
       "_id": "hjpSZI01IOOAbdT2",
       "name": "Pounce",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "<p>If a big cat leaps upon a foe during the first round of combat, it can make a full attack even if it has already taken a move action.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -256,7 +256,7 @@
       "_id": "xZJz3MHKs9hnv9GI",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the big cat must hit with its bite attack. If it gets a hold, it can rake.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -272,7 +272,7 @@
       "_id": "EyJ3IGyQSWlmooAS",
       "name": "Rake",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>If a big cat successfully grabs its prey (see Improved Grab, above), it can make two rake attacks (+6 melee) with its hind legs as part of a full attack. Each successful rake attack deals 1d3+1 points of damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -288,7 +288,7 @@
       "_id": "jn8R66qfZbprT0pJ",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the big cat to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -304,7 +304,7 @@
       "_id": "JETtPKZGz5uWHQGL",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Big cats can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -320,7 +320,7 @@
       "_id": "Mbe44pjhQTCg89Tj",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Big cats gain a +8 species bonus on @Check[skill:balance]{Balance check}s and a +4 species bonus on Hide, Jump, and @Check[skill:moveSilently]{Move Silently check}s (for running jumps, the Jump bonus is +8).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -336,7 +336,7 @@
       "_id": "armEtimwif2BaeEN",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Big cats gain the bonus feats Weapon Finesse (bite) and Weapon Finesse (claw).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

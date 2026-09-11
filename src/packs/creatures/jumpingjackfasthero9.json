@@ -2,7 +2,7 @@
   "_id": "Fc8PZpRycqVoq6cY",
   "name": "Jumping Jack Fast Hero 9",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -161,7 +161,7 @@
       "_id": "35imkXkUr8RVy0Xj",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+9 melee (1d4+2, 2 claws) or +13 ranged (2d6, Colt Python)</p>",
         "source": "Menace Manual",
@@ -194,7 +194,7 @@
       "_id": "o8zH4Qlcx9xJblVc",
       "name": "Colt Python",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+9 melee (1d4+2, 2 claws) or +13 ranged (2d6, Colt Python)</p>",
         "source": "Menace Manual",
@@ -227,7 +227,7 @@
       "_id": "x0pd69uLEvxd3n5W",
       "name": "Acrobatic",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -246,7 +246,7 @@
       "_id": "nBONB0j0HCSgaUww",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -265,7 +265,7 @@
       "_id": "opfjBTsX7asr4PSM",
       "name": "Defensive Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -284,7 +284,7 @@
       "_id": "pgY2TF2RUTRZE7hn",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -305,7 +305,7 @@
       "_id": "uIt6NrumqsuEsd4d",
       "name": "Elusive Target",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -327,7 +327,7 @@
       "_id": "Ibdy3krHBPMrf0j9",
       "name": "Heroic Surge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -346,7 +346,7 @@
       "_id": "k2CsXAehiPRaXOyt",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -365,7 +365,7 @@
       "_id": "Nl0S7Ac5fZBrch0E",
       "name": "Mobility",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -387,7 +387,7 @@
       "_id": "gcRJGBj8jTjZIH59",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -406,7 +406,7 @@
       "_id": "VQ6zCtUqw7UoOKxW",
       "name": "Spring Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -430,7 +430,7 @@
       "_id": "XtkTiAgUiX68nnrl",
       "name": "Breath Weapon (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
         "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the jumping jack’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
@@ -463,7 +463,7 @@
       "_id": "p9wM00blwotbW3Y3",
       "name": "Damage Reduction 10/Silver",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A jumping jack ignores the first 10 points of damage dealt by any unsilvered weapon.</p>",
         "source": "Menace Manual",
@@ -479,7 +479,7 @@
       "_id": "zPopmqmQQAx9ksGw",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -495,7 +495,7 @@
       "_id": "8q8mduasu7K3j8zH",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The jumping jack is immune to fire and poison.</p>",
         "source": "Menace Manual",
@@ -511,7 +511,7 @@
       "_id": "IsJV8Kq1YMSt6i75",
       "name": "Prodigious Leap",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The jumping jack can ignore the 20-foot move requirement for making long and high jumps. If it does move 20 feet before attempting a jump, the distance jumped is doubled.</p>",
         "source": "Menace Manual",

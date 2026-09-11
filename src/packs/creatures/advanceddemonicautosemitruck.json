@@ -2,7 +2,7 @@
   "_id": "yqYlLC9lKaJtSdOe",
   "name": "Advanced Demonic Auto (Semi Truck)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -162,7 +162,7 @@
       "_id": "FWZ3t0AuLkIxKIiz",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+25/+20/+15/+10 melee (1d8+10, slam)</p>",
         "source": "Urban Arcana",
@@ -195,7 +195,7 @@
       "_id": "Ex4u4TRNdI2mC6n9",
       "name": "Drive-By Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -214,7 +214,7 @@
       "_id": "0bpAy6TlZqcpZTKB",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -233,7 +233,7 @@
       "_id": "aIPSxigqkTNrq99W",
       "name": "Force Stop",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -255,7 +255,7 @@
       "_id": "a3iouG2KBc3aZ1mp",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -274,7 +274,7 @@
       "_id": "nitmY47nytuuAYq7",
       "name": "Vehicle Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -297,7 +297,7 @@
       "_id": "XZJX7uBWQif5oSk7",
       "name": "Vehicle Expert",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -316,7 +316,7 @@
       "_id": "qkIWB5JWzlGHKJO5",
       "name": "Weapon Focus",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -338,7 +338,7 @@
       "_id": "aIAez2nbaXb1o7Yv",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Demonic autos are immune to mind-influencing effects and to poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -354,7 +354,7 @@
       "_id": "EbXPOp6yjNaoQZLk",
       "name": "Outsider Traits",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>While they are technically constructs, demonic autos are animated by a fell presence from beyond Shadow. They gain skills and feats as if they were outsiders, and they have an Intelligence score.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -370,7 +370,7 @@
       "_id": "otwU5JyekTArkSMO",
       "name": "Damage Reduction 20/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A demonic auto ignores the first 20 points of damage dealt by a nonmagical weapon.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -386,7 +386,7 @@
       "_id": "831Wn0KZnvbCJnyv",
       "name": "Vehicle Movement",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The demonic car moves as a vehicle, not as a character. It has a top speed of 320 squares at character scale (32 squares at chase scale). It maneuvers as a vehicle, using its Drive score, and it must choose a speed category (alley, street, highway, or all-out speed) at the beginning of each action. The demonic auto’s speed category may increase its Defense and penalize skill checks.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -402,7 +402,7 @@
       "_id": "CX0anN4vN2Hg3RFT",
       "name": "No Limbs",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>The demonic auto has no limbs and thus can’t grapple, nor can it manipulate or throw an object. However, it can open and close its car doors, hood, or trunk rapidly to make a slam attack.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -418,7 +418,7 @@
       "_id": "a9IFyiHKIV81j0LA",
       "name": "Trample (DC 33; 2d8+15 at alley speed or 4d8+15 at higher speeds)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
         "description": "<p>The demonic auto can trample smaller creatures by running over them. The demonic auto’s trample attack deals 2d6+9 points of damage if traveling at alley speed and 4d6+9 points of damage at higher speeds. A successful @Check[save:ref|dc:23]{Reflex save (DC 23)} halves the damage. The demonic auto takes this damage as well, but its damage reduction applies.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -446,7 +446,7 @@
       "_id": "7bd2c92DTVkh4GnG",
       "name": "Repairable",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Demonic autos cannot heal damage on their own but can be repaired using the Repair skill. A successful @Check[skill:repair|dc:30]{Repair check (DC 30)} heals 1d10 points of damage, and each check represents 1 hour of work. A demonic auto can repair itself.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -462,7 +462,7 @@
       "_id": "mvQA4KZ3j8l08poh",
       "name": "Darkvision 120 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Demonic autos can see in the dark up to 120 feet. Darkvision is black and white only, but it is otherwise like normal sight, and demonic auros can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

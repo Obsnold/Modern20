@@ -2,7 +2,7 @@
   "_id": "av86eD0t7bKHpVky",
   "name": "Gotthammer (Avenging Angel)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -198,7 +198,7 @@
       "_id": "d7QUvlzAGWePQMa0",
       "name": "+3 greatsword",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+21/+16/+11 melee (2d6+7/19-20, +3 greatsword) or +14/+9/+4 ranged)</p>",
         "source": "Urban Arcana",
@@ -231,7 +231,7 @@
       "_id": "RC7XXpiX9aTun22g",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -250,7 +250,7 @@
       "_id": "hAwAKqKxZooSRmE5",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -272,7 +272,7 @@
       "_id": "ql1I1oas2hU5p5U9",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -291,7 +291,7 @@
       "_id": "LuxxvTk0xqT0jKal",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "ez0xtlStUzSEPcSw",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -331,7 +331,7 @@
       "_id": "ybqCBFclXr58iLI1",
       "name": "Acid and Fire Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>A gotthammer ignores the first 10 points of any attack that deals acid or fire damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -347,7 +347,7 @@
       "_id": "0NA0rpuoXNBPJjIx",
       "name": "Aura of Menace",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A righteous aura surrounds the avenging angel. Any hostile creature within a 20-foot radius of a gotthammer must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or take a –2 morale penalty on attacks, AC, and saves for one day or until they successfully injure the gotthammer generating the aura. A creature that has resisted or broken the effect cannot be affected again by the gotthammer’s aura for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -363,7 +363,7 @@
       "_id": "YzQbzGwIyGDjdGs4",
       "name": "Call/Dismiss Weapon",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once per day, as a free action, a gotthammer may call his shining greatsword to him. The weapon is normally hidden in a secure location of the gotthammer’s choosing, but may be called from anywhere unless carried by another living creature or in an area where magic does not function. Once per day, as a full-round action, the gotthammer may dismiss the sword to a location of his choosing.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -379,7 +379,7 @@
       "_id": "rFinEemPS25tztRw",
       "name": "Damage Reduction 10/+1",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A gotthammer ignores the first 10 points of damage dealt by a nonmagical weapon.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -395,7 +395,7 @@
       "_id": "JXFAMq1pOShCOEkW",
       "name": "Greater Incarnation",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A gotthammer can change his size as a move action, becoming a 20-foot-tall (Huge) figure at will. His greatsword’s size increases proportionately. In this form, the gotthammer’s statistics change as follows: Defense 25, touch 8, flat-footed 25 (–2 size, +17 natural); Grap +31; Atk +24 melee (4d6+16/19–20, +3 greatsword); Full Atk +24/+19/+14 melee (4d6+12/19–20, +3 greatsword); FS 15 ft. by 15 ft.; Reach 10 ft.; Str 29; Hide +6.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -411,7 +411,7 @@
       "_id": "oT75LNEusiQN1uX2",
       "name": "Imbue Weapon",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once per day, as a full-round action, a gotthammer may imbue his weapon with holy power, dealing +2d6 points of damage to creatures with an allegiance to evil. The effect lasts for 14 rounds.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -427,7 +427,7 @@
       "_id": "BaYYy2vQ1Gj2SL7e",
       "name": "Immune to Ballistic Damage and Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -443,7 +443,7 @@
       "_id": "vu70aOCsI7Kzzhp6",
       "name": "Keen Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -459,7 +459,7 @@
       "_id": "BS7fBAnjc2hYJguF",
       "name": "Tongues",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -475,7 +475,7 @@
       "_id": "tHOpYCHTdFLlJgSv",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gotthammers are immune to ballistic damage and poison.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

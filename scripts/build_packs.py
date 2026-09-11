@@ -22,6 +22,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import art  # noqa: E402
 import rules_pages  # noqa: E402
 import srd  # noqa: E402
 
@@ -1879,6 +1880,23 @@ def roll_range(printed: str) -> tuple[int, int] | None:
 PROSE_FIELDS = ("description", "benefit", "normal", "special")
 
 
+def apply_art(document: dict, pack: str, *, embedded: bool = False) -> int:
+    """Give a document the icon its kind implies, and its children theirs.
+
+    Only over a placeholder: every document was built pointing at one of
+    eleven icons Foundry ships, and those are the only images this replaces.
+    An `img` that is anything else was chosen by somebody.
+    """
+    changed = 0
+    icon = art.icon_for(pack, document, embedded=embedded)
+    if icon and document.get("img") in art.PLACEHOLDERS:
+        document["img"] = icon
+        changed += 1
+    for child in (document.get("items") or []):
+        changed += apply_art(child, pack, embedded=True)
+    return changed
+
+
 def link_field_checks(document: dict, patterns: list[tuple[re.Pattern, dict]]) -> int:
     """Write the rolls one document's own text asks for. Returns fields changed.
 
@@ -2294,6 +2312,17 @@ def build() -> dict[str, list[dict]]:
             if not (document.get("system") or {}).get("rulesPage"):
                 rules.link(document, pack)
     print(rules.report())
+
+    # The icon each document's kind implies, in place of the eleven the build
+    # otherwise hands out.
+    pictured = 0
+    for pack, documents in packs.items():
+        for document in documents:
+            if document.get("_key", "").startswith("!folders!"):
+                continue
+            pictured += apply_art(document, pack)
+    if pictured:
+        print(f"  {pictured} document(s) given the icon their kind implies")
 
     # The rolls each document's own text asks for, the way the rules pages
     # carry theirs.

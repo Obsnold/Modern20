@@ -2,7 +2,7 @@
   "_id": "S8Gz4psmXEVwkN7d",
   "name": "Maniac (Strong Hero 2/Tough Hero 3)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -158,7 +158,7 @@
       "_id": "T87lKECdr0qCfEYB",
       "name": "Improved unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw) or +5 ranged)</p>",
         "source": "Menace Manual",
@@ -191,7 +191,7 @@
       "_id": "pjJoUS27baIOzlzq",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw) or +5 ranged)</p>",
         "source": "Menace Manual",
@@ -224,7 +224,7 @@
       "_id": "JVUfAfagKooQT25G",
       "name": "Chain saw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+8 melee (1d4+5/19-20 nonlethal, improved unarmed strike) or +8 melee (1d6+5, slam) or +8 melee (3d6+5, chain saw) or +5 ranged)</p>",
         "source": "Menace Manual",
@@ -257,7 +257,7 @@
       "_id": "BRuOhJV8rsG06nDS",
       "name": "Combat Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -278,7 +278,7 @@
       "_id": "kaxtZ6Y3q8O92b93",
       "name": "Great Fortitude",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -297,7 +297,7 @@
       "_id": "J8UqMtl9X1MkYLx1",
       "name": "Improved Combat Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -319,7 +319,7 @@
       "_id": "hWZtdj4UAxcwfW3V",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -338,7 +338,7 @@
       "_id": "bvLEBlQr4ZAPPMXZ",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -359,7 +359,7 @@
       "_id": "VYN30poIoZMVrDZ1",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -378,7 +378,7 @@
       "_id": "uPtcqa1NuKDcYhMg",
       "name": "Toughness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -397,7 +397,7 @@
       "_id": "uTV3y23UlJlt59Vi",
       "name": "Ability Surge",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Once per day as a free action, the maniac can temporarily increase its Strength and Dexterity scores, but doing so imposes a penalty on its saving throws. While this ability is in effect, the maniac gains a +4 morale bonus to both Strength and Dexterity but takes a –2 penalty on all saving throws. Ability surge lasts for a number of rounds equal to the maniac’s character level. Following an ability surge, the maniac is fatigued (–2 to Strength and Dexterity) for as many rounds as the surge was in effect, but it may negate this penalty as a free action by spending an action point.</p>",
         "source": "Menace Manual",
@@ -413,7 +413,7 @@
       "_id": "53yPINZR8PjDf0JU",
       "name": "Damage Reduction 5/-",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "source": "d20 Modern SRD",
@@ -429,7 +429,7 @@
       "_id": "ViuI2Uifnp7PkFsm",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A maniac is immune to mind-affecting effects.</p>",
         "source": "Menace Manual",
@@ -445,7 +445,7 @@
       "_id": "cF4Iskr5nCzSYqQk",
       "name": "Resistance to Massive Damage",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A maniac gains a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage.</p>",
         "source": "Menace Manual",
@@ -461,7 +461,7 @@
       "_id": "7vgEZYdljYlXdohQ",
       "name": "Damage Reduction 5/–",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A maniac ignores the first 5 points of damage dealt by any attack.</p>",
         "source": "Menace Manual",

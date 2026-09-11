@@ -2,7 +2,7 @@
   "_id": "epWlB2p9WaVVMYxb",
   "name": "Cat Folk Fast Hero 1/Charismatic Hero 2",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -206,7 +206,7 @@
       "_id": "FvxnhT5nrPbIsrir",
       "name": "Claws",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+3 melee (1d4+1, claws) or +7 ranged (2d6, Glock 17)</p>",
         "source": "Menace Manual",
@@ -239,7 +239,7 @@
       "_id": "KG3QyCftwZoKbe3f",
       "name": "Glock 17",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+3 melee (1d4+1, claws) or +7 ranged (2d6, Glock 17)</p>",
         "source": "Menace Manual",
@@ -272,7 +272,7 @@
       "_id": "sKU2WQEGhvV4p5yQ",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -291,7 +291,7 @@
       "_id": "5DMY1sNrp8n3golV",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -312,7 +312,7 @@
       "_id": "GI6QNderHKiqZzXJ",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -331,7 +331,7 @@
       "_id": "4YCs67doJqWRUQV0",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -350,7 +350,7 @@
       "_id": "VHzBLjnQNB13wXcA",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -369,7 +369,7 @@
       "_id": "pK7bD8p2AvfMTkn6",
       "name": "Alternate Form",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>As an attack or move action, a cat folk can assume the form of a normal-sized cat or revert to its natural form. In cat form, the creature has the same physical statistics and attributes as a normal cat but retains its normal Intelligence, Wisdom, and Charisma scores, as well as its normal hit points. A cat folk can remain in either form indefinitely.</p>",
         "source": "Menace Manual",
@@ -385,7 +385,7 @@
       "_id": "lQKZxmkqeqdfFL5f",
       "name": "Claws",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>A cat folk has retractable claws that function as natural weapons. Each claw deals 1d4 points of slashing damage (plus the creature’s Strength bonus) and threatens a critical hit on a natural 20.</p>",
         "source": "Menace Manual",
@@ -401,7 +401,7 @@
       "_id": "rkns62IS2GiZV9px",
       "name": "Feline Aversion (DC 15)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -417,7 +417,7 @@
       "_id": "FDUZ4pBVFdzQ9FS0",
       "name": "Mesmerizing Gaze (DC 15)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
         "description": "<p>Any mammalian creature within 30 feet of a cat folk that meets its gaze must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or be dazed.</p>",
         "source": "Menace Manual",
@@ -445,7 +445,7 @@
       "_id": "GKJkGtNEltDsnVtT",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows a cat folk, regardless of its form, to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "Menace Manual",
@@ -461,7 +461,7 @@
       "_id": "PcGqKePZcVINZphx",
       "name": "Automatic Languages",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A cat folk reads, writes, and speaks Cat Folk. It can also speak the language of other felines (cats, panthers, tigers, and the like).</p>",
         "source": "Menace Manual",
@@ -477,7 +477,7 @@
       "_id": "H8CoOjm3cIqOdN9l",
       "name": "Bonus Feats",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A cat folk receives Alertness as a bonus feat.</p>",
         "source": "Menace Manual",
@@ -493,7 +493,7 @@
       "_id": "CuENC8wSulBFDg3g",
       "name": "Feline Aversion (Ex",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Any normal feline that can smell or see a cat folk must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or flee in fear. A successful save means the feline is shaken but does not flee. In either case, the feline attacks the cat folk only if cornered. A cat folk is immune to its own feline aversion effect and to those of other cat folk.</p>",
         "source": "Menace Manual",
@@ -521,7 +521,7 @@
       "_id": "LKKfch4F1NYdPmKa",
       "name": "Slow Fall",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A cat folk ignores falling damage from heights of 30 feet or less. When falling from a greater height, it can attempt a @Check[save:ref|dc:15]{Reflex save (DC 15)} to halve the damage.</p>",
         "source": "Menace Manual",

@@ -2,7 +2,7 @@
   "_id": "64G64GtN3QzbYZ3I",
   "name": "Zap",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/sbed/fire.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -130,7 +130,7 @@
       "_id": "NbNdwQyQZmiqQkL9",
       "name": "Shock touch",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "<p>+4 melee touch (1 electricity, shock touch)</p>",
         "source": "Menace Manual",
@@ -163,7 +163,7 @@
       "_id": "jQSWnWVyh34BoaHe",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -179,7 +179,7 @@
       "_id": "fDjpNmDd6Gecf2Gk",
       "name": "Electricity Immunity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A zap is immune to electricity damage.</p>",
         "source": "Menace Manual",
@@ -195,7 +195,7 @@
       "_id": "OAKXVdgLVmXAUqev",
       "name": "Elemental",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Zaps have the traits and immunities common to elementals.</p>",
         "source": "Menace Manual",
@@ -211,7 +211,7 @@
       "_id": "9ivOg65aRCdJkBCY",
       "name": "Shock Touch",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/lightning-arc.svg",
       "system": {
         "description": "<p>With a successful melee touch attack, a zap deals 1 point of electricity damage.</p>",
         "source": "Menace Manual",
@@ -227,7 +227,7 @@
       "_id": "t7B6ZyjHGLs72EDh",
       "name": "Short Circuit",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>At will as an attack action, a zap can cause an electrical overload in a piece of electronic equipment within 10 feet, destroying its internal workings and rendering it useless. If the item is being carried or wielded at the time of the attack, the wielder can attempt a @Check[save:ref|dc:20]{Reflex save (DC 20)} to negate the effect. An unattended item receives no save. An electronic item damaged in this fashion must either be replaced or repaired (Repair DC 15).</p>",
         "source": "Menace Manual",

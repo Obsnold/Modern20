@@ -43,6 +43,7 @@ fighting it forever, so this is a standalone game system.
 | Items on the hotbar | Dragging one there makes a macro that uses it, by name, on whoever is selected |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
+| Artwork | 163 icons over 4,864 documents, chosen by what each thing is: a handgun is a handgun, an SUV an SUV, a Fortitude save an aura |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
 | Prototype tokens | All 399 actors: the size the stat block fills, the senses it sees with, hit points on the bar |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
@@ -938,6 +939,70 @@ because a change to core's markup should cost a button rather than the sidebar
 — and from `game.modern20.browser()`, which is what a macro or a module would
 reach for.
 
+## Artwork
+
+Every document in every pack used to point at one of eleven icons Foundry
+ships. Nothing was broken and everything was unreadable: 180 firearms, 40 suits
+of body armour and 289 pieces of gear were all a picture of a bag, 85 vehicles
+were a cave, and 300 creatures and 3,248 creature abilities were the same two
+grey glyphs. For a browser you scroll, telling one row from the next is most of
+the job.
+
+There are now **163 icons across 4,864 documents**, from
+[game-icons.net](https://game-icons.net) under CC BY 3.0, vendored into
+`assets/icons` and credited per author in
+[assets/icons/CREDITS.md](assets/icons/CREDITS.md) — which
+`scripts/fetch_art.py` generates from what it actually fetched, since an
+attribution written by hand is one that goes stale.
+
+**Which icon a thing gets** is a judgement, and it is written down in
+`scripts/art.py` next to the reason, in the same way the rules-page choices are
+written down in `gen_rules_links.py`. What is *derived* is which group a
+document belongs to: a field the scrape read, or a word in the name the SRD
+printed. Groups resolve in order — the name, then the field, then the pack's
+default — so the specific beats the general.
+
+| Pack | What decides | Icons |
+|---|---|---|
+| weapons | the printed name over `category`: a Mossberg is a shotgun before it is a longarm | 32 |
+| gear | the SRD's 15 equipment categories, and the name inside them | 23 |
+| creatures | `details.creatureType` — the SRD's own fifteen | 15 |
+| creature abilities | what the ability does: claw, bite, breath, gaze, poison, damage reduction | 33 |
+| vehicles | the parenthetical the SRD prints — "(sports coupe)", "(helicopter)", "(SUV)" | 12 |
+| spells | the eight schools, matched on the leading word so "Conjuration (Healing)" is Conjuration | 9 |
+| talents, classes | the class that grants it, which for a basic class is its key ability | 6, 7 |
+| fx, psionics, armor, objects, occupations, feats | category, display, armor type, name | 11, 5, 7, 8, 9, 4 |
+
+**Only a placeholder is replaced.** The eleven icons the build used to hand out
+are listed in `art.py` and are the only images anything here overwrites; an
+`img` that is anything else was chosen by somebody, and a choice is not a
+placeholder. That is what lets the map be re-run over a pack directory that
+people have been editing, which is the same rule the rest of the reconciler
+follows.
+
+**Foundry's own `icons/` are the obvious first choice and are not used**, for
+one reason: they cannot be checked. There is no Foundry install these scripts
+can read, so a core path is a string nobody can verify, and a wrong one renders
+as an empty frame on documents nobody looks at twice. A vendored file either is
+in the repository or is not, and `check_art.py` says which — it resolves all
+4,864 images against the filesystem, holds the map and the directory to each
+other in both directions, and fails if an author vendored here is missing from
+the credits, because CC BY is a licence with a condition. The subject matter
+argues the same way: core has no pistol, no police car and no kevlar vest, and
+this game is mostly pistols, police cars and kevlar vests. A core path is still
+allowed and still counted; set `FOUNDRY_PATH` and the check verifies those too.
+
+Each icon is rewritten on the way in, which is not decoration: game-icons
+publishes a white glyph on nothing, and a white glyph on Foundry's own light
+item rows is a white square. Each gets this system's paper ground and ink
+glyph, so it reads on any sheet in any theme and 163 files from the internet
+look like one set. The fetch is pinned to an upstream commit, so it is
+reproducible and moving to newer artwork is an edit rather than something that
+happens quietly on somebody else's machine.
+
+Still placeholder: the cover art in `system.json` (`media`), which wants one
+illustration rather than 163 icons.
+
 ## FX items
 
 Magic and psionic items are the one body of SRD content priced in prose rather
@@ -1297,6 +1362,7 @@ python3 scripts/check_packs.py       # folders, keys, ids, tokens and table rang
 python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
 python3 scripts/check_rules_links.py # every link into the rules resolves, every roll anything asks for rolls
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
+python3 scripts/check_art.py         # every icon a document points at is a file that is here
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
 node    scripts/check_creatures.mjs  # every creature's arithmetic against the SRD
@@ -1334,6 +1400,7 @@ to trust any of them:
 | `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
 | `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
 | `check_packs.py` (tables) | the first build of the random tables had a d8 with twelve rows and two tables whose last row read "00" as zero — a roll with no result looks like an empty draw and nothing else |
+| `check_art.py` | a broken image is the quietest failure a compendium has: Foundry draws an empty frame, logs nothing, and the row still has its name — so an icon renamed or half-committed would cost 4,864 documents their art and look like nothing at all |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |
 | `check_packs.py` (folders) | Urban Arcana's feats arrived, the pack grew its first folders, and the ninety-five feats already there stayed at the compendium root beside an empty "d20 Modern" folder |

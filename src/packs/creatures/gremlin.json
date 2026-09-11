@@ -2,7 +2,7 @@
   "_id": "xRt6fNxHnbp1Vxg7",
   "name": "Gremlin",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -186,7 +186,7 @@
       "_id": "JIHQS42gaeREuAJ9",
       "name": "Claw",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>-1 melee (1, claw or tiny wrench) or +8 ranged)</p><p><strong>Also called:</strong> tiny wrench</p>",
         "source": "Urban Arcana",
@@ -219,7 +219,7 @@
       "_id": "Wr0kqZIoUyQVq1WU",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -238,7 +238,7 @@
       "_id": "rRNgnSEhsL0qy3B8",
       "name": "Builder",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -257,7 +257,7 @@
       "_id": "R4qbTG0dDe1f2t3w",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -276,7 +276,7 @@
       "_id": "kiKQaODjTgSB6agE",
       "name": "Stealthy",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -295,7 +295,7 @@
       "_id": "5nfg8IN90d1Ucdfm",
       "name": "Disassemble Device",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When making a @Check[skill:disableDevice]{Disable Device check}, a gremlin completely disassembles the device if the check result is 5 or more higher than the DC of the skill check. Reassembling the device requires a successful @Check[skill:repair]{Repair check} against a DC equal to the gremlin’s @Check[skill:disableDevice]{Disable Device check} result.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -311,7 +311,7 @@
       "_id": "eHDF3xPzYEhraN4X",
       "name": "Mystic Aid",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>When a gremlin aids another gremlin with a @Check[skill:disableDevice]{Disable Device check}, the aid another attempt succeeds automatically, granting a +2 bonus to the check. The gremlin providing the aid must be adjacent to the gremlin performing the check.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -327,7 +327,7 @@
       "_id": "nImOjT0MTXuLjRSZ",
       "name": "Spell-like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>1/day—degauss, haywire, machine invisibility (DC 13), power device. Caster level 1st.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -343,7 +343,7 @@
       "_id": "nZM0VdMKNYZGmkWi",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Gremlins can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -359,7 +359,7 @@
       "_id": "7cHrKFDWqskz1QGr",
       "name": "Jury-Rigged Repair",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gremlins may only use the Repair skill to jury-rig.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -375,7 +375,7 @@
       "_id": "1Iy5OENMDiTqTnjP",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gremlins gain a +4 species bonus on Demolition and Disable Device skill checks.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

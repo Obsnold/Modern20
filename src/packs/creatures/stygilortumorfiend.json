@@ -2,7 +2,7 @@
   "_id": "XtIrFcIHyU8odfN3",
   "name": "STYGILOR (Tumor Fiend)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -186,7 +186,7 @@
       "_id": "DIdgo4OdsHGk3VDU",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+8 melee (1d4+2, 2 claws) and +3 melee (1d6+1, bite) or +5 ranged)</p>",
         "source": "Menace Manual",
@@ -219,7 +219,7 @@
       "_id": "w35uVL8G4BOyWbHx",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+8 melee (1d4+2, 2 claws) and +3 melee (1d6+1, bite) or +5 ranged)</p>",
         "source": "Menace Manual",
@@ -252,7 +252,7 @@
       "_id": "mEyU9qOiPlJEvPWf",
       "name": "Frightful Presence",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -274,7 +274,7 @@
       "_id": "9nSfrlTD5zXkKTXO",
       "name": "Improved Damage Threshold",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -293,7 +293,7 @@
       "_id": "9Hh8PmizmZc0HVNQ",
       "name": "Damage Reduction 5/Piercing",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A stygilor ignores the first 5 points of damage dealt by any nonpiercing weapon.</p>",
         "source": "Menace Manual",
@@ -309,7 +309,7 @@
       "_id": "7j8C402KkUVfqhk4",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -325,7 +325,7 @@
       "_id": "6xknvumC2rWr9jB8",
       "name": "Disease Sense",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>A stygilor can sense whether a creature is infected with a disease merely by being within 10 feet of it. It cannot sense nannite infection (see the “Etoile” entry for details).</p>",
         "source": "Menace Manual",
@@ -341,7 +341,7 @@
       "_id": "BOnsOfJA8Rf4uWfL",
       "name": "Frightful Presence (DC 15)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A stygilor can use the Frightful Presence feat once per round as a free action. All creatures within 10 feet that can see the stygilor and have fewer levels or Hit Dice than the stygilor must succeed at a @Check[save:will]{Will save} (DC 10 + 1/2 the stygilor’s Hit Dice + its Charisma modifier) or take a –2 penalty on attack rolls, saving throws, and skill checks for 1d6+2 rounds. A successful save grants immunity to the stygilor’s frightful presence for 24 hours. Creatures with an Intelligence of 3 or lower are unaffected. This is a mind-affecting ability.</p>",
         "source": "Menace Manual",
@@ -369,7 +369,7 @@
       "_id": "dx7OGv6OAZoArmPo",
       "name": "Immune to Disease",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
         "description": "<p>A stygilor is immune to diseases of all sorts.</p>",
         "source": "Menace Manual",
@@ -385,7 +385,7 @@
       "_id": "7Sz7R33zcIYkK0VK",
       "name": "Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A stygilor can use invisibility at will (caster level 6th) as an attack action. It often uses this ability to move through hospital wards unseen.</p>",
         "source": "Menace Manual",
@@ -401,7 +401,7 @@
       "_id": "aQNG4lHeuW8TiD0A",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A stygilor can communicate telepathically with any creature within 100 feet that has a language.</p>",
         "source": "Menace Manual",
@@ -417,7 +417,7 @@
       "_id": "ApawFGrsgQeB93bU",
       "name": "Wounding Gaze (DC 15)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
         "description": "<p>As a free action, a stygilor can fix its gaze upon a single creature within 30 feet. The target must succeed at a @Check[save:will]{Will save} (DC 10 + 1/2 the stygilor’s Hit Dice + its Charisma modifier) or take 1d4+2 points of damage, as though struck by one of the stygilor’s horrible claws. The target need not be looking at the stygilor, and wounds inflicted by this attack leave nasty scars once healed. This is a mind-affecting ability. The save DC is Charisma-based.</p>",
         "source": "Menace Manual",

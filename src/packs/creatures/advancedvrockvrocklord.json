@@ -2,7 +2,7 @@
   "_id": "VY9z8QudEEknBAG3",
   "name": "Advanced Vrock (Vrock Lord)",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -216,7 +216,7 @@
       "_id": "9KEFcmHCIHvUwvnw",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+30 melee (2d6+8/19-20, 2 claws), +25 melee (1d8+4/19-20, bite), +25 melee (1d6+4, 2 talons)</p>",
         "source": "Urban Arcana",
@@ -249,7 +249,7 @@
       "_id": "8Dpx4zuR95dwnmWn",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+30 melee (2d6+8/19-20, 2 claws), +25 melee (1d8+4/19-20, bite), +25 melee (1d6+4, 2 talons)</p>",
         "source": "Urban Arcana",
@@ -282,7 +282,7 @@
       "_id": "6QPyF67KoOkVIQeP",
       "name": "Talon (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+30 melee (2d6+8/19-20, 2 claws), +25 melee (1d8+4/19-20, bite), +25 melee (1d6+4, 2 talons)</p>",
         "source": "Urban Arcana",
@@ -315,7 +315,7 @@
       "_id": "klCI5rEqouo3vNC2",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -334,7 +334,7 @@
       "_id": "eLtpmCmo9VUe61Du",
       "name": "Cleave",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -356,7 +356,7 @@
       "_id": "wEwMuN2u1r5O0FCa",
       "name": "Improved Critical",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -375,7 +375,7 @@
       "_id": "v6Lpreo0vMsmdsdm",
       "name": "Multiattack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Urban Arcana",
@@ -394,7 +394,7 @@
       "_id": "cKluHTuvq7wEX659",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -415,7 +415,7 @@
       "_id": "N7M1WaiMNEPbK2Sd",
       "name": "Spores",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A vrock can release masses of spores from its body once every 3 rounds. The spores automatically deal 1d8 points of damage to all creatures within 5 feet of the vrock. They then penetrate the skin and grow, dealing an additional 1d2 points of damage each round for 10 rounds. At the end of this time, the victim is covered with a tangle of viny growths. A delay poison spell stops the spores’ growth for the duration. Bless, neutralize poison, or remove disease kills the spores, as does sprinkling the victim with a vial of holy water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -431,7 +431,7 @@
       "_id": "pDu4927HqUmz6PM1",
       "name": "Stunning Screech (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once per hour, a vrock can emit a piercing screech. Every creature within a 30-foot radius must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 vrock’s Hit Dice + vrock’s Constitution modifier) or be stunned for 1 round.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -459,7 +459,7 @@
       "_id": "WyhllslNXrvryUrI",
       "name": "Dance of Ruin",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>To use this ability, a group of five or more vrocks join hands in a circle, dancing wildly and chanting. If they dance for 3 rounds, a wave of crackling energy flashes outward in a 100-foot radius. All creature within the radius take 2d20 points of electricity damage (to which vrocks are immune); a successful @Check[save:ref|dc:15]{Reflex save (DC 15)} halves the damage. Forcing the vrocks to break the circle stops the dance.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -475,7 +475,7 @@
       "_id": "cwT6hklcXcJS2PaK",
       "name": "Spell-like Abilities)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>At will—darkness, detect magical aura, displacement, telekinesis (DC 17). These abilities are as the spells cast by a 10th-level Mage. The DCs are Intelligence-based.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -491,7 +491,7 @@
       "_id": "kQrbN6uksoE9H4oS",
       "name": "Psionic Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>At will—charm person (DC 12), suggestion (DC 14). These abilities are as the psionic powers manifested by a 10th-level Telepath. The DCs are Charismabased.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -507,7 +507,7 @@
       "_id": "5ltfnOoVprP8OXJS",
       "name": "Summon Vrock",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>Once per day, a vrock can attempt to summon another vrock with a 35% chance of success. Summoned vrock return whence they came after 1 hour. A vrock that has just been summoned cannot use its own summon ability for 1 hour.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -523,7 +523,7 @@
       "_id": "Sr0cSDySqADNK7ok",
       "name": "Teleport",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
         "description": "<p>A vrock can teleport itself (plus 50 pounds of objects) to a specific destination up to 1,000 miles away. This ability is similar to the teleport incantation except the vrock cannot teleport other creatures, need not make skill checks to succeed, and does not require any components to activate the ability. The vrock may teleport as a full-round action, at will.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -539,7 +539,7 @@
       "_id": "SiFjbDmkskpWLbGI",
       "name": "Immune to Electricity and Poison",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -555,7 +555,7 @@
       "_id": "NRMMcRVelKjIsBHv",
       "name": "Damage Reduction 20/+2",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>A vrock ignores the first 20 points of damage dealt by any weapon with less than a +2 magic bonus.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -571,7 +571,7 @@
       "_id": "S2VQ52R8a8De0Pup",
       "name": "Acid Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/sbed/acid.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -587,7 +587,7 @@
       "_id": "N6rXdHZ81V0I7stQ",
       "name": "Cold Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -603,7 +603,7 @@
       "_id": "pxI4vHS5pwR1UTo1",
       "name": "Fire Resistance 10",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -619,7 +619,7 @@
       "_id": "j9encYhNpJbkOJDF",
       "name": "SR 36",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -635,7 +635,7 @@
       "_id": "zAUv69wvMimRNMfx",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A vrock can communicate telepathically with any creature within 100 feet that has a language.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -651,7 +651,7 @@
       "_id": "WHG7JOo9oQruqZN4",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A vrock can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and the vrock can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -667,7 +667,7 @@
       "_id": "heZXfpEHqT9vitDG",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Vrocks are immune to electricity and poison.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -683,7 +683,7 @@
       "_id": "8weXtj0PoGPZggbz",
       "name": "Energy Resistance",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Vrocks have acid, cold, and fire resistance 10.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -699,7 +699,7 @@
       "_id": "jTW3gl4trb6rnBQJ",
       "name": "Spell Resistance",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A vrock has spell resistance equal to 12 + the vrock’s Hit Dice (SR 20 for a normal vrock).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -715,7 +715,7 @@
       "_id": "MSIL6cSiRnLaXi00",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Vrocks gain a +8 species bonus on Listen and @Check[skill:spot]{Spot check}s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

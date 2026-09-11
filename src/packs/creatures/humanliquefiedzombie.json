@@ -2,7 +2,7 @@
   "_id": "MHwwNIMWUrlmjdoA",
   "name": "Human Liquefied Zombie",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/shambling-zombie.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -109,7 +109,7 @@
       "_id": "qGYhDhqweXpMOhzW",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+2 melee (1d6+3, slam)</p>",
         "source": "Urban Arcana",
@@ -142,7 +142,7 @@
       "_id": "R9oseAxmw4OpOsAv",
       "name": "Toughness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -161,7 +161,7 @@
       "_id": "flrZcgjHCDOWlJNT",
       "name": "Undead",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -177,7 +177,7 @@
       "_id": "9m94pOtLFCkoqpMy",
       "name": "Liquefied Spew",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Whenever a liquefied zombie is damaged in combat by anything other than a bludgeoning weapon, some of the liquefied tissue spews forth, covering everything within 5 feet of the liquefied zombie. The scalding liquid deals 1d6 points of damage and exposes anyone it touches to the disease of necrotizing faciitis.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -193,7 +193,7 @@
       "_id": "Tv1hLjQ0AAVd5bJ4",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Liquefied zombies have darkvision with a range of 60 feet.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
@@ -209,7 +209,7 @@
       "_id": "AyMapvsoWu5ulFSy",
       "name": "Reputation Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A liquefied zombie has a +0 Reputation bonus.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",

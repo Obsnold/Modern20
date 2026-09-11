@@ -2,7 +2,7 @@
   "_id": "CBuJgFMO15PRSgR7",
   "name": "Harpy",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -174,7 +174,7 @@
       "_id": "4Ao0f9FLWuFXiFva",
       "name": "Metal baton",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+7/+2 melee (1d8, metal baton) or +7 melee (1d4, 2 claws) or +9/+4 ranged (2d6, S&W M29)</p>",
         "source": "Menace Manual",
@@ -207,7 +207,7 @@
       "_id": "4juqT1v6DhMp5o64",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+7/+2 melee (1d8, metal baton) or +7 melee (1d4, 2 claws) or +9/+4 ranged (2d6, S&W M29)</p>",
         "source": "Menace Manual",
@@ -240,7 +240,7 @@
       "_id": "pOWsGJBPnEk2pmmg",
       "name": "S&W M29",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+7/+2 melee (1d8, metal baton) or +7 melee (1d4, 2 claws) or +9/+4 ranged (2d6, S&W M29)</p>",
         "source": "Menace Manual",
@@ -273,7 +273,7 @@
       "_id": "GMCRtMOdIR6qfa32",
       "name": "Flyby Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -292,7 +292,7 @@
       "_id": "DbKLQW7ZGeI3B3pR",
       "name": "Personal Weapon Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -311,7 +311,7 @@
       "_id": "wwskUyJHpVesc296",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -330,7 +330,7 @@
       "_id": "gn1OKTuftk8r3Mdd",
       "name": "Captivating Song (DC 15)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -346,7 +346,7 @@
       "_id": "lrdpAgkgpBtfbQ7U",
       "name": "Darkvision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A half-fiend has darkvision with a range of 60 feet.</p>",
         "source": "Menace Manual",
@@ -362,7 +362,7 @@
       "_id": "EWenaVUGMyYTpkRm",
       "name": "Damage Reduction",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
         "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has damage reduction. If the result is less than 1, the half-fiend has no damage reduction. If the campaign includes few or no magic weapons, the GM should consider allowing specific types of weapons to ignore a half-fiend’s damage reduction or contrive some other special vulnerability.</p>",
         "source": "Menace Manual",
@@ -378,7 +378,7 @@
       "_id": "TEDVq1XJdxlyCY6o",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has any immunities. If the result is less than 1, the half-fiend has no immunities.</p>",
         "source": "Menace Manual",
@@ -394,7 +394,7 @@
       "_id": "9pXKbEBgBhCfom1g",
       "name": "Outsider",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A half-fiend has the traits common to outsiders.</p>",
         "source": "Menace Manual",
@@ -410,7 +410,7 @@
       "_id": "q8kQUj5rbZJt5yFj",
       "name": "Resistance to Energy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has any resistances. If the result is less than 1, the half-fiend has no resistances.</p>",
         "source": "Menace Manual",
@@ -426,7 +426,7 @@
       "_id": "9XKaj2B1vvaZuLSW",
       "name": "Spell-Like Abilities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A half-fiend with an Intelligence or Wisdom score of 8 or higher possesses spell-like abilities according to its character level, as given on the table below. Unless otherwise indicated, each ability is usable once per day.</p>",
         "source": "Menace Manual",
@@ -442,7 +442,7 @@
       "_id": "Z0YNDXelj8iV1cdo",
       "name": "Telepathy",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A half-fiend with an Intelligence score of 12 or higher can communicate telepathically with any living creature within 100 feet that has a language.</p>",
         "source": "Menace Manual",

@@ -2,7 +2,7 @@
   "_id": "nqhCEAMJj6M39Mks",
   "name": "Luciferan Smart Hero 3/Mage 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -246,7 +246,7 @@
       "_id": "mSGuV7oFJKzdKP0M",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d4, 2 claws), or +5 ranged (2d6, Colt Python revolver)</p>",
         "source": "Menace Manual",
@@ -279,7 +279,7 @@
       "_id": "7cZZlWU6eb0hHekV",
       "name": "Colt Python revolver",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (1d4, 2 claws), or +5 ranged (2d6, Colt Python revolver)</p>",
         "source": "Menace Manual",
@@ -312,7 +312,7 @@
       "_id": "g5gYFhwxni1iN8Op",
       "name": "Alien Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but not defined in the SRD's feat list.</p>",
         "source": "Menace Manual",
@@ -331,7 +331,7 @@
       "_id": "R0jjHMa23iCSUys0",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -350,7 +350,7 @@
       "_id": "IQlzjHNRGV2ctKYj",
       "name": "Combat Expertise",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -371,7 +371,7 @@
       "_id": "3U0hqwgjDA9PBLEm",
       "name": "Iron Will",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -390,7 +390,7 @@
       "_id": "TmKkCGBmtasQMGJE",
       "name": "Low Profile",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -409,7 +409,7 @@
       "_id": "DEc50lqoyFrHAwfS",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -428,7 +428,7 @@
       "_id": "Crk1EQjslpMgsmEe",
       "name": "Body Glow",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A luciferan’s skin constantly emits a pale red glow that is imperceptible in lighted conditions, but the effect reduces any concealment the luciferan may have due to darkness by one step.</p>",
         "source": "Menace Manual",
@@ -444,7 +444,7 @@
       "_id": "eQ2eSqvM0So687dX",
       "name": "Brew Potion",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -460,7 +460,7 @@
       "_id": "wDs3432yHFOp2DCL",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -476,7 +476,7 @@
       "_id": "6O37ep3qVccTn96t",
       "name": "Immolation",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A luciferan can increase the glow from its skin into a raging inferno. The flame so generated deal 6d6 points of fire damage to each object and creature within a 10-foot radius of the luciferan. A successful @Check[save:ref]{Reflex save} (10 + 1/2 the luciferan’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
@@ -492,7 +492,7 @@
       "_id": "1KT6upSjYoMDXNYV",
       "name": "Scribe Scroll",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -508,7 +508,7 @@
       "_id": "ay13hwDj7iWgFMpk",
       "name": "Summon Familiar",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "source": "Menace Manual",
@@ -524,7 +524,7 @@
       "_id": "Fvmr30mVhLt58cRm",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Luciferans read, write, and speak Aramaic.</p>",
         "source": "Menace Manual",
@@ -540,7 +540,7 @@
       "_id": "LevaxglFQCrkM0CK",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A luciferan gains a +2 species bonus on Bluff and @Check[skill:intimidate]{Intimidate check}s.</p>",
         "source": "Menace Manual",

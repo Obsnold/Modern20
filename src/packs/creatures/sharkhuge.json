@@ -2,7 +2,7 @@
   "_id": "1XsdRLbtUW0Kx2bz",
   "name": "Shark, Huge",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -122,7 +122,7 @@
       "_id": "Yf3GtHtJlZBM83d4",
       "name": "Keen Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A Huge shark notices creatures by scent in a 180-foot radius. It can detect blood in the water at a range of up to 1 mile.</p>",
         "source": "Menace Manual",
@@ -138,7 +138,7 @@
       "_id": "ChYpN7PcC6EB1iMu",
       "name": "Wavesense",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A shark can automatically sense the location of any object or creature within 80 feet that is in contact with the water.</p>",
         "source": "Menace Manual",

@@ -2,7 +2,7 @@
   "_id": "9HkXK7lz3He80tbd",
   "name": "Goblin",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -158,7 +158,7 @@
       "_id": "V7cCet7M1uMYqrvv",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton)</p>",
         "source": "d20 Modern SRD",
@@ -191,7 +191,7 @@
       "_id": "vuiKQo8e0SiO56zW",
       "name": "Metal baton",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+2 melee (1d2-1, slam or 1d6-1/19-20, metal baton)</p>",
         "source": "d20 Modern SRD",
@@ -224,7 +224,7 @@
       "_id": "VgbDiV1nDLiKJc3X",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -243,7 +243,7 @@
       "_id": "u8IzgjdX5Xnuz4ol",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -262,7 +262,7 @@
       "_id": "nrbWg6165xF0rrvo",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -278,7 +278,7 @@
       "_id": "REbBf252x8eK3wrH",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls receive the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -294,7 +294,7 @@
       "_id": "2r6lqiO5SERQWdQY",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls read, write, and speak Gnoll.</p>",
         "source": "d20 Modern SRD",

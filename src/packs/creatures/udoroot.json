@@ -2,7 +2,7 @@
   "_id": "1ToGTCFMo5icWXnv",
   "name": "Udoroot",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/carnivorous-plant.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -117,7 +117,7 @@
       "_id": "6e0tnx579gaRgB8H",
       "name": "Blindsight 40 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An udoroot is blind but can ascertain all creatures and objects within 40 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the udoroot .</p>",
         "source": "Menace Manual",
@@ -133,7 +133,7 @@
       "_id": "LcZaGNvFc5DOrCBM",
       "name": "Cold Resistance 20",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/ice-spear.svg",
       "system": {
         "description": "<p>An udoroot ignores the first 20 points of cold damage from any single attack.</p>",
         "source": "Menace Manual",
@@ -149,7 +149,7 @@
       "_id": "kki7yhL8bRJUtSlL",
       "name": "Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>An udoroot is immune to electricity and fire damage.</p>",
         "source": "Menace Manual",
@@ -165,7 +165,7 @@
       "_id": "Py3l2cdJ6DKJ8Bcf",
       "name": "Plant",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Udoroots have the traits and immunities common to plants.</p>",
         "source": "Menace Manual",
@@ -181,7 +181,7 @@
       "_id": "TBCFBL1WCMSVaJbG",
       "name": "Psionics",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
         "description": "<p>At will—false sensory input, lesser body adjustment, lightning strike, telekinesis. Manifester level 10th; save DC 10 + udoroot’s key ability modifier + power level.</p>",
         "source": "Menace Manual",

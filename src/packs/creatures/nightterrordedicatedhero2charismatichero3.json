@@ -2,7 +2,7 @@
   "_id": "rCWfGXL8OCMIC2fl",
   "name": "Night Terror Dedicated Hero 2/Charismatic Hero 3",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
   "system": {
     "description": "",
     "source": "Menace Manual",
@@ -212,7 +212,7 @@
       "_id": "SAGQ4apcmoAFRZ1c",
       "name": "Claw (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
         "description": "<p>+4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p>",
         "source": "Menace Manual",
@@ -245,7 +245,7 @@
       "_id": "wW1GFmPtSMzlzZJZ",
       "name": "Cleaver",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p>",
         "source": "Menace Manual",
@@ -278,7 +278,7 @@
       "_id": "bPdaSgvno8fh4fUu",
       "name": "Colt M1911",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+4 melee (1d4+1, 2 claws) or +4 melee (1d6+1/19-20, cleaver) or +4 ranged (2d6, Colt M1911)</p>",
         "source": "Menace Manual",
@@ -311,7 +311,7 @@
       "_id": "suXQUp5ABpZb1wNe",
       "name": "Dodge",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -332,7 +332,7 @@
       "_id": "kpP6jIkYrLClPtRi",
       "name": "Improved Initiative",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -351,7 +351,7 @@
       "_id": "7p45Na86OidXQIW2",
       "name": "Point Blank Shot",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -370,7 +370,7 @@
       "_id": "sZgHnCr8PyyQACXg",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -389,7 +389,7 @@
       "_id": "koOiSdApa3yX2XcS",
       "name": "Renown",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -408,7 +408,7 @@
       "_id": "zd0fGnVOs4ZTsaXI",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -427,7 +427,7 @@
       "_id": "Osbz513zXLk4sjyj",
       "name": "Chosen Victim",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A night terror can feed on the terror of only one individual at a time. Once it chooses its victim, it can choose another only upon the death of the previous victim or by making a successful @Check[save:will|dc:25]{Will save (DC 25)}.</p>",
         "source": "Menace Manual",
@@ -443,7 +443,7 @@
       "_id": "uCaM12mYqh7M3if7",
       "name": "Fear Aura (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>A night terror projects a frightful aura that affects all creatures within 30 feet. Creatures in the area that can see the night terror must make a @Check[save:will]{Will save} (DC 10 + 1/2 the night terror’s Hit Dice + its Charisma modifier). Those that fail the save are shaken. The night terror’s chosen victim is left cowering instead of shaken. Creatures that successfully save against a night terror’s fear aura cannot be affected by that particular night terror’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
@@ -471,7 +471,7 @@
       "_id": "2TdgOLdhrgJzJGrq",
       "name": "Immune to Fear",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
         "description": "<p>Night terrors are immune to fear effects.</p>",
         "source": "Menace Manual",
@@ -487,7 +487,7 @@
       "_id": "ceBLAtHJSgvT0rd3",
       "name": "Low-Light Vision",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>A creature with low-light vision can see twice as far as normal in poor lightning conditions. The creature can still distinguish colors, even in dim lighting.</p>",
         "source": "d20 Modern SRD",
@@ -503,7 +503,7 @@
       "_id": "l09WQzHcbWR22xHR",
       "name": "Selective Invisibility",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once the night terror has chosen its victim, only that individual can see it. To everyone else, the creature is invisible, as the invisibility spell (caster level 10th). If the night terror attacks anyone, it becomes visible to all viewers until the next sunrise.</p>",
         "source": "Menace Manual",
@@ -519,7 +519,7 @@
       "_id": "4SoovFJgvQ55gONU",
       "name": "Terrify (DC 17)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Once per night as a full-round action, the night terror can try to feed upon the fear of its chosen victim. The victim must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the night terror’s Hit Dice + its Charisma modifier) or take 1d4 points of Wisdom damage. The night terror can attempt to use this ability only if it has already successfully used its fear aura against the target. If this Wisdom damage would cause the chosen victim’s Wisdom score to fall below 0, the victim must make another @Check[save:will]{Will save}. Success leaves the victim’s Wisdom score at 0; failure means the victim dies on the spot.</p>",
         "source": "Menace Manual",
@@ -552,7 +552,7 @@
       "_id": "gsZ2Gn3hrEAzYff9",
       "name": "Vulnerability (laughter of children)",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Each night terror has a specific irrational weakness that varies with the individual. For each night terror, roll on Table: Sources of Weakness on. Regardless of its nature, the weakness has overpowering strength (@Check[save:will]{Will save} DC 20) and causes the aversion effect.</p>",
         "source": "Menace Manual",
@@ -568,7 +568,7 @@
       "_id": "CoSuKEHCJFmGNwsv",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A night terror gains Simple Weapons Proficiency as a bonus feat.</p>",
         "source": "Menace Manual",
@@ -584,7 +584,7 @@
       "_id": "cuQHzlr8SABthcPb",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A night terror gains a +4 species bonus on Intimidate and @Check[skill:senseMotive]{Sense Motive check}s during the night. It loses these bonuses during daylight hours.</p>",
         "source": "Menace Manual",

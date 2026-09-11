@@ -2,7 +2,7 @@
   "_id": "iYMK8iWXhNBJvw8Z",
   "name": "Biochemical Homunculus",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -116,7 +116,7 @@
       "_id": "t6DZLsrkVKRIA7u8",
       "name": "Bite",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/skoll/fangs.svg",
       "system": {
         "description": "<p>+5 melee (1d2, bite)</p>",
         "source": "Urban Arcana",
@@ -149,7 +149,7 @@
       "_id": "5UIg49p2zPUHgoa1",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -165,7 +165,7 @@
       "_id": "fho5Iz78JD3rsfGf",
       "name": "Repairable",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -181,7 +181,7 @@
       "_id": "HtKBxyEhomcHzzLI",
       "name": "Incorporeal",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>A biochemical homunculus can be harmed only by other incorporeal creatures, +1 or better magic weapons, and spells, spell-like abilities, and supernatural abilities. It is immune to nonmagical attack forms. Even when hit by spells or magic weapons, it has a 50% chance to ignore damage from a corporeal source (except for force effects, such as magic missile, or attacks made with ghost touch weapons). It can pass through solid objects at will, but not force effects (such as a wall of force). Its attacks ignore natural armor, armor, and shields, although deflection bonuses and force effects (such as mage armor) work normally against it.</p><p>A biochemical homunculi moves silently and cannot be heard with @Check[skill:listen]{Listen check}s. It has no Strength score, so its Dexterity modifier applies both to its melee and ranged attacks. Nonvisual senses, such as blindsight and scent, do not function against biochemical homunculi. A biochemical homunculi cannot be tripped or grappled by a corporeal attacker.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -197,7 +197,7 @@
       "_id": "UFvaieBoCdeqa3Aq",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
@@ -213,7 +213,7 @@
       "_id": "EiyHIIYxiGBIQn9N",
       "name": "Creature Meld",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>With a successful melee touch attack, a biochemical homunculus can meld with a living organism of Tiny size or larger and see through that creature’s eyes. It gains none of the host creature’s other senses and exerts no telepathic control over the host creature. If a melded biochemical homunculus is taken more than 1 mile from its creator, it separates from the host creature as a move action and returns to its master with all due haste. If its host creature is slain, the melded biochemical homunculus is immediately destroyed as well.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

@@ -2,7 +2,7 @@
   "_id": "XmcNTD93DPRUhJC7",
   "name": "Drow Fast Hero 2",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -200,7 +200,7 @@
       "_id": "3gb7XNvIRCTtvlvu",
       "name": "Unarmed strike",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d6-1/19-20, machete) or +5 ranged (2d6, Glock 17) or +4 ranged (1d4/19-20 plus poison, hand crossbow)</p>",
         "source": "Urban Arcana",
@@ -233,7 +233,7 @@
       "_id": "MnleOZVoAe7x66bT",
       "name": "Machete",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d6-1/19-20, machete) or +5 ranged (2d6, Glock 17) or +4 ranged (1d4/19-20 plus poison, hand crossbow)</p>",
         "source": "Urban Arcana",
@@ -266,7 +266,7 @@
       "_id": "veh3ORz9bFfnYcAz",
       "name": "Glock 17",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d6-1/19-20, machete) or +5 ranged (2d6, Glock 17) or +4 ranged (1d4/19-20 plus poison, hand crossbow)</p>",
         "source": "Urban Arcana",
@@ -299,7 +299,7 @@
       "_id": "xijUqxEI82e6HYwL",
       "name": "Hand crossbow",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+0 melee (1d3-1 nonlethal, unarmed strike) or +0 melee (1d6-1/19-20, machete) or +5 ranged (2d6, Glock 17) or +4 ranged (1d4/19-20 plus poison, hand crossbow)</p><p><strong>Plus:</strong> poison</p>",
         "source": "Urban Arcana",
@@ -332,7 +332,7 @@
       "_id": "XiH1uOSq38BZMZcx",
       "name": "Archaic Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -351,7 +351,7 @@
       "_id": "2OD2ikeaaOJiZzrO",
       "name": "Defensive Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -370,7 +370,7 @@
       "_id": "qN0E5jpMwaiJ2kfw",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -389,7 +389,7 @@
       "_id": "3c5ok3XKQG5G19Gr",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -408,7 +408,7 @@
       "_id": "hzYyL1EXXXpxMYsQ",
       "name": "Darkvision 120 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Drow can see in the dark up to 120 feet. Darkvision is black and white only, but it is otherwise like normal sight, and drow can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -424,7 +424,7 @@
       "_id": "rvcdKTARA4ylFCpz",
       "name": "Light Blindness",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Abrupt exposure to bright light (such as sunlight or a daylight spell) blinds a drow for 1 round. In addition, drow take a –1 circumstance penalty on all attack rolls, saves, and checks while operating in bright light.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -440,7 +440,7 @@
       "_id": "5Cja0U7yy3xgXnRl",
       "name": "Spell Immunities",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>Drow are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects. They also gain a +2 species bonus on @Check[save:will]{Will save}s against spells and spell-like abilities.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -456,7 +456,7 @@
       "_id": "jhu4O9A3MkGQbh2r",
       "name": "SR 13",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Printed in this creature's stat block, but described neither in the creature's own species traits nor in the SRD's Special Abilities list.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -472,7 +472,7 @@
       "_id": "eclAE4tsGoPIFKKK",
       "name": "Spell Resistance",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A drow gains Spell Resistance equal to 11 + her character level (if any).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -488,7 +488,7 @@
       "_id": "P5zKwkcUwRClpEpp",
       "name": "Skill Bonuses",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Drow gain a +2 species bonus on Listen, Search, and @Check[skill:spot]{Spot check}s. A drow who merely passes within 5 feet of a secret or concealed door is entitled to a @Check[skill:search]{Search check} (as a free action) to notice it as if she were actively looking for the door.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
@@ -504,7 +504,7 @@
       "_id": "Jd7MqYnxsOC4OGn0",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Drow receive Archaic Weapons Proficiency as a bonus feat.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",

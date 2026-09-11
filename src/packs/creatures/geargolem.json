@@ -2,7 +2,7 @@
   "_id": "Fl0mhATUFF8bwsjF",
   "name": "Gear Golem",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/lorc/vintage-robot.svg",
   "system": {
     "description": "",
     "source": "Urban Arcana",
@@ -116,7 +116,7 @@
       "_id": "CCJVmJnCyoqaDA1v",
       "name": "Slam (x2)",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+18 melee (1d8+6, 2 slams)</p>",
         "source": "Urban Arcana",
@@ -149,7 +149,7 @@
       "_id": "hBjSyvg7BIvsT1sD",
       "name": "Construct",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gear golems are immune to mind-influencing effects as well as poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a @Check[save:fort]{Fortitude save} unless the effect also works on objects or is harmless. They are not subject to critical hits, nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -165,7 +165,7 @@
       "_id": "mAv9PY0bOdEYN2fl",
       "name": "Improved Grab",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
         "description": "<p>To use this ability, the gear golem must hit an opponent smaller than itself with its slam attack. If it gets a hold, it attempts to grind its foe against its spinning gears as a free action (see below).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -181,7 +181,7 @@
       "_id": "2tEiNnATqBdEacZc",
       "name": "Gear Grind",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>the gear golem successfully grapples a creature smaller than itself, it grinds the creature with its spinning gears for 4d8 points of slashing damage each round the grapple is maintained (including the round in which the grapple is first achieved).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -197,7 +197,7 @@
       "_id": "KsroGqKmSafwbq0x",
       "name": "Detonate",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>When a gear golem is reduced to 0 or fewer hit points, it explodes in a 20-foot-radius burst of serrated gears and shrapnel. The explosion deals 12d8 points of slashing damage to creatures caught in the radius; a successful @Check[save:ref|dc:19]{Reflex save (DC 19)} halves the damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -213,7 +213,7 @@
       "_id": "Umc70m38cWoWIK2F",
       "name": "Magic Immunity",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
         "description": "<p>A gear golem is immune to all spells, spell-like abilities, and supernatural effects, except as follows. An electricity effect slows it (as the slow spell) for 3 rounds, with no saving throw. A fire effect breaks any slow effect on the golem and cures 1 point of damage for each 3 points of damage it would otherwise deal. The golem rolls no saving throw against fire effects.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -229,7 +229,7 @@
       "_id": "wP40HUTgQ9V2CypI",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>Gear golems can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and gear golems can function with no light at all.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -245,7 +245,7 @@
       "_id": "n2oAv1gE3zuEg0fG",
       "name": "Speed",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gear golems are lumbering constructs that can’t take run actions.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
@@ -261,7 +261,7 @@
       "_id": "9UraHiRLO8PdtJsb",
       "name": "Repairable",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gear golems cannot heal damage on their own but can be repaired using the Repair skill. A successful @Check[skill:repair|dc:30]{Repair check (DC 30)} heals 1d10 points of damage, and each check represents 1 hour of work. A gear golem cannot repair itself.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",

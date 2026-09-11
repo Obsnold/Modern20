@@ -2,7 +2,7 @@
   "_id": "l7WdvlpQdIyhEiUu",
   "name": "Bugbear",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -164,7 +164,7 @@
       "_id": "gshYPzu6zGkkN30u",
       "name": "Slam",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/lorc/punch.svg",
       "system": {
         "description": "<p>+6 melee (1d3+2, slam or 1d6+2/_19-20, metal baton)</p>",
         "source": "d20 Modern SRD",
@@ -197,7 +197,7 @@
       "_id": "hUQQWIAYUTp9wNu0",
       "name": "Metal baton",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (1d3+2, slam or 1d6+2/_19-20, metal baton)</p>",
         "source": "d20 Modern SRD",
@@ -230,7 +230,7 @@
       "_id": "soRrri8jVuZzDCP2",
       "name": "Alertness",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -249,7 +249,7 @@
       "_id": "W3Qpq57IOnVpMKjd",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -268,7 +268,7 @@
       "_id": "4Ya0jekOyaQFmAqi",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -287,7 +287,7 @@
       "_id": "1kzA2eDM9PMe8sHa",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -303,7 +303,7 @@
       "_id": "LqZ1kFiLBuTYeM6R",
       "name": "Scent",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>This ability allows the bugbear to detect approaching enemies, sniff out hidden foes, and track by sense of smell.</p>",
         "source": "d20 Modern SRD",
@@ -319,7 +319,7 @@
       "_id": "9d3LtSW5Bj0QOiLD",
       "name": "Skill Bonus",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Bugbears receive a +4 species bonus on @Check[skill:moveSilently]{Move Silently check}s.</p>",
         "source": "d20 Modern SRD",
@@ -335,7 +335,7 @@
       "_id": "LednAFGvjreo5dCP",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Bugbears gain the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -351,7 +351,7 @@
       "_id": "RU2iJoJ64MUVYXMO",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Bugbears read, write, and speak Goblin.</p>",
         "source": "d20 Modern SRD",

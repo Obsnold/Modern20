@@ -2,7 +2,7 @@
   "_id": "PlpeW8YoC3BS9Q42",
   "name": "Gnoll Strong Hero 2",
   "type": "creature",
-  "img": "icons/svg/mystery-man.svg",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
   "system": {
     "description": "",
     "source": "d20 Modern SRD",
@@ -158,7 +158,7 @@
       "_id": "27uXvhd5i2KYlhYR",
       "name": "Unarmed",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (1d4+4, unarmed or 1d6+4/19-20, metal baton), or +3 ranged (2d6, TEC-9)</p>",
         "source": "d20 Modern SRD",
@@ -191,7 +191,7 @@
       "_id": "H2UVzWAUk9A4ug10",
       "name": "Metal baton",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (1d4+4, unarmed or 1d6+4/19-20, metal baton), or +3 ranged (2d6, TEC-9)</p>",
         "source": "d20 Modern SRD",
@@ -224,7 +224,7 @@
       "_id": "jHPfUWbjxvW9I68x",
       "name": "TEC-9",
       "type": "weapon",
-      "img": "icons/svg/sword.svg",
+      "img": "systems/modern20/assets/icons/delapouite/claws.svg",
       "system": {
         "description": "<p>+6 melee (1d4+4, unarmed or 1d6+4/19-20, metal baton), or +3 ranged (2d6, TEC-9)</p>",
         "source": "d20 Modern SRD",
@@ -257,7 +257,7 @@
       "_id": "DmzIY1lajRHAudiJ",
       "name": "Combat Martial Arts",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -278,7 +278,7 @@
       "_id": "9AFAKrHYwsNs31eF",
       "name": "Personal Firearms Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -297,7 +297,7 @@
       "_id": "HkNrvafBrPE440H6",
       "name": "Power Attack",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -318,7 +318,7 @@
       "_id": "Jpseirw9sOLqNrmF",
       "name": "Simple Weapons Proficiency",
       "type": "feat",
-      "img": "icons/svg/upgrade.svg",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
       "system": {
         "description": "",
         "source": "d20 Modern SRD",
@@ -337,7 +337,7 @@
       "_id": "lyiHflXANlXfBjHs",
       "name": "Darkvision 60 ft.",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
         "description": "<p>The creature can see in total darkness, out to the specified range (usually 60 feet). Darkvision is black-and-white only, but is otherwise like normal light.</p>",
         "source": "d20 Modern SRD",
@@ -353,7 +353,7 @@
       "_id": "xkIHwwJ4Tn3k1nOQ",
       "name": "Bonus Feat",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls receive the bonus feat Simple Weapons Proficiency.</p>",
         "source": "d20 Modern SRD",
@@ -369,7 +369,7 @@
       "_id": "3yMQ4Igjh7Imhq35",
       "name": "Automatic Language",
       "type": "specialAbility",
-      "img": "icons/svg/aura.svg",
+      "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
         "description": "<p>Gnolls read, write, and speak Gnoll.</p>",
         "source": "d20 Modern SRD",
