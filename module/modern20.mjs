@@ -27,6 +27,7 @@ import { registerConditions } from "./conditions.mjs";
 import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.mjs";
 import { registerEnrichers } from "./enrichers.mjs";
 import { Modern20Browser } from "./apps/browser.mjs";
+import { registerHotbarDrop, rollItem } from "./macros.mjs";
 import { CONDITIONS } from "./condition-list.mjs";
 import { ACTIVITY_TYPES } from "./data/activity.mjs";
 
@@ -91,6 +92,8 @@ Hooks.once("init", () => {
     // One window over every pack, which a macro can open as well as the
     // button below: game.modern20.browser().
     browser: () => Modern20Browser.show(),
+    // What a macro made by dragging an item to the hotbar calls.
+    rollItem,
     config: MODERN20
   };
 });
@@ -201,6 +204,8 @@ Hooks.on("renderCompendiumDirectory", (app, html) => {
 Hooks.once("ready", () => {
   // One delegated handler for every rules link on every sheet, card and app.
   activateRulesLinks();
+  // An item dropped on the hotbar becomes a macro that uses it.
+  registerHotbarDrop();
   console.log(`${SYSTEM_ID} | Ready`);
 });
 

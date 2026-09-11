@@ -196,6 +196,7 @@ export function installStubs() {
     },
   };
   globalThis.ui = { notifications: { warn: () => {}, error: () => {} } };
+  globalThis.canvas = { tokens: { controlled: [] } };
   globalThis.Handlebars = {
     registerHelper: () => {},
     escapeExpression: (text) => String(text),
