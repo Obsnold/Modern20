@@ -194,6 +194,21 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
                 counts["measured"] += 1
                 changed = True
 
+    # The offset that reproduces the printed Defense, which had the size
+    # modifier left in it: the sheet added that column too, so every creature
+    # that is not Medium showed a Defense the book does not print — eight
+    # points out on a Colossal dragon. Derived arithmetic, not a decision, so
+    # it is taken from the import the way space and reach are.
+    # A vehicle's Defense is one printed number rather than parts, so this is
+    # only about the actors that derive theirs.
+    shown = ((built or {}).get("system") or {}).get("defense")
+    ours = system.get("defense")
+    if (isinstance(shown, dict) and isinstance(ours, dict) and not corrected
+            and "misc" in shown and ours.get("misc") != shown["misc"]):
+        ours["misc"] = shown["misc"]
+        counts["defended"] += 1
+        changed = True
+
     folder = (built or {}).get("folder")
     if folder and not document.get("folder"):
         document["folder"] = folder
@@ -345,6 +360,8 @@ def main() -> int:
         print(f"{counts['applied']} item(s) took the effect their own text states")
     if counts["token"]:
         print(f"{counts['token']} actor(s) took the token the import derives")
+    if counts["defended"]:
+        print(f"{counts['defended']} creature(s) now show the Defense the SRD prints")
     if counts["measured"]:
         print(f"{counts['measured']} space and reach value(s) corrected")
     if counts["pictured"]:

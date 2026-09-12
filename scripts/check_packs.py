@@ -20,7 +20,10 @@ import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import srd  # noqa: E402
+
+ROOT = srd.ROOT
 PACKS = os.path.join(ROOT, "src", "packs")
 
 # Which document class each pack holds, and the key prefix that goes with it.
@@ -51,6 +54,13 @@ DISPOSITIONS = {-1, 0}
 # documents in the compiled pack, keyed from their parent, not fields of it.
 EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects",
             "tables": "results"}
+
+
+def printed_creatures() -> list[dict]:
+    """The creature stat blocks as scraped, which carry the printed totals."""
+    path = os.path.join(srd.DATA, "creatures.json")
+    with open(path, encoding="utf-8") as handle:
+        return json.load(handle)
 
 
 def main() -> int:
@@ -158,6 +168,37 @@ def main() -> int:
                     if mode.get("range", 0) < 5:
                         fail(f"{pack}: \"{entry['name']}\" detects with "
                              f"{mode.get('id')} at {mode.get('range')!r} feet")
+
+        # What the sheet will show against what the book prints. Every derived
+        # number on a creature is stored as the offset that reproduces the
+        # printed total, which is only true while every part the sheet adds
+        # back is subtracted here: the size modifier was not, so 183 of 300
+        # creatures showed a Defense the SRD does not print — eight points out
+        # on a Colossal dragon, and nothing said so, because each half of the
+        # sum was right on its own.
+        if pack == "creatures":
+            printed = {entry["name"]: entry for entry in printed_creatures()}
+            for entry in contents:
+                book = printed.get(entry["name"])
+                if not book or book.get("defenseTotal") is None:
+                    continue
+                system = entry.get("system") or {}
+                defense = system.get("defense") or {}
+                size = (system.get("attributes") or {}).get("size")
+                dex = ((system.get("abilities") or {}).get("dex") or {}).get("value", 10)
+                shown = (10 + defense.get("classBonus", 0) + defense.get("naturalArmor", 0)
+                         + defense.get("misc", 0) + srd.SIZE_MODIFIER.get(size, 0)
+                         + (dex - 10) // 2)
+                if shown != book["defenseTotal"]:
+                    fail(f"{pack}: \"{entry['name']}\" is printed at Defense "
+                         f"{book['defenseTotal']} and its sheet will show {shown}")
+
+                # The saves are the same shape — an offset plus an ability
+                # modifier — but the dataset keeps only the offset, so there is
+                # no printed total here to hold them to. check_creatures.mjs
+                # does that against the figures transcribed from the page.
+                if (system.get("saves") or {}).keys() != {"fort", "ref", "will"}:
+                    fail(f"{pack}: \"{entry['name']}\" does not have three saves")
 
         # A random table is only a table if its rolls cover it. A gap is a
         # roll with no result, which Foundry reports as an empty draw, and an

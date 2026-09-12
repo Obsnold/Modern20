@@ -370,6 +370,19 @@ creature that rolls Hide at the wrong bonus looks perfectly normal on a sheet,
 so `check_creatures.mjs` adds the 1,577 skill totals and 507 attacks back up and
 asserts each one comes to the printed figure.
 
+That is only true while *everything* the sheet adds back is taken off when the
+offset is stored, and for Defense one column was not: the size modifier. The
+scraper subtracted 10, the natural armor and the Dexterity modifier, and the
+sheet then added the size modifier on top of an offset that already contained
+it — so **183 of the 300 creatures showed a Defense the book does not print**,
+by as much as eight points on a Colossal dragon. Neither half of the sum was
+wrong on its own, which is why nothing caught it: the scrape reproduced the
+page, the model implemented the rule, and no check compared what the sheet
+would show with what the SRD prints. One now does, in `check_packs.py`, and
+the size column lives once in `srd.SIZE_MODIFIER` with `check_config.py`
+holding `config.mjs` to it — it had been written out twice, which is how the
+two copies came to disagree.
+
 **Urban Arcana's creatures were missing for one hop.** The crawl that finds
 the SRD's pages reaches the book's creature index and its A-Z list, and stops
 one link short of `urbanmonst1.html` to `urbanmonst4.html`, which is where the
@@ -1400,6 +1413,7 @@ to trust any of them:
 | `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
 | `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
 | `check_packs.py` (tables) | the first build of the random tables had a d8 with twelve rows and two tables whose last row read "00" as zero — a roll with no result looks like an empty draw and nothing else |
+| `check_packs.py` (creatures) | every derived number on a creature is stored as the offset that reproduces the printed total, which holds only while everything the sheet adds back is subtracted — the size modifier was not, and 183 of 300 creatures showed a Defense the SRD does not print, eight points out on a Colossal dragon, with each half of the sum correct on its own |
 | `check_art.py` | a broken image is the quietest failure a compendium has: Foundry draws an empty frame, logs nothing, and the row still has its name — so an icon renamed or half-committed would cost 4,864 documents their art and look like nothing at all |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |

@@ -12,7 +12,10 @@ import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import srd  # noqa: E402
+
+ROOT = srd.ROOT
 
 SKILL_LINE = re.compile(
     r"^\s*(\w+):\s*\{\s*label:\s*\"[^\"]+\",\s*"
@@ -22,6 +25,17 @@ SKILL_LINE = re.compile(
     r"(?:,\s*specialties:\s*(true|false))?",
     re.M,
 )
+
+
+SIZE_LINE = re.compile(r"(\w+):\s*\{[^}]*?\bmod:\s*(-?\d+)", re.S)
+
+
+def config_sizes() -> dict[str, int]:
+    """The size modifier column as config.mjs states it."""
+    source = open(os.path.join(ROOT, "module", "config.mjs"), encoding="utf-8").read()
+    block = source[source.index("MODERN20.sizes = {"):]
+    block = block[:block.index("\n};")]
+    return {key: int(mod) for key, mod in SIZE_LINE.findall(block)}
 
 
 def config_skills() -> dict[str, dict]:
@@ -60,25 +74,39 @@ def srd_skills() -> dict[str, dict]:
 
 def main() -> int:
     config = config_skills()
-    srd = srd_skills()
+    book = srd_skills()
 
     problems = 0
 
-    for key in sorted(set(srd) - set(config)):
+    # The size modifier column, which the sheet adds to Defense and to attack
+    # rolls and the scraper subtracts to store the offset that reproduces the
+    # printed total. The one time it was written out twice the copies
+    # disagreed, and 183 creatures showed a Defense the book does not print —
+    # so the scripts share srd.SIZE_MODIFIER and this holds config.mjs to it.
+    sizes = config_sizes()
+    for size in sorted(set(srd.SIZE_MODIFIER) | set(sizes)):
+        want = srd.SIZE_MODIFIER.get(size)
+        got = sizes.get(size)
+        if want != got:
+            print(f"DIFFERS  sizes.{size}.mod: config={got!r} scripts={want!r}")
+            problems += 1
+
+    for key in sorted(set(book) - set(config)):
         print(f"MISSING  config.mjs has no skill '{key}'")
         problems += 1
-    for key in sorted(set(config) - set(srd)):
+    for key in sorted(set(config) - set(book)):
         print(f"EXTRA    config.mjs defines '{key}', which the SRD does not")
         problems += 1
 
-    for key in sorted(set(config) & set(srd)):
+    for key in sorted(set(config) & set(book)):
         for field in ("ability", "trainedOnly", "armorCheck", "specialties"):
-            want, got = srd[key][field], config[key][field]
+            want, got = book[key][field], config[key][field]
             if want != got:
                 print(f"DIFFERS  {key}.{field}: config={got!r} srd={want!r}")
                 problems += 1
 
-    print(f"\n{len(config)} skills in config.mjs, {len(srd)} in the SRD, {problems} discrepancies")
+    print(f"\n{len(config)} skills and {len(sizes)} sizes in config.mjs, "
+          f"{len(book)} skills in the SRD, {problems} discrepancies")
     return 1 if problems else 0
 
 
