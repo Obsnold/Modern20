@@ -1406,6 +1406,7 @@ python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
 python3 scripts/check_rules_links.py # every link into the rules resolves, every roll anything asks for rolls
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
 python3 scripts/check_art.py         # every icon a document points at is a file that is here
+python3 scripts/check_deploy.py      # the deploy sends every directory the system reads
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
 node    scripts/check_creatures.mjs  # every creature's arithmetic against the SRD
@@ -1444,6 +1445,7 @@ to trust any of them:
 | `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
 | `check_packs.py` (tables) | the first build of the random tables had a d8 with twelve rows and two tables whose last row read "00" as zero — a roll with no result looks like an empty draw and nothing else |
 | `check_packs.py` (creatures) | every derived number on a creature is stored as the offset that reproduces the printed total, which holds only while everything the sheet adds back is subtracted — the size modifier was not, and 183 of 300 creatures showed a Defense the SRD does not print, eight points out on a Colossal dragon, with each half of the sum correct on its own |
+| `check_deploy.py` | the only check that reads the step deciding what reaches Foundry rather than what is in the repository: `assets/` was never uploaded, so every image 404'd into a page nobody was reading, and the packs to compile were written out by hand — when the tables pack was added nobody added it, and Random Tables was an empty compendium on the live host for as long as it existed while every check read all 26 of them from `src/packs` and said so |
 | `check_art.py` | a broken image is the quietest failure a compendium has: Foundry draws an empty frame, logs nothing, and the row still has its name — so an icon renamed or half-committed would cost 4,864 documents their art and look like nothing at all |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |

@@ -34,7 +34,21 @@ FVTT="\$HOME/fvtt-cli/node_modules/.bin/fvtt"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+# Which compendia to pack, read from the manifest rather than listed here. The
+# list used to be written out, and when the tables pack was added nobody
+# added it: Random Tables was an empty compendium on the live host for as long
+# as it existed, with every check passing, because a check reads src/packs and
+# this is the only step that decides what reaches Foundry.
+PACK_NAMES="$(python3 -c 'import json; print(" ".join(p["name"] for p in json.load(open("system.json"))["packs"]))')"
+
+# Every directory the system serves files from. assets/ was missing, which is
+# quieter than it sounds: the code and the compendia arrive, and 5,271 images
+# then 404 one at a time into a page nobody is reading.
+SYSTEM_DIRS="module templates lang css assets"
+
 echo "==> Local checks"
+# All of them. This list was written out too, and had fallen three checks
+# behind the ones CI runs.
 python3 scripts/check_globals.py
 python3 scripts/check_app_props.py
 python3 scripts/check_lang.py
@@ -42,6 +56,10 @@ python3 scripts/check_config.py
 python3 scripts/check_shadowing.py
 python3 scripts/check_packs.py
 python3 scripts/check_coverage.py
+python3 scripts/check_rules_links.py
+python3 scripts/check_capture.py
+python3 scripts/check_art.py
+python3 scripts/check_deploy.py
 
 # Packing rewrites the compendia from src/packs, so anything edited on a sheet
 # and not yet captured is gone. Foundry is where this system's content is
@@ -75,7 +93,8 @@ echo "==> Uploading to $HOST"
 scp -q -o BatchMode=yes "$TARBALL" "$HOST:/tmp/modern20.tgz"
 
 echo "==> Remote checks and install"
-ssh -o BatchMode=yes "$HOST" PACKS="$PACKS" bash -euo pipefail -s <<REMOTE
+ssh -o BatchMode=yes "$HOST" PACKS="$PACKS" PACK_NAMES="$PACK_NAMES" \
+    SYSTEM_DIRS="$SYSTEM_DIRS" bash -euo pipefail -s <<REMOTE
 export PATH=$NODE_BIN:\$PATH
 rm -rf $STAGE && mkdir -p $STAGE
 tar xzf /tmp/modern20.tgz -C $STAGE
@@ -91,7 +110,7 @@ node scripts/check_objects.mjs
 node scripts/check_rules.mjs
 
 if [ "\$PACKS" = "--packs" ]; then
-  for p in classes occupations talents feats spells psionics weapons armor gear creatures vehicles objects fx rules; do
+  for p in \$PACK_NAMES; do
     $FVTT package pack -n \$p --in src/packs/\$p --out packs >/dev/null
     echo "  packed \$p"
   done
@@ -100,7 +119,8 @@ if [ "\$PACKS" = "--packs" ]; then
 fi
 
 sudo -n cp system.json $DEST/system.json
-for dir in module templates lang css; do
+for dir in \$SYSTEM_DIRS; do
+  sudo -n mkdir -p $DEST/\$dir
   sudo -n cp -r \$dir/. $DEST/\$dir/
 done
 sudo -n chown -R foundry:foundry $DEST
