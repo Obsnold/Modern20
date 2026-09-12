@@ -134,6 +134,12 @@ jobs:
       - name: every icon a document points at is a file that is here
         run: python3 scripts/check_art.py
 
+      # The one check that reads the step deciding what reaches Foundry,
+      # rather than what is in the repository. Both bugs it exists for were
+      # found by a person opening an empty compendium.
+      - name: the deploy sends everything the system reads
+        run: python3 scripts/check_deploy.py
+
       # The export runs against a live Foundry host, so it is the one script
       # here that cannot be tried out cheaply, and both of its bugs so far
       # were found by reading 1,400 documents of its output. This round-trips
