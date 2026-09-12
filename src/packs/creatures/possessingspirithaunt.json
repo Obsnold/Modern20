@@ -198,9 +198,9 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
-        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
-        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5"
       },
@@ -279,7 +279,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Once per round, as an attack action, a possessing spirit can merge with a living creature and seize control of its body. To use this ability, the spirit must first enter the target’s fighting space; doing so does not provoke attacks of opportunity.</p><p>The target can resist the spirit’s attempt at possession with a successful @Check[save:will]{Will save} (DC 10 + spirit’s Hit Dice + spirit’s Charisma modifier). If the save succeeds, the spirit is rebuffed and pushed into an adjacent square. A target that successfully saves cannot be possessed by that spirit for one day, and the spirit cannot again enter the target’s fighting space during that time. If the save fails, the spirit vanishes into the target’s body and takes control of it.</p><p>A possessed creature gains the spirit’s Intelligence, Wisdom, Charisma, base attack bonus, base save bonuses, allegiances, skills, and feats. The possessed creature retains its Strength, Dexterity, Constitution, type, hit points, massive damage threshold, grapple check modifier, fighting space, reach, Reputation bonus, and extraordinary abilities. It loses access to any spell-like abilities, supernatural abilities, action points, and mental abilities (including prepared spells and knowledge gained from life experiences).</p><p>While possessing a host creature, the spirit loses its supernatural or extraordinary abilities except for its turn resistance. The possessed creature’s original spirit instantly reinstates itself if the possessing spirit is turned, destroyed, or otherwise dislodged from its host. A possessing spirit can leave its host as a free action, if it so chooses. Any attack that deals massive damage on the host’s body allows the host another @Check[save:will]{Will save} to oust the possessing spirit and regain control of its body (whether or not the massive damage @Check[save:fort]{Fortitude save} succeeds).</p>",
+        "description": "<p>Once per round, as an attack action, a possessing spirit can merge with a living creature and seize control of its body. To use this ability, the spirit must first enter the target\u2019s fighting space; doing so does not provoke attacks of opportunity.</p><p>The target can resist the spirit\u2019s attempt at possession with a successful @Check[save:will]{Will save} (DC 10 + spirit\u2019s Hit Dice + spirit\u2019s Charisma modifier). If the save succeeds, the spirit is rebuffed and pushed into an adjacent square. A target that successfully saves cannot be possessed by that spirit for one day, and the spirit cannot again enter the target\u2019s fighting space during that time. If the save fails, the spirit vanishes into the target\u2019s body and takes control of it.</p><p>A possessed creature gains the spirit\u2019s Intelligence, Wisdom, Charisma, base attack bonus, base save bonuses, allegiances, skills, and feats. The possessed creature retains its Strength, Dexterity, Constitution, type, hit points, massive damage threshold, grapple check modifier, fighting space, reach, Reputation bonus, and extraordinary abilities. It loses access to any spell-like abilities, supernatural abilities, action points, and mental abilities (including prepared spells and knowledge gained from life experiences).</p><p>While possessing a host creature, the spirit loses its supernatural or extraordinary abilities except for its turn resistance. The possessed creature\u2019s original spirit instantly reinstates itself if the possessing spirit is turned, destroyed, or otherwise dislodged from its host. A possessing spirit can leave its host as a free action, if it so chooses. Any attack that deals massive damage on the host\u2019s body allows the host another @Check[save:will]{Will save} to oust the possessing spirit and regain control of its body (whether or not the massive damage @Check[save:fort]{Fortitude save} succeeds).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -398,7 +398,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

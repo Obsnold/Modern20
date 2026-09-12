@@ -219,7 +219,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -239,7 +239,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -251,7 +251,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A skin feaster that successfully deals damage to an opponent with its necrotizing touch attack must spend its next turn devouring the flesh that has fallen from that opponent’s body. It takes no other actions during this time but can defend itself normally. It can consume an amount of flesh equivalent to 3 points of Constitution damage (or drain; see below) per round.</p>",
+        "description": "<p>A skin feaster that successfully deals damage to an opponent with its necrotizing touch attack must spend its next turn devouring the flesh that has fallen from that opponent\u2019s body. It takes no other actions during this time but can defend itself normally. It can consume an amount of flesh equivalent to 3 points of Constitution damage (or drain; see below) per round.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -267,7 +267,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>With a successful melee touch attack, the skin feaster causes lumps of flesh to fall from the target’s body, dealing 1d3 points of Constitution damage; a successful @Check[save:fort]{Fortitude save} negates (DC 10 + 1/2 the skin feaster’s Hit Dice + its Charisma modifier). On a failed save, the target must attempt a second @Check[save:fort]{Fortitude save} at the same DC. Failure indicates that 1 point of the Constitution damage already taken becomes Constitution drain instead.</p>",
+        "description": "<p>With a successful melee touch attack, the skin feaster causes lumps of flesh to fall from the target\u2019s body, dealing 1d3 points of Constitution damage; a successful @Check[save:fort]{Fortitude save} negates (DC 10 + 1/2 the skin feaster\u2019s Hit Dice + its Charisma modifier). On a failed save, the target must attempt a second @Check[save:fort]{Fortitude save} at the same DC. Failure indicates that 1 point of the Constitution damage already taken becomes Constitution drain instead.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -300,7 +300,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>If a skin feaster manages to eat an amount of flesh equivalent to 6 points of Constitution damage (or drain; see above) in any 24-hour period, it begins to regrow its skin. This process requires 1d6 hours. For the next 1d3 days thereafter, the skin feaster appears just as it did before its death, excluding scars, moles, or other minor skin imperfections. Only the creature’s appearance changes—it is still an undead with all of its usual species traits except the flesh weakness, which is not active while the skin feaster wears its new skin. Once this period is over, the skin feaster’s regrown skin sloughs off, restoring it to its usual appearance and reactivating its flesh weakness.</p>",
+        "description": "<p>If a skin feaster manages to eat an amount of flesh equivalent to 6 points of Constitution damage (or drain; see above) in any 24-hour period, it begins to regrow its skin. This process requires 1d6 hours. For the next 1d3 days thereafter, the skin feaster appears just as it did before its death, excluding scars, moles, or other minor skin imperfections. Only the creature\u2019s appearance changes\u2014it is still an undead with all of its usual species traits except the flesh weakness, which is not active while the skin feaster wears its new skin. Once this period is over, the skin feaster\u2019s regrown skin sloughs off, restoring it to its usual appearance and reactivating its flesh weakness.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -370,7 +370,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

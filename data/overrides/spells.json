@@ -1,6 +1,5 @@
 {
   "_comment": "Hand corrections merged over scraped spells by build_packs.py, keyed by spell id. Each entry needs a 'why' so the next reader can tell a fix from an opinion.",
-
   "causeFear": {
     "why": "fxspelldesc1.html prints Cause Fear's school under a 'Level' label, so the level is lost. The school text is taken from that mislabelled line; level 1 is confirmed by fxarcane.html and fxdivine.html, which list it in the same section as Burning Hands and Bless.",
     "school": "Necromancy",

@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
   "system": {
-    "description": "<p>These stylish sunglasses grant superior vision as well as protecting the wearer’s eyes from bright lights and UV rays. The sunglasses grant a +5 equipment bonus on @Check[skill:spot]{Spot check}s made in brightly lit locations.</p>",
+    "description": "<p>These stylish sunglasses grant superior vision as well as protecting the wearer\u2019s eyes from bright lights and UV rays. The sunglasses grant a +5 equipment bonus on @Check[skill:spot]{Spot check}s made in brightly lit locations.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.YmKfTxw44YoXlGtw",
@@ -21,7 +21,7 @@
     "modern20": {
       "book": "Urban Arcana",
       "purchaseDC": "31",
-      "weight": "—",
+      "weight": "\u2014",
       "casterLevel": "3rd",
       "itemType": "Wondrous Item (magic)"
     }

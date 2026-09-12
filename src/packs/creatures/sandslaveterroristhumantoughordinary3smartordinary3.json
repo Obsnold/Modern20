@@ -387,7 +387,7 @@
           "Personal Firearms Proficiency."
         ],
         "benefit": "The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an autofire setting).",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms set on autofire.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms set on autofire.",
         "special": "",
         "repeatable": false
       },
@@ -444,7 +444,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character increases his or her massive damage threshold by 3 points.",
-        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character\u2019s massive damage threshold is current Con +3.",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false
       },
@@ -463,7 +463,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -501,7 +501,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -513,7 +513,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
       "system": {
-        "description": "<p>A sand slave has darkvision to a range of 60 feet or the base creature’s darkvision, whichever is better.</p>",
+        "description": "<p>A sand slave has darkvision to a range of 60 feet or the base creature\u2019s darkvision, whichever is better.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -561,7 +561,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
-        "description": "<p>A sand slave heals 3 points of damage per round unless it is reduced to –10 or fewer hit points. This ability does not enable the sand slave to regrow or reattach severed body parts. If the base creature already has fast healing, use the better value.</p>",
+        "description": "<p>A sand slave heals 3 points of damage per round unless it is reduced to \u201310 or fewer hit points. This ability does not enable the sand slave to regrow or reattach severed body parts. If the base creature already has fast healing, use the better value.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -673,7 +673,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Once per day as a free action, a sand slave can attempt a @Check[ability:con|dc:15]{Constitution check (DC 15)}. Success dramatically slows the creature’s metabolism for up to 1 hour. During this time, the sand slave does not need to breathe, and it lacks a heartbeat and normal body temperature. If it does not move, it appears dead to casual inspection, though a blood test or successful @Check[skill:treatInjury|dc:20]{Treat Injury check (DC 20)} reveals that it is still alive. While in stasis, the sand slave does not take damage from prolonged exposure to environmental heat or cold, and the time spent in stasis does not count toward the time limit that the sand slave can go without water or food before taking damage. While in stasis, a sand slave can act normally, except that it cannot use its hot running or fugue abilities, and it does not heal ability or hit point damage.</p><p>The sand slave can end the stasis at any time before its duration runs out as a free action.</p>",
+        "description": "<p>Once per day as a free action, a sand slave can attempt a @Check[ability:con|dc:15]{Constitution check (DC 15)}. Success dramatically slows the creature\u2019s metabolism for up to 1 hour. During this time, the sand slave does not need to breathe, and it lacks a heartbeat and normal body temperature. If it does not move, it appears dead to casual inspection, though a blood test or successful @Check[skill:treatInjury|dc:20]{Treat Injury check (DC 20)} reveals that it is still alive. While in stasis, the sand slave does not take damage from prolonged exposure to environmental heat or cold, and the time spent in stasis does not count toward the time limit that the sand slave can go without water or food before taking damage. While in stasis, a sand slave can act normally, except that it cannot use its hot running or fugue abilities, and it does not heal ability or hit point damage.</p><p>The sand slave can end the stasis at any time before its duration runs out as a free action.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -689,7 +689,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A sand slave can communicate its thoughts and desires to any etoile or sand slave within 200 feet that it can see, regardless of intervening matter such as glass. The target creature “hears” the sand slave’s thoughts in whatever language it can most easily understand. However, it cannot communicate thoughts back to the sand slave unless it also has telepathy.</p>",
+        "description": "<p>A sand slave can communicate its thoughts and desires to any etoile or sand slave within 200 feet that it can see, regardless of intervening matter such as glass. The target creature \u201chears\u201d the sand slave\u2019s thoughts in whatever language it can most easily understand. However, it cannot communicate thoughts back to the sand slave unless it also has telepathy.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -705,7 +705,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>When reduced to –10 hit points or below, a sand slave’s body immediately turns into a pile of dust. At any time, a sand slave can willfully destroy itself by taking an attack action to make a @Check[ability:con|dc:10]{Constitution check (DC 10)}. Success indicates that the sand slave self-destructs as above.</p>",
+        "description": "<p>When reduced to \u201310 hit points or below, a sand slave\u2019s body immediately turns into a pile of dust. At any time, a sand slave can willfully destroy itself by taking an attack action to make a @Check[ability:con|dc:10]{Constitution check (DC 10)}. Success indicates that the sand slave self-destructs as above.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -732,7 +732,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/person.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/person.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

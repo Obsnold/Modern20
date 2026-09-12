@@ -1,27 +1,80 @@
 {
   "_comment": "Hand corrections merged over scraped classes by build_packs.py, keyed by class id. Each entry needs a 'why' so the next reader can tell a fix from an opinion.",
-
   "streetWarrior": {
-    "why": "The mirror prints the Street Warrior's class skills as an empty italic tag: 'The Street Warrior’s class skills are as follows: <i></i>'. The list is in the RTF release the SRD also shipped as, Arcana/ArcanaAdvancedClasses: Bluff, Diplomacy, Disable Device, Drive, Gamble, Gather Information, Hide, Intimidate, Investigate, Jump, Knowledge (popular culture, streetwise, tactics), Move Silently, Profession, Sense Motive, Spot, Survival. See https://spellbooksoftware.com/d20mrsd/urbanstreetwarrior.html",
+    "why": "The mirror prints the Street Warrior's class skills as an empty italic tag: 'The Street Warrior\u2019s class skills are as follows: <i></i>'. The list is in the RTF release the SRD also shipped as, Arcana/ArcanaAdvancedClasses: Bluff, Diplomacy, Disable Device, Drive, Gamble, Gather Information, Hide, Intimidate, Investigate, Jump, Knowledge (popular culture, streetwise, tactics), Move Silently, Profession, Sense Motive, Spot, Survival. See https://spellbooksoftware.com/d20mrsd/urbanstreetwarrior.html",
     "classSkills": [
-      { "skill": "bluff", "specialty": "" },
-      { "skill": "diplomacy", "specialty": "" },
-      { "skill": "disableDevice", "specialty": "" },
-      { "skill": "drive", "specialty": "" },
-      { "skill": "gamble", "specialty": "" },
-      { "skill": "gatherInformation", "specialty": "" },
-      { "skill": "hide", "specialty": "" },
-      { "skill": "intimidate", "specialty": "" },
-      { "skill": "investigate", "specialty": "" },
-      { "skill": "jump", "specialty": "" },
-      { "skill": "knowledge", "specialty": "Popular Culture" },
-      { "skill": "knowledge", "specialty": "Streetwise" },
-      { "skill": "knowledge", "specialty": "Tactics" },
-      { "skill": "moveSilently", "specialty": "" },
-      { "skill": "profession", "specialty": "" },
-      { "skill": "senseMotive", "specialty": "" },
-      { "skill": "spot", "specialty": "" },
-      { "skill": "survival", "specialty": "" }
+      {
+        "skill": "bluff",
+        "specialty": ""
+      },
+      {
+        "skill": "diplomacy",
+        "specialty": ""
+      },
+      {
+        "skill": "disableDevice",
+        "specialty": ""
+      },
+      {
+        "skill": "drive",
+        "specialty": ""
+      },
+      {
+        "skill": "gamble",
+        "specialty": ""
+      },
+      {
+        "skill": "gatherInformation",
+        "specialty": ""
+      },
+      {
+        "skill": "hide",
+        "specialty": ""
+      },
+      {
+        "skill": "intimidate",
+        "specialty": ""
+      },
+      {
+        "skill": "investigate",
+        "specialty": ""
+      },
+      {
+        "skill": "jump",
+        "specialty": ""
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Popular Culture"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Streetwise"
+      },
+      {
+        "skill": "knowledge",
+        "specialty": "Tactics"
+      },
+      {
+        "skill": "moveSilently",
+        "specialty": ""
+      },
+      {
+        "skill": "profession",
+        "specialty": ""
+      },
+      {
+        "skill": "senseMotive",
+        "specialty": ""
+      },
+      {
+        "skill": "spot",
+        "specialty": ""
+      },
+      {
+        "skill": "survival",
+        "specialty": ""
+      }
     ]
   }
 }

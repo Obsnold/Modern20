@@ -235,9 +235,9 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
-        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
-        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
         "repeatable": false
       },
       "_key": "!actors.items!iuveLpGBT7V40lhs.zr258vCKqCkQJTKI"
@@ -257,7 +257,7 @@
           "Charisma 15",
           "Intimidate 9 ranks."
         ],
-        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + \u00bd the character\u2019s level + the character\u2019s Charisma modifier). An opponent who fails his or her save is shaken, taking a \u20132 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character\u2019s Charisma modifier. The character can use the feat once per round as a free action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -321,7 +321,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>At will—attraction, clairaudience/clairvoyance, concussion, detect psionics, suggestion. Manifester level 10th; save DC 10 + whisperer in the dark’s key ability modifier + power level.</p>",
+        "description": "<p>At will\u2014attraction, clairaudience/clairvoyance, concussion, detect psionics, suggestion. Manifester level 10th; save DC 10 + whisperer in the dark\u2019s key ability modifier + power level.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -337,7 +337,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>If a creature with an Intelligence score greater than 2 is slain by a whisperer in the dark, its essence is absorbed into the monster’s consciousness within 1d4 rounds, though its physical body remains intact. Stealing a creature’s essence grants the whisperer 12 temporary hit points, and a new screaming face resembling that of the absorbed creature appears permanently within the cloud.</p>",
+        "description": "<p>If a creature with an Intelligence score greater than 2 is slain by a whisperer in the dark, its essence is absorbed into the monster\u2019s consciousness within 1d4 rounds, though its physical body remains intact. Stealing a creature\u2019s essence grants the whisperer 12 temporary hit points, and a new screaming face resembling that of the absorbed creature appears permanently within the cloud.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -423,7 +423,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

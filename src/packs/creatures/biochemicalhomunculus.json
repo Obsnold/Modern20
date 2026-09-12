@@ -215,7 +215,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>With a successful melee touch attack, a biochemical homunculus can meld with a living organism of Tiny size or larger and see through that creature’s eyes. It gains none of the host creature’s other senses and exerts no telepathic control over the host creature. If a melded biochemical homunculus is taken more than 1 mile from its creator, it separates from the host creature as a move action and returns to its master with all due haste. If its host creature is slain, the melded biochemical homunculus is immediately destroyed as well.</p>",
+        "description": "<p>With a successful melee touch attack, a biochemical homunculus can meld with a living organism of Tiny size or larger and see through that creature\u2019s eyes. It gains none of the host creature\u2019s other senses and exerts no telepathic control over the host creature. If a melded biochemical homunculus is taken more than 1 mile from its creator, it separates from the host creature as a move action and returns to its master with all due haste. If its host creature is slain, the melded biochemical homunculus is immediately destroyed as well.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -242,7 +242,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

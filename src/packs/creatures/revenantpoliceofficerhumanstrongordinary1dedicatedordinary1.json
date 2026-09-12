@@ -239,7 +239,7 @@
       }
     ],
     "senses": "Darkvision 60 ft.",
-    "specialQualities": "Darkvision 60 ft., revenant regeneration, special vulnerability (bludgeoning), turn resistance, undead, vulnerability (criminal’s sawed-off shotgun",
+    "specialQualities": "Darkvision 60 ft., revenant regeneration, special vulnerability (bludgeoning), turn resistance, undead, vulnerability (criminal\u2019s sawed-off shotgun",
     "biography": "<p><strong>Attack:</strong> +5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p><p><strong>Full Attack:</strong> +5 melee (1d3+4 nonlethal, unarmed strike) or +5 melee (1d4+4, tonfa) or +5 ranged (2d6, Beretta 92F) or +5 ranged (2d8, Beretta M3P)</p><p><strong>Skills:</strong> Balance +9*, Climb +11*, Drive +6, Escape Artist +9*, Hide +9*, Intimidate +11, Investigate +2, Jump +9*, Knowledge (current events) +2, Knowledge (streetwise) +2, Knowledge (tactics) +2, Listen +10, Move Silently +9*, Profession +4, Read/Write English, Sense Motive +12, Speak English, Spot +12, Swim +5, Treat Injury +4, Tumble +9*.</p><p><strong>Feats:</strong> Armor Proficiency (light, medium), Combat Reflexes, Improved Initiative, Lightning Reflexes, Personal Firearms Proficiency, Quick Draw, Quick Reload, Run, Simple Weapons Proficiency.</p><p><strong>Talents:</strong> </p>"
   },
   "_key": "!actors!IkbiTFBSTlkg4sRk",
@@ -407,9 +407,9 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
-        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
-        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
         "repeatable": false
       },
       "_key": "!actors.items!IkbiTFBSTlkg4sRk.yml4vIG8NYRrCiH1"
@@ -465,7 +465,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -545,7 +545,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -573,7 +573,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The base creature loses the regeneration and fast healing special qualities if it had them and gains revenant regeneration instead. Only damage that matches the revenant’s special vulnerability (see below) actually reduces its hit points. However, damage of other sorts does have an effect. Track the creature’s nonvulnerability damage separately from its hit points. When that damage equals or exceeds its actual current hit point total, it falls prone and is immobile and helpless for 2d6 rounds.</p><p>During this time, any further damage dealt to it heals instantly. When this time elapses, the revenant arises to fight again, and its nonvulnerability damage tally is wiped clean. Note that damage matching the revenant’s special vulnerability reduces its revenant regeneration damage threshold by reducing its actual hit points.</p>",
+        "description": "<p>The base creature loses the regeneration and fast healing special qualities if it had them and gains revenant regeneration instead. Only damage that matches the revenant\u2019s special vulnerability (see below) actually reduces its hit points. However, damage of other sorts does have an effect. Track the creature\u2019s nonvulnerability damage separately from its hit points. When that damage equals or exceeds its actual current hit point total, it falls prone and is immobile and helpless for 2d6 rounds.</p><p>During this time, any further damage dealt to it heals instantly. When this time elapses, the revenant arises to fight again, and its nonvulnerability damage tally is wiped clean. Note that damage matching the revenant\u2019s special vulnerability reduces its revenant regeneration damage threshold by reducing its actual hit points.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.SdiXAXFuFh2YEE2b",
@@ -589,7 +589,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Each revenant has a special vulnerability related to the way it died. Any attack that deals the kind of damage that caused the revenant’s original death deals damage to the creature normally. Should the revenant reach 0 hit points from such damage, it is destroyed. Possible damage types include acid, electricity, fire, cold, sonic/concussion, slashing, piercing, bludgeoning, and ballistic.</p><p>A revenant that died from poison, starvation, suffocation, or some other cause that does not cause hit point damage is instead vulnerable to some danger that frightened it in life or some means of death that it meted out to others. Choose one of the damage types above for its special vulnerability on that basis.</p><p>If the revenant was killed by an attack that dealt multiple types of damage, only one of those damage types counts as its special vulnerability. If the revenant is subjected to another such mixed-damage attack, it takes hit point damage only from the type to which it is vulnerable.</p>",
+        "description": "<p>Each revenant has a special vulnerability related to the way it died. Any attack that deals the kind of damage that caused the revenant\u2019s original death deals damage to the creature normally. Should the revenant reach 0 hit points from such damage, it is destroyed. Possible damage types include acid, electricity, fire, cold, sonic/concussion, slashing, piercing, bludgeoning, and ballistic.</p><p>A revenant that died from poison, starvation, suffocation, or some other cause that does not cause hit point damage is instead vulnerable to some danger that frightened it in life or some means of death that it meted out to others. Choose one of the damage types above for its special vulnerability on that basis.</p><p>If the revenant was killed by an attack that dealt multiple types of damage, only one of those damage types counts as its special vulnerability. If the revenant is subjected to another such mixed-damage attack, it takes hit point damage only from the type to which it is vulnerable.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -605,7 +605,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A revenant is treated as an undead with Hit Dice equal to the base creature’s Hit Dice +3 for the purpose of turn or rebuke attempts. This turn resistance increases by an additional +2 when it sees a creature upon which it wishes to take revenge and decreases by –2 while it is within sight of its vulnerability fear (see below). These modifiers stack.</p>",
+        "description": "<p>A revenant is treated as an undead with Hit Dice equal to the base creature\u2019s Hit Dice +3 for the purpose of turn or rebuke attempts. This turn resistance increases by an additional +2 when it sees a creature upon which it wishes to take revenge and decreases by \u20132 while it is within sight of its vulnerability fear (see below). These modifiers stack.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -633,7 +633,7 @@
     },
     {
       "_id": "hVKgei1qUrFB5AXh",
-      "name": "Vulnerability (criminal’s Sawed-Off Shotgun",
+      "name": "Vulnerability (criminal\u2019s Sawed-Off Shotgun",
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
@@ -653,7 +653,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
-        "description": "<p>A revenant is terrified of any specific items directly associated with its cause of death. Only something directly associated with the revenant’s death can cause this fear; the creature cannot be deceived by illusions or duplicates. When the revenant sees the item it fears, it must succeed at a @Check[save:will|dc:15]{Will saving throw (DC 15)} or be shaken for 24 hours. Success leaves it shaken for only 1d4 rounds. If that item is used to deal damage to the revenant that matches its special vulnerability, the revenant must succeed at a @Check[save:will|dc:20]{Will saving throw (DC 20)} or be panicked for 1 minute and shaken for 24 hours thereafter. Success indicates that the revenant is shaken for 1 minute. The time that a revenant is shaken or panicked from this effect does not stack.</p>",
+        "description": "<p>A revenant is terrified of any specific items directly associated with its cause of death. Only something directly associated with the revenant\u2019s death can cause this fear; the creature cannot be deceived by illusions or duplicates. When the revenant sees the item it fears, it must succeed at a @Check[save:will|dc:15]{Will saving throw (DC 15)} or be shaken for 24 hours. Success leaves it shaken for only 1d4 rounds. If that item is used to deal damage to the revenant that matches its special vulnerability, the revenant must succeed at a @Check[save:will|dc:20]{Will saving throw (DC 20)} or be panicked for 1 minute and shaken for 24 hours thereafter. Success indicates that the revenant is shaken for 1 minute. The time that a revenant is shaken or panicked from this effect does not stack.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -680,7 +680,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

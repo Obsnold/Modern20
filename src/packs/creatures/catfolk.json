@@ -285,7 +285,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -304,7 +304,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -332,7 +332,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
-        "description": "<p>A cat folk has retractable claws that function as natural weapons. Each claw deals 1d4 points of slashing damage (plus the creature’s Strength bonus) and threatens a critical hit on a natural 20.</p>",
+        "description": "<p>A cat folk has retractable claws that function as natural weapons. Each claw deals 1d4 points of slashing damage (plus the creature\u2019s Strength bonus) and threatens a critical hit on a natural 20.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -364,7 +364,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
-        "description": "<p>Any mammalian creature within 30 feet of a cat folk that meets its gaze must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or be dazed.</p>",
+        "description": "<p>Any mammalian creature within 30 feet of a cat folk that meets its gaze must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk\u2019s Hit Dice + its Charisma modifier) or be dazed.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -440,7 +440,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Any normal feline that can smell or see a cat folk must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk’s Hit Dice + its Charisma modifier) or flee in fear. A successful save means the feline is shaken but does not flee. In either case, the feline attacks the cat folk only if cornered. A cat folk is immune to its own feline aversion effect and to those of other cat folk.</p>",
+        "description": "<p>Any normal feline that can smell or see a cat folk must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the cat folk\u2019s Hit Dice + its Charisma modifier) or flee in fear. A successful save means the feline is shaken but does not flee. In either case, the feline attacks the cat folk only if cornered. A cat folk is immune to its own feline aversion effect and to those of other cat folk.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -490,7 +490,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/horned-helm.svg"
+      "src": "systems/modern20/assets/tokens/lorc/horned-helm.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

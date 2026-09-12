@@ -249,7 +249,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A mechanical homunculus has 10 skill points, which its master assigns to specific skills when the homunculus is first created. The skill ranks can be assigned only to the following skills: Computer Use, Decipher Script, Demolitions, Disable Device, Knowledge (any), Listen, Navigate, Read/Write Language (any), Repair, Search, Speak Language (any), and Spot. No skill can have more than 5 ranks assigned to it, and all of the skills are treated as class skills. A damaged mechanical homunculus with one or more ranks of Repair can attempt to repair itself or aid another’s attempts to repair it.</p>",
+        "description": "<p>A mechanical homunculus has 10 skill points, which its master assigns to specific skills when the homunculus is first created. The skill ranks can be assigned only to the following skills: Computer Use, Decipher Script, Demolitions, Disable Device, Knowledge (any), Listen, Navigate, Read/Write Language (any), Repair, Search, Speak Language (any), and Spot. No skill can have more than 5 ranks assigned to it, and all of the skills are treated as class skills. A damaged mechanical homunculus with one or more ranks of Repair can attempt to repair itself or aid another\u2019s attempts to repair it.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -276,7 +276,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

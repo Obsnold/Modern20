@@ -148,7 +148,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Any creature that takes damage from a Crawfordsville monster’s slam attack also takes 1d6 points of acid damage from its digestive enzymes. These enzymes continue to dissolve the victim even after the attack, dealing 1d6 points of acid damage each round until the wound is washed with at least 1 pint of water (or some other appropriate liquid).</p>",
+        "description": "<p>Any creature that takes damage from a Crawfordsville monster\u2019s slam attack also takes 1d6 points of acid damage from its digestive enzymes. These enzymes continue to dissolve the victim even after the attack, dealing 1d6 points of acid damage each round until the wound is washed with at least 1 pint of water (or some other appropriate liquid).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -164,7 +164,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability\u2019s range is specified in the creature\u2019s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
@@ -180,7 +180,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A Crawfordsville monster can simply bowl over opponents up to one size category smaller than itself as a attack action during a move action. This attack affects as many opponents as the monster’s body can cover. Each target can make either an attack of opportunity against the Crawfordsville monster or a @Check[save:ref|dc:13]{Reflex save (DC 13)} to avoid being engulfed. A successful saving throw indicates that the target has been pushed back or aside (target’s choice) as the monster moves forward. An engulfed creature is considered grappled and trapped within the monster’s body. A Crawfordsville monster cannot make a slam attack during a round in which it attempts to engulf, but each engulfed creature takes 2d6 points of acid damage on that round and every round thereafter that it remains trapped.</p>",
+        "description": "<p>A Crawfordsville monster can simply bowl over opponents up to one size category smaller than itself as a attack action during a move action. This attack affects as many opponents as the monster\u2019s body can cover. Each target can make either an attack of opportunity against the Crawfordsville monster or a @Check[save:ref|dc:13]{Reflex save (DC 13)} to avoid being engulfed. A successful saving throw indicates that the target has been pushed back or aside (target\u2019s choice) as the monster moves forward. An engulfed creature is considered grappled and trapped within the monster\u2019s body. A Crawfordsville monster cannot make a slam attack during a round in which it attempts to engulf, but each engulfed creature takes 2d6 points of acid damage on that round and every round thereafter that it remains trapped.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -289,7 +289,11 @@
       }
     ],
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/slime.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/slime.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

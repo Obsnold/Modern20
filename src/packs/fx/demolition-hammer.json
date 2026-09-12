@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/lorc/energy-sword.svg",
   "system": {
-    "description": "<p>This weapon resembles a standard sledgehammer (use the warhammer statistics) with runes carved into its wooden handle. Besides its enhancement bonus (+1 to +3), the hammer has a destroy seed incantation bound into it that the wielder may activate once per day after a successful melee attack. The target must succeed at a @Check[save:fort|dc:20]{Fortitude save (DC 20)} or take 10d6 points of damage. If the target is reduced to –10 hit points or less (or a construct, object, or undead is reduced to 0 hit points), it is destroyed as if disintegrated, leaving behind only a trace of fine dust.</p>",
+    "description": "<p>This weapon resembles a standard sledgehammer (use the warhammer statistics) with runes carved into its wooden handle. Besides its enhancement bonus (+1 to +3), the hammer has a destroy seed incantation bound into it that the wielder may activate once per day after a successful melee attack. The target must succeed at a @Check[save:fort|dc:20]{Fortitude save (DC 20)} or take 10d6 points of damage. If the target is reduced to \u201310 hit points or less (or a construct, object, or undead is reduced to 0 hit points), it is destroyed as if disintegrated, leaving behind only a trace of fine dust.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.qoEGmFIEzQJyBfY9",

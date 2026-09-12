@@ -199,7 +199,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A digital homunculus can attach itself to an electronic device, such as a cell phone or computer, and provide a direct link between the device and its master. Provided the homunculus and its master are within 1 mile of each other, the master can use the homunculus’s interface to operate the device by remote. The homunculus also provides a +2 equipment bonus on its master’s Computer Use and Disable Device skill checks provided it can attach itself to the computer or device through which (or against which) these skills are applied.</p><p>The digital homunculus must succeed at a melee touch attack to attach to any device in another creature’s possession. It loses its Dexterity bonus to Defense while connected to a device.</p>",
+        "description": "<p>A digital homunculus can attach itself to an electronic device, such as a cell phone or computer, and provide a direct link between the device and its master. Provided the homunculus and its master are within 1 mile of each other, the master can use the homunculus\u2019s interface to operate the device by remote. The homunculus also provides a +2 equipment bonus on its master\u2019s Computer Use and Disable Device skill checks provided it can attach itself to the computer or device through which (or against which) these skills are applied.</p><p>The digital homunculus must succeed at a melee touch attack to attach to any device in another creature\u2019s possession. It loses its Dexterity bonus to Defense while connected to a device.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -226,7 +226,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

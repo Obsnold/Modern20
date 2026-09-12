@@ -2,7 +2,7 @@
   {
     "id": "abilityDamaged",
     "name": "Ability Damaged",
-    "description": "The character has lost 1 or more ability score points. The loss is temporary, and these points return at a rate of 1 per evening of rest. This differs from “effective” ability loss, which is an effect that goes away when the condition causing it goes away.",
+    "description": "The character has lost 1 or more ability score points. The loss is temporary, and these points return at a rate of 1 per evening of rest. This differs from \u201ceffective\u201d ability loss, which is an effect that goes away when the condition causing it goes away.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
@@ -14,13 +14,13 @@
   {
     "id": "blinded",
     "name": "Blinded",
-    "description": "The hero can’t see at all, and thus everything has total concealment to him or her. The character has a 50% chance to miss in combat. Furthermore, the blinded character has an effective Dexterity of 3, along with a –4 penalty on the use of Strength-based and Dexterity-based skills. This –4 penalty also applies to Search checks and any other skill checks for which the GM deems sight to be important. The character can’t make Spot checks or perform any other activity (such as reading) that requires vision. Heroes who are blind long-term (from birth or early in life) grow accustomed to these drawbacks and can overcome some of them (at the GM’s discretion).",
+    "description": "The hero can\u2019t see at all, and thus everything has total concealment to him or her. The character has a 50% chance to miss in combat. Furthermore, the blinded character has an effective Dexterity of 3, along with a \u20134 penalty on the use of Strength-based and Dexterity-based skills. This \u20134 penalty also applies to Search checks and any other skill checks for which the GM deems sight to be important. The character can\u2019t make Spot checks or perform any other activity (such as reading) that requires vision. Heroes who are blind long-term (from birth or early in life) grow accustomed to these drawbacks and can overcome some of them (at the GM\u2019s discretion).",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
     "id": "cowering",
     "name": "Cowering",
-    "description": "The hero is frozen in fear, loses his or her Dexterity bonus, and can take no actions. In addition, the character takes a –2 penalty to his or her Defense. The condition typically lasts 10 rounds.",
+    "description": "The hero is frozen in fear, loses his or her Dexterity bonus, and can take no actions. In addition, the character takes a \u20132 penalty to his or her Defense. The condition typically lasts 10 rounds.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
@@ -32,13 +32,13 @@
   {
     "id": "dead",
     "name": "Dead",
-    "description": "A character dies when his or her hit points drop to –10 or lower, or when his or her Constitution drops to 0.",
+    "description": "A character dies when his or her hit points drop to \u201310 or lower, or when his or her Constitution drops to 0.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
     "id": "deafened",
     "name": "Deafened",
-    "description": "The hero can’t hear and takes a –4 penalty on initiative checks. The character can’t make Listen checks. Heroes who are deafened long-term (from birth or early in life) grow accustomed to these drawbacks and can overcome some of them (at the GM’s discretion).",
+    "description": "The hero can\u2019t hear and takes a \u20134 penalty on initiative checks. The character can\u2019t make Listen checks. Heroes who are deafened long-term (from birth or early in life) grow accustomed to these drawbacks and can overcome some of them (at the GM\u2019s discretion).",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
@@ -50,25 +50,25 @@
   {
     "id": "dying",
     "name": "Dying",
-    "description": "The character is near death and unconscious, with –1 to –9 wound points. The character can take no actions, and each round a dying character loses 1 hit point until he or she dies or becomes stable.",
+    "description": "The character is near death and unconscious, with \u20131 to \u20139 wound points. The character can take no actions, and each round a dying character loses 1 hit point until he or she dies or becomes stable.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
     "id": "entangled",
     "name": "Entangled",
-    "description": "An entangled character takes a –2 penalty on attack rolls in addition to a –4 penalty to Dexterity. If the entangling bonds are anchored to an immobile object, the entangled hero can’t move. Otherwise, the character can move at half speed, but can’t run or charge.",
+    "description": "An entangled character takes a \u20132 penalty on attack rolls in addition to a \u20134 penalty to Dexterity. If the entangling bonds are anchored to an immobile object, the entangled hero can\u2019t move. Otherwise, the character can move at half speed, but can\u2019t run or charge.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
     "id": "exhausted",
     "name": "Exhausted",
-    "description": "Heroes who are exhausted move at half speed and cannot run or charge. Furthermore, they take a –6 penalty to Strength and Dexterity. After 1 hour of complete, uninterrupted rest, an exhausted character becomes fatigued.",
+    "description": "Heroes who are exhausted move at half speed and cannot run or charge. Furthermore, they take a \u20136 penalty to Strength and Dexterity. After 1 hour of complete, uninterrupted rest, an exhausted character becomes fatigued.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
     "id": "fatigued",
     "name": "Fatigued",
-    "description": "Characters who are fatigued can’t run or charge and take a penalty of –2 to Strength and Dexterity. After 8 hours of complete, uninterrupted rest, a fatigued character is no longer fatigued.",
+    "description": "Characters who are fatigued can\u2019t run or charge and take a penalty of \u20132 to Strength and Dexterity. After 8 hours of complete, uninterrupted rest, a fatigued character is no longer fatigued.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
@@ -80,7 +80,7 @@
   {
     "id": "grappled",
     "name": "Grappled",
-    "description": "When grappled, a hero can’t undertake any action other than attacking with his or her bare hands, attacking with a light weapon, or attempting to break free from his or her opponent. The character loses his or her Dexterity bonus to Defense, except on attacks from characters with whom he or she is grappling.",
+    "description": "When grappled, a hero can\u2019t undertake any action other than attacking with his or her bare hands, attacking with a light weapon, or attempting to break free from his or her opponent. The character loses his or her Dexterity bonus to Defense, except on attacks from characters with whom he or she is grappling.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
@@ -110,19 +110,19 @@
   {
     "id": "pinned",
     "name": "Pinned",
-    "description": "A pinned character is held immobile (but not helpless) in a grapple. The character takes a –4 penalty to Defense against melee attacks and loses his or her Dexterity bonus to Defense.",
+    "description": "A pinned character is held immobile (but not helpless) in a grapple. The character takes a \u20134 penalty to Defense against melee attacks and loses his or her Dexterity bonus to Defense.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
     "id": "prone",
     "name": "Prone",
-    "description": "An attacker who is prone (lying on the ground) takes a –4 penalty on melee attack rolls and can’t use bows or thrown ranged weapons. The character gains a +4 bonus to Defense against ranged attacks, but takes a –4 penalty to Defense against melee attacks.",
+    "description": "An attacker who is prone (lying on the ground) takes a \u20134 penalty on melee attack rolls and can\u2019t use bows or thrown ranged weapons. The character gains a +4 bonus to Defense against ranged attacks, but takes a \u20134 penalty to Defense against melee attacks.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
     "id": "shaken",
     "name": "Shaken",
-    "description": "A shaken character takes a –2 penalty on attack rolls, saving throws, and skill checks.",
+    "description": "A shaken character takes a \u20132 penalty on attack rolls, saving throws, and skill checks.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {
@@ -134,7 +134,7 @@
   {
     "id": "stunned",
     "name": "Stunned",
-    "description": "A character who becomes stunned loses his or her Dexterity bonus, drops what he or she is holding, and can take no attack or move actions. In addition, the character takes a –2 penalty to Defense. The condition typically lasts 1 round.",
+    "description": "A character who becomes stunned loses his or her Dexterity bonus, drops what he or she is holding, and can take no attack or move actions. In addition, the character takes a \u20132 penalty to Defense. The condition typically lasts 1 round.",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/conditionsummary.html"
   },
   {

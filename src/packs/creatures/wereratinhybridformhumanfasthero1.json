@@ -257,7 +257,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false,
@@ -277,7 +277,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN"
@@ -296,7 +296,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
@@ -331,7 +331,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Any humanoid bitten by a wererat’s bite attack (in rat or hybrid form) must succeed at a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract lycanthropy.</p>",
+        "description": "<p>Any humanoid bitten by a wererat\u2019s bite attack (in rat or hybrid form) must succeed at a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract lycanthropy.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -411,7 +411,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A wererat can assume rat or hybrid form, but its gear is not absorbed into the new form. The bipedal hybrid form is about 5 feet tall, with a long tail and thin fur. The limbs are human, but the head looks like a rat’s. Changing to or from rat or hybrid form is a move action. Upon assuming either form, the wererat regains hit points as if having rested for a day. A slain wereat reverts to its humanoid form, although it remains dead. Afflicted wererats find this ability difficult to control. The rare natural wererat has full control over this power.</p>",
+        "description": "<p>A wererat can assume rat or hybrid form, but its gear is not absorbed into the new form. The bipedal hybrid form is about 5 feet tall, with a long tail and thin fur. The limbs are human, but the head looks like a rat\u2019s. Changing to or from rat or hybrid form is a move action. Upon assuming either form, the wererat regains hit points as if having rested for a day. A slain wereat reverts to its humanoid form, although it remains dead. Afflicted wererats find this ability difficult to control. The rare natural wererat has full control over this power.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -427,7 +427,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A wererat can communciate with rats in any form and gains a +4 species bonus on @Check[skill:diplomacy]{Diplomacy check}s when influencing a rat’s attitude. A friendly rat understands and heeds simple commands, such “wait,” “watch,” “flee,” and “attack.”</p>",
+        "description": "<p>A wererat can communciate with rats in any form and gains a +4 species bonus on @Check[skill:diplomacy]{Diplomacy check}s when influencing a rat\u2019s attitude. A friendly rat understands and heeds simple commands, such \u201cwait,\u201d \u201cwatch,\u201d \u201cflee,\u201d and \u201cattack.\u201d</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -470,7 +470,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/person.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/person.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

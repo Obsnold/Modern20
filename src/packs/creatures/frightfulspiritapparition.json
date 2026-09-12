@@ -260,7 +260,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Any living creature within 60 feet that views the frightful spirit must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + spirit’s Hit Dice + spirit’s Charisma modifier) or immediately suffer 1d4 points of temporary Strength damage, 1d4 points of temporary Dexterity damage, and 1d4 points of temporary Constitution damage. A creature that successfully saves against this effect cannot be affected by the same spirit’s horrific appearance for one day.</p>",
+        "description": "<p>Any living creature within 60 feet that views the frightful spirit must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + spirit\u2019s Hit Dice + spirit\u2019s Charisma modifier) or immediately suffer 1d4 points of temporary Strength damage, 1d4 points of temporary Dexterity damage, and 1d4 points of temporary Constitution damage. A creature that successfully saves against this effect cannot be affected by the same spirit\u2019s horrific appearance for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -379,7 +379,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

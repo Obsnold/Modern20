@@ -305,7 +305,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -344,7 +344,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -358,7 +358,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A vrock can release masses of spores from its body once every 3 rounds. The spores automatically deal 1d8 points of damage to all creatures within 5 feet of the vrock. They then penetrate the skin and grow, dealing an additional 1d2 points of damage each round for 10 rounds. At the end of this time, the victim is covered with a tangle of viny growths. A delay poison spell stops the spores’ growth for the duration. Bless, neutralize poison, or remove disease kills the spores, as does sprinkling the victim with a vial of holy water.</p>",
+        "description": "<p>A vrock can release masses of spores from its body once every 3 rounds. The spores automatically deal 1d8 points of damage to all creatures within 5 feet of the vrock. They then penetrate the skin and grow, dealing an additional 1d2 points of damage each round for 10 rounds. At the end of this time, the victim is covered with a tangle of viny growths. A delay poison spell stops the spores\u2019 growth for the duration. Bless, neutralize poison, or remove disease kills the spores, as does sprinkling the victim with a vial of holy water.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -374,7 +374,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Once per hour, a vrock can emit a piercing screech. Every creature within a 30-foot radius must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 vrock’s Hit Dice + vrock’s Constitution modifier) or be stunned for 1 round.</p>",
+        "description": "<p>Once per hour, a vrock can emit a piercing screech. Every creature within a 30-foot radius must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 vrock\u2019s Hit Dice + vrock\u2019s Constitution modifier) or be stunned for 1 round.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -418,7 +418,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>At will—darkness, detect magical aura, displacement, telekinesis (DC 17). These abilities are as the spells cast by a 10th-level Mage. The DCs are Intelligence-based.</p>",
+        "description": "<p>At will\u2014darkness, detect magical aura, displacement, telekinesis (DC 17). These abilities are as the spells cast by a 10th-level Mage. The DCs are Intelligence-based.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -434,7 +434,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>At will—charm person (DC 12), suggestion (DC 14). These abilities are as the psionic powers manifested by a 10th-level Telepath. The DCs are Charismabased.</p>",
+        "description": "<p>At will\u2014charm person (DC 12), suggestion (DC 14). These abilities are as the psionic powers manifested by a 10th-level Telepath. The DCs are Charismabased.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -642,7 +642,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A vrock has spell resistance equal to 12 + the vrock’s Hit Dice (SR 20 for a normal vrock).</p>",
+        "description": "<p>A vrock has spell resistance equal to 12 + the vrock\u2019s Hit Dice (SR 20 for a normal vrock).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -685,7 +685,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg"
+      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

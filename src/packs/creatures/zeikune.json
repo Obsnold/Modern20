@@ -195,7 +195,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -239,7 +239,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Once the zeikune gets a hold of its opponent (see Improved Grab above), it begins injecting fluids that dissolve the victim’s organs, dealing 1d4 points of Constitution damage per round. If the creature dies or its Constitution score drops to 0 as a result of this process, the creature’s organs turn to slush, and the ability damage becomes ability drain. The victim dies, at which point the zeikune can begin sucking the liquefied organs from the creature’s body (see Siphon Fluids, below).</p>",
+        "description": "<p>Once the zeikune gets a hold of its opponent (see Improved Grab above), it begins injecting fluids that dissolve the victim\u2019s organs, dealing 1d4 points of Constitution damage per round. If the creature dies or its Constitution score drops to 0 as a result of this process, the creature\u2019s organs turn to slush, and the ability damage becomes ability drain. The victim dies, at which point the zeikune can begin sucking the liquefied organs from the creature\u2019s body (see Siphon Fluids, below).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -255,7 +255,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A creature with power resistance can avoid the effects of psionic powers that directly affect it. To determine whether a spell or spell-like ability works, the psionic power manifester must make a level check (1d20 + manifester’s level). If the result equals or exceeds the creature’s power resistance, the power works normally, although the creature is still allowed a saving throw.</p>",
+        "description": "<p>A creature with power resistance can avoid the effects of psionic powers that directly affect it. To determine whether a spell or spell-like ability works, the psionic power manifester must make a level check (1d20 + manifester\u2019s level). If the result equals or exceeds the creature\u2019s power resistance, the power works normally, although the creature is still allowed a saving throw.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
@@ -271,7 +271,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>At will—combat precognition (always active), mental blast, object reading; 3/day—inflict pain, levitate. Manifester level 5th; save DC 10 + zeikune’s key ability modifier + power level.</p>",
+        "description": "<p>At will\u2014combat precognition (always active), mental blast, object reading; 3/day\u2014inflict pain, levitate. Manifester level 5th; save DC 10 + zeikune\u2019s key ability modifier + power level.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -287,7 +287,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Once a zeikune liquefies the internal organs of a creature, it can spend a fullround action siphoning the fluids from the dead creature’s body, leaving behind a shriveled husk. The fluid not only provides sustenance but also heals the zeikune of 3d6 points of damage and 1d6 points of ability damage (per ability).</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
+        "description": "<p>Once a zeikune liquefies the internal organs of a creature, it can spend a fullround action siphoning the fluids from the dead creature\u2019s body, leaving behind a shriveled husk. The fluid not only provides sustenance but also heals the zeikune of 3d6 points of damage and 1d6 points of ability damage (per ability).</p><p>Questions? Comments? Boredome? Spot a typoe or a broken link? If you have any of these, feel free to send me an e-mail message at</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -314,7 +314,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/floating-tentacles.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/floating-tentacles.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

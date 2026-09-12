@@ -198,7 +198,7 @@
         "prerequisites": [],
         "benefit": "The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.",
         "normal": "",
-        "special": "Remember that the Tumble skill can’t be used untrained.",
+        "special": "Remember that the Tumble skill can\u2019t be used untrained.",
         "repeatable": false
       },
       "_key": "!actors.items!rNj1V8upBbDJaqer.icyXWDtjBPoUQY9M"
@@ -209,7 +209,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the jumping jack’s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the jumping jack\u2019s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -317,7 +317,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg"
+      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

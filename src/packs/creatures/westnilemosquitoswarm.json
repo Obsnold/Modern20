@@ -172,7 +172,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
-        "description": "<p>West Nile virus—bite. @Check[save:fort|dc:12]{Fortitude save (DC 12)} negates; incubation period 1d4 days; initial damage 1 Dex and 1 Con; secondary damage 1d2 Dex (temporary) and 1d2 Con (temporary or permanent).</p>",
+        "description": "<p>West Nile virus\u2014bite. @Check[save:fort|dc:12]{Fortitude save (DC 12)} negates; incubation period 1d4 days; initial damage 1 Dex and 1 Con; secondary damage 1d2 Dex (temporary) and 1d2 Con (temporary or permanent).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -231,7 +231,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/skoll/long-legged-spider.svg"
+      "src": "systems/modern20/assets/tokens/skoll/long-legged-spider.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

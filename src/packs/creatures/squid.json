@@ -217,7 +217,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Both the squid and giant squid can emit a cloud of jet-black ink as a free action. The squid’s ink cloud fills a 10-foot cube, while the giant squid’s ink cloud fills a 20-foot cube. The cloud provides total concealment, which the squid normally uses to escape a losing fight. All vision within the cloud is obscured.</p>",
+        "description": "<p>Both the squid and giant squid can emit a cloud of jet-black ink as a free action. The squid\u2019s ink cloud fills a 10-foot cube, while the giant squid\u2019s ink cloud fills a 20-foot cube. The cloud provides total concealment, which the squid normally uses to escape a losing fight. All vision within the cloud is obscured.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -233,7 +233,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A squid or giant squid can jet backward once per round as a full-round action. This increases the squid’s speed to 240 feet and the giant squid’s speed to 320 feet.</p>",
+        "description": "<p>A squid or giant squid can jet backward once per round as a full-round action. This increases the squid\u2019s speed to 240 feet and the giant squid\u2019s speed to 320 feet.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -308,7 +308,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg"
+      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

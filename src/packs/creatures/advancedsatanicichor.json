@@ -236,7 +236,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>If it succeeds at an attack roll against a living creature, satanic ichor can enter the creature’s body through one or more orifices (usually the mouth, nostrils, or ears) or an open wound. The target gets a @Check[save:will]{Will save} (DC 10 + 1/2 the satanic ichor’s Hit Dice + its Charisma modifier) to keep the satanic ichor from entering and taking control of its body. If the save fails, the satanic ichor seizes control of the creature’s body, using it as a vessel to commit murder and other atrocities. A remove curse spell can expel satanic ichor from a creature’s body, but the caster must succeed at a level check (1d20 + caster level) or the spell fails (DC 10 + 1/2 the satanic ichor’s Hit Dice + its Charisma modifier). The creature possessed by satanic ichor has no memory of the possession once the satanic ichor is expelled. If the host drops to 0 or fewer hit points, the satanic ichor inside spills out through the mouth, ears, and nostrils and tries to commandeer a new “vessel” as quickly as possible. While possessing a creature, satanic ichor cannot be attacked directly.</p><p>A living creature possessed by satanic ichor takes 1d2 points of temporary Constitution damage per day, or 1d6 points per day if the satanic ichor’s size category is larger than its host’s. The Constitution damage cannot be healed until the satanic ichor is expelled.</p>",
+        "description": "<p>If it succeeds at an attack roll against a living creature, satanic ichor can enter the creature\u2019s body through one or more orifices (usually the mouth, nostrils, or ears) or an open wound. The target gets a @Check[save:will]{Will save} (DC 10 + 1/2 the satanic ichor\u2019s Hit Dice + its Charisma modifier) to keep the satanic ichor from entering and taking control of its body. If the save fails, the satanic ichor seizes control of the creature\u2019s body, using it as a vessel to commit murder and other atrocities. A remove curse spell can expel satanic ichor from a creature\u2019s body, but the caster must succeed at a level check (1d20 + caster level) or the spell fails (DC 10 + 1/2 the satanic ichor\u2019s Hit Dice + its Charisma modifier). The creature possessed by satanic ichor has no memory of the possession once the satanic ichor is expelled. If the host drops to 0 or fewer hit points, the satanic ichor inside spills out through the mouth, ears, and nostrils and tries to commandeer a new \u201cvessel\u201d as quickly as possible. While possessing a creature, satanic ichor cannot be attacked directly.</p><p>A living creature possessed by satanic ichor takes 1d2 points of temporary Constitution damage per day, or 1d6 points per day if the satanic ichor\u2019s size category is larger than its host\u2019s. The Constitution damage cannot be healed until the satanic ichor is expelled.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -277,7 +277,11 @@
       }
     ],
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/slime.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/slime.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

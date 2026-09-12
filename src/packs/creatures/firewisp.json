@@ -178,7 +178,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>A fire wisp ignores the first 10 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the fire wisp’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/ concussion).</p>",
+        "description": "<p>A fire wisp ignores the first 10 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the fire wisp\u2019s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/ concussion).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -210,7 +210,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A fire wisp can attack multiple creatures in the same round by leaping from one to the next. A fire wisp can attack as many creatures in a single round as it can reach with a full round of movement (40 feet), leaving behind visible arcs of green fire between the targets. It makes a separate attack roll for each target, and all attacks are made at the fire wisp’s full attack bonus. A leaping fire wisp does not provoke attacks of opportunity as it enters a target’s square.</p>",
+        "description": "<p>A fire wisp can attack multiple creatures in the same round by leaping from one to the next. A fire wisp can attack as many creatures in a single round as it can reach with a full round of movement (40 feet), leaving behind visible arcs of green fire between the targets. It makes a separate attack roll for each target, and all attacks are made at the fire wisp\u2019s full attack bonus. A leaping fire wisp does not provoke attacks of opportunity as it enters a target\u2019s square.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -319,7 +319,11 @@
       }
     ],
     "texture": {
-      "src": "systems/modern20/assets/tokens/sbed/fire.svg"
+      "src": "systems/modern20/assets/tokens/sbed/fire.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

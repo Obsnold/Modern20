@@ -247,7 +247,7 @@
         "prerequisites": [],
         "benefit": "Pick two of the following skills: Craft (chemical), Craft (electronic), Craft (mechanical), and Craft (structural). The character gets a +2 bonus on all checks with those skills.",
         "normal": "",
-        "special": "The character can select this feat twice. The second time, the character applies it to the two skills he or she didn’t pick originally. Remember that Craft (chemical), Craft (electronic), and Craft (mechanical) cannot be used untrained.",
+        "special": "The character can select this feat twice. The second time, the character applies it to the two skills he or she didn\u2019t pick originally. Remember that Craft (chemical), Craft (electronic), and Craft (mechanical) cannot be used untrained.",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.7BH7z5dBjpThvT20"
       },
@@ -265,7 +265,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
@@ -297,7 +297,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>When making a @Check[skill:disableDevice]{Disable Device check}, a gremlin completely disassembles the device if the check result is 5 or more higher than the DC of the skill check. Reassembling the device requires a successful @Check[skill:repair]{Repair check} against a DC equal to the gremlin’s @Check[skill:disableDevice]{Disable Device check} result.</p>",
+        "description": "<p>When making a @Check[skill:disableDevice]{Disable Device check}, a gremlin completely disassembles the device if the check result is 5 or more higher than the DC of the skill check. Reassembling the device requires a successful @Check[skill:repair]{Repair check} against a DC equal to the gremlin\u2019s @Check[skill:disableDevice]{Disable Device check} result.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -329,7 +329,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>1/day—degauss, haywire, machine invisibility (DC 13), power device. Caster level 1st.</p>",
+        "description": "<p>1/day\u2014degauss, haywire, machine invisibility (DC 13), power device. Caster level 1st.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -399,7 +399,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/fairy.svg"
+      "src": "systems/modern20/assets/tokens/lorc/fairy.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

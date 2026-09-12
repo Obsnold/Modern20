@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/delapouite/magic-potion.svg",
   "system": {
-    "description": "<p>This potion improves the imbiber’s strength, resulting in a +5 enhancement bonus to the drinker’s Strength score for 5 minutes.</p>",
+    "description": "<p>This potion improves the imbiber\u2019s strength, resulting in a +5 enhancement bonus to the drinker\u2019s Strength score for 5 minutes.</p>",
     "source": "d20 Modern",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.WmxqGysLfKltpkbJ",
@@ -21,7 +21,7 @@
     "modern20": {
       "book": "d20 Modern",
       "purchaseDC": "23",
-      "weight": "—",
+      "weight": "\u2014",
       "casterLevel": "5th",
       "itemType": "Potion"
     }

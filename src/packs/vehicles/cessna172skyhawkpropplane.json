@@ -36,7 +36,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/skoll/airplane.svg"
+      "src": "systems/modern20/assets/tokens/skoll/airplane.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

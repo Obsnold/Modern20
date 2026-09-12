@@ -212,7 +212,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>A montauk monster ignores the first 20 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the montauk monster’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "description": "<p>A montauk monster ignores the first 20 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the montauk monster\u2019s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -260,7 +260,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
-        "description": "<p>In addition to its base damage, a Montauk monster’s claw attack deals 1d6 points of electricity damage and 1d6 points of fire damage with a successful hit.</p>",
+        "description": "<p>In addition to its base damage, a Montauk monster\u2019s claw attack deals 1d6 points of electricity damage and 1d6 points of fire damage with a successful hit.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -292,7 +292,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
-        "description": "<p>A montauk monster heals 3 points of damage per round unless it is reduced to –10 or fewer hit points. This ability does not enable a montauk monster to regrow or reattach severed body parts.</p>",
+        "description": "<p>A montauk monster heals 3 points of damage per round unless it is reduced to \u201310 or fewer hit points. This ability does not enable a montauk monster to regrow or reattach severed body parts.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -324,7 +324,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, a montauk monster can cause a creature it has successfully hit with a melee attack to fuse with nearby matter. At the time of the attack, the target creature must be within 5 feet of a solid object with a volume at least equal to its own. (In most cases, the ground or a wall is sufficient.) The target must succeed at a @Check[save:will]{Will saving throw} (DC 10 + 1/2 the montauk monster’s Hit Dice + its Charisma modifier) or be fused with the object and instantly killed. The object’s hardness drops by 2 after the fusion, regardless of the creature’s nature or physical makeup. Such an object continues to function normally, but it is usually cosmetically grotesque, with fleshy fingers or a portion of a face projecting from its surface.</p>",
+        "description": "<p>Once every 1d4 rounds, a montauk monster can cause a creature it has successfully hit with a melee attack to fuse with nearby matter. At the time of the attack, the target creature must be within 5 feet of a solid object with a volume at least equal to its own. (In most cases, the ground or a wall is sufficient.) The target must succeed at a @Check[save:will]{Will saving throw} (DC 10 + 1/2 the montauk monster\u2019s Hit Dice + its Charisma modifier) or be fused with the object and instantly killed. The object\u2019s hardness drops by 2 after the fusion, regardless of the creature\u2019s nature or physical makeup. Such an object continues to function normally, but it is usually cosmetically grotesque, with fleshy fingers or a portion of a face projecting from its surface.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -395,7 +395,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/sbed/fire.svg"
+      "src": "systems/modern20/assets/tokens/sbed/fire.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

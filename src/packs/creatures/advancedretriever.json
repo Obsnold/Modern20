@@ -197,7 +197,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
-        "description": "<p>A retriever’s eyes can produce four different magical rays with a range of 100 feet. Each round, it can fire one ray, as a free action. An individual ray is usable only once every 4 rounds. It can fire an eye ray in the same round as it makes physical attacks. The save DC for all rays is 10 + 1/2 the retriever’s Hit Dice + the retriever’s Dexterity modifier. The four eye effects are:</p>",
+        "description": "<p>A retriever\u2019s eyes can produce four different magical rays with a range of 100 feet. Each round, it can fire one ray, as a free action. An individual ray is usable only once every 4 rounds. It can fire an eye ray in the same round as it makes physical attacks. The save DC for all rays is 10 + 1/2 the retriever\u2019s Hit Dice + the retriever\u2019s Dexterity modifier. The four eye effects are:</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -245,7 +245,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/grab.svg",
       "system": {
-        "description": "<p>To use this ability, the retriever must hit with its bite attack. If it wins the grapple check, it establishes a hold and grips the opponent fast in its mouth. This is how it usually “retrieves” things.</p>",
+        "description": "<p>To use this ability, the retriever must hit with its bite attack. If it wins the grapple check, it establishes a hold and grips the opponent fast in its mouth. This is how it usually \u201cretrieves\u201d things.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -331,7 +331,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

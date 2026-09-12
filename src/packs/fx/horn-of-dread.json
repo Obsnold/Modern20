@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/delapouite/car-key.svg",
   "system": {
-    "description": "<p>Up to three times per day, this horn can emit a terrifying noise. Anyone within 50 feet of the horn’s sound must succeed a @Check[save:will|dc:15]{Will save (DC 15)} or be affected by a cause fear spell (as if cast by a 5th-level Acolyte).</p>",
+    "description": "<p>Up to three times per day, this horn can emit a terrifying noise. Anyone within 50 feet of the horn\u2019s sound must succeed a @Check[save:will|dc:15]{Will save (DC 15)} or be affected by a cause fear spell (as if cast by a 5th-level Acolyte).</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "category": "Vehicular",
@@ -21,7 +21,7 @@
     "modern20": {
       "book": "Urban Arcana",
       "purchaseDC": "27",
-      "weight": "— (factored into the vehicle’s weight)",
+      "weight": "\u2014 (factored into the vehicle\u2019s weight)",
       "casterLevel": "5th",
       "itemType": "Wondrous Item (vehicular)"
     }

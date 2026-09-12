@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
   "system": {
-    "description": "<p>This small leather pouch, filled with herbs and crystals, is adorned with small beads and feathers. While worn, it provides a +4 resistance bonus on @Check[save:fort]{Fortitude save}s. The medicine bundle becomes useless once the wearer fails to make a save. Only one medicine bundle can be worn at a time for any benefit —wearing multiple medicine bundles negates the bonus.</p>",
+    "description": "<p>This small leather pouch, filled with herbs and crystals, is adorned with small beads and feathers. While worn, it provides a +4 resistance bonus on @Check[save:fort]{Fortitude save}s. The medicine bundle becomes useless once the wearer fails to make a save. Only one medicine bundle can be worn at a time for any benefit \u2014wearing multiple medicine bundles negates the bonus.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.WOpB2MKETBvWT5PT",
@@ -21,7 +21,7 @@
     "modern20": {
       "book": "Urban Arcana",
       "purchaseDC": "26",
-      "weight": "—",
+      "weight": "\u2014",
       "casterLevel": "1st",
       "itemType": "Wondrous Item (magic)"
     }

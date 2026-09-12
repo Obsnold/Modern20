@@ -197,7 +197,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
-        "description": "<p>A monstrous spider injects poison into its victim with a successful bite. The victim must succeed on a @Check[save:fort]{Fortitude save} or take the initial damage; a second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the poison’s secondary damage. The DC of the @Check[save:fort]{Fortitude save}s and the effects vary depending on the monstrous spider’s size, as shown on Table: Monstrous Spider Poison.</p>",
+        "description": "<p>A monstrous spider injects poison into its victim with a successful bite. The victim must succeed on a @Check[save:fort]{Fortitude save} or take the initial damage; a second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the poison\u2019s secondary damage. The DC of the @Check[save:fort]{Fortitude save}s and the effects vary depending on the monstrous spider\u2019s size, as shown on Table: Monstrous Spider Poison.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -336,7 +336,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/skoll/long-legged-spider.svg"
+      "src": "systems/modern20/assets/tokens/skoll/long-legged-spider.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

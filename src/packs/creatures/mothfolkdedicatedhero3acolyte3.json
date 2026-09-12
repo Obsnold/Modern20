@@ -302,7 +302,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -384,7 +384,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
-        "description": "<p>A mothfolk projects an aura of fear around itself in a 20-foot radius. Creatures within this area that wish to remain must attempt a @Check[save:will]{Will save} (DC 10 + ½ the mothman’s Hit Dice + its Charisma modifier) or be affected as by a fear spell. A mothfolk is immune to the fear auras of other mothfolk.</p>",
+        "description": "<p>A mothfolk projects an aura of fear around itself in a 20-foot radius. Creatures within this area that wish to remain must attempt a @Check[save:will]{Will save} (DC 10 + \u00bd the mothman\u2019s Hit Dice + its Charisma modifier) or be affected as by a fear spell. A mothfolk is immune to the fear auras of other mothfolk.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -471,7 +471,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg"
+      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

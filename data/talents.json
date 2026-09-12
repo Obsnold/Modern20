@@ -4,7 +4,7 @@
     "name": "Charm",
     "tree": "Charm Talent Tree",
     "sourceClass": "Charismatic Hero",
-    "description": "The Charismatic hero gets a competence bonus on all Charisma-based skill checks made to influence members of his chosen gender. (Some characters are charming to members of the opposite gender, others to members of the same gender.) The bonus is equal to the character’s Charismatic level.",
+    "description": "The Charismatic hero gets a competence bonus on all Charisma-based skill checks made to influence members of his chosen gender. (Some characters are charming to members of the opposite gender, others to members of the same gender.) The bonus is equal to the character\u2019s Charismatic level.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
   },
@@ -58,7 +58,7 @@
     "name": "Coordinate",
     "tree": "Leadership Talent Tree",
     "sourceClass": "Charismatic Hero",
-    "description": "The Charismatic hero has a knack for getting people to work together. When the hero can spend a full round directing his or her allies and makes a Charisma check (DC 10), the hero provides any of his or her allies within 30 feet a +1 bonus on their attack rolls and skill checks. The bonus lasts for a number of rounds equal to the hero’s Charisma modifier.The hero can coordinate a number of allies equal to one-half his or her Charismatic level, rounded down (to a minimum of one ally).",
+    "description": "The Charismatic hero has a knack for getting people to work together. When the hero can spend a full round directing his or her allies and makes a Charisma check (DC 10), the hero provides any of his or her allies within 30 feet a +1 bonus on their attack rolls and skill checks. The bonus lasts for a number of rounds equal to the hero\u2019s Charisma modifier.The hero can coordinate a number of allies equal to one-half his or her Charismatic level, rounded down (to a minimum of one ally).",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
   },
@@ -67,7 +67,7 @@
     "name": "Inspiration",
     "tree": "Leadership Talent Tree",
     "sourceClass": "Charismatic Hero",
-    "description": "The Charismatic hero can inspire his or her allies, bolstering them and improving their chances of success. An ally must listen to and observe the Charismatic hero for a full round for the inspiration to take hold, and the hero must make a Charisma check (DC 10). The effect lasts for a number of rounds equal to the hero’s Charisma modifier.",
+    "description": "The Charismatic hero can inspire his or her allies, bolstering them and improving their chances of success. An ally must listen to and observe the Charismatic hero for a full round for the inspiration to take hold, and the hero must make a Charisma check (DC 10). The effect lasts for a number of rounds equal to the hero\u2019s Charisma modifier.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
   },
@@ -76,7 +76,7 @@
     "name": "Greater Inspiration",
     "tree": "Leadership Talent Tree",
     "sourceClass": "Charismatic Hero",
-    "description": "The Charismatic hero can inspire his or her allies to even greater heights, bolstering them and improving their chances of success. An ally must listen to and observe the Charismatic hero for a full round for the greater inspiration to take hold, and the hero must make a Charisma check (DC 10). The effect lasts for a number of rounds equal to the hero’s Charisma modifier.",
+    "description": "The Charismatic hero can inspire his or her allies to even greater heights, bolstering them and improving their chances of success. An ally must listen to and observe the Charismatic hero for a full round for the greater inspiration to take hold, and the hero must make a Charisma check (DC 10). The effect lasts for a number of rounds equal to the hero\u2019s Charisma modifier.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/charismatichero.html"
   },
@@ -85,7 +85,7 @@
     "name": "Empathy",
     "tree": "Empathic Talent Tree",
     "sourceClass": "Dedicated Hero",
-    "description": "The Dedicated hero has a knack for being sensitive to the feelings and thoughts of others without having those feelings and thoughts communicated in any objectively explicit manner. This innate talent provides a bonus on checks involving interaction skills (Bluff, Diplomacy, Handle Animal, Intimidate, Perform, and Sense Motive), provided the hero spends at least 1 minute observing his or her target prior to making the skill check. The bonus is equal to the hero’s Dedicated level.",
+    "description": "The Dedicated hero has a knack for being sensitive to the feelings and thoughts of others without having those feelings and thoughts communicated in any objectively explicit manner. This innate talent provides a bonus on checks involving interaction skills (Bluff, Diplomacy, Handle Animal, Intimidate, Perform, and Sense Motive), provided the hero spends at least 1 minute observing his or her target prior to making the skill check. The bonus is equal to the hero\u2019s Dedicated level.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html"
   },
@@ -94,7 +94,7 @@
     "name": "Improved Aid Another",
     "tree": "Empathic Talent Tree",
     "sourceClass": "Dedicated Hero",
-    "description": "The Dedicated hero’s bonus on attempts to aid another increases by +1 on a successful aid another check. This talent can be selected multiple times, each time increasing the bonus by +1.",
+    "description": "The Dedicated hero\u2019s bonus on attempts to aid another increases by +1 on a successful aid another check. This talent can be selected multiple times, each time increasing the bonus by +1.",
     "prerequisites": [
       "Empathy."
     ],
@@ -105,7 +105,7 @@
     "name": "Intuition",
     "tree": "Empathic Talent Tree",
     "sourceClass": "Dedicated Hero",
-    "description": "The Dedicated hero has an innate ability to sense trouble in the air. The Dedicated hero can make a Will saving throw (DC 15). On a successful save, the hero gets a hunch that everything is all right, or the hero gets a bad feeling about a specific situation, based on the GM’s best guess relating to the circumstances. This talent is usable a number of times per day equal to the character’s Dedicated level.",
+    "description": "The Dedicated hero has an innate ability to sense trouble in the air. The Dedicated hero can make a Will saving throw (DC 15). On a successful save, the hero gets a hunch that everything is all right, or the hero gets a bad feeling about a specific situation, based on the GM\u2019s best guess relating to the circumstances. This talent is usable a number of times per day equal to the character\u2019s Dedicated level.",
     "prerequisites": [
       "Empathy."
     ],
@@ -125,7 +125,7 @@
     "name": "Healing Touch 1",
     "tree": "Healing Talent Tree",
     "sourceClass": "Dedicated Hero",
-    "description": "The Dedicated hero’s ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points.",
+    "description": "The Dedicated hero\u2019s ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points.",
     "prerequisites": [
       "Healing knack"
     ],
@@ -136,7 +136,7 @@
     "name": "Healing Touch 2",
     "tree": "Healing Talent Tree",
     "sourceClass": "Dedicated Hero",
-    "description": "The Dedicated hero’s ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.",
+    "description": "The Dedicated hero\u2019s ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.",
     "prerequisites": [
       "Healing knack",
       "healing touch 1."
@@ -179,7 +179,7 @@
     "name": "Cool Under Pressure",
     "tree": "Insightful Talent Tree",
     "sourceClass": "Dedicated Hero",
-    "description": "The Dedicated hero selects a number of skills equal to 3 + the hero’s Wisdom modifier. When making a check with one of these skills, the Dedicated hero can take 10 even when distracted or under duress.",
+    "description": "The Dedicated hero selects a number of skills equal to 3 + the hero\u2019s Wisdom modifier. When making a check with one of these skills, the Dedicated hero can take 10 even when distracted or under duress.",
     "prerequisites": [
       "Skill emphasis plus either faith or aware."
     ],
@@ -231,7 +231,7 @@
     "name": "Opportunist",
     "tree": "Defensive Talent Tree",
     "sourceClass": "Fast Hero",
-    "description": "The Fast hero can spend 1 action point to use this talent. Once the point is spent, the hero can make an attack of opportunity against an opponent who has just been struck for damage in melee by another character. This attack counts as the Fast hero’s attack of opportunity for that round. Even a Fast hero with the Combat Reflexes feat can’t use this talent more than once per round.",
+    "description": "The Fast hero can spend 1 action point to use this talent. Once the point is spent, the hero can make an attack of opportunity against an opponent who has just been struck for damage in melee by another character. This attack counts as the Fast hero\u2019s attack of opportunity for that round. Even a Fast hero with the Combat Reflexes feat can\u2019t use this talent more than once per round.",
     "prerequisites": [
       "Evasion."
     ],
@@ -242,7 +242,7 @@
     "name": "Increased Speed",
     "tree": "Increased Speed Talent Tree",
     "sourceClass": "Fast Hero",
-    "description": "The Fast hero’s base speed increases by 5 feet.",
+    "description": "The Fast hero\u2019s base speed increases by 5 feet.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html"
   },
@@ -251,7 +251,7 @@
     "name": "Improved Increased Speed",
     "tree": "Increased Speed Talent Tree",
     "sourceClass": "Fast Hero",
-    "description": "The Fast hero’s base speed increases by 5 feet. This talent stacks with increased speed (10 feet total).",
+    "description": "The Fast hero\u2019s base speed increases by 5 feet. This talent stacks with increased speed (10 feet total).",
     "prerequisites": [
       "Increased speed."
     ],
@@ -262,7 +262,7 @@
     "name": "Advanced Increased Speed",
     "tree": "Increased Speed Talent Tree",
     "sourceClass": "Fast Hero",
-    "description": "The Fast hero’s base speed increases by 5 feet. This talent stacks with increased speed and improved increased speed (15 feet total).",
+    "description": "The Fast hero\u2019s base speed increases by 5 feet. This talent stacks with increased speed and improved increased speed (15 feet total).",
     "prerequisites": [
       "Increased speed",
       "improved increased speed."
@@ -283,7 +283,7 @@
     "name": "Linguist",
     "tree": "Research Talent Tree",
     "sourceClass": "Smart Hero",
-    "description": "With this talent, the Smart hero becomes a master linguist. Whenever the hero encounters a new language, either spoken or written, that he or she does not know the Smart hero can make an Intelligence check to determine if he or she can understand it. The check is made with a bonus equal to the hero’s Smart level. For a written language, the bonus applies to a Decipher Script check instead.",
+    "description": "With this talent, the Smart hero becomes a master linguist. Whenever the hero encounters a new language, either spoken or written, that he or she does not know the Smart hero can make an Intelligence check to determine if he or she can understand it. The check is made with a bonus equal to the hero\u2019s Smart level. For a written language, the bonus applies to a Decipher Script check instead.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
   },
@@ -292,7 +292,7 @@
     "name": "Exploit Weakness",
     "tree": "Strategy Talent Tree",
     "sourceClass": "Smart Hero",
-    "description": "After 1 round of combat, the Smart hero can designate one opponent and try to find ways to gain an advantage by using brains over brawn. The Smart hero uses a move action and makes an Intelligence check (DC 15) with a bonus equal to his or her Smart level. If the check succeeds, for the rest of the combat the Smart hero uses his or her Intelligence bonus instead of either Strength or Dexterity bonus on attack rolls as the hero finds ways to outthink his opponent and notices weaknesses in his opponent’s fighting style.",
+    "description": "After 1 round of combat, the Smart hero can designate one opponent and try to find ways to gain an advantage by using brains over brawn. The Smart hero uses a move action and makes an Intelligence check (DC 15) with a bonus equal to his or her Smart level. If the check succeeds, for the rest of the combat the Smart hero uses his or her Intelligence bonus instead of either Strength or Dexterity bonus on attack rolls as the hero finds ways to outthink his opponent and notices weaknesses in his opponent\u2019s fighting style.",
     "prerequisites": [
       "One talent from the Research Talent Tree."
     ],
@@ -303,7 +303,7 @@
     "name": "Plan",
     "tree": "Strategy Talent Tree",
     "sourceClass": "Smart Hero",
-    "description": "Prior to an encounter the Smart hero can develop a plan of action to handle the situation. Using this talent requires preparation; a Smart hero can’t use this talent when surprised or otherwise unprepared for a particular situation. Creating a plan requires 1 minute.",
+    "description": "Prior to an encounter the Smart hero can develop a plan of action to handle the situation. Using this talent requires preparation; a Smart hero can\u2019t use this talent when surprised or otherwise unprepared for a particular situation. Creating a plan requires 1 minute.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/smarthero.html"
   },
@@ -353,7 +353,7 @@
     "name": "Ignore Hardness",
     "tree": "Ignore Hardness Talent Tree",
     "sourceClass": "Strong Hero",
-    "description": "The Strong hero ignores 2 points of an object’s hardness.",
+    "description": "The Strong hero ignores 2 points of an object\u2019s hardness.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html"
   },
@@ -362,7 +362,7 @@
     "name": "Improved Ignore Hardness",
     "tree": "Ignore Hardness Talent Tree",
     "sourceClass": "Strong Hero",
-    "description": "The Strong hero ignores 2 additional points of an object’s hardness (for a total of 4).",
+    "description": "The Strong hero ignores 2 additional points of an object\u2019s hardness (for a total of 4).",
     "prerequisites": [
       "Ignore hardness."
     ],
@@ -373,7 +373,7 @@
     "name": "Advanced Ignore Hardness",
     "tree": "Ignore Hardness Talent Tree",
     "sourceClass": "Strong Hero",
-    "description": "The Strong hero ignores 2 additional points of an object’s hardness (for a total of 6).",
+    "description": "The Strong hero ignores 2 additional points of an object\u2019s hardness (for a total of 6).",
     "prerequisites": [
       "Ignore hardness",
       "improved ignore hardness."
@@ -425,25 +425,25 @@
   },
   {
     "id": "toughHeroDamageReduction2",
-    "name": "Damage Reduction 2/—",
+    "name": "Damage Reduction 2/\u2014",
     "tree": "Damage Reduction Talent Tree",
     "sourceClass": "Tough Hero",
-    "description": "The Tough hero ignores an additional 1 point of damage from melee and ranged weapons (DR 2/— total).",
+    "description": "The Tough hero ignores an additional 1 point of damage from melee and ranged weapons (DR 2/\u2014 total).",
     "prerequisites": [
-      "Damage reduction 1/—",
+      "Damage reduction 1/\u2014",
       "one other talent from either the Energy Resistance Talent Tree or the Unbreakable Talent Tree."
     ],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
   },
   {
     "id": "toughHeroDamageReduction3",
-    "name": "Damage Reduction 3/—",
+    "name": "Damage Reduction 3/\u2014",
     "tree": "Damage Reduction Talent Tree",
     "sourceClass": "Tough Hero",
-    "description": "The Tough hero ignores an additional 1 point of damage from melee and ranged weapons (DR 3/— total).",
+    "description": "The Tough hero ignores an additional 1 point of damage from melee and ranged weapons (DR 3/\u2014 total).",
     "prerequisites": [
-      "Damage reduction 1/—",
-      "damage reduction 2/—",
+      "Damage reduction 1/\u2014",
+      "damage reduction 2/\u2014",
       "one other talent from either the Energy Resistance Talent Tree or the Unbreakable Talent Tree."
     ],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
@@ -498,7 +498,7 @@
     "name": "Remain Conscious",
     "tree": "Unbreakable Talent Tree",
     "sourceClass": "Tough Hero",
-    "description": "The Tough hero gains the ability to continue to perform actions when he or she would otherwise be considered unconscious and dying. When the Tough hero’s hit points reach –1, the hero can perform as though he or she were disabled, making either an attack action or a move action every round until the hero reaches –10 hit points (and dies) or the hero’s hit points return to 1 or higher. The hero can choose to succumb to unconsciousness if he or she thinks that doing so might prevent him or her from taking more damage.",
+    "description": "The Tough hero gains the ability to continue to perform actions when he or she would otherwise be considered unconscious and dying. When the Tough hero\u2019s hit points reach \u20131, the hero can perform as though he or she were disabled, making either an attack action or a move action every round until the hero reaches \u201310 hit points (and dies) or the hero\u2019s hit points return to 1 or higher. The hero can choose to succumb to unconsciousness if he or she thinks that doing so might prevent him or her from taking more damage.",
     "prerequisites": [],
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html"
   },

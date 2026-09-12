@@ -265,7 +265,7 @@
           "Personal Firearms Proficiency."
         ],
         "benefit": "The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an autofire setting).",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms set on autofire.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms set on autofire.",
         "special": "",
         "repeatable": false
       },
@@ -302,7 +302,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.wx3oJBeRlneu98v4",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character’s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
+        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character\u2019s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -364,7 +364,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -384,7 +384,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -415,7 +415,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>If a troll hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. This attack automatically deals an additional 2d6+9 points of damage.</p>",
+        "description": "<p>If a troll hits with both claw attacks, it latches onto the opponent\u2019s body and tears the flesh. This attack automatically deals an additional 2d6+9 points of damage.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -522,7 +522,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/giant.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/giant.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

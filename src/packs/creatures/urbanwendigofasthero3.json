@@ -265,7 +265,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -285,7 +285,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false,
@@ -327,7 +327,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
@@ -350,7 +350,7 @@
           "Mobility",
           "base attack bonus +4."
         ],
-        "benefit": "When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater’s speed.",
+        "benefit": "When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater\u2019s speed.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -383,7 +383,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>An urban wendigo that takes damage in combat flies into a berserk rage the following round, clawing and biting madly until either it or its opponent is dead. An enraged urban wendigo gains +4 Strength and +4 Constitution, and takes a –2 penalty Defense. The creature cannot end its rage voluntarily.</p>",
+        "description": "<p>An urban wendigo that takes damage in combat flies into a berserk rage the following round, clawing and biting madly until either it or its opponent is dead. An enraged urban wendigo gains +4 Strength and +4 Constitution, and takes a \u20132 penalty Defense. The creature cannot end its rage voluntarily.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -399,7 +399,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>If an urban wendigo hits with both claw attacks, it latches onto the opponent’s body and tears the flesh. This attack automatially deals an additional 2d6+9 points of damage.</p>",
+        "description": "<p>If an urban wendigo hits with both claw attacks, it latches onto the opponent\u2019s body and tears the flesh. This attack automatially deals an additional 2d6+9 points of damage.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -431,7 +431,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A side effect of the desolation that created the urban wendigo in the first place, the urban wendigo gains the benefit of invisibility, as the spell cast by a 10th-level Mage. By staying out of the direct, focused vision of city dwellers, the urban wendigo can roam the city unseen. Unlike the invisibility spell, any character looking in the general direction of the urban wendigo and taking an attack action to make a @Check[skill:spot]{Spot check} (DC = the urban wendigo’s @Check[skill:hide]{Hide check}) can see the urban wendigo if the check succeeds. Once a character sees an urban wendigo, that character is immune to its peripheral invisibility for 1 hour.</p>",
+        "description": "<p>A side effect of the desolation that created the urban wendigo in the first place, the urban wendigo gains the benefit of invisibility, as the spell cast by a 10th-level Mage. By staying out of the direct, focused vision of city dwellers, the urban wendigo can roam the city unseen. Unlike the invisibility spell, any character looking in the general direction of the urban wendigo and taking an attack action to make a @Check[skill:spot]{Spot check} (DC = the urban wendigo\u2019s @Check[skill:hide]{Hide check}) can see the urban wendigo if the check succeeds. Once a character sees an urban wendigo, that character is immune to its peripheral invisibility for 1 hour.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -501,7 +501,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/giant.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/giant.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }
