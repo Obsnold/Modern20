@@ -1039,12 +1039,26 @@ can be pictured by are cut a second time into `assets/tokens`, as a circle
 rather than a square: a tile is right in a list, and on a battlemap a token
 reads as a figure standing on a patch of ground.
 
-The disc fills its square and the drawing fills 86% of it. The first cut left
-the glyph at 72% inside a circle inset from the edge, which on a one-square
-token looks like the token is the wrong size rather than like the art has a
-margin — Foundry's own mystery-man fills more than that. The discs are re-cut
-from the tiles rather than fetched again (`fetch_art.py --recut`), since the
-glyph survives in `assets/icons` exactly as it arrived.
+**What is scaled is the ink, not the box.** The first two cuts scaled each
+glyph by a fraction of the 512-unit box it was drawn in — 72%, then 86% — and
+both looked too small on a map, for a reason that is only visible once
+measured: the ink spans **71% to 116%** of that box across this set, so one
+number produced 43 different sizes, between 61% and 100% of a grid square. A
+circle inscribed in a square covers 79% of it, which took another bite out of
+anything fitted inside the circle.
+
+So `fetch_art.py` measures what each path actually draws — every point it
+names, control points included, which reads a little wide and so errs towards
+small rather than clipped — and scales that to **94% of the square**, centred.
+All 43 discs now draw their figure at the same size, and the disc is the ground
+the figure stands on rather than a frame it has to fit inside: ink past the rim
+is the normal case. `check_art.py` measures the ink after the transform and
+fails a disc drawn at the wrong size, because that mistake looked like nothing
+at all from here and took two goes to find.
+
+The discs are re-cut from the tiles rather than fetched again
+(`fetch_art.py --recut`), since the glyph survives in `assets/icons` exactly as
+it arrived.
 
 Three places need it, and this is where the other systems differ from each
 other. **dnd5e** ships real illustrations in a `tokens/` directory of its own

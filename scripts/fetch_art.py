@@ -53,14 +53,28 @@ RAW = f"https://raw.githubusercontent.com/{REPO}/{COMMIT}/"
 ASSETS = art.ASSETS
 TOKENS = art.TOKENS
 
-# How much of the token the drawing takes up.
+# How much of the token the drawing takes up, measured on the ink rather than
+# on the box it was drawn in.
 #
-# A token is read at one grid square across, and 0.72 left a creature filling
-# less of its square than Foundry's own mystery-man does — which looks like the
-# token is the wrong size rather than like the art has a margin. The disc is
-# the ground the figure stands on, not a frame around it, so ink that reaches
-# past the rim is fine and a glyph that is nearly the whole square is the point.
-TOKEN_GLYPH = 0.86
+# Both earlier attempts scaled the glyph by a fraction of its 512-unit box,
+# which is the wrong thing to scale. A circle inscribed in a square covers 79%
+# of it, so a glyph fitted inside the circle is smaller again, and each
+# artist's own padding — the ink spans 71% to 116% of the box across this set —
+# then moves it about by a third either way. A token is read at one grid square
+# across: what has to be a known fraction of that square is the ink.
+#
+# So the ink is measured and scaled to fill the square, with the disc as the
+# ground the figure stands on rather than a frame it has to fit inside. Ink
+# reaching past the rim is the normal case now, and the drawings are all the
+# same size as each other for the first time.
+TOKEN_GLYPH = 0.94
+
+# Numbers, commands and argument counts, for measuring what a path draws.
+PATH_NUMBER = re.compile(r"[-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?")
+PATH_COMMAND = re.compile(r"([MmLlHhVvCcSsQqTtAaZz])")
+PATH_ARGS = {"m": 2, "l": 2, "h": 1, "v": 1, "c": 6, "s": 4,
+             "q": 4, "t": 2, "a": 7, "z": 0}
+PATH_DATA = re.compile(r'\bd="([^"]+)"')
 
 # The system's own palette, from css/modern20.css: ink on paper.
 INK = "#1c1a17"
@@ -131,6 +145,77 @@ def resolve(icon: str, by_slug: dict[str, list[str]]) -> str:
 OWN_RECT = re.compile(r"<rect\b[^>]*/>", re.I)
 
 
+def ink_bounds(data: str) -> tuple[float, float, float, float] | None:
+    """What a path actually draws, as (left, top, right, bottom).
+
+    Every point the path names, which for a curve means its control points as
+    well: those can sit outside the curve itself, so this reads a little wider
+    than the ink and never narrower. Wider is the safe direction — it makes a
+    token slightly small rather than clipped.
+    """
+    xs: list[float] = []
+    ys: list[float] = []
+    parts = [part for part in PATH_COMMAND.split(data) if part.strip()]
+    x = y = start_x = start_y = 0.0
+
+    index = 0
+    while index < len(parts):
+        command = parts[index]
+        index += 1
+        numbers: list[float] = []
+        if index < len(parts) and not PATH_COMMAND.fullmatch(parts[index]):
+            numbers = [float(found) for found in PATH_NUMBER.findall(parts[index])]
+            index += 1
+
+        kind = command.lower()
+        relative = command.islower()
+        count = PATH_ARGS.get(kind)
+        if count is None:
+            continue
+        if count == 0:                      # Z: back to where the subpath began
+            x, y = start_x, start_y
+            continue
+
+        first = True
+        while len(numbers) >= count:
+            take, numbers = numbers[:count], numbers[count:]
+            if kind == "h":
+                x = x + take[0] if relative else take[0]
+            elif kind == "v":
+                y = y + take[0] if relative else take[0]
+            else:
+                # An arc states radii and flags before its endpoint; the rest
+                # state pairs, and a curve's control points are pairs too.
+                pairs = ([(take[5], take[6])] if kind == "a"
+                         else [(take[i], take[i + 1])
+                               for i in range(0, count - 1, 2)])
+                for offset_x, offset_y in pairs:
+                    xs.append(x + offset_x if relative else offset_x)
+                    ys.append(y + offset_y if relative else offset_y)
+                x, y = xs[-1], ys[-1]
+            xs.append(x)
+            ys.append(y)
+            if kind == "m" and first:
+                start_x, start_y = x, y
+                # "M x y x y" is a move and then lines, not several moves.
+                kind, count = "l", 2
+            first = False
+
+    if not xs:
+        return None
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def glyph_bounds(glyph: str) -> tuple[float, float, float, float] | None:
+    """The ink of every path in a glyph, together."""
+    boxes = [found for found in
+             (ink_bounds(data) for data in PATH_DATA.findall(glyph)) if found]
+    if not boxes:
+        return None
+    return (min(box[0] for box in boxes), min(box[1] for box in boxes),
+            max(box[2] for box in boxes), max(box[3] for box in boxes))
+
+
 def disc(head: str, glyph: str, width: float, height: float) -> str:
     """The glyph on a paper disc, filling the square it will be drawn in."""
     # Whatever colour the element already carried comes off first: a re-cut
@@ -141,13 +226,26 @@ def disc(head: str, glyph: str, width: float, height: float) -> str:
     # Full bleed: the stroke is centred on the path, so half of it would fall
     # outside the viewBox and be clipped at every edge.
     radius = width / 2 - stroke / 2
-    inset = round((1 - TOKEN_GLYPH) / 2, 4)
+
+    bounds = glyph_bounds(glyph)
+    if not bounds:
+        raise SystemExit("a glyph with no path in it cannot be measured")
+    left, top, right, bottom = bounds
+    drawn = max(right - left, bottom - top)
+    if drawn <= 0:
+        raise SystemExit("a glyph that draws nothing cannot be scaled")
+
+    # Fill the square, then put the middle of the ink in the middle of it.
+    scale = TOKEN_GLYPH * width / drawn
+    shift_x = width / 2 - scale * (left + right) / 2
+    shift_y = height / 2 - scale * (top + bottom) / 2
+
     return (
         f"{head} fill=\"{INK}\">"
         f"<circle cx=\"{width / 2:g}\" cy=\"{height / 2:g}\" r=\"{radius:g}\""
         f" fill=\"{PAPER}\" stroke=\"{RULE}\" stroke-width=\"{stroke}\"/>"
-        f"<g transform=\"translate({width * inset:g} {height * inset:g})"
-        f" scale({TOKEN_GLYPH})\">{glyph}</g></svg>\n"
+        f"<g transform=\"translate({shift_x:.2f} {shift_y:.2f}) "
+        f"scale({scale:.4f})\">{glyph}</g></svg>\n"
     )
 
 
