@@ -50,7 +50,12 @@ LICENCE = "CC BY 3.0"
 TREE = f"https://api.github.com/repos/{REPO}/git/trees/{COMMIT}?recursive=1"
 RAW = f"https://raw.githubusercontent.com/{REPO}/{COMMIT}/"
 
-ASSETS = os.path.join(srd.ROOT, "assets", "icons")
+ASSETS = art.ASSETS
+TOKENS = art.TOKENS
+
+# How much of the disc the glyph takes up, leaving the rest as the ground it
+# stands on.
+TOKEN_GLYPH = 0.72
 
 # The system's own palette, from css/modern20.css: ink on paper.
 INK = "#1c1a17"
@@ -116,6 +121,42 @@ def resolve(icon: str, by_slug: dict[str, list[str]]) -> str:
     return f"{authors[0]}/{icon}.svg"
 
 
+def as_token(svg: str, path: str) -> str:
+    """The same drawing as token artwork: the glyph on a disc.
+
+    An actor that states no token artwork gets Foundry's own
+    CONST.DEFAULT_TOKEN, which is the grey mystery-man — so every creature in
+    the compendium arrived on a map as the same silhouette, however well its
+    sheet was illustrated. A square tile is right in a list and wrong on a
+    battlemap, where a token reads as a figure on a square of ground, so this
+    cuts the tile into a circle and insets the glyph to sit inside it.
+    """
+    box = VIEWBOX.search(svg)
+    if not box:
+        raise SystemExit(f"{path}: no viewBox")
+    size = box.group(1).split()
+    width, height = float(size[2]), float(size[3])
+
+    head, _, rest = BACKGROUND.sub("", svg).partition(">")
+    if not rest:
+        raise SystemExit(f"{path}: not an svg element")
+    glyph = FILL.sub("", rest.replace("</svg>", "").strip())
+
+    stroke = max(2, round(width / 64))
+    radius = width / 2 - stroke
+    # The glyph fills its whole box, so it is shrunk to fit the circle and
+    # moved back to the middle of it.
+    inset = round((1 - TOKEN_GLYPH) / 2, 4)
+
+    return (
+        f"{head} fill=\"{INK}\">"
+        f"<circle cx=\"{width / 2:g}\" cy=\"{height / 2:g}\" r=\"{radius:g}\""
+        f" fill=\"{PAPER}\" stroke=\"{RULE}\" stroke-width=\"{stroke}\"/>"
+        f"<g transform=\"translate({width * inset:g} {height * inset:g})"
+        f" scale({TOKEN_GLYPH})\">{glyph}</g></svg>\n"
+    )
+
+
 def restyle(svg: str, path: str) -> str:
     """The published icon as this system's: ink on paper, in a rounded tile.
 
@@ -159,7 +200,8 @@ def credits(used: dict[str, str]) -> str:
         f"[licence]({SITE.replace('game-icons.net', 'game-icons.net/about.html')})).",
         "",
         "They are recoloured to this system's palette and given a background",
-        "tile; the artwork is otherwise unchanged. Fetched from",
+        "tile; the artwork is otherwise unchanged. The ones an actor can be",
+        "pictured by are cut a second time, as discs, in `../tokens`. Fetched from",
         f"[{REPO}](https://github.com/{REPO}) at commit `{COMMIT[:12]}`",
         "by `scripts/fetch_art.py`, which also generates this file.",
         "",
@@ -193,28 +235,42 @@ def main() -> int:
     print(f"  {len(by_slug)} icons upstream")
 
     os.makedirs(ASSETS, exist_ok=True)
+    # The icons an actor can be pictured by are cut twice: a tile for the
+    # sheets and a disc for the canvas.
+    discs = art.token_icons()
     used: dict[str, str] = {}
-    fetched = kept = 0
+    fetched = kept = cut = 0
     for icon in wanted:
         path = resolve(icon, by_slug)
         used[icon] = path
         local = os.path.join(ASSETS, path)
-        if os.path.exists(local) and not arguments.force:
+        token = os.path.join(TOKENS, path) if icon in discs else ""
+
+        if (os.path.exists(local) and (not token or os.path.exists(token))
+                and not arguments.force):
             kept += 1
             continue
         try:
             svg = fetch(RAW + path).decode("utf-8")
         except urllib.error.HTTPError as error:
             raise SystemExit(f"{path}: {error}") from error
+
         os.makedirs(os.path.dirname(local), exist_ok=True)
         with open(local, "w", encoding="utf-8") as handle:
             handle.write(restyle(svg, path))
         fetched += 1
 
+        if token:
+            os.makedirs(os.path.dirname(token), exist_ok=True)
+            with open(token, "w", encoding="utf-8") as handle:
+                handle.write(as_token(svg, path))
+            cut += 1
+
     with open(os.path.join(ASSETS, "CREDITS.md"), "w", encoding="utf-8") as handle:
         handle.write(credits(used))
 
-    print(f"{fetched} fetched, {kept} already here, {len(used)} in assets/icons")
+    print(f"{fetched} fetched, {kept} already here, {len(used)} in assets/icons; "
+          f"{cut} cut as tokens, {len(discs)} in assets/tokens")
     print("assets/icons/CREDITS.md written")
     return 0
 

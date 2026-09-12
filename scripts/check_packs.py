@@ -160,6 +160,12 @@ def main() -> int:
                          f"{token.get('disposition')!r}")
                 if (token.get("bar1") or {}).get("attribute") != "hp":
                     fail(f"{pack}: \"{entry['name']}\" does not show hit points on a bar")
+                # Foundry's own default for a token with no artwork is the grey
+                # mystery-man, so saying nothing here is a decision: every
+                # creature drops onto the map as the same silhouette. That the
+                # file exists is check_art.py's business.
+                if not (token.get("texture") or {}).get("src"):
+                    fail(f"{pack}: \"{entry['name']}\" has no token artwork")
                 # A range of zero is a sense that detects nothing, which is
                 # how a misread "darkvision 1,200 ft." looks from here.
                 if (token.get("sight") or {}).get("enabled") and token["sight"].get("range", 0) < 5:

@@ -5,7 +5,8 @@ licensed **CC BY 3.0** (a few are CC0 — see the upstream
 [licence](https://game-icons.net/about.html)).
 
 They are recoloured to this system's palette and given a background
-tile; the artwork is otherwise unchanged. Fetched from
+tile; the artwork is otherwise unchanged. The ones an actor can be
+pictured by are cut a second time, as discs, in `../tokens`. Fetched from
 [game-icons/icons](https://github.com/game-icons/icons) at commit `82d948812bfe`
 by `scripts/fetch_art.py`, which also generates this file.
 

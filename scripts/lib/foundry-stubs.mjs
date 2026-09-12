@@ -201,6 +201,10 @@ export function installStubs() {
       },
     },
   };
+  // The handful of Foundry constants this system reads. DEFAULT_TOKEN is the
+  // grey mystery-man, and what the migration compares a token's artwork
+  // against to tell "nobody chose this" from "somebody did".
+  globalThis.CONST = { DEFAULT_TOKEN: "icons/svg/mystery-man.svg" };
   globalThis.ui = { notifications: { warn: () => {}, error: () => {} } };
   globalThis.canvas = { tokens: { controlled: [] } };
   globalThis.Handlebars = {

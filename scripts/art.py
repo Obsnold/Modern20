@@ -460,32 +460,45 @@ PLACEHOLDERS = frozenset({
 # directory, which is where a system's own files are served from.
 PREFIX = "systems/modern20/assets/icons/"
 
+# The same drawing again, as a disc, for the canvas. An actor that states no
+# token artwork gets Foundry's CONST.DEFAULT_TOKEN — "icons/svg/mystery-man.svg"
+# — so all 399 of them dropped onto a map as the same grey silhouette however
+# well the sheet was illustrated. A square tile is right in a list and wrong on
+# a battlemap, where a token is read as a figure standing on a square of
+# ground, so the token variants are cut as circles.
+TOKEN_PREFIX = "systems/modern20/assets/tokens/"
+
+# The packs whose documents are actors, and so the packs that need tokens.
+ACTOR_PACKS = frozenset({"creatures", "vehicles", "objects"})
+
 # The directory `fetch_art.py` fills, which is also the record of who drew
 # what: an icon is filed under its author, because that is what CC BY asks to
 # be kept.
-ASSETS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                      "assets", "icons")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS = os.path.join(ROOT, "assets", "icons")
+TOKENS = os.path.join(ROOT, "assets", "tokens")
 
-_FILES: dict[str, list[str]] | None = None
+_FILES: dict[str, dict[str, list[str]]] = {}
 
 
-def vendored() -> dict[str, list[str]]:
-    """What is actually in assets/icons: slug -> the paths that drew it.
+def vendored(directory: str = "") -> dict[str, list[str]]:
+    """What is actually in an asset directory: slug -> the paths that drew it.
 
     Read from the directory rather than from a generated list, so the answer
     to "is this icon here" is the filesystem's and cannot drift from it.
     """
-    global _FILES
-    if _FILES is None:
-        _FILES = {}
-        for path in sorted(glob.glob(os.path.join(ASSETS, "*", "*.svg"))):
+    directory = directory or ASSETS
+    if directory not in _FILES:
+        found: dict[str, list[str]] = {}
+        for path in sorted(glob.glob(os.path.join(directory, "*", "*.svg"))):
             author = os.path.basename(os.path.dirname(path))
             slug = os.path.basename(path)[:-4]
-            _FILES.setdefault(slug, []).append(f"{author}/{slug}.svg")
-    return _FILES
+            found.setdefault(slug, []).append(f"{author}/{slug}.svg")
+        _FILES[directory] = found
+    return _FILES[directory]
 
 
-def resolve(icon: str) -> str | None:
+def resolve(icon: str, directory: str = "") -> str | None:
     """An icon the map names, as the file it is — or None where it is not here.
 
     The map names a bare slug where one author drew the subject and
@@ -493,7 +506,7 @@ def resolve(icon: str) -> str | None:
     disk: a missing file means `fetch_art.py` has not been run, and a document
     is better left with the icon it has than given a broken one.
     """
-    files = vendored()
+    files = vendored(directory)
     if "/" in icon:
         return icon + ".svg" if icon + ".svg" in files.get(icon.split("/")[1], []) else None
     drawn = files.get(icon) or []
@@ -518,6 +531,39 @@ def _path(icon: str) -> str | None:
     """An icon the map names, as an `img` field."""
     found = resolve(icon)
     return PREFIX + found if found else None
+
+
+def token_icons() -> set[str]:
+    """The icons an actor can be pictured by, and so the discs to cut.
+
+    Only the actor packs: a feat needs no token, and cutting 163 discs to use
+    35 of them is 300 KB of the repository nothing points at.
+    """
+    wanted: set[str] = set()
+    for pack, group in PACKS.items():
+        # The pack itself, not what its documents carry: a creature's abilities
+        # are items on an actor and never stand on a map themselves.
+        if pack not in ACTOR_PACKS:
+            continue
+        for _pattern, icon in group.get("keywords") or []:
+            wanted.add(icon)
+        wanted.update((group.get("values") or {}).values())
+        for _field, values in group.get("fields") or []:
+            wanted.update(values.values())
+        if group.get("default"):
+            wanted.add(group["default"])
+    return wanted
+
+
+def token_for(pack: str, document: dict) -> str | None:
+    """The token artwork for an actor: the same drawing, cut as a disc."""
+    if pack not in ACTOR_PACKS:
+        return None
+    icon = icon_for(pack, document)
+    if not icon:
+        return None
+    found = resolve(icon[len(PREFIX):-4], TOKENS)
+    return TOKEN_PREFIX + found if found else None
 
 
 def _read(document: dict, path: str):

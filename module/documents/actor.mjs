@@ -22,7 +22,48 @@ function hasCreatureType(system, ...types) {
   return types.some((match) => type.includes(match));
 }
 
+/**
+ * One drawing per kind of actor, for one that is not in the compendium.
+ *
+ * Deliberately five entries rather than the map the compendium is built from:
+ * that map reads a creature's type, a vehicle's printed name and a weapon's
+ * category, and a blank actor has none of those yet. A hero is a person, an
+ * ordinary is a person, a creature is something looking back at you, a vehicle
+ * is a car and an object is a block.
+ */
+const DEFAULT_ARTWORK = {
+  hero: { img: "systems/modern20/assets/icons/delapouite/person.svg",
+          token: "systems/modern20/assets/tokens/delapouite/person.svg" },
+  ordinary: { img: "systems/modern20/assets/icons/delapouite/person.svg",
+              token: "systems/modern20/assets/tokens/delapouite/person.svg" },
+  creature: { img: "systems/modern20/assets/icons/lorc/alien-stare.svg",
+              token: "systems/modern20/assets/tokens/lorc/alien-stare.svg" },
+  vehicle: { img: "systems/modern20/assets/icons/delapouite/city-car.svg",
+             token: "systems/modern20/assets/tokens/delapouite/city-car.svg" },
+  object: { img: "systems/modern20/assets/icons/lorc/stone-block.svg",
+            token: "systems/modern20/assets/tokens/lorc/stone-block.svg" }
+};
+
 export class Modern20Actor extends Actor {
+  /**
+   * The artwork a new actor starts with, by what kind of actor it is.
+   *
+   * Foundry's own answer is `CONST.DEFAULT_TOKEN` — the grey mystery-man — for
+   * the sheet and the canvas alike, so a GM who makes a creature of their own
+   * gets the same silhouette every other system's users complain about. The
+   * compendium's 399 actors carry artwork chosen from what each one *is*
+   * (`scripts/art.py`), which no amount of JavaScript can do for an actor that
+   * does not exist yet; what a type can say is the kind of thing it will be.
+   *
+   * Foundry calls this on create, and on the "reset" button in the token
+   * configuration sheet.
+   */
+  static getDefaultArtwork(actorData) {
+    const art = DEFAULT_ARTWORK[actorData?.type];
+    if (!art) return super.getDefaultArtwork(actorData);
+    return { img: art.img, texture: { src: art.token } };
+  }
+
   /** Data exposed to roll formulas via @-references, e.g. "@str.mod". */
   getRollData() {
     const data = { ...super.getRollData() };

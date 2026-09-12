@@ -44,6 +44,7 @@ fighting it forever, so this is a standalone game system.
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
 | Artwork | 163 icons over 4,864 documents, chosen by what each thing is: a handgun is a handgun, an SUV an SUV, a Fortitude save an aura |
+| Tokens | All 399 actors: size in squares, vision from the senses line, disposition, HP bar — and artwork, the same drawing cut as a disc for the canvas |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
 | Prototype tokens | All 399 actors: the size the stat block fills, the senses it sees with, hit points on the bar |
 | Sheets for all four actor types | Hero, ordinary, creature and vehicle |
@@ -1012,6 +1013,35 @@ glyph, so it reads on any sheet in any theme and 163 files from the internet
 look like one set. The fetch is pinned to an upstream commit, so it is
 reproducible and moving to newer artwork is an edit rather than something that
 happens quietly on somebody else's machine.
+
+**Tokens are the same drawing, cut as a disc.** An actor that states no token
+artwork gets Foundry's own `CONST.DEFAULT_TOKEN`, which is the grey
+mystery-man — so all 399 actors dropped onto a map as the same silhouette
+however well their sheets were illustrated, and a token is the one image in
+this system that most people look at most of the time. The 43 icons an actor
+can be pictured by are cut a second time into `assets/tokens`, as a circle
+rather than a square: a tile is right in a list, and on a battlemap a token
+reads as a figure standing on a patch of ground.
+
+Three places need it, and this is where the other systems differ from each
+other. **dnd5e** ships real illustrations in a `tokens/` directory of its own
+and overrides `Actor.getDefaultArtwork` so a new actor gets art for its type.
+**pf2e** ships type defaults in the system and leaves its bestiary token art to
+a separate module, because a webp per creature is megabytes and a system is
+downloaded by everyone. Both of those are answers to the same question, and the
+answer here is closer to dnd5e's only because the art is 1–2 KB of SVG: 204 KB
+for the set, which is cheap enough to ship with the system.
+
+So: the compendium's 399 actors carry the artwork chosen from what each one
+*is*; `Modern20Actor.getDefaultArtwork` gives an actor a GM creates the drawing
+its *type* implies, which is as much as can be known about an actor that does
+not exist yet; and `migrate.mjs` fills in the token of an actor imported into a
+world before any of this existed — only where the token is still Foundry's
+default, because artwork somebody chose is a decision. `check_packs.py` fails
+an actor with no token art, and `check_art.py` resolves all 399 token paths,
+holds the discs to the map in both directions, and checks the ten paths the
+modules themselves name — those are exactly the kind of unverifiable string
+this set exists to avoid.
 
 Still placeholder: the cover art in `system.json` (`media`), which wants one
 illustration rather than 163 icons.
