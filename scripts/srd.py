@@ -235,6 +235,21 @@ def to_int(text: str, default: int = 0) -> int:
     return int(match.group()) if match else default
 
 
+# The SRD's own size column: the modifier a creature of each size takes on its
+# Defense and on its attack rolls, which are the same number — "A creature's
+# size modifier applies to its attack rolls and to its Defense."
+#
+# Kept here because three scripts and config.mjs all need it, and the one time
+# it was written out twice the two copies disagreed: the scraper folded the
+# size modifier into a creature's Defense offset while the sheet added it
+# again, so 183 of 300 creatures showed a Defense the book does not print.
+# check_config.py holds this table and config.mjs to each other.
+SIZE_MODIFIER = {
+    "fine": 8, "diminutive": 4, "tiny": 2, "small": 1, "medium": 0,
+    "large": -1, "huge": -2, "gargantuan": -4, "colossal": -8,
+}
+
+
 def slugify(name: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
     return slug or "unnamed"

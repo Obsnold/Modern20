@@ -700,11 +700,9 @@ NATURAL_ATTACKS = {
     "incorporeal touch", "sting", "hoof", "talon", "wing", "tail", "pincer",
 }
 
-# The size modifier a creature takes on its attack rolls.
-ATTACK_SIZE_MODIFIER = {
-    "fine": 8, "diminutive": 4, "tiny": 2, "small": 1, "medium": 0,
-    "large": -1, "huge": -2, "gargantuan": -4, "colossal": -8,
-}
+# The size modifier a creature takes on its attack rolls, which is the same
+# column its Defense uses: srd.SIZE_MODIFIER, not a second copy of it.
+ATTACK_SIZE_MODIFIER = srd.SIZE_MODIFIER
 
 
 def creature_weapons(entry: dict) -> list[dict]:

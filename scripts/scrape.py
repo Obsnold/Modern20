@@ -1520,7 +1520,7 @@ def parse_attacks(text: str) -> list[dict]:
 
 # The size modifier a creature of each size takes on its attack rolls, which is
 # the inverse of the table size_from_defense reads.
-ATTACK_SIZE_MODIFIER = {size: modifier for modifier, size in SIZE_BY_MODIFIER.items()}
+ATTACK_SIZE_MODIFIER = srd.SIZE_MODIFIER
 
 
 def looks_like_allegiance(text: str) -> bool:
@@ -1619,7 +1619,13 @@ def parse_creature_column(rows: dict[str, str], name: str, size_type: str, url: 
         # the printed total, so nothing is silently wrong on the sheet.
         "initiativeMisc": initiative - ability_mod(abilities["dex"]),
         "naturalArmor": natural,
-        "defenseMisc": defense_total - 10 - natural - ability_mod(abilities["dex"]),
+        # The offset that reproduces the printed Defense, which means every
+        # part the sheet adds back has to come off here — the size modifier
+        # included. Leaving it in was worth up to eight points of Defense on
+        # every creature that is not Medium.
+        "defenseMisc": (defense_total - 10 - natural
+                        - ability_mod(abilities["dex"])
+                        - srd.SIZE_MODIFIER.get(size, 0)),
         "defenseTotal": defense_total,
         "saves": {k: v - ability_mod(abilities[a]) for (k, a), v in
                   zip((("fort", "con"), ("ref", "dex"), ("will", "wis")), saves.values())},
