@@ -7,7 +7,8 @@ Every other check in here reads the repository. This one reads the step that
 decides what actually reaches Foundry, which is the only place a file can be
 correct, committed, checked — and absent from the running game.
 
-Both of the bugs it exists for were found by a person opening a compendium:
+The bugs it exists for were all found by a person running a deploy or opening
+a compendium, never by a check:
 
   - `scripts/deploy.sh` copied `module templates lang css` and not `assets`,
     so the artwork the packs point at was never uploaded. Nothing fails; the
@@ -18,9 +19,15 @@ Both of the bugs it exists for were found by a person opening a compendium:
     compendium on the live host for as long as it existed. `check_packs.py`
     read all 26 tables from src/packs and said so, cheerfully, the whole time.
 
+  - and the fix for that one introduced a third: `ssh host NAME="a b c" bash`
+    joins its arguments into one string for the remote shell, so the
+    assignment took "a" and tried to run "b" as a command three quarters of
+    the way through a deploy. It reads like a missing program.
+
 So: every directory the system serves files from has to be in the deploy's own
-list, and the packs it compiles have to be the packs the manifest declares —
-which now means the list is read from the manifest rather than repeated.
+list, the packs it compiles have to be the packs the manifest declares — which
+now means the list is read from the manifest rather than repeated — and nothing
+is handed to ssh as an environment assignment.
 """
 from __future__ import annotations
 
@@ -38,6 +45,13 @@ MANIFEST = os.path.join(srd.ROOT, "system.json")
 
 # `SYSTEM_DIRS="module templates lang css assets"`
 DIRS = re.compile(r'^SYSTEM_DIRS="([^"]+)"', re.M)
+
+# An environment assignment on the ssh command line: `ssh host NAME="$VALUE"`.
+# ssh joins its arguments into one string and hands that to the remote shell,
+# so a value with a space in it stops being a value: `PACK_NAMES="a b c"`
+# assigned "a" and then tried to run "b" as a command, three quarters of the
+# way through a deploy, reading like a missing program.
+SSH_ENV = re.compile(r"^ssh\b[^\n]*?\s([A-Z_]+)=", re.M)
 
 # Any path into the system's own directory, written anywhere in the code or
 # the templates: "systems/modern20/assets/icons/lorc/aura.svg".
@@ -114,6 +128,13 @@ def main() -> int:
     for directory in sorted(sending - set(wanted)):
         if not os.path.isdir(os.path.join(srd.ROOT, directory)):
             problems.append(f"deploy.sh sends {directory}/, which does not exist")
+
+    # Anything the remote script needs is written into the script, where this
+    # heredoc's own quoting survives.
+    for name in SSH_ENV.findall(deploy):
+        problems.append(f"deploy.sh passes {name}= to ssh on the command line, "
+                        "where a value containing a space becomes a command; "
+                        "assign it inside the remote script instead")
 
     # The packs are compiled one at a time, and the list has to be the
     # manifest's. A written-out list is the bug, so finding one is a failure
