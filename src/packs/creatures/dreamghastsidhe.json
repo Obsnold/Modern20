@@ -219,7 +219,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -237,9 +237,9 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
-        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
-        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5"
       },
@@ -257,7 +257,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character increases his or her massive damage threshold by 3 points.",
-        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character\u2019s massive damage threshold is current Con +3.",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.aPNXiSF4u1f9ve4a"
@@ -295,7 +295,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
@@ -340,7 +340,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>The mere sight of a dreamghast in its true form forces the viewer to succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that dreamghast’s despair ability for one day.</p>",
+        "description": "<p>The mere sight of a dreamghast in its true form forces the viewer to succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that dreamghast\u2019s despair ability for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -388,7 +388,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>If the dreamghast considers a dream-eating victim particularly interesting or useful, he may implant a series of enslavement commands in the victim’s mind. The target must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be affected as though by a domination power manifested by a 10th-level Telepath. The dreamghast commands the enslaved victim telepathically when the victim sleeps; when the victim is awake, it acts on previous orders but can’t be given new ones. An enslaved creature obeys the dreamghast’s commands until freed by a dispel magic or remove curse spell or a negate psionics power. The enslaved creature can also attempt a new @Check[save:will]{Will save} every 24 hours to break free. The control is also broken if the dreamghast dies or travels more than 1 mile from its slave.</p>",
+        "description": "<p>If the dreamghast considers a dream-eating victim particularly interesting or useful, he may implant a series of enslavement commands in the victim\u2019s mind. The target must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or be affected as though by a domination power manifested by a 10th-level Telepath. The dreamghast commands the enslaved victim telepathically when the victim sleeps; when the victim is awake, it acts on previous orders but can\u2019t be given new ones. An enslaved creature obeys the dreamghast\u2019s commands until freed by a dispel magic or remove curse spell or a negate psionics power. The enslaved creature can also attempt a new @Check[save:will]{Will save} every 24 hours to break free. The control is also broken if the dreamghast dies or travels more than 1 mile from its slave.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -404,7 +404,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Once the dreamghast eats someone’s dreams, it may consume the subject’s memories as well. The victim must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or suffer complete memory loss. The victim has no memory of his identity, background, family, friends, and so forth. The memory loss has no effect on languages known, class-related talents, or other class features. The subject temporarily loses all Knowledge skills but retains all other skills. The memory loss persists until the victim receives a break enchantment spell or undergoes 1d6 months of therapy.</p>",
+        "description": "<p>Once the dreamghast eats someone\u2019s dreams, it may consume the subject\u2019s memories as well. The victim must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or suffer complete memory loss. The victim has no memory of his identity, background, family, friends, and so forth. The memory loss has no effect on languages known, class-related talents, or other class features. The subject temporarily loses all Knowledge skills but retains all other skills. The memory loss persists until the victim receives a break enchantment spell or undergoes 1d6 months of therapy.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -420,7 +420,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
+        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature\u2019s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "source": "d20 Modern SRD",
         "abilityType": "supernatural",
@@ -484,7 +484,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A dreamghast can caress the forehead of a sleeping victim and consume its dreams for itself. The process requires 10 minutes of uninterrupted feeding, during which time a cloud or roiling vapor emerges from the victim’s head and is sucked into the dreamghast’s gaping maw. Once the dream is devoured, the dreamghast gains a +1 luck bonus on attacks, ability checks, skill checks, and saves and 4 temporary hit points per Hit Die of the victim. The luck bonus and temporary hit points last for 24 hours. At the end of the dream-eating process, the dreamghast chooses whether it wants to enslave the victim or cause memory loss (see below); either is a free action. A sleeping victim has no chance of waking during the dream-devouring process.</p>",
+        "description": "<p>A dreamghast can caress the forehead of a sleeping victim and consume its dreams for itself. The process requires 10 minutes of uninterrupted feeding, during which time a cloud or roiling vapor emerges from the victim\u2019s head and is sucked into the dreamghast\u2019s gaping maw. Once the dream is devoured, the dreamghast gains a +1 luck bonus on attacks, ability checks, skill checks, and saves and 4 temporary hit points per Hit Die of the victim. The luck bonus and temporary hit points last for 24 hours. At the end of the dream-eating process, the dreamghast chooses whether it wants to enslave the victim or cause memory loss (see below); either is a free action. A sleeping victim has no chance of waking during the dream-devouring process.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -506,7 +506,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/fairy.svg"
+      "src": "systems/modern20/assets/tokens/lorc/fairy.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

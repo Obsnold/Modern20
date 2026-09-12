@@ -192,7 +192,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A litter brute can simply bowl over opponents up to one size category smaller than itself as a free attack during its move action. This attack affects as many opponents as the monster’s body can cover. Each target can make either an attack of opportunity against the litter brute or a @Check[save:ref]{Reflex save} (DC 10 + 1/2 the litter brute’s Hit Dice + its Strength modifier) to avoid being engulfed. A successful saving throw indicates that the target has been pushed back or aside (target’s choice) as the litter brute surges forward.</p><p>An engulfed creature is considered grappled. A litter brute cannot make a slam attack during a round in which it attempts to engulf, but each engulfed creature takes slam damage (half bludgeoning, half slashing) on that round and every round that it remains trapped.</p>",
+        "description": "<p>A litter brute can simply bowl over opponents up to one size category smaller than itself as a free attack during its move action. This attack affects as many opponents as the monster\u2019s body can cover. Each target can make either an attack of opportunity against the litter brute or a @Check[save:ref]{Reflex save} (DC 10 + 1/2 the litter brute\u2019s Hit Dice + its Strength modifier) to avoid being engulfed. A successful saving throw indicates that the target has been pushed back or aside (target\u2019s choice) as the litter brute surges forward.</p><p>An engulfed creature is considered grappled. A litter brute cannot make a slam attack during a round in which it attempts to engulf, but each engulfed creature takes slam damage (half bludgeoning, half slashing) on that round and every round that it remains trapped.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -220,7 +220,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/healing.svg",
       "system": {
-        "description": "<p>So long as there is some sort of litter or refuse within 60 feet of it, a litter brute heals 1 point of damage per round unless it is reduced to –10 or fewer hit points. This ability does not enable the litter brute to regrow or reattach severed body parts.</p>",
+        "description": "<p>So long as there is some sort of litter or refuse within 60 feet of it, a litter brute heals 1 point of damage per round unless it is reduced to \u201310 or fewer hit points. This ability does not enable the litter brute to regrow or reattach severed body parts.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -252,7 +252,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Within a litter brute’s body are countless sharp implements, which protrude from its form in various places. Because of these protrusions, half of the damage a litterfolk deals with a slam attack is slashing damage.</p>",
+        "description": "<p>Within a litter brute\u2019s body are countless sharp implements, which protrude from its form in various places. Because of these protrusions, half of the damage a litterfolk deals with a slam attack is slashing damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -295,7 +295,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

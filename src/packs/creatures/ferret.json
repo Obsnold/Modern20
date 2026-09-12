@@ -197,7 +197,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>If a ferret hits with a bite attack, it uses its powerful jaws to latch onto the opponent’s body and automatically deals bite damage each round it remains attached. An attached ferret loses its Dexterity bonus to Defense and has a Defense of 12.</p>",
+        "description": "<p>If a ferret hits with a bite attack, it uses its powerful jaws to latch onto the opponent\u2019s body and automatically deals bite damage each round it remains attached. An attached ferret loses its Dexterity bonus to Defense and has a Defense of 12.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -283,7 +283,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg"
+      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

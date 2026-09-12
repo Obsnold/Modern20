@@ -360,7 +360,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>In campaigns without magic weapons, the GM can either disregard the gargoyle’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
+        "description": "<p>In campaigns without magic weapons, the GM can either disregard the gargoyle\u2019s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -430,7 +430,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/beast-eye.svg"
+      "src": "systems/modern20/assets/tokens/lorc/beast-eye.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

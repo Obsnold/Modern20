@@ -245,7 +245,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>See Table: Creature Sizes for attack and Defense modifiers based on size, as well as for a snake’s fighting space (assuming the creature is coiled) and reach.</p>",
+        "description": "<p>See Table: Creature Sizes for attack and Defense modifiers based on size, as well as for a snake\u2019s fighting space (assuming the creature is coiled) and reach.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -261,7 +261,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
-        "description": "<p>A viper injects venom with a successful bite. The victim must succeed on a @Check[save:fort]{Fortitude save} or take 1d6 points of temporary Constitution damage; a second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the venom’s secondary damage (same as the initial damage). The save DC is equal to 11 + 1/2 the snake’s Hit Dice + the snake’s Constitution modifier (DC 11 for a Tiny viper).</p>",
+        "description": "<p>A viper injects venom with a successful bite. The victim must succeed on a @Check[save:fort]{Fortitude save} or take 1d6 points of temporary Constitution damage; a second @Check[save:fort]{Fortitude save} must be made 1 minute later to negate the venom\u2019s secondary damage (same as the initial damage). The save DC is equal to 11 + 1/2 the snake\u2019s Hit Dice + the snake\u2019s Constitution modifier (DC 11 for a Tiny viper).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/animals.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -315,7 +315,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg"
+      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

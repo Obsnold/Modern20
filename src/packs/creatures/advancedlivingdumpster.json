@@ -167,7 +167,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Because the living dumpster relies on small caster wheels for locomotion, its speed is reduced by half on very soft or soft surfaces such as mud or thick lawns. It can’t negotiate stairs, although it can hop up or down a curb without difficulty.</p>",
+        "description": "<p>Because the living dumpster relies on small caster wheels for locomotion, its speed is reduced by half on very soft or soft surfaces such as mud or thick lawns. It can\u2019t negotiate stairs, although it can hop up or down a curb without difficulty.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -242,7 +242,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

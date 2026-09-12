@@ -247,7 +247,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The yeti’s white fur grants it a +15 species bonus on @Check[skill:hide]{Hide check}s made in snowy conditions.</p>",
+        "description": "<p>The yeti\u2019s white fur grants it a +15 species bonus on @Check[skill:hide]{Hide check}s made in snowy conditions.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -274,7 +274,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/horned-helm.svg"
+      "src": "systems/modern20/assets/tokens/lorc/horned-helm.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

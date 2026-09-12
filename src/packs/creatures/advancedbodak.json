@@ -188,7 +188,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -236,7 +236,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>A bodak ignores the first 15 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the bodak’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "description": "<p>A bodak ignores the first 15 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the bodak\u2019s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -252,7 +252,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
-        "description": "<p>Any creature within 30 feet of a bodak that meets its gaze must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the bodak’s Hit Dice + its Charisma modifier) or die instantly. This ability is usable at will.</p>",
+        "description": "<p>Any creature within 30 feet of a bodak that meets its gaze must succeed at a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the bodak\u2019s Hit Dice + its Charisma modifier) or die instantly. This ability is usable at will.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -296,7 +296,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Occasionally, a bodak sees something that reminds it of its past life. At the start of every encounter, there is a 5% chance that a bodak notices something about an opponent (randomly determined if more than one opponent is present) that triggers its memory of the past. When such a flashback occurs, the bodak takes no actions for 1 round, though it can defend itself normally. Thereafter, it takes a –2 morale penalty on all attack rolls directed at that opponent for the remainder of the combat.</p>",
+        "description": "<p>Occasionally, a bodak sees something that reminds it of its past life. At the start of every encounter, there is a 5% chance that a bodak notices something about an opponent (randomly determined if more than one opponent is present) that triggers its memory of the past. When such a flashback occurs, the bodak takes no actions for 1 round, though it can defend itself normally. Thereafter, it takes a \u20132 morale penalty on all attack rolls directed at that opponent for the remainder of the combat.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -312,7 +312,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The merest touch of sunlight sears a bodak’s tainted alien flesh. Each round of exposure to the direct rays of the sun deals 1 point of damage to the creature.</p>",
+        "description": "<p>The merest touch of sunlight sears a bodak\u2019s tainted alien flesh. Each round of exposure to the direct rays of the sun deals 1 point of damage to the creature.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -366,7 +366,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

@@ -231,7 +231,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -336,7 +336,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/sbed/claw.svg",
       "system": {
-        "description": "<p>A jynx’s claws ignore the hardness of items made of wood, metal, or plastic.</p>",
+        "description": "<p>A jynx\u2019s claws ignore the hardness of items made of wood, metal, or plastic.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -390,7 +390,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/fairy.svg"
+      "src": "systems/modern20/assets/tokens/lorc/fairy.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

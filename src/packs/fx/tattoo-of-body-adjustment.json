@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/lorc/pierced-body.svg",
   "system": {
-    "description": "<p>This tattoo has one of three effects, which the bearer chooses at the time of activation:</p><p>Instantly heal 3d6 points of damage.</p><p>Gain a +7 bonus on the bearer’s next @Check[save:fort]{Fortitude save} to negate further damage from any one disease or poison currently afflicting the bearer.</p><p>Instantly heal 2 points of temporary ability damage.</p>",
+    "description": "<p>This tattoo has one of three effects, which the bearer chooses at the time of activation:</p><p>Instantly heal 3d6 points of damage.</p><p>Gain a +7 bonus on the bearer\u2019s next @Check[save:fort]{Fortitude save} to negate further damage from any one disease or poison currently afflicting the bearer.</p><p>Instantly heal 2 points of temporary ability damage.</p>",
     "source": "d20 Modern",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.hWRKKsF6TAzSigx3",
@@ -21,7 +21,7 @@
     "modern20": {
       "book": "d20 Modern",
       "purchaseDC": "20",
-      "weight": "—",
+      "weight": "\u2014",
       "casterLevel": "3rd",
       "itemType": "Tattoo (psionic)"
     }

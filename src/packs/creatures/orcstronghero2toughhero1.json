@@ -277,7 +277,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -354,7 +354,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -374,7 +374,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
@@ -425,7 +425,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Orcs suffer a –1 penalty to attack rolls in bright sunlight or within the radius of effects or spells that duplicate bright sunlight (such as daylight).</p>",
+        "description": "<p>Orcs suffer a \u20131 penalty to attack rolls in bright sunlight or within the radius of effects or spells that duplicate bright sunlight (such as daylight).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -468,7 +468,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/person.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/person.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/delapouite/diamond-ring.svg",
   "system": {
-    "description": "<p>This ring continually provides a +30 bonus to the wearer’s @Check[skill:jump]{Jump check}s and eliminates the wearer’s usual maximum distance limit.</p>",
+    "description": "<p>This ring continually provides a +30 bonus to the wearer\u2019s @Check[skill:jump]{Jump check}s and eliminates the wearer\u2019s usual maximum distance limit.</p>",
     "source": "d20 Modern",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxitems.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.WmxqGysLfKltpkbJ",
@@ -21,7 +21,7 @@
     "modern20": {
       "book": "d20 Modern",
       "purchaseDC": "26",
-      "weight": "—",
+      "weight": "\u2014",
       "casterLevel": "1st",
       "itemType": "Ring (magic)"
     }

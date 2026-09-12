@@ -245,7 +245,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg"
+      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

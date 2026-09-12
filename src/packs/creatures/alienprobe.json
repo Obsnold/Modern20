@@ -157,7 +157,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
-        "description": "<p>As an attack action, an alien probe can produce an extremely bright, blue-white light in a 60-foot cone. This light is not so much an attack form as a side effect of the means by which the creature gathers data. Nevertheless, exposure to the effect can cause mild discomfort or even harm to carbon-based life forms. Each creature within the area of the light takes 1d4 points of fire damage and is nauseated for 1d4 rounds; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the alien probe’s Hit Dice + its Charisma modifier) halves the damage and negates the nauseating effect. A creature that fails the saving throw by 5 or more is also paralyzed until removed from the area. A creature that fails the save by 10 or more experiences such severe swelling of the flesh that it is blinded as well as paralyzed. The paralysis and blindness last for 2d4 days, or until the victim receives medical attention (Treat Injury DC 15).</p>",
+        "description": "<p>As an attack action, an alien probe can produce an extremely bright, blue-white light in a 60-foot cone. This light is not so much an attack form as a side effect of the means by which the creature gathers data. Nevertheless, exposure to the effect can cause mild discomfort or even harm to carbon-based life forms. Each creature within the area of the light takes 1d4 points of fire damage and is nauseated for 1d4 rounds; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the alien probe\u2019s Hit Dice + its Charisma modifier) halves the damage and negates the nauseating effect. A creature that fails the saving throw by 5 or more is also paralyzed until removed from the area. A creature that fails the save by 10 or more experiences such severe swelling of the flesh that it is blinded as well as paralyzed. The paralysis and blindness last for 2d4 days, or until the victim receives medical attention (Treat Injury DC 15).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -222,7 +222,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
-        "description": "<p>As an attack action, an alien probe can psionically transfer itself plus up to 300 pounds of additional material and/or creatures up to 600 feet; creatures can resist with a successful @Check[save:will]{Will save} (DC 10 + 1/2 the alien probe’s Hit Dice + its Charisma modifier). The probe must be in physical contact with the materials or creatures that it wishes to transfer. This ability is usable at will.</p>",
+        "description": "<p>As an attack action, an alien probe can psionically transfer itself plus up to 300 pounds of additional material and/or creatures up to 600 feet; creatures can resist with a successful @Check[save:will]{Will save} (DC 10 + 1/2 the alien probe\u2019s Hit Dice + its Charisma modifier). The probe must be in physical contact with the materials or creatures that it wishes to transfer. This ability is usable at will.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -250,7 +250,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>As a free action, an alien probe can become invisible by shifting its light display to a wavelength beyond other creatures’ ability to perceive. This ability is usable at will, and the effect lasts until dismissed (also a free action).</p>",
+        "description": "<p>As a free action, an alien probe can become invisible by shifting its light display to a wavelength beyond other creatures\u2019 ability to perceive. This ability is usable at will, and the effect lasts until dismissed (also a free action).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -266,7 +266,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>At will—brain lock, daze, detect psionics, tailor memory, telekinesis. Manifester level 10th; save DC 10 + alien probe’s key ability modifier + power level.</p>",
+        "description": "<p>At will\u2014brain lock, daze, detect psionics, tailor memory, telekinesis. Manifester level 10th; save DC 10 + alien probe\u2019s key ability modifier + power level.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -325,7 +325,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

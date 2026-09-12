@@ -189,7 +189,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/swallower.svg",
       "system": {
-        "description": "<p>If a tyrannosaur begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the tyrannosaur, the opponent takes bludgeoning damage equal to the tyrannosaur’s bite attack plus 1d6 points of acid damage per round from the monster’s gizzard. A successful grapple check allows the swallowed creature to climb out of the gizzard and return to the tyrannosaur’s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gizzard using claws or a Small or Tiny slashing weapon. Dealing at least 25 points of damage to the gizzard (Defense 20) in this way creates an opening large enough to permit escape. Once the creature exits, the tyrannosaur must make a successful @Check[save:fort|dc:20]{Fortitude save (DC 20)} or die, whether or not the full amount of damage was dealt with a single blow. A Huge tyrannosaur’s gizzard can hold 2 Medium-size, 8 Small, 32 Tiny, or 128 Diminutive or smaller opponents.</p>",
+        "description": "<p>If a tyrannosaur begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the tyrannosaur, the opponent takes bludgeoning damage equal to the tyrannosaur\u2019s bite attack plus 1d6 points of acid damage per round from the monster\u2019s gizzard. A successful grapple check allows the swallowed creature to climb out of the gizzard and return to the tyrannosaur\u2019s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gizzard using claws or a Small or Tiny slashing weapon. Dealing at least 25 points of damage to the gizzard (Defense 20) in this way creates an opening large enough to permit escape. Once the creature exits, the tyrannosaur must make a successful @Check[save:fort|dc:20]{Fortitude save (DC 20)} or die, whether or not the full amount of damage was dealt with a single blow. A Huge tyrannosaur\u2019s gizzard can hold 2 Medium-size, 8 Small, 32 Tiny, or 128 Diminutive or smaller opponents.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -211,7 +211,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg"
+      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

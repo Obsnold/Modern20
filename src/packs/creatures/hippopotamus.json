@@ -157,7 +157,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
-        "description": "<p>A hippopotamus can seal its nostrils by muscular action and hold its breath for a number of rounds equal to its Constitution score × 10.</p>",
+        "description": "<p>A hippopotamus can seal its nostrils by muscular action and hold its breath for a number of rounds equal to its Constitution score \u00d7 10.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -211,7 +211,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg"
+      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

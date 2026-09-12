@@ -302,7 +302,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -324,8 +324,8 @@
           "Personal Firearms Proficiency",
           "Advanced Firearms Proficiency."
         ],
-        "benefit": "When using an automatic firearm with at least five bullets loaded, the character may fire a short burst as a single attack against a single target. The character receives a –4 penalty on the attack roll, but deal +2 dice of damage.",
-        "normal": "Autofire uses ten bullets, targets a 10-foot-by-10-foot area, and can’t be aimed at a specific target. Without this feat, if a character attempts an autofire attack at a specific target, it simply counts as a normal attack and all the extra bullets are wasted.",
+        "benefit": "When using an automatic firearm with at least five bullets loaded, the character may fire a short burst as a single attack against a single target. The character receives a \u20134 penalty on the attack roll, but deal +2 dice of damage.",
+        "normal": "Autofire uses ten bullets, targets a 10-foot-by-10-foot area, and can\u2019t be aimed at a specific target. Without this feat, if a character attempts an autofire attack at a specific target, it simply counts as a normal attack and all the extra bullets are wasted.",
         "special": "If the firearm has a three-round burst setting, firing a burst expends three bullets instead of five and can be used if the weapon has only three bullets in it.",
         "repeatable": false
       },
@@ -344,7 +344,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -362,7 +362,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.OkLVdpGFXfrDqArP",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character’s Reputation bonus increases by +3.",
+        "benefit": "The character\u2019s Reputation bonus increases by +3.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -382,7 +382,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -413,7 +413,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
-        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
+        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature\u2019s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
@@ -461,7 +461,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
-        "description": "<p>When in its fire form (see below), an elohim projects an aura of righteous wrath that is fearsome to behold. Each creature within 30 feet must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) or cower until the elohim moves out of range, until it stops using its fire form ability, or until 10 rounds have elapsed. Thereafter, the creature is shaken for 24 hours.</p><p>A creature that makes a successful saving throw or has stopped cowering after a failure is immune to that elohim’s fear aura for 24 hours.</p>",
+        "description": "<p>When in its fire form (see below), an elohim projects an aura of righteous wrath that is fearsome to behold. Each creature within 30 feet must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the elohim\u2019s Hit Dice + its Charisma modifier) or cower until the elohim moves out of range, until it stops using its fire form ability, or until 10 rounds have elapsed. Thereafter, the creature is shaken for 24 hours.</p><p>A creature that makes a successful saving throw or has stopped cowering after a failure is immune to that elohim\u2019s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -489,7 +489,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
-        "description": "<p>At will, an elohim can assume fire form, changing its body and equipment into a pillar of living, semisolid flame. In this form, the elohim can use its flame shield ability and swing its flame sword normally, but any normal, unattended objects it touches immediately catch on fire. Any creature that touches or is touched by an elohim in fire form takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim’s Hit Dice + its Charisma modifier) halves the damage. A creature that grapples with an elohim in this form takes 4d6 points of fire damage per round of grappling (no saving throw). In fire form, the elohim can deal an extra 2d6 points of fire damage to an opponent with a successful unarmed attack, though it usually prefers to use its flame sword. An elohim in fire form can fly at a speed of 60 feet with perfect maneuverability, and it gains damage reduction 10/+1 and a +10 circumstance bonus on @Check[skill:escapeArtist]{Escape Artist check}s. Assuming fire form or reverting to human form requires a full-round action. An elohim that is killed or knocked unconscious while in fire form instantly reverts to its human form.</p>",
+        "description": "<p>At will, an elohim can assume fire form, changing its body and equipment into a pillar of living, semisolid flame. In this form, the elohim can use its flame shield ability and swing its flame sword normally, but any normal, unattended objects it touches immediately catch on fire. Any creature that touches or is touched by an elohim in fire form takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim\u2019s Hit Dice + its Charisma modifier) halves the damage. A creature that grapples with an elohim in this form takes 4d6 points of fire damage per round of grappling (no saving throw). In fire form, the elohim can deal an extra 2d6 points of fire damage to an opponent with a successful unarmed attack, though it usually prefers to use its flame sword. An elohim in fire form can fly at a speed of 60 feet with perfect maneuverability, and it gains damage reduction 10/+1 and a +10 circumstance bonus on @Check[skill:escapeArtist]{Escape Artist check}s. Assuming fire form or reverting to human form requires a full-round action. An elohim that is killed or knocked unconscious while in fire form instantly reverts to its human form.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -538,7 +538,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
-        "description": "<p>At will as an attack action, an elohim can summon a shield of semisolid fire that floats near its body. This shield grants the creature a +2 bonus to Defense, and any adjacent foe that makes a melee attack against the elohim takes 1d6 points of fire damage from the shield.</p><p>If desired, the elohim can use an attack action to send the flame shield hurtling toward a foe up to 100 feet away with no range penalty. On a successful ranged touch attack, the shield deals 3d6 points of fire damage to the designated foe; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim’s Hit Dice + the elohim’s Charisma modifier) halves the damage. The elohim loses the shield’s other benefits, and the shield itself disappears.</p>",
+        "description": "<p>At will as an attack action, an elohim can summon a shield of semisolid fire that floats near its body. This shield grants the creature a +2 bonus to Defense, and any adjacent foe that makes a melee attack against the elohim takes 1d6 points of fire damage from the shield.</p><p>If desired, the elohim can use an attack action to send the flame shield hurtling toward a foe up to 100 feet away with no range penalty. On a successful ranged touch attack, the shield deals 3d6 points of fire damage to the designated foe; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the elohim\u2019s Hit Dice + the elohim\u2019s Charisma modifier) halves the damage. The elohim loses the shield\u2019s other benefits, and the shield itself disappears.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -630,7 +630,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/sbed/fire.svg"
+      "src": "systems/modern20/assets/tokens/sbed/fire.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

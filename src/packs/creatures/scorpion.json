@@ -272,7 +272,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
-        "description": "<p>Sting—Fortitude negates; save DC 13; 1d4 Con/1d4 Con.</p>",
+        "description": "<p>Sting\u2014Fortitude negates; save DC 13; 1d4 Con/1d4 Con.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -347,7 +347,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/skoll/long-legged-spider.svg"
+      "src": "systems/modern20/assets/tokens/skoll/long-legged-spider.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

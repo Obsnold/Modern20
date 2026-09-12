@@ -176,7 +176,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/swallower.svg",
       "system": {
-        "description": "<p>A monstrous flytrap can swallow a grabbed opponent two size categories smaller than it by making a successful grapple check. The swallowed creature can attack the flytrap from inside its mouth using claws or a Small or Tiny slashing weapon. The flytrap does not release its opponent until it is slain or its swallowed prey is completely drained of blood (that is, dead). A monstrous flytrap’s mouth can swallow only one opponent at a time and cannot attack while it drains a creature’s blood.</p>",
+        "description": "<p>A monstrous flytrap can swallow a grabbed opponent two size categories smaller than it by making a successful grapple check. The swallowed creature can attack the flytrap from inside its mouth using claws or a Small or Tiny slashing weapon. The flytrap does not release its opponent until it is slain or its swallowed prey is completely drained of blood (that is, dead). A monstrous flytrap\u2019s mouth can swallow only one opponent at a time and cannot attack while it drains a creature\u2019s blood.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -208,7 +208,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability\u2019s range is specified in the creature\u2019s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
@@ -253,7 +253,11 @@
       }
     ],
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/carnivorous-plant.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/carnivorous-plant.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

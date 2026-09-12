@@ -1,6 +1,5 @@
 {
   "_comment": "Hand corrections merged over scraped feats by build_packs.py, keyed by feat id. Each entry needs a 'why' so the next reader can tell a fix from an opinion.",
-
   "alertness": {
     "why": "The SRD prints Alertness's benefit text under a 'Prerequisite' label. The feat has no prerequisite; see https://spellbooksoftware.com/d20mrsd/featorder.html",
     "prerequisites": [],

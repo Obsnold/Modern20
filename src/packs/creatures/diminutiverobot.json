@@ -127,7 +127,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A robot’s speed depends on its size and method of locomotion (bipedal, quadrupedal, tracked, or wheeled). The different speeds are given with each robot’s statistics (below).</p>",
+        "description": "<p>A robot\u2019s speed depends on its size and method of locomotion (bipedal, quadrupedal, tracked, or wheeled). The different speeds are given with each robot\u2019s statistics (below).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -181,7 +181,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg"
+      "src": "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

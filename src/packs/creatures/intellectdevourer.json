@@ -195,7 +195,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
-        "description": "<p>After rendering its victim helpless with its mental blast, an intellect devourer cracks open the victim’s skull, devours the brain within, and physically takes its place, sloughing off part of its own body to fit into the cavity. Once safely in control of the victim’s body, the intellect devourer closes the victim’s wounds with its psionic powers, then removes all physical evidence of its attack and assumes the victim’s identity.</p><p>All of its psionic powers function on the possessed body as if it were the creature’s own, so its first act after assuming control is to use lesser body adjustment to heal the grievous head wound. As long as the victim was not truly dead (hit points reduced to –10) at the time of the cranial invasion, the intellect devourer can control the body completely, though it may move a bit stiffly. The body theft lasts a maximum of seven days, after which the intellect devourer’s own form once again grows too large to remain inside the cranial cavity.</p><p>A possessed body uses the ability scores of its controlling intellect devourer, although its Defense is unchanged. It has a maximum of 6 hit points (even when fully healed) and a base attack bonus of +4. The intellect devourer gains none of the victim’s former class abilities or special qualities.</p>",
+        "description": "<p>After rendering its victim helpless with its mental blast, an intellect devourer cracks open the victim\u2019s skull, devours the brain within, and physically takes its place, sloughing off part of its own body to fit into the cavity. Once safely in control of the victim\u2019s body, the intellect devourer closes the victim\u2019s wounds with its psionic powers, then removes all physical evidence of its attack and assumes the victim\u2019s identity.</p><p>All of its psionic powers function on the possessed body as if it were the creature\u2019s own, so its first act after assuming control is to use lesser body adjustment to heal the grievous head wound. As long as the victim was not truly dead (hit points reduced to \u201310) at the time of the cranial invasion, the intellect devourer can control the body completely, though it may move a bit stiffly. The body theft lasts a maximum of seven days, after which the intellect devourer\u2019s own form once again grows too large to remain inside the cranial cavity.</p><p>A possessed body uses the ability scores of its controlling intellect devourer, although its Defense is unchanged. It has a maximum of 6 hit points (even when fully healed) and a base attack bonus of +4. The intellect devourer gains none of the victim\u2019s former class abilities or special qualities.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -211,7 +211,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>An intellect devourer ignores the first 10 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the intellect devourer’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "description": "<p>An intellect devourer ignores the first 10 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the intellect devourer\u2019s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -275,7 +275,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>At will—domination, lesser body adjustment, mental blast. Manifester level 10th; save DC 10 + intellect devourer’s key ability modifier + power level.</p>",
+        "description": "<p>At will\u2014domination, lesser body adjustment, mental blast. Manifester level 10th; save DC 10 + intellect devourer\u2019s key ability modifier + power level.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -291,7 +291,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>When an intellect devourer consumes a brain, it absorbs some of the victim’s memories, gaining a +5 competence bonus on Perform (act) checks when trying to pass off the possessed body as the original creature.</p>",
+        "description": "<p>When an intellect devourer consumes a brain, it absorbs some of the victim\u2019s memories, gaining a +5 competence bonus on Perform (act) checks when trying to pass off the possessed body as the original creature.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -313,7 +313,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/floating-tentacles.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/floating-tentacles.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

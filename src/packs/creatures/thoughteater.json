@@ -198,7 +198,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A thought eater can drain the thoughts of a living being with a successful melee touch attack. Against an opponent with psionics, this ability drains 6 power points from the victim. (If the victim has fewer than 6 power points, the thought eater gains all the remaining power points that the opponent possesses). Against a nonpsionic creature, this attack deals 1 point of Intelligence damage, which provides the thought eater with nourishment equivalent to 6 power points. A thought eater requires the equivalent of 10 power points per day to survive, but it happily gorges itself whenever the opportunity presents itself. Power points consumed in excess of its minimum daily requirement do not count against the next day’s requirement.</p>",
+        "description": "<p>A thought eater can drain the thoughts of a living being with a successful melee touch attack. Against an opponent with psionics, this ability drains 6 power points from the victim. (If the victim has fewer than 6 power points, the thought eater gains all the remaining power points that the opponent possesses). Against a nonpsionic creature, this attack deals 1 point of Intelligence damage, which provides the thought eater with nourishment equivalent to 6 power points. A thought eater requires the equivalent of 10 power points per day to survive, but it happily gorges itself whenever the opportunity presents itself. Power points consumed in excess of its minimum daily requirement do not count against the next day\u2019s requirement.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -214,7 +214,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>At will—daze, detect psionics, distract, verve. Manifester level 10th; save DC 10 + thought eater’s key ability modifier + power level.</p>",
+        "description": "<p>At will\u2014daze, detect psionics, distract, verve. Manifester level 10th; save DC 10 + thought eater\u2019s key ability modifier + power level.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -252,7 +252,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/floating-tentacles.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/floating-tentacles.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "_id": "ESMoyz1P1Mr6P0uV",
-  "name": "Cretan Motors “Hecaton”",
+  "name": "Cretan Motors \u201cHecaton\u201d",
   "type": "vehicle",
   "img": "systems/modern20/assets/icons/delapouite/city-car.svg",
   "system": {
@@ -36,7 +36,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/city-car.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/city-car.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

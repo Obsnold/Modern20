@@ -294,7 +294,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>At will—entangle (DC 13), speak with plants, tree shape; 3/day—charm person (DC 13), deep slumber (DC 15), tree stride; 1/day—suggestion (DC 15). 6th-level caster. The save DCs are Wisdom-based.</p>",
+        "description": "<p>At will\u2014entangle (DC 13), speak with plants, tree shape; 3/day\u2014charm person (DC 13), deep slumber (DC 15), tree stride; 1/day\u2014suggestion (DC 15). 6th-level caster. The save DCs are Wisdom-based.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -310,7 +310,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Each dryad is mystically bound to a single, enormous tree, or a copse of trees situated in one place (such as a lobby atrium) and must never stray more than 300 yards from it. Any who do stray from their trees become ill and die within 4d6 hours. A dryad’s tree does not radiate magic.</p>",
+        "description": "<p>Each dryad is mystically bound to a single, enormous tree, or a copse of trees situated in one place (such as a lobby atrium) and must never stray more than 300 yards from it. Any who do stray from their trees become ill and die within 4d6 hours. A dryad\u2019s tree does not radiate magic.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -348,7 +348,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/fairy.svg"
+      "src": "systems/modern20/assets/tokens/lorc/fairy.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

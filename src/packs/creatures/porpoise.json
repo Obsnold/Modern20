@@ -195,7 +195,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Porpoises can “see” by emitting high-frequency sounds, inaudible to most other creatures. This form of echolocation allows them to locate objects and creatures within 120 feet. A silence spell negates this and forces the porpoise to rely on its vision, which is approximately as good as a human’s.</p>",
+        "description": "<p>Porpoises can \u201csee\u201d by emitting high-frequency sounds, inaudible to most other creatures. This form of echolocation allows them to locate objects and creatures within 120 feet. A silence spell negates this and forces the porpoise to rely on its vision, which is approximately as good as a human\u2019s.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -249,7 +249,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg"
+      "src": "systems/modern20/assets/tokens/lorc/wolf-head.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

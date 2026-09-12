@@ -316,7 +316,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -337,7 +337,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -356,9 +356,9 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
-        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
-        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5"
       },
@@ -418,7 +418,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -489,7 +489,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>1/day—detect magical aura, gaseous form, invisibility, wall of fire (save DC 16). These abilities are as the spells cast by a 10th-level Mage (save DC 12 + spell level). The DCs are Charisma-based.</p>",
+        "description": "<p>1/day\u2014detect magical aura, gaseous form, invisibility, wall of fire (save DC 16). These abilities are as the spells cast by a 10th-level Mage (save DC 12 + spell level). The DCs are Charisma-based.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -521,7 +521,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
-        "description": "<p>Some efreeti (1% of the total population) are “noble” and can grant up to three wishes to any being (non-genies only) who captures them. Noble efreet perform no other services and, upon granting the third wish, are free of their servitude. Whenever possible, an efreeti will twist the words of a wish to bring pain and destruction upon the wisher. A wish can produce any one of the following effects, at the GM’s discretion:</p><p>Duplicate any spell, psionic power, or incantation (including raise dead).</p><p>Undo the harmful effects of a spell, psionic power, or incantation.</p><p>Increase one creature’s Wealth bonus by +20.</p><p>Bequeath one nonmagical item with a purchase DC of 60 or less.</p><p>Bequeath one magic item with a purchase DC of 45 or less.</p><p>Remove all injuries and afflictions affecting one creature.</p><p>Transport a number of creatures equal to the efreeti’s Hit Dice to any place the wisher chooses.</p><p>Undo a single recent event.</p>",
+        "description": "<p>Some efreeti (1% of the total population) are \u201cnoble\u201d and can grant up to three wishes to any being (non-genies only) who captures them. Noble efreet perform no other services and, upon granting the third wish, are free of their servitude. Whenever possible, an efreeti will twist the words of a wish to bring pain and destruction upon the wisher. A wish can produce any one of the following effects, at the GM\u2019s discretion:</p><p>Duplicate any spell, psionic power, or incantation (including raise dead).</p><p>Undo the harmful effects of a spell, psionic power, or incantation.</p><p>Increase one creature\u2019s Wealth bonus by +20.</p><p>Bequeath one nonmagical item with a purchase DC of 60 or less.</p><p>Bequeath one magic item with a purchase DC of 45 or less.</p><p>Remove all injuries and afflictions affecting one creature.</p><p>Transport a number of creatures equal to the efreeti\u2019s Hit Dice to any place the wisher chooses.</p><p>Undo a single recent event.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -676,7 +676,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg"
+      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

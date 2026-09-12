@@ -210,7 +210,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.wx3oJBeRlneu98v4",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character’s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
+        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character\u2019s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -249,7 +249,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -269,7 +269,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
+        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -289,7 +289,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -339,7 +339,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Any humanoid hit by a werewolf’s bite attack (in wolf or hybrid form) must succeed on a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract lycanthropy.</p>",
+        "description": "<p>Any humanoid hit by a werewolf\u2019s bite attack (in wolf or hybrid form) must succeed on a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract lycanthropy.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -403,7 +403,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A werewolf can communicate with wolves in any form and gains a +4 species bonus on @Check[skill:diplomacy]{Diplomacy check}s when influencing a wolf’s attitude. A friendly wolf understands and heeds simple commands, such as “wait,” “chase,” “flee,” and “attack.”</p>",
+        "description": "<p>A werewolf can communicate with wolves in any form and gains a +4 species bonus on @Check[skill:diplomacy]{Diplomacy check}s when influencing a wolf\u2019s attitude. A friendly wolf understands and heeds simple commands, such as \u201cwait,\u201d \u201cchase,\u201d \u201cflee,\u201d and \u201cattack.\u201d</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -446,7 +446,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/person.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/person.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

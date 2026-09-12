@@ -294,7 +294,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -325,7 +325,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
-        "description": "<p>Any creature that takes damage from a rotlord’s bite must succeed on a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract a horrible but treatable wasting disease (incubation period 1 day; 1d4 temporary Constitution). A successful @Check[skill:treatInjury|dc:24]{Treat Injury check (DC 24)} or a remove disease spell cures the affliction.</p>",
+        "description": "<p>Any creature that takes damage from a rotlord\u2019s bite must succeed on a @Check[save:fort|dc:15]{Fortitude save (DC 15)} or contract a horrible but treatable wasting disease (incubation period 1 day; 1d4 temporary Constitution). A successful @Check[skill:treatInjury|dc:24]{Treat Injury check (DC 24)} or a remove disease spell cures the affliction.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -464,7 +464,11 @@
       "visionMode": "darkvision"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg"
+      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

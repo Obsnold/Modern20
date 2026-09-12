@@ -90,7 +90,7 @@
       "hitDice": "5d6",
       "advancement": "N/A",
       "organization": "",
-      "treasure": "Business clothes, cell phone, PDA, briefcase, stun gun, Beretta 92F (9mm autoloader)†, 15 rounds of 9mm ammunition†, firearms license†, wallet with ID and credit cards, BMW M3 sports coupe with car alarm, car alarm keychain. †These items are stored in the BMW’s glove compartment."
+      "treasure": "Business clothes, cell phone, PDA, briefcase, stun gun, Beretta 92F (9mm autoloader)\u2020, 15 rounds of 9mm ammunition\u2020, firearms license\u2020, wallet with ID and credit cards, BMW M3 sports coupe with car alarm, car alarm keychain. \u2020These items are stored in the BMW\u2019s glove compartment."
     },
     "skills": {
       "bluff": {
@@ -269,7 +269,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -307,7 +307,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -370,7 +370,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Puppeteers gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage. This ability is conferred upon the puppeteer’s host as well.</p>",
+        "description": "<p>Puppeteers gain a +5 species bonus on @Check[save:fort]{Fortitude save}s to negate the effects of massive damage. This ability is conferred upon the puppeteer\u2019s host as well.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -386,7 +386,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The Challenge Rating of a puppeteer with a host is equal to the host’s Challenge Rating +1.</p>",
+        "description": "<p>The Challenge Rating of a puppeteer with a host is equal to the host\u2019s Challenge Rating +1.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -418,7 +418,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>3/day—brain lock, lesser domination. These abilities are as the psionic powers of an 8th-level manifester.</p>",
+        "description": "<p>3/day\u2014brain lock, lesser domination. These abilities are as the psionic powers of an 8th-level manifester.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -434,7 +434,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/scroll-unfurled.svg",
       "system": {
-        "description": "<p>If a puppeteer successfully uses lesser domination on its host seven times, the final effect is permanent, bonding the host to the puppeteer. The thralled host will carry out the orders of the puppeteer, including self-destructive orders. Actions against the host’s original nature allow the host a @Check[save:will|dc:22]{Will save (DC 22)} to resist, with a –10 penalty on the roll. A successful save negates that particular action (or future occurrences of that action), but the host remains the puppeteer’s thrall.</p>",
+        "description": "<p>If a puppeteer successfully uses lesser domination on its host seven times, the final effect is permanent, bonding the host to the puppeteer. The thralled host will carry out the orders of the puppeteer, including self-destructive orders. Actions against the host\u2019s original nature allow the host a @Check[save:will|dc:22]{Will save (DC 22)} to resist, with a \u201310 penalty on the roll. A successful save negates that particular action (or future occurrences of that action), but the host remains the puppeteer\u2019s thrall.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -450,7 +450,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>When multiple puppeteers prey on a single host, the blood drain can be too great for the host to bear. The extensive blood drain deals 1 point of temporary Constitution damage per day, and a host reduced to 0 Constitution in this fashion dies. The minimum number of puppeteers needed to cause temporary Constitution damage depends on the host’s size: Diminutive 2, Tiny 4, Small 12, Medium-size 20, Large 30, Gargantuan 50, Colossal 90.</p>",
+        "description": "<p>When multiple puppeteers prey on a single host, the blood drain can be too great for the host to bear. The extensive blood drain deals 1 point of temporary Constitution damage per day, and a host reduced to 0 Constitution in this fashion dies. The minimum number of puppeteers needed to cause temporary Constitution damage depends on the host\u2019s size: Diminutive 2, Tiny 4, Small 12, Medium-size 20, Large 30, Gargantuan 50, Colossal 90.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -466,7 +466,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>An attached puppeteer uses its host’s base saving throw bonuses if they’re better than its own. Effects that target vermin can’t affect a puppeteer riding a humanoid host.</p>",
+        "description": "<p>An attached puppeteer uses its host\u2019s base saving throw bonuses if they\u2019re better than its own. Effects that target vermin can\u2019t affect a puppeteer riding a humanoid host.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -482,7 +482,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Puppeteers are immune to mind-influencing effects. This ability is conferred upon the puppeteer’s host as well.</p>",
+        "description": "<p>Puppeteers are immune to mind-influencing effects. This ability is conferred upon the puppeteer\u2019s host as well.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -527,7 +527,11 @@
       }
     ],
     "texture": {
-      "src": "systems/modern20/assets/tokens/delapouite/person.svg"
+      "src": "systems/modern20/assets/tokens/delapouite/person.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

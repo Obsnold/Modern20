@@ -194,7 +194,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -287,7 +287,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The vivilor gains resistance 15 to one energy type of the summoner’s choosing: acid, fire, cold, electricity, or sonic/concussion.</p>",
+        "description": "<p>The vivilor gains resistance 15 to one energy type of the summoner\u2019s choosing: acid, fire, cold, electricity, or sonic/concussion.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -351,7 +351,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The vivilor’s natural armor bonus to Defense increases by +1.</p>",
+        "description": "<p>The vivilor\u2019s natural armor bonus to Defense increases by +1.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -383,7 +383,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The vivilor gains three additional slam attacks during its full attack action. These additional slams are treated as secondary attacks (–5 penalty to the attack roll).</p>",
+        "description": "<p>The vivilor gains three additional slam attacks during its full attack action. These additional slams are treated as secondary attacks (\u20135 penalty to the attack roll).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -431,7 +431,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The vivilor’s natural armor bonus to Defense increases by +4.</p>",
+        "description": "<p>The vivilor\u2019s natural armor bonus to Defense increases by +4.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -469,7 +469,11 @@
       "attribute": "hp"
     },
     "texture": {
-      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg"
+      "src": "systems/modern20/assets/tokens/lorc/daemon-skull.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
     }
   }
 }

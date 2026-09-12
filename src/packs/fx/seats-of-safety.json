@@ -4,7 +4,7 @@
   "type": "gear",
   "img": "systems/modern20/assets/icons/delapouite/car-key.svg",
   "system": {
-    "description": "<p>The occupants of a vehicle equipped with these seats gain the benefits of three-quarters cover while inside the vehicle. They take no damage from vehicle collisions, they gain a +7 cover bonus to Defense, and they gain a +3 cover bonus on @Check[save:ref]{Reflex save}s. The seats of safety do not function if any of the vehicle’s doors are open.</p>",
+    "description": "<p>The occupants of a vehicle equipped with these seats gain the benefits of three-quarters cover while inside the vehicle. They take no damage from vehicle collisions, they gain a +7 cover bonus to Defense, and they gain a +3 cover bonus on @Check[save:ref]{Reflex save}s. The seats of safety do not function if any of the vehicle\u2019s doors are open.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.nx8V9v92nxuueYB5",
@@ -21,7 +21,7 @@
     "modern20": {
       "book": "Urban Arcana",
       "purchaseDC": "28 (per vehicle)",
-      "weight": "— (factored into the vehicle’s weight)",
+      "weight": "\u2014 (factored into the vehicle\u2019s weight)",
       "casterLevel": "5th",
       "itemType": "Wondrous Item (vehicular)"
     }
