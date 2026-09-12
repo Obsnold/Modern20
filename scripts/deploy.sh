@@ -156,7 +156,9 @@ if [ "\$LIVE_SUM" != "\$ASSET_SUM" ]; then
   exit 1
 fi
 echo "  artwork verified: \$LIVE_COUNT files, \$LIVE_SUM"
-echo "  version live: \$(grep -m1 '\"version\"' $DEST/system.json | tr -d ' ,')"
+# Read with sudo: the files were just chowned to foundry, and the deploying
+# user cannot read them any more.
+echo "  version live: \$(sudo -n grep -m1 '\"version\"' $DEST/system.json | tr -d ' ,')"
 sudo -n systemctl restart foundry
 sleep 8
 systemctl is-active foundry
