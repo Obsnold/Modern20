@@ -19,7 +19,12 @@ a compendium, never by a check:
     compendium on the live host for as long as it existed. `check_packs.py`
     read all 26 tables from src/packs and said so, cheerfully, the whole time.
 
-  - and the fix for that one introduced a third: `ssh host NAME="a b c" bash`
+  - nothing read the artwork back, so a deploy that copied nothing looked
+    exactly like one that copied everything. The symptom is a token that does
+    not change, which is indistinguishable from artwork that is wrong: the
+    token art was adjusted three times before anyone asked whether it was
+    being served at all.
+  - and the fix for the second introduced another: `ssh host NAME="a b c" bash`
     joins its arguments into one string for the remote shell, so the
     assignment took "a" and tried to run "b" as a command three quarters of
     the way through a deploy. It reads like a missing program.
@@ -135,6 +140,15 @@ def main() -> int:
         problems.append(f"deploy.sh passes {name}= to ssh on the command line, "
                         "where a value containing a space becomes a command; "
                         "assign it inside the remote script instead")
+
+    # And it has to read the artwork back. A deploy that copies nothing looks
+    # exactly like one that copies everything, and the symptom is a token that
+    # does not change — which is indistinguishable from art that is wrong, and
+    # cost three rounds of changing art nobody was being served.
+    if "ASSET_SUM" not in deploy:
+        problems.append("deploy.sh does not verify the artwork it sent; a deploy "
+                        "that copies nothing has to be distinguishable from one "
+                        "that copies everything")
 
     # The packs are compiled one at a time, and the list has to be the
     # manifest's. A written-out list is the bug, so finding one is a failure

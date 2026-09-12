@@ -41,6 +41,14 @@ cd "$ROOT"
 # this is the only step that decides what reaches Foundry.
 PACK_NAMES="$(python3 -c 'import json; print(" ".join(p["name"] for p in json.load(open("system.json"))["packs"]))')"
 
+# What the artwork should be, as one number over every file in path order, so
+# the deploy can say whether the files a browser will fetch are the files in
+# this repository. Three rounds of changing the token art went out with no way
+# to tell whether any of it had arrived — the art was adjusted, redeployed and
+# looked at, and "still wrong" could have meant the art or the delivery.
+ASSET_SUM="$(find assets -type f | LC_ALL=C sort | xargs md5sum | awk '{print $1}' | md5sum | cut -d' ' -f1)"
+ASSET_COUNT="$(find assets -type f | wc -l | tr -d ' ')"
+
 # Every directory the system serves files from. assets/ was missing, which is
 # quieter than it sounds: the code and the compendia arrive, and 5,271 images
 # then 404 one at a time into a page nobody is reading.
@@ -105,6 +113,8 @@ export PATH=$NODE_BIN:\$PATH
 PACKS="$PACKS"
 PACK_NAMES="$PACK_NAMES"
 SYSTEM_DIRS="$SYSTEM_DIRS"
+ASSET_SUM="$ASSET_SUM"
+ASSET_COUNT="$ASSET_COUNT"
 rm -rf $STAGE && mkdir -p $STAGE
 tar xzf /tmp/modern20.tgz -C $STAGE
 cd $STAGE
@@ -133,6 +143,20 @@ for dir in \$SYSTEM_DIRS; do
   sudo -n cp -r \$dir/. $DEST/\$dir/
 done
 sudo -n chown -R foundry:foundry $DEST
+
+# The artwork, read back from where Foundry serves it. A deploy that copies
+# nothing looks exactly like a deploy that copies everything, and the symptom
+# is a token that does not change.
+LIVE_COUNT="\$(sudo -n find $DEST/assets -type f | wc -l | tr -d ' ')"
+LIVE_SUM="\$(sudo -n bash -c 'cd $DEST && find assets -type f | LC_ALL=C sort | xargs md5sum' | awk '{print \$1}' | md5sum | cut -d' ' -f1)"
+if [ "\$LIVE_SUM" != "\$ASSET_SUM" ]; then
+  echo "  the artwork on this host is not the artwork that was sent:" >&2
+  echo "    sent \$ASSET_COUNT files, \$ASSET_SUM" >&2
+  echo "    live \$LIVE_COUNT files, \$LIVE_SUM" >&2
+  exit 1
+fi
+echo "  artwork verified: \$LIVE_COUNT files, \$LIVE_SUM"
+echo "  version live: \$(grep -m1 '\"version\"' $DEST/system.json | tr -d ' ,')"
 sudo -n systemctl restart foundry
 sleep 8
 systemctl is-active foundry
