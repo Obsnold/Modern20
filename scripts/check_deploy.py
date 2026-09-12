@@ -145,10 +145,11 @@ def main() -> int:
     # exactly like one that copies everything, and the symptom is a token that
     # does not change — which is indistinguishable from art that is wrong, and
     # cost three rounds of changing art nobody was being served.
-    if "ASSET_SUM" not in deploy:
-        problems.append("deploy.sh does not verify the artwork it sent; a deploy "
-                        "that copies nothing has to be distinguishable from one "
-                        "that copies everything")
+    if not (re.search(r"^ASSET_SUM=", deploy, re.M)
+            and re.search(r'"\\?\$LIVE_SUM"\s*!=\s*"\\?\$ASSET_SUM"', deploy)):
+        problems.append("deploy.sh does not compare the artwork it sent with the "
+                        "artwork on the host; a deploy that copies nothing has to "
+                        "be distinguishable from one that copies everything")
 
     # The packs are compiled one at a time, and the list has to be the
     # manifest's. A written-out list is the bug, so finding one is a failure
