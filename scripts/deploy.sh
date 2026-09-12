@@ -93,9 +93,18 @@ echo "==> Uploading to $HOST"
 scp -q -o BatchMode=yes "$TARBALL" "$HOST:/tmp/modern20.tgz"
 
 echo "==> Remote checks and install"
-ssh -o BatchMode=yes "$HOST" PACKS="$PACKS" PACK_NAMES="$PACK_NAMES" \
-    SYSTEM_DIRS="$SYSTEM_DIRS" bash -euo pipefail -s <<REMOTE
+# Nothing is passed as an environment assignment on the ssh command line: ssh
+# joins its arguments into one string for the remote shell, so a value with a
+# space in it is read as a command. `PACK_NAMES="classes occupations ..."`
+# became an assignment of "classes" followed by an attempt to run
+# "occupations", which is a failure in the middle of a deploy that reads like a
+# missing program. The values are written into the script instead, where this
+# heredoc expands them locally and the quotes survive.
+ssh -o BatchMode=yes "$HOST" bash -euo pipefail -s <<REMOTE
 export PATH=$NODE_BIN:\$PATH
+PACKS="$PACKS"
+PACK_NAMES="$PACK_NAMES"
+SYSTEM_DIRS="$SYSTEM_DIRS"
 rm -rf $STAGE && mkdir -p $STAGE
 tar xzf /tmp/modern20.tgz -C $STAGE
 cd $STAGE
