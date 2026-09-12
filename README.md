@@ -870,6 +870,22 @@ those. Then it stamps the system version into a hidden world setting, and only
 then: a migration that fails says so and records nothing, because a world that
 believes it has been migrated will never try again.
 
+**0.2.0 adds two passes**, which is what the version number is for: an actor
+imported before the compendium had any token artwork carries Foundry's own
+`CONST.DEFAULT_TOKEN`, and a creature imported before the Defense offset was
+right carries a number that shows a Defense the book does not print. Both are
+derived data that arrived after the world did, and both change only what is
+still the default or still exactly the stale arithmetic.
+
+The corrected Defense is not computed in the migration. It is read from the
+compendium the creature came from, matched by name, and applied only where the
+actor's own figure is exactly the compendium's plus the size modifier — so the
+migration cannot invent a number, and a creature that is already right or that
+somebody has adjusted is left alone. The one case it cannot tell apart is a GM
+who adjusted a Large creature by exactly minus one, which is the stale value
+written by hand; a point of Defense on a deliberate tweak is the cheaper of the
+two mistakes, and the code says so.
+
 ## Items on the hotbar
 
 Dragging an item to the hotbar makes a macro that uses it, which every mature
