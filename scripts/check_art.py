@@ -26,6 +26,10 @@ So this resolves every image in every pack against the filesystem — an
   - every actor has to be pictured by a disc that was cut, and every disc has
     to be usable by some actor: a token with no artwork is Foundry's grey
     mystery-man, which is a decision nobody made
+  - every disc has to draw its figure at the fraction of the grid square the
+    cutter intends, measured on the ink and not on the box it was drawn in:
+    that mistake made the tokens look small twice, and looked like nothing at
+    all from here
   - every author whose work is vendored has to appear in
     assets/icons/CREDITS.md, because CC BY is a licence with a condition and a
     missing name is the one way to break it
@@ -48,6 +52,7 @@ import xml.etree.ElementTree as ElementTree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import art  # noqa: E402
+import fetch_art  # noqa: E402
 import srd  # noqa: E402
 
 PACKS = os.path.join(srd.ROOT, "src", "packs")
@@ -79,6 +84,58 @@ def documents():
         yield pack, label, document
         for child in (document.get("items") or []):
             yield pack, f"{label}: {child.get('name')}", child
+
+
+TRANSFORM = re.compile(r"translate\(([-\d.]+) ([-\d.]+)\)\s*scale\(([\d.]+)\)")
+
+# How far off the intended fill a disc may be before it is wrong. The scaling
+# is arithmetic, so this is tight: it catches a disc drawn by an older version
+# of the cutter, not rounding.
+FILL_TOLERANCE = 0.02
+
+
+def disc_trouble(path: str) -> str:
+    """Whether a token disc draws its figure at the size a token is read at.
+
+    Twice now the tokens have looked too small on a map, and both times the
+    cause was scaling the glyph by a fraction of the box it was drawn in rather
+    than by what it actually draws: the ink spans 71% to 116% of that box
+    across this set, so one number produced 43 different sizes. This measures
+    the ink after the transform, which is the only figure that means anything —
+    the fraction of the grid square the creature fills.
+    """
+    root = ElementTree.parse(path).getroot()
+    box = (root.get("viewBox") or "").split()
+    if len(box) != 4:
+        return "has no usable viewBox"
+    width = float(box[2])
+
+    group = root.find(f"{SVG}g")
+    if group is None:
+        return "has no transformed group, so its glyph is not scaled to the token"
+    found = TRANSFORM.search(group.get("transform") or "")
+    if not found:
+        return "has a group whose transform is not a translate and a scale"
+    shift_x, shift_y, scale = (float(value) for value in found.groups())
+
+    data = "".join(element.get("d") or "" for element in group.iter(f"{SVG}path"))
+    bounds = fetch_art.ink_bounds(data)
+    if not bounds:
+        return "draws no path this can measure"
+
+    left, top, right, bottom = bounds
+    drawn = max(right - left, bottom - top) * scale / width
+    if abs(drawn - fetch_art.TOKEN_GLYPH) > FILL_TOLERANCE:
+        return (f"draws its figure at {drawn:.0%} of the square, not "
+                f"{fetch_art.TOKEN_GLYPH:.0%} — re-cut with "
+                "`python3 scripts/fetch_art.py --recut`")
+
+    # A figure that fills the square and sits off-centre hangs off one edge.
+    off_x = abs((left + right) / 2 * scale + shift_x - width / 2)
+    off_y = abs((top + bottom) / 2 * scale + shift_y - float(box[3]) / 2)
+    if max(off_x, off_y) > width * 0.01:
+        return f"draws its figure {max(off_x, off_y):.0f} units off centre"
+    return ""
 
 
 def svg_trouble(path: str) -> str:
@@ -145,7 +202,7 @@ def main() -> int:
                 if not os.path.exists(local):
                     problems.append(f"{label}: {token} is not in assets/tokens")
                 else:
-                    trouble = svg_trouble(local)
+                    trouble = svg_trouble(local) or disc_trouble(local)
                     if trouble:
                         problems.append(f"{label}: token art {relative} {trouble}")
             elif token.startswith("icons/"):
