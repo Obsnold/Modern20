@@ -11,7 +11,8 @@ worse than it did. Which is exactly what would happen if an icon were renamed,
 if `assets/icons` were half-committed, or if the map named a file nobody
 fetched.
 
-So this resolves every `img` in every pack against the filesystem:
+So this resolves every image in every pack against the filesystem — an
+`img`, and an actor's token artwork, which is the one a map actually shows:
 
   - a vendored icon (`systems/modern20/assets/icons/...`) has to be a file in
     this repository, and it has to be an SVG that parses far enough to have a
@@ -22,6 +23,9 @@ So this resolves every `img` in every pack against the filesystem:
   - every icon `scripts/art.py` names has to be fetched, and every fetched
     icon has to be named by the map: an orphan is 4 KB of somebody else's
     artwork carried for nothing, and the licence asks that it be credited
+  - every actor has to be pictured by a disc that was cut, and every disc has
+    to be usable by some actor: a token with no artwork is Foundry's grey
+    mystery-man, which is a decision nobody made
   - every author whose work is vendored has to appear in
     assets/icons/CREDITS.md, because CC BY is a licence with a condition and a
     missing name is the one way to break it
@@ -46,11 +50,15 @@ import art  # noqa: E402
 import srd  # noqa: E402
 
 PACKS = os.path.join(srd.ROOT, "src", "packs")
-ASSETS = os.path.join(srd.ROOT, "assets", "icons")
+ASSETS = art.ASSETS
+TOKENS = art.TOKENS
 CREDITS = os.path.join(ASSETS, "CREDITS.md")
 BASELINE = os.path.join(srd.ROOT, "data", "coverage.json")
 
 VIEWBOX = re.compile(r"<svg\b[^>]*\bviewBox=", re.I)
+
+# An asset path written into a module rather than into a pack.
+ASSET_PATH = re.compile(r"systems/modern20/assets/[\w./-]+")
 
 # Where Foundry keeps its own icons, if this machine has one.
 FOUNDRY = os.environ.get("FOUNDRY_PATH")
@@ -93,10 +101,27 @@ def main() -> int:
     core = 0
     checked = 0
 
+    tokens_used: set[str] = set()
     for pack, label, document in documents():
-        image = document.get("img")
         counts = spread.setdefault(pack, {"documents": 0, "pictured": 0, "icons": set()})
         counts["documents"] += 1
+
+        # An actor's token artwork, which is a second image on the same
+        # document and the one a map actually shows.
+        token = ((document.get("prototypeToken") or {}).get("texture") or {}).get("src")
+        if token:
+            checked += 1
+            if token.startswith(art.TOKEN_PREFIX):
+                relative = token[len(art.TOKEN_PREFIX):]
+                tokens_used.add(relative)
+                if not os.path.exists(os.path.join(TOKENS, relative)):
+                    problems.append(f"{label}: {token} is not in assets/tokens")
+            elif token.startswith("icons/"):
+                core += 1
+            else:
+                problems.append(f"{label}: token art {token} is neither vendored nor core")
+
+        image = document.get("img")
         if not image:
             continue
         counts["pictured"] += 1
@@ -141,6 +166,37 @@ def main() -> int:
         if path not in named and slug not in unqualified:
             problems.append(f"assets/icons/{path} is fetched and nothing names it")
 
+    # The discs, held to the map the same way in both directions: an actor can
+    # only be pictured by one that was cut, and a disc nothing can use is
+    # artwork carried for nothing.
+    discs = {os.path.relpath(path, TOKENS)
+             for path in glob.glob(os.path.join(TOKENS, "*", "*.svg"))}
+    wanted_discs = set()
+    for icon in art.token_icons():
+        found = art.resolve(icon, art.TOKENS)
+        if found:
+            wanted_discs.add(found)
+        else:
+            problems.append(f"scripts/art.py can picture an actor with {icon}, "
+                            "which is not cut as a token")
+    for path in sorted(discs - wanted_discs):
+        problems.append(f"assets/tokens/{path} is cut and no actor can use it")
+
+    # The paths the modules themselves name. There are ten — the artwork a
+    # brand-new actor of each type starts with — and they are the same kind of
+    # string as a core icon path: nobody notices a wrong one until an actor is
+    # created with it.
+    for module in sorted(glob.glob(os.path.join(srd.ROOT, "module", "**", "*.mjs"),
+                                   recursive=True)):
+        with open(module, encoding="utf-8") as handle:
+            source = handle.read()
+        for path in sorted(set(ASSET_PATH.findall(source))):
+            local = os.path.join(srd.ROOT, path.replace("systems/modern20/", ""))
+            checked += 1
+            if not os.path.exists(local):
+                problems.append(f"{os.path.relpath(module, srd.ROOT)} names {path}, "
+                                "which is not in this repository")
+
     # CC BY asks for the author's name, and the author is the directory.
     if not os.path.exists(CREDITS):
         problems.append("assets/icons/CREDITS.md is missing")
@@ -158,6 +214,7 @@ def main() -> int:
         print(f"  {pack:14s} {counts['pictured']:5d} pictured, "
               f"{counts['icons']:3d} distinct icon(s)")
     print(f"\n{checked} images checked, {len(vendored)} vendored icons, "
+          f"{len(tokens_used)} of {len(discs)} token discs in use, "
           f"{core} core icon(s) referenced"
           + ("" if FOUNDRY else " (not verifiable: FOUNDRY_PATH is unset)"))
 

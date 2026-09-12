@@ -1890,6 +1890,17 @@ def apply_art(document: dict, pack: str, *, embedded: bool = False) -> int:
     if icon and document.get("img") in art.PLACEHOLDERS:
         document["img"] = icon
         changed += 1
+
+    # And the canvas. An actor that states no token artwork gets Foundry's
+    # CONST.DEFAULT_TOKEN, the grey mystery-man, so all 399 dropped onto a map
+    # as the same silhouette whatever their sheet showed.
+    token = document.get("prototypeToken")
+    if isinstance(token, dict) and not (token.get("texture") or {}).get("src"):
+        disc = art.token_for(pack, document)
+        if disc:
+            token["texture"] = {"src": disc}
+            changed += 1
+
     for child in (document.get("items") or []):
         changed += apply_art(child, pack, embedded=True)
     return changed

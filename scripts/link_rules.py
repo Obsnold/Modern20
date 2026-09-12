@@ -158,6 +158,18 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
         counts["book"] += 1
         changed = True
 
+    # Token artwork, which an actor already on disk has none of: Foundry's own
+    # default is the grey mystery-man, so this is a placeholder by another
+    # name. Only where the token states none — a token somebody has given art
+    # is theirs.
+    token = document.get("prototypeToken")
+    if isinstance(token, dict) and not (token.get("texture") or {}).get("src"):
+        disc = art.token_for(pack, document)
+        if disc:
+            token["texture"] = {"src": disc}
+            counts["tokened"] += 1
+            changed = True
+
     # What the document's own text tells the reader to roll. Written over the
     # text on disk rather than taken from the import, so a corrected
     # description keeps its correction and gains the rolls it names; the
@@ -360,6 +372,8 @@ def main() -> int:
         print(f"{counts['applied']} item(s) took the effect their own text states")
     if counts["token"]:
         print(f"{counts['token']} actor(s) took the token the import derives")
+    if counts["tokened"]:
+        print(f"{counts['tokened']} actor(s) now stand on the canvas as themselves")
     if counts["defended"]:
         print(f"{counts['defended']} creature(s) now show the Defense the SRD prints")
     if counts["measured"]:

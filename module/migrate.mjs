@@ -17,6 +17,11 @@ import { setting } from "./settings.mjs";
 
 const SYSTEM_ID = "modern20";
 
+// Where this system keeps its two cuts of the same drawing: a tile for the
+// sheets, a disc for the canvas.
+const ICONS = "systems/modern20/assets/icons/";
+const TOKENS = "systems/modern20/assets/tokens/";
+
 /**
  * What a creature of each size fills, in grid squares: the SRD's own Space
  * column over the five feet a square is, with half a square as the floor for
@@ -83,6 +88,17 @@ async function migrateActors() {
     if (squares !== 1 && token.width === 1 && token.height === 1) {
       update.prototypeToken = { width: squares, height: squares };
     }
+
+    // The artwork the token was never given, which is Foundry's default and
+    // so nobody's choice.
+    const source = token.texture?.src ?? "";
+    if (!source || source === CONST.DEFAULT_TOKEN) {
+      const art = tokenArtFor(actor);
+      if (art) {
+        update.prototypeToken = { ...(update.prototypeToken ?? {}),
+                                  texture: { src: art } };
+      }
+    }
     // The space the SRD prints, which was stored as a flat five for every
     // creature until the stat block's own FS/Reach line was read properly.
     if (actor.system?.attributes?.space === 5 && SPACE_FT[size] !== 5) {
@@ -96,6 +112,22 @@ async function migrateActors() {
     await Actor.updateDocuments(updates);
   }
   return updates.length;
+}
+
+/**
+ * The artwork a token was never given.
+ *
+ * An actor imported before the compendium had any has Foundry's own
+ * `CONST.DEFAULT_TOKEN` on its prototype token — the grey mystery-man — and
+ * nothing about loading it will ever change that. The actor's own image is
+ * the one chosen for what it is, and its disc is the same drawing cut for a
+ * map, so that is what the token gets. Only where the token is still the
+ * default: art somebody chose is a decision.
+ */
+function tokenArtFor(actor) {
+  const image = actor.img ?? "";
+  if (!image.startsWith(ICONS)) return "";
+  return TOKENS + image.slice(ICONS.length);
 }
 
 /**
