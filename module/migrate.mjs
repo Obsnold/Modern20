@@ -32,6 +32,16 @@ const TOKEN_SQUARES = {
   large: 2, huge: 3, gargantuan: 4, colossal: 6
 };
 
+/**
+ * The SRD's own size column — the modifier each size takes on Defense and on
+ * attack rolls. The same table as `srd.SIZE_MODIFIER` and `MODERN20.sizes`,
+ * which `check_config.py` holds to each other.
+ */
+const SIZE_MODIFIER = {
+  fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0,
+  large: -1, huge: -2, gargantuan: -4, colossal: -8
+};
+
 /** The same column in feet, for the space an actor occupies. */
 const SPACE_FT = {
   fine: 0.5, diminutive: 1, tiny: 2.5, small: 5, medium: 5,
@@ -50,10 +60,11 @@ export async function migrateWorld() {
   const to = game.system.version;
   if (from === to) return null;
 
-  const counted = { tokens: 0, placed: 0, spaces: 0 };
+  const counted = { tokens: 0, placed: 0, defended: 0 };
   try {
     counted.tokens = await migrateActors();
     counted.placed = await migratePlacedTokens();
+    counted.defended = await migrateCreatureDefense();
   } catch (error) {
     // A failed migration must not stamp the version, or the next load will
     // think the work was done.
@@ -63,7 +74,7 @@ export async function migrateWorld() {
   }
 
   await game.settings.set(SYSTEM_ID, "worldVersion", to);
-  if (counted.tokens || counted.placed) {
+  if (counted.tokens || counted.placed || counted.defended) {
     ui.notifications.info(game.i18n.format("MODERN20.Migration.Done", counted));
   }
   return counted;
@@ -128,6 +139,69 @@ function tokenArtFor(actor) {
   const image = actor.img ?? "";
   if (!image.startsWith(ICONS)) return "";
   return TOKENS + image.slice(ICONS.length);
+}
+
+/**
+ * The Defense of a creature imported before the offset was right.
+ *
+ * Everything derived on a creature is stored as the offset that reproduces the
+ * printed total, and for Defense the size modifier was left in that offset
+ * while the sheet added it too — so a creature imported into this world before
+ * the fix shows a Defense the book does not print, by as much as eight points.
+ * An actor carries its own copy of that number, so correcting the compendium
+ * does nothing for one already in the world.
+ *
+ * The corrected value is not computed here. It is read from the compendium the
+ * creature came from and matched by name, so this migration cannot invent a
+ * number; and it is applied only where the actor's own value is exactly the
+ * stale arithmetic — the compendium's figure plus the size modifier. A creature
+ * already right is left alone, and so is one a GM has adjusted, because
+ * neither is the specific mistake this is for.
+ *
+ * One case it cannot tell apart: a GM who adjusted a creature's Defense by
+ * exactly the size modifier — minus one on a Large creature — has written the
+ * stale value by hand, and this will change it back. There is no way to
+ * distinguish those from here, and a point of Defense on a deliberate tweak is
+ * the cheaper of the two mistakes.
+ */
+async function migrateCreatureDefense() {
+  const creatures = (game.actors ?? []).filter((actor) => actor.type === "creature");
+  if (!creatures.length) return 0;
+
+  const pack = game.packs?.get(`${SYSTEM_ID}.creatures`);
+  if (!pack) return 0;
+  const index = await pack.getIndex({
+    fields: ["system.defense.misc", "system.attributes.size"]
+  });
+
+  // A name that appears twice cannot say which one an actor came from.
+  const printed = new Map();
+  for (const entry of index) {
+    printed.set(entry.name, printed.has(entry.name) ? null : entry);
+  }
+
+  const updates = [];
+  for (const actor of creatures) {
+    const entry = printed.get(actor.name);
+    if (!entry) continue;
+
+    const size = sizeOf(actor);
+    const shift = SIZE_MODIFIER[size];
+    if (!shift) continue;  // Medium creatures were never wrong.
+
+    const right = entry.system?.defense?.misc;
+    const mine = actor.system?.defense?.misc;
+    if (typeof right !== "number" || typeof mine !== "number") continue;
+    if (mine !== right + shift) continue;
+
+    updates.push({ _id: actor.id, "system.defense.misc": right });
+  }
+
+  if (updates.length) {
+    const { Actor } = foundry.documents;
+    await Actor.updateDocuments(updates);
+  }
+  return updates.length;
 }
 
 /**
