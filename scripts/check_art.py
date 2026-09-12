@@ -44,6 +44,7 @@ import json
 import os
 import re
 import sys
+import xml.etree.ElementTree as ElementTree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import art  # noqa: E402
@@ -56,6 +57,8 @@ CREDITS = os.path.join(ASSETS, "CREDITS.md")
 BASELINE = os.path.join(srd.ROOT, "data", "coverage.json")
 
 VIEWBOX = re.compile(r"<svg\b[^>]*\bviewBox=", re.I)
+
+SVG = "{http://www.w3.org/2000/svg}"
 
 # An asset path written into a module rather than into a pack.
 ASSET_PATH = re.compile(r"systems/modern20/assets/[\w./-]+")
@@ -76,6 +79,30 @@ def documents():
         yield pack, label, document
         for child in (document.get("items") or []):
             yield pack, f"{label}: {child.get('name')}", child
+
+
+def svg_trouble(path: str) -> str:
+    """Whether a vendored drawing is a drawing, read as XML rather than as text.
+
+    This used to look for a viewBox in the first 400 bytes, which a file can
+    have while being unusable: re-cutting the discs from the tiles wrote a
+    second `fill` onto the `<svg>` element, and two attributes of one name is
+    not valid XML at all. A regex over the head of the file says nothing about
+    that, and a browser's answer to it is its own business.
+    """
+    try:
+        root = ElementTree.parse(path).getroot()
+    except ElementTree.ParseError as error:
+        return f"does not parse as XML: {error}"
+    if root.tag not in ("svg", f"{SVG}svg"):
+        return f"is a <{root.tag}>, not an <svg>"
+    if not root.get("viewBox"):
+        return "has no viewBox, so it cannot be scaled to a token or a row"
+    if not root.get("fill"):
+        return "states no fill, so its glyph is drawn in whatever it inherits"
+    if len(root) == 0:
+        return "has nothing in it to draw"
+    return ""
 
 
 def core_icon(path: str) -> str:
@@ -114,8 +141,13 @@ def main() -> int:
             if token.startswith(art.TOKEN_PREFIX):
                 relative = token[len(art.TOKEN_PREFIX):]
                 tokens_used.add(relative)
-                if not os.path.exists(os.path.join(TOKENS, relative)):
+                local = os.path.join(TOKENS, relative)
+                if not os.path.exists(local):
                     problems.append(f"{label}: {token} is not in assets/tokens")
+                else:
+                    trouble = svg_trouble(local)
+                    if trouble:
+                        problems.append(f"{label}: token art {relative} {trouble}")
             elif token.startswith("icons/"):
                 core += 1
             else:
@@ -135,9 +167,9 @@ def main() -> int:
             if not os.path.exists(local):
                 problems.append(f"{label}: {image} is not in assets/icons")
                 continue
-            with open(local, encoding="utf-8") as handle:
-                if not VIEWBOX.search(handle.read(400)):
-                    problems.append(f"{label}: {relative} is not an svg with a viewBox")
+            trouble = svg_trouble(local)
+            if trouble:
+                problems.append(f"{label}: {relative} {trouble}")
         elif image.startswith("icons/"):
             core += 1
             trouble = core_icon(image)

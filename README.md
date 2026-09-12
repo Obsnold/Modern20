@@ -1039,6 +1039,13 @@ can be pictured by are cut a second time into `assets/tokens`, as a circle
 rather than a square: a tile is right in a list, and on a battlemap a token
 reads as a figure standing on a patch of ground.
 
+The disc fills its square and the drawing fills 86% of it. The first cut left
+the glyph at 72% inside a circle inset from the edge, which on a one-square
+token looks like the token is the wrong size rather than like the art has a
+margin — Foundry's own mystery-man fills more than that. The discs are re-cut
+from the tiles rather than fetched again (`fetch_art.py --recut`), since the
+glyph survives in `assets/icons` exactly as it arrived.
+
 Three places need it, and this is where the other systems differ from each
 other. **dnd5e** ships real illustrations in a `tokens/` directory of its own
 and overrides `Actor.getDefaultArtwork` so a new actor gets art for its type.
