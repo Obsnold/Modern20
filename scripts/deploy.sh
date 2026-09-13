@@ -25,11 +25,39 @@ for argument in "$@"; do
     *) HOST="$argument" ;;
   esac
 done
-HOST="${HOST:-user@host}"
-DEST=/var/lib/foundryvtt/Data/systems/modern20
+# Where this deploys to, and what it expects to find there. All of it comes
+# from the environment, because all of it is a fact about somebody's own
+# machine: a repository that names the host it was deployed to from one
+# person's laptop tells everybody else something untrue.
+#
+#   MODERN20_HOST      user@host of the Foundry server            (required)
+#   MODERN20_DEST      where the system is installed on that host
+#   MODERN20_NODE_BIN  a directory to put on PATH there, if node is not on it
+#   MODERN20_FVTT      the Foundry CLI on that host
+#
+# The defaults are conventions rather than anybody's setup: a packaged Foundry
+# on Linux keeps its data in /var/lib/foundryvtt, and `fvtt` on PATH is what
+# `npm install -g @foundryvtt/foundryvtt-cli` gives you.
+HOST="${HOST:-${MODERN20_HOST:-}}"
+DEST="${MODERN20_DEST:-/var/lib/foundryvtt/Data/systems/modern20}"
 STAGE=/tmp/modern20-deploy
-NODE_BIN=/opt/node/current/bin
-FVTT="\$HOME/fvtt-cli/node_modules/.bin/fvtt"
+NODE_BIN="${MODERN20_NODE_BIN:-}"
+FVTT="${MODERN20_FVTT:-fvtt}"
+
+if [ -z "$HOST" ]; then
+  cat >&2 <<'MESSAGE'
+No host to deploy to. Either pass one:
+
+    scripts/deploy.sh user@host --packs
+
+or set it once, in your shell or in a file this repository does not track:
+
+    export MODERN20_HOST=user@host
+    export MODERN20_DEST=/var/lib/foundryvtt/Data/systems/modern20   # if it differs
+    export MODERN20_FVTT=/path/to/fvtt                               # if not on PATH
+MESSAGE
+  exit 2
+fi
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
@@ -59,6 +87,7 @@ SENT_COUNT="$(find $SYSTEM_DIRS -type f | wc -l | tr -d ' ')"
 echo "==> Local checks"
 # All of them. This list was written out too, and had fallen three checks
 # behind the ones CI runs.
+python3 scripts/check_private.py
 python3 scripts/check_globals.py
 python3 scripts/check_app_props.py
 python3 scripts/check_lang.py
@@ -124,7 +153,7 @@ echo "==> Remote checks and install"
 # missing program. The values are written into the script instead, where this
 # heredoc expands them locally and the quotes survive.
 ssh -o BatchMode=yes "$HOST" bash -euo pipefail -s <<REMOTE
-export PATH=$NODE_BIN:\$PATH
+export PATH="${NODE_BIN:+$NODE_BIN:}\$PATH"
 PACKS="$PACKS"
 PACK_NAMES="$PACK_NAMES"
 SENT_SUM="$SENT_SUM"

@@ -9,7 +9,7 @@
     "lint:py": "ruff check scripts",
     "typecheck": "tsc --noEmit",
     "check": "npm run check:python && npm run check:node",
-    "check:python": "python3 scripts/check_globals.py && python3 scripts/check_app_props.py && python3 scripts/check_lang.py && python3 scripts/check_config.py && python3 scripts/check_shadowing.py && python3 scripts/check_packs.py && python3 scripts/check_coverage.py && python3 scripts/check_rules_links.py && python3 scripts/check_capture.py && python3 scripts/check_art.py && python3 scripts/check_deploy.py && python3 scripts/check_selftest.py && python3 scripts/gen_pregens.py --check && python3 scripts/gen_guide.py --check && python3 scripts/gen_cover.py --check && python3 scripts/gen_scene.py --check",
+    "check:python": "python3 scripts/check_private.py && python3 scripts/check_globals.py && python3 scripts/check_app_props.py && python3 scripts/check_lang.py && python3 scripts/check_config.py && python3 scripts/check_shadowing.py && python3 scripts/check_packs.py && python3 scripts/check_coverage.py && python3 scripts/check_rules_links.py && python3 scripts/check_capture.py && python3 scripts/check_art.py && python3 scripts/check_deploy.py && python3 scripts/check_selftest.py && python3 scripts/gen_pregens.py --check && python3 scripts/gen_guide.py --check && python3 scripts/gen_cover.py --check && python3 scripts/gen_scene.py --check",
     "check:node": "node scripts/check_models.mjs && node scripts/check_templates.mjs && node scripts/check_casting.mjs && node scripts/check_combat.mjs && node scripts/check_creatures.mjs && node scripts/check_objects.mjs && node scripts/check_rules.mjs",
     "test": "npm run lint && npm run check",
     "extract": "python3 scripts/capture_edits.py",
