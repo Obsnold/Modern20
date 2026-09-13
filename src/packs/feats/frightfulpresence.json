@@ -13,7 +13,7 @@
       "Charisma 15",
       "Intimidate 9 ranks."
     ],
-    "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + \u00bd the character\u2019s level + the character\u2019s Charisma modifier). An opponent who fails his or her save is shaken, taking a \u20132 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character\u2019s Charisma modifier. The character can use the feat once per round as a free action.",
+    "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
     "normal": "",
     "special": "",
     "repeatable": false

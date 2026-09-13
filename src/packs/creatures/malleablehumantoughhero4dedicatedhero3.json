@@ -282,7 +282,7 @@
         "prerequisites": [
           "Base attack bonus +1."
         ],
-        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character\u2019s choice) equal to 1d4 + the character\u2019s Strength modifier. The character\u2019s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
+        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character’s choice) equal to 1d4 + the character’s Strength modifier. The character’s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
         "normal": "Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.",
         "special": "",
         "repeatable": false
@@ -342,7 +342,7 @@
           "Combat Martial Arts",
           "base attack bonus +4."
         ],
-        "benefit": "The character\u2019s threat range on an unarmed strike improves to 19\u201320.",
+        "benefit": "The character’s threat range on an unarmed strike improves to 19–20.",
         "normal": "A character without this feat threatens a critical hit with an unarmed strike only on a 20.",
         "special": "",
         "repeatable": false
@@ -363,7 +363,7 @@
         "prerequisites": [],
         "benefit": "The character gets a +2 bonus on all @Check[skill:escapeArtist]{Escape Artist check}s and @Check[skill:sleightOfHand]{Sleight of Hand check}s.",
         "normal": "",
-        "special": "Remember that the Sleight of Hand skill can\u2019t be used untrained.",
+        "special": "Remember that the Sleight of Hand skill can’t be used untrained.",
         "repeatable": false
       },
       "_key": "!actors.items!vYprYh0CTxxiniVK.P6Bj9HD24CCP7cOw"
@@ -381,7 +381,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -444,7 +444,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>This ability allows a malleable creature to make itself look different. It can appear 1 foot shorter or taller than its normal height, and it can seem thinner or fatter. It cannot change its skin, hair color, body type, or number of limbs. This ability does not allow the malleable creature to mimic the appearance of specific individuals.</p><p>As a full-round action, a malleable creature can squeeze through an opening as small as 6 inches square. In the case of an enclosed space, such as a drainpipe or airshaft, the malleable creature moves at one-third of its normal speed, but it can take no other actions until at least half of its body mass has emerged from the enclosure. Objects and clothing worn by the malleable creature may or may not be small enough to fit through the opening\u2014objects larger than Tiny are left behind unless every part of the opening is large enough to accommodate them.</p>",
+        "description": "<p>This ability allows a malleable creature to make itself look different. It can appear 1 foot shorter or taller than its normal height, and it can seem thinner or fatter. It cannot change its skin, hair color, body type, or number of limbs. This ability does not allow the malleable creature to mimic the appearance of specific individuals.</p><p>As a full-round action, a malleable creature can squeeze through an opening as small as 6 inches square. In the case of an enclosed space, such as a drainpipe or airshaft, the malleable creature moves at one-third of its normal speed, but it can take no other actions until at least half of its body mass has emerged from the enclosure. Objects and clothing worn by the malleable creature may or may not be small enough to fit through the opening—objects larger than Tiny are left behind unless every part of the opening is large enough to accommodate them.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -460,7 +460,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A malleable creature\u2019s pliant body grants it a +4 species bonus on @Check[skill:disguise]{Disguise check}s and a +10 species bonus on @Check[skill:escapeArtist]{Escape Artist check}s.</p>",
+        "description": "<p>A malleable creature’s pliant body grants it a +4 species bonus on @Check[skill:disguise]{Disguise check}s and a +10 species bonus on @Check[skill:escapeArtist]{Escape Artist check}s.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

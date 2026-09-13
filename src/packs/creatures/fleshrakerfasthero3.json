@@ -272,7 +272,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -292,7 +292,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -331,7 +331,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },

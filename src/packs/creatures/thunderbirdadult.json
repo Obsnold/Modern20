@@ -236,7 +236,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -276,7 +276,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -333,7 +333,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
-        "description": "<p>Every 1d4 rounds, a thunderbird can breathe a 60-foot-long cone of sonic energy as an attack action. Any creature in the cone takes 1d10 points of sonic damage per 2 Hit Dice of the thunderbird (8d10 for the typical adult specimen). A successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the thunderbird\u2019s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>Every 1d4 rounds, a thunderbird can breathe a 60-foot-long cone of sonic energy as an attack action. Any creature in the cone takes 1d10 points of sonic damage per 2 Hit Dice of the thunderbird (8d10 for the typical adult specimen). A successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the thunderbird’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -377,7 +377,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
-        "description": "<p>Any creature within 60 feet of a thunderbird must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the thunderbird\u2019s Hit Dice + its Charisma modifier) or be shaken for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that thunderbird\u2019s fear aura for 24 hours.</p>",
+        "description": "<p>Any creature within 60 feet of a thunderbird must succeed on a @Check[save:will]{Will save} (DC 10 + 1/2 the thunderbird’s Hit Dice + its Charisma modifier) or be shaken for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that thunderbird’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

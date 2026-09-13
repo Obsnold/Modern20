@@ -202,8 +202,8 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character takes no vehicle speed penalty when making an attack while in a moving vehicle. Also, if the character is the driver, he or she can take his or her attack action to make an attack at any point along the vehicle\u2019s movement.",
-        "normal": "When attacking from a moving vehicle, a character takes a penalty based on the vehicle\u2019s speed. Passengers can ready an action to make an attack when their vehicle reaches a particular location, but the driver must make his or her attack action either before or after the vehicle\u2019s movement.",
+        "benefit": "The character takes no vehicle speed penalty when making an attack while in a moving vehicle. Also, if the character is the driver, he or she can take his or her attack action to make an attack at any point along the vehicle’s movement.",
+        "normal": "When attacking from a moving vehicle, a character takes a penalty based on the vehicle’s speed. Passengers can ready an action to make an attack when their vehicle reaches a particular location, but the driver must make his or her attack action either before or after the vehicle’s movement.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.zWsEWEsPcih17UyQ"
@@ -243,7 +243,7 @@
           "Drive 4 ranks",
           "Vehicle Expert."
         ],
-        "benefit": "When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character\u2019s turn number.",
+        "benefit": "When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character’s turn number.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -285,7 +285,7 @@
           "Drive 6 ranks or Pilot 6 ranks",
           "Vehicle Expert."
         ],
-        "benefit": "When driving a vehicle, during the character\u2019s action the character designates an opposing vehicle or a single opponent. The character\u2019s vehicle and everyone aboard it receive a +1 dodge bonus to Defense against attacks from that vehicle or opponent. The character can select a new vehicle or opponent on any action.",
+        "benefit": "When driving a vehicle, during the character’s action the character designates an opposing vehicle or a single opponent. The character’s vehicle and everyone aboard it receive a +1 dodge bonus to Defense against attacks from that vehicle or opponent. The character can select a new vehicle or opponent on any action.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -388,7 +388,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The demonic car moves as a vehicle, not as a character. It has a top speed of 320 squares at character scale (32 squares at chase scale). It maneuvers as a vehicle, using its Drive score, and it must choose a speed category (alley, street, highway, or all-out speed) at the beginning of each action. The demonic auto\u2019s speed category may increase its Defense and penalize skill checks.</p>",
+        "description": "<p>The demonic car moves as a vehicle, not as a character. It has a top speed of 320 squares at character scale (32 squares at chase scale). It maneuvers as a vehicle, using its Drive score, and it must choose a speed category (alley, street, highway, or all-out speed) at the beginning of each action. The demonic auto’s speed category may increase its Defense and penalize skill checks.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -404,7 +404,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The demonic auto has no limbs and thus can\u2019t grapple, nor can it manipulate or throw an object. However, it can open and close its car doors, hood, or trunk rapidly to make a slam attack.</p>",
+        "description": "<p>The demonic auto has no limbs and thus can’t grapple, nor can it manipulate or throw an object. However, it can open and close its car doors, hood, or trunk rapidly to make a slam attack.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -420,7 +420,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/charging-bull.svg",
       "system": {
-        "description": "<p>The demonic auto can trample smaller creatures by running over them. The demonic auto\u2019s trample attack deals 2d6+9 points of damage if traveling at alley speed and 4d6+9 points of damage at higher speeds. A successful @Check[save:ref|dc:23]{Reflex save (DC 23)} halves the damage. The demonic auto takes this damage as well, but its damage reduction applies.</p>",
+        "description": "<p>The demonic auto can trample smaller creatures by running over them. The demonic auto’s trample attack deals 2d6+9 points of damage if traveling at alley speed and 4d6+9 points of damage at higher speeds. A successful @Check[save:ref|dc:23]{Reflex save (DC 23)} halves the damage. The demonic auto takes this damage as well, but its damage reduction applies.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

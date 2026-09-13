@@ -320,7 +320,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -364,7 +364,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has damage reduction. If the result is less than 1, the half-fiend has no damage reduction. If the campaign includes few or no magic weapons, the GM should consider allowing specific types of weapons to ignore a half-fiend\u2019s damage reduction or contrive some other special vulnerability.</p>",
+        "description": "<p>Roll on Table: Fiend Immunities, Resistances, and Damage Reduction, subtracting 30 from the die roll, to determine whether the half-fiend has damage reduction. If the result is less than 1, the half-fiend has no damage reduction. If the campaign includes few or no magic weapons, the GM should consider allowing specific types of weapons to ignore a half-fiend’s damage reduction or contrive some other special vulnerability.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

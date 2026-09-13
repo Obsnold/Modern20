@@ -267,7 +267,7 @@
         "prerequisites": [
           "Base attack bonus +1."
         ],
-        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character\u2019s choice) equal to 1d4 + the character\u2019s Strength modifier. The character\u2019s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
+        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character’s choice) equal to 1d4 + the character’s Strength modifier. The character’s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
         "normal": "Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.",
         "special": "",
         "repeatable": false
@@ -287,7 +287,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -307,7 +307,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -327,7 +327,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },

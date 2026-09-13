@@ -172,7 +172,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -212,7 +212,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -285,7 +285,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, a neothelid can breathe a 50-foot cone of acid that deals 14d10 points of acid damage to every creature in its area. A successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the neothelid\u2019s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>Once every 1d4 rounds, a neothelid can breathe a 50-foot cone of acid that deals 14d10 points of acid damage to every creature in its area. A successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the neothelid’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -313,7 +313,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>A neothelid ignores the first 15 points of damage dealt by any weapon with a magical bonus lower than +2. In campaigns without magic weapons, the GM can either disregard the neothelid\u2019s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "description": "<p>A neothelid ignores the first 15 points of damage dealt by any weapon with a magical bonus lower than +2. In campaigns without magic weapons, the GM can either disregard the neothelid’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -345,7 +345,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A creature with power resistance can avoid the effects of psionic powers that directly affect it. To determine whether a spell or spell-like ability works, the psionic power manifester must make a level check (1d20 + manifester\u2019s level). If the result equals or exceeds the creature\u2019s power resistance, the power works normally, although the creature is still allowed a saving throw.</p>",
+        "description": "<p>A creature with power resistance can avoid the effects of psionic powers that directly affect it. To determine whether a spell or spell-like ability works, the psionic power manifester must make a level check (1d20 + manifester’s level). If the result equals or exceeds the creature’s power resistance, the power works normally, although the creature is still allowed a saving throw.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
@@ -361,7 +361,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/telepathy.svg",
       "system": {
-        "description": "<p>At will\u2014charm person, clairaudience/ clairvoyance, detect thoughts, levitate, suggestion, telekinesis. Manifester level 10th; save DC 10 + neothelid\u2019s key ability modifier + power level.</p>",
+        "description": "<p>At will—charm person, clairaudience/ clairvoyance, detect thoughts, levitate, suggestion, telekinesis. Manifester level 10th; save DC 10 + neothelid’s key ability modifier + power level.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -377,7 +377,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/swallower.svg",
       "system": {
-        "description": "<p>If a neothelid begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the neothelid, the opponent takes bludgeoning damage equal to the neothelid\u2019s tentacle rake attack plus 1d6 points of acid damage per round from the monster\u2019s gizzard.</p><p>A successful grapple check allows the swallowed creature to climb out of the gizzard and return to the neothelid\u2019s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gizzard using claws or a Small or Tiny slashing weapon. Dealing at least 25 points of damage to the gizzard (Defense 20) in this way creates an opening large enough to permit escape. Once a single swallowed creature exits, muscular action closes the hole; thus, another swallowed creature must cut its own way out. A Gargantuan neothelid\u2019s gizzard can hold 2 Large, 8 Medium-size, 32 Small, or 128 Tiny or smaller opponents.</p>",
+        "description": "<p>If a neothelid begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the neothelid, the opponent takes bludgeoning damage equal to the neothelid’s tentacle rake attack plus 1d6 points of acid damage per round from the monster’s gizzard.</p><p>A successful grapple check allows the swallowed creature to climb out of the gizzard and return to the neothelid’s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gizzard using claws or a Small or Tiny slashing weapon. Dealing at least 25 points of damage to the gizzard (Defense 20) in this way creates an opening large enough to permit escape. Once a single swallowed creature exits, muscular action closes the hole; thus, another swallowed creature must cut its own way out. A Gargantuan neothelid’s gizzard can hold 2 Large, 8 Medium-size, 32 Small, or 128 Tiny or smaller opponents.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

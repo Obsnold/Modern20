@@ -144,7 +144,7 @@
     ],
     "senses": "Low-Light Vision",
     "specialQualities": "Low-light vision",
-    "biography": "<p><strong>Attack:</strong> +12 melee (2d6+7, Huge club), or +12 melee (1d6+5, slam)</p><p><strong>Full Attack:</strong> +12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p><p><strong>Skills:</strong> Climb +2*, Concentration +9, Listen +2, Speak Giant, Spot +3. *Includes armor check penalty for undercover vest.</p><p><strong>Feats:</strong> Armor Proficiency (light), Brawl, Knockout Punch, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Focus (great club)</p><p><strong>Talents:</strong> (Tough Hero): Damage reduction 1/-, 2/-, and Second Wind. (Bodyguard): Harm\u2019s way</p>"
+    "biography": "<p><strong>Attack:</strong> +12 melee (2d6+7, Huge club), or +12 melee (1d6+5, slam)</p><p><strong>Full Attack:</strong> +12/+7 melee (2d6+7, Huge club), or +12/+7 melee (1d6+5, slam), or +5/+0 ranged (2d10, Browning BPS)</p><p><strong>Skills:</strong> Climb +2*, Concentration +9, Listen +2, Speak Giant, Spot +3. *Includes armor check penalty for undercover vest.</p><p><strong>Feats:</strong> Armor Proficiency (light), Brawl, Knockout Punch, Personal Firearms Proficiency, Power Attack, Simple Weapons Proficiency, Weapon Focus (great club)</p><p><strong>Talents:</strong> (Tough Hero): Damage reduction 1/-, 2/-, and Second Wind. (Bodyguard): Harm’s way</p>"
   },
   "_key": "!actors!fH0HjegvNXVvLgtu",
   "items": [
@@ -300,7 +300,7 @@
           "Brawl",
           "base attack bonus +3."
         ],
-        "benefit": "When making the character\u2019s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This damage is nonlethal damage.",
+        "benefit": "When making the character’s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This damage is nonlethal damage.",
         "normal": "",
         "special": "Even if the character has the ability to treat unarmed damage as lethal damage, the damage from a knockout punch is always nonlethal.",
         "repeatable": false
@@ -320,7 +320,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -340,7 +340,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -360,7 +360,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },

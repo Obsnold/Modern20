@@ -96,7 +96,7 @@
       "hitDice": "5d6",
       "advancement": "By character class",
       "organization": "",
-      "treasure": "Musical instrument, loaded Colt Python (.357 revolver), sword cane (usually disguised as an umbrella or within the musical instrument\u2019s case)."
+      "treasure": "Musical instrument, loaded Colt Python (.357 revolver), sword cane (usually disguised as an umbrella or within the musical instrument’s case)."
     },
     "skills": {
       "bluff": {
@@ -276,7 +276,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -333,7 +333,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
@@ -394,7 +394,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature\u2019s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
+        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "source": "d20 Modern SRD",
         "abilityType": "supernatural",
@@ -442,7 +442,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Music is magical to fauns, and they can create a variety of enchanting effects on listeners with a carefully crafted song. When a faun infuses its song with its fey power, all creatures within a 60-foot spread of the satyr (except other sidhe) must succeed at a @Check[save:will|dc:13]{Will save (DC 13)} or be affected by attraction, as the power manifest by a 10thlevel Telepath. Once per day, the faun can use his music to instead create a lesser domination effect (@Check[save:will]{Will save}, DC 15, negates) or mental blast effect (@Check[save:will]{Will save}, DC 15, negates) targeted at one specific listener.</p><p>It takes the faun a full-round action to use enchanting music. Anyone who successfully saves against the faun\u2019s enchanting music cannot be affected by music from that faun for one day.</p>",
+        "description": "<p>Music is magical to fauns, and they can create a variety of enchanting effects on listeners with a carefully crafted song. When a faun infuses its song with its fey power, all creatures within a 60-foot spread of the satyr (except other sidhe) must succeed at a @Check[save:will|dc:13]{Will save (DC 13)} or be affected by attraction, as the power manifest by a 10thlevel Telepath. Once per day, the faun can use his music to instead create a lesser domination effect (@Check[save:will]{Will save}, DC 15, negates) or mental blast effect (@Check[save:will]{Will save}, DC 15, negates) targeted at one specific listener.</p><p>It takes the faun a full-round action to use enchanting music. Anyone who successfully saves against the faun’s enchanting music cannot be affected by music from that faun for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

@@ -1069,6 +1069,16 @@ downloaded by everyone. Both of those are answers to the same question, and the
 answer here is closer to dnd5e's only because the art is 1–2 KB of SVG: 204 KB
 for the set, which is cheap enough to ship with the system.
 
+**How the artwork is drawn** is derived too, and stored on every token:
+`art.TOKEN_TEXTURE` — twice the token, anchored a quarter down, so a figure
+stands on its square rather than being contained by it. A drawing that exactly
+fills its square still reads small on a map, where a token is glanced at from
+whatever zoom the scene is at. It is one number for every size, which is the
+simple choice and not the only one: a Colossal creature's six-square token
+draws twelve squares of art. `check_packs.py` fails a token missing it, because
+the reconciler takes the whole prototype token from the import and had already
+stripped it from all 399 documents once, silently.
+
 So: the compendium's 399 actors carry the artwork chosen from what each one
 *is*; `Modern20Actor.getDefaultArtwork` gives an actor a GM creates the drawing
 its *type* implies, which is as much as can be known about an actor that does

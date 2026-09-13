@@ -196,7 +196,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -215,9 +215,9 @@
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
-        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.",
-        "special": "The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5"
       },
@@ -339,7 +339,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -407,7 +407,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
-        "description": "<p>Hantavirus\u2014slam. @Check[save:fort|dc:14]{Fortitude save (DC 14)} negates; incubation period 1 day; initial damage 1d2 Str; secondary damage 1d2 Str (temporary or permanent) and 1d2 Con (temporary or permanent).</p>",
+        "description": "<p>Hantavirus—slam. @Check[save:fort|dc:14]{Fortitude save (DC 14)} negates; incubation period 1 day; initial damage 1d2 Str; secondary damage 1d2 Str (temporary or permanent) and 1d2 Con (temporary or permanent).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -423,7 +423,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
-        "description": "<p>The garbage toxyderm can expel some of its mass in a 50-foot cone. This deals 10d6 points of bludgeoning damage, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 toxyderm\u2019s Hit Dice + toxyderm\u2019s Constitution modifier). Each time the toxyderm uses its breath weapon, it takes 20 points of damage. Furthermore, any creature that takes damage from the cone must succeed at a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or contract a disease (see above).</p>",
+        "description": "<p>The garbage toxyderm can expel some of its mass in a 50-foot cone. This deals 10d6 points of bludgeoning damage, or half damage if a @Check[save:ref]{Reflex save} succeeds (DC 10 + 1/2 toxyderm’s Hit Dice + toxyderm’s Constitution modifier). Each time the toxyderm uses its breath weapon, it takes 20 points of damage. Furthermore, any creature that takes damage from the cone must succeed at a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or contract a disease (see above).</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

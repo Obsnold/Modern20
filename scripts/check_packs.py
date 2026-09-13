@@ -21,6 +21,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import art  # noqa: E402
 import srd  # noqa: E402
 
 ROOT = srd.ROOT
@@ -164,8 +165,24 @@ def main() -> int:
                 # mystery-man, so saying nothing here is a decision: every
                 # creature drops onto the map as the same silhouette. That the
                 # file exists is check_art.py's business.
-                if not (token.get("texture") or {}).get("src"):
+                texture = token.get("texture") or {}
+                if not texture.get("src"):
                     fail(f"{pack}: \"{entry['name']}\" has no token artwork")
+                # How the artwork is drawn is derived, not chosen per creature,
+                # and it is the difference between a figure that reads on a map
+                # and one that looks like the wrong size. A reconcile used to
+                # strip it from all 399 documents without a word.
+                for key, value in art.TOKEN_TEXTURE.items():
+                    if texture.get(key) != value:
+                        fail(f"{pack}: \"{entry['name']}\" draws its token with "
+                             f"{key}={texture.get(key)!r}, not {value!r}")
+                        break
+                # Foundry dropped the token's own `scale` at v11 for
+                # texture.scaleX/scaleY: one document still carried it, where
+                # it did nothing at all.
+                if "scale" in token:
+                    fail(f"{pack}: \"{entry['name']}\" has a token `scale`, "
+                         "which Foundry replaced with texture.scaleX/scaleY")
                 # A range of zero is a sense that detects nothing, which is
                 # how a misread "darkvision 1,200 ft." looks from here.
                 if (token.get("sight") or {}).get("enabled") and token["sight"].get("range", 0) < 5:

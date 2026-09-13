@@ -145,8 +145,8 @@
       }
     ],
     "senses": "",
-    "specialQualities": "death\u2019s door, fast healing 5, immunities",
-    "biography": "<p><strong>Attack:</strong> +11 melee (1d8+3 nonlethal, unarmed strike)</p><p><strong>Full Attack:</strong> +11 melee (1d8+3 nonlethal, unarmed strike) or +9 melee (by weapon) or +7 ranged)</p><p><strong>Skills:</strong> Hide +7, Intimidate +13, Listen +8, Move Silently +4, Read/Write English, Speak English</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Armor Proficiency (light), Blind-Fight, Brawl, Endurance, Great Fortitude, Improved Brawl, Improved Damage Threshold (\u00d73), Power Attack, Simple Weapons Proficiency Sunder.</p><p><strong>Talents:</strong> Damage reduction 1/-, robust, stamina</p>"
+    "specialQualities": "death’s door, fast healing 5, immunities",
+    "biography": "<p><strong>Attack:</strong> +11 melee (1d8+3 nonlethal, unarmed strike)</p><p><strong>Full Attack:</strong> +11 melee (1d8+3 nonlethal, unarmed strike) or +9 melee (by weapon) or +7 ranged)</p><p><strong>Skills:</strong> Hide +7, Intimidate +13, Listen +8, Move Silently +4, Read/Write English, Speak English</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Armor Proficiency (light), Blind-Fight, Brawl, Endurance, Great Fortitude, Improved Brawl, Improved Damage Threshold (×3), Power Attack, Simple Weapons Proficiency Sunder.</p><p><strong>Talents:</strong> Damage reduction 1/-, robust, stamina</p>"
   },
   "_key": "!actors!dNcj3UTndByoFPiY",
   "items": [
@@ -196,7 +196,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -271,7 +271,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.g6mYoBCrtF8kAzzw",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character gains a +4 bonus on the following checks and saves: hourly @Check[skill:swim]{Swim check}s to avoid becoming fatigued, @Check[ability:con]{Constitution check}s to continue running, @Check[ability:con]{Constitution check}s to hold the character\u2019s breath, @Check[ability:con]{Constitution check}s to avoid damage from starvation or thirst, @Check[save:fort]{Fortitude save}s to avoid damage from hot or cold environments, and @Check[save:fort]{Fortitude save}s to resist suffocation or drowning.",
+        "benefit": "The character gains a +4 bonus on the following checks and saves: hourly @Check[skill:swim]{Swim check}s to avoid becoming fatigued, @Check[ability:con]{Constitution check}s to continue running, @Check[ability:con]{Constitution check}s to hold the character’s breath, @Check[ability:con]{Constitution check}s to avoid damage from starvation or thirst, @Check[save:fort]{Fortitude save}s to avoid damage from hot or cold environments, and @Check[save:fort]{Fortitude save}s to resist suffocation or drowning.",
         "normal": "A character without this feat who sleeps in armor is automatically fatigued the following day.",
         "special": "",
         "repeatable": false
@@ -312,7 +312,7 @@
           "Brawl",
           "base attack bonus +3."
         ],
-        "benefit": "When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character\u2019s Strength modifier.",
+        "benefit": "When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character’s Strength modifier.",
         "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
         "special": "",
         "repeatable": false
@@ -332,7 +332,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character increases his or her massive damage threshold by 3 points.",
-        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character\u2019s massive damage threshold is current Con +3.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false
       },
@@ -352,7 +352,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -380,11 +380,11 @@
     },
     {
       "_id": "0ElRom9PSgAADn8I",
-      "name": "Death\u2019s Door",
+      "name": "Death’s Door",
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A bogeyman appears to die if reduced to \u201310 hit points. However, unless it is reduced to its negative Constitution score in hit points, its \u201cdeath\u201d is only temporary; when the bogeyman\u2019s fast healing ability (see below) brings its hit point total to 1 or higher, it springs back to life.</p>",
+        "description": "<p>A bogeyman appears to die if reduced to –10 hit points. However, unless it is reduced to its negative Constitution score in hit points, its “death” is only temporary; when the bogeyman’s fast healing ability (see below) brings its hit point total to 1 or higher, it springs back to life.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

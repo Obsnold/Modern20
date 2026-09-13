@@ -344,9 +344,9 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.9rR6ddYaBPrklxB5",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
-        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.",
-        "special": "The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
+        "benefit": "The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1. The character can still only make one attack of opportunity on a single opponent.",
+        "normal": "A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.",
+        "special": "The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.",
         "repeatable": false
       },
       "_key": "!actors.items!zXkuXDFQE6xtASnP.Ei6p6hq7JRYGshR5"
@@ -365,7 +365,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -460,7 +460,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.OkLVdpGFXfrDqArP",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character\u2019s Reputation bonus increases by +3.",
+        "benefit": "The character’s Reputation bonus increases by +3.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -480,7 +480,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -517,7 +517,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.w9EpyKbWNBwI1oOV",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character\u2019s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.",
+        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.",
         "normal": "",
         "special": "A character can select this feat multiple times. Each time, both of its effects stack.",
         "repeatable": false
@@ -546,7 +546,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A humanoid or monstrous humanoid slain by a vampire\u2019s energy drain attack rises as a vampire loyal to its creator (called the master vampire, or simply \u201cmaster\u201d). The new vampire gains three allegiances (in any order): chaos, evil, and master. All previous allegiances are lost permanently. A vampire loses its allegiance to its master (and may adopt a new allegiance to replace it) only when the master vampire is destroyed.</p>",
+        "description": "<p>A humanoid or monstrous humanoid slain by a vampire’s energy drain attack rises as a vampire loyal to its creator (called the master vampire, or simply “master”). The new vampire gains three allegiances (in any order): chaos, evil, and master. All previous allegiances are lost permanently. A vampire loses its allegiance to its master (and may adopt a new allegiance to replace it) only when the master vampire is destroyed.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -562,7 +562,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>As an attack action, a vampire can crush an opponent\u2019s will just by gazing into his or her eyes. The vampire can attempt to dominate only one target at a time, and the target must be within 30 feet and able to see the vampire. A target that fails a @Check[save:will]{Will save} (DC 10 + 1/2 vampire\u2019s Hit Dice + vampire\u2019s Charisma modifier) becomes the vampire\u2019s thrall for 1 day per Hit Die of the vampire. The thrall temporarily loses all previous allegiances and adopts a singular, unswerving allegiance to the vampire. If the vampire commands its thrall to do something blatantly self-destructive, the target can make a @Check[save:will]{Will save} to break the vampire\u2019s control. If the save succeeds, the target becomes free-willed and regains its previous allegiances.</p>",
+        "description": "<p>As an attack action, a vampire can crush an opponent’s will just by gazing into his or her eyes. The vampire can attempt to dominate only one target at a time, and the target must be within 30 feet and able to see the vampire. A target that fails a @Check[save:will]{Will save} (DC 10 + 1/2 vampire’s Hit Dice + vampire’s Charisma modifier) becomes the vampire’s thrall for 1 day per Hit Die of the vampire. The thrall temporarily loses all previous allegiances and adopts a singular, unswerving allegiance to the vampire. If the vampire commands its thrall to do something blatantly self-destructive, the target can make a @Check[save:will]{Will save} to break the vampire’s control. If the save succeeds, the target becomes free-willed and regains its previous allegiances.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -590,7 +590,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A living creature hit by a vampire\u2019s slam attack gains two negative levels. See page 226 for more information on energy drain and negative levels. A creature killed by a vampire\u2019s energy drain attack rises as a vampire under its creator\u2019s control (see Create Spawn, above).</p>",
+        "description": "<p>A living creature hit by a vampire’s slam attack gains two negative levels. See page 226 for more information on energy drain and negative levels. A creature killed by a vampire’s energy drain attack rises as a vampire under its creator’s control (see Create Spawn, above).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -638,7 +638,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>In campaigns without magic weapons, the GM can disregard the vampire\u2019s damage reduction, change it to 15/silver or 15/wood, or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "description": "<p>In campaigns without magic weapons, the GM can disregard the vampire’s damage reduction, change it to 15/silver or 15/wood, or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -846,7 +846,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A vampire cannot enter or pass through any 5-foot square containing garlic. A vampire takes a \u20132 penalty on melee attack rolls against a target wearing garlic.</p>",
+        "description": "<p>A vampire cannot enter or pass through any 5-foot square containing garlic. A vampire takes a –2 penalty on melee attack rolls against a target wearing garlic.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -862,7 +862,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A vampire takes a \u20132 penalty on melee attack rolls against a creature prominently wearing or brandishing a holy symbol. The symbol\u2019s touch deals 1d4 points of holy damage to a vampire, and a vampire reduced to 0 hit points in this fashion is destroyed utterly. This holy damage can be healed only by inflict spells.</p>",
+        "description": "<p>A vampire takes a –2 penalty on melee attack rolls against a creature prominently wearing or brandishing a holy symbol. The symbol’s touch deals 1d4 points of holy damage to a vampire, and a vampire reduced to 0 hit points in this fashion is destroyed utterly. This holy damage can be healed only by inflict spells.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

@@ -237,7 +237,7 @@
         "prerequisites": [],
         "benefit": "The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.",
         "normal": "",
-        "special": "Remember that the Tumble skill can\u2019t be used untrained.",
+        "special": "Remember that the Tumble skill can’t be used untrained.",
         "repeatable": false
       },
       "_key": "!actors.items!Fc8PZpRycqVoq6cY.x0pd69uLEvxd3n5W"
@@ -255,7 +255,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -294,7 +294,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -316,9 +316,9 @@
           "Dexterity 13",
           "Defensive Martial Arts."
         ],
-        "benefit": "When fighting an opponent or multiple opponents in melee, other opponents attempting to target the character with ranged attacks take a \u20134 penalty. This penalty is in addition to the normal \u20134 penalty for firing into melee, making the penalty to target to character \u20138.",
+        "benefit": "When fighting an opponent or multiple opponents in melee, other opponents attempting to target the character with ranged attacks take a –4 penalty. This penalty is in addition to the normal –4 penalty for firing into melee, making the penalty to target to character –8.",
         "normal": "",
-        "special": "An opponent with the Precise Shot feat has the penalty lessened to \u20134 when targeting the character.",
+        "special": "An opponent with the Precise Shot feat has the penalty lessened to –4 when targeting the character.",
         "repeatable": false
       },
       "_key": "!actors.items!Fc8PZpRycqVoq6cY.uIt6NrumqsuEsd4d"
@@ -335,7 +335,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.wx3oJBeRlneu98v4",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character\u2019s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
+        "benefit": "The character may take an extra move action or attack action in a round, either before or after the character’s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -396,7 +396,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -419,7 +419,7 @@
           "Mobility",
           "base attack bonus +4."
         ],
-        "benefit": "When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater\u2019s speed.",
+        "benefit": "When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater’s speed.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -432,7 +432,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
-        "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the jumping jack\u2019s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>Once every 1d4 rounds, the jumping jack can breathe a 15-foot cone of fire. Each creature in the area takes 2d6 points of fire damage; a successful @Check[save:ref]{Reflex save} (DC 10 + 1/2 the jumping jack’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

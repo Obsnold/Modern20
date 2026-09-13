@@ -236,7 +236,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -274,7 +274,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -334,7 +334,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A kinori takes a \u20132 penalty on attack rolls, checks, and saves in sunlight or other bright light.</p>",
+        "description": "<p>A kinori takes a –2 penalty on attack rolls, checks, and saves in sunlight or other bright light.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

@@ -163,11 +163,20 @@ def link(document: dict, built: dict | None, pack: str, index: rules_pages.Rules
     # name. Only where the token states none — a token somebody has given art
     # is theirs.
     token = document.get("prototypeToken")
-    if isinstance(token, dict) and not (token.get("texture") or {}).get("src"):
+    if isinstance(token, dict):
+        texture = token.get("texture") or {}
         disc = art.token_for(pack, document)
-        if disc:
-            token["texture"] = {"src": disc}
+        if disc and not texture.get("src"):
+            token["texture"] = texture = {"src": disc}
             counts["tokened"] += 1
+            changed = True
+        # How the artwork is drawn, which is derived rather than chosen per
+        # creature: a token missing it draws its figure at a size that reads
+        # small on a map.
+        if texture.get("src") and any(texture.get(key) != value
+                                      for key, value in art.TOKEN_TEXTURE.items()):
+            texture.update(art.TOKEN_TEXTURE)
+            counts["scaled"] += 1
             changed = True
 
     # What the document's own text tells the reader to roll. Written over the
@@ -372,6 +381,9 @@ def main() -> int:
         print(f"{counts['applied']} item(s) took the effect their own text states")
     if counts["token"]:
         print(f"{counts['token']} actor(s) took the token the import derives")
+    if counts["scaled"]:
+        print(f"{counts['scaled']} token(s) now draw their artwork at the scale "
+              "a map is read at")
     if counts["tokened"]:
         print(f"{counts['tokened']} actor(s) now stand on the canvas as themselves")
     if counts["defended"]:

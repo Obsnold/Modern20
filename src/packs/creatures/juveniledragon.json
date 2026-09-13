@@ -373,7 +373,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -393,7 +393,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character increases his or her massive damage threshold by 3 points.",
-        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character\u2019s massive damage threshold is current Con +3.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.aPNXiSF4u1f9ve4a"
@@ -413,7 +413,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -427,7 +427,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/dragon-breath.svg",
       "system": {
-        "description": "<p>A breath weapon attack usually causes damage and is often based on some type of energy. It allows a @Check[save:ref]{Reflex save} for half damage with a DC equal to 10 + \u00bd breathing creature\u2019s HD + breathing creature\u2019s Constitution modifier (the exact DC is given in the creature\u2019s Species Traits). A creature is immune to its own breath weapon and those of others of its kind unless noted otherwise.</p>",
+        "description": "<p>A breath weapon attack usually causes damage and is often based on some type of energy. It allows a @Check[save:ref]{Reflex save} for half damage with a DC equal to 10 + ½ breathing creature’s HD + breathing creature’s Constitution modifier (the exact DC is given in the creature’s Species Traits). A creature is immune to its own breath weapon and those of others of its kind unless noted otherwise.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "source": "d20 Modern SRD",
         "abilityType": "supernatural",
@@ -491,7 +491,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability\u2019s range is specified in the creature\u2019s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
+        "description": "<p>Using nonvisual senses, such as sensitivity to vibrations, scent, acute hearing, or echolocation, the creature maneuvers and fights as well as a sighted creature. Invisibility and darkness are irrelevant. The ability’s range is specified in the creature’s descriptive text. The creature usually does not need to make Spot or @Check[skill:listen]{Listen check}s to notice creatures within range of its blindsight ability.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "source": "d20 Modern SRD",
         "abilityType": "extraordinary",
