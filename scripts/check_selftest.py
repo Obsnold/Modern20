@@ -80,6 +80,8 @@ def main() -> int:
         problems.append(said or "module/selftest-data.mjs is out of date")
 
     data = stored()
+    with open(SUITE, encoding="utf-8") as handle:
+        suite = handle.read()
     known: dict[str, dict[str, set[str]]] = {}
 
     def resolves(uuid: str, where: str) -> None:
@@ -131,9 +133,27 @@ def main() -> int:
         if not count:
             problems.append(f'the "{pack}" compendium is expected to be empty')
 
+    # The generated link tables map a name to a UUID string, and the suite has
+    # to read them the way the sheets do. Asking each value for a `.uuid` it
+    # does not have cost a run: 67 working links were reported as resolving to
+    # nothing, which reads like the rules compendium is missing.
+    links = os.path.join(srd.ROOT, "module", "rules-links.mjs")
+    with open(links, encoding="utf-8") as handle:
+        tables = handle.read()
+    values = re.findall(r'^\s*"[^"]+":\s*(.+?),?\s*$', tables, re.M)
+    for value in values:
+        if not value.startswith('"Compendium.'):
+            problems.append(f"module/rules-links.mjs maps a name to {value[:40]}, "
+                            "which module/selftest.mjs reads as a UUID string")
+            break
+
+    for accessor in ("rulesTopic(", "skillRules("):
+        if accessor not in suite:
+            problems.append(f"module/selftest.mjs does not go through {accessor}); "
+                            "checking the generated table instead of the accessor "
+                            "passes while the sheets get rubbish")
+
     # The suite has to use them, or they are decoration.
-    with open(SUITE, encoding="utf-8") as handle:
-        suite = handle.read()
     for field in ("packs", "class", "creatures", "weapon", "rulesPages", "images"):
         if f"EXPECTED.{field}" not in suite:
             problems.append(f"module/selftest.mjs never reads EXPECTED.{field}")
