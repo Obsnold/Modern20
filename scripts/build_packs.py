@@ -659,8 +659,13 @@ def simple_pack(dataset, subtype, pack, img, mapper, document_class="Item", extr
 # the collection its parent lives in. An actor's items, a journal entry's pages
 # and an item's active effects are documents in the compiled pack, not fields of
 # their parent.
-EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects",
-            "tables": "results"}
+# What each collection carries inside it, and so what has to be keyed. A scene
+# carries two kinds at once, which is why these are tuples: it was a single
+# field until the example scene arrived, and its walls and lights went out with
+# no keys at all — the CLI refuses a document with none, so the pack did not
+# compile.
+EMBEDDED = {"actors": ("items",), "journal": ("pages",), "items": ("effects",),
+            "tables": ("results",), "scenes": ("walls", "lights")}
 
 
 def key_embedded(collection: str, doc_id: str, document: dict) -> None:
@@ -676,17 +681,22 @@ def key_embedded(collection: str, doc_id: str, document: dict) -> None:
     bonuses. A repeat is re-derived from its own position rather than dropped:
     the SRD prints it twice because the creature has it twice.
     """
-    embedded = EMBEDDED.get(collection)
-    if not embedded:
-        return
+    for embedded in EMBEDDED.get(collection) or ():
+        key_children(collection, embedded, doc_id, document)
 
+
+def key_children(collection: str, embedded: str, doc_id: str, document: dict) -> None:
+    """One kind of embedded document, keyed and made unique within its parent."""
     used = set()
     for position, child in enumerate(document.get(embedded) or []):
         child_id = child["_id"]
         attempt = 0
         while child_id in used:
             attempt += 1
-            child_id = document_id("embedded", f"{doc_id}-{position}-{attempt}-{child['name']}")
+            # A wall has no name; a duplicate is told apart by where it sits.
+            child_id = document_id(
+                "embedded",
+                f"{doc_id}-{position}-{attempt}-{child.get('name') or embedded}")
         child["_id"] = child_id
         used.add(child_id)
         child["_key"] = f"!{collection}.{embedded}!{doc_id}.{child_id}"
