@@ -1,0 +1,689 @@
+{
+  "_id": "I9qR0hCcns6EdgEm",
+  "name": "Sergeant Dana Kessler",
+  "type": "hero",
+  "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 10,
+      "max": 10,
+      "temp": 0,
+      "formula": "1d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "equipment": 0,
+      "naturalArmor": 0,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      }
+    },
+    "skills": {
+      "climb": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "jump": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "knowledge": {
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": [
+          {
+            "name": "Tactics",
+            "ranks": 4,
+            "misc": 0,
+            "classSkill": true
+          }
+        ]
+      }
+    },
+    "allegiances": [
+      {
+        "name": "The unit",
+        "strength": "major"
+      },
+      {
+        "name": "Law",
+        "strength": "minor"
+      }
+    ],
+    "details": {
+      "age": "31",
+      "height": "5 ft. 9 in.",
+      "weight": "170 lb.",
+      "occupation": "Military",
+      "xp": 0
+    },
+    "wealth": {
+      "bonus": 6
+    },
+    "reputation": {
+      "base": 0,
+      "misc": 0
+    },
+    "actionPoints": {
+      "value": 5
+    },
+    "biography": "<p>The Strong hero as the SRD prints one: Melee Smash for the talent, and the two feats every character starts with spent on hitting things reliably. The Military occupation is where a first-level character can already be relied on for Tactics.</p>",
+    "source": "d20 Modern SRD"
+  },
+  "items": [
+    {
+      "_id": "eBjJ0KC8iQl5lrJ5",
+      "name": "Strong Hero",
+      "type": "class",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "tier": "basic",
+        "levels": 1,
+        "keyAbility": "str",
+        "hitDie": "1d8",
+        "skillPointsPerLevel": 3,
+        "classSkills": [
+          {
+            "skill": "climb",
+            "specialty": ""
+          },
+          {
+            "skill": "craft",
+            "specialty": "Structural"
+          },
+          {
+            "skill": "handleAnimal",
+            "specialty": ""
+          },
+          {
+            "skill": "jump",
+            "specialty": ""
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Current Events"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Popular Culture"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Streetwise"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Tactics"
+          },
+          {
+            "skill": "profession",
+            "specialty": ""
+          },
+          {
+            "skill": "readWriteLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "repair",
+            "specialty": ""
+          },
+          {
+            "skill": "speakLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "swim",
+            "specialty": ""
+          }
+        ],
+        "prerequisites": [],
+        "progression": [
+          {
+            "level": 1,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 1,
+            "fort": 1,
+            "ref": 0,
+            "will": 0,
+            "defense": 1,
+            "reputation": 0
+          },
+          {
+            "level": 2,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 2,
+            "fort": 2,
+            "ref": 0,
+            "will": 0,
+            "defense": 2,
+            "reputation": 0
+          },
+          {
+            "level": 3,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 3,
+            "fort": 2,
+            "ref": 1,
+            "will": 1,
+            "defense": 2,
+            "reputation": 0
+          },
+          {
+            "level": 4,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 4,
+            "fort": 2,
+            "ref": 1,
+            "will": 1,
+            "defense": 3,
+            "reputation": 0
+          },
+          {
+            "level": 5,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 5,
+            "fort": 3,
+            "ref": 1,
+            "will": 1,
+            "defense": 3,
+            "reputation": 1
+          },
+          {
+            "level": 6,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 6,
+            "fort": 3,
+            "ref": 2,
+            "will": 2,
+            "defense": 3,
+            "reputation": 1
+          },
+          {
+            "level": 7,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 7,
+            "fort": 4,
+            "ref": 2,
+            "will": 2,
+            "defense": 4,
+            "reputation": 1
+          },
+          {
+            "level": 8,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 8,
+            "fort": 4,
+            "ref": 2,
+            "will": 2,
+            "defense": 4,
+            "reputation": 1
+          },
+          {
+            "level": 9,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 9,
+            "fort": 4,
+            "ref": 3,
+            "will": 3,
+            "defense": 5,
+            "reputation": 2
+          },
+          {
+            "level": 10,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 10,
+            "fort": 5,
+            "ref": 3,
+            "will": 3,
+            "defense": 5,
+            "reputation": 2
+          }
+        ],
+        "casting": {
+          "kind": "",
+          "tradition": "",
+          "ability": "",
+          "perDay": [],
+          "bonusByScore": [],
+          "pointsPerDay": [],
+          "bonusPointsByScore": [],
+          "powersKnown": []
+        },
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.fJwRSZvpfx0BRxDX"
+      },
+      "sort": 1000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.eBjJ0KC8iQl5lrJ5"
+    },
+    {
+      "_id": "mxZk9ZHGyaPZAwmX",
+      "name": "Military",
+      "type": "occupation",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "Military covers any of the branches of the armed forces, including army, navy, air force, and marines, as well as the various elite training units such as Seals, Rangers, and Special Forces.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.J95B9XhYH6v4Joca.JournalEntryPage.s7BNHu6GtuqfxIPy",
+        "skillChoiceCount": 2,
+        "skillOptions": [
+          {
+            "skill": "climb",
+            "label": "Climb",
+            "specialties": []
+          },
+          {
+            "skill": "demolitions",
+            "label": "Demolitions",
+            "specialties": []
+          },
+          {
+            "skill": "drive",
+            "label": "Drive",
+            "specialties": []
+          },
+          {
+            "skill": "hide",
+            "label": "Hide",
+            "specialties": []
+          },
+          {
+            "skill": "knowledge",
+            "label": "Knowledge (tactics)",
+            "specialties": [
+              "Tactics"
+            ]
+          },
+          {
+            "skill": "moveSilently",
+            "label": "Move Silently",
+            "specialties": []
+          },
+          {
+            "skill": "navigate",
+            "label": "Navigate",
+            "specialties": []
+          },
+          {
+            "skill": "pilot",
+            "label": "Pilot",
+            "specialties": []
+          },
+          {
+            "skill": "survival",
+            "label": "Survival",
+            "specialties": []
+          },
+          {
+            "skill": "swim",
+            "label": "Swim",
+            "specialties": []
+          }
+        ],
+        "skillsChosen": [],
+        "bonusFeatOptions": [
+          "Brawl",
+          "Combat Martial Arts",
+          "Armor Proficiency (light)",
+          "Personal Firearms Proficiency"
+        ],
+        "bonusFeatChosen": "",
+        "wealthBonus": 1,
+        "reputationBonus": 0,
+        "prerequisites": [
+          "Age 18+."
+        ]
+      },
+      "sort": 2000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.mxZk9ZHGyaPZAwmX"
+    },
+    {
+      "_id": "6qCoMdybmFTd68e1",
+      "name": "Melee Smash",
+      "type": "talent",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "The Strong hero receives a +1 bonus on melee damage.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/stronghero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.fJwRSZvpfx0BRxDX",
+        "tree": "Melee Smash Talent Tree",
+        "sourceClass": "Strong Hero",
+        "prerequisites": []
+      },
+      "sort": 3000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.6qCoMdybmFTd68e1"
+    },
+    {
+      "_id": "tWIMUZ59JNZCa9S9",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 4000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.tWIMUZ59JNZCa9S9"
+    },
+    {
+      "_id": "FBWPXr3dJIuyxti2",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 5000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.FBWPXr3dJIuyxti2"
+    },
+    {
+      "_id": "OAOexZbQxNx6X1PN",
+      "name": "Brawl",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.xe2G9LvjcJKn5vDg",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier.",
+        "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 6000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.OAOexZbQxNx6X1PN"
+    },
+    {
+      "_id": "9QkZQdnvWRjz0439",
+      "name": "Colt M1911 (.45 autoloader)",
+      "type": "weapon",
+      "img": "systems/modern20/assets/icons/john-colburn/pistol-gun.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "handgun",
+        "damage": "2d6",
+        "damageType": "ballistic",
+        "critical": "20",
+        "rangeIncrement": 30,
+        "rateOfFire": "S",
+        "caliber": ".45",
+        "magazine": "7 box",
+        "size": "small",
+        "ranged": true,
+        "nonlethal": false,
+        "weight": 3.0,
+        "purchaseDC": 15,
+        "restriction": "lic",
+        "burstRadius": "",
+        "reflexDC": null,
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.RT8WnlwIoZ3cAS9K",
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "consume": {
+              "ammo": 1
+            }
+          }
+        },
+        "progressLevel": 0
+      },
+      "sort": 7000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.9QkZQdnvWRjz0439"
+    },
+    {
+      "_id": "Im9hrH7UtmGe4Ris",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "systems/modern20/assets/icons/lorc/bowie-knife.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "piercing",
+        "critical": "19-20",
+        "rangeIncrement": 10,
+        "rateOfFire": "",
+        "caliber": "",
+        "magazine": "",
+        "size": "tiny",
+        "ranged": true,
+        "nonlethal": false,
+        "weight": 1.0,
+        "purchaseDC": 7,
+        "restriction": "none",
+        "burstRadius": "",
+        "reflexDC": null,
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.pR8lAC6TGmYZHOXl",
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "consume": {
+              "ammo": 1
+            }
+          }
+        },
+        "progressLevel": 0
+      },
+      "sort": 8000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.Im9hrH7UtmGe4Ris"
+    },
+    {
+      "_id": "8speIe3XKThz9bEA",
+      "name": "Undercover vest",
+      "type": "armor",
+      "img": "systems/modern20/assets/icons/skoll/kevlar-vest.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "armorType": "light",
+        "equipmentBonus": 3,
+        "maxDex": 5,
+        "armorPenalty": -2,
+        "speedPenalty": "30",
+        "proficiency": "light",
+        "weight": 3.0,
+        "purchaseDC": 14,
+        "restriction": "lic",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.GopfXc8f6FVHwY6p",
+        "progressLevel": 0
+      },
+      "sort": 9000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.8speIe3XKThz9bEA"
+    },
+    {
+      "_id": "kMQ1fjtH5m9yBJCW",
+      "name": "First aid kit",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/first-aid-kit.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Professional Equipment",
+        "weight": 3.0,
+        "purchaseDC": 5,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.mOPUKejC7oJXkQwx",
+        "progressLevel": 0
+      },
+      "sort": 10000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.kMQ1fjtH5m9yBJCW"
+    },
+    {
+      "_id": "MdouUACC4R2U23FR",
+      "name": "Flashlight (Standard)",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/flashlight.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Survival Gear",
+        "weight": 1.0,
+        "purchaseDC": 4,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.xbxFjahYcwSaX83d",
+        "progressLevel": 0
+      },
+      "sort": 11000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.MdouUACC4R2U23FR"
+    },
+    {
+      "_id": "I6QQhaGOWwH4fnrA",
+      "name": "Binoculars (Standard)",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/binoculars.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Survival Gear",
+        "weight": 2.0,
+        "purchaseDC": 7,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.xbxFjahYcwSaX83d",
+        "progressLevel": 0
+      },
+      "sort": 12000,
+      "_key": "!actors.items!I9qR0hCcns6EdgEm.I6QQhaGOWwH4fnrA"
+    }
+  ],
+  "prototypeToken": {
+    "width": 1.0,
+    "height": 1.0,
+    "disposition": 0,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "texture": {
+      "src": "systems/modern20/assets/tokens/lorc/muscle-up.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
+    }
+  },
+  "_key": "!actors!I9qR0hCcns6EdgEm",
+  "_slug": "pregen-strong"
+}

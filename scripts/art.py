@@ -434,6 +434,22 @@ PACKS: dict[str, dict] = {
         "default": "stone-block",
     },
 
+    # The six ready-made characters, pictured by what they did before the
+    # campaign started — which is the one thing about a person a starting
+    # occupation actually states.
+    "pregens": {
+        "field": "system.details.occupation",
+        "values": {
+            "Military": "muscle-up",
+            "Criminal": "handcuffs",
+            "Emergency Services": "first-aid-kit",
+            "Doctor": "medical-pack",
+            "Technician": "toolbox",
+            "Investigative": "police-badge",
+        },
+        "default": "person",
+    },
+
     # A table is a thing you roll on.
     "tables": {"default": "perspective-dice-six-faces-random"},
 }
@@ -469,7 +485,7 @@ PREFIX = "systems/modern20/assets/icons/"
 TOKEN_PREFIX = "systems/modern20/assets/tokens/"
 
 # The packs whose documents are actors, and so the packs that need tokens.
-ACTOR_PACKS = frozenset({"creatures", "vehicles", "objects"})
+ACTOR_PACKS = frozenset({"creatures", "vehicles", "objects", "pregens"})
 
 # How the token draws its artwork, beyond which file to use.
 #

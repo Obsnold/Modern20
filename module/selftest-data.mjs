@@ -23,7 +23,9 @@ export const EXPECTED = {
     "objects": 14,
     "rules": 53,
     "fx": 147,
-    "tables": 26
+    "tables": 26,
+    "pregens": 6,
+    "guide": 1
   },
   "class": {
     "uuid": "Compendium.modern20.classes.Item.HT4H6K30vjBuhX1b",
@@ -120,6 +122,62 @@ export const EXPECTED = {
     "critical": "20",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.RT8WnlwIoZ3cAS9K"
   },
+  "pregens": [
+    {
+      "uuid": "Compendium.modern20.pregens.Actor.mJmV0LKqyj4LLOQk",
+      "name": "Nate Okoye",
+      "hp": 5,
+      "wealth": 7,
+      "items": 10,
+      "className": "Charismatic Hero",
+      "level": 1
+    },
+    {
+      "uuid": "Compendium.modern20.pregens.Actor.FWRnjpzxqrFGJkok",
+      "name": "Ruth Ayers",
+      "hp": 7,
+      "wealth": 9,
+      "items": 11,
+      "className": "Dedicated Hero",
+      "level": 1
+    },
+    {
+      "uuid": "Compendium.modern20.pregens.Actor.yBTgNU08MadQzagi",
+      "name": "Teo Vance",
+      "hp": 9,
+      "wealth": 6,
+      "items": 11,
+      "className": "Fast Hero",
+      "level": 1
+    },
+    {
+      "uuid": "Compendium.modern20.pregens.Actor.xKuZQ0Z922ePfTlC",
+      "name": "Dr. Ilse Brandt",
+      "hp": 6,
+      "wealth": 8,
+      "items": 12,
+      "className": "Smart Hero",
+      "level": 1
+    },
+    {
+      "uuid": "Compendium.modern20.pregens.Actor.I9qR0hCcns6EdgEm",
+      "name": "Sergeant Dana Kessler",
+      "hp": 10,
+      "wealth": 6,
+      "items": 12,
+      "className": "Strong Hero",
+      "level": 1
+    },
+    {
+      "uuid": "Compendium.modern20.pregens.Actor.6xkcsadPkPnd4ozI",
+      "name": "Marisol Okonkwo",
+      "hp": 12,
+      "wealth": 7,
+      "items": 11,
+      "className": "Tough Hero",
+      "level": 1
+    }
+  ],
   "rulesPages": [
     {
       "pack": "armor",
@@ -338,12 +396,14 @@ export const EXPECTED = {
     "systems/modern20/assets/icons/skoll/race-car.svg",
     "systems/modern20/assets/icons/skoll/revolver.svg",
     "systems/modern20/assets/icons/zeromancer/heart-plus.svg",
+    "systems/modern20/assets/tokens/andymeneely/police-badge.svg",
     "systems/modern20/assets/tokens/delapouite/brick-wall.svg",
     "systems/modern20/assets/tokens/delapouite/bus.svg",
     "systems/modern20/assets/tokens/delapouite/carnivorous-plant.svg",
     "systems/modern20/assets/tokens/delapouite/city-car.svg",
     "systems/modern20/assets/tokens/delapouite/cycling.svg",
     "systems/modern20/assets/tokens/delapouite/door.svg",
+    "systems/modern20/assets/tokens/delapouite/first-aid-kit.svg",
     "systems/modern20/assets/tokens/delapouite/floating-tentacles.svg",
     "systems/modern20/assets/tokens/delapouite/giant.svg",
     "systems/modern20/assets/tokens/delapouite/helicopter.svg",
@@ -354,6 +414,7 @@ export const EXPECTED = {
     "systems/modern20/assets/tokens/delapouite/shambling-zombie.svg",
     "systems/modern20/assets/tokens/delapouite/slime.svg",
     "systems/modern20/assets/tokens/delapouite/speed-boat.svg",
+    "systems/modern20/assets/tokens/delapouite/toolbox.svg",
     "systems/modern20/assets/tokens/delapouite/truck.svg",
     "systems/modern20/assets/tokens/delapouite/window-bars.svg",
     "systems/modern20/assets/tokens/john-colburn/pistol-gun.svg",
@@ -367,9 +428,11 @@ export const EXPECTED = {
     "systems/modern20/assets/tokens/lorc/handcuffs.svg",
     "systems/modern20/assets/tokens/lorc/horned-helm.svg",
     "systems/modern20/assets/tokens/lorc/jetpack.svg",
+    "systems/modern20/assets/tokens/lorc/muscle-up.svg",
     "systems/modern20/assets/tokens/lorc/vintage-robot.svg",
     "systems/modern20/assets/tokens/lorc/wolf-head.svg",
     "systems/modern20/assets/tokens/sbed/fire.svg",
+    "systems/modern20/assets/tokens/sbed/medical-pack.svg",
     "systems/modern20/assets/tokens/skoll/airplane.svg",
     "systems/modern20/assets/tokens/skoll/long-legged-spider.svg",
     "systems/modern20/assets/tokens/skoll/race-car.svg"

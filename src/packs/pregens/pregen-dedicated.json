@@ -1,0 +1,752 @@
+{
+  "_id": "FWRnjpzxqrFGJkok",
+  "name": "Ruth Ayers",
+  "type": "hero",
+  "img": "systems/modern20/assets/icons/sbed/medical-pack.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 7,
+      "max": 7,
+      "temp": 0,
+      "formula": "1d6"
+    },
+    "defense": {
+      "classBonus": 0,
+      "equipment": 0,
+      "naturalArmor": 0,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      }
+    },
+    "skills": {
+      "treatInjury": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "listen": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "senseMotive": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "spot": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "knowledge": {
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": [
+          {
+            "name": "Earth And Life Sciences",
+            "ranks": 4,
+            "misc": 0,
+            "classSkill": true
+          },
+          {
+            "name": "Behavioral Sciences",
+            "ranks": 4,
+            "misc": 0,
+            "classSkill": true
+          }
+        ]
+      },
+      "investigate": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Her patients",
+        "strength": "major"
+      },
+      {
+        "name": "Good",
+        "strength": "minor"
+      }
+    ],
+    "details": {
+      "age": "38",
+      "height": "5 ft. 6 in.",
+      "weight": "140 lb.",
+      "occupation": "Doctor",
+      "xp": 0
+    },
+    "wealth": {
+      "bonus": 9
+    },
+    "reputation": {
+      "base": 0,
+      "misc": 0
+    },
+    "actionPoints": {
+      "value": 5
+    },
+    "biography": "<p>A trauma doctor. Healing Knack and the Medical Expert feat both improve Treat Injury, which is the SRD's answer to a party with no magic and someone at -1 hit points.</p>",
+    "source": "d20 Modern SRD"
+  },
+  "items": [
+    {
+      "_id": "Qe8U8PUGRnWDaaCO",
+      "name": "Dedicated Hero",
+      "type": "class",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
+      "system": {
+        "description": "",
+        "tier": "basic",
+        "levels": 1,
+        "keyAbility": "wis",
+        "hitDie": "1d6",
+        "skillPointsPerLevel": 5,
+        "classSkills": [
+          {
+            "skill": "craft",
+            "specialty": "Pharmaceutical"
+          },
+          {
+            "skill": "craft",
+            "specialty": "Visual Art"
+          },
+          {
+            "skill": "craft",
+            "specialty": "Writing"
+          },
+          {
+            "skill": "gamble",
+            "specialty": ""
+          },
+          {
+            "skill": "investigate",
+            "specialty": ""
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Arcane Lore"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Art"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Behavioral Sciences"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Business"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Civics"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Current Events"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Earth And Life Sciences"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "History"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Physical Sciences"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Popular Culture"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Streetwise"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Tactics"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Technology"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Theology And Philosophy"
+          },
+          {
+            "skill": "listen",
+            "specialty": ""
+          },
+          {
+            "skill": "profession",
+            "specialty": ""
+          },
+          {
+            "skill": "readWriteLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "senseMotive",
+            "specialty": ""
+          },
+          {
+            "skill": "speakLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "spot",
+            "specialty": ""
+          },
+          {
+            "skill": "survival",
+            "specialty": ""
+          },
+          {
+            "skill": "treatInjury",
+            "specialty": ""
+          }
+        ],
+        "prerequisites": [],
+        "progression": [
+          {
+            "level": 1,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 0,
+            "fort": 1,
+            "ref": 0,
+            "will": 1,
+            "defense": 1,
+            "reputation": 1
+          },
+          {
+            "level": 2,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 1,
+            "fort": 2,
+            "ref": 0,
+            "will": 2,
+            "defense": 2,
+            "reputation": 1
+          },
+          {
+            "level": 3,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 2,
+            "fort": 2,
+            "ref": 1,
+            "will": 2,
+            "defense": 2,
+            "reputation": 1
+          },
+          {
+            "level": 4,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 3,
+            "fort": 2,
+            "ref": 1,
+            "will": 2,
+            "defense": 3,
+            "reputation": 2
+          },
+          {
+            "level": 5,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 3,
+            "fort": 3,
+            "ref": 1,
+            "will": 3,
+            "defense": 3,
+            "reputation": 2
+          },
+          {
+            "level": 6,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 4,
+            "fort": 3,
+            "ref": 2,
+            "will": 3,
+            "defense": 3,
+            "reputation": 2
+          },
+          {
+            "level": 7,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 5,
+            "fort": 4,
+            "ref": 2,
+            "will": 4,
+            "defense": 4,
+            "reputation": 3
+          },
+          {
+            "level": 8,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 6,
+            "fort": 4,
+            "ref": 2,
+            "will": 4,
+            "defense": 4,
+            "reputation": 3
+          },
+          {
+            "level": 9,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 6,
+            "fort": 4,
+            "ref": 3,
+            "will": 4,
+            "defense": 5,
+            "reputation": 3
+          },
+          {
+            "level": 10,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 7,
+            "fort": 5,
+            "ref": 3,
+            "will": 5,
+            "defense": 5,
+            "reputation": 4
+          }
+        ],
+        "casting": {
+          "kind": "",
+          "tradition": "",
+          "ability": "",
+          "perDay": [],
+          "bonusByScore": [],
+          "pointsPerDay": [],
+          "bonusPointsByScore": [],
+          "powersKnown": []
+        },
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.6nLO3rC9vpHjroyx"
+      },
+      "sort": 1000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.Qe8U8PUGRnWDaaCO"
+    },
+    {
+      "_id": "kMZZ9c48PG5oTBR5",
+      "name": "Doctor",
+      "type": "occupation",
+      "img": "systems/modern20/assets/icons/delapouite/first-aid-kit.svg",
+      "system": {
+        "description": "A doctor can be a physician (general practitioner or specialist), a surgeon, or a psychiatrist.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.J95B9XhYH6v4Joca.JournalEntryPage.zSv9GqcOf4q4Kz6u",
+        "skillChoiceCount": 2,
+        "skillOptions": [
+          {
+            "skill": "craft",
+            "label": "Craft (pharmaceutical)",
+            "specialties": [
+              "Pharmaceutical"
+            ]
+          },
+          {
+            "skill": "computerUse",
+            "label": "Computer Use",
+            "specialties": []
+          },
+          {
+            "skill": "knowledge",
+            "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
+            "specialties": [
+              "Behavioral Sciences",
+              "Earth And Life Sciences",
+              "Or Technology"
+            ]
+          },
+          {
+            "skill": "search",
+            "label": "Search",
+            "specialties": []
+          },
+          {
+            "skill": "treatInjury",
+            "label": "Treat Injury",
+            "specialties": []
+          }
+        ],
+        "skillsChosen": [],
+        "bonusFeatOptions": [],
+        "bonusFeatChosen": "",
+        "wealthBonus": 4,
+        "reputationBonus": 0,
+        "prerequisites": [
+          "Age 25+."
+        ]
+      },
+      "sort": 2000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.kMZZ9c48PG5oTBR5"
+    },
+    {
+      "_id": "gq6WZudfeY4lk6Rs",
+      "name": "Healing Knack",
+      "type": "talent",
+      "img": "systems/modern20/assets/icons/lorc/third-eye.svg",
+      "system": {
+        "description": "The hero has a knack for the healing arts. The hero receives a +2 bonus on all Treat Injury skill checks.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/dedicatedhero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.6nLO3rC9vpHjroyx",
+        "tree": "Healing Talent Tree",
+        "sourceClass": "Dedicated Hero",
+        "prerequisites": []
+      },
+      "effects": [
+        {
+          "_id": "LxWa4HKxU0Sd8th3",
+          "name": "Healing Knack",
+          "img": "icons/svg/statue.svg",
+          "changes": [
+            {
+              "key": "system.skills.treatInjury.misc",
+              "value": "2",
+              "type": "add"
+            }
+          ],
+          "disabled": false,
+          "transfer": true,
+          "_key": "!items.effects!2WCRBq5rVfimQxjI.LxWa4HKxU0Sd8th3"
+        }
+      ],
+      "sort": 3000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.gq6WZudfeY4lk6Rs"
+    },
+    {
+      "_id": "zeGTsn5VrSV7SQhr",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 4000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.zeGTsn5VrSV7SQhr"
+    },
+    {
+      "_id": "rKSCvGeWjQHfNdj4",
+      "name": "Medical Expert",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2P4S9HkUhITAEPHm",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s and @Check[skill:treatInjury]{Treat Injury check}s.",
+        "normal": "",
+        "special": "Remember that the Craft (pharmaceutical) skill can’t be used untrained.",
+        "repeatable": false
+      },
+      "effects": [
+        {
+          "_id": "yQF5ZIjsn6tfhsHO",
+          "name": "Medical Expert",
+          "img": "icons/svg/upgrade.svg",
+          "changes": [
+            {
+              "key": "system.skills.treatInjury.misc",
+              "value": "2",
+              "type": "add"
+            }
+          ],
+          "disabled": false,
+          "transfer": true,
+          "_key": "!items.effects!YoX8OzOpsV5SW1zU.yQF5ZIjsn6tfhsHO"
+        }
+      ],
+      "sort": 5000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.rKSCvGeWjQHfNdj4"
+    },
+    {
+      "_id": "9ygE2tQl7ASU92F9",
+      "name": "Alertness",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.eWtuhHOyoOEDGhRx",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character gets a +2 bonus on all @Check[skill:listen]{Listen check}s and @Check[skill:spot]{Spot check}s.",
+        "normal": "",
+        "special": "",
+        "repeatable": false
+      },
+      "effects": [
+        {
+          "_id": "t375wG86JhyVGESb",
+          "name": "Alertness",
+          "img": "icons/svg/upgrade.svg",
+          "changes": [
+            {
+              "key": "system.skills.listen.misc",
+              "value": "2",
+              "type": "add"
+            },
+            {
+              "key": "system.skills.spot.misc",
+              "value": "2",
+              "type": "add"
+            }
+          ],
+          "disabled": false,
+          "transfer": true,
+          "_key": "!items.effects!ydS2zMF435gpmiN4.t375wG86JhyVGESb"
+        }
+      ],
+      "sort": 6000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.9ygE2tQl7ASU92F9"
+    },
+    {
+      "_id": "F9T4aE3CzItTfK1M",
+      "name": "Knife",
+      "type": "weapon",
+      "img": "systems/modern20/assets/icons/lorc/bowie-knife.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "simple",
+        "damage": "1d4",
+        "damageType": "piercing",
+        "critical": "19-20",
+        "rangeIncrement": 10,
+        "rateOfFire": "",
+        "caliber": "",
+        "magazine": "",
+        "size": "tiny",
+        "ranged": true,
+        "nonlethal": false,
+        "weight": 1.0,
+        "purchaseDC": 7,
+        "restriction": "none",
+        "burstRadius": "",
+        "reflexDC": null,
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.pR8lAC6TGmYZHOXl",
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "consume": {
+              "ammo": 1
+            }
+          }
+        },
+        "progressLevel": 0
+      },
+      "sort": 7000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.F9T4aE3CzItTfK1M"
+    },
+    {
+      "_id": "ypaRsRqCIDFD3m45",
+      "name": "First aid kit",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/first-aid-kit.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Professional Equipment",
+        "weight": 3.0,
+        "purchaseDC": 5,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.mOPUKejC7oJXkQwx",
+        "progressLevel": 0
+      },
+      "sort": 8000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.ypaRsRqCIDFD3m45"
+    },
+    {
+      "_id": "r64ULLpk9SWTMcJM",
+      "name": "Surgery kit",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/first-aid-kit.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Professional Equipment",
+        "weight": 5.0,
+        "purchaseDC": 16,
+        "restriction": "lic",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.mOPUKejC7oJXkQwx",
+        "progressLevel": 0
+      },
+      "sort": 9000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.r64ULLpk9SWTMcJM"
+    },
+    {
+      "_id": "055RoV0fCAaWzFRO",
+      "name": "Cell phone",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/smartphone.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Computers and Consumer Electronics",
+        "weight": 0.0,
+        "purchaseDC": 9,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.Cplgkqa1q9mYh3mB",
+        "progressLevel": 0
+      },
+      "sort": 10000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.055RoV0fCAaWzFRO"
+    },
+    {
+      "_id": "zk5pQiFKV43Hhvs8",
+      "name": "Flashlight (Penlight)",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/flashlight.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Survival Gear",
+        "weight": 0.5,
+        "purchaseDC": 3,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.xbxFjahYcwSaX83d",
+        "progressLevel": 0
+      },
+      "sort": 11000,
+      "_key": "!actors.items!FWRnjpzxqrFGJkok.zk5pQiFKV43Hhvs8"
+    }
+  ],
+  "prototypeToken": {
+    "width": 1.0,
+    "height": 1.0,
+    "disposition": 0,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "texture": {
+      "src": "systems/modern20/assets/tokens/sbed/medical-pack.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
+    }
+  },
+  "_key": "!actors!FWRnjpzxqrFGJkok",
+  "_slug": "pregen-dedicated"
+}

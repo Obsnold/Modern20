@@ -43,6 +43,8 @@ fighting it forever, so this is a standalone game system.
 | Items on the hotbar | Dragging one there makes a macro that uses it, by name, on whoever is selected |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
+| Ready-made characters | Six, one per basic class, built at first level by the SRD's own arithmetic — and checked by it |
+| A guide inside the game | Five journal pages about the system rather than the game, linked into the rules compendium |
 | Artwork | 163 icons over 4,864 documents, chosen by what each thing is: a handgun is a handgun, an SUV an SUV, a Fortitude save an aura |
 | Tokens | All 399 actors: size in squares, vision from the senses line, disposition, HP bar — and artwork, the same drawing cut as a disc for the canvas |
 | Creature special abilities, senses, skills, feats and damage reduction | 1,969 ability items, 1,743 with the SRD's own rules text, 93 rollable |
@@ -1430,6 +1432,44 @@ fvtt package pack -n gear    --in src/packs/gear    --out packs
 ids are derived from the pack and slug, so rebuilds update documents in place
 rather than duplicating them.
 
+## Six characters, and a page that says what this is
+
+**`Ready-Made Characters`** holds one hero per basic class, at first level,
+ready to drag in and play: Sergeant Dana Kessler (Strong / Military), Teo Vance
+(Fast / Criminal), Marisol Okonkwo (Tough / Emergency Services), Dr. Ilse
+Brandt (Smart / Technician), Ruth Ayers (Dedicated / Doctor) and Nate Okoye
+(Charismatic / Investigative).
+
+What is *chosen* is in `data/pregens.json` — the class, the occupation, the
+talent, three feats, which skills, what they carry, and a line saying why the
+character is put together that way. What the rules then *decide* is applied by
+`gen_pregens.py` rather than transcribed:
+
+| | the SRD's rule | what it comes to |
+|---|---|---|
+| hit points | maximum at 1st level, plus the Constitution modifier | 5 to 12 across the six |
+| skill points | `(class figure + Int modifier) x 4`, one point a rank for a class skill and two for a cross-class one, four ranks maximum | 12 for the Strong hero, 44 for the Smart hero |
+| Wealth | "roll 2d4 and add the wealth bonus for the character's starting occupation" | 5, the average, since a printed character cannot roll — and the sheet says so |
+| class skills | the class's own list, plus the ones the occupation grants | marked on the sheet, so the ranks bought are visibly ones a player could buy |
+
+A character who overspends a skill point, exceeds the rank maximum, or leaves
+points unspent **fails the build**. Every item on them is a real document
+copied out of the packs — the same gun, the same rules page, the same artwork,
+the same activities — so nothing here invents an item, and
+`gen_pregens.py --check` runs in CI.
+
+**`How to Play This`** is one journal entry of five pages, about the system
+rather than the game: start here, rolling things, finding things, for the GM,
+and the licence. Its fourteen links into the rules compendium are resolved
+through the same index the sheets use, so a page that stops existing fails the
+build rather than becoming a link into nothing.
+
+Neither pack is touched by `link_rules.py`. They are generated from documents
+that already carry their links, and the reconciler re-deriving a page for each
+item from the character it sits on replaced eleven correct citations with the
+same wrong one — a character is not printed anywhere, so the matcher fell back
+to the parent.
+
 ## The self-test, which runs inside Foundry
 
 The first thing it found was that **45 of the 52 classes could not be added to
@@ -1482,6 +1522,11 @@ available. So `game.modern20.selftest()` — also a button in the system setting
   - **the artwork**: all 185 image paths fetched from the server, through
     `getRoute`, so a host with a route prefix is asked the same question a
     browser would ask.
+  - **the ready-made characters**: all six load, carry their items, are the
+    class and level they claim, and show the hit points and Wealth the SRD's
+    own arithmetic gives them — plus a base attack or Defense bonus, since a
+    character whose class silently failed to apply reads as a perfectly
+    ordinary level-1 sheet.
   - **the chat cards**: an item posts one, and it carries what it should.
 
 It cleans up after itself. The character is made the way a player makes one —

@@ -75,6 +75,14 @@ import srd  # noqa: E402
 
 PACKS = os.path.join(srd.ROOT, "src", "packs")
 
+# Packs this does not touch, because each is written by a generator of its own
+# from documents that already carry their links. The pregens are the reason the
+# rule is stated rather than assumed: their items are copies of pack documents,
+# already citing the right page, and re-deriving a page for each one from the
+# character it sits on replaced eleven correct citations with the same wrong
+# one — the parent's, since a character is not printed anywhere.
+GENERATED = {"rules", "pregens", "guide"}
+
 # The footer, and the pattern that finds the one written last time. Marked with
 # a class of its own so it can be replaced without touching a word of the SRD
 # around it, and recognised even if a hand edit moves it.
@@ -346,7 +354,7 @@ def main() -> int:
 
     for path in sorted(glob.glob(os.path.join(PACKS, "*", "*.json"))):
         pack = os.path.basename(os.path.dirname(path))
-        if pack == "rules":
+        if pack in GENERATED:
             continue
         with open(path, encoding="utf-8") as handle:
             document = json.load(handle)
