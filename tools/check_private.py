@@ -4,10 +4,10 @@
     python3 tools/check_private.py
 
 Everything here was written on one laptop and deployed to one server on a home
-network, and for a while it said so: `user@host` was the default host
-in two scripts, and paths to one particular Node install and one particular
-copy of the Foundry CLI were written out as though they were facts about the
-world. None of it is a secret — a private address is meaningless outside the
+network, and for a while it said so: an account on a private address was the
+default host in two scripts, and paths to one particular Node install and one
+particular copy of the Foundry CLI were written out as though they were facts
+about the world. None of it is a secret — a private address is meaningless outside the
 network it is on — but all of it is *wrong for everybody else*, and a default
 that silently points at a machine the reader does not have is worse than no
 default at all.
@@ -46,7 +46,8 @@ SKIP_FILES = ("tools/check_private.py",)
 
 PATTERNS = [
     # A private network address. A public one would be worse, and this catches
-    # both: the Foundry host was the one that was actually here.
+    # both. One was written into this repository for a fortnight, which is why
+    # the check exists and why it does not quote it.
     (re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"),
      "an IP address, which is a machine on somebody's network"),
     # user@host, as a default or an example. "user@host" itself is the
@@ -63,6 +64,10 @@ PATTERNS = [
      "a path into one particular install of the Foundry CLI"),
     (re.compile(r"/opt/node/\S*"),
      "a path into one particular Node install"),
+    # The CI comment named the Ansible role that configures the runner, which
+    # is a machine on somebody's network by another route.
+    (re.compile(r"\b[\w-]*(?:ansible|_runner_|-runner-)[\w-]*\b", re.I),
+     "a piece of somebody's own infrastructure"),
 ]
 
 # An address that is documentation rather than a machine: the licence's own
