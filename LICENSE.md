@@ -5,7 +5,7 @@ This repository contains three kinds of material, licensed separately.
 ## Software
 
 The system's source code — everything under `module/`, `css/`, `templates/`,
-`scripts/`, and the `system.json` manifest — is licensed under the MIT License.
+`tools/`, and the `system.json` manifest — is licensed under the MIT License.
 
 Copyright (c) 2026 Terry
 
@@ -34,7 +34,7 @@ and are licensed **CC BY 3.0** (a few are CC0). They are recoloured to this
 system's palette and given a background tile; the artwork is otherwise
 unchanged. Every author is credited in
 [assets/icons/CREDITS.md](assets/icons/CREDITS.md), which
-`scripts/fetch_art.py` generates from what it fetched, so the attribution
+`tools/fetch_art.py` generates from what it fetched, so the attribution
 cannot fall out of step with the files.
 
 ## Game content

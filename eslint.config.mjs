@@ -15,7 +15,7 @@
  */
 
 // The globals Foundry still provides at v14, which is the same list
-// scripts/check_globals.py maintains as STILL_GLOBAL. Anything removed from
+// tools/check_globals.py maintains as STILL_GLOBAL. Anything removed from
 // that list has to be reached through `foundry.*`, which is what that check
 // enforces and this one cannot.
 const foundryGlobals = {
@@ -73,7 +73,7 @@ export default [
   },
   {
     // The checks, which run under Node and install their own Foundry stubs.
-    files: ["scripts/**/*.mjs"],
+    files: ["tools/**/*.mjs"],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: "module",

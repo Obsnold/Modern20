@@ -2288,16 +2288,16 @@
     },
     "SavingThrows": "Saving Throws",
     "SelfTest": {
-      "Title": "System self-test",
-      "Run": "Run the self-test",
-      "Running": "Running…",
+      "Copied": "The failures are on the clipboard.",
+      "Copy": "Copy the failures",
+      "CopyFailed": "Could not reach the clipboard; the report is in the console.",
+      "Empty": "Nothing has been checked yet.",
+      "Failed": "failed",
       "Hint": "Checks what this system does while it is running: that every compendium holds what was built, that a sheet derives the numbers the book prints, that the rules links resolve and the artwork is being served. Nothing is saved; any chat cards it posts are deleted again.",
       "Passed": "passed",
-      "Failed": "failed",
-      "Copy": "Copy the failures",
-      "Copied": "The failures are on the clipboard.",
-      "CopyFailed": "Could not reach the clipboard; the report is in the console.",
-      "Empty": "Nothing has been checked yet."
+      "Run": "Run the self-test",
+      "Running": "Running…",
+      "Title": "System self-test"
     },
     "Senses": "Senses",
     "Settings": {

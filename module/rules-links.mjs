@@ -1,6 +1,6 @@
 /**
  * Where the rules for a topic are, generated from data/rules.json by
- * scripts/gen_rules_links.py.
+ * tools/gen_rules_links.py.
  *
  * Every compendium document carries its own page in `system.rulesPage`. These
  * are for the things that are not documents: the ability scores a panel of the

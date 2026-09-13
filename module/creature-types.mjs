@@ -1,6 +1,6 @@
 /**
  * The creature types, generated from data/creature_types.json by
- * scripts/gen_creature_types.py.
+ * tools/gen_creature_types.py.
  *
  * A type decides a creature's hit die, which of three base attack columns it
  * uses, which saves are good, and how many skill points and feats it gets —

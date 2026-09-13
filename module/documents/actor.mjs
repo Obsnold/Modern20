@@ -52,7 +52,7 @@ export class Modern20Actor extends Actor {
    * the sheet and the canvas alike, so a GM who makes a creature of their own
    * gets the same silhouette every other system's users complain about. The
    * compendium's 399 actors carry artwork chosen from what each one *is*
-   * (`scripts/art.py`), which no amount of JavaScript can do for an actor that
+   * (`tools/art.py`), which no amount of JavaScript can do for an actor that
    * does not exist yet; what a type can say is the kind of thing it will be.
    *
    * Foundry calls this on create, and on the "reset" button in the token

@@ -1,7 +1,7 @@
 /**
  * What the in-world self-test expects to find, generated from src/packs.
  *
- * Do not edit: `python3 scripts/gen_selftest.py` writes this file, and
+ * Do not edit: `python3 tools/gen_selftest.py` writes this file, and
  * `check_selftest.py` fails if it has drifted from the packs. Every figure
  * here is the book's, by way of the import — a test that checks the system
  * against numbers somebody typed proves only that they can add up.
