@@ -152,14 +152,34 @@ def pregens() -> list[dict]:
     for document in documents("pregens"):
         system = document["system"]
         classes = [item for item in document["items"] if item["type"] == "class"]
+        first = classes[0] if classes else {"name": "", "system": {"levels": 0}}
+        level = sum(item["system"]["levels"] for item in classes)
+
+        # The row the class table gives at that level, which is the whole of
+        # what a class item contributes to a sheet. Taken from the class
+        # document rather than asserted as "more than nothing": the Smart and
+        # Charismatic heroes are printed with a base attack and a Defense bonus
+        # of zero at 1st level, so "more than nothing" failed two characters
+        # that were perfectly correct.
+        row = next((entry for entry in first["system"].get("progression") or []
+                    if entry["level"] == level), None)
+        # A class skill the character actually bought, so the class's skill
+        # list reaching the sheet is checked even where its numbers are zero.
+        bought = next((key for key, skill in system["skills"].items()
+                       if skill["ranks"] > 0), "")
+
         out.append({
             "uuid": uuid_of("pregens", document),
             "name": document["name"],
             "hp": system["hp"]["max"],
             "wealth": system["wealth"]["bonus"],
             "items": len(document["items"]),
-            "className": classes[0]["name"] if classes else "",
-            "level": sum(item["system"]["levels"] for item in classes),
+            "className": first["name"],
+            "level": level,
+            "row": {key: row[key] for key in
+                    ("baseAttack", "fort", "ref", "will", "defense", "reputation")}
+            if row else None,
+            "classSkill": bought,
         })
     return out
 
