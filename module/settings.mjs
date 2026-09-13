@@ -1,3 +1,5 @@
+import { Modern20SelfTestMenu } from "./apps/selftest.mjs";
+
 const SYSTEM_ID = "modern20";
 
 /**
@@ -106,6 +108,17 @@ export const SETTINGS = {
 
 /** Register every setting, with its name and hint from the language file. */
 export function registerSettings() {
+  // A button in the settings panel, because a GM whose compendium looks wrong
+  // should not have to know that a macro can be written to find out why.
+  game.settings.registerMenu(SYSTEM_ID, "selfTest", {
+    name: "MODERN20.SelfTest.Title",
+    label: "MODERN20.SelfTest.Run",
+    hint: "MODERN20.SelfTest.Hint",
+    icon: "fa-solid fa-stethoscope",
+    type: Modern20SelfTestMenu,
+    restricted: true
+  });
+
   for (const [key, definition] of Object.entries(SETTINGS)) {
     game.settings.register(SYSTEM_ID, key, {
       name: `MODERN20.Settings.${key}.name`,

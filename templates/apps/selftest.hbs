@@ -1,0 +1,54 @@
+<div class="m20-selftest">
+  <div class="m20-selftest__bar">
+    <button type="button" class="m20-button" data-action="run" {{#if running}}disabled{{/if}}>
+      {{#if running}}
+        {{localize "MODERN20.SelfTest.Running"}}
+      {{else}}
+        {{localize "MODERN20.SelfTest.Run"}}
+      {{/if}}
+    </button>
+
+    {{#if ran}}
+      <span class="m20-selftest__tally">
+        <strong class="m20-selftest__passed">{{passed}}</strong>
+        {{localize "MODERN20.SelfTest.Passed"}}
+        &middot;
+        <strong class="{{#if failed}}m20-selftest__failed{{/if}}">{{failed}}</strong>
+        {{localize "MODERN20.SelfTest.Failed"}}
+      </span>
+      {{#if failed}}
+        <button type="button" class="m20-button m20-button--small" data-action="copy">
+          {{localize "MODERN20.SelfTest.Copy"}}
+        </button>
+      {{/if}}
+    {{/if}}
+  </div>
+
+  <p class="m20-hint">{{localize "MODERN20.SelfTest.Hint"}}</p>
+
+  <div class="m20-selftest__scroll">
+    {{#each groups as |group|}}
+      <section class="m20-selftest__group">
+        <h3>
+          {{group.name}}
+          {{#if group.failed}}
+            <span class="m20-selftest__failed">{{group.failed}}</span>
+          {{/if}}
+        </h3>
+        <ul class="m20-selftest__rows">
+          {{#each group.rows as |row|}}
+            <li class="m20-selftest__row {{#unless row.passed}}m20-selftest__row--failed{{/unless}}">
+              <i class="fa-solid {{#if row.passed}}fa-check{{else}}fa-xmark{{/if}}"></i>
+              <span class="m20-selftest__name">{{row.name}}</span>
+              {{#if row.detail}}<span class="m20-selftest__detail">{{row.detail}}</span>{{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{else}}
+      {{#unless running}}
+        <p class="m20-hint">{{localize "MODERN20.SelfTest.Empty"}}</p>
+      {{/unless}}
+    {{/each}}
+  </div>
+</div>

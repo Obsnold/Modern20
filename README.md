@@ -1430,6 +1430,61 @@ fvtt package pack -n gear    --in src/packs/gear    --out packs
 ids are derived from the pack and slug, so rebuilds update documents in place
 rather than duplicating them.
 
+## The self-test, which runs inside Foundry
+
+Every check in this repository reads files. None of them has ever seen a
+document load, a sheet derive a number, or a browser fetch an image — and every
+bug that reached the table was of that kind:
+
+| what broke | what all the checks said |
+|---|---|
+| 183 creatures showed a Defense the book does not print | the scrape matched the page, the model implemented the rule |
+| Random Tables was an empty compendium for as long as it existed | 26 tables, read out of `src/packs` on every run |
+| the artwork was never being served, while it was adjusted three times | 5,271 images, every path resolved on disk |
+
+Each was found by a person looking at Foundry, which is the slowest instrument
+available. So `game.modern20.selftest()` — also a button in the system settings
+— runs in the world and asks what only a world can answer:
+
+  - **the compendia**: every pack is registered and holds the number of
+    documents that was built, and every creature in the one pack with embedded
+    documents, effects and tokens actually constructs. A document whose data
+    model throws still has an index entry, so a broken compendium looks normal
+    until somebody opens one.
+  - **the character sheet**: a Strong Hero item out of the compendium, at third
+    level, on abilities of 15/14/13/12/10/8 — and then the numbers the book
+    prints from it: base attack 3, the three saves, Defense, flat-footed
+    Defense, initiative, massive damage, grapple, and an untrained class skill.
+  - **the creatures**: one per size from Colossal down to Fine, each asked for
+    the Defense the SRD prints, the token size its Space column gives, and the
+    artwork it should be standing on. The Defense bug was worth eight points at
+    Colossal and nothing at Medium, which is why the fixture spans the range.
+  - **the rules links**: a citation from every pack, all 19 sheet topics and all
+    48 skill links, resolved through `fromUuid`.
+  - **the rolls in the text**: that `@Check[skill:climb|dc:15]` enriches into
+    something clickable, and that a check naming a skill this system does not
+    have resolves to nothing rather than to a button that cannot roll.
+  - **the artwork**: all 185 image paths fetched from the server, through
+    `getRoute`, so a host with a route prefix is asked the same question a
+    browser would ask.
+  - **the chat cards**: an item posts one, and it carries what it should.
+
+Nothing it does is saved. The character is constructed in memory and never
+created, so it is safe to run mid-session; the only documents it writes are the
+chat messages it posts, and it deletes those itself in a `finally`.
+
+The figures it compares against are generated from the packs by
+`gen_selftest.py`, never typed: a test whose expected values are written by
+hand proves that its author can add up, and one whose expected values come from
+the book proves the system still says what the book says. `check_selftest.py`
+holds the generated half to `src/packs`, resolves every UUID in it, and fails a
+fixture that would pass in any world at all — a class row of zeroes, a creature
+with no printed Defense, a compendium expected to be empty.
+
+What it cannot check is itself: the assertions are JavaScript and run in a
+browser. That is the honest limit of everything else here, which is why this
+exists.
+
 ## Checks
 
 ```bash
@@ -1454,6 +1509,7 @@ python3 scripts/check_rules_links.py # every link into the rules resolves, every
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
 python3 scripts/check_art.py         # every icon a document points at is a file that is here
 python3 scripts/check_deploy.py      # the deploy sends every directory the system reads
+python3 scripts/check_selftest.py    # the in-world self-test checks the packs' own figures
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
 node    scripts/check_creatures.mjs  # every creature's arithmetic against the SRD
@@ -1492,6 +1548,7 @@ to trust any of them:
 | `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
 | `check_packs.py` (tables) | the first build of the random tables had a d8 with twelve rows and two tables whose last row read "00" as zero — a roll with no result looks like an empty draw and nothing else |
 | `check_packs.py` (creatures) | every derived number on a creature is stored as the offset that reproduces the printed total, which holds only while everything the sheet adds back is subtracted — the size modifier was not, and 183 of 300 creatures showed a Defense the SRD does not print, eight points out on a Colossal dragon, with each half of the sum correct on its own |
+| `check_selftest.py` | the one test that runs inside Foundry is the one thing here that cannot be run from here, which makes its expected figures the place a mistake is invisible from both directions: wrong numbers in a test nobody here executes, checked against a world nobody there inspects |
 | `check_deploy.py` | the only check that reads the step deciding what reaches Foundry rather than what is in the repository: `assets/` was never uploaded, so every image 404'd into a page nobody was reading, and the packs to compile were written out by hand — when the tables pack was added nobody added it, and Random Tables was an empty compendium on the live host for as long as it existed while every check read all 26 of them from `src/packs` and said so |
 | `check_art.py` | a broken image is the quietest failure a compendium has: Foundry draws an empty frame, logs nothing, and the row still has its name — so an icon renamed or half-committed would cost 4,864 documents their art and look like nothing at all |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
