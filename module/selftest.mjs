@@ -128,17 +128,18 @@ async function checkPacks(results) {
 /**
  * A character sheet derives what the book prints.
  *
- * The actor is temporary: `create(..., { temporary: true })` builds a document
- * and prepares it — embedded items included — without writing anything to the
- * database, so this can run mid-session without leaving a Strong Hero in the
- * sidebar.
+ * The character is made the way a player makes one: an actor, and a class item
+ * dropped onto it. It is deleted in a `finally`, so what is left behind is
+ * nothing, and what is exercised is the path a table actually takes.
  *
- * `new Actor({ items: [...] })` was the first attempt and produced an actor
- * with no items at all: every class-derived number came back as though the
- * character had no class, which reads in a report as eight separate failures
- * of the class system. Hence the two rows below that check the fixture itself
- * before anything is concluded from it — a test that cannot say whether its
- * own setup worked will blame the system every time.
+ * Two earlier attempts avoided touching the world and both produced an actor
+ * with no items on it — `new Actor({ items: [...] })` and then
+ * `create(..., { temporary: true })`. Foundry does not build embedded
+ * collections for a document that was never saved, and the symptom is every
+ * class-derived number coming back as though the character had no class:
+ * eight failures that read like the class system is broken. The two fixture
+ * rows below are there because of that. A test that cannot say whether its own
+ * setup worked will blame the system every time.
  */
 async function checkHero(results) {
   const wanted = EXPECTED.class;
@@ -148,18 +149,35 @@ async function checkHero(results) {
   const source = cls.toObject();
   source.system.levels = wanted.levels;
 
-  const abilities = { str: 15, dex: 14, con: 13, int: 12, wis: 10, cha: 8 };
-  const actor = await Actor.implementation.create({
-    name: "Modern20 self-test",
-    type: "hero",
-    system: {
-      abilities: Object.fromEntries(
-        Object.entries(abilities).map(([key, value]) => [key, { value }])
-      )
-    },
-    items: [source]
-  }, { temporary: true });
+  if (!game.user?.isGM) {
+    results.ok("a character can be made to check the arithmetic on", false,
+               "only a GM can create the actor this needs");
+    return;
+  }
 
+  const abilities = { str: 15, dex: 14, con: 13, int: 12, wis: 10, cha: 8 };
+  let actor = null;
+  try {
+    actor = await Actor.implementation.create({
+      name: "Modern20 self-test (deleted when this finishes)",
+      type: "hero",
+      system: {
+        abilities: Object.fromEntries(
+          Object.entries(abilities).map(([key, value]) => [key, { value }])
+        )
+      }
+    });
+    // Dropped on, the way the sheet does it.
+    await actor.createEmbeddedDocuments("Item", [source]);
+
+    await checkHeroNumbers(results, actor, wanted, abilities);
+  } finally {
+    if (actor?.id) await actor.delete();
+  }
+}
+
+/** The numbers a sheet shows once a class is on it. */
+async function checkHeroNumbers(results, actor, wanted, abilities) {
   // The fixture, before anything is concluded from it.
   results.same("the character has its class item", actor?.items?.size, 1);
   results.same(`the class item is at level ${wanted.levels}`,

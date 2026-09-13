@@ -1469,9 +1469,16 @@ available. So `game.modern20.selftest()` — also a button in the system setting
     browser would ask.
   - **the chat cards**: an item posts one, and it carries what it should.
 
-Nothing it does is saved. The character is constructed in memory and never
-created, so it is safe to run mid-session; the only documents it writes are the
-chat messages it posts, and it deletes those itself in a `finally`.
+It cleans up after itself. The character is made the way a player makes one —
+an actor, and a class item dropped onto it — and deleted in a `finally`, as are
+the chat messages it posts. Two earlier versions avoided touching the world at
+all, with `new Actor({ items: [...] })` and then `create(..., { temporary:
+true })`, and both produced an actor with no items on it: Foundry does not
+build embedded collections for a document that was never saved. The symptom was
+every class-derived number coming back as though the character had no class,
+which reads like eight separate failures of the class system. Hence the two
+rows that check the fixture before anything is concluded from it — a test that
+cannot say whether its own setup worked will blame the system every time.
 
 The figures it compares against are generated from the packs by
 `gen_selftest.py`, never typed: a test whose expected values are written by
