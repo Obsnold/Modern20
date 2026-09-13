@@ -104,6 +104,14 @@ echo "==> Uploading to $HOST"
 scp -q -o BatchMode=yes "$TARBALL" "$HOST:/tmp/modern20.tgz"
 
 echo "==> Remote checks and install"
+# Everything below is inside an unquoted heredoc, which bash expands HERE
+# before sending it. So a backtick in it is a command substitution that runs on
+# this machine, and a $( ) that is not escaped is too. Three prose comments
+# quoting `sudo bash -c` and `$DEST/$SYSTEM_DIRS` the way the rest of this
+# repository quotes code turned into local commands, and the deploy stopped to
+# ask for a sudo password on the wrong host entirely. check_deploy.py fails on
+# either now; keep prose above this line, where prose is prose.
+#
 # Nothing is passed as an environment assignment on the ssh command line: ssh
 # joins its arguments into one string for the remote shell, so a value with a
 # space in it is read as a command. `PACK_NAMES="classes occupations ..."`
@@ -150,14 +158,12 @@ sudo -n chown -R foundry:foundry $DEST
 # Everything that was sent, read back from where Foundry loads it. A deploy
 # that copies nothing looks exactly like a deploy that copies everything, and
 # the symptom is a fix that appears not to have worked.
-# The directory list is interpolated here rather than passed: a `sudo bash -c`
-# is a new shell that inherits no variables, and `$DEST/$SYSTEM_DIRS` would
-# prefix only the first of five paths.
-# `sudo -n` never prompts: it refuses. So a host that will not let this read
-# back what it just wrote says so and the deploy carries on — the files are
-# installed either way, and a check that cannot run is not a reason to fail a
-# deploy that worked. A read that *does* run and disagrees is a different
-# thing, and stops it.
+# The directory list is interpolated rather than passed; see the note above the
+# ssh call.
+# A host that will not let this read back what it just wrote says so and the
+# deploy carries on: the files are installed either way, and a check that
+# cannot run is not a reason to fail a deploy that worked. A read that does
+# run and disagrees is a different thing, and stops it.
 if LIVE_LIST="\$(sudo -n bash -c 'cd $DEST && find $SYSTEM_DIRS -type f | LC_ALL=C sort | xargs md5sum' 2>/dev/null)"; then
   LIVE_COUNT="\$(echo "\$LIVE_LIST" | wc -l | tr -d ' ')"
   LIVE_SUM="\$(echo "\$LIVE_LIST" | awk '{print \$1}' | md5sum | cut -d' ' -f1)"
