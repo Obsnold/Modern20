@@ -1,6 +1,7 @@
 import { EXPECTED } from "./selftest-data.mjs";
 import { MODERN20 } from "./config.mjs";
 import { RULES_TOPICS, SKILL_RULES } from "./rules-links.mjs";
+import { rulesTopic, skillRules } from "./rules.mjs";
 import { checkRoll } from "./enrichers.mjs";
 
 /**
@@ -127,9 +128,17 @@ async function checkPacks(results) {
 /**
  * A character sheet derives what the book prints.
  *
- * The actor is constructed rather than created: `new Actor(...)` builds the
- * data model and prepares it without writing anything to the world, so this
- * can run mid-session without leaving a Strong Hero in the sidebar.
+ * The actor is temporary: `create(..., { temporary: true })` builds a document
+ * and prepares it — embedded items included — without writing anything to the
+ * database, so this can run mid-session without leaving a Strong Hero in the
+ * sidebar.
+ *
+ * `new Actor({ items: [...] })` was the first attempt and produced an actor
+ * with no items at all: every class-derived number came back as though the
+ * character had no class, which reads in a report as eight separate failures
+ * of the class system. Hence the two rows below that check the fixture itself
+ * before anything is concluded from it — a test that cannot say whether its
+ * own setup worked will blame the system every time.
  */
 async function checkHero(results) {
   const wanted = EXPECTED.class;
@@ -140,7 +149,7 @@ async function checkHero(results) {
   source.system.levels = wanted.levels;
 
   const abilities = { str: 15, dex: 14, con: 13, int: 12, wis: 10, cha: 8 };
-  const actor = new Actor.implementation({
+  const actor = await Actor.implementation.create({
     name: "Modern20 self-test",
     type: "hero",
     system: {
@@ -149,7 +158,12 @@ async function checkHero(results) {
       )
     },
     items: [source]
-  });
+  }, { temporary: true });
+
+  // The fixture, before anything is concluded from it.
+  results.same("the character has its class item", actor?.items?.size, 1);
+  results.same(`the class item is at level ${wanted.levels}`,
+               actor?.items?.contents?.[0]?.system?.levels, wanted.levels);
 
   const system = actor.system;
   results.same("Strength 15 is +2", system.abilities.str.mod, 2);
@@ -213,21 +227,29 @@ async function checkRulesLinks(results) {
                Boolean(page), page ? "" : cited.uuid);
   }
 
-  const topics = Object.entries(RULES_TOPICS);
-  let missing = 0;
-  for (const [, topic] of topics) {
-    if (!await foundry.utils.fromUuid(topic.uuid)) missing += 1;
+  // Asked through the accessors the sheets use, not by reading the generated
+  // tables: a link is only as good as what `rulesTopic` hands the template,
+  // and reading the table directly would pass while that returned rubbish.
+  // (It also cost a run: the tables map a name to a UUID string, this asked
+  // each value for a `.uuid` it does not have, and 67 working links were
+  // reported as resolving to nothing.)
+  const topics = Object.keys(RULES_TOPICS);
+  const deadTopics = [];
+  for (const topic of topics) {
+    if (!await foundry.utils.fromUuid(rulesTopic(topic))) deadTopics.push(topic);
   }
-  results.ok(`all ${topics.length} sheet topics resolve`, missing === 0,
-             missing ? `${missing} resolve to nothing` : "");
+  results.ok(`all ${topics.length} sheet topics resolve`, deadTopics.length === 0,
+             deadTopics.slice(0, 3).join(", "));
 
-  const skills = Object.entries(SKILL_RULES);
-  missing = 0;
-  for (const [, entry] of skills) {
-    if (!await foundry.utils.fromUuid(entry.uuid)) missing += 1;
+  const skills = Object.keys(SKILL_RULES);
+  const deadSkills = [];
+  for (const skill of skills) {
+    // A specialty is keyed "knowledge:tactics"; the accessor takes both halves.
+    const [name, specialty] = skill.split(":");
+    if (!await foundry.utils.fromUuid(skillRules(name, specialty))) deadSkills.push(skill);
   }
-  results.ok(`all ${skills.length} skill links resolve`, missing === 0,
-             missing ? `${missing} resolve to nothing` : "");
+  results.ok(`all ${skills.length} skill links resolve`, deadSkills.length === 0,
+             deadSkills.slice(0, 3).join(", "));
 }
 
 /** The rolls written into the rules text are rolls this system can make. */
