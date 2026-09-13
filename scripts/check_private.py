@@ -19,6 +19,9 @@ into one person's toolchain.
 What it does not check, because both are deliberate: the copyright line in
 LICENSE.md, and the name and address on the commits. Those are authorship.
 
+It also reports a script nothing runs and nothing imports, which is the other
+thing a reader of a repository should not have to work out for themselves.
+
 Only the files a reader would read are scanned — the code, the scripts, the
 docs and the manifest. `data/` and `src/packs/` are the SRD's own text and
 `assets/` is artwork; an IP address in a rules page would be the SRD's, and a
@@ -79,9 +82,52 @@ def tracked() -> list[str]:
             and path not in SKIP_FILES]
 
 
+def orphans() -> list[str]:
+    """Scripts nothing runs and nothing imports.
+
+    A one-off written to fix something once, left behind, is a script the next
+    reader has to work out the status of — and `resize_tokens.py` was worse
+    than that: it set the token scale by walking every JSON file in the
+    repository, which is now a line in `art.py`, and its re-serialising with
+    Python's defaults escaped every apostrophe in 1,737 files.
+
+    Referenced means named anywhere outside itself — a suite, the CI workflow,
+    the deploy, the README, or another script — or imported by name.
+    """
+    listing = subprocess.run(["git", "ls-files", "scripts"], cwd=srd.ROOT,
+                             capture_output=True, text=True, check=True)
+    scripts = [path for path in listing.stdout.split("\n")
+               if path.endswith((".py", ".sh", ".mjs"))]
+
+    readers = {}
+    for path in tracked():
+        full = os.path.join(srd.ROOT, path)
+        if not os.path.isfile(full):
+            continue
+        try:
+            with open(full, encoding="utf-8") as handle:
+                readers[path] = handle.read()
+        except UnicodeDecodeError:
+            continue
+
+    alone = []
+    for script in scripts:
+        name = os.path.basename(script)
+        stem = name.rsplit(".", 1)[0]
+        module = re.compile(rf"\bimport {re.escape(stem)}\b")
+        if any(name in text or module.search(text)
+               for path, text in readers.items() if path != script):
+            continue
+        alone.append(script)
+    return alone
+
+
 def main() -> int:
     problems = []
     scanned = 0
+
+    for script in orphans():
+        problems.append(f"{script}: nothing runs it and nothing imports it")
     for path in tracked():
         full = os.path.join(srd.ROOT, path)
         if not os.path.isfile(full):
@@ -100,10 +146,12 @@ def main() -> int:
                         continue
                     problems.append(f"{path}:{number}: {found.group(0)!r} is {why}")
 
-    print(f"{scanned} files scanned for anything naming a particular machine")
+    print(f"{scanned} files scanned for anything naming a particular machine, "
+          "and every script for whether anything calls it")
     for problem in problems:
         print(f"FAIL  {problem}")
-    if problems:
+    if any("names" in problem or "@" in problem or "/home/" in problem
+           for problem in problems):
         print("\nThe deploy reads its host and paths from MODERN20_HOST, "
               "MODERN20_DEST, MODERN20_NODE_BIN and MODERN20_FVTT. Put the "
               "value there rather than in a file this repository tracks.")

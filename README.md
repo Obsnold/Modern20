@@ -134,7 +134,11 @@ Where it deploys to comes from the environment, never from a file here:
 | `MODERN20_FVTT` | the Foundry CLI there; defaults to `fvtt`, which is what installing it globally gives you |
 
 `check_private.py` holds the repository to that: no addresses, no `user@host`,
-no home directories, no paths into one person's toolchain. All of that was
+no home directories, no paths into one person's toolchain. It also fails a
+script nothing runs and nothing imports — `resize_tokens.py` was one, a one-off
+that set the token scale by walking every JSON file in the repository, which is
+now a line in `art.py`; left behind, it is something the next reader has to
+work out the status of. All of that was
 written out here for a while — one laptop's default host in two scripts — and
 none of it was a secret, but a default that silently points at a machine the
 reader does not have is worse than no default at all.
@@ -1707,7 +1711,7 @@ to trust any of them:
 | `check_packs.py` (tables) | the first build of the random tables had a d8 with twelve rows and two tables whose last row read "00" as zero — a roll with no result looks like an empty draw and nothing else |
 | `check_packs.py` (creatures) | every derived number on a creature is stored as the offset that reproduces the printed total, which holds only while everything the sheet adds back is subtracted — the size modifier was not, and 183 of 300 creatures showed a Defense the SRD does not print, eight points out on a Colossal dragon, with each half of the sum correct on its own |
 | `check_selftest.py` | the one test that runs inside Foundry is the one thing here that cannot be run from here, which makes its expected figures the place a mistake is invisible from both directions: wrong numbers in a test nobody here executes, checked against a world nobody there inspects |
-| `check_private.py` | everything here was written on one laptop and deployed to one server, and for a while it said so — a default host, a home directory, a path into one particular Node install. None of it secret, all of it wrong for everybody else, and a default that silently points at a machine the reader does not have is worse than no default |
+| `check_private.py` | everything here was written on one laptop and deployed to one server, and for a while it said so — a default host, a home directory, a path into one particular Node install. None of it secret, all of it wrong for everybody else. It also fails a script nothing runs and nothing imports, which is the same problem in a different form |
 | `check_deploy.py` | the only check that reads the step deciding what reaches Foundry rather than what is in the repository: `assets/` was never uploaded, so every image 404'd into a page nobody was reading, and the packs to compile were written out by hand — when the tables pack was added nobody added it, and Random Tables was an empty compendium on the live host for as long as it existed while every check read all 26 of them from `src/packs` and said so |
 | `check_art.py` | a broken image is the quietest failure a compendium has: Foundry draws an empty frame, logs nothing, and the row still has its name — so an icon renamed or half-committed would cost 4,864 documents their art and look like nothing at all |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
