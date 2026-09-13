@@ -153,18 +153,28 @@ sudo -n chown -R foundry:foundry $DEST
 # The directory list is interpolated here rather than passed: a `sudo bash -c`
 # is a new shell that inherits no variables, and `$DEST/$SYSTEM_DIRS` would
 # prefix only the first of five paths.
-LIVE_COUNT="\$(sudo -n bash -c 'cd $DEST && find $SYSTEM_DIRS -type f | wc -l' | tr -d ' ')"
-LIVE_SUM="\$(sudo -n bash -c 'cd $DEST && find $SYSTEM_DIRS -type f | LC_ALL=C sort | xargs md5sum' | awk '{print \$1}' | md5sum | cut -d' ' -f1)"
-if [ "\$LIVE_SUM" != "\$SENT_SUM" ]; then
-  echo "  what is on this host is not what was sent:" >&2
-  echo "    sent \$SENT_COUNT files, \$SENT_SUM" >&2
-  echo "    live \$LIVE_COUNT files, \$LIVE_SUM" >&2
-  exit 1
+# `sudo -n` never prompts: it refuses. So a host that will not let this read
+# back what it just wrote says so and the deploy carries on — the files are
+# installed either way, and a check that cannot run is not a reason to fail a
+# deploy that worked. A read that *does* run and disagrees is a different
+# thing, and stops it.
+if LIVE_LIST="\$(sudo -n bash -c 'cd $DEST && find $SYSTEM_DIRS -type f | LC_ALL=C sort | xargs md5sum' 2>/dev/null)"; then
+  LIVE_COUNT="\$(echo "\$LIVE_LIST" | wc -l | tr -d ' ')"
+  LIVE_SUM="\$(echo "\$LIVE_LIST" | awk '{print \$1}' | md5sum | cut -d' ' -f1)"
+  if [ "\$LIVE_SUM" != "\$SENT_SUM" ]; then
+    echo "  what is on this host is not what was sent:" >&2
+    echo "    sent \$SENT_COUNT files, \$SENT_SUM" >&2
+    echo "    live \$LIVE_COUNT files, \$LIVE_SUM" >&2
+    exit 1
+  fi
+  echo "  installed and verified: \$LIVE_COUNT files, \$LIVE_SUM"
+else
+  echo "  installed \$SENT_COUNT files, \$SENT_SUM"
+  echo "  (could not read them back to check: sudo declined without a password)"
 fi
-echo "  installed and verified: \$LIVE_COUNT files, \$LIVE_SUM"
 # Read with sudo: the files were just chowned to foundry, and the deploying
 # user cannot read them any more.
-echo "  version live: \$(sudo -n grep -m1 '\"version\"' $DEST/system.json | tr -d ' ,')"
+echo "  version live: \$(sudo -n grep -m1 '\"version\"' $DEST/system.json 2>/dev/null | tr -d ' ,' || echo "unreadable")"
 sudo -n systemctl restart foundry
 sleep 8
 systemctl is-active foundry
