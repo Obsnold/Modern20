@@ -311,13 +311,30 @@ async function checkPregens(results) {
                  actor.system.details.level, wanted.level);
     results.same(`${wanted.name}: hit points`, actor.system.hp.max, wanted.hp);
     results.same(`${wanted.name}: Wealth bonus`, actor.system.wealth.bonus, wanted.wealth);
-    // Whatever the class table gives, it is not nothing: a character whose
-    // class failed to apply reads as a perfectly ordinary level-1 sheet.
-    results.ok(`${wanted.name}: the class is actually applied`,
-               actor.system.attributes.baseAttack > 0
-               || actor.system.defense.classBonus > 0,
-               `base attack ${actor.system.attributes.baseAttack}, `
-               + `Defense class bonus ${actor.system.defense.classBonus}`);
+
+    // What the class table gives at that level, exactly. Not "more than
+    // nothing": a Smart or Charismatic hero is printed with a base attack and
+    // a Defense bonus of zero at 1st level, and asking for more than nothing
+    // failed both of them while they were entirely correct.
+    const row = wanted.row;
+    if (row) {
+      const system = actor.system;
+      results.same(`${wanted.name}: base attack from the class table`,
+                   system.attributes.baseAttack, row.baseAttack);
+      results.same(`${wanted.name}: Defense bonus from the class table`,
+                   system.defense.classBonus, row.defense);
+      results.same(`${wanted.name}: Fortitude base`, system.saves.fort.base, row.fort);
+      results.same(`${wanted.name}: Reflex base`, system.saves.ref.base, row.ref);
+      results.same(`${wanted.name}: Will base`, system.saves.will.base, row.will);
+      results.same(`${wanted.name}: Reputation from the class table`,
+                   system.reputation.base, row.reputation);
+    }
+    // And the class's skill list reached the sheet, which is the half of a
+    // class that has no numbers in it.
+    if (wanted.classSkill) {
+      results.ok(`${wanted.name}: ${wanted.classSkill} is a class skill`,
+                 actor.system.skills[wanted.classSkill]?.classSkill === true);
+    }
   }
 }
 

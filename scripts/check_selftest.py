@@ -103,11 +103,24 @@ def main() -> int:
     resolves(data["weapon"]["rulesPage"], "the weapon's rules page")
     for creature in data["creatures"]:
         resolves(creature["uuid"], f"creature {creature['name']}")
+    rows = 0
     for hero in data["pregens"]:
         resolves(hero["uuid"], f"pregen {hero['name']}")
         if not hero.get("hp") or not hero.get("items") or hero.get("level") != 1:
             problems.append(f"{hero['name']} is not a first-level character with "
                             "hit points and equipment")
+        if not hero.get("row"):
+            problems.append(f"{hero['name']} has no class table row to check")
+        else:
+            rows += sum(abs(value) for value in hero["row"].values())
+        if not hero.get("classSkill"):
+            problems.append(f"{hero['name']} has no skill with ranks in it")
+    # Two of the six classes give a base attack and a Defense bonus of zero at
+    # 1st level, so a row of zeroes is not by itself wrong — six rows of zeroes
+    # would be.
+    if data["pregens"] and rows < 6:
+        problems.append("the class table rows the characters are checked against "
+                        "come to almost nothing; they would pass any sheet")
     for cited in data["rulesPages"]:
         resolves(cited["uuid"], f"{cited['pack']} rules link")
 

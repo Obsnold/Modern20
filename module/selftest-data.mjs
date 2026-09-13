@@ -130,7 +130,16 @@ export const EXPECTED = {
       "wealth": 7,
       "items": 10,
       "className": "Charismatic Hero",
-      "level": 1
+      "level": 1,
+      "row": {
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 1,
+        "will": 0,
+        "defense": 0,
+        "reputation": 2
+      },
+      "classSkill": "bluff"
     },
     {
       "uuid": "Compendium.modern20.pregens.Actor.FWRnjpzxqrFGJkok",
@@ -139,7 +148,16 @@ export const EXPECTED = {
       "wealth": 9,
       "items": 11,
       "className": "Dedicated Hero",
-      "level": 1
+      "level": 1,
+      "row": {
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 1,
+        "defense": 1,
+        "reputation": 1
+      },
+      "classSkill": "treatInjury"
     },
     {
       "uuid": "Compendium.modern20.pregens.Actor.yBTgNU08MadQzagi",
@@ -148,7 +166,16 @@ export const EXPECTED = {
       "wealth": 6,
       "items": 11,
       "className": "Fast Hero",
-      "level": 1
+      "level": 1,
+      "row": {
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 1,
+        "will": 0,
+        "defense": 3,
+        "reputation": 0
+      },
+      "classSkill": "drive"
     },
     {
       "uuid": "Compendium.modern20.pregens.Actor.xKuZQ0Z922ePfTlC",
@@ -157,7 +184,16 @@ export const EXPECTED = {
       "wealth": 8,
       "items": 12,
       "className": "Smart Hero",
-      "level": 1
+      "level": 1,
+      "row": {
+        "baseAttack": 0,
+        "fort": 0,
+        "ref": 0,
+        "will": 1,
+        "defense": 0,
+        "reputation": 1
+      },
+      "classSkill": "computerUse"
     },
     {
       "uuid": "Compendium.modern20.pregens.Actor.I9qR0hCcns6EdgEm",
@@ -166,7 +202,16 @@ export const EXPECTED = {
       "wealth": 6,
       "items": 12,
       "className": "Strong Hero",
-      "level": 1
+      "level": 1,
+      "row": {
+        "baseAttack": 1,
+        "fort": 1,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      "classSkill": "climb"
     },
     {
       "uuid": "Compendium.modern20.pregens.Actor.6xkcsadPkPnd4ozI",
@@ -175,7 +220,16 @@ export const EXPECTED = {
       "wealth": 7,
       "items": 11,
       "className": "Tough Hero",
-      "level": 1
+      "level": 1,
+      "row": {
+        "baseAttack": 0,
+        "fort": 1,
+        "ref": 0,
+        "will": 0,
+        "defense": 1,
+        "reputation": 0
+      },
+      "classSkill": "climb"
     }
   ],
   "rulesPages": [
