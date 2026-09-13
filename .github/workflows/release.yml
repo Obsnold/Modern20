@@ -13,7 +13,7 @@
 # ones that stop a broken release going out:
 #
 #   - the tag has to match the version in system.json, or the release is
-#     refused. A release whose manifest says 0.2.0 while the tag says 0.3.0
+#     refused. A release whose manifest and tag disagree about the version
 #     installs, and then never updates.
 #   - the zip holds exactly what the manifest names, worked out from the
 #     manifest rather than listed here, so a directory added to the system
@@ -24,7 +24,7 @@
 # repository has never named an owner it might not have, and a fork gets URLs
 # that point at the fork rather than at somebody else's releases.
 #
-#     git tag release-0.2.0 && git push origin release-0.2.0
+#     git tag release-<the version in system.json> && git push --tags
 
 name: Release
 

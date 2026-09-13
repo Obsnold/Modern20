@@ -151,11 +151,14 @@ and 147 FX items are in the compendia, with save DCs and casting handled by the
 sheet.</p>
 
 <h2>When something looks wrong</h2>
-<p>Settings → System Settings → <strong>System self-test</strong> runs 110 checks
-inside this world: that every compendium holds what it should, that a character
-sheet derives the numbers the book prints, that the rules links resolve and the
-artwork is being served. It builds a character, checks it, and deletes it. If
-something is wrong, the failures copy to the clipboard as text.</p>
+<p>Settings → System Settings → <strong>System self-test</strong> checks this
+system inside this world, in seven groups: that every compendium holds what it
+should and every document in it loads, that a character sheet derives the
+numbers the book prints, that each creature shows the Defense the SRD gives it,
+that the rules links resolve, that the rolls in the text roll, that the artwork
+is being served, and that a chat card renders. It builds a character, checks
+it, and deletes it again. Where something is wrong, the failures copy to the
+clipboard as text, which is the thing worth sending to somebody.</p>
 """),
 
         ("Legal", f"""
