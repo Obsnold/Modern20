@@ -1,7 +1,7 @@
 # Checks that would have caught every bug this system has shipped so far.
 #
-# Runs on the `docker` label, which the runner maps to node:20-bookworm (see
-# the runner's label configuration in the runner's own configuration). That image ships
+# Runs on the `docker` label, which the runner is configured to map to a
+# node:20-bookworm image. That image ships
 # git, curl, python3 and node — verified as node 20.20.2 / python 3.11.2 by
 # running these checks inside it. The one install step brings in the linters
 # and the type checker, ruff included: its npm package ships the binary, so
