@@ -1,0 +1,162 @@
+# Cut a release the way Foundry installs one.
+#
+# A Foundry system is distributed as two files on a release: the `system.json`
+# a user pastes into Install System, and a zip of everything the manifest
+# names. Foundry reads the manifest, downloads the zip, and unpacks it into
+# Data/systems/<id>. That is the whole mechanism — there is no registry to
+# publish to and no packaging format beyond the zip. (Listing it in Foundry's
+# own package browser is a separate, optional submission on foundryvtt.com,
+# which asks for exactly these two URLs.)
+#
+# Shaped after the dnd5e system's own release workflow, which is the reference
+# every other system copies, with two of its ideas kept because they are the
+# ones that stop a broken release going out:
+#
+#   - the tag has to match the version in system.json, or the release is
+#     refused. A release whose manifest says 0.2.0 while the tag says 0.3.0
+#     installs, and then never updates.
+#   - the zip holds exactly what the manifest names, worked out from the
+#     manifest rather than listed here, so a directory added to the system
+#     cannot be left out of its own release.
+#
+# What this does differently: the URLs are written in at release time from the
+# repository this runs in, rather than committed and then checked. The
+# repository has never named an owner it might not have, and a fork gets URLs
+# that point at the fork rather than at somebody else's releases.
+#
+#     git tag release-0.2.0 && git push origin release-0.2.0
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "release-*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Work out what is being released
+        run: |
+          set -eu
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="$(python3 -c 'import json; print(json.load(open("system.json"))["version"])')"
+          ID="$(python3 -c 'import json; print(json.load(open("system.json"))["id"])')"
+
+          # The tag says what version this is. If the manifest disagrees, the
+          # release installs and then never offers an update, because Foundry
+          # compares the installed version with the manifest's.
+          if [ "$TAG" != "release-$VERSION" ]; then
+            echo "The tag is $TAG and system.json says $VERSION." >&2
+            echo "Tag it release-$VERSION, or bump the version first." >&2
+            exit 1
+          fi
+
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "ZIP=$ID-$TAG.zip" >> "$GITHUB_ENV"
+
+      - name: Install the linters, Pillow and the Foundry CLI
+        run: |
+          npm install --no-audit --no-fund
+          python3 -m pip install --quiet --break-system-packages pillow
+          npm install --no-audit --no-fund --global @foundryvtt/foundryvtt-cli
+
+      - name: Everything that has to be true before a release
+        run: npm test
+
+      - name: Compile the compendia
+        run: |
+          set -eu
+          # src/packs holds one JSON per document; Foundry reads LevelDB. The
+          # compiled packs are not committed — they are built here, from the
+          # source the checks have just read.
+          for pack in $(python3 -c 'import json; print(" ".join(p["name"] for p in json.load(open("system.json"))["packs"]))'); do
+            fvtt package pack -n "$pack" --in "src/packs/$pack" --out packs >/dev/null
+            echo "  packed $pack"
+          done
+
+      - name: Write the URLs this release is served from
+        run: |
+          set -eu
+          python3 - <<'PY'
+          import collections, json, os
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          tag = os.environ["TAG"]
+          base = f"https://github.com/{repository}"
+
+          with open("system.json", encoding="utf-8") as handle:
+              manifest = json.load(handle, object_pairs_hook=collections.OrderedDict)
+
+          manifest["url"] = base
+          manifest["bugs"] = f"{base}/issues"
+          manifest["readme"] = f"{base}#readme"
+          manifest["changelog"] = f"{base}/releases"
+          # The manifest a user installs from, and the zip it points at. Both
+          # are assets of this release, so an installed copy updates when a
+          # newer release replaces the file at the same well-known URL.
+          manifest["manifest"] = f"{base}/releases/latest/download/system.json"
+          manifest["download"] = f"{base}/releases/download/{tag}/{os.environ['ZIP']}"
+
+          with open("system.json", "w", encoding="utf-8") as handle:
+              json.dump(manifest, handle, indent=2, ensure_ascii=False)
+              handle.write("\n")
+
+          print(f"manifest: {manifest['manifest']}")
+          print(f"download: {manifest['download']}")
+          PY
+
+      - name: Zip what the manifest names
+        run: |
+          set -eu
+          # Worked out from the manifest, so a directory added to the system
+          # cannot be left out of its own release. assets/ is not named by any
+          # manifest field and is read by the packs, so it is listed.
+          CONTENTS="$(python3 - <<'PY'
+          import json
+          with open("system.json", encoding="utf-8") as handle:
+              manifest = json.load(handle)
+          paths = ["system.json", "README.md", "LICENSE.md", "OPEN_GAME_LICENSE.md",
+                   "templates", "assets"]
+          paths += [module.split("/")[0] for module in manifest.get("esmodules") or []]
+          paths += [style.split("/")[0] for style in manifest.get("styles") or []]
+          paths += [language["path"].split("/")[0]
+                    for language in manifest.get("languages") or []]
+          paths += [pack["path"].split("/")[0] for pack in manifest.get("packs") or []]
+          print(" ".join(sorted(set(paths))))
+          PY
+          )"
+          echo "zipping: $CONTENTS"
+          zip -r -q "$ZIP" $CONTENTS
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ env.TAG }}
+          files: |
+            system.json
+            ${{ env.ZIP }}
+          body: |
+            Install by pasting this manifest URL into Foundry's **Install System** dialog:
+
+            ```
+            https://github.com/${{ github.repository }}/releases/latest/download/system.json
+            ```
+
+            Or pin this exact version:
+
+            ```
+            https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/system.json
+            ```

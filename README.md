@@ -113,6 +113,54 @@ src/packs/               Compendium source documents; committed
 packs/                   Compiled LevelDB packs; generated, gitignored
 ```
 
+## Releasing it
+
+A Foundry system is distributed as **two files on a release**: the `system.json`
+a user pastes into *Install System*, and a zip of everything the manifest
+names. Foundry reads the manifest, fetches the zip, and unpacks it into
+`Data/systems/modern20`. There is no registry to publish to and no packaging
+format beyond the zip — listing it in Foundry's own package browser is a
+separate, optional submission on foundryvtt.com, which asks for those same two
+URLs.
+
+So: **tag it.**
+
+```bash
+git tag release-0.2.0 && git push origin release-0.2.0
+```
+
+`.github/workflows/release.yml` then runs every check, compiles the eighteen
+compendia from `src/packs` with the Foundry CLI, zips what the manifest names,
+and publishes the release with `system.json` and `modern20-release-0.2.0.zip`
+attached. Users install from:
+
+```
+https://github.com/<owner>/<repo>/releases/latest/download/system.json
+```
+
+Shaped after [dnd5e's own release workflow](https://github.com/foundryvtt/dnd5e/blob/master/.github/workflows/release.yml),
+which is the one every other system copies, and it keeps the two ideas that stop
+a broken release going out: **the tag has to match the version** in
+`system.json`, or the release is refused — a release whose manifest disagrees
+with its tag installs and then never offers an update — and **the zip's contents
+are worked out from the manifest** rather than listed, so a directory added to
+the system cannot be left out of its own release. `check_deploy.py` holds it to
+the same rule it holds the private deploy to: every directory the system reads
+at runtime has to reach it, and a release missing `assets/` installs perfectly
+and draws no artwork.
+
+Where this differs from dnd5e: the URLs are **written at release time** from the
+repository the workflow runs in, rather than committed and then verified. This
+repository never names an owner it might not have, and a fork's release points
+at the fork rather than at somebody else's downloads.
+
+`scripts/deploy.sh` is a different thing and not how anybody else gets this: it
+scp's the working tree to one Foundry host and restarts it, which is the inner
+loop while developing. Its host and paths come from `MODERN20_HOST` and friends.
+Foundry's own recommendation for that loop, if the server is the same machine
+you write on, is simpler still — symlink the repository into
+`Data/systems/modern20` and reload the world.
+
 ## Creating and levelling
 
 `scripts/deploy.sh` builds, verifies and installs in one step:

@@ -1,0 +1,54 @@
+# Every check, on every push, the way GitHub runs them.
+#
+# The same suite as .forgejo/workflows/ci.yml, which predates this and runs on
+# a self-hosted runner. Both exist on purpose: this one is what a reader of the
+# GitHub repository sees, and what a pull request from somebody else is checked
+# by. They run the same two commands, so neither can pass while the other
+# fails — `npm test` is the whole suite, and it is defined once in package.json
+# rather than listed in either workflow.
+#
+# What the checks are, and why each exists, is in the README's Checks section.
+
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install the linters and the type checker
+        run: npm install --no-audit --no-fund
+
+      # Pillow draws the cover and the example scene. Both are committed, and
+      # their checks skip without it rather than fail — but a runner that has
+      # it checks that the artwork still matches what it is drawn from.
+      - name: Install Pillow, so the artwork checks run rather than skip
+        run: python3 -m pip install --quiet --break-system-packages pillow
+
+      # Lint, then every check: fourteen that read this repository and seven
+      # that build the system's data models against Foundry stubs.
+      - name: npm test
+        run: npm test
+
+      # A release compiles the compendia from src/packs, and the CLI refuses a
+      # document with no key. Compiling here means a tag cannot be the first
+      # time anybody finds that out.
+      - name: The compendia compile
+        run: |
+          set -eu
+          npm install --no-audit --no-fund --global @foundryvtt/foundryvtt-cli
+          for pack in $(python3 -c 'import json; print(" ".join(p["name"] for p in json.load(open("system.json"))["packs"]))'); do
+            fvtt package pack -n "$pack" --in "src/packs/$pack" --out packs >/dev/null
+            echo "  packed $pack"
+          done
