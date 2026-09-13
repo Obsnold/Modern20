@@ -134,13 +134,14 @@ URLs.
 So: **tag it.**
 
 ```bash
-git tag release-0.2.0 && git push origin release-0.2.0
+git tag "release-$(python3 -c 'import json; print(json.load(open("system.json"))["version"])')"
+git push origin --tags
 ```
 
 `.github/workflows/release.yml` then runs every check, compiles the eighteen
 compendia from `src/packs` with the Foundry CLI, zips what the manifest names,
-and publishes the release with `system.json` and `modern20-release-0.2.0.zip`
-attached. Users install from:
+and publishes the release with `system.json` and
+`modern20-release-<version>.zip` attached. Users install from:
 
 ```
 https://github.com/<owner>/<repo>/releases/latest/download/system.json
@@ -950,7 +951,7 @@ those. Then it stamps the system version into a hidden world setting, and only
 then: a migration that fails says so and records nothing, because a world that
 believes it has been migrated will never try again.
 
-**0.2.0 adds two passes**, which is what the version number is for: an actor
+**0.2.0 added two passes**, which is what the version number is for: an actor
 imported before the compendium had any token artwork carries Foundry's own
 `CONST.DEFAULT_TOKEN`, and a creature imported before the Defense offset was
 right carries a number that shows a Defense the book does not print. Both are
@@ -965,6 +966,12 @@ somebody has adjusted is left alone. The one case it cannot tell apart is a GM
 who adjusted a Large creature by exactly minus one, which is the stale value
 written by hand; a point of Defense on a deliberate tweak is the cheaper of the
 two mistakes, and the code says so.
+
+**0.3.0 adds none.** Everything in it is new content — six characters, a guide,
+an example scene, a cover — new tooling, or a fix to a data model that a stored
+document never carried. Bumping the version still re-runs the 0.2.0 passes,
+which is safe: each one changes only what is still the default it was given, or
+still exactly the stale arithmetic, so a second run finds nothing to do.
 
 ## Items on the hotbar
 
