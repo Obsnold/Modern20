@@ -47,6 +47,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import srd  # noqa: E402
 
 DEPLOY = os.path.join(srd.ROOT, "scripts", "deploy.sh")
+RELEASE = os.path.join(srd.ROOT, ".github", "workflows", "release.yml")
 MANIFEST = os.path.join(srd.ROOT, "system.json")
 
 # `SYSTEM_DIRS="module templates lang css assets"`
@@ -162,6 +163,52 @@ def main() -> int:
                         "where a value containing a space becomes a command; "
                         "assign it inside the remote script instead")
 
+    # There are two ways this system reaches a Foundry: scp to one host, and a
+    # release anybody can install from. Both have to carry every directory it
+    # reads at runtime, and the release is the one nobody here will notice is
+    # short — a zip missing assets/ installs perfectly and draws no artwork.
+    if not os.path.exists(RELEASE):
+        problems.append(".github/workflows/release.yml is missing; a system is "
+                        "distributed as a release, not as a repository")
+    else:
+        with open(RELEASE, encoding="utf-8") as handle:
+            release = handle.read()
+        # A directory reaches the zip either by being named in the workflow or
+        # by being the head of a path the manifest states.
+        system = manifest()
+        from_manifest = set()
+        for field in ("esmodules", "styles"):
+            for path in system.get(field) or []:
+                from_manifest.add(str(path).strip("/").split("/")[0])
+        for field in ("languages", "packs"):
+            for entry in system.get(field) or []:
+                from_manifest.add(str(entry.get("path", "")).strip("/").split("/")[0])
+
+        for directory in sorted(wanted):
+            if directory in from_manifest:
+                continue
+            if re.search(rf'"{re.escape(directory)}"', release):
+                continue
+            problems.append(f"the release zip would not carry {directory}/, which "
+                            f"{wanted[directory]} reads from: name it in "
+                            "release.yml or state it in the manifest")
+
+        # The tag has to be held to the version, or a release installs and then
+        # never updates.
+        if "release-$VERSION" not in release:
+            problems.append("release.yml does not hold the tag to the version in "
+                            "system.json")
+
+    # The URLs a release is served from are written at release time from the
+    # repository it runs in. A committed guess at them is a URL that points at
+    # a repository that may not exist — this manifest said YOURNAME for weeks.
+    for field in ("url", "manifest", "download", "bugs"):
+        value = manifest().get(field)
+        if value and re.search(r"YOURNAME|OWNER|example\.com|<|>", str(value)):
+            problems.append(f'system.json "{field}" is {value!r}, which names no '
+                            "real repository; leave it out and let the release "
+                            "write it")
+
     # And it has to read the artwork back. A deploy that copies nothing looks
     # exactly like one that copies everything, and the symptom is a token that
     # does not change — which is indistinguishable from art that is wrong, and
@@ -236,7 +283,8 @@ def main() -> int:
 
     print(f"deploy sends {len(sending)} directories and compiles "
           f"{len(declared)} packs in {len(folders)} sidebar folders; "
-          f"{len(wanted)} directories are read from at runtime")
+          f"{len(wanted)} directories are read from at runtime, and the release "
+          "carries all of them")
     for problem in problems:
         print(f"FAIL  {problem}")
     return 1 if problems else 0

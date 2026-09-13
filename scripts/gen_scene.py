@@ -28,7 +28,10 @@ import os
 import random
 import sys
 
-from PIL import Image, ImageDraw, ImageFilter
+try:
+    from PIL import Image, ImageDraw, ImageFilter
+except ImportError:  # pragma: no cover - a machine with no Pillow can still
+    Image = None     # run every other check, and the artwork is committed.
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_packs  # noqa: E402
@@ -294,6 +297,16 @@ def main() -> int:
     parser.add_argument("--check", action="store_true",
                         help="fail if the map or the scene is out of date")
     arguments = parser.parse_args()
+
+    if Image is None:
+        # The artwork is committed, so its absence from a machine's Python is
+        # not a failure: the check simply cannot run. Drawing it does need
+        # Pillow, and says so.
+        if arguments.check:
+            print("skipped: Pillow is not installed, so the scene cannot be redrawn "
+                  "to compare it")
+            return 0
+        raise SystemExit("drawing the scene needs Pillow: pip install pillow")
 
     image = draw_map()
     buffer = io.BytesIO()
