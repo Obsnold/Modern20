@@ -318,5 +318,66 @@
   "download": "https://github.com/YOURNAME/modern20/archive/refs/tags/v0.1.0.zip",
   "license": "LICENSE.md",
   "readme": "README.md",
-  "bugs": "https://github.com/YOURNAME/modern20/issues"
+  "bugs": "https://github.com/YOURNAME/modern20/issues",
+  "packFolders": [
+    {
+      "name": "Play",
+      "sorting": "m",
+      "color": "#8c2f1e",
+      "packs": [
+        "guide",
+        "pregens"
+      ]
+    },
+    {
+      "name": "Characters",
+      "sorting": "m",
+      "color": "#5d5a4e",
+      "packs": [
+        "classes",
+        "occupations",
+        "talents",
+        "feats"
+      ]
+    },
+    {
+      "name": "Equipment",
+      "sorting": "m",
+      "color": "#2f5a68",
+      "packs": [
+        "weapons",
+        "armor",
+        "gear",
+        "vehicles"
+      ]
+    },
+    {
+      "name": "FX",
+      "sorting": "m",
+      "color": "#6b4a72",
+      "packs": [
+        "spells",
+        "psionics",
+        "fx"
+      ]
+    },
+    {
+      "name": "The World",
+      "sorting": "m",
+      "color": "#2f6b3a",
+      "packs": [
+        "creatures",
+        "objects",
+        "tables"
+      ]
+    },
+    {
+      "name": "The Rules",
+      "sorting": "m",
+      "color": "#1c1a17",
+      "packs": [
+        "rules"
+      ]
+    }
+  ]
 }
