@@ -37,10 +37,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PACKS = os.path.join(ROOT, "src", "packs")
 OVERRIDES = os.path.join(ROOT, "data", "overrides", "packs")
 
-DEFAULT_HOST = "user@host"
-REMOTE_PACKS = "/var/lib/foundryvtt/Data/systems/modern20/packs"
-REMOTE_CLI = "$HOME/fvtt-cli/node_modules/.bin/fvtt"
-NODE_BIN = "/opt/node/current/bin"
+# Where the live compendia are, from the environment: every one of these is a
+# fact about somebody's own machine, and a repository that names the host it
+# was deployed to from one person's laptop tells everybody else something
+# untrue. The defaults are conventions — a packaged Foundry on Linux keeps its
+# data in /var/lib/foundryvtt, and `fvtt` on PATH is what the CLI installs as.
+DEFAULT_HOST = os.environ.get("MODERN20_HOST", "")
+REMOTE_PACKS = os.environ.get(
+    "MODERN20_DEST", "/var/lib/foundryvtt/Data/systems/modern20") + "/packs"
+REMOTE_CLI = os.environ.get("MODERN20_FVTT", "fvtt")
+NODE_BIN = os.environ.get("MODERN20_NODE_BIN", "")
 
 # Bookkeeping Foundry owns, which differs every time and means nothing here.
 SKIP = {"_id", "_key", "_slug", "_stats", "ownership", "sort", "folder"}
@@ -69,7 +75,7 @@ def pull(host: str, destination: str) -> None:
     read. Everything happens under /tmp on the host and is cleared afterwards.
     """
     script = f"""set -e
-export PATH={NODE_BIN}:$PATH
+export PATH={NODE_BIN + ":" if NODE_BIN else ""}$PATH
 rm -rf /tmp/modern20-live /tmp/modern20-src
 mkdir -p /tmp/modern20-live /tmp/modern20-src
 sudo -n cp -r {REMOTE_PACKS}/. /tmp/modern20-live/
@@ -258,7 +264,9 @@ def write_new(pack: str, document: dict) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("host", nargs="?", default=DEFAULT_HOST)
+    parser.add_argument("host", nargs="?", default=DEFAULT_HOST,
+                        help="user@host of the Foundry server, or set "
+                             "MODERN20_HOST")
     parser.add_argument("--from", dest="source", help="an already-unpacked copy")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--exit-code", action="store_true",
@@ -272,6 +280,12 @@ def main() -> int:
 
     temporary = None
     source = args.source
+    if not source and not args.host:
+        print("No host to read from. Pass one, or set MODERN20_HOST:\n"
+              "    python3 scripts/capture_edits.py user@host\n"
+              "    export MODERN20_HOST=user@host\n"
+              "Or point at an already-unpacked copy with --from.", file=sys.stderr)
+        return 2
     if not source:
         temporary = tempfile.mkdtemp(prefix="modern20-capture-")
         source = temporary
