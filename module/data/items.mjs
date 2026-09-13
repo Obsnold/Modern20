@@ -58,8 +58,18 @@ export class Modern20Class extends Modern20ItemBase {
        * `kind` blank and contributes nothing.
        */
       casting: new fields.SchemaField({
-        kind: new fields.StringField({ initial: "", choices: ["", "spells", "powers"] }),
-        tradition: new fields.StringField({ initial: "", choices: ["", "arcane", "divine"] }),
+        // `blank: true` is not decoration: a StringField given `choices` sets
+        // `blank: false` for you, so a blank one is refused however plainly the
+        // choices offer it — and these are blank on 45 of the 52 classes. The
+        // class documents load, because construction does not validate; adding
+        // one to a character does, so dragging any non-casting class onto a
+        // sheet failed with "may not be a blank string" and no class arrived.
+        kind: new fields.StringField({
+          initial: "", blank: true, choices: ["", "spells", "powers"]
+        }),
+        tradition: new fields.StringField({
+          initial: "", blank: true, choices: ["", "arcane", "divine"]
+        }),
         // The ability that grants bonus spells or bonus power points. Blank
         // for a Battle Mind, which the SRD gives neither.
         ability: new fields.StringField({ initial: "" }),

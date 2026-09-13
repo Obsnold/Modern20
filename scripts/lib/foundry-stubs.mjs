@@ -70,6 +70,25 @@ const leaf = (defaults = {}) => class extends DataField {
   }
 };
 
+/**
+ * A StringField, which is a leaf with one rule of its own.
+ *
+ * Foundry sets `blank: false` on any StringField given `choices`, whether or
+ * not the choices include a blank one. Two class fields offered "" as a choice,
+ * defaulted to it, and were refused it: the documents loaded, because
+ * construction does not validate, and then adding a class to a character
+ * failed validation and added nothing. 45 of the 52 classes, and every check
+ * here passed, because this stub let a blank initial through where Foundry
+ * would not.
+ */
+const StringFieldStub = class extends leaf({ blank: true }) {
+  constructor(options = {}) {
+    super(options.choices !== undefined && options.blank === undefined
+      ? { ...options, blank: false }
+      : options);
+  }
+};
+
 export class TypeDataModel {
   static defineSchema() { return {}; }
   prepareBaseData() {}
@@ -231,7 +250,7 @@ export function installStubs() {
     data: {
       fields: {
         SchemaField, ArrayField, TypedSchemaField, TypedObjectField,
-        NumberField: leaf(), StringField: leaf({ blank: true }), BooleanField: leaf(),
+        NumberField: leaf(), StringField: StringFieldStub, BooleanField: leaf(),
         HTMLField: leaf({ blank: true }), ObjectField: leaf(),
         // Foundry's own defaults: nullable, blank: false, initial: null.
         FilePathField: leaf({ nullable: true, blank: false, initial: null }),

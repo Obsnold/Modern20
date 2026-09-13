@@ -1432,6 +1432,21 @@ rather than duplicating them.
 
 ## The self-test, which runs inside Foundry
 
+The first thing it found was that **45 of the 52 classes could not be added to
+a character**. A `StringField` given `choices` is set `blank: false` by Foundry,
+whether or not the choices include a blank one, and a class states its
+spellcasting as `kind: ""` unless it casts. So every class document loaded —
+construction does not validate — and the moment one was dropped onto a sheet,
+validation refused it with *"may not be a blank string"* and no class arrived.
+Character creation, for every class that is not a spellcaster.
+
+Nothing here could see it. The stub harness let a blank initial through where
+Foundry would not, so all seven Node checks built the schema happily; the packs
+were correct; the compendium opened. It took an actor, an item and a real
+`createEmbeddedDocuments` — which is what this is for. The stub now applies
+Foundry's own rule, so the next field written that way fails in CI.
+
+
 Every check in this repository reads files. None of them has ever seen a
 document load, a sheet derive a number, or a browser fetch an image — and every
 bug that reached the table was of that kind:
