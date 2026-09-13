@@ -19,11 +19,12 @@ a compendium, never by a check:
     compendium on the live host for as long as it existed. `check_packs.py`
     read all 26 tables from src/packs and said so, cheerfully, the whole time.
 
-  - nothing read the artwork back, so a deploy that copied nothing looked
+  - nothing read back what was sent, so a deploy that copied nothing looked
     exactly like one that copied everything. The symptom is a token that does
-    not change, which is indistinguishable from artwork that is wrong: the
-    token art was adjusted three times before anyone asked whether it was
-    being served at all.
+    not change, or a fix that appears not to have worked: the token art was
+    adjusted three times before anyone asked whether it was being served, and
+    a self-test reported the same eleven failures twice running with no way to
+    tell a fix that failed from a fix that was not there.
   - and the fix for the second introduced another: `ssh host NAME="a b c" bash`
     joins its arguments into one string for the remote shell, so the
     assignment took "a" and tried to run "b" as a command three quarters of
@@ -145,11 +146,17 @@ def main() -> int:
     # exactly like one that copies everything, and the symptom is a token that
     # does not change — which is indistinguishable from art that is wrong, and
     # cost three rounds of changing art nobody was being served.
-    if not (re.search(r"^ASSET_SUM=", deploy, re.M)
-            and re.search(r'"\\?\$LIVE_SUM"\s*!=\s*"\\?\$ASSET_SUM"', deploy)):
-        problems.append("deploy.sh does not compare the artwork it sent with the "
-                        "artwork on the host; a deploy that copies nothing has to "
-                        "be distinguishable from one that copies everything")
+    if not (re.search(r"^SENT_SUM=", deploy, re.M)
+            and re.search(r'"\\?\$LIVE_SUM"\s*!=\s*"\\?\$SENT_SUM"', deploy)):
+        problems.append("deploy.sh does not compare what it sent with what is on "
+                        "the host; a deploy that copies nothing has to be "
+                        "distinguishable from one that copies everything")
+    # And over everything it sends, not the artwork alone: the code is the half
+    # whose absence looks like a fix that did not work.
+    if re.search(r"^SENT_SUM=.*\bfind assets\b", deploy, re.M):
+        problems.append("deploy.sh fingerprints only assets/; the modules and "
+                        "templates are the half that looks like a broken fix "
+                        "when they do not arrive")
 
     # The packs are compiled one at a time, and the list has to be the
     # manifest's. A written-out list is the bug, so finding one is a failure

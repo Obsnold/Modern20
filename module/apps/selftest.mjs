@@ -1,4 +1,4 @@
-import { runSelfTest } from "../selftest.mjs";
+import { runSelfTest, SUITE_REVISION } from "../selftest.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -87,7 +87,7 @@ export class Modern20SelfTest extends HandlebarsApplicationMixin(ApplicationV2) 
   static async #onCopy() {
     const failures = (this.#results?.rows ?? []).filter((row) => !row.passed);
     const report = [
-      `Modern20 ${game.system.version} self-test: `
+      `Modern20 ${game.system.version} self-test (suite ${SUITE_REVISION}): `
         + `${this.#results?.passed ?? 0} passed, ${this.#results?.failed ?? 0} failed`,
       ...failures.map((row) => `[${row.group}] ${row.name}`
         + (row.detail ? ` — ${row.detail}` : ""))

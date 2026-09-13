@@ -41,18 +41,20 @@ cd "$ROOT"
 # this is the only step that decides what reaches Foundry.
 PACK_NAMES="$(python3 -c 'import json; print(" ".join(p["name"] for p in json.load(open("system.json"))["packs"]))')"
 
-# What the artwork should be, as one number over every file in path order, so
-# the deploy can say whether the files a browser will fetch are the files in
-# this repository. Three rounds of changing the token art went out with no way
-# to tell whether any of it had arrived — the art was adjusted, redeployed and
-# looked at, and "still wrong" could have meant the art or the delivery.
-ASSET_SUM="$(find assets -type f | LC_ALL=C sort | xargs md5sum | awk '{print $1}' | md5sum | cut -d' ' -f1)"
-ASSET_COUNT="$(find assets -type f | wc -l | tr -d ' ')"
-
 # Every directory the system serves files from. assets/ was missing, which is
 # quieter than it sounds: the code and the compendia arrive, and 5,271 images
 # then 404 one at a time into a page nobody is reading.
 SYSTEM_DIRS="module templates lang css assets"
+
+# What is being sent, as one number over every file in path order, so the
+# deploy can say whether the files Foundry will load are the files in this
+# repository. It covered assets only at first, which answered "did the artwork
+# arrive" and left "did the code arrive" to be inferred from whether a fix
+# appeared to work — and two rounds of a self-test reporting the same eleven
+# failures could not distinguish a fix that did not work from a fix that was
+# not there.
+SENT_SUM="$(find $SYSTEM_DIRS -type f | LC_ALL=C sort | xargs md5sum | awk '{print $1}' | md5sum | cut -d' ' -f1)"
+SENT_COUNT="$(find $SYSTEM_DIRS -type f | wc -l | tr -d ' ')"
 
 echo "==> Local checks"
 # All of them. This list was written out too, and had fallen three checks
@@ -113,9 +115,9 @@ ssh -o BatchMode=yes "$HOST" bash -euo pipefail -s <<REMOTE
 export PATH=$NODE_BIN:\$PATH
 PACKS="$PACKS"
 PACK_NAMES="$PACK_NAMES"
+SENT_SUM="$SENT_SUM"
+SENT_COUNT="$SENT_COUNT"
 SYSTEM_DIRS="$SYSTEM_DIRS"
-ASSET_SUM="$ASSET_SUM"
-ASSET_COUNT="$ASSET_COUNT"
 rm -rf $STAGE && mkdir -p $STAGE
 tar xzf /tmp/modern20.tgz -C $STAGE
 cd $STAGE
@@ -145,18 +147,21 @@ for dir in \$SYSTEM_DIRS; do
 done
 sudo -n chown -R foundry:foundry $DEST
 
-# The artwork, read back from where Foundry serves it. A deploy that copies
-# nothing looks exactly like a deploy that copies everything, and the symptom
-# is a token that does not change.
-LIVE_COUNT="\$(sudo -n find $DEST/assets -type f | wc -l | tr -d ' ')"
-LIVE_SUM="\$(sudo -n bash -c 'cd $DEST && find assets -type f | LC_ALL=C sort | xargs md5sum' | awk '{print \$1}' | md5sum | cut -d' ' -f1)"
-if [ "\$LIVE_SUM" != "\$ASSET_SUM" ]; then
-  echo "  the artwork on this host is not the artwork that was sent:" >&2
-  echo "    sent \$ASSET_COUNT files, \$ASSET_SUM" >&2
+# Everything that was sent, read back from where Foundry loads it. A deploy
+# that copies nothing looks exactly like a deploy that copies everything, and
+# the symptom is a fix that appears not to have worked.
+# The directory list is interpolated here rather than passed: a `sudo bash -c`
+# is a new shell that inherits no variables, and `$DEST/$SYSTEM_DIRS` would
+# prefix only the first of five paths.
+LIVE_COUNT="\$(sudo -n bash -c 'cd $DEST && find $SYSTEM_DIRS -type f | wc -l' | tr -d ' ')"
+LIVE_SUM="\$(sudo -n bash -c 'cd $DEST && find $SYSTEM_DIRS -type f | LC_ALL=C sort | xargs md5sum' | awk '{print \$1}' | md5sum | cut -d' ' -f1)"
+if [ "\$LIVE_SUM" != "\$SENT_SUM" ]; then
+  echo "  what is on this host is not what was sent:" >&2
+  echo "    sent \$SENT_COUNT files, \$SENT_SUM" >&2
   echo "    live \$LIVE_COUNT files, \$LIVE_SUM" >&2
   exit 1
 fi
-echo "  artwork verified: \$LIVE_COUNT files, \$LIVE_SUM"
+echo "  installed and verified: \$LIVE_COUNT files, \$LIVE_SUM"
 # Read with sudo: the files were just chowned to foundry, and the deploying
 # user cannot read them any more.
 echo "  version live: \$(sudo -n grep -m1 '\"version\"' $DEST/system.json | tr -d ' ,')"
