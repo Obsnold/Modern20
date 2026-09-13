@@ -1483,7 +1483,15 @@ with no printed Defense, a compendium expected to be empty.
 
 What it cannot check is itself: the assertions are JavaScript and run in a
 browser. That is the honest limit of everything else here, which is why this
-exists.
+exists — and the first thing it did was fail. Registering its own button used
+`game.settings.registerMenu`, which the stub harness did not have, so the init
+hook threw and eighteen checks failed at once: no sheets registered, no status
+effects, not one of the eleven settings. One missing line in a stub, reported
+as the system being comprehensively broken. `check_models.mjs` now holds a
+settings menu to its own contract — a name, label and hint that are strings in
+the language file, a class to open, and restricted to the GM — since each of
+those fails in a different quiet way: a missing string renders as the key, and
+a `type` that is not a class throws when somebody clicks it.
 
 ## Checks
 

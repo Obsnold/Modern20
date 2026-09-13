@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import { installStubs } from "./lib/foundry-stubs.mjs";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const { hooks, registeredSheets, registeredSettings } = installStubs();
+const { hooks, registeredSheets, registeredSettings, registeredMenus } = installStubs();
 
 let failures = 0;
 const fail = (label, error) => {
@@ -138,8 +138,44 @@ if (!registeredSheets.length) {
     }
   }
 
+  // A settings menu is a button that opens an application, and every part of
+  // it can be wrong in a way nothing else notices: a name that is not a string
+  // in the language file renders as the key, and a `type` that is not a class
+  // throws when somebody clicks it rather than when it is registered.
+  for (const [key, menu] of registeredMenus) {
+    const where = `settings menu "${key}"`;
+    for (const field of ["name", "label", "hint"]) {
+      const value = menu[field];
+      if (typeof value !== "string" || !value) {
+        bad++;
+        console.log(`FAIL  ${where} has no ${field}`);
+        continue;
+      }
+      // "MODERN20.SelfTest.Title" has to be a string somebody wrote.
+      const path = value.split(".");
+      let found = lang;
+      for (const step of path) found = found?.[step];
+      if (typeof found !== "string") {
+        bad++;
+        console.log(`FAIL  ${where} ${field} "${value}" is not in lang/en.json`);
+      }
+    }
+    if (typeof menu.type !== "function") {
+      bad++;
+      console.log(`FAIL  ${where} has no application class to open`);
+    }
+    if (menu.restricted !== true) {
+      // Everything this system puts in a menu is a GM tool.
+      bad++;
+      console.log(`FAIL  ${where} is not restricted to the GM`);
+    }
+  }
+
   failures += bad;
-  if (!bad) console.log(`PASS  ${Object.keys(SETTINGS).length} settings named, hinted and wired`);
+  if (!bad) {
+    console.log(`PASS  ${Object.keys(SETTINGS).length} settings named, hinted and wired`);
+    console.log(`PASS  ${registeredMenus.size} settings menu(s) named and openable`);
+  }
 }
 
 console.log(failures ? `\n${failures} FAILURES` : "\nall checks passed");

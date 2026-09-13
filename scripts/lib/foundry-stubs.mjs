@@ -170,6 +170,7 @@ export function installStubs() {
     TextEditor: { enrichers: [] },
   };
   const registeredSettings = new Map();
+  const registeredMenus = new Map();
 
   globalThis.game = {
     i18n: { localize: (k) => k, format: (k) => k },
@@ -188,6 +189,13 @@ export function installStubs() {
     settings: {
       register(namespace, key, definition) {
         registeredSettings.set(`${namespace}.${key}`, definition);
+      },
+      // A button in the settings panel, which opens an application rather
+      // than storing a value. Absent from this stub until the self-test
+      // registered one: the init hook threw, every later registration was
+      // skipped, and the harness reported eighteen failures for one line.
+      registerMenu(namespace, key, definition) {
+        registeredMenus.set(`${namespace}.${key}`, definition);
       },
       get(namespace, key) {
         const definition = registeredSettings.get(`${namespace}.${key}`);
@@ -260,7 +268,7 @@ export function installStubs() {
     utils: { mergeObject: (a, b) => ({ ...a, ...b }) },
   };
 
-  return { hooks, registeredSheets, registeredSettings };
+  return { hooks, registeredSheets, registeredSettings, registeredMenus };
 }
 
 /** Import the system and run its init hook. Returns the recorders. */
