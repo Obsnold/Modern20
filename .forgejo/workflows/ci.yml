@@ -155,6 +155,14 @@ jobs:
       - name: the guide still links to pages that exist
         run: python3 scripts/gen_guide.py --check
 
+      # The artwork that is drawn rather than fetched: both are deterministic,
+      # so a change to either generator has to be committed with its output.
+      - name: the cover art matches what the packs hold
+        run: python3 scripts/gen_cover.py --check
+
+      - name: the example scene and its walls are current
+        run: python3 scripts/gen_scene.py --check
+
       # The export runs against a live Foundry host, so it is the one script
       # here that cannot be tried out cheaply, and both of its bugs so far
       # were found by reading 1,400 documents of its output. This round-trips

@@ -36,6 +36,7 @@ COLLECTIONS = {
     "rules": ("JournalEntry", "!journal!"),
     "guide": ("JournalEntry", "!journal!"),
     "tables": ("RollTable", "!tables!"),
+    "scenes": ("Scene", "!scenes!"),
 }
 DEFAULT = ("Item", "!items!")
 

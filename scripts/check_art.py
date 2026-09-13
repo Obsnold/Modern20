@@ -138,6 +138,20 @@ def disc_trouble(path: str) -> str:
     return ""
 
 
+def served(path: str) -> str:
+    """Whether a path this system names is a file this system ships.
+
+    Anything under assets/ is ours and has to exist; a core `icons/` path is
+    Foundry's and cannot be verified from here.
+    """
+    if path.startswith("systems/modern20/"):
+        local = os.path.join(srd.ROOT, path[len("systems/modern20/"):])
+        return "" if os.path.exists(local) else "is not in this repository"
+    if path.startswith("icons/"):
+        return core_icon(path)
+    return "is neither one of this system's files nor a core icon"
+
+
 def svg_trouble(path: str) -> str:
     """Whether a vendored drawing is a drawing, read as XML rather than as text.
 
@@ -209,6 +223,15 @@ def main() -> int:
                 core += 1
             else:
                 problems.append(f"{label}: token art {token} is neither vendored nor core")
+
+        # A scene's background, which is the largest image this system serves
+        # and the one whose absence is a black canvas.
+        background = (document.get("background") or {}).get("src")
+        if background:
+            checked += 1
+            trouble = served(background)
+            if trouble:
+                problems.append(f"{label}: background {background} {trouble}")
 
         image = document.get("img")
         if not image:
@@ -285,6 +308,26 @@ def main() -> int:
             if not os.path.exists(local):
                 problems.append(f"{os.path.relpath(module, srd.ROOT)} names {path}, "
                                 "which is not in this repository")
+
+    # The pictures the manifest itself names: the cover on the setup screen and
+    # the thumbnail in a package list. Nothing in the system reads these, so a
+    # wrong path here is a grey rectangle nobody can trace to a file.
+    with open(os.path.join(srd.ROOT, "system.json"), encoding="utf-8") as handle:
+        manifest = json.load(handle)
+    media = manifest.get("media") or []
+    if not media:
+        problems.append("system.json names no media, so the setup screen shows "
+                        "a grey rectangle where every other system has a picture")
+    for entry in media:
+        for field in ("url", "thumbnail"):
+            path = entry.get(field)
+            if not path:
+                continue
+            checked += 1
+            trouble = served(path)
+            if trouble:
+                problems.append(f'system.json media {entry.get("type")} '
+                                f"{field} {path} {trouble}")
 
     # CC BY asks for the author's name, and the author is the directory.
     if not os.path.exists(CREDITS):

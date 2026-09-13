@@ -25,7 +25,8 @@ export const EXPECTED = {
     "fx": 147,
     "tables": 26,
     "pregens": 6,
-    "guide": 1
+    "guide": 1,
+    "scenes": 1
   },
   "class": {
     "uuid": "Compendium.modern20.classes.Item.HT4H6K30vjBuhX1b",
@@ -450,6 +451,9 @@ export const EXPECTED = {
     "systems/modern20/assets/icons/skoll/race-car.svg",
     "systems/modern20/assets/icons/skoll/revolver.svg",
     "systems/modern20/assets/icons/zeromancer/heart-plus.svg",
+    "systems/modern20/assets/media/cover-thumb.webp",
+    "systems/modern20/assets/media/cover.webp",
+    "systems/modern20/assets/media/warehouse.webp",
     "systems/modern20/assets/tokens/andymeneely/police-badge.svg",
     "systems/modern20/assets/tokens/delapouite/brick-wall.svg",
     "systems/modern20/assets/tokens/delapouite/bus.svg",

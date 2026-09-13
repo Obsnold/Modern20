@@ -43,6 +43,7 @@ fighting it forever, so this is a standalone game system.
 | Items on the hotbar | Dragging one there makes a macro that uses it, by name, on whoever is selected |
 | FX items | 147 magic and psionic items, priced and described |
 | Objects | Hardness, hit points, break DCs and Defense by size — a door is an actor you can shoot |
+| Cover art and an example scene | Drawn from the system's own palette; the scene's 32 walls are generated from the same description as its picture |
 | Ready-made characters | Six, one per basic class, built at first level by the SRD's own arithmetic — and checked by it |
 | A guide inside the game | Five journal pages about the system rather than the game, linked into the rules compendium |
 | Artwork | 163 icons over 4,864 documents, chosen by what each thing is: a handgun is a handgun, an SUV an SUV, a Fortitude save an aura |
@@ -1560,6 +1561,38 @@ the language file, a class to open, and restricted to the GM — since each of
 those fails in a different quiet way: a missing string renders as the key, and
 a `type` that is not a class throws when somebody clicks it.
 
+## The cover, and somewhere to play
+
+Both are **drawn** rather than found, by `gen_cover.py` and `gen_scene.py`,
+using nothing but rectangles, text and a little noise. A picture downloaded
+from somewhere is a licence to keep track of and a provenance to be sure of,
+and this system has a visual identity already: ink on paper, one accent, a
+five-foot grid.
+
+**The cover** (`assets/media/cover.webp`, 1920×1080) is what the setup screen
+shows, with a thumbnail for the package list. Its figures are counted from the
+packs rather than typed — a cover claiming 1,677 documents is a claim, and one
+that goes stale is worse than none. Adding the scenes pack made it stale
+immediately, and `gen_cover.py --check` said so.
+
+**The scene** is a warehouse: 30×20 squares at five feet a square, 3000×2000
+pixels. A floor with expansion joints, an office with a window onto the floor,
+two roller doors, a loading bay, four pillars and eight stacks of crates.
+
+The reason to draw a map rather than download one is the part that comes free:
+**the walls are generated from the same description as the picture.** One list
+of where the building's walls, doors and windows are, rendered twice — once as
+paint and once as 32 wall segments — so a door is a door in both, and the map
+cannot drift from what a token can walk through. The window blocks movement and
+not sight, because that is what a window does. Token vision is off and the
+scene is lit: an example scene is for trying the rules on, not for running a
+stealth mission behind a fog nobody asked for.
+
+`check_art.py` resolves the scene's background and the manifest's own media
+against the repository — those are the two images nothing else names, and a
+wrong path in either is a black canvas or a grey rectangle that traces back to
+no file. The self-test fetches them from the server along with the other 191.
+
 ## The compendium sidebar
 
 Seventeen compendia in one flat list is a scrollbar, so `system.json` groups
@@ -1606,6 +1639,8 @@ python3 scripts/check_rules_links.py # every link into the rules resolves, every
 python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
 python3 scripts/check_art.py         # every icon a document points at is a file that is here
 python3 scripts/check_deploy.py      # the deploy sends every directory the system reads
+python3 scripts/gen_cover.py --check # the cover still states what the packs hold
+python3 scripts/gen_scene.py --check # the example scene and its walls are current
 python3 scripts/check_selftest.py    # the in-world self-test checks the packs' own figures
 node    scripts/check_models.mjs     # system imports, every schema builds
 node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field

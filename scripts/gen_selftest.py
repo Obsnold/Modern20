@@ -21,6 +21,9 @@ What it collects:
     SRD prints for each. 183 of them showed a Defense the book does not print
     until recently, and the only reason anybody found out was reading a sheet.
   - one weapon's printed damage, and the rules page every pack points into.
+  - the cover the setup screen shows and the background the example scene
+    draws on, which are named in the manifest and in a Scene rather than on a
+    document, and so are the two images nothing else here would fetch
   - every image path the packs use, so a world can say whether the artwork is
     actually being served — which took three rounds of changing artwork nobody
     could see to discover was worth asking.
@@ -200,7 +203,17 @@ def images() -> list[str]:
             token = (entry.get("prototypeToken") or {}).get("texture") or {}
             if token.get("src"):
                 found.add(token["src"])
+            # A scene's background is the largest image this system serves and
+            # the one whose absence is a black canvas rather than a blank frame.
+            background = (entry.get("background") or {}).get("src")
+            if background:
+                found.add(background)
             stack.extend(entry.get("items") or [])
+    with open(os.path.join(srd.ROOT, "system.json"), encoding="utf-8") as handle:
+        for entry in json.load(handle).get("media") or []:
+            for field in ("url", "thumbnail"):
+                if entry.get(field, "").startswith("systems/modern20/"):
+                    found.add(entry[field])
     return sorted(found)
 
 
