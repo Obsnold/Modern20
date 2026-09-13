@@ -135,6 +135,26 @@ def main() -> int:
         if not os.path.isdir(os.path.join(srd.ROOT, directory)):
             problems.append(f"deploy.sh sends {directory}/, which does not exist")
 
+    # An unquoted heredoc is expanded by the shell that writes it, so anything
+    # inside it that looks like a command substitution runs HERE — on the
+    # machine doing the deploying, as whoever is deploying. Three prose
+    # comments quoting shell in backticks, the way the rest of this repository
+    # quotes code, ran `sudo bash -c` locally and stopped the deploy to ask a
+    # laptop for a password it has no reason to want.
+    heredoc = re.search(r"<<REMOTE\n(.*?)\nREMOTE\n", deploy, re.S)
+    if not heredoc:
+        problems.append("deploy.sh has no remote script to check")
+    else:
+        for number, line in enumerate(heredoc.group(1).split("\n"), 1):
+            if "`" in line:
+                problems.append(f"deploy.sh remote script line {number} has a "
+                                f"backtick, which runs on the deploying machine: "
+                                f"{line.strip()[:60]}")
+            if re.search(r"(?<!\\)\$\(", line):
+                problems.append(f"deploy.sh remote script line {number} has an "
+                                f"unescaped $( ), which runs on the deploying "
+                                f"machine: {line.strip()[:60]}")
+
     # Anything the remote script needs is written into the script, where this
     # heredoc's own quoting survives.
     for name in SSH_ENV.findall(deploy):
