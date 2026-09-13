@@ -1,0 +1,663 @@
+{
+  "_id": "yBTgNU08MadQzagi",
+  "name": "Teo Vance",
+  "type": "hero",
+  "img": "systems/modern20/assets/icons/lorc/handcuffs.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 9,
+      "max": 9,
+      "temp": 0,
+      "formula": "1d8"
+    },
+    "defense": {
+      "classBonus": 0,
+      "equipment": 0,
+      "naturalArmor": 0,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      }
+    },
+    "skills": {
+      "drive": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "hide": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "moveSilently": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "sleightOfHand": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "tumble": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "knowledge": {
+        "ranks": 0,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": [
+          {
+            "name": "Streetwise",
+            "ranks": 4,
+            "misc": 0,
+            "classSkill": true
+          }
+        ]
+      }
+    },
+    "allegiances": [
+      {
+        "name": "Himself",
+        "strength": "major"
+      }
+    ],
+    "details": {
+      "age": "24",
+      "height": "5 ft. 10 in.",
+      "weight": "150 lb.",
+      "occupation": "Criminal",
+      "xp": 0
+    },
+    "wealth": {
+      "bonus": 6
+    },
+    "reputation": {
+      "base": 0,
+      "misc": 0
+    },
+    "actionPoints": {
+      "value": 5
+    },
+    "biography": "<p>A wheelman. Six skills at the first-level maximum of four ranks, which is what (5 + Int modifier) x 4 buys when every one of them is a class skill.</p>",
+    "source": "d20 Modern SRD"
+  },
+  "items": [
+    {
+      "_id": "ZZtOxyNJy1Q6TQsV",
+      "name": "Fast Hero",
+      "type": "class",
+      "img": "systems/modern20/assets/icons/felbrigg/dodge.svg",
+      "system": {
+        "description": "",
+        "tier": "basic",
+        "levels": 1,
+        "keyAbility": "dex",
+        "hitDie": "1d8",
+        "skillPointsPerLevel": 5,
+        "classSkills": [
+          {
+            "skill": "balance",
+            "specialty": ""
+          },
+          {
+            "skill": "craft",
+            "specialty": "Mechanical"
+          },
+          {
+            "skill": "drive",
+            "specialty": ""
+          },
+          {
+            "skill": "escapeArtist",
+            "specialty": ""
+          },
+          {
+            "skill": "hide",
+            "specialty": ""
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Current Events"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Popular Culture"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Streetwise"
+          },
+          {
+            "skill": "moveSilently",
+            "specialty": ""
+          },
+          {
+            "skill": "pilot",
+            "specialty": ""
+          },
+          {
+            "skill": "profession",
+            "specialty": ""
+          },
+          {
+            "skill": "readWriteLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "ride",
+            "specialty": ""
+          },
+          {
+            "skill": "sleightOfHand",
+            "specialty": ""
+          },
+          {
+            "skill": "speakLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "tumble",
+            "specialty": ""
+          }
+        ],
+        "prerequisites": [],
+        "progression": [
+          {
+            "level": 1,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 0,
+            "fort": 0,
+            "ref": 1,
+            "will": 0,
+            "defense": 3,
+            "reputation": 0
+          },
+          {
+            "level": 2,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 1,
+            "fort": 0,
+            "ref": 2,
+            "will": 0,
+            "defense": 4,
+            "reputation": 0
+          },
+          {
+            "level": 3,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 2,
+            "fort": 1,
+            "ref": 2,
+            "will": 1,
+            "defense": 4,
+            "reputation": 1
+          },
+          {
+            "level": 4,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 3,
+            "fort": 1,
+            "ref": 2,
+            "will": 1,
+            "defense": 5,
+            "reputation": 1
+          },
+          {
+            "level": 5,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 3,
+            "fort": 1,
+            "ref": 3,
+            "will": 1,
+            "defense": 5,
+            "reputation": 1
+          },
+          {
+            "level": 6,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 4,
+            "fort": 2,
+            "ref": 3,
+            "will": 2,
+            "defense": 6,
+            "reputation": 2
+          },
+          {
+            "level": 7,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 5,
+            "fort": 2,
+            "ref": 4,
+            "will": 2,
+            "defense": 6,
+            "reputation": 2
+          },
+          {
+            "level": 8,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 6,
+            "fort": 2,
+            "ref": 4,
+            "will": 2,
+            "defense": 7,
+            "reputation": 2
+          },
+          {
+            "level": 9,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 6,
+            "fort": 3,
+            "ref": 4,
+            "will": 3,
+            "defense": 7,
+            "reputation": 3
+          },
+          {
+            "level": 10,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 7,
+            "fort": 3,
+            "ref": 5,
+            "will": 3,
+            "defense": 8,
+            "reputation": 3
+          }
+        ],
+        "casting": {
+          "kind": "",
+          "tradition": "",
+          "ability": "",
+          "perDay": [],
+          "bonusByScore": [],
+          "pointsPerDay": [],
+          "bonusPointsByScore": [],
+          "powersKnown": []
+        },
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.9pMYvVdkATWJobZS"
+      },
+      "sort": 1000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.ZZtOxyNJy1Q6TQsV"
+    },
+    {
+      "_id": "lnh4J3yoCXVHGBhs",
+      "name": "Criminal",
+      "type": "occupation",
+      "img": "systems/modern20/assets/icons/lorc/handcuffs.svg",
+      "system": {
+        "description": "This illicit starting occupation reveals a background from the wrong side of the law. This occupation includes con artists, burglars, thieves, crime family soldiers, gang members, bank robbers, and other types of career criminals.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.J95B9XhYH6v4Joca.JournalEntryPage.QV7uBgCLHYKG98zZ",
+        "skillChoiceCount": 2,
+        "skillOptions": [
+          {
+            "skill": "disableDevice",
+            "label": "Disable Device",
+            "specialties": []
+          },
+          {
+            "skill": "disguise",
+            "label": "Disguise",
+            "specialties": []
+          },
+          {
+            "skill": "forgery",
+            "label": "Forgery",
+            "specialties": []
+          },
+          {
+            "skill": "gamble",
+            "label": "Gamble",
+            "specialties": []
+          },
+          {
+            "skill": "hide",
+            "label": "Hide",
+            "specialties": []
+          },
+          {
+            "skill": "knowledge",
+            "label": "Knowledge (streetwise)",
+            "specialties": [
+              "Streetwise"
+            ]
+          },
+          {
+            "skill": "moveSilently",
+            "label": "Move Silently",
+            "specialties": []
+          },
+          {
+            "skill": "sleightOfHand",
+            "label": "Sleight of Hand",
+            "specialties": []
+          }
+        ],
+        "skillsChosen": [],
+        "bonusFeatOptions": [
+          "Brawl",
+          "Personal Firearms Proficiency"
+        ],
+        "bonusFeatChosen": "",
+        "wealthBonus": 1,
+        "reputationBonus": 0,
+        "prerequisites": [
+          "Age 15+."
+        ]
+      },
+      "sort": 2000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.lnh4J3yoCXVHGBhs"
+    },
+    {
+      "_id": "wOYRztkarqMLc0eS",
+      "name": "Increased Speed",
+      "type": "talent",
+      "img": "systems/modern20/assets/icons/felbrigg/dodge.svg",
+      "system": {
+        "description": "The Fast hero’s base speed increases by 5 feet.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/fasthero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.9pMYvVdkATWJobZS",
+        "tree": "Increased Speed Talent Tree",
+        "sourceClass": "Fast Hero",
+        "prerequisites": []
+      },
+      "sort": 3000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.wOYRztkarqMLc0eS"
+    },
+    {
+      "_id": "u77fgIkBUkQKWTs3",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 4000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.u77fgIkBUkQKWTs3"
+    },
+    {
+      "_id": "LAtA0Bd9B7WkatP4",
+      "name": "Personal Firearms Proficiency",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.2uojQFMNQiVV19TN",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character can fire any personal firearm without penalty.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 5000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.LAtA0Bd9B7WkatP4"
+    },
+    {
+      "_id": "FHd86pIks2QNX9ui",
+      "name": "Dodge",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.USPpLIhpI8GaU7Bq",
+        "featType": "general",
+        "prerequisites": [
+          "Dexterity 13."
+        ],
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "normal": "",
+        "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
+        "repeatable": false
+      },
+      "sort": 6000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.FHd86pIks2QNX9ui"
+    },
+    {
+      "_id": "d0eNZASXTmWEPzuk",
+      "name": "Colt Double Eagle (10mm autoloader)",
+      "type": "weapon",
+      "img": "systems/modern20/assets/icons/john-colburn/pistol-gun.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "handgun",
+        "damage": "2d6",
+        "damageType": "ballistic",
+        "critical": "20",
+        "rangeIncrement": 30,
+        "rateOfFire": "S",
+        "caliber": "10mm",
+        "magazine": "9 box",
+        "size": "small",
+        "ranged": true,
+        "nonlethal": false,
+        "weight": 3.0,
+        "purchaseDC": 16,
+        "restriction": "lic",
+        "burstRadius": "",
+        "reflexDC": null,
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.RT8WnlwIoZ3cAS9K",
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "consume": {
+              "ammo": 1
+            }
+          }
+        },
+        "progressLevel": 0
+      },
+      "sort": 7000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.d0eNZASXTmWEPzuk"
+    },
+    {
+      "_id": "e5bKxWuQtKHVuoAs",
+      "name": "Leather jacket",
+      "type": "armor",
+      "img": "systems/modern20/assets/icons/lorc/leather-vest.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "armorType": "light",
+        "equipmentBonus": 1,
+        "maxDex": 8,
+        "armorPenalty": 0,
+        "speedPenalty": "30",
+        "proficiency": "light",
+        "weight": 4.0,
+        "purchaseDC": 10,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/armor.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.GopfXc8f6FVHwY6p",
+        "progressLevel": 0
+      },
+      "sort": 8000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.e5bKxWuQtKHVuoAs"
+    },
+    {
+      "_id": "g0horFTGrLClS5eQ",
+      "name": "Lockpicks (Lockpick set)",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/lockpicks.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Professional Equipment",
+        "weight": 1.0,
+        "purchaseDC": 9,
+        "restriction": "lic",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.mOPUKejC7oJXkQwx",
+        "progressLevel": 0
+      },
+      "sort": 9000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.g0horFTGrLClS5eQ"
+    },
+    {
+      "_id": "DKhq7qgdrNmcviud",
+      "name": "Cell phone",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/smartphone.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Computers and Consumer Electronics",
+        "weight": 0.0,
+        "purchaseDC": 9,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.Cplgkqa1q9mYh3mB",
+        "progressLevel": 0
+      },
+      "sort": 10000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.DKhq7qgdrNmcviud"
+    },
+    {
+      "_id": "Sm9GVvTWNoSelyyq",
+      "name": "Flashlight (Penlight)",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/flashlight.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Survival Gear",
+        "weight": 0.5,
+        "purchaseDC": 3,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.xbxFjahYcwSaX83d",
+        "progressLevel": 0
+      },
+      "sort": 11000,
+      "_key": "!actors.items!yBTgNU08MadQzagi.Sm9GVvTWNoSelyyq"
+    }
+  ],
+  "prototypeToken": {
+    "width": 1.0,
+    "height": 1.0,
+    "disposition": 0,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "texture": {
+      "src": "systems/modern20/assets/tokens/lorc/handcuffs.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
+    }
+  },
+  "_key": "!actors!yBTgNU08MadQzagi",
+  "_slug": "pregen-fast"
+}

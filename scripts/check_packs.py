@@ -32,7 +32,9 @@ COLLECTIONS = {
     "creatures": ("Actor", "!actors!"),
     "vehicles": ("Actor", "!actors!"),
     "objects": ("Actor", "!actors!"),
+    "pregens": ("Actor", "!actors!"),
     "rules": ("JournalEntry", "!journal!"),
+    "guide": ("JournalEntry", "!journal!"),
     "tables": ("RollTable", "!tables!"),
 }
 DEFAULT = ("Item", "!items!")

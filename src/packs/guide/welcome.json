@@ -1,0 +1,94 @@
+{
+  "_id": "4qtASOJSgczovuxE",
+  "name": "Welcome to Modern20",
+  "pages": [
+    {
+      "_id": "gHDsFNLKqxgBlgjA",
+      "name": "Start here",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>This world has the whole d20 Modern SRD in it: <strong>1,675 documents</strong>\nacross sixteen compendia, and <strong>1,685 pages</strong> of the rules themselves.\nEverything below is about the parts a rulebook cannot tell you, because they are\nabout this system rather than about the game.</p>\n\n<h2>If you want to play in five minutes</h2>\n<p>Open the <strong>Ready-Made Characters</strong> compendium and drag one into the\nworld. There are six, one per basic class, built at first level by the book:\nmaximum hit points, skill points spent to the last one, a starting occupation, a\ntalent, three feats, and the gear to use them. Each carries a note saying why it\nis put together the way it is.</p>\n\n<h2>If you want to make your own</h2>\n<p>Create an Actor of type <strong>hero</strong>. The sheet opens on a character\ncreator that walks the SRD's own order: @UUID[Compendium.modern20.rules.JournalEntry.16slDxAW5vS4A9Dt.JournalEntryPage.DL7eGoVYJXLEBKqE]{Ability Scores}, then\n@UUID[Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.6OzOJrAKsG3KzOrC]{Basic Classes}, then @UUID[Compendium.modern20.rules.JournalEntry.J95B9XhYH6v4Joca.JournalEntryPage.WmRPJoGFMoacdRu8]{Occupations}, then @UUID[Compendium.modern20.rules.JournalEntry.Uuaoqg08HvQpYRGt.JournalEntryPage.tnsUcIFoUlGFrR5j]{Skill Basics} and\n@UUID[Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.XZV92v0hw7sIw6wt]{Feats}. Nothing is written to the sheet until the step is finished, and\nevery step links to the rules it is applying.</p>\n\n<h2>What is a compendium and what is a rule</h2>\n<p>Every document in every compendium knows the page of the SRD it came from, and\nsays so on its own sheet. The reverse is also true: a rules page lists what it is\nthe rules for, so the page about handguns offers the twenty-three handguns.</p>"
+      },
+      "sort": 100000,
+      "flags": {},
+      "_key": "!journal.pages!4qtASOJSgczovuxE.gHDsFNLKqxgBlgjA"
+    },
+    {
+      "_id": "vKMLyeVDtk5fVS7V",
+      "name": "Rolling things",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Click anything on a sheet that is a number you would roll.</strong> An\nability, a save, a skill, an attack. The card that comes back says what was\nrolled, against what, and whether it beat it.</p>\n\n<h2>The rules roll themselves</h2>\n<p>The SRD says what to roll constantly — <em>\"a DC 15 Climb check\"</em>,\n<em>\"a Fortitude save (DC 14)\"</em> — and in this world those sentences are the\nroll. 3,103 of them, on the rules pages and in the items' and creatures' own\ntext, render with a die in front of them; clicking one rolls it for the\ncharacter you are playing or the token you have selected. Where the SRD printed a\nDC, the card says whether the roll beat it.</p>\n<p>This works in your own notes too: type\n<code>@Check[skill:climb|dc:15]</code> into any journal page or chat message.</p>\n\n<h2>Action points and what happens when you run out of hit points</h2>\n<p>@UUID[Compendium.modern20.rules.JournalEntry.M6kVCrrZywdkvkEz.JournalEntryPage.aWSa9p2Q7NHK5WqR]{Action Points} are spent to improve a roll you have already made, and\nthe sheet's own box is the place to do it. @UUID[Compendium.modern20.rules.JournalEntry.jKIIXj3FVTQ6RmtB.JournalEntryPage.DYtd2iDnRXllMrpj]{Injury and Death} explains\nwhat a character at 0 or fewer hit points is doing;\n@UUID[Compendium.modern20.rules.JournalEntry.jKIIXj3FVTQ6RmtB.JournalEntryPage.4ufmb54q49RyUIIr]{Massive Damage} is the rule that ends a fight suddenly, and this system\napplies it automatically unless a setting says otherwise.</p>\n\n<h2>Combat</h2>\n<p>@UUID[Compendium.modern20.rules.JournalEntry.BW08qOlRSlaENtxF.JournalEntryPage.Mg231VpouUwQOIgn]{Combat} and @UUID[Compendium.modern20.rules.JournalEntry.BW08qOlRSlaENtxF.JournalEntryPage.xVeceLLGwBCsmvvL]{Actions in Combat} are the chapters; the sheet tracks what\na turn has left in it — an attack action, a move action, a five-foot step — and\nsays so before you spend it twice.</p>"
+      },
+      "sort": 200000,
+      "flags": {},
+      "_key": "!journal.pages!4qtASOJSgczovuxE.vKMLyeVDtk5fVS7V"
+    },
+    {
+      "_id": "0pyuzmAafvDIIG88",
+      "name": "Finding things",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>The compendium browser</h2>\n<p>The compendium sidebar has a <strong>Browse</strong> button that opens every\npack at once, and it filters the way the SRD prices things:</p>\n<ul>\n<li>by book — d20 Modern, Urban Arcana, d20 Future, the Menace Manual</li>\n<li>by @UUID[Compendium.modern20.rules.JournalEntry.mHK8Op4Y0OGVi9lU.JournalEntryPage.v7BRwW32qvUoXa3Q]{Wealth}: <em>\"what can this character actually afford\"</em>, which\nis the question a purchase DC answers</li>\n<li>by restriction rating — licensed, restricted, military, illegal</li>\n<li>by progress level, for the d20 Future equipment</li>\n</ul>\n<p>Anything in it can be dragged straight onto a sheet or the canvas.</p>\n\n<h2>Items on the hotbar</h2>\n<p>Drag an item from a sheet to the hotbar and it becomes a macro that uses it.\nThe macro finds the item <em>by name on whoever is selected</em>, so one bar works\nfor the whole table, and it survives the item being sold and bought again — which\non a @UUID[Compendium.modern20.rules.JournalEntry.mHK8Op4Y0OGVi9lU.JournalEntryPage.v7BRwW32qvUoXa3Q]{Wealth} economy happens constantly.</p>\n\n<h2>Equipment</h2>\n<p>@UUID[Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.pL1Zl0zJcurgbtLV]{On-Hand Objects} opens the equipment chapter. Purchase DCs, the black\nmarket, and what carrying it all does to your speed are applied by the sheet.</p>"
+      },
+      "sort": 300000,
+      "flags": {},
+      "_key": "!journal.pages!4qtASOJSgczovuxE.0pyuzmAafvDIIG88"
+    },
+    {
+      "_id": "7fgfSxB8iDkclERR",
+      "name": "For the GM",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<h2>Creatures and vehicles</h2>\n<p>399 actors: every creature in all three books, every vehicle, and the objects\nthe rules let you shoot. Each arrives with the token its stat block implies — the\nsize it occupies in squares, the vision its senses line states, its hit points on\na bar — so a Gargantuan wyrm is four squares of wyrm the moment it lands.</p>\n\n<h2>Random tables</h2>\n<p>26 of them, rollable: mutations, cybernetic side effects, where a grenade\nactually lands, what a celestial is immune to. Each cites the page it was printed\non.</p>\n\n<h2>FX</h2>\n<p>@UUID[Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.KD7TtIMkLsOPA3pD]{FX Basics} covers spells, psionics and the magic items. 174 spells, 87 powers\nand 147 FX items are in the compendia, with save DCs and casting handled by the\nsheet.</p>\n\n<h2>When something looks wrong</h2>\n<p>Settings → System Settings → <strong>System self-test</strong> runs 110 checks\ninside this world: that every compendium holds what it should, that a character\nsheet derives the numbers the book prints, that the rules links resolve and the\nartwork is being served. It builds a character, checks it, and deletes it. If\nsomething is wrong, the failures copy to the clipboard as text.</p>"
+      },
+      "sort": 400000,
+      "flags": {},
+      "_key": "!journal.pages!4qtASOJSgczovuxE.7fgfSxB8iDkclERR"
+    },
+    {
+      "_id": "ymLKDCosd3Z2G280",
+      "name": "Legal",
+      "type": "text",
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "text": {
+        "format": 1,
+        "content": "<p>This system implements the d20 Modern System Reference Document. The rules\ntext in the compendia is Open Game Content, distributed under the Open Game\nLicense v1.0a: @UUID[Compendium.modern20.rules.JournalEntry.mflcM2bwVwUulve8.JournalEntryPage.3uwOP1Wfbmh6torn]{Legal Information} is the licence itself, with the full Section 15\ncopyright chain.</p>\n<p>No Product Identity is included. This system is not affiliated with, endorsed\nby, or sponsored by Wizards of the Coast.</p>\n<p>The system's own code is MIT. The icons are from game-icons.net under CC BY\n3.0; every artist is credited in <code>assets/icons/CREDITS.md</code>.</p>"
+      },
+      "sort": 500000,
+      "flags": {},
+      "_key": "!journal.pages!4qtASOJSgczovuxE.ymLKDCosd3Z2G280"
+    }
+  ],
+  "sort": 1000,
+  "flags": {
+    "modern20": {
+      "book": "Modern20"
+    }
+  },
+  "_key": "!journal!4qtASOJSgczovuxE",
+  "_slug": "welcome"
+}

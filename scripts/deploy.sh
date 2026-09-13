@@ -71,6 +71,8 @@ python3 scripts/check_capture.py
 python3 scripts/check_art.py
 python3 scripts/check_deploy.py
 python3 scripts/check_selftest.py
+python3 scripts/gen_pregens.py --check
+python3 scripts/gen_guide.py --check
 
 # Packing rewrites the compendia from src/packs, so anything edited on a sheet
 # and not yet captured is gone. Foundry is where this system's content is

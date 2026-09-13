@@ -140,6 +140,30 @@ def weapon() -> dict:
     }
 
 
+def pregens() -> list[dict]:
+    """The ready-made characters, with what their sheets must come to.
+
+    The first thing anybody opens, and the one place a rules mistake reaches a
+    table without anybody having built anything: hit points, Wealth and the
+    class level are all derived by gen_pregens.py from the SRD, so a sheet
+    showing something else means the model and the generator disagree.
+    """
+    out = []
+    for document in documents("pregens"):
+        system = document["system"]
+        classes = [item for item in document["items"] if item["type"] == "class"]
+        out.append({
+            "uuid": uuid_of("pregens", document),
+            "name": document["name"],
+            "hp": system["hp"]["max"],
+            "wealth": system["wealth"]["bonus"],
+            "items": len(document["items"]),
+            "className": classes[0]["name"] if classes else "",
+            "level": sum(item["system"]["levels"] for item in classes),
+        })
+    return out
+
+
 def images() -> list[str]:
     """Every distinct image path the packs name, tokens included."""
     found: set[str] = set()
@@ -180,6 +204,7 @@ def render() -> str:
         "class": class_row(),
         "creatures": creatures(),
         "weapon": weapon(),
+        "pregens": pregens(),
         "rulesPages": rules_pages(),
         "images": images(),
     }
@@ -218,8 +243,8 @@ def main() -> int:
 
     data = json.loads(rendered[rendered.index("{"):rendered.rindex("}") + 1])
     print(f"module/selftest-data.mjs written: {len(data['packs'])} pack counts, "
-          f"{len(data['creatures'])} creatures, {len(data['rulesPages'])} rules "
-          f"links, {len(data['images'])} images")
+          f"{len(data['creatures'])} creatures, {len(data['pregens'])} characters, "
+          f"{len(data['rulesPages'])} rules links, {len(data['images'])} images")
     return 0
 
 

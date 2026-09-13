@@ -1,0 +1,642 @@
+{
+  "_id": "6xkcsadPkPnd4ozI",
+  "name": "Marisol Okonkwo",
+  "type": "hero",
+  "img": "systems/modern20/assets/icons/delapouite/first-aid-kit.svg",
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 13,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "dex": {
+        "value": 12,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "con": {
+        "value": 15,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "int": {
+        "value": 10,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "wis": {
+        "value": 14,
+        "tempMod": 0,
+        "damage": 0
+      },
+      "cha": {
+        "value": 8,
+        "tempMod": 0,
+        "damage": 0
+      }
+    },
+    "hp": {
+      "value": 12,
+      "max": 12,
+      "temp": 0,
+      "formula": "1d10"
+    },
+    "defense": {
+      "classBonus": 0,
+      "equipment": 0,
+      "naturalArmor": 0,
+      "misc": 0
+    },
+    "saves": {
+      "fort": {
+        "base": 0,
+        "misc": 0
+      },
+      "ref": {
+        "base": 0,
+        "misc": 0
+      },
+      "will": {
+        "base": 0,
+        "misc": 0
+      }
+    },
+    "attributes": {
+      "baseAttack": 0,
+      "size": "medium",
+      "speed": 30,
+      "initiative": {
+        "misc": 0
+      }
+    },
+    "skills": {
+      "climb": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "drive": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      },
+      "survival": {
+        "ranks": 4,
+        "misc": 0,
+        "classSkill": true,
+        "specialties": []
+      }
+    },
+    "allegiances": [
+      {
+        "name": "The city",
+        "strength": "major"
+      },
+      {
+        "name": "Her crew",
+        "strength": "major"
+      }
+    ],
+    "details": {
+      "age": "29",
+      "height": "5 ft. 7 in.",
+      "weight": "155 lb.",
+      "occupation": "Emergency Services",
+      "xp": 0
+    },
+    "wealth": {
+      "bonus": 7
+    },
+    "reputation": {
+      "base": 0,
+      "misc": 0
+    },
+    "actionPoints": {
+      "value": 5
+    },
+    "biography": "<p>A firefighter, and the character least likely to go down: 1d10 at maximum plus a Constitution modifier, which is ten hit points before anything else happens.</p>",
+    "source": "d20 Modern SRD"
+  },
+  "items": [
+    {
+      "_id": "OHFE68qDFBVcyidi",
+      "name": "Tough Hero",
+      "type": "class",
+      "img": "systems/modern20/assets/icons/zeromancer/heart-plus.svg",
+      "system": {
+        "description": "",
+        "tier": "basic",
+        "levels": 1,
+        "keyAbility": "con",
+        "hitDie": "1d10",
+        "skillPointsPerLevel": 3,
+        "classSkills": [
+          {
+            "skill": "climb",
+            "specialty": ""
+          },
+          {
+            "skill": "concentration",
+            "specialty": ""
+          },
+          {
+            "skill": "craft",
+            "specialty": "Mechanical"
+          },
+          {
+            "skill": "craft",
+            "specialty": "Structural"
+          },
+          {
+            "skill": "drive",
+            "specialty": ""
+          },
+          {
+            "skill": "intimidate",
+            "specialty": ""
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Current Events"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Popular Culture"
+          },
+          {
+            "skill": "knowledge",
+            "specialty": "Streetwise"
+          },
+          {
+            "skill": "profession",
+            "specialty": ""
+          },
+          {
+            "skill": "readWriteLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "ride",
+            "specialty": ""
+          },
+          {
+            "skill": "speakLanguage",
+            "specialty": ""
+          },
+          {
+            "skill": "spot",
+            "specialty": ""
+          },
+          {
+            "skill": "survival",
+            "specialty": ""
+          }
+        ],
+        "prerequisites": [],
+        "progression": [
+          {
+            "level": 1,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 0,
+            "fort": 1,
+            "ref": 0,
+            "will": 0,
+            "defense": 1,
+            "reputation": 0
+          },
+          {
+            "level": 2,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 1,
+            "fort": 2,
+            "ref": 0,
+            "will": 0,
+            "defense": 2,
+            "reputation": 0
+          },
+          {
+            "level": 3,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 2,
+            "fort": 2,
+            "ref": 1,
+            "will": 1,
+            "defense": 2,
+            "reputation": 1
+          },
+          {
+            "level": 4,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 3,
+            "fort": 2,
+            "ref": 1,
+            "will": 1,
+            "defense": 3,
+            "reputation": 1
+          },
+          {
+            "level": 5,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 3,
+            "fort": 3,
+            "ref": 1,
+            "will": 1,
+            "defense": 3,
+            "reputation": 1
+          },
+          {
+            "level": 6,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 4,
+            "fort": 3,
+            "ref": 2,
+            "will": 2,
+            "defense": 3,
+            "reputation": 2
+          },
+          {
+            "level": 7,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 5,
+            "fort": 4,
+            "ref": 2,
+            "will": 2,
+            "defense": 4,
+            "reputation": 2
+          },
+          {
+            "level": 8,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 6,
+            "fort": 4,
+            "ref": 2,
+            "will": 2,
+            "defense": 4,
+            "reputation": 2
+          },
+          {
+            "level": 9,
+            "features": [
+              "Talent"
+            ],
+            "baseAttack": 6,
+            "fort": 4,
+            "ref": 3,
+            "will": 3,
+            "defense": 5,
+            "reputation": 3
+          },
+          {
+            "level": 10,
+            "features": [
+              "Bonus Feat"
+            ],
+            "baseAttack": 7,
+            "fort": 5,
+            "ref": 3,
+            "will": 3,
+            "defense": 5,
+            "reputation": 3
+          }
+        ],
+        "casting": {
+          "kind": "",
+          "tradition": "",
+          "ability": "",
+          "perDay": [],
+          "bonusByScore": [],
+          "pointsPerDay": [],
+          "bonusPointsByScore": [],
+          "powersKnown": []
+        },
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.yDprhnz2daEMLUh7"
+      },
+      "sort": 1000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.OHFE68qDFBVcyidi"
+    },
+    {
+      "_id": "tCCoC3KVjBWnXiyy",
+      "name": "Emergency Services",
+      "type": "occupation",
+      "img": "systems/modern20/assets/icons/delapouite/first-aid-kit.svg",
+      "system": {
+        "description": "Rescue workers, firefighters, paramedics, hazardous material handlers, and emergency medical technicians fall under this category.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/occupations.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.J95B9XhYH6v4Joca.JournalEntryPage.OUYE5qBo0OLAYCUS",
+        "skillChoiceCount": 2,
+        "skillOptions": [
+          {
+            "skill": "balance",
+            "label": "Balance",
+            "specialties": []
+          },
+          {
+            "skill": "climb",
+            "label": "Climb",
+            "specialties": []
+          },
+          {
+            "skill": "computerUse",
+            "label": "Computer Use",
+            "specialties": []
+          },
+          {
+            "skill": "drive",
+            "label": "Drive",
+            "specialties": []
+          },
+          {
+            "skill": "jump",
+            "label": "Jump",
+            "specialties": []
+          },
+          {
+            "skill": "knowledge",
+            "label": "Knowledge (behavioral sciences, earth and life sciences, or technology)",
+            "specialties": [
+              "Behavioral Sciences",
+              "Earth And Life Sciences",
+              "Or Technology"
+            ]
+          },
+          {
+            "skill": "search",
+            "label": "Search",
+            "specialties": []
+          },
+          {
+            "skill": "treatInjury",
+            "label": "Treat Injury",
+            "specialties": []
+          },
+          {
+            "skill": "swim",
+            "label": "Swim",
+            "specialties": []
+          }
+        ],
+        "skillsChosen": [],
+        "bonusFeatOptions": [],
+        "bonusFeatChosen": "",
+        "wealthBonus": 2,
+        "reputationBonus": 0,
+        "prerequisites": [
+          "Age 18+."
+        ]
+      },
+      "sort": 2000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.tCCoC3KVjBWnXiyy"
+    },
+    {
+      "_id": "Kqv74F0hj3bFCw90",
+      "name": "Stamina",
+      "type": "talent",
+      "img": "systems/modern20/assets/icons/zeromancer/heart-plus.svg",
+      "system": {
+        "description": "The Tough hero recovers twice as fast as normal. So, the hero recovers 2 hit points per character level per evening of rest, 2 points of temporary ability damage per evening of rest, and awakens in half the normal time after being knocked unconscious.",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/toughhero.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.yDprhnz2daEMLUh7",
+        "tree": "Unbreakable Talent Tree",
+        "sourceClass": "Tough Hero",
+        "prerequisites": [
+          "Robust."
+        ]
+      },
+      "sort": 3000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.Kqv74F0hj3bFCw90"
+    },
+    {
+      "_id": "nzwkab9k9U1en2LJ",
+      "name": "Simple Weapons Proficiency",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "The character makes attack rolls with simple weapons normally.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 4000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.nzwkab9k9U1en2LJ"
+    },
+    {
+      "_id": "jLrk50P9tz2V3Cmu",
+      "name": "Armor Proficiency (light)",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.xMewQYQD9ihiLS3U",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "When a character wears a type of armor with which he or she is proficient, the character gets to add the armor’s equipment bonus to his or her Defense. Also, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, and @Check[skill:tumble]{Tumble check}s.",
+        "normal": "A character who wears armor with which he or she is not proficient adds only the armor’s nonproficient equipment bonus to his or her Defense. Also, he or she suffers its armor check penalty on attack rolls and on all skill checks that involve moving.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 5000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.jLrk50P9tz2V3Cmu"
+    },
+    {
+      "_id": "5hNWWb2b5MyxBsS4",
+      "name": "Brawl",
+      "type": "feat",
+      "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+      "system": {
+        "description": "",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.xe2G9LvjcJKn5vDg",
+        "featType": "general",
+        "prerequisites": [],
+        "benefit": "When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier.",
+        "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
+        "special": "",
+        "repeatable": false
+      },
+      "sort": 6000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.5hNWWb2b5MyxBsS4"
+    },
+    {
+      "_id": "A8pNC1d3X8Ot0FfQ",
+      "name": "Club",
+      "type": "weapon",
+      "img": "systems/modern20/assets/icons/skoll/baton.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "simple",
+        "damage": "1d6",
+        "damageType": "bludgeoning",
+        "critical": "20",
+        "rangeIncrement": 10,
+        "rateOfFire": "",
+        "caliber": "",
+        "magazine": "",
+        "size": "medium",
+        "ranged": true,
+        "nonlethal": false,
+        "weight": 3.0,
+        "purchaseDC": 4,
+        "restriction": "none",
+        "burstRadius": "",
+        "reflexDC": null,
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/weapons.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.pR8lAC6TGmYZHOXl",
+        "activities": {
+          "shot": {
+            "type": "attack",
+            "name": "MODERN20.Attack.Single",
+            "consume": {
+              "ammo": 1
+            }
+          }
+        },
+        "progressLevel": 0
+      },
+      "sort": 7000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.A8pNC1d3X8Ot0FfQ"
+    },
+    {
+      "_id": "GqmTkOllE96Ie3a4",
+      "name": "Fire resistant suit",
+      "type": "armor",
+      "img": "systems/modern20/assets/icons/skoll/kevlar-vest.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "armorType": "light",
+        "equipmentBonus": 0,
+        "maxDex": 5,
+        "armorPenalty": -4,
+        "speedPenalty": "30",
+        "proficiency": "light",
+        "weight": 10.0,
+        "purchaseDC": 13,
+        "restriction": "none",
+        "source": "Urban Arcana",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanarmor.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.cC6yOEvgjiSs8AyG.JournalEntryPage.vx2MEjc3pHfwQAuW",
+        "progressLevel": 0
+      },
+      "sort": 8000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.GqmTkOllE96Ie3a4"
+    },
+    {
+      "_id": "4OxvT45a0aL87Xua",
+      "name": "First aid kit",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/first-aid-kit.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Professional Equipment",
+        "weight": 3.0,
+        "purchaseDC": 5,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.mOPUKejC7oJXkQwx",
+        "progressLevel": 0
+      },
+      "sort": 9000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.4OxvT45a0aL87Xua"
+    },
+    {
+      "_id": "WXEgRCjAosMYevn3",
+      "name": "Rope (150 ft.)",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/rope-coil.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Survival Gear",
+        "weight": 12.0,
+        "purchaseDC": 5,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.xbxFjahYcwSaX83d",
+        "progressLevel": 0
+      },
+      "sort": 10000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.WXEgRCjAosMYevn3"
+    },
+    {
+      "_id": "7XjSB0tHv3tEQzPM",
+      "name": "Flashlight (Standard)",
+      "type": "gear",
+      "img": "systems/modern20/assets/icons/delapouite/flashlight.svg",
+      "system": {
+        "description": "",
+        "quantity": 1,
+        "equipped": false,
+        "category": "Survival Gear",
+        "weight": 1.0,
+        "purchaseDC": 4,
+        "restriction": "none",
+        "source": "d20 Modern SRD",
+        "srdUrl": "https://spellbooksoftware.com/d20mrsd/general.html",
+        "rulesPage": "Compendium.modern20.rules.JournalEntry.KEk4tUapzxsIoENq.JournalEntryPage.xbxFjahYcwSaX83d",
+        "progressLevel": 0
+      },
+      "sort": 11000,
+      "_key": "!actors.items!6xkcsadPkPnd4ozI.7XjSB0tHv3tEQzPM"
+    }
+  ],
+  "prototypeToken": {
+    "width": 1.0,
+    "height": 1.0,
+    "disposition": 0,
+    "displayName": 20,
+    "displayBars": 20,
+    "bar1": {
+      "attribute": "hp"
+    },
+    "texture": {
+      "src": "systems/modern20/assets/tokens/delapouite/first-aid-kit.svg",
+      "scaleX": 2,
+      "scaleY": 2,
+      "anchorX": 0.5,
+      "anchorY": 0.25
+    }
+  },
+  "_key": "!actors!6xkcsadPkPnd4ozI",
+  "_slug": "pregen-tough"
+}

@@ -102,6 +102,7 @@ export async function runSelfTest({ images = true } = {}) {
     ["Compendia", checkPacks],
     ["Character sheet", checkHero],
     ["Creatures", checkCreatures],
+    ["Ready-made characters", checkPregens],
     ["Rules links", checkRulesLinks],
     ["Rolls in the text", checkEnrichers],
     ["Chat cards", checkChatCards]
@@ -287,6 +288,36 @@ async function checkCreatures(results) {
                  actor.prototypeToken.width, wanted.squares);
     results.same(`${wanted.name}: token artwork`,
                  actor.prototypeToken.texture.src, wanted.art);
+  }
+}
+
+/**
+ * The six characters this system ships are playable.
+ *
+ * They are the first thing anybody opens, and the one place a rules mistake
+ * reaches a table without anybody having built anything. Their hit points,
+ * Wealth and class level are worked out from the SRD when the pack is built;
+ * a sheet that shows something else means the model and the generator
+ * disagree, and one of them is wrong in front of a player.
+ */
+async function checkPregens(results) {
+  for (const wanted of EXPECTED.pregens) {
+    const actor = await foundry.utils.fromUuid(wanted.uuid);
+    if (!results.ok(`${wanted.name} loads`, Boolean(actor))) continue;
+
+    results.same(`${wanted.name}: carries ${wanted.items} items`,
+                 actor.items.size, wanted.items);
+    results.same(`${wanted.name}: is a ${wanted.className} at level ${wanted.level}`,
+                 actor.system.details.level, wanted.level);
+    results.same(`${wanted.name}: hit points`, actor.system.hp.max, wanted.hp);
+    results.same(`${wanted.name}: Wealth bonus`, actor.system.wealth.bonus, wanted.wealth);
+    // Whatever the class table gives, it is not nothing: a character whose
+    // class failed to apply reads as a perfectly ordinary level-1 sheet.
+    results.ok(`${wanted.name}: the class is actually applied`,
+               actor.system.attributes.baseAttack > 0
+               || actor.system.defense.classBonus > 0,
+               `base attack ${actor.system.attributes.baseAttack}, `
+               + `Defense class bonus ${actor.system.defense.classBonus}`);
   }
 }
 

@@ -146,6 +146,15 @@ jobs:
       - name: the in-world self-test checks the right numbers
         run: python3 scripts/check_selftest.py
 
+      # The two packs that are written rather than scraped: a character built
+      # by the SRD's own arithmetic, and a guide whose every link is resolved
+      # against the rules it points into.
+      - name: the pregenerated characters still add up
+        run: python3 scripts/gen_pregens.py --check
+
+      - name: the guide still links to pages that exist
+        run: python3 scripts/gen_guide.py --check
+
       # The export runs against a live Foundry host, so it is the one script
       # here that cannot be tried out cheaply, and both of its bugs so far
       # were found by reading 1,400 documents of its output. This round-trips

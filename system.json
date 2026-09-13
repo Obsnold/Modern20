@@ -284,6 +284,28 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "pregens",
+      "label": "Ready-Made Characters",
+      "path": "packs/pregens",
+      "type": "Actor",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "guide",
+      "label": "How to Play This",
+      "path": "packs/guide",
+      "type": "JournalEntry",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "grid": {

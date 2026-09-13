@@ -103,6 +103,11 @@ def main() -> int:
     resolves(data["weapon"]["rulesPage"], "the weapon's rules page")
     for creature in data["creatures"]:
         resolves(creature["uuid"], f"creature {creature['name']}")
+    for hero in data["pregens"]:
+        resolves(hero["uuid"], f"pregen {hero['name']}")
+        if not hero.get("hp") or not hero.get("items") or hero.get("level") != 1:
+            problems.append(f"{hero['name']} is not a first-level character with "
+                            "hit points and equipment")
     for cited in data["rulesPages"]:
         resolves(cited["uuid"], f"{cited['pack']} rules link")
 
@@ -154,7 +159,8 @@ def main() -> int:
                             "passes while the sheets get rubbish")
 
     # The suite has to use them, or they are decoration.
-    for field in ("packs", "class", "creatures", "weapon", "rulesPages", "images"):
+    for field in ("packs", "class", "creatures", "pregens", "weapon",
+                  "rulesPages", "images"):
         if f"EXPECTED.{field}" not in suite:
             problems.append(f"module/selftest.mjs never reads EXPECTED.{field}")
 
