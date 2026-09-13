@@ -195,8 +195,48 @@ def main() -> int:
             problems.append(f'system.json declares the "{pack}" pack and '
                             f"src/packs/{pack} does not exist")
 
+    # Seventeen compendia in a flat sidebar list is a scrollbar, so the
+    # manifest groups them. A pack added later and not added to a folder does
+    # not fail anything: it sits at the root, on its own, below the folders —
+    # which reads as an oversight because it is one.
+    folders = manifest().get("packFolders") or []
+    if not folders:
+        problems.append("system.json has no packFolders; 17 compendia in one "
+                        "flat list is what they are for")
+    grouped: dict[str, int] = {}
+
+    def walk(folder: dict, where: str) -> None:
+        name = folder.get("name")
+        if not name:
+            problems.append(f"{where}: a pack folder with no name")
+        if folder.get("sorting") not in ("m", "a"):
+            problems.append(f'{where} "{name}": sorting is '
+                            f'{folder.get("sorting")!r}, not "m" or "a"')
+        colour = folder.get("color")
+        if colour is not None and not re.fullmatch(r"#[0-9a-fA-F]{6}", str(colour)):
+            problems.append(f'{where} "{name}": color {colour!r} is not a hex colour')
+        for pack in folder.get("packs") or []:
+            grouped[pack] = grouped.get(pack, 0) + 1
+        for child in folder.get("folders") or []:
+            walk(child, f'{where} "{name}" >')
+
+    for folder in folders:
+        walk(folder, "packFolders")
+
+    for pack in declared:
+        if pack not in grouped:
+            problems.append(f'the "{pack}" compendium is in no pack folder, so it '
+                            "sits on its own at the root of the sidebar")
+        elif grouped[pack] > 1:
+            problems.append(f'the "{pack}" compendium is in {grouped[pack]} pack '
+                            "folders")
+    for pack in sorted(set(grouped) - set(declared)):
+        problems.append(f'a pack folder holds "{pack}", which system.json does '
+                        "not declare")
+
     print(f"deploy sends {len(sending)} directories and compiles "
-          f"{len(declared)} packs; {len(wanted)} directories are read from at runtime")
+          f"{len(declared)} packs in {len(folders)} sidebar folders; "
+          f"{len(wanted)} directories are read from at runtime")
     for problem in problems:
         print(f"FAIL  {problem}")
     return 1 if problems else 0

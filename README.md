@@ -1560,6 +1560,28 @@ the language file, a class to open, and restricted to the GM — since each of
 those fails in a different quiet way: a missing string renders as the key, and
 a `type` that is not a class throws when somebody clicks it.
 
+## The compendium sidebar
+
+Seventeen compendia in one flat list is a scrollbar, so `system.json` groups
+them with `packFolders`, sorted the way a table reaches for them rather than
+alphabetically — which would put Armor above the characters and the Rules in
+the middle of the equipment.
+
+| folder | holds |
+|---|---|
+| Play | How to Play This, Ready-Made Characters |
+| Characters | Classes, Occupations, Talents, Feats |
+| Equipment | Weapons, Armor, Equipment, Vehicles |
+| FX | Spells, Psionic Powers, FX Items |
+| The World | Creatures, Objects, Random Tables |
+| The Rules | Rules |
+
+`check_deploy.py` holds every declared pack to exactly one folder, because a
+pack added later and left out of the grouping does not fail anything: it just
+sits alone at the root below the folders, which reads as an oversight because
+it is one. It also checks each folder states a name, a real sorting mode and a
+hex colour, since a typo in any of those is a manifest a world has to load.
+
 ## Checks
 
 ```bash
