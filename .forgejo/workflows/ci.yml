@@ -140,6 +140,12 @@ jobs:
       - name: the deploy sends everything the system reads
         run: python3 scripts/check_deploy.py
 
+      # The one test that runs inside Foundry cannot run here; what can be
+      # checked from here is that the figures it will compare against are the
+      # packs' own, and that its fixtures point at documents that exist.
+      - name: the in-world self-test checks the right numbers
+        run: python3 scripts/check_selftest.py
+
       # The export runs against a live Foundry host, so it is the one script
       # here that cannot be tried out cheaply, and both of its bugs so far
       # were found by reading 1,400 documents of its output. This round-trips

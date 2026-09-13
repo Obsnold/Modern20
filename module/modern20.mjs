@@ -27,6 +27,7 @@ import { registerConditions } from "./conditions.mjs";
 import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.mjs";
 import { registerEnrichers } from "./enrichers.mjs";
 import { Modern20Browser } from "./apps/browser.mjs";
+import { Modern20SelfTest } from "./apps/selftest.mjs";
 import { registerHotbarDrop, rollItem } from "./macros.mjs";
 import { migrateWorld } from "./migrate.mjs";
 import { CONDITIONS } from "./condition-list.mjs";
@@ -95,6 +96,9 @@ Hooks.once("init", () => {
     browser: () => Modern20Browser.show(),
     // What a macro made by dragging an item to the hotbar calls.
     rollItem,
+    // What this system does when it is actually running, which nothing that
+    // reads the repository can tell you: game.modern20.selftest().
+    selftest: () => Modern20SelfTest.show(),
     config: MODERN20
   };
 });
