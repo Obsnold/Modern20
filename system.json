@@ -306,6 +306,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "scenes",
+      "label": "Example Scenes",
+      "path": "packs/scenes",
+      "type": "Scene",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "grid": {
@@ -326,7 +337,8 @@
       "color": "#8c2f1e",
       "packs": [
         "guide",
-        "pregens"
+        "pregens",
+        "scenes"
       ]
     },
     {
@@ -378,6 +390,19 @@
       "packs": [
         "rules"
       ]
+    }
+  ],
+  "media": [
+    {
+      "type": "cover",
+      "url": "systems/modern20/assets/media/cover.webp",
+      "caption": "Modern20 — the d20 Modern SRD for Foundry Virtual Tabletop"
+    },
+    {
+      "type": "setup",
+      "url": "systems/modern20/assets/media/cover.webp",
+      "thumbnail": "systems/modern20/assets/media/cover-thumb.webp",
+      "caption": "Modern20"
     }
   ]
 }
