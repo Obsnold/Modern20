@@ -1,6 +1,6 @@
 /**
  * Advancing a creature, generated from data/advancement.json by
- * scripts/gen_advancement.py.
+ * tools/gen_advancement.py.
  *
  * "The GM can improve a creature by increasing its Hit Dice. The Advancement
  * entry indicates the increased Hit Dice (and often size) of the creature."

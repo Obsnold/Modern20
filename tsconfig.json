@@ -19,5 +19,5 @@
     "noImplicitAny": false,
     "types": []
   },
-  "include": ["module/**/*.mjs", "scripts/**/*.mjs", "types/**/*.d.ts"]
+  "include": ["module/**/*.mjs", "tools/**/*.mjs", "types/**/*.d.ts"]
 }

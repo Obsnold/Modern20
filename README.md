@@ -107,11 +107,19 @@ module/
 templates/               Handlebars templates (actor, item, chat)
 css/modern20.css         Styling, scoped under .modern20
 lang/en.json             Localization
-scripts/                 SRD pipeline and consistency checks (Python 3, stdlib only)
+tools/                   The pipeline: import, build, generate, check, release
 data/                    Scraped SRD output; committed
 src/packs/               Compendium source documents; committed
 packs/                   Compiled LevelDB packs; generated, gitignored
 ```
+
+Nothing under `tools/`, `data/` or `src/packs/` is ever served to Foundry — the
+release zip and the private deploy both carry only `module`, `templates`, `css`,
+`lang`, `assets`, the compiled `packs` and `system.json`. The pipeline is in the
+repository because the release runs it, which is how the systems this is modelled
+on are laid out: dnd5e keeps its build tooling in `utils/` and commits
+`packs/_source/` while gitignoring the compiled packs, and pf2e keeps its in
+`build/`. A system's repository is its source, not its zip.
 
 ## Releasing it
 
@@ -154,7 +162,7 @@ repository the workflow runs in, rather than committed and then verified. This
 repository never names an owner it might not have, and a fork's release points
 at the fork rather than at somebody else's downloads.
 
-`scripts/deploy.sh` is a different thing and not how anybody else gets this: it
+`tools/deploy.sh` is a different thing and not how anybody else gets this: it
 scp's the working tree to one Foundry host and restarts it, which is the inner
 loop while developing. Its host and paths come from `MODERN20_HOST` and friends.
 Foundry's own recommendation for that loop, if the server is the same machine
@@ -163,13 +171,13 @@ you write on, is simpler still — symlink the repository into
 
 ## Creating and levelling
 
-`scripts/deploy.sh` builds, verifies and installs in one step:
+`tools/deploy.sh` builds, verifies and installs in one step:
 
 ```bash
 export MODERN20_HOST=user@host         # once, in your own shell
-scripts/deploy.sh                      # code, templates, styles, assets
-scripts/deploy.sh --packs              # also recompile and install the compendia
-scripts/deploy.sh user@other --packs   # or name a host for this run
+tools/deploy.sh                      # code, templates, styles, assets
+tools/deploy.sh --packs              # also recompile and install the compendia
+tools/deploy.sh user@other --packs   # or name a host for this run
 ```
 
 Where it deploys to comes from the environment, never from a file here:
@@ -253,11 +261,11 @@ the sheet shows is what is stored, and a compendium weapon is as editable as
 any other. Three paths write them, all from the same
 `data/activity_defaults.json`:
 
-- `scripts/build_packs.py` writes them into compendium items at build time
+- `tools/build_packs.py` writes them into compendium items at build time
 - `Modern20Item._preCreate` seeds an item created by hand
 - `Modern20Weapon.migrateData` backfills one made before activities existed
 
-`scripts/gen_activity_defaults.py` generates `module/activity-defaults.mjs`
+`tools/gen_activity_defaults.py` generates `module/activity-defaults.mjs`
 from that same JSON, so the build and the runtime cannot drift. Unavailable
 activities are shown disabled with the reason.
 
@@ -622,9 +630,9 @@ that needs to cite them.
 [mirror]: https://spellbooksoftware.com/d20mrsd/srdhome.html
 
 ```bash
-python3 scripts/import_rules.py             # from .cache/, fetching what is missing
-python3 scripts/import_rules.py --refresh   # re-fetch every page first
-python3 scripts/build_packs.py
+python3 tools/import_rules.py             # from .cache/, fetching what is missing
+python3 tools/import_rules.py --refresh   # re-fetch every page first
+python3 tools/build_packs.py
 ```
 
 **The structure is the SRD's own.** Every page carries the whole site as a
@@ -710,7 +718,7 @@ Four of d20 Modern's chapters are not on the mirror at all. Not broken links
 or truncated pages — the text is not there: nothing on the site says what an
 action point does, what happens at negative hit points, how Reputation is
 checked, or how a skill check works. Every one of them is in the RTF releases,
-so `scripts/import_missing.py` takes those four documents from there and
+so `tools/import_missing.py` takes those four documents from there and
 `data/rules-extra.json` holds them, folded into `data/rules.json` on every
 import rather than written in once and lost at the next one.
 
@@ -747,9 +755,9 @@ the rules compendium its own rules are printed on — and so do the parts of the
 system that are not documents at all.
 
 ```bash
-python3 scripts/link_rules.py         # stamp the documents, and the pages they point at
-python3 scripts/gen_rules_links.py    # regenerate module/rules-links.mjs
-python3 scripts/check_rules_links.py  # every link resolves to a page that exists
+python3 tools/link_rules.py         # stamp the documents, and the pages they point at
+python3 tools/gen_rules_links.py    # regenerate module/rules-links.mjs
+python3 tools/check_rules_links.py  # every link resolves to a page that exists
 ```
 
 All 1,590 documents are linked, between them reaching 854 of the 1,685 pages,
@@ -1054,11 +1062,11 @@ There are now **163 icons across 4,864 documents**, from
 [game-icons.net](https://game-icons.net) under CC BY 3.0, vendored into
 `assets/icons` and credited per author in
 [assets/icons/CREDITS.md](assets/icons/CREDITS.md) — which
-`scripts/fetch_art.py` generates from what it actually fetched, since an
+`tools/fetch_art.py` generates from what it actually fetched, since an
 attribution written by hand is one that goes stale.
 
 **Which icon a thing gets** is a judgement, and it is written down in
-`scripts/art.py` next to the reason, in the same way the rules-page choices are
+`tools/art.py` next to the reason, in the same way the rules-page choices are
 written down in `gen_rules_links.py`. What is *derived* is which group a
 document belongs to: a field the scrape read, or a word in the name the SRD
 printed. Groups resolve in order — the name, then the field, then the pack's
@@ -1261,7 +1269,7 @@ git diff src/packs                  # read it, fill in each "why", commit
 npm run deploy:packs                # recompile and install
 ```
 
-`npm run extract` (`scripts/capture_edits.py`) unpacks the live compendia with
+`npm run extract` (`tools/capture_edits.py`) unpacks the live compendia with
 the Foundry CLI and compares them with the pack source. It handles four things,
 and each one is a way an afternoon in Foundry actually ends:
 
@@ -1319,7 +1327,7 @@ The blocks are generated from the real schemas rather than written by hand, so a
 field added later cannot be forgotten:
 
 ```bash
-node scripts/gen_field_labels.mjs > /tmp/fields.json   # then merge into lang/en.json
+node tools/gen_field_labels.mjs > /tmp/fields.json   # then merge into lang/en.json
 ```
 
 Labels are humanised from the field name, with an acronym list (DC, HP, BAB, SRD)
@@ -1338,11 +1346,11 @@ not written by hand: the SRD is scraped, parsed and imported. So the import is
 additive, and never argues with the pack.
 
 ```bash
-python3 scripts/scrape.py             # crawl the SRD into data/
-python3 scripts/build_packs.py        # import what the packs do not have yet
-python3 scripts/build_packs.py --overwrite weapons   # take the import for one pack
-python3 scripts/link_rules.py         # link the documents and the rules pages to each other
-scripts/capture_edits.py              # bring edits made in Foundry home
+python3 tools/scrape.py             # crawl the SRD into data/
+python3 tools/build_packs.py        # import what the packs do not have yet
+python3 tools/build_packs.py --overwrite weapons   # take the import for one pack
+python3 tools/link_rules.py         # link the documents and the rules pages to each other
+tools/capture_edits.py              # bring edits made in Foundry home
 ```
 
 `build_packs.py` writes documents the SRD produces and the packs do not have,
@@ -1704,25 +1712,25 @@ exists only so the tooling is one command rather than nine, and so a machine
 without Node says so instead of silently skipping half the suite.
 
 ```bash
-npm run lint                         # eslint over module/ and scripts/, ruff over scripts/
+npm run lint                         # eslint over module/ and tools/, ruff over tools/
 npm run typecheck                    # tsc --noEmit, using the JSDoc already in the code
-python3 scripts/check_private.py     # nothing here names the machine it was written on
-python3 scripts/check_globals.py     # no globals Foundry v14 removed
-python3 scripts/check_lang.py        # every referenced i18n key exists
-python3 scripts/check_config.py      # config.mjs still matches the scraped SRD
-python3 scripts/check_shadowing.py   # no module-level name defined twice
-python3 scripts/check_packs.py       # folders, keys, ids, tokens and table ranges
-python3 scripts/check_coverage.py    # the packs still cover as much of the SRD
-python3 scripts/check_rules_links.py # every link into the rules resolves, every roll anything asks for rolls
-python3 scripts/check_capture.py     # an editing session in Foundry survives the trip home
-python3 scripts/check_art.py         # every icon a document points at is a file that is here
-python3 scripts/check_deploy.py      # the deploy sends every directory the system reads
-python3 scripts/gen_cover.py --check # the cover still states what the packs hold
-python3 scripts/gen_scene.py --check # the example scene and its walls are current
-python3 scripts/check_selftest.py    # the in-world self-test checks the packs' own figures
-node    scripts/check_models.mjs     # system imports, every schema builds
-node    scripts/check_templates.mjs  # {{formField fields.X}} names a real field
-node    scripts/check_creatures.mjs  # every creature's arithmetic against the SRD
+python3 tools/check_private.py     # nothing here names the machine it was written on
+python3 tools/check_globals.py     # no globals Foundry v14 removed
+python3 tools/check_lang.py        # every referenced i18n key exists
+python3 tools/check_config.py      # config.mjs still matches the scraped SRD
+python3 tools/check_shadowing.py   # no module-level name defined twice
+python3 tools/check_packs.py       # folders, keys, ids, tokens and table ranges
+python3 tools/check_coverage.py    # the packs still cover as much of the SRD
+python3 tools/check_rules_links.py # every link into the rules resolves, every roll anything asks for rolls
+python3 tools/check_capture.py     # an editing session in Foundry survives the trip home
+python3 tools/check_art.py         # every icon a document points at is a file that is here
+python3 tools/check_deploy.py      # the deploy sends every directory the system reads
+python3 tools/gen_cover.py --check # the cover still states what the packs hold
+python3 tools/gen_scene.py --check # the example scene and its walls are current
+python3 tools/check_selftest.py    # the in-world self-test checks the packs' own figures
+node    tools/check_models.mjs     # system imports, every schema builds
+node    tools/check_templates.mjs  # {{formField fields.X}} names a real field
+node    tools/check_creatures.mjs  # every creature's arithmetic against the SRD
 ```
 
 `.forgejo/workflows/ci.yml` runs all of them on every push, plus JSON

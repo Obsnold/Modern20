@@ -1,5 +1,5 @@
 /**
- * Objects, generated from data/objects.json by scripts/gen_objects.py.
+ * Objects, generated from data/objects.json by tools/gen_objects.py.
  *
  * "Each object has hardness—a number that represents how well it resists
  * damage. Whenever an object takes damage, subtract its hardness from the

@@ -5,18 +5,18 @@
   "description": "Tooling for the Modern20 Foundry system. The system itself ships as plain ES modules and needs no build step; this manifest exists so the checks, the linters and the type checker are one command rather than nine.",
   "scripts": {
     "lint": "npm run lint:js && npm run lint:py",
-    "lint:js": "eslint module scripts",
-    "lint:py": "ruff check scripts",
+    "lint:js": "eslint module tools",
+    "lint:py": "ruff check tools",
     "typecheck": "tsc --noEmit",
     "check": "npm run check:python && npm run check:node",
-    "check:python": "python3 scripts/check_private.py && python3 scripts/check_globals.py && python3 scripts/check_app_props.py && python3 scripts/check_lang.py && python3 scripts/check_config.py && python3 scripts/check_shadowing.py && python3 scripts/check_packs.py && python3 scripts/check_coverage.py && python3 scripts/check_rules_links.py && python3 scripts/check_capture.py && python3 scripts/check_art.py && python3 scripts/check_deploy.py && python3 scripts/check_selftest.py && python3 scripts/gen_pregens.py --check && python3 scripts/gen_guide.py --check && python3 scripts/gen_cover.py --check && python3 scripts/gen_scene.py --check",
-    "check:node": "node scripts/check_models.mjs && node scripts/check_templates.mjs && node scripts/check_casting.mjs && node scripts/check_combat.mjs && node scripts/check_creatures.mjs && node scripts/check_objects.mjs && node scripts/check_rules.mjs",
+    "check:python": "python3 tools/check_private.py && python3 tools/check_globals.py && python3 tools/check_app_props.py && python3 tools/check_lang.py && python3 tools/check_config.py && python3 tools/check_shadowing.py && python3 tools/check_packs.py && python3 tools/check_coverage.py && python3 tools/check_rules_links.py && python3 tools/check_capture.py && python3 tools/check_art.py && python3 tools/check_deploy.py && python3 tools/check_selftest.py && python3 tools/gen_pregens.py --check && python3 tools/gen_guide.py --check && python3 tools/gen_cover.py --check && python3 tools/gen_scene.py --check",
+    "check:node": "node tools/check_models.mjs && node tools/check_templates.mjs && node tools/check_casting.mjs && node tools/check_combat.mjs && node tools/check_creatures.mjs && node tools/check_objects.mjs && node tools/check_rules.mjs",
     "test": "npm run lint && npm run check",
-    "extract": "python3 scripts/capture_edits.py",
-    "extract:dry": "python3 scripts/capture_edits.py --dry-run",
-    "deploy": "scripts/deploy.sh",
-    "deploy:packs": "scripts/deploy.sh --packs",
-    "link": "python3 scripts/link_rules.py"
+    "extract": "python3 tools/capture_edits.py",
+    "extract:dry": "python3 tools/capture_edits.py --dry-run",
+    "deploy": "tools/deploy.sh",
+    "deploy:packs": "tools/deploy.sh --packs",
+    "link": "python3 tools/link_rules.py"
   },
   "devDependencies": {
     "@astral-sh/ruff": ">=0.6",

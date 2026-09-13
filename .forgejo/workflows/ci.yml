@@ -31,10 +31,10 @@ jobs:
       # shipped twice in one week in the scraper, so both languages check it:
       # ESLint's no-redeclare here, check_shadowing.py further down.
       - name: modules lint
-        run: npx eslint module scripts
+        run: npx eslint module tools
 
       - name: scripts lint
-        run: npx ruff check scripts
+        run: npx ruff check tools
 
       # Advisory until the first clean pass, then make it blocking: the code
       # was not written against a type checker, and a red build on day one
@@ -76,101 +76,101 @@ jobs:
       # First, because it is about what the repository says rather than what
       # the system does: nothing here should name the machine it was written on.
       - name: the repository names nobody's machine
-        run: python3 scripts/check_private.py
+        run: python3 tools/check_private.py
 
       - name: no globals Foundry v14 removed, no deprecated APIs
-        run: python3 scripts/check_globals.py
+        run: python3 tools/check_globals.py
 
       # ApplicationV2 has twelve read-only getters; assigning over one throws
       # from the constructor and reads as a control that does nothing.
       - name: no assignments over ApplicationV2 getters
-        run: python3 scripts/check_app_props.py
+        run: python3 tools/check_app_props.py
 
       # Every localization key used in code or templates must exist, and no
       # string key may shadow a namespace.
       - name: localization keys resolve
-        run: python3 scripts/check_lang.py
+        run: python3 tools/check_lang.py
 
       # config.mjs is hand-transcribed from the SRD because it has to be plain
       # browser JS. This proves the transcription still matches data/skills.json.
       - name: config matches the scraped SRD
-        run: python3 scripts/check_config.py
+        run: python3 tools/check_config.py
 
       # Imports the system and builds every document schema, enforcing
       # Foundry's real invariants rather than merely resolving names.
       - name: system loads and schemas build
-        run: node scripts/check_models.mjs
+        run: node tools/check_models.mjs
 
       # A {{formField fields.typo}} renders as nothing with no console error,
       # so template field references are checked against the real schemas.
       - name: template field references resolve
-        run: node scripts/check_templates.mjs
+        run: node tools/check_templates.mjs
 
       # The rest of the suite, which until now only ran on deploy: the arithmetic
       # of casting, of the combat round, and of every imported creature.
       - name: casting, combat and creature arithmetic
         run: |
           set -eu
-          node scripts/check_casting.mjs
-          node scripts/check_combat.mjs
-          node scripts/check_creatures.mjs
-          node scripts/check_objects.mjs
-          node scripts/check_rules.mjs
+          node tools/check_casting.mjs
+          node tools/check_combat.mjs
+          node tools/check_creatures.mjs
+          node tools/check_objects.mjs
+          node tools/check_rules.mjs
 
       # Ruff's default rules flag a redefined function but not a reassigned
       # constant, which is the half that bit.
       - name: no shadowed definitions in the scripts
-        run: python3 scripts/check_shadowing.py
+        run: python3 tools/check_shadowing.py
 
       # Pack source is copied into LevelDB without being looked at, so a
       # document in a folder the pack does not contain lands in the root and
       # says nothing about it.
       - name: compendium shape
-        run: python3 scripts/check_packs.py
+        run: python3 tools/check_packs.py
 
       # Every other check compares the import against itself. This one walks
       # the SRD's own documents, so a whole format going unread is visible.
       - name: SRD coverage has not regressed
-        run: python3 scripts/check_coverage.py
+        run: python3 tools/check_coverage.py
 
       # A broken image logs nothing and draws an empty frame, so this is the
       # one failure in a compendium that a human reading the pack files would
       # not see either.
       - name: every icon a document points at is a file that is here
-        run: python3 scripts/check_art.py
+        run: python3 tools/check_art.py
 
       # The one check that reads the step deciding what reaches Foundry,
       # rather than what is in the repository. Both bugs it exists for were
       # found by a person opening an empty compendium.
       - name: the deploy sends everything the system reads
-        run: python3 scripts/check_deploy.py
+        run: python3 tools/check_deploy.py
 
       # The one test that runs inside Foundry cannot run here; what can be
       # checked from here is that the figures it will compare against are the
       # packs' own, and that its fixtures point at documents that exist.
       - name: the in-world self-test checks the right numbers
-        run: python3 scripts/check_selftest.py
+        run: python3 tools/check_selftest.py
 
       # The two packs that are written rather than scraped: a character built
       # by the SRD's own arithmetic, and a guide whose every link is resolved
       # against the rules it points into.
       - name: the pregenerated characters still add up
-        run: python3 scripts/gen_pregens.py --check
+        run: python3 tools/gen_pregens.py --check
 
       - name: the guide still links to pages that exist
-        run: python3 scripts/gen_guide.py --check
+        run: python3 tools/gen_guide.py --check
 
       # The artwork that is drawn rather than fetched: both are deterministic,
       # so a change to either generator has to be committed with its output.
       - name: the cover art matches what the packs hold
-        run: python3 scripts/gen_cover.py --check
+        run: python3 tools/gen_cover.py --check
 
       - name: the example scene and its walls are current
-        run: python3 scripts/gen_scene.py --check
+        run: python3 tools/gen_scene.py --check
 
       # The export runs against a live Foundry host, so it is the one script
       # here that cannot be tried out cheaply, and both of its bugs so far
       # were found by reading 1,400 documents of its output. This round-trips
       # one editing session through a temporary directory instead.
       - name: edits made in Foundry survive the trip home
-        run: python3 scripts/check_capture.py
+        run: python3 tools/check_capture.py
