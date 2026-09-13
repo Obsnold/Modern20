@@ -56,8 +56,12 @@ DISPOSITIONS = {-1, 0}
 # The embedded collections the Foundry CLI stores as entries of their own: an
 # actor's items, a journal entry's pages and an item's active effects are
 # documents in the compiled pack, keyed from their parent, not fields of it.
-EMBEDDED = {"actors": "items", "journal": "pages", "items": "effects",
-            "tables": "results"}
+# What each collection carries inside it. Tuples, because a scene carries walls
+# and lights at once — and because this table having no entry for scenes at all
+# is why the example scene's walls went out unkeyed and the pack would not
+# compile on the host.
+EMBEDDED = {"actors": ("items",), "journal": ("pages",), "items": ("effects",),
+            "tables": ("results",), "scenes": ("walls", "lights")}
 
 
 def printed_creatures() -> list[dict]:
@@ -130,19 +134,23 @@ def main() -> int:
         # Foundry CLI dead - "Key cannot be null or undefined" - and two items
         # sharing an id inside one actor collide on the key that is built from
         # it, which the CLI refuses just as loudly.
-        field = EMBEDDED.get(prefix.strip("!"))
-        for entry in contents:
-            embedded = (entry.get(field) or []) if field else []
-            child_ids = collections.Counter(child.get("_id") for child in embedded)
-            for child_id, count in child_ids.items():
-                if count > 1:
-                    fail(f"{pack}: \"{entry['name']}\" has {count} {field} "
-                         f"with the id {child_id}")
-            for child in embedded:
-                want = f"!{prefix.strip('!')}.{field}!{entry['_id']}.{child.get('_id')}"
-                if child.get("_key") != want:
-                    fail(f"{pack}: \"{entry['name']}\" / \"{child.get('name')}\" is keyed "
-                         f"{child.get('_key')!r}, expected {want!r}")
+        for field in EMBEDDED.get(prefix.strip("!")) or ():
+            for entry in contents:
+                embedded = entry.get(field) or []
+                child_ids = collections.Counter(child.get("_id") for child in embedded)
+                for child_id, count in child_ids.items():
+                    if count > 1:
+                        fail(f"{pack}: \"{entry['name']}\" has {count} {field} "
+                             f"with the id {child_id}")
+                for child in embedded:
+                    want = (f"!{prefix.strip('!')}.{field}!{entry['_id']}."
+                            f"{child.get('_id')}")
+                    if child.get("_key") != want:
+                        # A wall has no name to report, so say which one by
+                        # where it is.
+                        which = child.get("name") or child.get("c") or child.get("_id")
+                        fail(f"{pack}: \"{entry['name']}\" / {field} {which} is keyed "
+                             f"{child.get('_key')!r}, expected {want!r}")
 
         # Every actor drops onto the canvas as its prototype token, and
         # everything about that token is derived: there is no judgement in it
@@ -254,11 +262,10 @@ def main() -> int:
 
     embedded = 0
     for pack in packs:
-        field = EMBEDDED.get(COLLECTIONS.get(pack, DEFAULT)[1].strip("!"))
-        if not field:
-            continue
-        for path in glob.glob(os.path.join(PACKS, pack, "*.json")):
-            embedded += len(json.load(open(path, encoding="utf-8")).get(field) or [])
+        for field in EMBEDDED.get(COLLECTIONS.get(pack, DEFAULT)[1].strip("!")) or ():
+            for path in glob.glob(os.path.join(PACKS, pack, "*.json")):
+                with open(path, encoding="utf-8") as handle:
+                    embedded += len(json.load(handle).get(field) or [])
     tokens = sum(1 for pack in packs if COLLECTIONS.get(pack, DEFAULT)[0] == "Actor"
                  for path in glob.glob(os.path.join(PACKS, pack, "*.json"))
                  if json.load(open(path, encoding="utf-8")).get("prototypeToken"))

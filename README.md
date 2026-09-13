@@ -1588,6 +1588,14 @@ not sight, because that is what a window does. Token vision is off and the
 scene is lit: an example scene is for trying the rules on, not for running a
 stealth mission behind a fog nobody asked for.
 
+Its 32 walls and 4 lights are keyed `!scenes.walls!<scene>.<wall>`, which the
+first attempt omitted — the Foundry CLI refuses a document with no key and the
+pack would not compile at all. `check_packs.py` had been checking exactly that
+for actors' items, journals' pages, items' effects and tables' results since
+the first time it happened, and said nothing here because its table of what a
+collection carries had no entry for scenes. It does now, and a collection may
+carry two kinds at once, which is what a scene is.
+
 `check_art.py` resolves the scene's background and the manifest's own media
 against the repository — those are the two images nothing else names, and a
 wrong path in either is a black canvas or a grey rectangle that traces back to

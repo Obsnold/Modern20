@@ -260,7 +260,7 @@ def lights() -> list[dict]:
 def scene() -> dict:
     slug = "warehouse"
     doc_id = build_packs.document_id("scenes", slug)
-    return {
+    document = {
         "_id": doc_id,
         "name": "Warehouse (example)",
         "navigation": True,
@@ -283,6 +283,10 @@ def scene() -> dict:
         "_key": f"!scenes!{doc_id}",
         "_slug": slug,
     }
+    # Every wall and light is an entry of its own in the compiled pack, and the
+    # CLI refuses one with no key: "Key cannot be null or undefined".
+    build_packs.key_embedded("scenes", doc_id, document)
+    return document
 
 
 def main() -> int:
