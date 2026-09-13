@@ -267,7 +267,7 @@
         "prerequisites": [
           "Base attack bonus +1."
         ],
-        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character\u2019s choice) equal to 1d4 + the character\u2019s Strength modifier. The character\u2019s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
+        "benefit": "With an unarmed strike, the character deals lethal or nonlethal damage (the character’s choice) equal to 1d4 + the character’s Strength modifier. The character’s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.",
         "normal": "Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.",
         "special": "",
         "repeatable": false
@@ -308,7 +308,7 @@
           "Combat Martial Arts",
           "base attack bonus +4."
         ],
-        "benefit": "The character\u2019s threat range on an unarmed strike improves to 19\u201320.",
+        "benefit": "The character’s threat range on an unarmed strike improves to 19–20.",
         "normal": "A character without this feat threatens a critical hit with an unarmed strike only on a 20.",
         "special": "",
         "repeatable": false
@@ -328,7 +328,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character increases his or her massive damage threshold by 3 points.",
-        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character\u2019s massive damage threshold is current Con +3.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false
       },
@@ -348,7 +348,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -368,7 +368,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -399,7 +399,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>Once per day as a free action, the maniac can temporarily increase its Strength and Dexterity scores, but doing so imposes a penalty on its saving throws. While this ability is in effect, the maniac gains a +4 morale bonus to both Strength and Dexterity but takes a \u20132 penalty on all saving throws. Ability surge lasts for a number of rounds equal to the maniac\u2019s character level. Following an ability surge, the maniac is fatigued (\u20132 to Strength and Dexterity) for as many rounds as the surge was in effect, but it may negate this penalty as a free action by spending an action point.</p>",
+        "description": "<p>Once per day as a free action, the maniac can temporarily increase its Strength and Dexterity scores, but doing so imposes a penalty on its saving throws. While this ability is in effect, the maniac gains a +4 morale bonus to both Strength and Dexterity but takes a –2 penalty on all saving throws. Ability surge lasts for a number of rounds equal to the maniac’s character level. Following an ability surge, the maniac is fatigued (–2 to Strength and Dexterity) for as many rounds as the surge was in effect, but it may negate this penalty as a free action by spending an action point.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -415,7 +415,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature\u2019s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
+        "description": "<p>The creature ignores damage from most weapons and natural attacks. Wounds heal immediately, or the weapon bounces off harmlessly (in either case, the opponent knows the attack was ineffective). The creature takes normal damage from energy attacks (even nonmagical ones), spells, spell-like abilities, and supernatural abilities. A magic weapon or a creature with its own damage reduction can sometimes damage the creature normally, as noted below.</p><p>The entry indicates the amount of damage ignored and the type of weapon that negates the ability.</p><p>Any weapon more powerful than the type listed in the note also negates the ability. A weapon with an enhancement bonus due to magic is considered more powerful than any weapon that does not have such a bonus.</p><p>For purposes of harming other creatures with damage reduction, a creature’s natural weapons count as the type that ignores its own innate damage reduction. However, damage reduction from spells does not confer this ability. The amount of damage reduction is irrelevant.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/specialabilities.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.vhTyLUgTw1jBipWT",
@@ -459,7 +459,7 @@
     },
     {
       "_id": "7vgEZYdljYlXdohQ",
-      "name": "Damage Reduction 5/\u2013",
+      "name": "Damage Reduction 5/–",
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {

@@ -260,7 +260,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -298,7 +298,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -364,7 +364,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>At the mere sight of a mummy, the viewer must succeed on a @Check[save:will|dc:15]{Will save (DC 15)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that mummy\u2019s despair ability for one day.</p>",
+        "description": "<p>At the mere sight of a mummy, the viewer must succeed on a @Check[save:will|dc:15]{Will save (DC 15)} or be paralyzed with fear for 1d4 rounds. Whether or not the save is successful, that creature cannot be affected again by that mummy’s despair ability for one day.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -380,7 +380,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
-        "description": "<p>A mummy\u2019s touch carries a horrible rotting disease (Fort save DC 20 negates; incubation period 1 day; damage 1d6 temporary Constitution). The GM may allow characters to create medicine to treat the disease using the Craft (pharmaceutical) skill. In a campaign that uses magic, a remove disease spell can cure this disease. The only other way to halt the disease\u2019s advance is to amputate whatever appendage the mummy touched (usually a hand, arm, leg, or foot). Amputating a limb deals 1d4+1 points of temporary Constitution damage, although a successful @Check[skill:treatInjury|dc:25]{Treat Injury check (DC 25)} reduces the temporary Constitution damage to 1 point.</p><p>An afflicted creature that dies of mummy rot shrivels away and turns to dust.</p>",
+        "description": "<p>A mummy’s touch carries a horrible rotting disease (Fort save DC 20 negates; incubation period 1 day; damage 1d6 temporary Constitution). The GM may allow characters to create medicine to treat the disease using the Craft (pharmaceutical) skill. In a campaign that uses magic, a remove disease spell can cure this disease. The only other way to halt the disease’s advance is to amputate whatever appendage the mummy touched (usually a hand, arm, leg, or foot). Amputating a limb deals 1d4+1 points of temporary Constitution damage, although a successful @Check[skill:treatInjury|dc:25]{Treat Injury check (DC 25)} reduces the temporary Constitution damage to 1 point.</p><p>An afflicted creature that dies of mummy rot shrivels away and turns to dust.</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Duxf6x7GStPBDNHg",
@@ -428,7 +428,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>In campaigns without magic weapons, the GM can either disregard the mummy\u2019s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
+        "description": "<p>In campaigns without magic weapons, the GM can either disregard the mummy’s damage reduction or apply the damage reduction only to certain types of weapons (ballistic, bludgeoning, sonic/concussion, piercing, or slashing).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

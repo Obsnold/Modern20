@@ -303,7 +303,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -322,7 +322,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -334,7 +334,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>If a ghoul\u2019s prey contracts advanced necrotizing faciitis (see below) from the wounds it has sustained and dies from the disease, it rises 1d3 days later as a ghoul. A remove disease spell cast on the corpse can prevent it from rising.</p>",
+        "description": "<p>If a ghoul’s prey contracts advanced necrotizing faciitis (see below) from the wounds it has sustained and dies from the disease, it rises 1d3 days later as a ghoul. A remove disease spell cast on the corpse can prevent it from rising.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -366,7 +366,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/vomiting.svg",
       "system": {
-        "description": "<p>A ghoul\u2019s bite infects the victim with a supernatural version of streptococcal gangrene (injury; Fort DC 14; incubation period 1d3 days; initial damage 1d3 Con; secondary damage 1d3 Con. If Con damage is sustained, a second saving throw at the same DC is required; failure indicates that 1 point of the Con damage becomes Con drain instead). This disease, known as advanced necrotizing faciitis, first manifests as an area of redness on the skin near the wound. Over the course of a few days, the redness becomes severe inflammation. The skin gradually turns dark purple and forms bloody blisters as the disease devours more and more of the victim\u2019s flesh. The disease can be arrested completely through amputation of the affected limb, but most doctors prefer to combat it by surgical removal of all the affected tissue as well as some nearby healthy tissue. A cure disease spell or a successful @Check[skill:treatInjury]{Treat Injury check} (surgery, DC 25) halts the disease. The GM should roll the check secretly; if it fails, the disease returns again in 1d3 days.</p>",
+        "description": "<p>A ghoul’s bite infects the victim with a supernatural version of streptococcal gangrene (injury; Fort DC 14; incubation period 1d3 days; initial damage 1d3 Con; secondary damage 1d3 Con. If Con damage is sustained, a second saving throw at the same DC is required; failure indicates that 1 point of the Con damage becomes Con drain instead). This disease, known as advanced necrotizing faciitis, first manifests as an area of redness on the skin near the wound. Over the course of a few days, the redness becomes severe inflammation. The skin gradually turns dark purple and forms bloody blisters as the disease devours more and more of the victim’s flesh. The disease can be arrested completely through amputation of the affected limb, but most doctors prefer to combat it by surgical removal of all the affected tissue as well as some nearby healthy tissue. A cure disease spell or a successful @Check[skill:treatInjury]{Treat Injury check} (surgery, DC 25) halts the disease. The GM should roll the check secretly; if it fails, the disease returns again in 1d3 days.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

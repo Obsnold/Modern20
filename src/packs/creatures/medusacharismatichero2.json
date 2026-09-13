@@ -315,7 +315,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -353,7 +353,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -403,7 +403,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/all-seeing-eye.svg",
       "system": {
-        "description": "<p>A medusa\u2019s gaze permanently turns to stone any creature within 30 feet that fails its @Check[save:fort|dc:15]{Fortitude save (DC 15)}. See Special Qualities for more information on gaze attacks. A break enchantment spell can remove the effect of petrification. In a campaign where heroes have limited access to spells, the GM can make the petrification a temporary effect (lasting 1d6 hours).</p>",
+        "description": "<p>A medusa’s gaze permanently turns to stone any creature within 30 feet that fails its @Check[save:fort|dc:15]{Fortitude save (DC 15)}. See Special Qualities for more information on gaze attacks. A break enchantment spell can remove the effect of petrification. In a campaign where heroes have limited access to spells, the GM can make the petrification a temporary effect (lasting 1d6 hours).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",
@@ -419,7 +419,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
-        "description": "<p>Any creature bitten by the medusa\u2019s snaky hair must succeed on a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or succumb to the poison (initial damage 1d6 temporary Strength, secondary damage 2d6 temporary Strength).</p>",
+        "description": "<p>Any creature bitten by the medusa’s snaky hair must succeed on a @Check[save:fort|dc:14]{Fortitude save (DC 14)} or succumb to the poison (initial damage 1d6 temporary Strength, secondary damage 2d6 temporary Strength).</p>",
         "source": "d20 Modern SRD",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/creatures2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.y98NYAYGT9GM5Mox.JournalEntryPage.Gz87IPdigtsYQV9G",

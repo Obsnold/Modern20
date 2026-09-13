@@ -1898,7 +1898,7 @@ def apply_art(document: dict, pack: str, *, embedded: bool = False) -> int:
     if isinstance(token, dict) and not (token.get("texture") or {}).get("src"):
         disc = art.token_for(pack, document)
         if disc:
-            token["texture"] = {"src": disc}
+            token["texture"] = {"src": disc, **art.TOKEN_TEXTURE}
             changed += 1
 
     for child in (document.get("items") or []):

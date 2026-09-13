@@ -471,6 +471,21 @@ TOKEN_PREFIX = "systems/modern20/assets/tokens/"
 # The packs whose documents are actors, and so the packs that need tokens.
 ACTOR_PACKS = frozenset({"creatures", "vehicles", "objects"})
 
+# How the token draws its artwork, beyond which file to use.
+#
+# A drawing that exactly fills its square still reads small on a map, where a
+# token is looked at for a moment at whatever zoom the scene is at, so the art
+# is drawn at twice the token and anchored a quarter down — a figure standing
+# on its square rather than contained by it. Terry set these on the live packs
+# by hand; they are here so that the import agrees, because the reconciler
+# takes the whole prototype token from the import and would otherwise strip
+# them from all 399 documents on its next run.
+#
+# One number for every size, which is the simple choice and not the only one:
+# it means a Colossal creature's six-square token draws twelve squares of art.
+# If that reads badly next to a Medium one, this is where it changes.
+TOKEN_TEXTURE = {"scaleX": 2, "scaleY": 2, "anchorX": 0.5, "anchorY": 0.25}
+
 # The directory `fetch_art.py` fills, which is also the record of who drew
 # what: an icon is filed under its author, because that is what CC BY asks to
 # be kept.

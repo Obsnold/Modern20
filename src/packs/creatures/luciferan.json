@@ -233,7 +233,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -245,7 +245,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A luciferan\u2019s skin constantly emits a pale red glow that is imperceptible in lighted conditions, but the effect reduces any concealment the luciferan may have due to darkness by one step.</p>",
+        "description": "<p>A luciferan’s skin constantly emits a pale red glow that is imperceptible in lighted conditions, but the effect reduces any concealment the luciferan may have due to darkness by one step.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -277,7 +277,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A luciferan can increase the glow from its skin into a raging inferno. The flame so generated deal 6d6 points of fire damage to each object and creature within a 10-foot radius of the luciferan. A successful @Check[save:ref]{Reflex save} (10 + 1/2 the luciferan\u2019s Hit Dice + its Constitution modifier) halves the damage.</p>",
+        "description": "<p>A luciferan can increase the glow from its skin into a raging inferno. The flame so generated deal 6d6 points of fire damage to each object and creature within a 10-foot radius of the luciferan. A successful @Check[save:ref]{Reflex save} (10 + 1/2 the luciferan’s Hit Dice + its Constitution modifier) halves the damage.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

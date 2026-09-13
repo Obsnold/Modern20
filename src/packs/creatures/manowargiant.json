@@ -1,6 +1,6 @@
 {
   "_id": "fNmpec30lQXuTuzs",
-  "name": "Man-\u2019O-War, Giant",
+  "name": "Man-’O-War, Giant",
   "type": "creature",
   "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
   "system": {
@@ -159,7 +159,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>If a giant man-\u2019o-war hits with a strand attack, the strand latches onto the opponent\u2019s body. The attachment deals no damage, but the giant man-\u2019o-war can then draw the opponent 20 feet closer to itself that round and each subsequent round thereafter that the opponent remains stuck. Once the creature is within 20 feet of the giant man-\u2019o-war, the man-\u2019o-war can draw it the remaining distance and bite (+4 melee) in that same round.</p><p>The opponent can break free of a strand with a successful @Check[skill:escapeArtist|dc:20]{Escape Artist check (DC 20)} or @Check[ability:str]{Strength check} (DC 16</p><p>Alternatively, the opponent or an ally can try to sever a strand. A single attack with a slashing weapon that deals at least 10 points of damage severs a strand (Defense 18).</p>",
+        "description": "<p>If a giant man-’o-war hits with a strand attack, the strand latches onto the opponent’s body. The attachment deals no damage, but the giant man-’o-war can then draw the opponent 20 feet closer to itself that round and each subsequent round thereafter that the opponent remains stuck. Once the creature is within 20 feet of the giant man-’o-war, the man-’o-war can draw it the remaining distance and bite (+4 melee) in that same round.</p><p>The opponent can break free of a strand with a successful @Check[skill:escapeArtist|dc:20]{Escape Artist check (DC 20)} or @Check[ability:str]{Strength check} (DC 16</p><p>Alternatively, the opponent or an ally can try to sever a strand. A single attack with a slashing weapon that deals at least 10 points of damage severs a strand (Defense 18).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -175,7 +175,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>A giant man-\u2019o-war ignores the first 5 points of damage dealt by any nonpiercing weapon.</p>",
+        "description": "<p>A giant man-’o-war ignores the first 5 points of damage dealt by any nonpiercing weapon.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -191,7 +191,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/carl-olsen/flame.svg",
       "system": {
-        "description": "<p>A giant man-\u2019o-war takes 50% more damage from fire attacks.</p>",
+        "description": "<p>A giant man-’o-war takes 50% more damage from fire attacks.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -207,7 +207,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The strands of a giant man-\u2019o-war secrete an anesthetizing slime. Any target hit by its strand attack must succeed on a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the man-\u2019owar\u2019s Hit Dice + its Constitution modifier) or be paralyzed for 3d6 rounds. The man-\u2019o-war can automatically bite a paralyzed opponent.</p>",
+        "description": "<p>The strands of a giant man-’o-war secrete an anesthetizing slime. Any target hit by its strand attack must succeed on a @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the man-’owar’s Hit Dice + its Constitution modifier) or be paralyzed for 3d6 rounds. The man-’o-war can automatically bite a paralyzed opponent.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -235,7 +235,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A giant man-\u2019o-war lies in wait for prey by spreading out its long, sticky strands and floating along on the deep currents. In this mode, it can spread its strands over a 100-foot radius. When something brushes one of the strands, all the rest of the strands contract to assist in pulling the prey toward the man-\u2019o-war\u2019s mouth.</p>",
+        "description": "<p>A giant man-’o-war lies in wait for prey by spreading out its long, sticky strands and floating along on the deep currents. In this mode, it can spread its strands over a 100-foot radius. When something brushes one of the strands, all the rest of the strands contract to assist in pulling the prey toward the man-’o-war’s mouth.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -251,7 +251,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A giant man-\u2019o-war can automatically sense the location of any object or creature within 150 feet that is in contact with the water.</p>",
+        "description": "<p>A giant man-’o-war can automatically sense the location of any object or creature within 150 feet that is in contact with the water.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

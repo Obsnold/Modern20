@@ -260,7 +260,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -319,7 +319,7 @@
           "Brawl",
           "base attack bonus +3."
         ],
-        "benefit": "When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character\u2019s Strength modifier.",
+        "benefit": "When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character’s Strength modifier.",
         "normal": "Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.",
         "special": "",
         "repeatable": false
@@ -339,7 +339,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -392,7 +392,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A grimlock is blind but can ascertain all creatures and objects within 40 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the grimlock.</p><p>Grimlocks are affected normally by loud noises and sonic spells (such as shout or silence) and overpowering odors (such as a troglodyte\u2019s stench or incense-thick air). Negating a grimlock\u2019s sense of either smell or hearing denies it the benefits of blindsight, but the grimlock still functions as though it had the Blind-Fight feat. If both smell and hearing are negated, the grimlock is effectively blind.</p>",
+        "description": "<p>A grimlock is blind but can ascertain all creatures and objects within 40 feet just as a sighted creature would. Beyond that range, all targets have total concealment with respect to the grimlock.</p><p>Grimlocks are affected normally by loud noises and sonic spells (such as shout or silence) and overpowering odors (such as a troglodyte’s stench or incense-thick air). Negating a grimlock’s sense of either smell or hearing denies it the benefits of blindsight, but the grimlock still functions as though it had the Blind-Fight feat. If both smell and hearing are negated, the grimlock is effectively blind.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -456,7 +456,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A grimlock\u2019s dull gray skin helps it hide in its native terrain, conferring a +10 species bonus on @Check[skill:hide]{Hide check}s in rocky terrain or underground.</p>",
+        "description": "<p>A grimlock’s dull gray skin helps it hide in its native terrain, conferring a +10 species bonus on @Check[skill:hide]{Hide check}s in rocky terrain or underground.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

@@ -268,7 +268,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -300,7 +300,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>A murdergaunt ignores the first 10 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the fiend\u2019s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "description": "<p>A murdergaunt ignores the first 10 points of damage dealt by any nonmagical weapon. In campaigns without magic weapons, the GM can either disregard the fiend’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -364,7 +364,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>A murdergaunt that hits with one of its armspikes may choose to impale its opponent. An impaled opponent takes armspike damage each round it remains impaled (on the murdergaunt\u2019s turn). An impaled creature must tear free of the serrated armspike to move to another square, taking 1d6 points of damage in the process. A murdergaunt must tear its armspike from an impaled opponent to move to another square or to free the limb; pulling free the armspike deals an automatic 1d6 points of damage to the impaled creature, but the murdergaunt cannot use the newly freed armspike to attack that round.</p><p>A murdergaunt can impale two Medium-size or smaller creatures at the same time; however, it cannot make an attack (or attack of opportunity) with an armspike that is currently impaling a foe.</p>",
+        "description": "<p>A murdergaunt that hits with one of its armspikes may choose to impale its opponent. An impaled opponent takes armspike damage each round it remains impaled (on the murdergaunt’s turn). An impaled creature must tear free of the serrated armspike to move to another square, taking 1d6 points of damage in the process. A murdergaunt must tear its armspike from an impaled opponent to move to another square or to free the limb; pulling free the armspike deals an automatic 1d6 points of damage to the impaled creature, but the murdergaunt cannot use the newly freed armspike to attack that round.</p><p>A murdergaunt can impale two Medium-size or smaller creatures at the same time; however, it cannot make an attack (or attack of opportunity) with an armspike that is currently impaling a foe.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -396,7 +396,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A murdergaunt can whistle as a free action every round. Creatures within 120 feet who can hear the murdergaunt\u2019s horrid tune must make a @Check[save:will]{Will save} (DC 10 + 1/2 the murdergaunt\u2019s Hit Dice + its Charisma modifier).</p><p>Any creature that fails its @Check[save:will]{Will save} cowers until the whistling stops. A cowering creature is frozen in fear, loses its Dexterity bonus, and can take no actions. In addition, a cowering creature takes a \u20132 penalty to Defense.</p><p>A creature that saves against the murdergaunt\u2019s whistle cannot be affected by the same murdergaunt\u2019s whistle for 24 hours. The save DC for the whistle is Charisma-based.</p>",
+        "description": "<p>A murdergaunt can whistle as a free action every round. Creatures within 120 feet who can hear the murdergaunt’s horrid tune must make a @Check[save:will]{Will save} (DC 10 + 1/2 the murdergaunt’s Hit Dice + its Charisma modifier).</p><p>Any creature that fails its @Check[save:will]{Will save} cowers until the whistling stops. A cowering creature is frozen in fear, loses its Dexterity bonus, and can take no actions. In addition, a cowering creature takes a –2 penalty to Defense.</p><p>A creature that saves against the murdergaunt’s whistle cannot be affected by the same murdergaunt’s whistle for 24 hours. The save DC for the whistle is Charisma-based.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

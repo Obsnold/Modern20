@@ -321,7 +321,7 @@
         "prerequisites": [
           "Dexterity 13."
         ],
-        "benefit": "During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
+        "benefit": "During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.",
         "normal": "",
         "special": "A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.",
         "repeatable": false
@@ -379,7 +379,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -397,7 +397,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.OkLVdpGFXfrDqArP",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character\u2019s Reputation bonus increases by +3.",
+        "benefit": "The character’s Reputation bonus increases by +3.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -417,7 +417,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -445,7 +445,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
-        "description": "<p>A night terror projects a frightful aura that affects all creatures within 30 feet. Creatures in the area that can see the night terror must make a @Check[save:will]{Will save} (DC 10 + 1/2 the night terror\u2019s Hit Dice + its Charisma modifier). Those that fail the save are shaken. The night terror\u2019s chosen victim is left cowering instead of shaken. Creatures that successfully save against a night terror\u2019s fear aura cannot be affected by that particular night terror\u2019s fear aura for 24 hours.</p>",
+        "description": "<p>A night terror projects a frightful aura that affects all creatures within 30 feet. Creatures in the area that can see the night terror must make a @Check[save:will]{Will save} (DC 10 + 1/2 the night terror’s Hit Dice + its Charisma modifier). Those that fail the save are shaken. The night terror’s chosen victim is left cowering instead of shaken. Creatures that successfully save against a night terror’s fear aura cannot be affected by that particular night terror’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -521,7 +521,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Once per night as a full-round action, the night terror can try to feed upon the fear of its chosen victim. The victim must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the night terror\u2019s Hit Dice + its Charisma modifier) or take 1d4 points of Wisdom damage. The night terror can attempt to use this ability only if it has already successfully used its fear aura against the target. If this Wisdom damage would cause the chosen victim\u2019s Wisdom score to fall below 0, the victim must make another @Check[save:will]{Will save}. Success leaves the victim\u2019s Wisdom score at 0; failure means the victim dies on the spot.</p>",
+        "description": "<p>Once per night as a full-round action, the night terror can try to feed upon the fear of its chosen victim. The victim must make a successful @Check[save:will]{Will save} (DC 10 + 1/2 the night terror’s Hit Dice + its Charisma modifier) or take 1d4 points of Wisdom damage. The night terror can attempt to use this ability only if it has already successfully used its fear aura against the target. If this Wisdom damage would cause the chosen victim’s Wisdom score to fall below 0, the victim must make another @Check[save:will]{Will save}. Success leaves the victim’s Wisdom score at 0; failure means the victim dies on the spot.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat3.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

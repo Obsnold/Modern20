@@ -12,7 +12,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<p><em>This material is Open Game Content, and is licensed for public use under the terms of the Open Game License v1.0a.</em> @UUID[Compendium.modern20.rules.JournalEntry.mflcM2bwVwUulve8.JournalEntryPage.3uwOP1Wfbmh6torn]{Legal Information}</p><h3>FEATS</h3>\n<br>\n<h5>Feat Descriptions</h5>\n<p>Here is the format for feat descriptions.</p>\n<p><b>Feat Name</b>: The name of the feat.</p>\n<p><b>Prerequisite</b>: A minimum ability score, another feat or feats, a minimum base attack bonus, and/or the minimum ranks in a skill that a character must have to acquire this feat. This entry is absent if a feat has no prerequisite.</p>\n<p>A character can gain a feat at the same level at which he or she gains all the prerequisites.</p>\n<p>A character can\u2019t use a feat if the character has lost a prerequisite.</p>\n<p><b>Benefit</b>: What the feat enables a character to do.</p>\n<p><b>Normal</b>: What a character who does not have this feat is limited to or restricted from doing. If there is no particular drawback to not possessing the feat, this entry is absent.</p>\n<p><b>Special</b>: Additional facts about the feat.</p>"
+        "content": "<p><em>This material is Open Game Content, and is licensed for public use under the terms of the Open Game License v1.0a.</em> @UUID[Compendium.modern20.rules.JournalEntry.mflcM2bwVwUulve8.JournalEntryPage.3uwOP1Wfbmh6torn]{Legal Information}</p><h3>FEATS</h3>\n<br>\n<h5>Feat Descriptions</h5>\n<p>Here is the format for feat descriptions.</p>\n<p><b>Feat Name</b>: The name of the feat.</p>\n<p><b>Prerequisite</b>: A minimum ability score, another feat or feats, a minimum base attack bonus, and/or the minimum ranks in a skill that a character must have to acquire this feat. This entry is absent if a feat has no prerequisite.</p>\n<p>A character can gain a feat at the same level at which he or she gains all the prerequisites.</p>\n<p>A character can’t use a feat if the character has lost a prerequisite.</p>\n<p><b>Benefit</b>: What the feat enables a character to do.</p>\n<p><b>Normal</b>: What a character who does not have this feat is limited to or restricted from doing. If there is no particular drawback to not possessing the feat, this entry is absent.</p>\n<p><b>Special</b>: Additional facts about the feat.</p>"
       },
       "sort": 100000,
       "flags": {},
@@ -28,7 +28,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"acrobatic\">Acrobatic</a></h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.</p>\n<p><b>Special</b>: Remember that the Tumble skill can\u2019t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.pZQ6uVULy6CmToX4]{Acrobatic}</p></section>"
+        "content": "<h5><a name=\"acrobatic\">Acrobatic</a></h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:jump]{Jump check}s and @Check[skill:tumble]{Tumble check}s.</p>\n<p><b>Special</b>: Remember that the Tumble skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.pZQ6uVULy6CmToX4]{Acrobatic}</p></section>"
       },
       "sort": 200000,
       "flags": {},
@@ -60,7 +60,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"advfireamrs\"></a>Advanced Firearms Proficiency</h5>\n<p><b>Prerequisite</b>: Personal Firearms Proficiency.</p>\n<p><b>Benefit</b>: The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an autofire setting).</p>\n<p><b>Normal</b>: Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms set on autofire.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.bTvJToJkThMVtxpi]{Advanced Firearms Proficiency}</p></section>"
+        "content": "<h5><a name=\"advfireamrs\"></a>Advanced Firearms Proficiency</h5>\n<p><b>Prerequisite</b>: Personal Firearms Proficiency.</p>\n<p><b>Benefit</b>: The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an autofire setting).</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on attack rolls made with personal firearms set on autofire.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.bTvJToJkThMVtxpi]{Advanced Firearms Proficiency}</p></section>"
       },
       "sort": 400000,
       "flags": {},
@@ -76,7 +76,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"advtwoweapon\"></a>Advanced Two-Weapon Fighting</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Two-Weapon Fighting, Improved Two-Weapon Fighting, base attack bonus +11.</p>\n<p><b>Benefit</b>: The character gets a third attack with his or her offhand weapon, albeit at a \u201310 penalty.  This feat also allows the character to use a melee weapon in one hand and a ranged weapon in the other.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.kj37j9OYXCSZmKJu]{Advanced Two-Weapon Fighting}</p></section>"
+        "content": "<h5><a name=\"advtwoweapon\"></a>Advanced Two-Weapon Fighting</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Two-Weapon Fighting, Improved Two-Weapon Fighting, base attack bonus +11.</p>\n<p><b>Benefit</b>: The character gets a third attack with his or her offhand weapon, albeit at a –10 penalty.  This feat also allows the character to use a melee weapon in one hand and a ranged weapon in the other.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.kj37j9OYXCSZmKJu]{Advanced Two-Weapon Fighting}</p></section>"
       },
       "sort": 500000,
       "flags": {},
@@ -92,7 +92,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"agileriposte\"></a>Agile Riposte</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Dodge.</p>\n<p><b>Benefit</b>: Once per round, if the opponent the character has designated as his or her dodge target (see the Dodge feat) makes a melee attack or melee touch attack against the character and misses, the character may make an attack of opportunity against that opponent. Resolve and apply the effects from both attacks simultaneously.</p>\n<p>Even a character with the Combat Reflexes feat can\u2019t use the Agile Riposte feat more than once per round. This feat does not grant more attacks of opportunity than the character is normally allowed in a round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.2XLQrAkdD1DierCS]{Agile Riposte}</p></section>"
+        "content": "<h5><a name=\"agileriposte\"></a>Agile Riposte</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Dodge.</p>\n<p><b>Benefit</b>: Once per round, if the opponent the character has designated as his or her dodge target (see the Dodge feat) makes a melee attack or melee touch attack against the character and misses, the character may make an attack of opportunity against that opponent. Resolve and apply the effects from both attacks simultaneously.</p>\n<p>Even a character with the Combat Reflexes feat can’t use the Agile Riposte feat more than once per round. This feat does not grant more attacks of opportunity than the character is normally allowed in a round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.2XLQrAkdD1DierCS]{Agile Riposte}</p></section>"
       },
       "sort": 600000,
       "flags": {},
@@ -108,7 +108,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"aircraftop\"></a>Aircraft Operation</h5>\n<p>Select a class of aircraft (heavy aircraft, helicopters, jet fighters, or spacecraft). The character is proficient at operating that class of aircraft.</p>\n<p>The heavy aircraft class includes jumbo passenger airplanes, large cargo planes, heavy bombers, and any other aircraft with three or more engines. Helicopters include transport and combat helicopters of all types. Jet fighters include military fighter and ground attack jets. Spacecraft are vehicles such as the space shuttle and the lunar lander.</p>\n<p><b>Prerequisite</b>: Pilot 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on @Check[skill:pilot]{Pilot check}s or attack rolls made when operating an aircraft of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a \u20134 penalty on @Check[skill:pilot]{Pilot check}s made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.</p>\n<p><b>Special</b>: The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Tab9hmxXo8Xt9ruc]{Aircraft Operation}</p></section>"
+        "content": "<h5><a name=\"aircraftop\"></a>Aircraft Operation</h5>\n<p>Select a class of aircraft (heavy aircraft, helicopters, jet fighters, or spacecraft). The character is proficient at operating that class of aircraft.</p>\n<p>The heavy aircraft class includes jumbo passenger airplanes, large cargo planes, heavy bombers, and any other aircraft with three or more engines. Helicopters include transport and combat helicopters of all types. Jet fighters include military fighter and ground attack jets. Spacecraft are vehicles such as the space shuttle and the lunar lander.</p>\n<p><b>Prerequisite</b>: Pilot 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on @Check[skill:pilot]{Pilot check}s or attack rolls made when operating an aircraft of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on @Check[skill:pilot]{Pilot check}s made to operate an aircraft that falls in any of these classes, and on attacks made with aircraft weapons. There is no penalty when the character operates a general-purpose aircraft.</p>\n<p><b>Special</b>: The character can gain this feat multiple times. Each time the character takes the feat, the character selects a different class of aircraft.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Tab9hmxXo8Xt9ruc]{Aircraft Operation}</p></section>"
       },
       "sort": 700000,
       "flags": {},
@@ -140,7 +140,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"animalaffinity\"></a>Animal Affinity</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:handleAnimal]{Handle Animal check}s and @Check[skill:ride]{Ride check}s. </p>\n<p><b>Special</b>: Remember that the Handle Animal skill can\u2019t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.TRH4hlpWIxC9RykR]{Animal Affinity}</p></section>"
+        "content": "<h5><a name=\"animalaffinity\"></a>Animal Affinity</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:handleAnimal]{Handle Animal check}s and @Check[skill:ride]{Ride check}s. </p>\n<p><b>Special</b>: Remember that the Handle Animal skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.TRH4hlpWIxC9RykR]{Animal Affinity}</p></section>"
       },
       "sort": 900000,
       "flags": {},
@@ -156,7 +156,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"archaicwp\"></a>Archaic Weapons Proficiency</h5>\n<p><b>Benefit</b>: The character takes no penalty on attack rolls when using any kind of archaic weapon.</p>\n<p><b>Normal</b>: A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iox7v6IwlMboP8Uf]{Archaic Weapons Proficiency}</p></section>"
+        "content": "<h5><a name=\"archaicwp\"></a>Archaic Weapons Proficiency</h5>\n<p><b>Benefit</b>: The character takes no penalty on attack rolls when using any kind of archaic weapon.</p>\n<p><b>Normal</b>: A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iox7v6IwlMboP8Uf]{Archaic Weapons Proficiency}</p></section>"
       },
       "sort": 1000000,
       "flags": {},
@@ -188,7 +188,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"armorplight\"></a>Armor Proficiency (light)</h5>\n<p><b>Benefit</b>: When a character wears a type of armor with which he or she is proficient, the character gets to add the armor\u2019s equipment bonus to his or her Defense. Also, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, and @Check[skill:tumble]{Tumble check}s.</p>\n<p><b>Normal</b>: A character who wears armor with which he or she is not proficient adds only the armor\u2019s nonproficient equipment bonus to his or her Defense. Also, he or she suffers its armor check penalty on attack rolls and on all skill checks that involve moving.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.QWsmClIbhg4CjhjA]{Armor Proficiency (light)}</p></section>"
+        "content": "<h5><a name=\"armorplight\"></a>Armor Proficiency (light)</h5>\n<p><b>Benefit</b>: When a character wears a type of armor with which he or she is proficient, the character gets to add the armor’s equipment bonus to his or her Defense. Also, the armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, and @Check[skill:tumble]{Tumble check}s.</p>\n<p><b>Normal</b>: A character who wears armor with which he or she is not proficient adds only the armor’s nonproficient equipment bonus to his or her Defense. Also, he or she suffers its armor check penalty on attack rolls and on all skill checks that involve moving.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.QWsmClIbhg4CjhjA]{Armor Proficiency (light)}</p></section>"
       },
       "sort": 1200000,
       "flags": {},
@@ -236,7 +236,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"attentive\"></a>Attentive</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:investigate]{Investigate check}s and @Check[skill:senseMotive]{Sense Motive check}s. </p>\n<p><b>Special</b>: Remember that the Investigate skill can\u2019t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Fyt0VJkcCuyWBb1v]{Attentive}</p></section>"
+        "content": "<h5><a name=\"attentive\"></a>Attentive</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:investigate]{Investigate check}s and @Check[skill:senseMotive]{Sense Motive check}s. </p>\n<p><b>Special</b>: Remember that the Investigate skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Fyt0VJkcCuyWBb1v]{Attentive}</p></section>"
       },
       "sort": 1500000,
       "flags": {},
@@ -252,7 +252,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"blindfight\"></a>Blind-Fight</h5>\n<p><b>Benefit</b>: In melee combat, every time the character misses because of concealment, the character can reroll the miss chance roll one time to see if the character actually hits.</p>\n<p>The character takes only half the usual penalty to speed for being unable to see. Darkness and poor visibility in general reduces the character\u2019s speed to three-quarters of normal, instead of one-half.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.zF1k1XQPlseLDNY2]{Blind-Fight}</p></section>"
+        "content": "<h5><a name=\"blindfight\"></a>Blind-Fight</h5>\n<p><b>Benefit</b>: In melee combat, every time the character misses because of concealment, the character can reroll the miss chance roll one time to see if the character actually hits.</p>\n<p>The character takes only half the usual penalty to speed for being unable to see. Darkness and poor visibility in general reduces the character’s speed to three-quarters of normal, instead of one-half.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.zF1k1XQPlseLDNY2]{Blind-Fight}</p></section>"
       },
       "sort": 1600000,
       "flags": {},
@@ -284,7 +284,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"builder\"></a>Builder</h5>\n<p><b>Benefit</b>: Pick two of the following skills: Craft (chemical), Craft (electronic), Craft (mechanical), and Craft (structural). The character gets a +2 bonus on all checks with those skills.</p>\n<p><b>Special</b>: The character can select this feat twice. The second time, the character applies it to the two skills he or she didn\u2019t pick originally. Remember that Craft (chemical), Craft (electronic), and Craft (mechanical) cannot be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.6MBDm9qFCesgThKc]{Builder}</p></section>"
+        "content": "<h5><a name=\"builder\"></a>Builder</h5>\n<p><b>Benefit</b>: Pick two of the following skills: Craft (chemical), Craft (electronic), Craft (mechanical), and Craft (structural). The character gets a +2 bonus on all checks with those skills.</p>\n<p><b>Special</b>: The character can select this feat twice. The second time, the character applies it to the two skills he or she didn’t pick originally. Remember that Craft (chemical), Craft (electronic), and Craft (mechanical) cannot be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.6MBDm9qFCesgThKc]{Builder}</p></section>"
       },
       "sort": 1800000,
       "flags": {},
@@ -300,7 +300,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"burstfire\"></a>Burst Fire</h5>\n<p><b>Prerequisite</b>: Wisdom 13, Personal Firearms Proficiency, Advanced Firearms Proficiency.</p>\n<p><b>Benefit</b>: When using an automatic firearm with at least five bullets loaded, the character may fire a short burst as a single attack against a single target. The character receives a \u20134 penalty on the attack roll, but deal +2 dice of damage.</p>\n<p>Firing a burst expends five bullets and can only be done if the weapon has five bullets in it.</p>\n<p><b>Normal</b>: Autofire uses ten bullets, targets a 10-foot-by-10-foot area, and can\u2019t be aimed at a specific target. Without this feat, if a character attempts an autofire attack at a specific target, it simply counts as a normal attack and all the extra bullets are wasted.</p>\n<p><b>Special</b>: If the firearm has a three-round burst setting, firing a burst expends three bullets instead of five and can be used if the weapon has only three bullets in it.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.2g93wNhHtM3puCAG]{Burst Fire}</p></section>"
+        "content": "<h5><a name=\"burstfire\"></a>Burst Fire</h5>\n<p><b>Prerequisite</b>: Wisdom 13, Personal Firearms Proficiency, Advanced Firearms Proficiency.</p>\n<p><b>Benefit</b>: When using an automatic firearm with at least five bullets loaded, the character may fire a short burst as a single attack against a single target. The character receives a –4 penalty on the attack roll, but deal +2 dice of damage.</p>\n<p>Firing a burst expends five bullets and can only be done if the weapon has five bullets in it.</p>\n<p><b>Normal</b>: Autofire uses ten bullets, targets a 10-foot-by-10-foot area, and can’t be aimed at a specific target. Without this feat, if a character attempts an autofire attack at a specific target, it simply counts as a normal attack and all the extra bullets are wasted.</p>\n<p><b>Special</b>: If the firearm has a three-round burst setting, firing a burst expends three bullets instead of five and can be used if the weapon has only three bullets in it.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.2g93wNhHtM3puCAG]{Burst Fire}</p></section>"
       },
       "sort": 1900000,
       "flags": {},
@@ -316,7 +316,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"cleave\"></a>Cleave</h5>\n<p><b>Prerequisite</b>: Strength 13, Power Attack.</p>\n<p><b>Benefit</b>: If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.VOpkL59rttXKmZb0]{Cleave}</p></section>"
+        "content": "<h5><a name=\"cleave\"></a>Cleave</h5>\n<p><b>Prerequisite</b>: Strength 13, Power Attack.</p>\n<p><b>Benefit</b>: If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.VOpkL59rttXKmZb0]{Cleave}</p></section>"
       },
       "sort": 2000000,
       "flags": {},
@@ -332,7 +332,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"combatexp\"></a>Combat Expertise</h5>\n<p><b>Prerequisite</b>: Intelligence 13.</p>\n<p><b>Benefit</b>: When the character uses the attack action or the full attack action in melee, the character can take a penalty of up to \u20135 on his or her attack roll and add the same number (up to +5) to the character\u2019s Defense. This number may not exceed the character\u2019s base attack bonus. The changes to attack rolls and Defense last until the character\u2019s next action. The bonus to the character\u2019s Defense is a dodge bonus (and as such it stacks with other dodge bonuses the character may have).</p>\n<p><b>Normal</b>: A character without the Combat Expertise feat can fight defensively while using the attack or full attack action to take a \u20134 penalty on attacks and gain a +2 dodge bonus to Defense.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.cztVZlIwdBh9i6EY]{Combat Expertise}</p></section>"
+        "content": "<h5><a name=\"combatexp\"></a>Combat Expertise</h5>\n<p><b>Prerequisite</b>: Intelligence 13.</p>\n<p><b>Benefit</b>: When the character uses the attack action or the full attack action in melee, the character can take a penalty of up to –5 on his or her attack roll and add the same number (up to +5) to the character’s Defense. This number may not exceed the character’s base attack bonus. The changes to attack rolls and Defense last until the character’s next action. The bonus to the character’s Defense is a dodge bonus (and as such it stacks with other dodge bonuses the character may have).</p>\n<p><b>Normal</b>: A character without the Combat Expertise feat can fight defensively while using the attack or full attack action to take a –4 penalty on attacks and gain a +2 dodge bonus to Defense.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.cztVZlIwdBh9i6EY]{Combat Expertise}</p></section>"
       },
       "sort": 2100000,
       "flags": {},
@@ -348,7 +348,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"combatmartial\"></a>Combat Martial Arts</h5>\n<p><b>Prerequisite</b>: Base attack bonus +1.</p>\n<p><b>Benefit</b>: With an unarmed strike, the character deals lethal or nonlethal damage (the character\u2019s choice) equal to 1d4 + the character\u2019s Strength modifier. The character\u2019s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.</p>\n<p><b>Normal</b>: Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.bBwTNSD33J5wOcpI]{Combat Martial Arts}</p></section>"
+        "content": "<h5><a name=\"combatmartial\"></a>Combat Martial Arts</h5>\n<p><b>Prerequisite</b>: Base attack bonus +1.</p>\n<p><b>Benefit</b>: With an unarmed strike, the character deals lethal or nonlethal damage (the character’s choice) equal to 1d4 + the character’s Strength modifier. The character’s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks.</p>\n<p><b>Normal</b>: Without this feat, a character deals only 1d3 points of nonlethal damage. Unarmed attacks normally provoke attacks of opportunity, and unarmed combatants cannot normally make attacks of opportunity.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.bBwTNSD33J5wOcpI]{Combat Martial Arts}</p></section>"
       },
       "sort": 2200000,
       "flags": {},
@@ -364,7 +364,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"combatreflex\"></a>Combat Reflexes</h5>\n<p><b>Benefit</b>: The maximum number of attacks of opportunity the character may make each round is equal to the character\u2019s Dexterity modifier + 1.  The character can still only make one attack of opportunity on a single opponent.</p>\n<p>With this feat, the character may also make attacks of opportunity when flat-footed.</p>\n<p><b>Normal</b>: A character without the Combat Reflexes feat can make only one attack of opportunity per round and can\u2019t make attacks of opportunity when flat-footed.</p>\n<p><b>Special</b>: The Combat Reflexes feat doesn\u2019t allow a Fast hero with the opportunist talent to use that talent more than once per round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.bxRohDvW7Vvp1MWd]{Combat Reflexes}</p></section>"
+        "content": "<h5><a name=\"combatreflex\"></a>Combat Reflexes</h5>\n<p><b>Benefit</b>: The maximum number of attacks of opportunity the character may make each round is equal to the character’s Dexterity modifier + 1.  The character can still only make one attack of opportunity on a single opponent.</p>\n<p>With this feat, the character may also make attacks of opportunity when flat-footed.</p>\n<p><b>Normal</b>: A character without the Combat Reflexes feat can make only one attack of opportunity per round and can’t make attacks of opportunity when flat-footed.</p>\n<p><b>Special</b>: The Combat Reflexes feat doesn’t allow a Fast hero with the opportunist talent to use that talent more than once per round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.bxRohDvW7Vvp1MWd]{Combat Reflexes}</p></section>"
       },
       "sort": 2300000,
       "flags": {},
@@ -428,7 +428,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"deadaim\"></a>Dead Aim</h5>\n<p><b>Prerequisite</b>: Wisdom 13, Far Shot.</p>\n<p><b>Benefit</b>: Before making a ranged attack, the character may take a full-round action to line up your shot. This grants the character a +2 circumstance bonus on his or her next attack roll. Once the character begins aiming, he or she can\u2019t move, even to take a 5-foot step, until after the character makes his or her next attack, or the benefit of the feat is lost. </p>\n<p>Likewise, if the character\u2019s concentration is disrupted or the character is attacked before his or her next action, the character loses the benefit of aiming.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.VDuLSrUngjLdhvGn]{Dead Aim}</p></section>"
+        "content": "<h5><a name=\"deadaim\"></a>Dead Aim</h5>\n<p><b>Prerequisite</b>: Wisdom 13, Far Shot.</p>\n<p><b>Benefit</b>: Before making a ranged attack, the character may take a full-round action to line up your shot. This grants the character a +2 circumstance bonus on his or her next attack roll. Once the character begins aiming, he or she can’t move, even to take a 5-foot step, until after the character makes his or her next attack, or the benefit of the feat is lost. </p>\n<p>Likewise, if the character’s concentration is disrupted or the character is attacked before his or her next action, the character loses the benefit of aiming.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.VDuLSrUngjLdhvGn]{Dead Aim}</p></section>"
       },
       "sort": 2700000,
       "flags": {},
@@ -476,7 +476,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"dodge\"></a>Dodge</h5>\n<p><b>Prerequisite</b>: Dexterity 13.</p>\n<p><b>Benefit</b>: During the character\u2019s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.</p>\n<p><b>Special</b>: A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.GAchCvWMIstmZLSb]{Dodge}</p></section>"
+        "content": "<h5><a name=\"dodge\"></a>Dodge</h5>\n<p><b>Prerequisite</b>: Dexterity 13.</p>\n<p><b>Benefit</b>: During the character’s action, the character designates an opponent and receives a +1 dodge bonus to Defense against any subsequent attacks from that opponent. The character can select a new opponent on any action.</p>\n<p><b>Special</b>: A condition that makes the character lose his or her Dexterity bonus to Defense also makes the character lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.GAchCvWMIstmZLSb]{Dodge}</p></section>"
       },
       "sort": 3000000,
       "flags": {},
@@ -492,7 +492,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"doubletap\"></a>Double Tap</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Point Blank Shot.</p>\n<p><b>Benefit</b>: When using a semiautomatic firearm with at least two bullets loaded, the character may fire two bullets as a single attack against a single target. The character receives a \u20132 penalty on this attack, but deals +1 die of damage with a successful hit. Using this feat fires two bullets and can only be done if the weapon has two bullets in it.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.d2PP9eSnWbCoxZcD]{Double Tap}</p></section>"
+        "content": "<h5><a name=\"doubletap\"></a>Double Tap</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Point Blank Shot.</p>\n<p><b>Benefit</b>: When using a semiautomatic firearm with at least two bullets loaded, the character may fire two bullets as a single attack against a single target. The character receives a –2 penalty on this attack, but deals +1 die of damage with a successful hit. Using this feat fires two bullets and can only be done if the weapon has two bullets in it.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.d2PP9eSnWbCoxZcD]{Double Tap}</p></section>"
       },
       "sort": 3100000,
       "flags": {},
@@ -508,7 +508,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"driveby\"></a>Drive-By Attack</h5>\n<p><b>Benefit</b>: The character takes no vehicle speed penalty when making an attack while in a moving vehicle. Also, if the character is the driver, he or she can take his or her attack action to make an attack at any point along the vehicle\u2019s movement.</p>\n<p><b>Normal</b>: When attacking from a moving vehicle, a character takes a penalty based on the vehicle\u2019s speed. Passengers can ready an action to make an attack when their vehicle reaches a particular location, but the driver must make his or her attack action either before or after the vehicle\u2019s movement.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.P2J52Fe4p8dkld9h]{Drive-By Attack}</p></section>"
+        "content": "<h5><a name=\"driveby\"></a>Drive-By Attack</h5>\n<p><b>Benefit</b>: The character takes no vehicle speed penalty when making an attack while in a moving vehicle. Also, if the character is the driver, he or she can take his or her attack action to make an attack at any point along the vehicle’s movement.</p>\n<p><b>Normal</b>: When attacking from a moving vehicle, a character takes a penalty based on the vehicle’s speed. Passengers can ready an action to make an attack when their vehicle reaches a particular location, but the driver must make his or her attack action either before or after the vehicle’s movement.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.P2J52Fe4p8dkld9h]{Drive-By Attack}</p></section>"
       },
       "sort": 3200000,
       "flags": {},
@@ -540,7 +540,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"elusive\"></a>Elusive Target</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Defensive Martial Arts.</p>\n<p><b>Benefit</b>: When fighting an opponent or multiple opponents in melee, other opponents attempting to target the character with ranged attacks take a \u20134 penalty. This penalty is in addition to the normal \u20134 penalty for firing into melee, making the penalty to target to character \u20138.</p>\n<p><b>Special</b>: An opponent with the Precise Shot feat has the penalty lessened to \u20134 when targeting the character.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.rtZKBvug6kLzoUK1]{Elusive Target}</p></section>"
+        "content": "<h5><a name=\"elusive\"></a>Elusive Target</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Defensive Martial Arts.</p>\n<p><b>Benefit</b>: When fighting an opponent or multiple opponents in melee, other opponents attempting to target the character with ranged attacks take a –4 penalty. This penalty is in addition to the normal –4 penalty for firing into melee, making the penalty to target to character –8.</p>\n<p><b>Special</b>: An opponent with the Precise Shot feat has the penalty lessened to –4 when targeting the character.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.rtZKBvug6kLzoUK1]{Elusive Target}</p></section>"
       },
       "sort": 3400000,
       "flags": {},
@@ -556,7 +556,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"endurance\"></a>Endurance</h5>\n<p><b>Benefit</b>: The character gains a +4 bonus on the following checks and saves: hourly @Check[skill:swim]{Swim check}s to avoid becoming fatigued, @Check[ability:con]{Constitution check}s to continue running, @Check[ability:con]{Constitution check}s to hold the character\u2019s breath, @Check[ability:con]{Constitution check}s to avoid damage from starvation or thirst, @Check[save:fort]{Fortitude save}s to avoid damage from hot or cold environments, and @Check[save:fort]{Fortitude save}s to resist suffocation or drowning.</p>\n<p>Also, the character may sleep in medium or light armor without becoming fatigued.</p>\n<p><b>Normal</b>: A character without this feat who sleeps in armor is automatically fatigued the following day.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ipoS72vYsA65Mk4K]{Endurance}</p></section>"
+        "content": "<h5><a name=\"endurance\"></a>Endurance</h5>\n<p><b>Benefit</b>: The character gains a +4 bonus on the following checks and saves: hourly @Check[skill:swim]{Swim check}s to avoid becoming fatigued, @Check[ability:con]{Constitution check}s to continue running, @Check[ability:con]{Constitution check}s to hold the character’s breath, @Check[ability:con]{Constitution check}s to avoid damage from starvation or thirst, @Check[save:fort]{Fortitude save}s to avoid damage from hot or cold environments, and @Check[save:fort]{Fortitude save}s to resist suffocation or drowning.</p>\n<p>Also, the character may sleep in medium or light armor without becoming fatigued.</p>\n<p><b>Normal</b>: A character without this feat who sleeps in armor is automatically fatigued the following day.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ipoS72vYsA65Mk4K]{Endurance}</p></section>"
       },
       "sort": 3500000,
       "flags": {},
@@ -572,7 +572,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"efp\"></a>Exotic Firearms Proficiency</h5>\n<p>Choose a weapon type from the following list: cannons, heavy machine guns, grenade launchers, and rocket launchers. </p>\n<p><b>Prerequisite</b>: Personal Firearms Proficiency, Advanced Firearms Proficiency.</p>\n<p><b>Benefit</b>: The character makes attack rolls with the weapon normally.</p>\n<p><b>Normal</b>: A character who uses a weapon without being proficient with it takes a \u20134 penalty on attack rolls.</p>\n<p><b>Special</b>: A character can gain this feat as many as four times. Each time a character takes the feat, he or she selects a different weapon group.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.BwcvUj4KDrfmAIJF]{Exotic Firearms Proficiency}</p></section>"
+        "content": "<h5><a name=\"efp\"></a>Exotic Firearms Proficiency</h5>\n<p>Choose a weapon type from the following list: cannons, heavy machine guns, grenade launchers, and rocket launchers. </p>\n<p><b>Prerequisite</b>: Personal Firearms Proficiency, Advanced Firearms Proficiency.</p>\n<p><b>Benefit</b>: The character makes attack rolls with the weapon normally.</p>\n<p><b>Normal</b>: A character who uses a weapon without being proficient with it takes a –4 penalty on attack rolls.</p>\n<p><b>Special</b>: A character can gain this feat as many as four times. Each time a character takes the feat, he or she selects a different weapon group.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.BwcvUj4KDrfmAIJF]{Exotic Firearms Proficiency}</p></section>"
       },
       "sort": 3600000,
       "flags": {},
@@ -588,7 +588,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"ewp\"></a>Exotic Melee Weapon Proficiency</h5>\n<p>Choose one exotic melee weapon from. The character is proficient with that melee weapon in combat.</p>\n<p><b>Prerequisite</b>: Base attack bonus +1.</p>\n<p><b>Benefit</b>: The character makes attack rolls with the weapon normally.</p>\n<p><b>Normal</b>: A character who uses a weapon without being proficient with it takes a \u20134 penalty on attack rolls. </p>\n<p><b>Special</b>: A character can gain this feat multiple times. Each time the character takes the feat, he or she selects a different exotic melee weapon.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.z6nidnnVDA7cOYsc]{Exotic Melee Weapon Proficiency}</p></section>"
+        "content": "<h5><a name=\"ewp\"></a>Exotic Melee Weapon Proficiency</h5>\n<p>Choose one exotic melee weapon from. The character is proficient with that melee weapon in combat.</p>\n<p><b>Prerequisite</b>: Base attack bonus +1.</p>\n<p><b>Benefit</b>: The character makes attack rolls with the weapon normally.</p>\n<p><b>Normal</b>: A character who uses a weapon without being proficient with it takes a –4 penalty on attack rolls. </p>\n<p><b>Special</b>: A character can gain this feat multiple times. Each time the character takes the feat, he or she selects a different exotic melee weapon.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.z6nidnnVDA7cOYsc]{Exotic Melee Weapon Proficiency}</p></section>"
       },
       "sort": 3700000,
       "flags": {},
@@ -636,7 +636,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"forcestop\"></a>Force Stop</h5>\n<p><b>Prerequisite</b>: Drive 4 ranks, Vehicle Expert.</p>\n<p><b>Benefit</b>: When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character\u2019s turn number.</p>\n<p>After succeeding on the check to attempt the sideswipe, the character makes a @Check[skill:drive]{Drive check} opposed by the other driver. If the character succeeds, turn the other vehicle 90 degrees across the front of the character\u2019s, so that they form a tee. Move them forward a distance equal to the character\u2019s turn number. The vehicles end their movement at that location, at stationary speed, and take their normal sideswipe damage.</p>\n<p>If the character fails the check, resolve the sideswipe normally.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Vpkvf3xX0Bj5HMX2]{Force Stop}</p></section>"
+        "content": "<h5><a name=\"forcestop\"></a>Force Stop</h5>\n<p><b>Prerequisite</b>: Drive 4 ranks, Vehicle Expert.</p>\n<p><b>Benefit</b>: When the character attempts a sideswipe stunt with a surface vehicle, the character can force the other vehicle to a stop by nudging it into a controlled sideways skid. In addition to the normal requirements for attempting a sideswipe stunt, the character must have sufficient movement remaining to move a number of squares equal to the character’s turn number.</p>\n<p>After succeeding on the check to attempt the sideswipe, the character makes a @Check[skill:drive]{Drive check} opposed by the other driver. If the character succeeds, turn the other vehicle 90 degrees across the front of the character’s, so that they form a tee. Move them forward a distance equal to the character’s turn number. The vehicles end their movement at that location, at stationary speed, and take their normal sideswipe damage.</p>\n<p>If the character fails the check, resolve the sideswipe normally.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Vpkvf3xX0Bj5HMX2]{Force Stop}</p></section>"
       },
       "sort": 4000000,
       "flags": {},
@@ -652,7 +652,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"frightful\"></a>Frightful Presence</h5>\n<p><b>Prerequisite</b>: Charisma 15, Intimidate 9 ranks.</p>\n<p><b>Benefit</b>: When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + \u00bd the character\u2019s level + the character\u2019s Charisma modifier). An opponent who fails his or her save is shaken, taking a \u20132 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character\u2019s Charisma modifier. The character can use the feat once per round as a free action.</p>\n<p>A successful save indicates that the opponent is immune to the character\u2019s use of this feat for 24 hours. This feat does not affect creatures with an Intelligence of 3 or lower.</p>\n<p>If the character has the Renown feat, the @Check[save:will]{Will saving throw}\u2019s DC increases by 5.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iYWWrS0YBc8dihUu]{Frightful Presence}</p></section>"
+        "content": "<h5><a name=\"frightful\"></a>Frightful Presence</h5>\n<p><b>Prerequisite</b>: Charisma 15, Intimidate 9 ranks.</p>\n<p><b>Benefit</b>: When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.</p>\n<p>A successful save indicates that the opponent is immune to the character’s use of this feat for 24 hours. This feat does not affect creatures with an Intelligence of 3 or lower.</p>\n<p>If the character has the Renown feat, the @Check[save:will]{Will saving throw}’s DC increases by 5.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.iYWWrS0YBc8dihUu]{Frightful Presence}</p></section>"
       },
       "sort": 4100000,
       "flags": {},
@@ -732,7 +732,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"heroic\"></a>Heroic Surge</h5>\n<p class=\"close\"><b>Benefit</b>: The character may take an extra move action or attack action in a round, either before or after the character\u2019s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.</p>\n<table cellspacing=\"0\" width=\"200\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"100\" align=\"center\">Character Level</th>\n\t<th width=\"100\" align=\"center\">Times per Day</th>\n    </tr>\n    <tr>\n\t<td align=\"center\">1st-4th</td>\n\t<td align=\"center\">1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td align=\"center\">5th-8th</td>\n\t<td align=\"center\">2</td>\n    </tr>\n    <tr>\n\t<td align=\"center\">9th-12th</td>\n\t<td align=\"center\">3</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td align=\"center\">13th-16th</td>\n\t<td align=\"center\">4</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\" align=\"center\">17th-20th</td>\n\t<td class=\"last-row\" align=\"center\">5</td>\n    </tr>\n  </tbody>\n</table><br>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.zD8LcfyVgyr4IDgm]{Heroic Surge}</p></section>"
+        "content": "<h5><a name=\"heroic\"></a>Heroic Surge</h5>\n<p class=\"close\"><b>Benefit</b>: The character may take an extra move action or attack action in a round, either before or after the character’s regular actions. The character may use Heroic Surge a number of times per day depending on his or her character level (as shown below), but never more than once per round.</p>\n<table cellspacing=\"0\" width=\"200\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"100\" align=\"center\">Character Level</th>\n\t<th width=\"100\" align=\"center\">Times per Day</th>\n    </tr>\n    <tr>\n\t<td align=\"center\">1st-4th</td>\n\t<td align=\"center\">1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td align=\"center\">5th-8th</td>\n\t<td align=\"center\">2</td>\n    </tr>\n    <tr>\n\t<td align=\"center\">9th-12th</td>\n\t<td align=\"center\">3</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td align=\"center\">13th-16th</td>\n\t<td align=\"center\">4</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\" align=\"center\">17th-20th</td>\n\t<td class=\"last-row\" align=\"center\">5</td>\n    </tr>\n  </tbody>\n</table><br>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.zD8LcfyVgyr4IDgm]{Heroic Surge}</p></section>"
       },
       "sort": 4600000,
       "flags": {},
@@ -748,7 +748,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedbrawl\"></a>Improved Brawl</h5>\n<p><b>Prerequisite</b>: Brawl, base attack bonus +3.</p>\n<p><b>Benefit</b>: When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character\u2019s Strength modifier.</p>\n<p><b>Normal</b>: Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.U0bqDlrjJpTdDB9i]{Improved Brawl}</p></section>"
+        "content": "<h5><a name=\"improvedbrawl\"></a>Improved Brawl</h5>\n<p><b>Prerequisite</b>: Brawl, base attack bonus +3.</p>\n<p><b>Benefit</b>: When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character’s Strength modifier.</p>\n<p><b>Normal</b>: Unarmed attacks normally deal nonlethal damage equal to 1d3 + Strength modifier.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.U0bqDlrjJpTdDB9i]{Improved Brawl}</p></section>"
       },
       "sort": 4700000,
       "flags": {},
@@ -780,7 +780,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedcombatmart\"></a>Improved Combat Martial Arts</h5>\n<p><b>Prerequisite</b>: Combat Martial Arts, base attack bonus +4.</p>\n<p><b>Benefit</b>: The character\u2019s threat range on an unarmed strike improves to 19\u201320.</p>\n<p><b>Normal</b>: A character without this feat threatens a critical hit with an unarmed strike only on a 20.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Yb4m1Fp8D1f5d0yx]{Improved Combat Martial Arts}</p></section>"
+        "content": "<h5><a name=\"improvedcombatmart\"></a>Improved Combat Martial Arts</h5>\n<p><b>Prerequisite</b>: Combat Martial Arts, base attack bonus +4.</p>\n<p><b>Benefit</b>: The character’s threat range on an unarmed strike improves to 19–20.</p>\n<p><b>Normal</b>: A character without this feat threatens a critical hit with an unarmed strike only on a 20.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Yb4m1Fp8D1f5d0yx]{Improved Combat Martial Arts}</p></section>"
       },
       "sort": 4900000,
       "flags": {},
@@ -796,7 +796,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedcombatthrow\"></a>Improved Combat Throw</h5>\n<p><b>Prerequisite</b>: Defensive Martial Arts, Combat Throw, base attack bonus +3.</p>\n<p><b>Benefit</b>: In melee combat, if an opponent attacks and misses the character, the character may immediately make a trip attack against the opponent. This counts as an attack of opportunity, which the character can make even if he or she is unarmed. Attacking unarmed in this way does not provoke an attack of opportunity.</p>\n<p><b>Special</b>: This feat doesn\u2019t grant the character more attacks of opportunity than he or she is normally allowed in a round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.nKswLW0I1fVgIDqn]{Improved Combat Throw}</p></section>"
+        "content": "<h5><a name=\"improvedcombatthrow\"></a>Improved Combat Throw</h5>\n<p><b>Prerequisite</b>: Defensive Martial Arts, Combat Throw, base attack bonus +3.</p>\n<p><b>Benefit</b>: In melee combat, if an opponent attacks and misses the character, the character may immediately make a trip attack against the opponent. This counts as an attack of opportunity, which the character can make even if he or she is unarmed. Attacking unarmed in this way does not provoke an attack of opportunity.</p>\n<p><b>Special</b>: This feat doesn’t grant the character more attacks of opportunity than he or she is normally allowed in a round.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.nKswLW0I1fVgIDqn]{Improved Combat Throw}</p></section>"
       },
       "sort": 5000000,
       "flags": {},
@@ -812,7 +812,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improveddamage\"></a>Improved Damage Threshold</h5>\n<p><b>Benefit</b>: The character increases his or her massive damage threshold by 3 points.</p>\n<p><b>Normal</b>: A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character\u2019s massive damage threshold is current Con +3.</p>\n<p><b>Special</b>: A character may gain this feat multiple times. Its effects stack.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.aybAwcZWSPAX1WHb]{Improved Damage Threshold}</p></section>"
+        "content": "<h5><a name=\"improveddamage\"></a>Improved Damage Threshold</h5>\n<p><b>Benefit</b>: The character increases his or her massive damage threshold by 3 points.</p>\n<p><b>Normal</b>: A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.</p>\n<p><b>Special</b>: A character may gain this feat multiple times. Its effects stack.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.aybAwcZWSPAX1WHb]{Improved Damage Threshold}</p></section>"
       },
       "sort": 5100000,
       "flags": {},
@@ -876,7 +876,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedko\"></a>Improved Knockout Punch</h5>\n<p><b>Prerequisite</b>: Brawl, Knockout Punch, base attack bonus +6.</p>\n<p><b>Benefit</b>: When making the character\u2019s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This critical hit deals triple damage. The damage is nonlethal damage.</p>\n<p><b>Special</b>: Even if the character has the ability to treat unarmed damage as lethal damage, the damage from a knockout punch is always nonlethal.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.7GdVa5wdICvHt7bf]{Improved Knockout Punch}</p></section>"
+        "content": "<h5><a name=\"improvedko\"></a>Improved Knockout Punch</h5>\n<p><b>Prerequisite</b>: Brawl, Knockout Punch, base attack bonus +6.</p>\n<p><b>Benefit</b>: When making the character’s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This critical hit deals triple damage. The damage is nonlethal damage.</p>\n<p><b>Special</b>: Even if the character has the ability to treat unarmed damage as lethal damage, the damage from a knockout punch is always nonlethal.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.7GdVa5wdICvHt7bf]{Improved Knockout Punch}</p></section>"
       },
       "sort": 5500000,
       "flags": {},
@@ -908,7 +908,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"improvedtwf\"></a>Improved Two-Weapon Fighting</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Two-Weapon Fighting, base attack bonus +6.</p>\n<p><b>Benefit</b>: The character gets a second attack with his or her offhand weapon, albeit at a \u20135 penalty.  Also, this feat allows the character to use a melee weapon in one hand and a ranged weapon in the other.</p>\n<p><b>Normal</b>: Without this feat, a character can only get a single extra attack with an off-hand weapon, and both weapons must be of the same type (either both ranged weapons or both melee weapons).</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.n58jql1kQRhClzoW]{Improved Two-Weapon Fighting}</p></section>"
+        "content": "<h5><a name=\"improvedtwf\"></a>Improved Two-Weapon Fighting</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Two-Weapon Fighting, base attack bonus +6.</p>\n<p><b>Benefit</b>: The character gets a second attack with his or her offhand weapon, albeit at a –5 penalty.  Also, this feat allows the character to use a melee weapon in one hand and a ranged weapon in the other.</p>\n<p><b>Normal</b>: Without this feat, a character can only get a single extra attack with an off-hand weapon, and both weapons must be of the same type (either both ranged weapons or both melee weapons).</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.n58jql1kQRhClzoW]{Improved Two-Weapon Fighting}</p></section>"
       },
       "sort": 5700000,
       "flags": {},
@@ -940,7 +940,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"ko\"></a>Knockout Punch</h5>\n<p><b>Prerequisite</b>: Brawl, base attack bonus +3.</p>\n<p><b>Benefit</b>: When making the character\u2019s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This damage is nonlethal damage.</p>\n<p><b>Special</b>: Even if the character has the ability to treat unarmed damage as lethal damage, the damage from a knockout punch is always nonlethal.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.80v0y1VZseWAaxMv]{Knockout Punch}</p></section>"
+        "content": "<h5><a name=\"ko\"></a>Knockout Punch</h5>\n<p><b>Prerequisite</b>: Brawl, base attack bonus +3.</p>\n<p><b>Benefit</b>: When making the character’s first unarmed attack against a flat-footed opponent, treat a successful attack as a critical hit. This damage is nonlethal damage.</p>\n<p><b>Special</b>: Even if the character has the ability to treat unarmed damage as lethal damage, the damage from a knockout punch is always nonlethal.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.80v0y1VZseWAaxMv]{Knockout Punch}</p></section>"
       },
       "sort": 5900000,
       "flags": {},
@@ -972,7 +972,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"lowpro\"></a>Low Profile</h5>\n<p><b>Benefit</b>: Reduce the character\u2019s Reputation bonus by 3 points.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.lzeTYRO5gnj5DgVw]{Low Profile}</p></section>"
+        "content": "<h5><a name=\"lowpro\"></a>Low Profile</h5>\n<p><b>Benefit</b>: Reduce the character’s Reputation bonus by 3 points.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.lzeTYRO5gnj5DgVw]{Low Profile}</p></section>"
       },
       "sort": 6100000,
       "flags": {},
@@ -988,7 +988,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"medicalexp\"></a>Medical Expert</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s and @Check[skill:treatInjury]{Treat Injury check}s.</p>\n<p><b>Special</b>: Remember that the Craft (pharmaceutical) skill can\u2019t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.YoX8OzOpsV5SW1zU]{Medical Expert}</p></section>"
+        "content": "<h5><a name=\"medicalexp\"></a>Medical Expert</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:craft|specialty:Pharmaceutical]{Craft (pharmaceutical) check}s and @Check[skill:treatInjury]{Treat Injury check}s.</p>\n<p><b>Special</b>: Remember that the Craft (pharmaceutical) skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.YoX8OzOpsV5SW1zU]{Medical Expert}</p></section>"
       },
       "sort": 6200000,
       "flags": {},
@@ -1036,7 +1036,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"nimble\"></a>Nimble</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:escapeArtist]{Escape Artist check}s and @Check[skill:sleightOfHand]{Sleight of Hand check}s.</p>\n<p><b>Special</b>: Remember that the Sleight of Hand skill can\u2019t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Gfx8ZD2qWMNcFxfv]{Nimble}</p></section>"
+        "content": "<h5><a name=\"nimble\"></a>Nimble</h5>\n<p><b>Benefit</b>: The character gets a +2 bonus on all @Check[skill:escapeArtist]{Escape Artist check}s and @Check[skill:sleightOfHand]{Sleight of Hand check}s.</p>\n<p><b>Special</b>: Remember that the Sleight of Hand skill can’t be used untrained.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.Gfx8ZD2qWMNcFxfv]{Nimble}</p></section>"
       },
       "sort": 6500000,
       "flags": {},
@@ -1052,7 +1052,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"gunprof\"></a>Personal Firearms Proficiency</h5>\n<p><b>Benefit</b>: The character can fire any personal firearm without penalty.</p>\n<p><b>Normal</b>: Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.EhUxv9GwTOPBuPXy]{Personal Firearms Proficiency}</p></section>"
+        "content": "<h5><a name=\"gunprof\"></a>Personal Firearms Proficiency</h5>\n<p><b>Benefit</b>: The character can fire any personal firearm without penalty.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on attack rolls made with personal firearms.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.EhUxv9GwTOPBuPXy]{Personal Firearms Proficiency}</p></section>"
       },
       "sort": 6600000,
       "flags": {},
@@ -1084,7 +1084,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"powerattack\"></a>Power Attack</h5>\n<p><b>Prerequisite</b>: Strength 13.</p>\n<p><b>Benefit</b>: On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.BTQntYgXuYmtkJog]{Power Attack}</p></section>"
+        "content": "<h5><a name=\"powerattack\"></a>Power Attack</h5>\n<p><b>Prerequisite</b>: Strength 13.</p>\n<p><b>Benefit</b>: On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.BTQntYgXuYmtkJog]{Power Attack}</p></section>"
       },
       "sort": 6800000,
       "flags": {},
@@ -1100,7 +1100,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"preciseshot\"></a>Precise Shot</h5>\n<p><b>Prerequisite</b>: Point Blank Shot.</p>\n<p><b>Benefit</b>: The character can shoot or throw ranged weapons at an opponent engaged in melee without penalty.</p>\n<p><b>Normal</b>: A character takes a \u20134 penalty when using a ranged weapon to attack an opponent who is engaged in melee combat.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.397BRMyKBgFQfBPB]{Precise Shot}</p></section>"
+        "content": "<h5><a name=\"preciseshot\"></a>Precise Shot</h5>\n<p><b>Prerequisite</b>: Point Blank Shot.</p>\n<p><b>Benefit</b>: The character can shoot or throw ranged weapons at an opponent engaged in melee without penalty.</p>\n<p><b>Normal</b>: A character takes a –4 penalty when using a ranged weapon to attack an opponent who is engaged in melee combat.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.397BRMyKBgFQfBPB]{Precise Shot}</p></section>"
       },
       "sort": 6900000,
       "flags": {},
@@ -1148,7 +1148,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"renown\"></a>Renown</h5>\n<p><b>Benefit</b>: The character\u2019s Reputation bonus increases by +3.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.sle6lYAlPmz7A64o]{Renown}</p></section>"
+        "content": "<h5><a name=\"renown\"></a>Renown</h5>\n<p><b>Benefit</b>: The character’s Reputation bonus increases by +3.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.sle6lYAlPmz7A64o]{Renown}</p></section>"
       },
       "sort": 7200000,
       "flags": {},
@@ -1180,7 +1180,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"shotrun\"></a>Shot on the Run</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Point Blank Shot, Dodge, Mobility.</p>\n<p><b>Benefit</b>: When using an attack action with a ranged weapon, the character can move both before and after the attack, provided that the character\u2019s total distance moved is not greater than his or her speed.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.FaxfwCrIVD8Oi5zm]{Shot on the Run}</p></section>"
+        "content": "<h5><a name=\"shotrun\"></a>Shot on the Run</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Point Blank Shot, Dodge, Mobility.</p>\n<p><b>Benefit</b>: When using an attack action with a ranged weapon, the character can move both before and after the attack, provided that the character’s total distance moved is not greater than his or her speed.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.FaxfwCrIVD8Oi5zm]{Shot on the Run}</p></section>"
       },
       "sort": 7400000,
       "flags": {},
@@ -1196,7 +1196,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"swp\"></a>Simple Weapons Proficiency</h5>\n<p><b>Benefit</b>: The character makes attack rolls with simple weapons normally.</p>\n<p><b>Normal</b>: A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.JaBkolUfXnNohNxH]{Simple Weapons Proficiency}</p></section>"
+        "content": "<h5><a name=\"swp\"></a>Simple Weapons Proficiency</h5>\n<p><b>Benefit</b>: The character makes attack rolls with simple weapons normally.</p>\n<p><b>Normal</b>: A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.JaBkolUfXnNohNxH]{Simple Weapons Proficiency}</p></section>"
       },
       "sort": 7500000,
       "flags": {},
@@ -1212,7 +1212,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"skipshot\"></a>Skip Shot</h5>\n<p><b>Prerequisite</b>: Point Blank Shot, Precise Shot.</p>\n<p><b>Benefit</b>: If the character has a solid, relatively smooth surface on which to skip a bullet (such as a street or a concrete wall), and a target within 10 feet of that surface, the character may ignore cover between the character and the target. However, the character receives a \u20132 penalty on his or her attack roll, and the character\u2019s attack deals \u20131 die of damage. </p>\n<p><b>Special</b>: The surface doesn\u2019t have to be perfectly smooth and level; a brick wall or an asphalt road can be used. The target can have no more than nine-tenths cover for A character to attempt a skip shot.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.rU665XuQU5jaJdBl]{Skip Shot}</p></section>"
+        "content": "<h5><a name=\"skipshot\"></a>Skip Shot</h5>\n<p><b>Prerequisite</b>: Point Blank Shot, Precise Shot.</p>\n<p><b>Benefit</b>: If the character has a solid, relatively smooth surface on which to skip a bullet (such as a street or a concrete wall), and a target within 10 feet of that surface, the character may ignore cover between the character and the target. However, the character receives a –2 penalty on his or her attack roll, and the character’s attack deals –1 die of damage. </p>\n<p><b>Special</b>: The surface doesn’t have to be perfectly smooth and level; a brick wall or an asphalt road can be used. The target can have no more than nine-tenths cover for A character to attempt a skip shot.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.rU665XuQU5jaJdBl]{Skip Shot}</p></section>"
       },
       "sort": 7600000,
       "flags": {},
@@ -1228,7 +1228,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"springattack\"></a>Spring Attack</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Dodge, Mobility, base attack bonus +4.</p>\n<p><b>Benefit</b>: When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater\u2019s speed.</p>\n<p>Moving in this way does not provoke an attack of opportunity from the defender the character is attacking (though it can provoke attacks of opportunity from others, as normal).</p>\n<p>A character can\u2019t use this feat if he or she is carrying a heavy load or wearing heavy armor.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.s2WCnqHH0a0o4aXY]{Spring Attack}</p></section>"
+        "content": "<h5><a name=\"springattack\"></a>Spring Attack</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Dodge, Mobility, base attack bonus +4.</p>\n<p><b>Benefit</b>: When using an attack action with a melee weapon, the character can move both before and after the attack, provided that the total distance moved is not greater than the charater’s speed.</p>\n<p>Moving in this way does not provoke an attack of opportunity from the defender the character is attacking (though it can provoke attacks of opportunity from others, as normal).</p>\n<p>A character can’t use this feat if he or she is carrying a heavy load or wearing heavy armor.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.s2WCnqHH0a0o4aXY]{Spring Attack}</p></section>"
       },
       "sort": 7700000,
       "flags": {},
@@ -1324,7 +1324,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"surfacevo\"></a>Surface Vehicle Operation</h5>\n<p>Select a class of surface vehicle (heavy wheeled, powerboat, sailboat, ship, or tracked). The character is proficient at operating that class of vehicle.</p>\n<p>The heavy wheeled class includes all kinds of semi-trucks and tractor-trailers, as well as wheeled construction vehicles (such as earth movers) and wheeled armored vehicles (such as some armored personnel carriers). Powerboats are engine-powered water vessels designed for operation by a single person and usually no more than 100 feet in length. Sailboats are wind-powered water vessels. Ships are large, multicrewed water vessels. Tracked vehicles include bulldozers and tanks and other military vehicles.</p>\n<p><b>Prerequisite</b>: Drive 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on @Check[skill:drive]{Drive check}s or attack rolls made when operating a surface vehicle of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a \u20134 penalty on @Check[skill:drive]{Drive check}s made to operate a surface vehicle that falls under any of these classes, and to attacks made with vehicle weapons. There is no penalty when you operate a general-purpose surface vehicle.</p>\n<p><b>Special</b>: A character can gain this feat as many as five times. Each time the character takes the feat, he or she selects a different class of surface vehicle.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.x8PpFk4O2VqdygOf]{Surface Vehicle Operation}</p></section>"
+        "content": "<h5><a name=\"surfacevo\"></a>Surface Vehicle Operation</h5>\n<p>Select a class of surface vehicle (heavy wheeled, powerboat, sailboat, ship, or tracked). The character is proficient at operating that class of vehicle.</p>\n<p>The heavy wheeled class includes all kinds of semi-trucks and tractor-trailers, as well as wheeled construction vehicles (such as earth movers) and wheeled armored vehicles (such as some armored personnel carriers). Powerboats are engine-powered water vessels designed for operation by a single person and usually no more than 100 feet in length. Sailboats are wind-powered water vessels. Ships are large, multicrewed water vessels. Tracked vehicles include bulldozers and tanks and other military vehicles.</p>\n<p><b>Prerequisite</b>: Drive 4 ranks.</p>\n<p><b>Benefit</b>: The character takes no penalty on @Check[skill:drive]{Drive check}s or attack rolls made when operating a surface vehicle of the selected class.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on @Check[skill:drive]{Drive check}s made to operate a surface vehicle that falls under any of these classes, and to attacks made with vehicle weapons. There is no penalty when you operate a general-purpose surface vehicle.</p>\n<p><b>Special</b>: A character can gain this feat as many as five times. Each time the character takes the feat, he or she selects a different class of surface vehicle.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.x8PpFk4O2VqdygOf]{Surface Vehicle Operation}</p></section>"
       },
       "sort": 8300000,
       "flags": {},
@@ -1340,7 +1340,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"surgery\"></a>Surgery</h5>\n<p><b>Prerequisite</b>: Treat Injury 4 ranks.</p>\n<p><b>Benefit</b>: The character can use the Treat Injury skill to perform surgery without penalty.  See the Treat Injury skill description.</p>\n<p><b>Normal</b>: Characters without this feat take a \u20134 penalty on @Check[skill:treatInjury]{Treat Injury check}s made to perform surgery.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ay58GHII5YV9oMln]{Surgery}</p></section>"
+        "content": "<h5><a name=\"surgery\"></a>Surgery</h5>\n<p><b>Prerequisite</b>: Treat Injury 4 ranks.</p>\n<p><b>Benefit</b>: The character can use the Treat Injury skill to perform surgery without penalty.  See the Treat Injury skill description.</p>\n<p><b>Normal</b>: Characters without this feat take a –4 penalty on @Check[skill:treatInjury]{Treat Injury check}s made to perform surgery.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ay58GHII5YV9oMln]{Surgery}</p></section>"
       },
       "sort": 8400000,
       "flags": {},
@@ -1372,7 +1372,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"track\"></a>Track</h5>\n<p><b>Benefit</b>: To find tracks or follow them for one mile requires a @Check[skill:survival]{Survival check}. The character must make another @Check[skill:survival]{Survival check} every time the tracks become difficult to follow.</p>\n<p class=\"close\">The character moves at half his or her normal speed (or at the character\u2019s normal speed with a \u20135 penalty on the check, or at up to twice the character\u2019s speed with a \u201320 penalty on the check). The DC depends on the surface and the prevailing conditions.</p>\n<table cellspacing=\"0\" width=\"120\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"50\">Surface</th>\n\t<th width=\"70\" align=\"center\">Track DC</th>\n    </tr>\n    <tr>\n\t<td>Very Soft</td>\n\t<td align=\"center\">5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Soft</td>\n\t<td align=\"center\">10</td>\n    </tr>\n    <tr>\n\t<td>Firm</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"last-row\">Hard</td>\n\t<td class=\"last-row\" align=\"center\">20</td>\n    </tr>\n  </tbody>\n</table>\n<p><b>Very Soft</b>: Any surface (fresh snow, thick dust, wet mud) that holds deep, clear impressions of footprints.</p>\n<p><b>Soft</b>: Any surface soft enough to yield to pressure, but firmer than wet mud or fresh snow, in which the quarry leaves frequent but shallow footprints.</p>\n<p><b>Hard</b>: Most normal outdoor or exceptionally soft or dirty indoor surfaces. The quarry might leave some traces of its passage, but only occasional or partial footprints can be found.</p>\n<p><b>Firm</b>: Any surface that doesn\u2019t hold footprints at all, such as bare rock, concrete, metal deckings, or indoor floors. The quarry leaves only traces, such as scuff marks.</p>\n<p>If the character fails a @Check[skill:survival]{Survival check}, he or she can retry after 1 hour (outdoors) or 10 minutes (indoors) of searching.</p>\n<p class=\"close\"><b>Normal</b>: A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.</p>\n<table cellspacing=\"0\" width=\"450\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"350\">Condition</th>\n\t<th width=\"100\" align=\"center\">DC Modifier</th>\n    </tr>\n    <tr>\n\t<td>Every three targets in the group being tracked</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td><i>Size of targets being tracked:<sup>1</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Fine</td>\n\t<td align=\"center\">+8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Diminutive</td>\n\t<td align=\"center\">+4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Tiny</td>\n\t<td align=\"center\">+2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Small</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Medium-size</td>\n\t<td align=\"center\">+0</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Large</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Huge</td>\n\t<td align=\"center\">-2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Gargantuan</td>\n\t<td align=\"center\">-4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Colossal</td>\n\t<td align=\"center\">-8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Every 34 hours since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td>Every hour of rain since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Fresh snow cover since the trail was made</td>\n\t<td align=\"center\">+10</td>\n    </tr>\n    <tr>\n\t<td><i>Poor visibility:<sup>2</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Overcast or moonless night</td>\n\t<td align=\"center\">+6</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Moonlight</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>For or precipitation</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Tracked target hides trail (and moves at half speed)</td>\n\t<td class=\"last-row\" align=\"center\">+5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td colspan=\"2\">1 For a group of mixed sizes, apply only the modifier for the largest size category represented.</td>\n    </tr>\n    <tr>\n\t<td colspan=\"2\" class=\"last-row\">2 Apply only the largest modifier from this category.</td>\n    </tr>\n  </tbody>\n</table><br>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ognuhTfudCHBfr0h]{Track}</p></section>"
+        "content": "<h5><a name=\"track\"></a>Track</h5>\n<p><b>Benefit</b>: To find tracks or follow them for one mile requires a @Check[skill:survival]{Survival check}. The character must make another @Check[skill:survival]{Survival check} every time the tracks become difficult to follow.</p>\n<p class=\"close\">The character moves at half his or her normal speed (or at the character’s normal speed with a –5 penalty on the check, or at up to twice the character’s speed with a –20 penalty on the check). The DC depends on the surface and the prevailing conditions.</p>\n<table cellspacing=\"0\" width=\"120\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"50\">Surface</th>\n\t<th width=\"70\" align=\"center\">Track DC</th>\n    </tr>\n    <tr>\n\t<td>Very Soft</td>\n\t<td align=\"center\">5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Soft</td>\n\t<td align=\"center\">10</td>\n    </tr>\n    <tr>\n\t<td>Firm</td>\n\t<td align=\"center\">15</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"last-row\">Hard</td>\n\t<td class=\"last-row\" align=\"center\">20</td>\n    </tr>\n  </tbody>\n</table>\n<p><b>Very Soft</b>: Any surface (fresh snow, thick dust, wet mud) that holds deep, clear impressions of footprints.</p>\n<p><b>Soft</b>: Any surface soft enough to yield to pressure, but firmer than wet mud or fresh snow, in which the quarry leaves frequent but shallow footprints.</p>\n<p><b>Hard</b>: Most normal outdoor or exceptionally soft or dirty indoor surfaces. The quarry might leave some traces of its passage, but only occasional or partial footprints can be found.</p>\n<p><b>Firm</b>: Any surface that doesn’t hold footprints at all, such as bare rock, concrete, metal deckings, or indoor floors. The quarry leaves only traces, such as scuff marks.</p>\n<p>If the character fails a @Check[skill:survival]{Survival check}, he or she can retry after 1 hour (outdoors) or 10 minutes (indoors) of searching.</p>\n<p class=\"close\"><b>Normal</b>: A character without this feat can use the Survival skill to find tracks, but can only follow tracks if the DC is 10 or less. A character can use the Search skill to find individual footprints, but cannot follow tracks using Search.</p>\n<table cellspacing=\"0\" width=\"450\">\n  <tbody>\n    <tr class=\"tabletitle\">\n\t<th width=\"350\">Condition</th>\n\t<th width=\"100\" align=\"center\">DC Modifier</th>\n    </tr>\n    <tr>\n\t<td>Every three targets in the group being tracked</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td><i>Size of targets being tracked:<sup>1</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Fine</td>\n\t<td align=\"center\">+8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Diminutive</td>\n\t<td align=\"center\">+4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Tiny</td>\n\t<td align=\"center\">+2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Small</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Medium-size</td>\n\t<td align=\"center\">+0</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Large</td>\n\t<td align=\"center\">-1</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Huge</td>\n\t<td align=\"center\">-2</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Gargantuan</td>\n\t<td align=\"center\">-4</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Colossal</td>\n\t<td align=\"center\">-8</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Every 34 hours since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr>\n\t<td>Every hour of rain since the trail was made</td>\n\t<td align=\"center\">+1</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>Fresh snow cover since the trail was made</td>\n\t<td align=\"center\">+10</td>\n    </tr>\n    <tr>\n\t<td><i>Poor visibility:<sup>2</sup></i></td>\n\t<td align=\"center\"><br></td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td class=\"indent\">Overcast or moonless night</td>\n\t<td align=\"center\">+6</td>\n    </tr>\n    <tr>\n\t<td class=\"indent\">Moonlight</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td>For or precipitation</td>\n\t<td align=\"center\">+3</td>\n    </tr>\n    <tr>\n\t<td class=\"last-row\">Tracked target hides trail (and moves at half speed)</td>\n\t<td class=\"last-row\" align=\"center\">+5</td>\n    </tr>\n    <tr class=\"even-row\">\n\t<td colspan=\"2\">1 For a group of mixed sizes, apply only the modifier for the largest size category represented.</td>\n    </tr>\n    <tr>\n\t<td colspan=\"2\" class=\"last-row\">2 Apply only the largest modifier from this category.</td>\n    </tr>\n  </tbody>\n</table><br>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.ognuhTfudCHBfr0h]{Track}</p></section>"
       },
       "sort": 8600000,
       "flags": {},
@@ -1404,7 +1404,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"twf\"></a>Two-Weapon Fighting</h5>\n<p><b>Prerequisite</b>: Dexterity 13.</p>\n<p><b>Benefit</b>: The character\u2019s penalties for fighting with two weapons are lessened by 2 for the primary hand and 6 for the off hand.</p>\n<p>The weapons used must both be melee weapons or both be ranged weapons (the character can\u2019t mix the types).</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.qK0TJFmWsG2etTKU]{Two-Weapon Fighting}</p></section>"
+        "content": "<h5><a name=\"twf\"></a>Two-Weapon Fighting</h5>\n<p><b>Prerequisite</b>: Dexterity 13.</p>\n<p><b>Benefit</b>: The character’s penalties for fighting with two weapons are lessened by 2 for the primary hand and 6 for the off hand.</p>\n<p>The weapons used must both be melee weapons or both be ranged weapons (the character can’t mix the types).</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.qK0TJFmWsG2etTKU]{Two-Weapon Fighting}</p></section>"
       },
       "sort": 8800000,
       "flags": {},
@@ -1420,7 +1420,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"unbalance\"></a>Unbalance Opponent</h5>\n<p><b>Prerequisite</b>: Defensive Martial Arts, base attack bonus +6.</p>\n<p><b>Benefit</b>: During the character\u2019s action, the character designates an opponent no more than one size category larger or smaller than the character. That opponent doesn\u2019t get to add his or her Strength modifier to attack rolls when targeting the character. (If the opponent has a Strength penalty, he or hse still takes that penalty.)</p>\n<p>The opponent\u2019s Strength modifier applies to damage, as usual.</p>\n<p>The character can select a new opponent on any action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.YILNNfgEmqzgtkNT]{Unbalance Opponent}</p></section>"
+        "content": "<h5><a name=\"unbalance\"></a>Unbalance Opponent</h5>\n<p><b>Prerequisite</b>: Defensive Martial Arts, base attack bonus +6.</p>\n<p><b>Benefit</b>: During the character’s action, the character designates an opponent no more than one size category larger or smaller than the character. That opponent doesn’t get to add his or her Strength modifier to attack rolls when targeting the character. (If the opponent has a Strength penalty, he or hse still takes that penalty.)</p>\n<p>The opponent’s Strength modifier applies to damage, as usual.</p>\n<p>The character can select a new opponent on any action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.YILNNfgEmqzgtkNT]{Unbalance Opponent}</p></section>"
       },
       "sort": 8900000,
       "flags": {},
@@ -1436,7 +1436,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"vehicledodge\"></a>Vehicle Dodge</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Drive 6 ranks or Pilot 6 ranks, Vehicle Expert.</p>\n<p><b>Benefit</b>: When driving a vehicle, during the character\u2019s action the character designates an opposing vehicle or a single opponent. The character\u2019s vehicle and everyone aboard it receive a +1 dodge bonus to Defense against attacks from that vehicle or opponent. The character can select a new vehicle or opponent on any action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.QodfKDN0sd2SNj0y]{Vehicle Dodge}</p></section>"
+        "content": "<h5><a name=\"vehicledodge\"></a>Vehicle Dodge</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Drive 6 ranks or Pilot 6 ranks, Vehicle Expert.</p>\n<p><b>Benefit</b>: When driving a vehicle, during the character’s action the character designates an opposing vehicle or a single opponent. The character’s vehicle and everyone aboard it receive a +1 dodge bonus to Defense against attacks from that vehicle or opponent. The character can select a new vehicle or opponent on any action.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.QodfKDN0sd2SNj0y]{Vehicle Dodge}</p></section>"
       },
       "sort": 9000000,
       "flags": {},
@@ -1500,7 +1500,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"wwattack\"></a>Whirlwind Attack</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Intelligence 13, Dodge, Mobility, Spring Attack, Combat Expertise, base attack bonus +4.</p>\n<p><b>Benefit</b>: When the character performs a full-round action, the character can give up his or her regular attacks and instead make one melee attack at the character\u2019s highest base attack bonus against each adjacent opponent.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.PeGTMRqRvHMYM7ZN]{Whirlwind Attack}</p></section>"
+        "content": "<h5><a name=\"wwattack\"></a>Whirlwind Attack</h5>\n<p><b>Prerequisite</b>: Dexterity 13, Intelligence 13, Dodge, Mobility, Spring Attack, Combat Expertise, base attack bonus +4.</p>\n<p><b>Benefit</b>: When the character performs a full-round action, the character can give up his or her regular attacks and instead make one melee attack at the character’s highest base attack bonus against each adjacent opponent.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.PeGTMRqRvHMYM7ZN]{Whirlwind Attack}</p></section>"
       },
       "sort": 9400000,
       "flags": {},
@@ -1532,7 +1532,7 @@
       },
       "text": {
         "format": 1,
-        "content": "<h5><a name=\"windfall\"></a>Windfall</h5>\n<p><b>Benefit</b>: The character\u2019s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.</p>\n<p><b>Special</b>: A character can select this feat multiple times. Each time, both of its effects stack.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.UN4njpwVWq19GDae]{Windfall}</p></section>"
+        "content": "<h5><a name=\"windfall\"></a>Windfall</h5>\n<p><b>Benefit</b>: The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.</p>\n<p><b>Special</b>: A character can select this feat multiple times. Each time, both of its effects stack.</p>\n<section class=\"m20-in-world\"><hr><p><em>In this world:</em> @UUID[Compendium.modern20.feats.Item.UN4njpwVWq19GDae]{Windfall}</p></section>"
       },
       "sort": 9600000,
       "flags": {},

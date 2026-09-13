@@ -239,7 +239,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.W7rQi37YX8fSaHR8"
@@ -260,7 +260,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -300,7 +300,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false,
@@ -320,7 +320,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false,
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.mxPtgeL1demoBmZy"
@@ -349,7 +349,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A righteous aura surrounds the avenging angel. Any hostile creature within a 20-foot radius of a gotthammer must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or take a \u20132 morale penalty on attacks, AC, and saves for one day or until they successfully injure the gotthammer generating the aura. A creature that has resisted or broken the effect cannot be affected again by the gotthammer\u2019s aura for one day.</p>",
+        "description": "<p>A righteous aura surrounds the avenging angel. Any hostile creature within a 20-foot radius of a gotthammer must succeed at a @Check[save:will|dc:21]{Will save (DC 21)} or take a –2 morale penalty on attacks, AC, and saves for one day or until they successfully injure the gotthammer generating the aura. A creature that has resisted or broken the effect cannot be affected again by the gotthammer’s aura for one day.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -365,7 +365,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Once per day, as a free action, a gotthammer may call his shining greatsword to him. The weapon is normally hidden in a secure location of the gotthammer\u2019s choosing, but may be called from anywhere unless carried by another living creature or in an area where magic does not function. Once per day, as a full-round action, the gotthammer may dismiss the sword to a location of his choosing.</p>",
+        "description": "<p>Once per day, as a free action, a gotthammer may call his shining greatsword to him. The weapon is normally hidden in a secure location of the gotthammer’s choosing, but may be called from anywhere unless carried by another living creature or in an area where magic does not function. Once per day, as a full-round action, the gotthammer may dismiss the sword to a location of his choosing.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",
@@ -397,7 +397,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>A gotthammer can change his size as a move action, becoming a 20-foot-tall (Huge) figure at will. His greatsword\u2019s size increases proportionately. In this form, the gotthammer\u2019s statistics change as follows: Defense 25, touch 8, flat-footed 25 (\u20132 size, +17 natural); Grap +31; Atk +24 melee (4d6+16/19\u201320, +3 greatsword); Full Atk +24/+19/+14 melee (4d6+12/19\u201320, +3 greatsword); FS 15 ft. by 15 ft.; Reach 10 ft.; Str 29; Hide +6.</p>",
+        "description": "<p>A gotthammer can change his size as a move action, becoming a 20-foot-tall (Huge) figure at will. His greatsword’s size increases proportionately. In this form, the gotthammer’s statistics change as follows: Defense 25, touch 8, flat-footed 25 (–2 size, +17 natural); Grap +31; Atk +24 melee (4d6+16/19–20, +3 greatsword); Full Atk +24/+19/+14 melee (4d6+12/19–20, +3 greatsword); FS 15 ft. by 15 ft.; Reach 10 ft.; Str 29; Hide +6.</p>",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanmonst1.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.M5YY3kCExBHCkFHu",
         "source": "Urban Arcana",

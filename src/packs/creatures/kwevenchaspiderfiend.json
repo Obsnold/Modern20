@@ -259,7 +259,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character increases his or her massive damage threshold by 3 points.",
-        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character\u2019s massive damage threshold is current Con +3.",
+        "normal": "A character without this feat has a massive damage threshold equal to his or her current Constitution score. With this feat, the character’s massive damage threshold is current Con +3.",
         "special": "A character may gain this feat multiple times. Its effects stack.",
         "repeatable": false
       },
@@ -370,7 +370,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/poison-bottle.svg",
       "system": {
-        "description": "<p>Bite; contact 1d6 Str/1d6 Str; @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the kwevencha\u2019s Hit Dice + its Constitution modifier) resists.</p>",
+        "description": "<p>Bite; contact 1d6 Str/1d6 Str; @Check[save:fort]{Fortitude save} (DC 10 + 1/2 the kwevencha’s Hit Dice + its Constitution modifier) resists.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -430,7 +430,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/spider-web.svg",
       "system": {
-        "description": "<p>A kwevencha uses a spinneret in its abdomen to weave web cocoons around creatures incapacitated by its poison. A creature trapped inside the cocoon is immobile, although breathing is possible through the porous webbing. A kwevencha\u2019s web cocoon has 20 hit points and a break DC of 26. Dealing damage to the web cocoon deals a like amount of damage to the creature trapped inside.</p>",
+        "description": "<p>A kwevencha uses a spinneret in its abdomen to weave web cocoons around creatures incapacitated by its poison. A creature trapped inside the cocoon is immobile, although breathing is possible through the porous webbing. A kwevencha’s web cocoon has 20 hit points and a break DC of 26. Dealing damage to the web cocoon deals a like amount of damage to the creature trapped inside.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

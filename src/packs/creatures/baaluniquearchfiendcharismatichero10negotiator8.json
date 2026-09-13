@@ -379,7 +379,7 @@
     ],
     "senses": "Darkvision 120 ft.",
     "specialQualities": "Alternate form, aura of greed, conceal motive, damage reduction 10/+2, darkvision 120 ft., fear aura, immune to fire and poison, no sweat, react first, resistances, sow distrust, spell-like abilities, talk down several opponents",
-    "biography": "<p><strong>Attack:</strong> +26 melee (2d6+9, claw)</p><p><strong>Full Attack:</strong> +26 melee (2d6+9, 2 claws), or +26/+21/+16/+11 melee (by weapon), or +22/+17/+12/+7 ranged)</p><p><strong>Skills:</strong> Bluff +44, Computer Use +18, Concentration +16, Diplomacy +44, Forgery +16, Gamble +26, Gather Information +28, Intimidate +43, Knowledge (arcane lore) +29, Knowledge (behavioral sciences) +34, Knowledge (business) +46, Knowledge (civics) +46, Knowledge (current events) +40, Knowledge (history) +24, Knowledge (technology) +18, Knowledge (theology and philosophy) +16, Listen +13, Profession +41, Read/Write Abyssal, Read/Write Arabic, Read/Write Dutch, Read/Write English, Read/Write French, Read/Write German, Read/Write Greek, Read/ Write Italian, Read/Write Japanese, Read/Write Russian, Read/Write Spanish, Research +19, Sense Motive +32, Speak Abyssal, Speak Arabic, Speak Dutch, Speak English, Speak French, Speak German, Speak Greek, Speak Italian, Speak Japanese, Speak Russian, Speak Spanish, Spot +13.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Cleave, Confident, Deceptive, Educated, Frightful Presence, Iron Will, Personal Firearms Proficiency, Power Attack, Renown, Simple Weapons Proficiency, Sunder, Trustworthy, Windfall (\u00d74).</p><p><strong>Talents:</strong> (Charismatic Hero): Charm (males), coordinate, favor, greater inspiration, inspiration.</p>"
+    "biography": "<p><strong>Attack:</strong> +26 melee (2d6+9, claw)</p><p><strong>Full Attack:</strong> +26 melee (2d6+9, 2 claws), or +26/+21/+16/+11 melee (by weapon), or +22/+17/+12/+7 ranged)</p><p><strong>Skills:</strong> Bluff +44, Computer Use +18, Concentration +16, Diplomacy +44, Forgery +16, Gamble +26, Gather Information +28, Intimidate +43, Knowledge (arcane lore) +29, Knowledge (behavioral sciences) +34, Knowledge (business) +46, Knowledge (civics) +46, Knowledge (current events) +40, Knowledge (history) +24, Knowledge (technology) +18, Knowledge (theology and philosophy) +16, Listen +13, Profession +41, Read/Write Abyssal, Read/Write Arabic, Read/Write Dutch, Read/Write English, Read/Write French, Read/Write German, Read/Write Greek, Read/ Write Italian, Read/Write Japanese, Read/Write Russian, Read/Write Spanish, Research +19, Sense Motive +32, Speak Abyssal, Speak Arabic, Speak Dutch, Speak English, Speak French, Speak German, Speak Greek, Speak Italian, Speak Japanese, Speak Russian, Speak Spanish, Spot +13.</p><p><strong>Feats:</strong> Archaic Weapons Proficiency, Cleave, Confident, Deceptive, Educated, Frightful Presence, Iron Will, Personal Firearms Proficiency, Power Attack, Renown, Simple Weapons Proficiency, Sunder, Trustworthy, Windfall (×4).</p><p><strong>Talents:</strong> (Charismatic Hero): Charm (males), coordinate, favor, greater inspiration, inspiration.</p>"
   },
   "_key": "!actors!niiq7fl5gfAU9c0g",
   "items": [
@@ -429,7 +429,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character takes no penalty on attack rolls when using any kind of archaic weapon.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with archaic weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with archaic weapons.",
         "special": "",
         "repeatable": false
       },
@@ -450,7 +450,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -529,7 +529,7 @@
           "Charisma 15",
           "Intimidate 9 ranks."
         ],
-        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + \u00bd the character\u2019s level + the character\u2019s Charisma modifier). An opponent who fails his or her save is shaken, taking a \u20132 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character\u2019s Charisma modifier. The character can use the feat once per round as a free action.",
+        "benefit": "When the character uses this feat, all opponents within 10 feet who have fewer levels than the character must make a @Check[save:will]{Will saving throw} (DC 10 + ½ the character’s level + the character’s Charisma modifier). An opponent who fails his or her save is shaken, taking a –2 penalty on attack rolls, saves, and skill checks for a number of rounds equal to 1d6 + the character’s Charisma modifier. The character can use the feat once per round as a free action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -568,7 +568,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character can fire any personal firearm without penalty.",
-        "normal": "Characters without this feat take a \u20134 penalty on attack rolls made with personal firearms.",
+        "normal": "Characters without this feat take a –4 penalty on attack rolls made with personal firearms.",
         "special": "",
         "repeatable": false
       },
@@ -588,7 +588,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -607,7 +607,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.OkLVdpGFXfrDqArP",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character\u2019s Reputation bonus increases by +3.",
+        "benefit": "The character’s Reputation bonus increases by +3.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -627,7 +627,7 @@
         "featType": "general",
         "prerequisites": [],
         "benefit": "The character makes attack rolls with simple weapons normally.",
-        "normal": "A character without this feat takes the \u20134 nonproficient penalty when making attacks with simple weapons.",
+        "normal": "A character without this feat takes the –4 nonproficient penalty when making attacks with simple weapons.",
         "special": "",
         "repeatable": false
       },
@@ -686,7 +686,7 @@
         "rulesPage": "Compendium.modern20.rules.JournalEntry.d6dDbFeCTSrHL6vJ.JournalEntryPage.w9EpyKbWNBwI1oOV",
         "featType": "general",
         "prerequisites": [],
-        "benefit": "The character\u2019s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.",
+        "benefit": "The character’s Wealth bonus increases by +3. Also, this feat provides a +1 bonus on all @Check[skill:profession]{Profession check}s.",
         "normal": "",
         "special": "A character can select this feat multiple times. Each time, both of its effects stack.",
         "repeatable": false
@@ -747,7 +747,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/shield-reflect.svg",
       "system": {
-        "description": "<p>Baal ignores the first 10 points of damage dealt by any weapon with a magical bonus lower than +2. In campaigns without magic weapons, the GM can either disregard Baal\u2019s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
+        "description": "<p>Baal ignores the first 10 points of damage dealt by any weapon with a magical bonus lower than +2. In campaigns without magic weapons, the GM can either disregard Baal’s damage reduction or apply it only to certain types of weapons (ballistic, bludgeoning, piercing, slashing, or sonic/concussion).</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -779,7 +779,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/terror.svg",
       "system": {
-        "description": "<p>At will as a free action, Baal can create an aura of fear in a 20-foot radius around himself. This effect is otherwise identical to that of a fear spell (caster level 10th; Will DC 21). A creature that succeeds on the saving throw cannot be affected again by Baal\u2019s fear aura for 24 hours.</p>",
+        "description": "<p>At will as a free action, Baal can create an aura of fear in a 20-foot radius around himself. This effect is otherwise identical to that of a fear spell (caster level 10th; Will DC 21). A creature that succeeds on the saving throw cannot be affected again by Baal’s fear aura for 24 hours.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -875,7 +875,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>At will\u2014augury, bane, bestow curse, command, comprehend languages, confusion, detect magical aura, discern lies, dispel magic, enhance ability, faith\u2019s fury, fireball, flaming projectiles, flaming wrath, greater command, hold monster, inflict critical wounds, inflict light wounds, inflict moderate wounds, inflict serious wounds, knock, mass inflict light wounds, passwall, prestidigitation, read magic, see invisibility, telekinesis, true seeing, wall of fire. Caster level 10th; save DC 17 + spell level.</p>",
+        "description": "<p>At will—augury, bane, bestow curse, command, comprehend languages, confusion, detect magical aura, discern lies, dispel magic, enhance ability, faith’s fury, fireball, flaming projectiles, flaming wrath, greater command, hold monster, inflict critical wounds, inflict light wounds, inflict moderate wounds, inflict serious wounds, knock, mass inflict light wounds, passwall, prestidigitation, read magic, see invisibility, telekinesis, true seeing, wall of fire. Caster level 10th; save DC 17 + spell level.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat2.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",

@@ -172,7 +172,7 @@
           "Strength 13",
           "Power Attack."
         ],
-        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent\u2019s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can\u2019t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
+        "benefit": "If the character deals an opponent enough damage to make the opponent drop (either by knocking the opponent out due to massive damage or by reducing the opponent’s hit points to less than 0), the character gets an immediate extra melee attack against another opponent adjacent to the character. The character can’t take a 5-foot step before making this extra attack. The extra attack is with the same weapon and at the same bonus as the attack that dropped the previous opponent. The character can use this ability once per round.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -236,7 +236,7 @@
         "prerequisites": [
           "Strength 13."
         ],
-        "benefit": "On the character\u2019s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character\u2019s base attack bonus. The penalty on attacks and bonus on damage applies until the character\u2019s next action.",
+        "benefit": "On the character’s action, before making attack rolls for a round, the character may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed the character’s base attack bonus. The penalty on attacks and bonus on damage applies until the character’s next action.",
         "normal": "",
         "special": "",
         "repeatable": false
@@ -265,7 +265,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
       "system": {
-        "description": "<p>Part of the reason that so few sea serpents have ever been spotted or photographed is that they can make their forms indistinct and thereby blend into the lapping waves. As a full-round action, a sea serpent can blur its outline for a number of rounds equal to its Hit Dice. This distortion grants the sea serpent one-half concealment (20% miss chance). A sea serpent cannot be recorded on any visual media while in this state\u2014a photograph shows only a fuzzy haze. A see invisibility spell does not counteract this effect, but a true seeing spell does.</p>",
+        "description": "<p>Part of the reason that so few sea serpents have ever been spotted or photographed is that they can make their forms indistinct and thereby blend into the lapping waves. As a full-round action, a sea serpent can blur its outline for a number of rounds equal to its Hit Dice. This distortion grants the sea serpent one-half concealment (20% miss chance). A sea serpent cannot be recorded on any visual media while in this state—a photograph shows only a fuzzy haze. A see invisibility spell does not counteract this effect, but a true seeing spell does.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -313,7 +313,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/delapouite/swallower.svg",
       "system": {
-        "description": "<p>If a sea serpent begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the sea serpent, the opponent takes bludgeoning damage equal to the serpent\u2019s tail slap attack plus 1d6 points of acid damage per round from the monster\u2019s gullet. A successful grapple check allows the swallowed creature to climb out of the gullet and return to the sea serpent\u2019s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gullet using claws or a Small or Tiny slashing weapon. Dealing at least 20 points of damage to the gullet (Defense 25) in this way creates an opening large enough to permit escape. Once a single swallowed creature exits, muscular action closes the hole; thus, another swallowed creature must cut its own way out. A Huge sea serpent\u2019s gullet can hold 2 Medium-size, 8 Small, 32 Tiny, or 128 Diminutive or smaller opponents.</p>",
+        "description": "<p>If a sea serpent begins its turn with an opponent two or more size categories smaller than itself held in its mouth, it can attempt a new grapple check as though trying to pin the opponent. If it succeeds, it swallows its opponent, automatically dealing bite damage. Once inside the sea serpent, the opponent takes bludgeoning damage equal to the serpent’s tail slap attack plus 1d6 points of acid damage per round from the monster’s gullet. A successful grapple check allows the swallowed creature to climb out of the gullet and return to the sea serpent’s maw, where another successful grapple check is needed to get free. Alternatively, the swallowed creature can attack from inside the gullet using claws or a Small or Tiny slashing weapon. Dealing at least 20 points of damage to the gullet (Defense 25) in this way creates an opening large enough to permit escape. Once a single swallowed creature exits, muscular action closes the hole; thus, another swallowed creature must cut its own way out. A Huge sea serpent’s gullet can hold 2 Medium-size, 8 Small, 32 Tiny, or 128 Diminutive or smaller opponents.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
@@ -329,7 +329,7 @@
       "type": "specialAbility",
       "img": "systems/modern20/assets/icons/lorc/aura.svg",
       "system": {
-        "description": "<p>The sea serpent\u2019s coloration and shape grant it a +10 species bonus on @Check[skill:hide]{Hide check}s made while it is in water.</p>",
+        "description": "<p>The sea serpent’s coloration and shape grant it a +10 species bonus on @Check[skill:hide]{Hide check}s made while it is in water.</p>",
         "source": "Menace Manual",
         "srdUrl": "https://spellbooksoftware.com/d20mrsd/menacecreat4.html",
         "rulesPage": "Compendium.modern20.rules.JournalEntry.gkO7BHtoB7PZOT9Q.JournalEntryPage.QvZNL5dJUs6a3FCL",
