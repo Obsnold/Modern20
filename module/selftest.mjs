@@ -37,6 +37,12 @@ const { Actor, ChatMessage } = foundry.documents;
 
 const SYSTEM_ID = "modern20";
 
+// Bumped whenever this suite changes, and printed in the report. Two runs have
+// now come back byte-identical after a fix, with no way to tell "the fix did
+// not work" from "the fix is not on the host yet". A report that names the
+// code that produced it answers that in its first line.
+export const SUITE_REVISION = 3;
+
 /** One question and its answer. */
 class Results {
   constructor() {
@@ -73,6 +79,25 @@ class Results {
  */
 export async function runSelfTest({ images = true } = {}) {
   const results = new Results();
+
+  // What the console and the notification bar say while this runs, which is
+  // otherwise a red banner that is gone before it can be read. A report that
+  // says "eleven failures" and does not say "and this exception" sends the
+  // reader looking in the wrong place.
+  const noticed = [];
+  const realError = console.error;
+  const realNotify = ui.notifications?.error?.bind(ui.notifications);
+  console.error = (...args) => {
+    noticed.push(args.map((arg) => String(arg?.message ?? arg)).join(" "));
+    realError(...args);
+  };
+  if (realNotify) {
+    ui.notifications.error = (message, options) => {
+      noticed.push(String(message?.message ?? message));
+      return realNotify(message, options);
+    };
+  }
+
   const groups = [
     ["Compendia", checkPacks],
     ["Character sheet", checkHero],
@@ -83,13 +108,27 @@ export async function runSelfTest({ images = true } = {}) {
   ];
   if (images) groups.push(["Artwork", checkImages]);
 
-  for (const [name, group] of groups) {
-    results.section(name);
-    try {
-      await group(results);
-    } catch (error) {
-      results.ok(`${name} finished`, false, String(error?.message ?? error));
-      console.error(`${SYSTEM_ID} | self-test: ${name}`, error);
+  try {
+    for (const [name, group] of groups) {
+      results.section(name);
+      try {
+        await group(results);
+      } catch (error) {
+        results.ok(`${name} finished`, false, String(error?.message ?? error));
+        realError(`${SYSTEM_ID} | self-test: ${name}`, error);
+      }
+    }
+  } finally {
+    console.error = realError;
+    if (realNotify) ui.notifications.error = realNotify;
+  }
+
+  if (noticed.length) {
+    results.section("While it ran");
+    // Deduplicated: one fault that repeats per document would otherwise be
+    // hundreds of rows saying the same thing.
+    for (const message of [...new Set(noticed)].slice(0, 5)) {
+      results.ok("an error was reported", false, message.slice(0, 400));
     }
   }
   return results;
@@ -148,6 +187,11 @@ async function checkHero(results) {
 
   const source = cls.toObject();
   source.system.levels = wanted.levels;
+  // Pack bookkeeping, which a document in a world has no use for. Dropped so
+  // that if any of it is what a creation refuses, it is not this that refuses.
+  for (const key of ["_id", "_key", "_slug", "_stats", "ownership", "folder", "sort"]) {
+    delete source[key];
+  }
 
   if (!game.user?.isGM) {
     results.ok("a character can be made to check the arithmetic on", false,
@@ -167,8 +211,17 @@ async function checkHero(results) {
         )
       }
     });
-    // Dropped on, the way the sheet does it.
-    await actor.createEmbeddedDocuments("Item", [source]);
+    // Dropped on, the way the sheet does it. What this returns is reported
+    // rather than assumed: an item that fails validation is logged and
+    // skipped, and the only visible symptom is a character with no class.
+    let created = [];
+    try {
+      created = await actor.createEmbeddedDocuments("Item", [source]);
+    } catch (error) {
+      results.ok("the class item can be added to a character", false,
+                 String(error?.message ?? error));
+    }
+    results.same("adding the class item created one document", created.length, 1);
 
     await checkHeroNumbers(results, actor, wanted, abilities);
   } finally {
