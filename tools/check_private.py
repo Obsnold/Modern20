@@ -64,10 +64,13 @@ PATTERNS = [
      "a path into one particular install of the Foundry CLI"),
     (re.compile(r"/opt/node/\S*"),
      "a path into one particular Node install"),
-    # The CI comment named the Ansible role that configures the runner, which
-    # is a machine on somebody's network by another route.
-    (re.compile(r"\b[\w-]*(?:ansible|_runner_|-runner-)[\w-]*\b", re.I),
-     "a piece of somebody's own infrastructure"),
+    # The CI comment named the role that configures the runner, which is a
+    # machine on somebody's network by another route. The word "Ansible" on its
+    # own is not: this repository documents how to install a release with it,
+    # and a check that cannot tell a tool from one person's inventory of hosts
+    # fails the documentation for saying the tool's name.
+    (re.compile(r"\b[A-Za-z][\w]*[-_]runner[-_][\w.-]+\b"),
+     "a named runner or role, which is a machine on somebody's network"),
 ]
 
 # An address that is documentation rather than a machine: the licence's own
@@ -157,7 +160,7 @@ def main() -> int:
         print(f"FAIL  {problem}")
     if any("names" in problem or "@" in problem or "/home/" in problem
            for problem in problems):
-        print("\nThe deploy reads its host and paths from MODERN20_HOST, "
+        print("\ncapture_edits.py reads its host and paths from MODERN20_HOST, "
               "MODERN20_DEST, MODERN20_NODE_BIN and MODERN20_FVTT. Put the "
               "value there rather than in a file this repository tracks.")
     return 1 if problems else 0
