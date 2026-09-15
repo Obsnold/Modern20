@@ -41,7 +41,7 @@ const tables = read("combat_tables.json");
 
 if (Object.keys(COMBAT_ACTIONS).length !== actions.length) {
   fail(`combat-data.mjs has ${Object.keys(COMBAT_ACTIONS).length} actions, `
-    + `data/combat_actions.json has ${actions.length} — run gen_combat_data.py`);
+    + `data/combat_actions.json has ${actions.length} — one of the two has drifted`);
 }
 for (const action of actions) {
   const generated = COMBAT_ACTIONS[action.id];

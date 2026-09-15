@@ -1,6 +1,6 @@
 /**
  * The combat tables, generated from data/combat_actions.json and
- * data/combat_tables.json by tools/gen_combat_data.py.
+ * data/combat_tables.json, the scraped SRD. Maintained here now.
  *
  * "Table: Actions in Combat" is the whole action economy: every action the
  * SRD names, what it costs, and whether it provokes an attack of opportunity.

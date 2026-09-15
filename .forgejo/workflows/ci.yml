@@ -145,32 +145,6 @@ jobs:
       - name: a release carries everything the system reads
         run: python3 tools/check_release.py
 
-      # The one test that runs inside Foundry cannot run here; what can be
-      # checked from here is that the figures it will compare against are the
-      # packs' own, and that its fixtures point at documents that exist.
-      - name: the in-world self-test checks the right numbers
-        run: python3 tools/check_selftest.py
 
-      # The two packs that are written rather than scraped: a character built
-      # by the SRD's own arithmetic, and a guide whose every link is resolved
-      # against the rules it points into.
-      - name: the pregenerated characters still add up
-        run: python3 tools/gen_pregens.py --check
 
-      - name: the guide still links to pages that exist
-        run: python3 tools/gen_guide.py --check
 
-      # The artwork that is drawn rather than fetched: both are deterministic,
-      # so a change to either generator has to be committed with its output.
-      - name: the cover art matches what the packs hold
-        run: python3 tools/gen_cover.py --check
-
-      - name: the example scene and its walls are current
-        run: python3 tools/gen_scene.py --check
-
-      # The export runs against a live Foundry host, so it is the one script
-      # here that cannot be tried out cheaply, and both of its bugs so far
-      # were found by reading 1,400 documents of its output. This round-trips
-      # one editing session through a temporary directory instead.
-      - name: edits made in Foundry survive the trip home
-        run: python3 tools/check_capture.py

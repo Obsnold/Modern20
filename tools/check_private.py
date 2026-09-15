@@ -160,9 +160,8 @@ def main() -> int:
         print(f"FAIL  {problem}")
     if any("names" in problem or "@" in problem or "/home/" in problem
            for problem in problems):
-        print("\ncapture_edits.py reads its host and paths from MODERN20_HOST, "
-              "MODERN20_DEST, MODERN20_NODE_BIN and MODERN20_FVTT. Put the "
-              "value there rather than in a file this repository tracks.")
+        print("\nPut a host or a path into the environment rather than into a "
+              "file this repository tracks.")
     return 1 if problems else 0
 
 

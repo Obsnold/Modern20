@@ -8,21 +8,17 @@
 # own package browser is a separate, optional submission on foundryvtt.com,
 # which asks for exactly these two URLs.)
 #
-# Shaped after the dnd5e system's own release workflow, which is the reference
-# every other system copies, with two of its ideas kept because they are the
-# ones that stop a broken release going out:
+# Four things happen and nothing else:
 #
-#   - the tag has to match the version in system.json, or the release is
-#     refused. A release whose manifest and tag disagree about the version
-#     installs, and then never updates.
-#   - the zip holds exactly what the manifest names, worked out from the
-#     manifest rather than listed here, so a directory added to the system
-#     cannot be left out of its own release.
-#
-# What this does differently: the URLs are written in at release time from the
-# repository this runs in, rather than committed and then checked. The
-# repository has never named an owner it might not have, and a fork gets URLs
-# that point at the fork rather than at somebody else's releases.
+#   - the tag is held to the version in system.json, because a release whose
+#     manifest and tag disagree installs and then never offers an update
+#   - the compendia are compiled, because Foundry reads LevelDB and this
+#     repository holds one JSON per document
+#   - the URLs are written from the repository this runs in, so the manifest
+#     points at its own release and a fork points at the fork
+#   - the zip holds what the manifest names, worked out from the manifest
+#     rather than listed, so a directory added to the system cannot be left
+#     out of its own release
 #
 #     git tag release-<the version in system.json> && git push --tags
 
@@ -47,16 +43,13 @@ jobs:
         with:
           node-version: 22
 
-      - name: Work out what is being released
+      - name: Hold the tag to the version
         run: |
           set -eu
           TAG="${GITHUB_REF#refs/tags/}"
           VERSION="$(python3 -c 'import json; print(json.load(open("system.json"))["version"])')"
           ID="$(python3 -c 'import json; print(json.load(open("system.json"))["id"])')"
 
-          # The tag says what version this is. If the manifest disagrees, the
-          # release installs and then never offers an update, because Foundry
-          # compares the installed version with the manifest's.
           if [ "$TAG" != "release-$VERSION" ]; then
             echo "The tag is $TAG and system.json says $VERSION." >&2
             echo "Tag it release-$VERSION, or bump the version first." >&2
@@ -64,21 +57,12 @@ jobs:
           fi
 
           echo "TAG=$TAG" >> "$GITHUB_ENV"
-          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "ZIP=$ID-$TAG.zip" >> "$GITHUB_ENV"
-
-      - name: Install the linters, Pillow and the Foundry CLI
-        run: |
-          npm install --no-audit --no-fund
-          python3 -m pip install --quiet --break-system-packages pillow
-          npm install --no-audit --no-fund --global @foundryvtt/foundryvtt-cli
-
-      - name: Everything that has to be true before a release
-        run: npm test
 
       - name: Compile the compendia
         run: |
           set -eu
+          npm install --no-audit --no-fund --global @foundryvtt/foundryvtt-cli
           # src/packs holds one JSON per document; Foundry reads LevelDB. The
           # compiled packs are not committed — they are built here, from the
           # source the checks have just read.

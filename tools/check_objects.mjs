@@ -40,7 +40,7 @@ const scraped = JSON.parse(readFileSync(join(ROOT, "data", "objects.json"), "utf
 
 for (const size of scraped.sizes) {
   if (JSON.stringify(OBJECT_DEFENSE[size.size]) !== JSON.stringify(size)) {
-    fail(`${size.size} differs between the scrape and object-data.mjs — run gen_objects.py`);
+    fail(`${size.size} differs between the scrape and object-data.mjs`);
   }
 }
 for (const substance of scraped.substances) {

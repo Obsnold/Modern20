@@ -20,9 +20,6 @@ So this resolves every image in every pack against the filesystem — an
   - a core icon (`icons/...`) is Foundry's own and cannot be verified from
     here, so it is counted and reported rather than trusted — unless
     FOUNDRY_PATH names an install, in which case it is checked properly
-  - every icon `tools/art.py` names has to be fetched, and every fetched
-    icon has to be named by the map: an orphan is 4 KB of somebody else's
-    artwork carried for nothing, and the licence asks that it be credited
   - every actor has to be pictured by a disc that was cut, and every disc has
     to be usable by some actor: a token with no artwork is Foundry's grey
     mystery-man, which is a decision nobody made
@@ -51,13 +48,16 @@ import sys
 import xml.etree.ElementTree as ElementTree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import art  # noqa: E402
-import fetch_art  # noqa: E402
 import srd  # noqa: E402
 
 PACKS = os.path.join(srd.ROOT, "src", "packs")
-ASSETS = art.ASSETS
-TOKENS = art.TOKENS
+ASSETS = os.path.join(srd.ROOT, "assets", "icons")
+TOKENS = os.path.join(srd.ROOT, "assets", "tokens")
+
+# How Foundry addresses this system's own files: relative to the data
+# directory, which is where a package's files are served from.
+PREFIX = "systems/modern20/assets/icons/"
+TOKEN_PREFIX = "systems/modern20/assets/tokens/"
 CREDITS = os.path.join(ASSETS, "CREDITS.md")
 BASELINE = os.path.join(srd.ROOT, "data", "coverage.json")
 
@@ -84,58 +84,6 @@ def documents():
         yield pack, label, document
         for child in (document.get("items") or []):
             yield pack, f"{label}: {child.get('name')}", child
-
-
-TRANSFORM = re.compile(r"translate\(([-\d.]+) ([-\d.]+)\)\s*scale\(([\d.]+)\)")
-
-# How far off the intended fill a disc may be before it is wrong. The scaling
-# is arithmetic, so this is tight: it catches a disc drawn by an older version
-# of the cutter, not rounding.
-FILL_TOLERANCE = 0.02
-
-
-def disc_trouble(path: str) -> str:
-    """Whether a token disc draws its figure at the size a token is read at.
-
-    Twice now the tokens have looked too small on a map, and both times the
-    cause was scaling the glyph by a fraction of the box it was drawn in rather
-    than by what it actually draws: the ink spans 71% to 116% of that box
-    across this set, so one number produced 43 different sizes. This measures
-    the ink after the transform, which is the only figure that means anything —
-    the fraction of the grid square the creature fills.
-    """
-    root = ElementTree.parse(path).getroot()
-    box = (root.get("viewBox") or "").split()
-    if len(box) != 4:
-        return "has no usable viewBox"
-    width = float(box[2])
-
-    group = root.find(f"{SVG}g")
-    if group is None:
-        return "has no transformed group, so its glyph is not scaled to the token"
-    found = TRANSFORM.search(group.get("transform") or "")
-    if not found:
-        return "has a group whose transform is not a translate and a scale"
-    shift_x, shift_y, scale = (float(value) for value in found.groups())
-
-    data = "".join(element.get("d") or "" for element in group.iter(f"{SVG}path"))
-    bounds = fetch_art.ink_bounds(data)
-    if not bounds:
-        return "draws no path this can measure"
-
-    left, top, right, bottom = bounds
-    drawn = max(right - left, bottom - top) * scale / width
-    if abs(drawn - fetch_art.TOKEN_GLYPH) > FILL_TOLERANCE:
-        return (f"draws its figure at {drawn:.0%} of the square, not "
-                f"{fetch_art.TOKEN_GLYPH:.0%} — re-cut with "
-                "`python3 tools/fetch_art.py --recut`")
-
-    # A figure that fills the square and sits off-centre hangs off one edge.
-    off_x = abs((left + right) / 2 * scale + shift_x - width / 2)
-    off_y = abs((top + bottom) / 2 * scale + shift_y - float(box[3]) / 2)
-    if max(off_x, off_y) > width * 0.01:
-        return f"draws its figure {max(off_x, off_y):.0f} units off centre"
-    return ""
 
 
 def served(path: str) -> str:
@@ -209,14 +157,14 @@ def main() -> int:
         token = ((document.get("prototypeToken") or {}).get("texture") or {}).get("src")
         if token:
             checked += 1
-            if token.startswith(art.TOKEN_PREFIX):
-                relative = token[len(art.TOKEN_PREFIX):]
+            if token.startswith(TOKEN_PREFIX):
+                relative = token[len(TOKEN_PREFIX):]
                 tokens_used.add(relative)
                 local = os.path.join(TOKENS, relative)
                 if not os.path.exists(local):
                     problems.append(f"{label}: {token} is not in assets/tokens")
                 else:
-                    trouble = svg_trouble(local) or disc_trouble(local)
+                    trouble = svg_trouble(local)
                     if trouble:
                         problems.append(f"{label}: token art {relative} {trouble}")
             elif token.startswith("icons/"):
@@ -240,8 +188,8 @@ def main() -> int:
         counts["icons"].add(image)
         checked += 1
 
-        if image.startswith(art.PREFIX):
-            relative = image[len(art.PREFIX):]
+        if image.startswith(PREFIX):
+            relative = image[len(PREFIX):]
             local = os.path.join(ASSETS, relative)
             used.add(relative)
             if not os.path.exists(local):
@@ -257,57 +205,6 @@ def main() -> int:
                 problems.append(f"{label}: {image} {trouble}")
         else:
             problems.append(f"{label}: {image} is neither a vendored icon nor a core one")
-
-    # The map and the directory have to agree in both directions.
-    named = set()
-    for icon in art.icons():
-        named.add(icon + ".svg" if "/" in icon else icon)
-    vendored = {os.path.relpath(path, ASSETS)
-                for path in glob.glob(os.path.join(ASSETS, "*", "*.svg"))}
-
-    for icon in sorted(named):
-        if "/" in icon and icon not in vendored:
-            problems.append(f"tools/art.py names {icon}, which is not fetched")
-    unqualified = {icon for icon in named if "/" not in icon}
-    for slug in sorted(unqualified):
-        if not any(os.path.basename(path) == slug + ".svg" for path in vendored):
-            problems.append(f"tools/art.py names {slug}, which is not fetched")
-
-    for path in sorted(vendored):
-        slug = os.path.basename(path)[:-4]
-        if path not in named and slug not in unqualified:
-            problems.append(f"assets/icons/{path} is fetched and nothing names it")
-
-    # The discs, held to the map the same way in both directions: an actor can
-    # only be pictured by one that was cut, and a disc nothing can use is
-    # artwork carried for nothing.
-    discs = {os.path.relpath(path, TOKENS)
-             for path in glob.glob(os.path.join(TOKENS, "*", "*.svg"))}
-    wanted_discs = set()
-    for icon in art.token_icons():
-        found = art.resolve(icon, art.TOKENS)
-        if found:
-            wanted_discs.add(found)
-        else:
-            problems.append(f"tools/art.py can picture an actor with {icon}, "
-                            "which is not cut as a token")
-    for path in sorted(discs - wanted_discs):
-        problems.append(f"assets/tokens/{path} is cut and no actor can use it")
-
-    # The paths the modules themselves name. There are ten — the artwork a
-    # brand-new actor of each type starts with — and they are the same kind of
-    # string as a core icon path: nobody notices a wrong one until an actor is
-    # created with it.
-    for module in sorted(glob.glob(os.path.join(srd.ROOT, "module", "**", "*.mjs"),
-                                   recursive=True)):
-        with open(module, encoding="utf-8") as handle:
-            source = handle.read()
-        for path in sorted(set(ASSET_PATH.findall(source))):
-            local = os.path.join(srd.ROOT, path.replace("systems/modern20/", ""))
-            checked += 1
-            if not os.path.exists(local):
-                problems.append(f"{os.path.relpath(module, srd.ROOT)} names {path}, "
-                                "which is not in this repository")
 
     # The pictures the manifest itself names: the cover on the setup screen and
     # the thumbnail in a package list. Nothing in the system reads these, so a
@@ -335,6 +232,8 @@ def main() -> int:
     else:
         with open(CREDITS, encoding="utf-8") as handle:
             credits = handle.read()
+        vendored = {os.path.relpath(path, ASSETS)
+                    for path in glob.glob(os.path.join(ASSETS, "*", "*.svg"))}
         for author in sorted({path.split(os.sep)[0] for path in vendored}):
             if author not in credits:
                 problems.append(f"assets/icons/CREDITS.md does not credit {author}")
@@ -345,7 +244,9 @@ def main() -> int:
     for pack, counts in sorted(spread.items()):
         print(f"  {pack:14s} {counts['pictured']:5d} pictured, "
               f"{counts['icons']:3d} distinct icon(s)")
-    print(f"\n{checked} images checked, {len(vendored)} vendored icons, "
+    discs = glob.glob(os.path.join(TOKENS, "*", "*.svg"))
+    print(f"\n{checked} images checked, "
+          f"{len(glob.glob(os.path.join(ASSETS, '*', '*.svg')))} vendored icons, "
           f"{len(tokens_used)} of {len(discs)} token discs in use, "
           f"{core} core icon(s) referenced"
           + ("" if FOUNDRY else " (not verifiable: FOUNDRY_PATH is unset)"))

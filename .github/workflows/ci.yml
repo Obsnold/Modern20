@@ -30,11 +30,6 @@ jobs:
       - name: Install the linters and the type checker
         run: npm install --no-audit --no-fund
 
-      # Pillow draws the cover and the example scene. Both are committed, and
-      # their checks skip without it rather than fail — but a runner that has
-      # it checks that the artwork still matches what it is drawn from.
-      - name: Install Pillow, so the artwork checks run rather than skip
-        run: python3 -m pip install --quiet --break-system-packages pillow
 
       # Lint, then every check: fourteen that read this repository and seven
       # that build the system's data models against Foundry stubs.
