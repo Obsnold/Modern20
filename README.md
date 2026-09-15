@@ -1,11 +1,12 @@
 # Modern20
 
-The **d20 Modern System Reference Document** as a game system for
-[Foundry Virtual Tabletop](https://foundryvtt.com): character sheets that derive
-what the book derives, the whole SRD as a searchable rules reference, and 1,677
-compendium documents linked to the pages they came from.
+This is a d20 modern system for foundry [Foundry Virtual Tabletop](https://foundryvtt.com).
+it includes Urban Arcana, Future and some other stuff.
 
-Foundry v13, verified against v14.
+Apart from these few lines this project is 110% vibe coded.  
+I pointed claude at the SRD and told it to get to work...
+
+It runs on v14, everything loads but I have not tested in anger yet.
 
 ## Installing
 
