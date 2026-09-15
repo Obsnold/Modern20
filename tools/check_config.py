@@ -58,7 +58,7 @@ def config_skills() -> dict[str, dict]:
 def srd_skills() -> dict[str, dict]:
     path = os.path.join(ROOT, "data", "skills.json")
     if not os.path.exists(path):
-        print("data/skills.json is missing; run tools/scrape.py first.", file=sys.stderr)
+        print("data/skills.json is missing.", file=sys.stderr)
         sys.exit(2)
 
     return {

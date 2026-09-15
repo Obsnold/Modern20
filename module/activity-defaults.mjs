@@ -1,6 +1,7 @@
 /**
  * Default activities by item type, generated from data/activity_defaults.json
- * by tools/gen_activity_defaults.py.
+ * from data/activity_defaults.json, which is the scraped SRD. Maintained
+ * here now: the generator that wrote it has been removed.
  *
  * The same data drives the compendium build, so a weapon from a pack and one
  * created by hand end up with identical activities.

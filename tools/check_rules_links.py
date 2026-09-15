@@ -42,12 +42,15 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import build_packs  # noqa: E402
 import srd  # noqa: E402
 
 ROOT = srd.ROOT
 PACKS = os.path.join(ROOT, "src", "packs")
 BASELINE = os.path.join(ROOT, "data", "coverage.json")
+
+# The fields the SRD prints its rules text in, and so the fields a roll can be
+# written into: a spell's description, a feat's benefit, a creature ability.
+PROSE_FIELDS = ("description", "benefit", "normal", "special")
 
 UUID = re.compile(
     r"^Compendium\.modern20\.rules\.JournalEntry\.(\w{16})\.JournalEntryPage\.(\w{16})$")
@@ -60,7 +63,7 @@ CITED = re.compile(r"Compendium\.modern20\.rules\.JournalEntry\.\w{16}"
 TOPIC_BLOCK = re.compile(r"RULES_TOPICS = \{(.*?)\n\};", re.S)
 TOPIC = re.compile(r'"([\w]+)":\s*"([^"]+)"')
 
-# What a rules page says it is the rules for: the footer tools/link_rules.py
+# What a rules page says it is the rules for: the footer the import
 # writes, and each document it lists.
 FOOTER = re.compile(r'<section class="m20-in-world">(.*?)</section>', re.S)
 LISTED = re.compile(
@@ -199,7 +202,7 @@ def written_rolls(rules_files: list[str]):
 
     for pack, label, document, _embedded in documents():
         system = document.get("system") or {}
-        for field in build_packs.PROSE_FIELDS:
+        for field in PROSE_FIELDS:
             text = system.get(field)
             if isinstance(text, str) and text.strip():
                 yield f"{label} ({field})", text

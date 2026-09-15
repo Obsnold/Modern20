@@ -1,6 +1,7 @@
 /**
  * The SRD's condition list, generated from data/conditions.json by
- * tools/gen_conditions.py. Names and descriptions live in lang/en.json under
+ * data/conditions.json, the scraped SRD, and maintained here now. Names and
+ * descriptions live in lang/en.json under
  * MODERN20.Condition, so they can be translated; the mechanical changes are in
  * module/conditions.mjs.
  */

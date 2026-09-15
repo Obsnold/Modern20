@@ -2,7 +2,7 @@
  * Static configuration for the Modern20 system.
  *
  * Rules data here is transcribed from the d20 Modern SRD. Where the SRD is the
- * authoritative source, `tools/scrape.py` writes machine-read copies into
+ * authoritative source, the scrape that built this system wrote machine-read copies into
  * `data/` and `tools/check_config.py` diffs them against this file, so drift
  * shows up as a failing check rather than a silent rules bug.
  */
@@ -59,7 +59,8 @@ MODERN20.saves = {
  * `ability: null` means the skill has no key ability (Read/Write Language and
  * Speak Language are acquired, not rolled).
  * `specialties: true` marks skills taken per-subject, e.g. Knowledge (streetwise).
- * Transcribed from the SRD skill table; see tools/scrape.py.
+ * Transcribed from the SRD skill table; data/skills.json is the same table,
+ * and check_config.py holds the two to each other.
  */
 MODERN20.skills = {
   balance:            { label: "MODERN20.Skill.Balance",            ability: "dex", trainedOnly: false, armorCheck: true },

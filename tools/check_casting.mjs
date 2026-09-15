@@ -2,7 +2,7 @@
  * Check the spell and psionic power rules.
  *
  * Two things are worth checking automatically. First, the activity a casting
- * item ships with is produced twice — by tools/build_packs.py for the
+ * item ships with was produced twice — by the import that built the
  * compendium and by module/apps/activities.mjs for an item made by hand — and
  * the whole point of that arrangement is that the two agree. Second, the SRD's
  * arithmetic: the save DC and the way damage grows with caster level.

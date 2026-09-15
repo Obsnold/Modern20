@@ -21,7 +21,6 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import art  # noqa: E402
 import srd  # noqa: E402
 
 ROOT = srd.ROOT
@@ -62,6 +61,11 @@ DISPOSITIONS = {-1, 0}
 # compile on the host.
 EMBEDDED = {"actors": ("items",), "journal": ("pages",), "items": ("effects",),
             "tables": ("results",), "scenes": ("walls", "lights")}
+
+# How an actor's token draws its artwork: twice the token, anchored a quarter
+# down, so a figure stands on its square rather than being contained by it. A
+# drawing that exactly fills its square reads small on a map.
+TOKEN_TEXTURE = {"scaleX": 2, "scaleY": 2, "anchorX": 0.5, "anchorY": 0.25}
 
 
 def printed_creatures() -> list[dict]:
@@ -183,7 +187,7 @@ def main() -> int:
                 # and it is the difference between a figure that reads on a map
                 # and one that looks like the wrong size. A reconcile used to
                 # strip it from all 399 documents without a word.
-                for key, value in art.TOKEN_TEXTURE.items():
+                for key, value in TOKEN_TEXTURE.items():
                     if texture.get(key) != value:
                         fail(f"{pack}: \"{entry['name']}\" draws its token with "
                              f"{key}={texture.get(key)!r}, not {value!r}")

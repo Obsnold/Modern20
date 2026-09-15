@@ -57,7 +57,7 @@ const scraped = JSON.parse(
 
 if (Object.keys(CREATURE_TYPES).length !== scraped.types.length) {
   fail(`creature-types.mjs has ${Object.keys(CREATURE_TYPES).length} types, `
-    + `the scrape has ${scraped.types.length} — run gen_creature_types.py`);
+    + `the scrape has ${scraped.types.length} — one of the two has drifted`);
 }
 for (const type of scraped.types) {
   if (JSON.stringify(CREATURE_TYPES[type.id]) !== JSON.stringify(type)) {
@@ -586,7 +586,7 @@ const advancement = JSON.parse(readFileSync(join(ROOT, "data", "advancement.json
 for (const step of advancement.sizes) {
   if (JSON.stringify(SIZE_ADVANCEMENT[step.from]) !== JSON.stringify(step)) {
     fail(`${step.from} differs between the scrape and advancement-data.mjs `
-      + "— run gen_advancement.py");
+      + "— one of the two has drifted");
   }
 }
 
