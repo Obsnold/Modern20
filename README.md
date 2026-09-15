@@ -114,8 +114,8 @@ packs/                   Compiled LevelDB packs; generated, gitignored
 ```
 
 Nothing under `tools/`, `data/` or `src/packs/` is ever served to Foundry — the
-release zip and the private deploy both carry only `module`, `templates`, `css`,
-`lang`, `assets`, the compiled `packs` and `system.json`. The pipeline is in the
+release zip carries only `module`, `templates`, `css`, `lang`, `assets`, the
+compiled `packs` and `system.json`. The pipeline is in the
 repository because the release runs it, which is how the systems this is modelled
 on are laid out: dnd5e keeps its build tooling in `utils/` and commits
 `packs/_source/` while gitignoring the compiled packs, and pf2e keeps its in
@@ -153,56 +153,70 @@ a broken release going out: **the tag has to match the version** in
 `system.json`, or the release is refused — a release whose manifest disagrees
 with its tag installs and then never offers an update — and **the zip's contents
 are worked out from the manifest** rather than listed, so a directory added to
-the system cannot be left out of its own release. `check_deploy.py` holds it to
-the same rule it holds the private deploy to: every directory the system reads
-at runtime has to reach it, and a release missing `assets/` installs perfectly
-and draws no artwork.
+the system cannot be left out of its own release. `check_release.py` holds it
+to that: every directory the system reads at runtime has to reach the zip, and
+a release missing `assets/` installs perfectly and draws no artwork.
 
 Where this differs from dnd5e: the URLs are **written at release time** from the
 repository the workflow runs in, rather than committed and then verified. This
 repository never names an owner it might not have, and a fork's release points
 at the fork rather than at somebody else's downloads.
 
-`tools/deploy.sh` is a different thing and not how anybody else gets this: it
-scp's the working tree to one Foundry host and restarts it, which is the inner
-loop while developing. Its host and paths come from `MODERN20_HOST` and friends.
-Foundry's own recommendation for that loop, if the server is the same machine
-you write on, is simpler still — symlink the repository into
-`Data/systems/modern20` and reload the world.
-
-## Creating and levelling
-
-`tools/deploy.sh` builds, verifies and installs in one step:
-
-```bash
-export MODERN20_HOST=user@host         # once, in your own shell
-tools/deploy.sh                      # code, templates, styles, assets
-tools/deploy.sh --packs              # also recompile and install the compendia
-tools/deploy.sh user@other --packs   # or name a host for this run
-```
-
-Where it deploys to comes from the environment, never from a file here:
-
-| | |
-|---|---|
-| `MODERN20_HOST` | `user@host` of the Foundry server — required, and the deploy says so if it is unset |
-| `MODERN20_DEST` | where the system is installed there; defaults to `/var/lib/foundryvtt/Data/systems/modern20`, which is where a packaged Foundry on Linux keeps its data |
-| `MODERN20_NODE_BIN` | a directory to put on `PATH` on that host, if node is not already on it |
-| `MODERN20_FVTT` | the Foundry CLI there; defaults to `fvtt`, which is what installing it globally gives you |
-
 `check_private.py` holds the repository to that: no addresses, no `user@host`,
 no home directories, no paths into one person's toolchain. It also fails a
-script nothing runs and nothing imports — `resize_tokens.py` was one, a one-off
-that set the token scale by walking every JSON file in the repository, which is
-now a line in `art.py`; left behind, it is something the next reader has to
-work out the status of. All of that was
-written out here for a while — one laptop's default host in two scripts — and
-none of it was a secret, but a default that silently points at a machine the
-reader does not have is worse than no default at all.
+script nothing runs and nothing imports. All of that was written out here for a
+while — one laptop's default host in two scripts — and none of it was a secret,
+but a default that silently points at a machine the reader does not have is
+worse than no default at all.
 
-Every check runs before anything is copied, and a failure stops the deploy.
-Checks are deliberately not piped into `tail`: a pipe reports the exit status of
-the last command in it, which once let a failing check deploy anyway.
+## Installing it on a server
+
+A Foundry host installs a system the same way a person does: it reads the
+manifest and unpacks the zip into `Data/systems/modern20`. So a configuration
+manager has two URLs to work with and nothing else to know.
+
+```yaml
+# Ansible, in outline. Both URLs come from the release; nothing here needs to
+# know how the system is built.
+- name: Read the latest release manifest
+  ansible.builtin.uri:
+    url: https://github.com/OWNER/REPO/releases/latest/download/system.json
+    return_content: true
+  register: manifest
+
+- name: Install the system when the version has moved
+  ansible.builtin.unarchive:
+    src: "{{ (manifest.content | from_json).download }}"
+    remote_src: true
+    dest: /var/lib/foundryvtt/Data/systems/modern20
+    owner: foundry
+    group: foundry
+  when: (manifest.content | from_json).version
+        != (installed_version | default("none"))
+  notify: restart foundry
+```
+
+The `download` field in the manifest is the zip for that exact version, so a
+host compares the version it has with the version the manifest states and
+unpacks only when it moves. That is the whole update mechanism, and it is the
+same one Foundry's own **Update System** button uses.
+
+**While the repository is private**, neither URL is reachable without
+credentials — Foundry's own installer cannot send a token, and Ansible needs
+one: a fine-grained token with `Contents: read`, sent as
+`Authorization: Bearer <token>` on both requests, and the asset fetched from
+the API rather than the browser URL. Making the repository public removes all
+of that.
+
+There is no deploy script here any more. There was one — it scp'd the working
+tree to one host and restarted it — and every bug the release check exists for
+came from it: a hand-kept list of directories to copy that fell behind what the
+system reads, a hand-kept list of packs to compile that never gained the tables
+pack, and no readback, so a copy of nothing looked exactly like a copy of
+everything. A release carries what the manifest names, and the manifest is the
+thing the system is already described by.
+
+## Creating and levelling
 
 **Character creation** is a stepped flow — abilities, occupation, class, review —
 reached from the Character tab of a hero with no class yet. It follows the shape
@@ -1273,7 +1287,6 @@ labelled and the numbers are the ones the game uses, and then brought back into
 npm run extract:dry                 # what the live packs hold that src/packs does not
 npm run extract                     # bring it home
 git diff src/packs                  # read it, fill in each "why", commit
-npm run deploy:packs                # recompile and install
 ```
 
 `npm run extract` (`tools/capture_edits.py`) unpacks the live compendia with
@@ -1295,14 +1308,17 @@ and each one is a way an afternoon in Foundry actually ends:
   compendium root. New folders come home too, and a new document left outside
   the folders is named, because `check_packs.py` fails on it.
 - **A document deleted in Foundry.** Reported, never acted on. A pack that
-  failed to unpack, or a host pulled before it was deployed, would otherwise
+  failed to unpack, or a host read before a release reached it, would otherwise
   read as every document in it having been deleted.
 
-Packing rewrites the compendia from `src/packs`, so an uncaptured edit is gone
-the moment `deploy.sh --packs` runs. Now that this is where content is edited,
-that is the easiest way to lose the afternoon, so `--packs` checks the host
-first and refuses; `--overwrite-live` says the live packs really are the ones
-to throw away.
+A release compiles the compendia from `src/packs`, so an edit made in Foundry
+and not brought home is overwritten the next time a host updates. That is the
+easiest way to lose an afternoon, which is what this exists for: capture it,
+read the diff, commit it, and the next release carries it.
+
+It reads the live packs over ssh (`MODERN20_HOST`, and `MODERN20_DEST` if the
+install is not in the usual place), or from an already-unpacked copy with
+`--from`, which needs no host at all.
 
 Two kinds of noise had to be ignored to make any of this work, and both were
 found by running it. Foundry fills in every default a document does not carry —
@@ -1701,7 +1717,7 @@ the middle of the equipment.
 | The World | Creatures, Objects, Random Tables |
 | The Rules | Rules |
 
-`check_deploy.py` holds every declared pack to exactly one folder, because a
+`check_release.py` holds every declared pack to exactly one folder, because a
 pack added later and left out of the grouping does not fail anything: it just
 sits alone at the root below the folders, which reads as an oversight because
 it is one. It also checks each folder states a name, a real sorting mode and a
@@ -1731,7 +1747,7 @@ python3 tools/check_coverage.py    # the packs still cover as much of the SRD
 python3 tools/check_rules_links.py # every link into the rules resolves, every roll anything asks for rolls
 python3 tools/check_capture.py     # an editing session in Foundry survives the trip home
 python3 tools/check_art.py         # every icon a document points at is a file that is here
-python3 tools/check_deploy.py      # the deploy sends every directory the system reads
+python3 tools/check_release.py     # a release carries every directory the system reads
 python3 tools/gen_cover.py --check # the cover still states what the packs hold
 python3 tools/gen_scene.py --check # the example scene and its walls are current
 python3 tools/check_selftest.py    # the in-world self-test checks the packs' own figures
@@ -1769,13 +1785,13 @@ to trust any of them:
 | `check_models.mjs` | a DataField shared between two schemas; an earlier permissive version of this harness passed the broken code |
 | `check_templates.mjs` | `{{formField fields.typo}}` renders as nothing with no console error — a blank row, not a crash |
 | `check_shadowing.py` / `no-redeclare` | two parsers in one week were named over an existing definition — `ability_key` over the psionics one, `DAMAGE_TYPES` over the spells one — and the later definition silently won |
-| `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — during a deploy, which is the only place it runs |
+| `check_packs.py` | an actor's items are separate entries in a compiled pack, and a missing `_key` stops the Foundry CLI dead — while compiling a release, which is the only place it runs |
 | `check_packs.py` (tokens) | nothing rejects a token that is one square when the creature is Gargantuan; it just arrives that size, and the GM resizes it by hand every time |
 | `check_packs.py` (tables) | the first build of the random tables had a d8 with twelve rows and two tables whose last row read "00" as zero — a roll with no result looks like an empty draw and nothing else |
 | `check_packs.py` (creatures) | every derived number on a creature is stored as the offset that reproduces the printed total, which holds only while everything the sheet adds back is subtracted — the size modifier was not, and 183 of 300 creatures showed a Defense the SRD does not print, eight points out on a Colossal dragon, with each half of the sum correct on its own |
 | `check_selftest.py` | the one test that runs inside Foundry is the one thing here that cannot be run from here, which makes its expected figures the place a mistake is invisible from both directions: wrong numbers in a test nobody here executes, checked against a world nobody there inspects |
-| `check_private.py` | everything here was written on one laptop and deployed to one server, and for a while it said so — a default host, a home directory, a path into one particular Node install. None of it secret, all of it wrong for everybody else. It also fails a script nothing runs and nothing imports, which is the same problem in a different form |
-| `check_deploy.py` | the only check that reads the step deciding what reaches Foundry rather than what is in the repository: `assets/` was never uploaded, so every image 404'd into a page nobody was reading, and the packs to compile were written out by hand — when the tables pack was added nobody added it, and Random Tables was an empty compendium on the live host for as long as it existed while every check read all 26 of them from `src/packs` and said so |
+| `check_private.py` | everything here was written on one laptop and installed on one server, and for a while it said so — a default host, a home directory, a path into one particular Node install. None of it secret, all of it wrong for everybody else. It also fails a script nothing runs and nothing imports, which is the same problem in a different form |
+| `check_release.py` | the only check that reads the step deciding what reaches Foundry rather than what is in the repository: `assets/` was never uploaded, so every image 404'd into a page nobody was reading, and the packs to compile were written out by hand — when the tables pack was added nobody added it, and Random Tables was an empty compendium on the live host for as long as it existed while every check read all 26 of them from `src/packs` and said so |
 | `check_art.py` | a broken image is the quietest failure a compendium has: Foundry draws an empty frame, logs nothing, and the row still has its name — so an icon renamed or half-committed would cost 4,864 documents their art and look like nothing at all |
 | `check_rules_links.py` | a rules link is a UUID in a JSON file: one that resolves to nothing opens no page, logs nothing, and looks exactly like one that works — and a roll naming a skill the system does not have renders as its own words, so the sentence still reads and the die is simply gone |
 | `check_coverage.py` | the creature scrape read only table-shaped stat blocks, and the 54 creatures the SRD prints as paragraphs — every animal, the alien probe, the zap — were missing with every check green |

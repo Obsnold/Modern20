@@ -1,39 +1,35 @@
 #!/usr/bin/env python3
-"""Fail if the deploy would not send something the system needs.
+"""Fail if a release would not carry what the system needs.
 
-    python3 tools/check_deploy.py
+    python3 tools/check_release.py
 
 Every other check in here reads the repository. This one reads the step that
-decides what actually reaches Foundry, which is the only place a file can be
-correct, committed, checked — and absent from the running game.
+decides what actually reaches a Foundry — the release workflow — which is the
+only place a file can be correct, committed, checked, and absent from the
+running game.
 
-The bugs it exists for were all found by a person running a deploy or opening
-a compendium, never by a check:
+It replaced a check on a deploy script that scp'd the working tree to one host,
+and every bug it exists for came from that script. They were all the same bug
+in different clothes: a list of what to copy, kept by hand, that fell behind
+what the system reads.
 
-  - `tools/deploy.sh` copied `module templates lang css` and not `assets`,
-    so the artwork the packs point at was never uploaded. Nothing fails; the
-    browser asks for 5,271 images one at a time and draws an empty frame for
-    each.
-  - the packs to compile were written out by hand, and when the tables pack
-    was added nobody added it to that list. Random Tables was an empty
-    compendium on the live host for as long as it existed. `check_packs.py`
-    read all 26 tables from src/packs and said so, cheerfully, the whole time.
-
+  - the copy step named `module templates lang css` and not `assets`, so the
+    artwork the packs point at was never uploaded. Nothing failed; the browser
+    asked for 5,271 images one at a time and drew an empty frame for each.
+  - the packs to compile were written out, and when the tables pack was added
+    nobody added it. Random Tables was an empty compendium for as long as it
+    existed, while every check read all 26 tables out of src/packs.
   - nothing read back what was sent, so a deploy that copied nothing looked
-    exactly like one that copied everything. The symptom is a token that does
-    not change, or a fix that appears not to have worked: the token art was
-    adjusted three times before anyone asked whether it was being served, and
-    a self-test reported the same eleven failures twice running with no way to
-    tell a fix that failed from a fix that was not there.
-  - and the fix for the second introduced another: `ssh host NAME="a b c" bash`
-    joins its arguments into one string for the remote shell, so the
-    assignment took "a" and tried to run "b" as a command three quarters of
-    the way through a deploy. It reads like a missing program.
+    exactly like one that copied everything.
 
-So: every directory the system serves files from has to be in the deploy's own
-list, the packs it compiles have to be the packs the manifest declares — which
-now means the list is read from the manifest rather than repeated — and nothing
-is handed to ssh as an environment assignment.
+So this holds the release to the repository it is releasing: every directory
+the system reads at runtime has to reach the zip, every compendium the manifest
+declares has to have source to compile from and a folder to sit in, and the tag
+has to be held to the version — a release whose manifest and tag disagree
+installs and then never offers an update.
+
+A release missing `assets/` installs perfectly and draws no artwork, which is
+the quietest way to ship nothing at all.
 """
 from __future__ import annotations
 
@@ -46,19 +42,10 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import srd  # noqa: E402
 
-DEPLOY = os.path.join(srd.ROOT, "tools", "deploy.sh")
 RELEASE = os.path.join(srd.ROOT, ".github", "workflows", "release.yml")
 MANIFEST = os.path.join(srd.ROOT, "system.json")
 
-# `SYSTEM_DIRS="module templates lang css assets"`
-DIRS = re.compile(r'^SYSTEM_DIRS="([^"]+)"', re.M)
 
-# An environment assignment on the ssh command line: `ssh host NAME="$VALUE"`.
-# ssh joins its arguments into one string and hands that to the remote shell,
-# so a value with a space in it stops being a value: `PACK_NAMES="a b c"`
-# assigned "a" and then tried to run "b" as a command, three quarters of the
-# way through a deploy, reading like a missing program.
-SSH_ENV = re.compile(r"^ssh\b[^\n]*?\s([A-Z_]+)=", re.M)
 
 # Any path into the system's own directory, written anywhere in the code or
 # the templates: "systems/modern20/assets/icons/lorc/aura.svg".
@@ -113,60 +100,12 @@ def needed() -> dict[str, str]:
 
 
 def main() -> int:
-    with open(DEPLOY, encoding="utf-8") as handle:
-        deploy = handle.read()
-
-    problems = []
-
-    found = DIRS.search(deploy)
-    if not found:
-        print('FAIL  tools/deploy.sh states no SYSTEM_DIRS="..."')
-        return 1
-    sending = set(found.group(1).split())
-
+    problems: list[str] = []
     wanted = needed()
-    for directory, why in sorted(wanted.items()):
-        if directory not in sending:
-            problems.append(f"deploy.sh does not send {directory}/, which "
-                            f"{why} reads from")
-        elif not os.path.isdir(os.path.join(srd.ROOT, directory)):
-            problems.append(f"deploy.sh sends {directory}/, which does not exist")
 
-    for directory in sorted(sending - set(wanted)):
-        if not os.path.isdir(os.path.join(srd.ROOT, directory)):
-            problems.append(f"deploy.sh sends {directory}/, which does not exist")
-
-    # An unquoted heredoc is expanded by the shell that writes it, so anything
-    # inside it that looks like a command substitution runs HERE — on the
-    # machine doing the deploying, as whoever is deploying. Three prose
-    # comments quoting shell in backticks, the way the rest of this repository
-    # quotes code, ran `sudo bash -c` locally and stopped the deploy to ask a
-    # laptop for a password it has no reason to want.
-    heredoc = re.search(r"<<REMOTE\n(.*?)\nREMOTE\n", deploy, re.S)
-    if not heredoc:
-        problems.append("deploy.sh has no remote script to check")
-    else:
-        for number, line in enumerate(heredoc.group(1).split("\n"), 1):
-            if "`" in line:
-                problems.append(f"deploy.sh remote script line {number} has a "
-                                f"backtick, which runs on the deploying machine: "
-                                f"{line.strip()[:60]}")
-            if re.search(r"(?<!\\)\$\(", line):
-                problems.append(f"deploy.sh remote script line {number} has an "
-                                f"unescaped $( ), which runs on the deploying "
-                                f"machine: {line.strip()[:60]}")
-
-    # Anything the remote script needs is written into the script, where this
-    # heredoc's own quoting survives.
-    for name in SSH_ENV.findall(deploy):
-        problems.append(f"deploy.sh passes {name}= to ssh on the command line, "
-                        "where a value containing a space becomes a command; "
-                        "assign it inside the remote script instead")
-
-    # There are two ways this system reaches a Foundry: scp to one host, and a
-    # release anybody can install from. Both have to carry every directory it
-    # reads at runtime, and the release is the one nobody here will notice is
-    # short — a zip missing assets/ installs perfectly and draws no artwork.
+    # The zip has to carry every directory the system reads. This is the one
+    # nobody here will notice is short: a release missing assets/ installs
+    # perfectly and draws no artwork.
     if not os.path.exists(RELEASE):
         problems.append(".github/workflows/release.yml is missing; a system is "
                         "distributed as a release, not as a repository")
@@ -209,34 +148,11 @@ def main() -> int:
                             "real repository; leave it out and let the release "
                             "write it")
 
-    # And it has to read the artwork back. A deploy that copies nothing looks
-    # exactly like one that copies everything, and the symptom is a token that
-    # does not change — which is indistinguishable from art that is wrong, and
-    # cost three rounds of changing art nobody was being served.
-    if not (re.search(r"^SENT_SUM=", deploy, re.M)
-            and re.search(r'"\\?\$LIVE_SUM"\s*!=\s*"\\?\$SENT_SUM"', deploy)):
-        problems.append("deploy.sh does not compare what it sent with what is on "
-                        "the host; a deploy that copies nothing has to be "
-                        "distinguishable from one that copies everything")
-    # And over everything it sends, not the artwork alone: the code is the half
-    # whose absence looks like a fix that did not work.
-    if re.search(r"^SENT_SUM=.*\bfind assets\b", deploy, re.M):
-        problems.append("deploy.sh fingerprints only assets/; the modules and "
-                        "templates are the half that looks like a broken fix "
-                        "when they do not arrive")
-
-    # The packs are compiled one at a time, and the list has to be the
-    # manifest's. A written-out list is the bug, so finding one is a failure
-    # even if it happens to be complete today.
+    # Every compendium the manifest declares has to have source to compile
+    # from, and the release compiles the list the manifest gives rather than
+    # one written out: that list was written out once, and when the tables pack
+    # was added nobody added it to it.
     declared = [pack["name"] for pack in manifest().get("packs") or []]
-    if "PACK_NAMES" not in deploy:
-        problems.append("deploy.sh does not read the pack list from system.json")
-    for name in declared:
-        if re.search(rf"for p in [^\n]*\b{re.escape(name)}\b", deploy):
-            problems.append(f"deploy.sh writes out the pack names ({name} among "
-                            "them); read them from the manifest instead")
-            break
-
     for pack in declared:
         if not os.path.isdir(os.path.join(srd.ROOT, "src", "packs", pack)):
             problems.append(f'system.json declares the "{pack}" pack and '
@@ -281,10 +197,8 @@ def main() -> int:
         problems.append(f'a pack folder holds "{pack}", which system.json does '
                         "not declare")
 
-    print(f"deploy sends {len(sending)} directories and compiles "
-          f"{len(declared)} packs in {len(folders)} sidebar folders; "
-          f"{len(wanted)} directories are read from at runtime, and the release "
-          "carries all of them")
+    print(f"the release carries {len(wanted)} directories the system reads and "
+          f"compiles {len(declared)} packs into {len(folders)} sidebar folders")
     for problem in problems:
         print(f"FAIL  {problem}")
     return 1 if problems else 0
