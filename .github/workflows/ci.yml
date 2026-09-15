@@ -22,10 +22,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # No `cache: npm`: it needs a committed lockfile, and there is none.
+      # Three dev dependencies install in seconds, so the cache would save
+      # less than the failure it caused — "Dependencies lock file is not found".
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: Install the linters and the type checker
         run: npm install --no-audit --no-fund
