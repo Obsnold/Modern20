@@ -133,31 +133,54 @@ export class Modern20Hero extends Modern20ActorBase {
   }
 
   /**
-   * A species' ability modifiers, before the base model works out any total.
+   * Everything the species contributes, before anything else reads it.
    *
-   * Runs in prepareBaseData, which is earlier than prepareDerivedData and so
-   * earlier than items have been prepared — but a modifier is a stored number
-   * the species item was imported with, never a derived one, so reading it
-   * this early is safe and is the only point at which it can still land.
+   * All of it runs in prepareBaseData, which matters for two separate
+   * reasons. Ability modifiers have to land before the base model works out
+   * a total, or the total is of the wrong score. And everything else has to
+   * land before Foundry applies Active Effects, which it does between
+   * prepareBaseData and prepareDerivedData: a value written in
+   * prepareDerivedData silently overwrites whatever an effect put there, and
+   * speed and reach have no `misc` companion to target instead, so an effect
+   * on them is the only way a GM has. A species is what you are; an effect is
+   * something happening to you, and it goes on top.
+   *
+   * This is earlier than items have been prepared, which is safe because
+   * everything read here is a stored number the species item was imported
+   * with and never a derived one.
    */
   prepareSpeciesModifiers() {
     super.prepareSpeciesModifiers();
 
     const species = this.species;
     if (!species) return;
-    for (const [key, amount] of Object.entries(species.system.abilityModifiers ?? {})) {
+    const system = species.system;
+
+    for (const [key, amount] of Object.entries(system.abilityModifiers ?? {})) {
       if (this.abilities[key]) this.abilities[key].speciesMod += amount;
     }
+
+    // Set rather than added: the species decides what you are. Where there is
+    // no species the character keeps whatever is on the sheet, which is what
+    // an imported or hand-built human wants.
+    this.attributes.size = system.size;
+    this.attributes.speed = system.baseSpeed;
+    this.attributes.reach = system.reach;
+
+    // Additive: a species' hide is one source of natural armor and a spell
+    // or a mutation could be another.
+    this.defense.naturalArmor += system.naturalArmor;
+    this.attributes.attackMisc += system.attackBonus;
   }
 
   prepareDerivedData() {
-    // Class and species contributions must land before the base model derives
-    // Defense, saves and attack, so these run ahead of
-    // super.prepareDerivedData(). Items are already prepared by this point in
-    // the document lifecycle.
+    // Class progression must land before the base model derives Defense,
+    // saves and attack, so this runs ahead of super.prepareDerivedData().
+    // Items are already prepared by this point in the document lifecycle.
+    // The species is not here: it goes in prepareBaseData, so that an Active
+    // Effect applied between the two can modify what it set.
     const classes = this.parent?.items?.filter((i) => i.type === "class") ?? [];
     this.#applyClassProgression(classes);
-    this.#applySpecies();
 
     super.prepareDerivedData();
 
@@ -215,33 +238,6 @@ export class Modern20Hero extends Modern20ActorBase {
     this.skillPoints.remaining = this.skillPoints.available - this.skillPoints.spent;
 
     this.#flagOverspentSkills();
-  }
-
-  /**
-   * Fold the species into the actor's base numbers.
-   *
-   * The same contract as class progression: re-applied on every pass from the
-   * item, never written into stored fields, so deleting the species item
-   * cleanly removes what it granted. Ability modifiers are not here — they
-   * have to land in prepareBaseData, before any total is worked out.
-   *
-   * Size, speed and reach are set rather than added: the species decides what
-   * you are. Where there is no species the character keeps whatever is on the
-   * sheet, which is what an imported or hand-built human wants.
-   */
-  #applySpecies() {
-    const species = this.species;
-    if (!species) return;
-    const system = species.system;
-
-    this.attributes.size = system.size;
-    this.attributes.speed = system.baseSpeed;
-    this.attributes.reach = system.reach;
-
-    // Additive: a species' hide is one source of natural armor and a spell
-    // or a mutation could be another.
-    this.defense.naturalArmor += system.naturalArmor;
-    this.attributes.attackMisc += system.attackBonus;
   }
 
   /**

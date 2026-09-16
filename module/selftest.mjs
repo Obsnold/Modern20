@@ -412,6 +412,30 @@ async function checkSpecies(results) {
     results.same("a nonhuman gets one starting feat",
                  system.details.startingFeats, MODERN20.startingFeats.nonhuman);
 
+    /*
+     * An Active Effect has to beat the species, not lose to it.
+     *
+     * Foundry applies effects between prepareBaseData and prepareDerivedData,
+     * so anything the system writes in the second overwrites what a GM put
+     * there in the first. Speed and reach have no `misc` field to target
+     * instead, so an effect on the field itself is the only route a GM has —
+     * and it worked on a human and silently did nothing on an ogre until the
+     * species moved to prepareBaseData.
+     */
+    const [effect] = await actor.createEmbeddedDocuments("ActiveEffect", [{
+      name: "Modern20 self-test",
+      changes: [{
+        key: "system.attributes.speed",
+        mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+        value: "10"
+      }]
+    }]);
+    results.same("an effect on speed applies over the species' own",
+                 actor.system.attributes.speed, wanted.baseSpeed + 10);
+    if (effect?.id) await actor.deleteEmbeddedDocuments("ActiveEffect", [effect.id]);
+    results.same("and removing the effect returns the species' speed",
+                 actor.system.attributes.speed, wanted.baseSpeed);
+
     // And now the half that matters: take it away again.
     const hpBefore = actor.system.hp.max;
     await actor.deleteEmbeddedDocuments("Item", [created[0].id]);
