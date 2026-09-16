@@ -5,7 +5,7 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 /**
  * One window over every compendium the system ships.
  *
- * The packs hold 1,590 documents, and Foundry's own compendium browser is one
+ * The packs hold 1,609 documents, and Foundry's own compendium browser is one
  * pack at a time with a name search. That is enough for a bestiary and not for
  * an equipment list: what a d20 Modern table asks is "what can this character
  * afford", "what is legal to carry", "what exists at this progress level" —
@@ -14,7 +14,7 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
  *
  * The index is what is searched, never the documents: a pack's index is a
  * handful of fields per entry and is already in memory, where getDocuments on
- * thirteen packs is 1,590 documents built to read a purchase DC off each.
+ * 14 packs is 1,609 documents built to read a purchase DC off each.
  */
 export class Modern20Browser extends HandlebarsApplicationMixin(ApplicationV2) {
   static DEFAULT_OPTIONS = {
@@ -42,7 +42,8 @@ export class Modern20Browser extends HandlebarsApplicationMixin(ApplicationV2) {
   /** The packs this searches, in the order a reader thinks about them. */
   static PACKS = [
     "weapons", "armor", "gear", "fx", "vehicles", "objects",
-    "feats", "talents", "classes", "occupations", "spells", "psionics", "creatures"
+    "species", "feats", "talents", "classes", "occupations",
+    "spells", "psionics", "creatures"
   ];
 
   /**

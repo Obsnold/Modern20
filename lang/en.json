@@ -2617,6 +2617,7 @@
     "Actor": {
       "creature": "Creature",
       "hero": "Hero",
+      "object": "Object",
       "ordinary": "Ordinary",
       "vehicle": "Vehicle"
     },
@@ -2628,6 +2629,8 @@
       "gear": "Gear",
       "occupation": "Occupation",
       "psiPower": "Psionic Power",
+      "specialAbility": "Special Ability",
+      "species": "Species",
       "spell": "Spell",
       "talent": "Talent",
       "vehicleMod": "Vehicle Modification",
