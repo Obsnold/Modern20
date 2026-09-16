@@ -300,7 +300,7 @@
               "ability": "ref",
               "calculation": "flat",
               "dc": 30,
-              "onSuccess": "negate"
+              "onSuccess": "half"
             },
             "area": {
               "shape": "cone",

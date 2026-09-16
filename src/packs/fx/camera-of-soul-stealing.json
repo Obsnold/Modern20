@@ -24,7 +24,7 @@
           "ability": "will",
           "calculation": "flat",
           "dc": 20,
-          "onSuccess": "half"
+          "onSuccess": "negate"
         },
         "area": {
           "shape": "cone",

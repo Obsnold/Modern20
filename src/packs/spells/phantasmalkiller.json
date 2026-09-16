@@ -57,7 +57,7 @@
         "save": {
           "ability": "fort",
           "calculation": "caster",
-          "onSuccess": "none"
+          "onSuccess": "partial"
         }
       }
     }

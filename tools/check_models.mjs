@@ -220,6 +220,80 @@ if (!registeredSheets.length) {
 }
 
 /**
+ * What a successful save does, against what the document's own text says.
+ *
+ * "Reflex save for half damage" and "Fortitude save or be blinded" are
+ * different rules, and an activity that confuses them is wrong in the
+ * player's favour half the time and against it the other half, silently.
+ * Four activities built this session defaulted to half and four should have
+ * negated.
+ *
+ * Matched to the @Check the activity actually is, by save and DC: a breath
+ * weapon can print two — Reflex for half the damage and Fortitude against the
+ * disease that follows — and reading the wrong one calls a correct entry a
+ * mistake. That happened while writing this.
+ */
+{
+  const { packDocuments } = await import("./lib/packs.mjs");
+  const { readFileSync } = await import("node:fs");
+  const manifest = JSON.parse(readFileSync(join(ROOT, "system.json"), "utf8"));
+
+  let judged = 0;
+  for (const pack of manifest.packs ?? []) {
+    for (const entry of packDocuments(ROOT, pack.name)) {
+      for (const document of [entry, ...(entry.items ?? [])]) {
+        const system = document.system ?? {};
+        const text = JSON.stringify(system).replace(/<[^>]+>/g, " ");
+
+        // A spell prints its own saving-throw line — "Fortitude partial" —
+        // which the import parsed into saveEffect and check_casting holds the
+        // activity to. That is a better answer than anything guessed from the
+        // prose, which cannot tell "reduces damage to half and negates the
+        // blinding effect" (partial) from plain half. This check is for the
+        // creature abilities and gear that have only the prose.
+        if (system.saveEffect !== undefined) continue;
+
+        for (const activity of Object.values(system.activities ?? {})) {
+          const save = activity?.save;
+          if (!save?.ability || !save.onSuccess) continue;
+
+          // The @Check this activity is, not merely the first one present.
+          const checks = [...text.matchAll(
+            /@Check\[save:(\w+)(?:\|dc:(\d+))?\]\{[^}]*\}/g
+          )];
+          const mine = checks.find(([, ability, dc]) =>
+            ability === save.ability && (!dc || Number(dc) === save.dc));
+          if (!mine) continue;
+
+          // Either side of it, because the book writes it both ways: "must
+          // succeed at a Fortitude save (DC …) or die instantly" puts the
+          // outcome after, and "takes 2d6 points of acid damage, or half
+          // damage if a Reflex save succeeds" puts it before. Looking only
+          // after the check could read a third of these.
+          const at = mine.index ?? 0;
+          const window = text.slice(Math.max(0, at - 140), at + mine[0].length + 140);
+
+          const printed = /\bhalf|halve/i.test(window)
+            ? "half"
+            : (/\bor\s+(?:be\s+|become\s+|gain\s+|die|contract|fall|take)/i.test(window)
+              ? "negate" : null);
+          if (!printed) continue;
+
+          judged++;
+          if (save.onSuccess !== printed) {
+            failures++;
+            console.log(`FAIL  ${pack.name}: "${document.name}" saves `
+              + `${save.onSuccess} on a success, its text says ${printed} `
+              + `(${JSON.stringify(window.trim().slice(0, 60))})`);
+          }
+        }
+      }
+    }
+  }
+  console.log(`PASS  ${judged} save outcomes agree with their own text`);
+}
+
+/**
  * Every area shape the packs name has to be one the canvas can draw.
  *
  * A shape the code does not know is refused at the table now rather than
