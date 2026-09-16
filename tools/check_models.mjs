@@ -220,6 +220,32 @@ if (!registeredSheets.length) {
 }
 
 /**
+ * A burst radius has to be a distance.
+ *
+ * The explosives table runs Damage, Critical, Damage Type, Burst Radius, and
+ * the Molotov cocktail and mild acid — splash weapons, with a dash where the
+ * radius goes — were imported carrying "Fire" and "Acid" in that field. The
+ * column to their left. Neither has a Reflex DC so neither ever became an
+ * explosive, and no template shows the field, so it was wrong where nobody
+ * would ever look: exactly the kind of thing to check rather than read.
+ */
+{
+  const { packDocuments } = await import("./lib/packs.mjs");
+  let radii = 0;
+  for (const entry of packDocuments(ROOT, "weapons")) {
+    const printed = String(entry.system?.burstRadius ?? "").trim();
+    if (!printed) continue;
+    radii++;
+    // A number of feet, or the book deferring to the entry's own text.
+    if (/\d/.test(printed) || /^see text$/i.test(printed)) continue;
+    failures++;
+    console.log(`FAIL  "${entry.name}" has a burst radius of `
+      + `${JSON.stringify(printed)}, which is not a distance`);
+  }
+  console.log(`PASS  ${radii} burst radii are distances`);
+}
+
+/**
  * What a successful save does, against what the document's own text says.
  *
  * "Reflex save for half damage" and "Fortitude save or be blinded" are

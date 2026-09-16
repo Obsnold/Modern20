@@ -260,5 +260,50 @@ for (const testCase of deathCases) {
 }
 console.log(`${deathCases.length} death state cases checked`);
 
+/**
+ * What threatens a critical, on every weapon the packs hold.
+ *
+ * The Critical column is a threat range and a multiplier in one string — a
+ * greataxe is "20/x3", a pickaxe "20/x4" — and taking the smallest number in
+ * it made twenty-two weapons threaten on a 3. Nothing about a sheet showing
+ * that would look wrong; the die would simply come up a critical far too
+ * often, which is the sort of thing a table puts down to luck.
+ *
+ * Checked against the printed strings first, then against every weapon in the
+ * pack: nothing in this system threatens below a 15, and the SRD's lowest is
+ * the 18-20 of a handful of blades.
+ */
+{
+  const { threatRange } = await import("../module/apps/attack.mjs");
+  const { packDocuments } = await import("./lib/packs.mjs");
+
+  const printed = [
+    ["20", 20], ["19-20", 19], ["18-20", 18],
+    ["20/x3", 20], ["20/x4", 20], ["19-20/x2", 19],
+    // Only a multiplier, or nothing at all: the SRD's default is a natural 20.
+    ["x3/x4*", 20], ["-", 20], ["*", 20], ["", 20], ["20*", 20]
+  ];
+  for (const [critical, want] of printed) {
+    const got = threatRange(critical);
+    if (got !== want) {
+      fail(`critical ${JSON.stringify(critical)} threatens on ${got}, expected ${want}`);
+    }
+  }
+
+  let weapons = 0;
+  let lowest = 20;
+  for (const weapon of packDocuments(ROOT, "weapons")) {
+    const got = threatRange(weapon.system?.critical);
+    weapons++;
+    lowest = Math.min(lowest, got);
+    if (got < 15 || got > 20) {
+      fail(`"${weapon.name}" threatens on ${got} `
+        + `(critical ${JSON.stringify(weapon.system?.critical)})`);
+    }
+  }
+  console.log(`${printed.length} printed criticals and ${weapons} weapons checked, `
+    + `lowest threat range ${lowest}`);
+}
+
 console.log(problems ? `\n${problems} problems` : "\nall combat checks passed");
 process.exit(problems ? 1 : 0);

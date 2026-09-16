@@ -53,10 +53,22 @@ export function meleeReach(item, actor) {
   return item.system.reach || actor?.system?.attributes?.reach || 5;
 }
 
-/** The lowest d20 result that threatens: "19-20" gives 19, "20" gives 20. */
+/**
+ * The lowest d20 result that threatens: "19-20" gives 19, "20" gives 20.
+ *
+ * The book's Critical column carries the threat range and the damage
+ * multiplier in one string — a greataxe is "20/x3", meaning it threatens on a
+ * 20 and deals triple damage — so the multiplier has to go before the
+ * smallest number is taken. Reading every number in "20/x3" and keeping the
+ * least made twenty-two weapons threaten on a 3.
+ *
+ * Where nothing is printed, or only a multiplier is, the SRD's own default
+ * applies: a natural 20 threatens.
+ */
 export function threatRange(critical) {
-  const numbers = String(critical ?? "20").match(/\d+/g)?.map(Number) ?? [20];
-  return Math.min(...numbers);
+  const range = String(critical ?? "20").split("/")[0].replace(/[x\u00d7]\s*\d+/gi, "");
+  const numbers = range.match(/\d+/g)?.map(Number);
+  return numbers?.length ? Math.min(...numbers) : 20;
 }
 
 /** Distance in grid units between two tokens, or null if either is unplaced. */
