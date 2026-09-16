@@ -33,7 +33,7 @@ export async function packDocuments(packId) {
  */
 export async function grant(actor, uuid, source = null) {
   if (!uuid) return null;
-  const document = await fromUuid(uuid);
+  const document = await foundry.utils.fromUuid(uuid);
   if (!document) return null;
 
   const data = document.toObject();

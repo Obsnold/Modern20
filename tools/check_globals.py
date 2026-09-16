@@ -17,6 +17,11 @@ MODULE = os.path.join(ROOT, "module")
 
 # Removed in v14 -> the namespace path that replaces each.
 REMOVED = {
+    # A bare `fromUuid` was a global for years and is namespaced now. eslint
+    # found one in module/apps/level-up.mjs — the only one in the system, and
+    # only because the lint had never actually run in CI: npm install was
+    # failing on a dependency that does not exist, so it never reached it.
+    "fromUuid": "foundry.utils.fromUuid",
     "Actor": "foundry.documents.Actor",
     "Item": "foundry.documents.Item",
     "ChatMessage": "foundry.documents.ChatMessage",

@@ -81,7 +81,10 @@ export default [
         ...foundryGlobals,
         console: "readonly",
         process: "readonly",
-        globalThis: "readonly"
+        globalThis: "readonly",
+        // Every check finds the repository root with
+        // `fileURLToPath(new URL("..", import.meta.url))`.
+        URL: "readonly"
       }
     },
     rules: correctness
