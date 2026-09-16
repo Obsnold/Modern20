@@ -358,6 +358,10 @@ async function checkSpecies(results) {
                  actor.system._source.abilities.str.value, 10);
 
     results.same("size comes from the species", system.attributes.size, wanted.size);
+    // Size is derived; a prototype token's footprint is stored, so a hook has
+    // to move it or a Large hero stands in one square.
+    results.same("the token grew to the species' footprint",
+                 actor.prototypeToken.width, MODERN20.sizes[wanted.size].squares);
     results.same("speed comes from the species",
                  system.attributes.speed, wanted.baseSpeed);
     results.same("reach comes from the species", system.attributes.reach, wanted.reach);
@@ -407,6 +411,8 @@ async function checkSpecies(results) {
                  after.attributes.reach, 5);
     results.same("removing the species makes it a human again",
                  after.details.nonhuman, false);
+    results.same("and the token gave the squares back",
+                 actor.prototypeToken.width, MODERN20.sizes.medium.squares);
     results.same("and gives back the second starting feat",
                  after.details.startingFeats, MODERN20.startingFeats.human);
   } finally {

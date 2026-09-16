@@ -120,6 +120,56 @@ Hooks.on("createItem", async (item) => {
 });
 
 /**
+ * A species decides how big you are, and a token has to follow.
+ *
+ * Size is derived from the species item, so the sheet is right the moment one
+ * is added — but a prototype token's width and height are stored, and nothing
+ * derives them. An ogre hero was therefore Large on its sheet and one square
+ * on the canvas. Both directions, because taking the species off has to give
+ * the square back.
+ *
+ * Only where the token is still the footprint the old size implied: a token
+ * somebody has resized by hand is a decision, which is the same rule
+ * module/migrate.mjs follows for the creatures it repairs.
+ */
+/** The size on the sheet with no species applied over it. */
+function storedSize(actor) {
+  return actor.system?._source?.attributes?.size ?? "medium";
+}
+
+async function syncTokenToSize(actor, from, to) {
+  if (!actor?.isOwner) return;
+  if (game.users.activeGM?.id !== game.user.id
+      && !actor.testUserPermission(game.user, "OWNER")) return;
+
+  const was = MODERN20.sizes[from]?.squares ?? 1;
+  const now = MODERN20.sizes[to]?.squares ?? 1;
+  if (was === now) return;
+
+  const token = actor.prototypeToken ?? {};
+  if (token.width !== was || token.height !== was) return;
+
+  await actor.update({ prototypeToken: { width: now, height: now } });
+}
+
+Hooks.on("createItem", async (item) => {
+  if (item.type !== "species") return;
+  const actor = item.parent;
+  if (!actor) return;
+  // The stored size is the one the actor had before the species overrode it,
+  // and the one it will go back to — not "medium", which would be a guess
+  // about a sheet somebody may have set by hand.
+  await syncTokenToSize(actor, storedSize(actor), item.system.size);
+});
+
+Hooks.on("deleteItem", async (item) => {
+  if (item.type !== "species") return;
+  const actor = item.parent;
+  if (!actor) return;
+  await syncTokenToSize(actor, item.system.size, storedSize(actor));
+});
+
+/**
  * Picking the occupation's bonus feat on its sheet grants the feat, so the
  * choice has an effect without a separate step.
  */

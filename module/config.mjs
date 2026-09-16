@@ -151,16 +151,21 @@ MODERN20.classTiers = {
 };
 
 /** Size modifiers applied to Defense and to attack rolls (grapple differs). */
+// `squares` is the SRD's own Space column over the five feet a grid square
+// is, with half a square as the floor for everything Tiny and smaller. It is
+// here rather than in module/migrate.mjs, which is where it used to live
+// alone: a token's footprint and a size's modifier come off the same printed
+// row, and two copies of one row is the bug this repository keeps deleting.
 MODERN20.sizes = {
-  fine:       { label: "MODERN20.Size.Fine",       mod:  8, grapple: -16 },
-  diminutive: { label: "MODERN20.Size.Diminutive", mod:  4, grapple: -12 },
-  tiny:       { label: "MODERN20.Size.Tiny",       mod:  2, grapple:  -8 },
-  small:      { label: "MODERN20.Size.Small",      mod:  1, grapple:  -4 },
-  medium:     { label: "MODERN20.Size.Medium",     mod:  0, grapple:   0 },
-  large:      { label: "MODERN20.Size.Large",      mod: -1, grapple:   4 },
-  huge:       { label: "MODERN20.Size.Huge",       mod: -2, grapple:   8 },
-  gargantuan: { label: "MODERN20.Size.Gargantuan", mod: -4, grapple:  12 },
-  colossal:   { label: "MODERN20.Size.Colossal",   mod: -8, grapple:  16 }
+  fine:       { label: "MODERN20.Size.Fine",       mod:  8, grapple: -16, squares: 0.5 },
+  diminutive: { label: "MODERN20.Size.Diminutive", mod:  4, grapple: -12, squares: 0.5 },
+  tiny:       { label: "MODERN20.Size.Tiny",       mod:  2, grapple:  -8, squares: 0.5 },
+  small:      { label: "MODERN20.Size.Small",      mod:  1, grapple:  -4, squares: 1 },
+  medium:     { label: "MODERN20.Size.Medium",     mod:  0, grapple:   0, squares: 1 },
+  large:      { label: "MODERN20.Size.Large",      mod: -1, grapple:   4, squares: 2 },
+  huge:       { label: "MODERN20.Size.Huge",       mod: -2, grapple:   8, squares: 3 },
+  gargantuan: { label: "MODERN20.Size.Gargantuan", mod: -4, grapple:  12, squares: 4 },
+  colossal:   { label: "MODERN20.Size.Colossal",   mod: -8, grapple:  16, squares: 6 }
 };
 
 MODERN20.allegianceStrength = {
