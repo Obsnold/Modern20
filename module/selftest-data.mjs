@@ -9,7 +9,7 @@
 
 export const EXPECTED = {
   "packs": {
-    "species": 18,
+    "species": 19,
     "classes": 52,
     "occupations": 33,
     "talents": 52,
@@ -40,7 +40,8 @@ export const EXPECTED = {
     "extraHitDice": 4,
     "levelAdjustment": 3,
     "abilityModifiers": {"str": 10, "dex": -2, "con": 4, "int": -4, "wis": 0, "cha": -4},
-    "traits": 2
+    "traits": 2,
+    "nonhuman": true
   },
   "class": {
     "uuid": "Compendium.modern20.classes.Item.HT4H6K30vjBuhX1b",

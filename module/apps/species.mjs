@@ -43,6 +43,7 @@ export async function speciesChoices() {
         size: system.size,
         sizeLabel: game.i18n.localize(MODERN20.sizes[system.size]?.label ?? system.size),
         baseSpeed: system.baseSpeed,
+        nonhuman: system.nonhuman,
         reach: system.reach,
         naturalArmor: system.naturalArmor,
         attackBonus: system.attackBonus,

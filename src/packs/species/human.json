@@ -1,0 +1,51 @@
+{
+  "_id": "wJbGPLf59mrkSDMJ",
+  "name": "Human",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Humans have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> None.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Starting Feats:</strong> Two, as every basic class puts it: “the two feats all characters get at 1st level”. A nonhuman character gains only one.</p><p><strong>Skill Points:</strong> The full allowance printed for each class. A nonhuman character gets one fewer per level, and so four fewer at 1st level.</p>",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/basicclasses.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.ygo3sPzJhXS28OXD.JournalEntryPage.6OzOJrAKsG3KzOrC",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "baseSpeed": 30,
+    "nonhuman": false,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Speak Common (or local language).",
+    "otherLanguages": "Any, by spending skill points on Read/Write Language and Speak Language.",
+    "traits": [
+      {
+        "name": "Starting Feats",
+        "description": "<p>A human character receives two feats at 1st level, as every basic class states: “the two feats all characters get at 1st level”. A nonhuman character gains only one.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Points",
+        "description": "<p>A human character gains the full skill point allowance printed for each class. A nonhuman character gets 4 fewer at 1st level and 1 fewer each level thereafter.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!wJbGPLf59mrkSDMJ",
+  "folder": "whL83OHHmnOzZKGU"
+}

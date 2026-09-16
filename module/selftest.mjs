@@ -298,6 +298,7 @@ async function checkSpecies(results) {
   if (!results.ok(`${wanted.name} is in the compendium`, Boolean(species))) return;
 
   results.same("the species is Large", species.system.size, wanted.size);
+  results.same("it counts as nonhuman", species.system.nonhuman, wanted.nonhuman);
   results.same("its printed reach", species.system.reach, wanted.reach);
   results.same("its natural armor", species.system.naturalArmor, wanted.naturalArmor);
   results.same("its level adjustment",
@@ -332,6 +333,11 @@ async function checkSpecies(results) {
     const before = actor.system.abilities.str.total;
     results.same("with no species, Strength is the score that was rolled", before, 10);
     results.same("with no species, size is Medium", actor.system.attributes.size, "medium");
+    // No species at all is a human, which is what d20 Modern is played by.
+    results.same("with no species, the character is a human",
+                 actor.system.details.nonhuman, false);
+    results.same("a human gets two starting feats",
+                 actor.system.details.startingFeats, MODERN20.startingFeats.human);
 
     let created = [];
     try {
@@ -372,6 +378,20 @@ async function checkSpecies(results) {
     results.same("grapple carries the size bonus",
                  system.attributes.grapple, system.attributes.baseAttack + large.grapple);
 
+    /*
+     * What being a nonhuman costs, which is the part a player notices.
+     *
+     * "Shadowkind characters get 4 fewer skill points at 1st level and 1
+     * fewer skill point each level thereafter", and of feats, "they gain only
+     * one bonus feat at 1st level instead of two". This character has no
+     * class and so no skill point budget to compare — that arithmetic is
+     * checked against the book's own seventeen printed pairs by
+     * check_species — but the flag and the feat count are on the sheet.
+     */
+    results.same("the sheet knows it is a nonhuman", system.details.nonhuman, true);
+    results.same("a nonhuman gets one starting feat",
+                 system.details.startingFeats, MODERN20.startingFeats.nonhuman);
+
     // And now the half that matters: take it away again.
     await actor.deleteEmbeddedDocuments("Item", [created[0].id]);
     const after = actor.system;
@@ -385,6 +405,10 @@ async function checkSpecies(results) {
                  after.attributes.attackMisc, 0);
     results.same("removing the species returns reach to five feet",
                  after.attributes.reach, 5);
+    results.same("removing the species makes it a human again",
+                 after.details.nonhuman, false);
+    results.same("and gives back the second starting feat",
+                 after.details.startingFeats, MODERN20.startingFeats.human);
   } finally {
     if (actor?.id) await actor.delete();
   }

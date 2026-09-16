@@ -21,7 +21,7 @@ https://github.com/Obsnold/modern20/releases/latest/download/system.json
 | | |
 |---|---|
 | **Characters** | All six basic classes and 46 advanced and prestige classes, 33 starting occupations, 52 talents, 137 feats — with a stepped creator and a level-up flow that apply the SRD's own arithmetic |
-| **Species** | d20 Modern is played by humans; Urban Arcana prints 18 playable species and all 18 are here, from halflings to ogres — ability modifiers, size, speed, natural armor, racial Hit Dice and level adjustment, applied by the sheet and taken away again when the species is removed |
+| **Species** | d20 Modern is played by humans; Urban Arcana prints 18 playable species and all 18 are here, from halflings to ogres — ability modifiers, size, speed, natural armor, racial Hit Dice and level adjustment, applied by the sheet and taken away again when the species is removed. Being a nonhuman costs a starting feat and a skill point per level, which the creator and the level-up screen both know. A plain Human is in the pack too, and leaving the step blank means the same thing |
 | **Rules** | Abilities, saves, Defense (normal, touch and flat-footed), initiative, grapple, all 41 skills with their specialties, action points, Reputation, massive damage, and the Wealth economy instead of currency |
 | **Equipment** | 180 weapons, 40 suits of armor, 289 pieces of gear and 147 FX items across d20 Modern, Urban Arcana and d20 Future, with purchase DCs, restriction ratings and progress levels |
 | **Creatures** | 300 creatures from all three bestiaries, 85 vehicles and 14 objects you can shoot — each arriving with the token its stat block implies: size in squares, vision from its senses line, hit points on a bar |
@@ -99,7 +99,7 @@ shipped:
 | `check_release.py` | a release missing `assets/` installs perfectly and draws no artwork |
 | `check_private.py` | nothing here should name the machine it was written on |
 | `check_creatures.mjs` | every creature's arithmetic against the SRD: 1,577 skill totals and 507 attacks |
-| `check_species.mjs` | all 18 species against numbers transcribed from the printed chapters, and every printed label accounted for — a quality the import dropped is a species missing its darkvision with nothing to say so |
+| `check_species.mjs` | all 19 species against numbers transcribed from the printed chapters, every printed label accounted for — a quality the import dropped is a species missing its darkvision with nothing to say so — and the nonhuman skill point rule against the 17 classes that print both figures |
 | `check_lang.py`, `check_config.py`, `check_globals.py`, `check_shadowing.py`, `check_app_props.py`, `check_coverage.py` | missing localization strings, config that has drifted from the SRD, globals Foundry removed, a name defined twice, a read-only assignment, and SRD coverage that has regressed |
 | `tsc --noEmit` | the code against its own JSDoc: a mistyped option name silently does nothing, and a doc that disagrees with the signature is a call written wrong by whoever believed it |
 

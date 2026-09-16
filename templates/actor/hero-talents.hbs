@@ -76,6 +76,9 @@
                      formula=species.hitDiceFormula}}
         </p>
       {{/if}}
+      {{#if species.nonhuman}}
+        <p class="m20-hint">{{localize "MODERN20.Species.NonhumanCost"}}</p>
+      {{/if}}
       {{#if species.freeLanguages}}
         <p class="m20-hint">{{localize "MODERN20.Species.Languages" languages=species.freeLanguages}}</p>
       {{/if}}

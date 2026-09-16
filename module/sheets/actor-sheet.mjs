@@ -360,6 +360,8 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       modifiers,
       freeLanguages: system.freeLanguages,
       otherLanguages: system.otherLanguages,
+      nonhuman: system.nonhuman,
+      startingFeats: actor.system.details?.startingFeats ?? null,
       // Null where the SRD prints the label and leaves it blank, so the sheet
       // can say that rather than print a number the book does not give.
       levelAdjustment: system.levelAdjustment,
