@@ -271,6 +271,24 @@ export class Modern20Species extends Modern20ItemBase {
       ),
       baseSpeed: int(30, { min: 0 }),
       /**
+       * Whether this counts as nonhuman, which costs a skill point and a feat.
+       *
+       * d20 Modern's baseline is a human, and two printed rules follow from
+       * being one. "In addition to the two feats all characters get at 1st
+       * level" appears in all six basic classes, and Advancing Creatures says
+       * a nonhuman gains "only one bonus feat at 1st level instead of two".
+       * For skill points the Shadowkind chapter is explicit: "Shadowkind
+       * characters get 4 fewer skill points at 1st level and 1 fewer skill
+       * point each level thereafter" — which is one rule, one fewer per level,
+       * since the first level is multiplied by four.
+       *
+       * True by default, because every species the two chapters print is a
+       * nonhuman — the shadowkind human included, being a shadowkind
+       * character. Only the baseline human sets it false, and so does having
+       * no species at all.
+       */
+      nonhuman: new fields.BooleanField({ initial: true }),
+      /**
        * Racial Hit Dice, before the first class level.
        *
        * "A bugbear gains 3 Hit Dice (3d8 hit points). The bugbear's

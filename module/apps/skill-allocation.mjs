@@ -100,8 +100,11 @@ export function spendOf(rows) {
  * modifier, floored at one. The character's very first class level is worth
  * four times that.
  */
-export function pointsForLevel(perLevel, intMod, { firstLevelEver = false } = {}) {
-  const each = Math.max(1, perLevel + intMod);
+export function pointsForLevel(perLevel, intMod,
+                               { firstLevelEver = false, nonhuman = false } = {}) {
+  // One fewer per level for a nonhuman, before the floor of one: see
+  // skillPointBudget in module/data/actor-hero.mjs for the printed rule.
+  const each = Math.max(1, perLevel - (nonhuman ? 1 : 0) + intMod);
   return firstLevelEver ? each * 4 : each;
 }
 

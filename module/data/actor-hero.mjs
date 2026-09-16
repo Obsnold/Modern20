@@ -26,14 +26,26 @@ function bracketFor(table, score) {
  * times that, which is the SRD's "Skill Points at 1st Level: (x + Int) x 4".
  * Exported as a pure function so the arithmetic can be tested directly.
  *
+ * A nonhuman gets one fewer per level. That single subtraction is the whole
+ * of the rule: "Shadowkind characters get 4 fewer skill points at 1st level
+ * and 1 fewer skill point each level thereafter" — four fewer at first level
+ * because the first level is multiplied by four. The packs store the printed
+ * human figure, and eleven advanced classes and all six basic ones print both
+ * numbers, always exactly one apart.
+ *
  * @param {Array<{levels: number, perLevel: number}>} classes  Starting class first.
  * @param {number} intMod
+ * @param {object} [options]
+ * @param {boolean} [options.nonhuman]  Whether the character is one.
  */
-export function skillPointBudget(classes, intMod) {
+export function skillPointBudget(classes, intMod, { nonhuman = false } = {}) {
   let total = 0;
+  const penalty = nonhuman ? 1 : 0;
   classes.forEach((cls, index) => {
     if (cls.levels < 1) return;
-    const perLevel = Math.max(1, cls.perLevel + intMod);
+    // The floor of one applies after the species penalty, not before: the
+    // book prints a nonhuman Strong hero at "2 + Int modifier" and means it.
+    const perLevel = Math.max(1, cls.perLevel - penalty + intMod);
     // Only the starting class multiplies its first level.
     total += index === 0 ? perLevel * 4 + perLevel * (cls.levels - 1) : perLevel * cls.levels;
   });
@@ -163,6 +175,12 @@ export class Modern20Hero extends Modern20ActorBase {
     // and what it needs to level — explicitly not what it can do. Null where
     // the SRD leaves the adjustment blank, so the sheet can say so rather
     // than print a number the book does not give.
+    // No species at all is a human, which is what d20 Modern is played by.
+    this.details.nonhuman = Boolean(this.species?.system.nonhuman);
+    this.details.startingFeats = this.details.nonhuman
+      ? MODERN20.startingFeats.nonhuman
+      : MODERN20.startingFeats.human;
+
     const adjustment = this.species?.system.levelAdjustment ?? 0;
     this.details.levelAdjustment = adjustment;
     this.details.challengeRating =
@@ -316,7 +334,9 @@ export class Modern20Hero extends Modern20ActorBase {
     const ordered = [...classes]
       .sort((a, b) => a.sort - b.sort)
       .map((c) => ({ levels: c.system.levels, perLevel: c.system.skillPointsPerLevel }));
-    return skillPointBudget(ordered, this.abilities.int.mod);
+    return skillPointBudget(ordered, this.abilities.int.mod, {
+      nonhuman: this.details.nonhuman
+    });
   }
 
   #countSpentSkillPoints() {

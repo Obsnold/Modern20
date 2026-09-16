@@ -155,7 +155,8 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     context.spent = spendOf(context.skillRows);
     context.budget = pointsForLevel(
       classItem.system.skillPointsPerLevel,
-      actor.system.abilities.int.mod
+      actor.system.abilities.int.mod,
+      { nonhuman: actor.system.details.nonhuman }
     );
     context.overBudget = context.spent > context.budget;
 

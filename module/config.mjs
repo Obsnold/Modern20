@@ -301,6 +301,18 @@ MODERN20.actionPoints = {
 };
 
 /**
+ * Feats a character picks at 1st level, which being human is worth one of.
+ *
+ * "In addition to the two feats all characters get at 1st level", printed in
+ * all six basic classes; and of a nonhuman, "they gain only one bonus feat at
+ * 1st level instead of two".
+ */
+MODERN20.startingFeats = {
+  human: 2,
+  nonhuman: 1
+};
+
+/**
  * What hit points do to a character.
  *
  * "Disabled: the character has 0 hit points." "Dying: ... with -1 to -9 wound

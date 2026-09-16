@@ -6,7 +6,9 @@
       <label>{{localize "MODERN20.Species.Title"}}</label>
       <select name="speciesId">
         {{!-- Not "none": d20 Modern's baseline is a human, and saying so is
-              clearer than an empty option a player has to interpret. --}}
+              clearer than an empty option a player has to interpret. Picking
+              the Human item from the list instead does exactly the same
+              thing, and says so on the sheet. --}}
         <option value="">{{localize "MODERN20.Species.None"}}</option>
         {{#each speciesList as |species|}}
           <option value="{{species.uuid}}" {{#if (eq species.uuid ../choices.speciesId)}}selected{{/if}}>
@@ -40,6 +42,9 @@
           {{/if}}
         </p>
 
+        {{#if chosenSpecies.nonhuman}}
+          <p class="m20-hint">{{localize "MODERN20.Species.NonhumanCost"}}</p>
+        {{/if}}
         {{#if chosenSpecies.extraHitDice}}
           <p class="m20-hint">
             {{localize "MODERN20.Species.ExtraHitDice" dice=chosenSpecies.extraHitDice

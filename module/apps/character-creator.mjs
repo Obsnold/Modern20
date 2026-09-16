@@ -25,7 +25,6 @@ const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
 // The SRD does not state an ability generation method; these are the
 // conventional d20 options, offered rather than assumed.
 const STANDARD_ARRAY = [15, 14, 13, 12, 10, 8];
-const STARTING_FEATS = 2;
 
 export class Modern20CharacterCreator extends HandlebarsApplicationMixin(ApplicationV2) {
   // ApplicationV2 defines a read-only `state` getter for its render state, so
@@ -197,7 +196,9 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       context.skillBudget = pointsForLevel(
         document?.system.skillPointsPerLevel ?? 0,
         Math.floor((state.abilities.int - 10) / 2),
-        { firstLevelEver: true }
+        // The species is a choice on an earlier step and is not on the actor
+        // until Create, so the budget shown here reads the step, not the sheet.
+        { firstLevelEver: true, nonhuman: Boolean(context.chosenSpecies?.nonhuman) }
       );
     } else {
       context.skillBudget = 0;
@@ -214,7 +215,9 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     context.budget = context.skillBudget;
     context.overBudget = context.spent > context.budget;
 
-    context.startingFeats = STARTING_FEATS;
+    context.startingFeats = context.chosenSpecies?.nonhuman
+      ? MODERN20.startingFeats.nonhuman
+      : MODERN20.startingFeats.human;
     context.ready = Boolean(state.classId);
 
     return context;
@@ -482,7 +485,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     });
 
     ui.notifications.info(game.i18n.format("MODERN20.Creator.Done", {
-      name: actor.name, feats: STARTING_FEATS
+      name: actor.name, feats: actor.system.details.startingFeats
     }));
     this.close();
     actor.sheet.render(true);
