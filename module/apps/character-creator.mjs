@@ -1,6 +1,7 @@
 import { MODERN20 } from "../config.mjs";
 import { talentChoices, grant, grantNamedFeature, sourceStamp } from "./level-up.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./occupation.mjs";
+import { speciesChoices, applySpecies, rollRacialHitDice } from "./species.mjs";
 import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
@@ -39,6 +40,8 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
       method: "array",
       pool: [...STANDARD_ARRAY],
       abilities: Object.fromEntries(ABILITIES.map((a) => [a, 10])),
+      speciesId: "",
+      speciesFeat: "",
       occupationId: "",
       occupationSkills: [],
       occupationFeat: "",
@@ -78,6 +81,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
   static PARTS = {
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     abilities: { template: "systems/modern20/templates/creator/abilities.hbs", scrollable: [""] },
+    species: { template: "systems/modern20/templates/creator/species.hbs", scrollable: [""] },
     occupation: { template: "systems/modern20/templates/creator/occupation.hbs", scrollable: [""] },
     heroclass: { template: "systems/modern20/templates/creator/class.hbs", scrollable: [""] },
     skills: { template: "systems/modern20/templates/creator/skills.hbs", scrollable: [""] },
@@ -88,6 +92,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     primary: {
       tabs: [
         { id: "abilities", icon: "fa-solid fa-dice-d6" },
+        { id: "species", icon: "fa-solid fa-dna" },
         { id: "occupation", icon: "fa-solid fa-briefcase" },
         { id: "heroclass", icon: "fa-solid fa-user-shield" },
         { id: "skills", icon: "fa-solid fa-list-check" },
@@ -126,6 +131,13 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     ];
     context.showPool = state.method !== "manual";
     context.pool = state.pool;
+
+    // Every campaign that needs this needs it first, and every campaign that
+     // does not leaves the step on "Human" and never looks at it again.
+    context.speciesList = await speciesChoices();
+    context.chosenSpecies =
+      context.speciesList.find((entry) => entry.uuid === state.speciesId) ?? null;
+    context.speciesFeatOptions = context.chosenSpecies?.bonusFeatOptions ?? [];
 
     context.occupations = await this.#compendiumChoices("modern20.occupations");
     context.classes = (await this.#compendiumChoices("modern20.classes"))
@@ -279,6 +291,12 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
         state.abilities[key] = Number(data[`abilities.${key}`]) || 0;
       }
     }
+    if (data.speciesId !== undefined && data.speciesId !== state.speciesId) {
+      state.speciesId = data.speciesId;
+      // A different species offers a different feat, so the old pick is void.
+      state.speciesFeat = "";
+    }
+    if (data.speciesFeat !== undefined) state.speciesFeat = data.speciesFeat;
     if (data.occupationId !== undefined && data.occupationId !== state.occupationId) {
       state.occupationId = data.occupationId;
       // A different occupation offers different skills, so old picks are void.
@@ -361,6 +379,18 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     );
     await actor.update(abilities);
 
+    // The species goes on before anything reads a Constitution modifier.
+    // "These modifiers adjust the ability scores of every member of the
+    // species", so a bugbear's +2 Constitution is part of the score its first
+    // level of hit points is worked out from — and the racial Hit Dice are
+    // left until after that, because they are added on top of the class's.
+    let species = null;
+    if (state.speciesId) {
+      species = await applySpecies(actor, state.speciesId, {
+        bonusFeat: state.speciesFeat, rollHitDice: false
+      });
+    }
+
     if (state.occupationId) {
       const pack = game.packs.get("modern20.occupations");
       const occupation = await pack?.getDocument(state.occupationId);
@@ -386,11 +416,18 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     // A character's very first level takes the maximum hit die rather than
     // rolling; the SRD reserves rolling for picking up a new class later.
     const faces = Number(String(created.system.hitDie).match(/d(\d+)/i)?.[1]) || 8;
-    const conMod = Math.floor((state.abilities.con - 10) / 2);
+    // Read off the actor rather than off the step, so a species modifier is
+    // in it: the step holds the score that was rolled, the actor holds the
+    // score the character has.
+    const conMod = actor.system.abilities.con.mod;
     const gained = Math.max(1, faces + conMod);
     await actor.update({ "system.hp.max": gained, "system.hp.value": gained });
 
+    // Racial Hit Dice come before the first class level and are added to it.
+    if (species?.system.extraHitDice) await rollRacialHitDice(actor, species);
+
     const granted = [];
+    if (species) granted.push(species.name);
     const talent = await grant(actor, state.talentUuid, sourceStamp({
       origin: "creation",
       label: game.i18n.format("MODERN20.Source.ClassLevel", { name: created.name, level: 1 }),

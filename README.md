@@ -21,6 +21,7 @@ https://github.com/Obsnold/modern20/releases/latest/download/system.json
 | | |
 |---|---|
 | **Characters** | All six basic classes and 46 advanced and prestige classes, 33 starting occupations, 52 talents, 137 feats — with a stepped creator and a level-up flow that apply the SRD's own arithmetic |
+| **Species** | d20 Modern is played by humans; Urban Arcana prints 18 playable species and all 18 are here, from halflings to ogres — ability modifiers, size, speed, natural armor, racial Hit Dice and level adjustment, applied by the sheet and taken away again when the species is removed |
 | **Rules** | Abilities, saves, Defense (normal, touch and flat-footed), initiative, grapple, all 41 skills with their specialties, action points, Reputation, massive damage, and the Wealth economy instead of currency |
 | **Equipment** | 180 weapons, 40 suits of armor, 289 pieces of gear and 147 FX items across d20 Modern, Urban Arcana and d20 Future, with purchase DCs, restriction ratings and progress levels |
 | **Creatures** | 300 creatures from all three bestiaries, 85 vehicles and 14 objects you can shoot — each arriving with the token its stat block implies: size in squares, vision from its senses line, hit points on a bar |
@@ -35,7 +36,7 @@ the words and it rolls for your character, and where the SRD printed a DC the
 card says whether the roll beat it. Typing `@Check[skill:climb|dc:15]` into
 your own notes does the same thing.
 
-**A compendium browser** over all eighteen packs, filtered the way the SRD
+**A compendium browser** over all nineteen packs, filtered the way the SRD
 prices things: by book, by restriction rating, by progress level, and by what a
 given Wealth bonus can actually afford.
 
@@ -60,7 +61,7 @@ packs/           Compiled LevelDB packs; built on release, gitignored
 
 ## Releasing
 
-Tag it. `.github/workflows/release.yml` compiles the eighteen compendia from
+Tag it. `.github/workflows/release.yml` compiles the nineteen compendia from
 `src/packs`, writes the URLs from the repository it is running in, zips what the
 manifest names, and attaches `system.json` and the zip to the release.
 
@@ -84,7 +85,7 @@ npm install
 npm test          # lint, type-check, then every check
 ```
 
-Eleven checks read this repository and seven build the system's data models
+Eleven checks read this repository and eight build the system's data models
 against Foundry stubs. Each exists because something it now catches had already
 shipped:
 
@@ -98,6 +99,7 @@ shipped:
 | `check_release.py` | a release missing `assets/` installs perfectly and draws no artwork |
 | `check_private.py` | nothing here should name the machine it was written on |
 | `check_creatures.mjs` | every creature's arithmetic against the SRD: 1,577 skill totals and 507 attacks |
+| `check_species.mjs` | all 18 species against numbers transcribed from the printed chapters, and every printed label accounted for — a quality the import dropped is a species missing its darkvision with nothing to say so |
 | `check_lang.py`, `check_config.py`, `check_globals.py`, `check_shadowing.py`, `check_app_props.py`, `check_coverage.py` | missing localization strings, config that has drifted from the SRD, globals Foundry removed, a name defined twice, a read-only assignment, and SRD coverage that has regressed |
 | `tsc --noEmit` | the code against its own JSDoc: a mistyped option name silently does nothing, and a doc that disagrees with the signature is a call written wrong by whoever believed it |
 

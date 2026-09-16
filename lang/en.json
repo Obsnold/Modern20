@@ -1393,12 +1393,14 @@
       "Review": "Review",
       "ReviewHint": "Nothing is written to the character until you press Create.",
       "Roll": "Roll",
+      "SpeciesHint": "d20 Modern is played by humans and needs nothing here. Urban Arcana prints eighteen playable species, and choosing one adjusts the scores on the previous step, grants what the species is owed, and sets size, speed and reach.",
       "Tab": {
         "abilities": "Abilities",
         "heroclass": "Class",
         "occupation": "Occupation",
         "review": "Review",
-        "skills": "Skills"
+        "skills": "Skills",
+        "species": "Species"
       },
       "Title": "Create a character",
       "WealthBonus": "Wealth bonus"
@@ -1890,6 +1892,85 @@
           },
           "srdUrl": {
             "label": "SRD Reference"
+          }
+        }
+      },
+      "Species": {
+        "FIELDS": {
+          "abilityModifiers": {
+            "label": "Ability Modifiers"
+          },
+          "abilityModifiers.cha": {
+            "label": "Charisma"
+          },
+          "abilityModifiers.con": {
+            "label": "Constitution"
+          },
+          "abilityModifiers.dex": {
+            "label": "Dexterity"
+          },
+          "abilityModifiers.int": {
+            "label": "Intelligence"
+          },
+          "abilityModifiers.str": {
+            "label": "Strength"
+          },
+          "abilityModifiers.wis": {
+            "label": "Wisdom"
+          },
+          "activities": {
+            "label": "Activities"
+          },
+          "attackBonus": {
+            "label": "Attack Bonus"
+          },
+          "baseSpeed": {
+            "label": "Base Speed"
+          },
+          "bonusFeatChosen": {
+            "label": "Bonus Feat"
+          },
+          "bonusFeatOptions": {
+            "label": "Bonus Feat Options"
+          },
+          "bonusFeats": {
+            "label": "Bonus Feats"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "extraHitDice": {
+            "label": "Extra Starting Hit Dice"
+          },
+          "freeLanguages": {
+            "label": "Free Language Skills"
+          },
+          "hitDie": {
+            "label": "Hit Die"
+          },
+          "levelAdjustment": {
+            "label": "Level Adjustment"
+          },
+          "naturalArmor": {
+            "label": "Natural Armor Bonus"
+          },
+          "otherLanguages": {
+            "label": "Other Languages"
+          },
+          "reach": {
+            "label": "Reach"
+          },
+          "size": {
+            "label": "Size"
+          },
+          "source": {
+            "label": "Source"
+          },
+          "srdUrl": {
+            "label": "SRD Reference"
+          },
+          "traits": {
+            "label": "Species Traits"
           }
         }
       },
@@ -2448,6 +2529,22 @@
     },
     "SpecialQualities": "Special Qualities",
     "SpecialtySkill": "Choose a subject",
+    "Species": {
+      "AlreadyHas": "{name} already has a species. Remove {species} first.",
+      "Applied": "{name} is now {species}.",
+      "BonusFeat": "Bonus feat",
+      "ChallengeRating": "Challenge Rating {cr}",
+      "ExtraHitDice": "{dice} extra starting Hit Dice ({formula})",
+      "HeroOnly": "A species only applies to a hero, and {name} is not one.",
+      "Languages": "Free languages: {languages}",
+      "LevelAdjustment": "Level adjustment +{adjustment}",
+      "LevelAdjustmentUnprinted": "Level adjustment: not printed",
+      "None": "Human",
+      "OtherLanguages": "Other languages: {languages}",
+      "Rolled": "{dice} racial Hit Dice: {gained} hit points ({rolled}{con}).",
+      "Title": "Species",
+      "Traits": "Species Traits"
+    },
     "Speed": "Speed",
     "Spend": "Spend",
     "Stance": {

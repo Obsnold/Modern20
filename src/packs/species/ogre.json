@@ -1,0 +1,53 @@
+{
+  "_id": "CFiLQnJ643KnHL8I",
+  "name": "Ogre",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/delapouite/giant.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Large. Ogres take a –1 size penalty to Defense and a –1 size penalty on attack rolls. They gain a +4 size bonus on grapple checks and suffer a –4 size penalty on Hide checks.</p><p><strong>Ability Modifiers:</strong> +10 Strength, –2 Dexterity, +4 Constitution, –4 Intelligence, –4 Charisma.</p><p><strong>Extra Starting Hit Dice:</strong> An ogre gains 4 Hit Dice (4d8 hit points). The ogre’s Constitution modifier applies to each Hit Die when determining hit points.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Natural Armor Bonus:</strong> Ogres have thick hides and gain a +5 natural armor bonus to Defense.</p><p><strong>Attack Bonus:</strong> Ogres gain a +3 species bonus on attack rolls.</p><p><strong>Fighting Space:</strong> As Large creatures, ogres occupy a 10-foot-by-10-foot fighting space.</p><p><strong>Reach:</strong> As Large creatures, ogres have a 10-foot reach.</p><p><strong>Low-Light Vision:</strong> Ogres can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p><p><strong>Allegiance:</strong> Ogres must begin play with an allegiance to chaos, evil, or both.</p><p><strong>Bonus Feat:</strong> Ogres gain either Archaic Weapons Proficiency or Simple Weapons Proficiency as a bonus feat.</p><p><strong>Free Language Skills:</strong> Speak Giant (or local language).</p><p><strong>Other Languages:</strong> Common, Gnoll, Goblin, Orc, Undertongue.</p><p><strong>Level Adjustment:</strong> +3</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpowerkind.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.9ZA8ghOeVSMtVURP",
+    "size": "large",
+    "abilityModifiers": {
+      "str": 10,
+      "dex": -2,
+      "con": 4,
+      "int": -4,
+      "wis": 0,
+      "cha": -4
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 4,
+    "hitDie": "d8",
+    "naturalArmor": 5,
+    "attackBonus": 3,
+    "reach": 10,
+    "levelAdjustment": 3,
+    "bonusFeats": [],
+    "bonusFeatOptions": [
+      "Archaic Weapons Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Speak Giant (or local language).",
+    "otherLanguages": "Common, Gnoll, Goblin, Orc, Undertongue.",
+    "traits": [
+      {
+        "name": "Low-Light Vision",
+        "description": "<p>Ogres can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Allegiance",
+        "description": "<p>Ogres must begin play with an allegiance to chaos, evil, or both.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!CFiLQnJ643KnHL8I",
+  "folder": "1UFRO8F3FveDuTtb"
+}

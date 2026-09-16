@@ -1,5 +1,5 @@
 {
-  "_comment": "How much of each SRD document the packs cover, by scripts/check_coverage.py. A document with nothing matched is either rules text the system implements in code, or content not imported yet; the review in the README says which. Regenerate with --update after importing more, never to make a failure go away.",
+  "_comment": "How much of each SRD document the packs cover, by tools/check_coverage.py. A document with nothing matched is either rules text the system implements in code, or content not imported yet; the review in the README says which. Regenerate with --update after importing more, never to make a failure go away.",
   "documents": {
     "legal": {
       "book": "d20 Modern",
@@ -131,7 +131,7 @@
       "book": "Urban Arcana",
       "title": "Shadowkind",
       "sections": 59,
-      "matched": 20
+      "matched": 36
     },
     "urbanoccs": {
       "book": "Urban Arcana",
@@ -351,6 +351,11 @@
       "linked": 289,
       "pages": 20
     },
+    "guide": {
+      "documents": 1,
+      "linked": 0,
+      "pages": 0
+    },
     "objects": {
       "documents": 14,
       "linked": 14,
@@ -361,10 +366,25 @@
       "linked": 33,
       "pages": 33
     },
+    "pregens": {
+      "documents": 6,
+      "linked": 0,
+      "pages": 0
+    },
     "psionics": {
       "documents": 87,
       "linked": 87,
       "pages": 87
+    },
+    "scenes": {
+      "documents": 1,
+      "linked": 0,
+      "pages": 0
+    },
+    "species": {
+      "documents": 18,
+      "linked": 18,
+      "pages": 18
     },
     "spells": {
       "documents": 174,
@@ -418,6 +438,11 @@
       "pictured": 289,
       "icons": 23
     },
+    "guide": {
+      "documents": 1,
+      "pictured": 0,
+      "icons": 0
+    },
     "objects": {
       "documents": 14,
       "pictured": 14,
@@ -428,6 +453,11 @@
       "pictured": 33,
       "icons": 9
     },
+    "pregens": {
+      "documents": 73,
+      "pictured": 73,
+      "icons": 24
+    },
     "psionics": {
       "documents": 87,
       "pictured": 87,
@@ -437,6 +467,16 @@
       "documents": 53,
       "pictured": 0,
       "icons": 0
+    },
+    "scenes": {
+      "documents": 1,
+      "pictured": 0,
+      "icons": 0
+    },
+    "species": {
+      "documents": 18,
+      "pictured": 18,
+      "icons": 18
     },
     "spells": {
       "documents": 174,

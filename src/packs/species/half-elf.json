@@ -1,0 +1,64 @@
+{
+  "_id": "Svwn929NpkjGrv7c",
+  "name": "Half-Elf",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/aura.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Half-elves have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> None.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Elven Blood:</strong> For all effects related to species, a half-elf is considered an elf. Half-elves, for example, are just as susceptible to special effects that affect elves as their elven ancestors are, and they can use magic items that are only usable by elves.</p><p><strong>Spell Immunities:</strong> Half-elves are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects.</p><p><strong>Low-Light Vision:</strong> Half-elves can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p><p><strong>Skill Bonuses:</strong> Half-elves gain a +1 species bonus on Listen, Search, and Spot checks. They gain a +2 species bonus on Diplomacy and Gather Information checks.</p><p><strong>Bonus Feat:</strong> Half-elves gain the bonus feat Archaic Weapons Proficiency.</p><p><strong>Free Language Skills:</strong> Read/Write Common (or local language), Read/Write Elven, Speak Common (or local language), Speak Elven.</p><p><strong>Other Languages:</strong> Draconic, Dwarven, Gnome, Halfling, Sylvan.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.Xqr7GVIWPVK3yQwE",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Archaic Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Read/Write Elven, Speak Common (or local language), Speak Elven.",
+    "otherLanguages": "Draconic, Dwarven, Gnome, Halfling, Sylvan.",
+    "traits": [
+      {
+        "name": "Elven Blood",
+        "description": "<p>For all effects related to species, a half-elf is considered an elf. Half-elves, for example, are just as susceptible to special effects that affect elves as their elven ancestors are, and they can use magic items that are only usable by elves.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Spell Immunities",
+        "description": "<p>Half-elves are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Low-Light Vision",
+        "description": "<p>Half-elves can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Half-elves gain a +1 species bonus on Listen, Search, and Spot checks. They gain a +2 species bonus on Diplomacy and Gather Information checks.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!Svwn929NpkjGrv7c",
+  "folder": "RV0bFeuQgatOqxaB"
+}

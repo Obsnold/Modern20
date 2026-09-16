@@ -9,7 +9,7 @@ import { Modern20Object } from "./data/actor-object.mjs";
 import {
   Modern20Class, Modern20Occupation, Modern20Talent, Modern20Feat,
   Modern20Weapon, Modern20Armor, Modern20Gear, Modern20Container, Modern20VehicleMod,
-  Modern20Spell, Modern20PsiPower, Modern20SpecialAbility
+  Modern20Spell, Modern20PsiPower, Modern20SpecialAbility, Modern20Species
 } from "./data/items.mjs";
 
 import { Modern20Actor } from "./documents/actor.mjs";
@@ -55,6 +55,7 @@ Hooks.once("init", () => {
   };
 
   CONFIG.Item.dataModels = {
+    species: Modern20Species,
     class: Modern20Class,
     occupation: Modern20Occupation,
     talent: Modern20Talent,

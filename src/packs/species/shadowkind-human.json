@@ -1,0 +1,68 @@
+{
+  "_id": "8IoaFX1Fz4tRAhcD",
+  "name": "Shadowkind Human",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/delapouite/person.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Shadowkind humans have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> None.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Saving Throw Bonuses:</strong> Shadowkind humans gain a +1 species bonus on all saving throws.</p><p><strong>Bonus Feat:</strong> Shadowkind humans receive a bonus feat at 1st level. Unlike normal humans, this extra feat must be chosen from the following list:Acrobatic, Alertness, Archaic Weapons Proficiency, Athletic, Attentive, Builder, Cautious, Confident, Creative, Deceptive, Divine Heritage, Educated, Exotic Weapon Proficiency (any one), Focused, Gearhead, Guide, Magical Heritage, Medical Expert, Meticulous, Nimble, Stealthy, Studious, Trustworthy.</p><p><strong>Free Language Skills:</strong> Read/Write Common (or local language), Speak Common (or local language).</p><p><strong>Other Languages:</strong> Draconic, Dwarven, Elven, Giant, Gnome, Halfling.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.7VbyfBDh3Xu00tYZ",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [],
+    "bonusFeatOptions": [
+      "Acrobatic",
+      "Alertness",
+      "Archaic Weapons Proficiency",
+      "Athletic",
+      "Attentive",
+      "Builder",
+      "Cautious",
+      "Confident",
+      "Creative",
+      "Deceptive",
+      "Divine Heritage",
+      "Educated",
+      "Exotic Weapon Proficiency (any one)",
+      "Focused",
+      "Gearhead",
+      "Guide",
+      "Magical Heritage",
+      "Medical Expert",
+      "Meticulous",
+      "Nimble",
+      "Stealthy",
+      "Studious",
+      "Trustworthy"
+    ],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Speak Common (or local language).",
+    "otherLanguages": "Draconic, Dwarven, Elven, Giant, Gnome, Halfling.",
+    "traits": [
+      {
+        "name": "Saving Throw Bonuses",
+        "description": "<p>Shadowkind humans gain a +1 species bonus on all saving throws.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!8IoaFX1Fz4tRAhcD",
+  "folder": "RV0bFeuQgatOqxaB"
+}

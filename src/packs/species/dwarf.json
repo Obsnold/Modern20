@@ -1,0 +1,70 @@
+{
+  "_id": "uIlgqtOBzthqsNO4",
+  "name": "Dwarf",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/horned-helm.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Dwarves have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +2 Constitution, –2 Charisma.</p><p><strong>Base Speed:</strong> 20 feet. Dwarves can move at this speed even when wearing medium or heavy armor or when carrying a medium and heavy load (unlike other creatures, whose speed is reduced in such situations).</p><p><strong>Special Combat Bonuses:</strong> Dwarves gain a +1 species bonus on attack rolls against bugbears, goblins, orcs, and other goblinoids. Dwarves also gain a +4 dodge bonus to Defense against creatures of giants (including giants, trolls, and ogres). If a dwarf loses his positive Dexterity bonus to Defense (such as when flat-footed), this dodge bonus is lost.</p><p><strong>Stability:</strong> Dwarves gain a +4 species bonus on ability checks to resist bull rush and trip attempts when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).</p><p><strong>Darkvision:</strong> Dwarves can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dwarves can function with no light at all.</p><p><strong>Saving Throw Bonuses:</strong> Dwarves are highly resistant to toxins and innately resistant to magic. They gain a +2 species bonus on saving throws against poisons, spells, and spell-like abilities.</p><p><strong>Skill Bonuses:</strong> Dwarves gain a +2 species bonus on Search checks to notice unusual stonework, new construction, unsafe surfaces, ceilings, and the like. A dwarf who merely passes within 10 feet of such exceptional construction can, as a free action, make a Search check (DC 15) as though he were actively searching for such.</p><p><strong>Bonus Feat:</strong> Dwarves gain the bonus feat Archaic Weapons Proficiency. Dwarves may treat dwarven urgroshes and dwarven waraxes as archaic weapons instead of exotic weapons.</p><p><strong>Free Language Skills:</strong> Read/Write Common (or local language), Read/Write Dwarven, Speak Common (or local language), Speak Dwarven.</p><p><strong>Other Languages:</strong> Giant, Gnome, Goblin, Orc, Terran.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.jcd4oai64mlfvgcH",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 0,
+      "dex": 0,
+      "con": 2,
+      "int": 0,
+      "wis": 0,
+      "cha": -2
+    },
+    "baseSpeed": 20,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Archaic Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Read/Write Dwarven, Speak Common (or local language), Speak Dwarven.",
+    "otherLanguages": "Giant, Gnome, Goblin, Orc, Terran.",
+    "traits": [
+      {
+        "name": "Special Combat Bonuses",
+        "description": "<p>Dwarves gain a +1 species bonus on attack rolls against bugbears, goblins, orcs, and other goblinoids. Dwarves also gain a +4 dodge bonus to Defense against creatures of giants (including giants, trolls, and ogres). If a dwarf loses his positive Dexterity bonus to Defense (such as when flat-footed), this dodge bonus is lost.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Stability",
+        "description": "<p>Dwarves gain a +4 species bonus on ability checks to resist bull rush and trip attempts when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Darkvision",
+        "description": "<p>Dwarves can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dwarves can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Saving Throw Bonuses",
+        "description": "<p>Dwarves are highly resistant to toxins and innately resistant to magic. They gain a +2 species bonus on saving throws against poisons, spells, and spell-like abilities.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Dwarves gain a +2 species bonus on Search checks to notice unusual stonework, new construction, unsafe surfaces, ceilings, and the like. A dwarf who merely passes within 10 feet of such exceptional construction can, as a free action, make a Search check (DC 15) as though he were actively searching for such.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!uIlgqtOBzthqsNO4",
+  "folder": "RV0bFeuQgatOqxaB"
+}

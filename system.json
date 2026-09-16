@@ -54,6 +54,11 @@
       }
     },
     "Item": {
+      "species": {
+        "htmlFields": [
+          "description"
+        ]
+      },
       "class": {
         "htmlFields": [
           "description"
@@ -120,6 +125,17 @@
     }
   },
   "packs": [
+    {
+      "name": "species",
+      "label": "Species",
+      "path": "packs/species",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
     {
       "name": "classes",
       "label": "Classes",
@@ -341,6 +357,7 @@
       "sorting": "m",
       "color": "#5d5a4e",
       "packs": [
+        "species",
         "classes",
         "occupations",
         "talents",

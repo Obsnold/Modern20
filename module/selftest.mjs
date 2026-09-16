@@ -102,6 +102,7 @@ export async function runSelfTest({ images = true } = {}) {
     const groups = [
     ["Compendia", checkPacks],
     ["Character sheet", checkHero],
+    ["Species", checkSpecies],
     ["Creatures", checkCreatures],
     ["Ready-made characters", checkPregens],
     ["Rules links", checkRulesLinks],
@@ -276,6 +277,117 @@ async function checkHeroNumbers(results, actor, wanted, abilities) {
              + `${Object.keys(MODERN20.skills).length} in the config`);
   results.same("an untrained Climb is the Strength modifier", skill.total, 2);
   results.ok("Climb is a class skill for a Strong hero", skill.classSkill);
+}
+
+/**
+ * A species changes the character, and removing it changes it back.
+ *
+ * The second half is the half worth testing. Every one of these numbers is
+ * re-applied from the species item on each preparation pass rather than
+ * written into a stored field, so an ogre who stops being an ogre has to lose
+ * ten points of Strength, five points of natural armor and four feet of
+ * reach — and a system that added them once would keep them for ever.
+ *
+ * The ogre is the fixture because it moves every number at once: Large, the
+ * biggest ability spread in either chapter, natural armor, an attack bonus
+ * and the only printed reach.
+ */
+async function checkSpecies(results) {
+  const wanted = EXPECTED.species;
+  const species = await foundry.utils.fromUuid(wanted.uuid);
+  if (!results.ok(`${wanted.name} is in the compendium`, Boolean(species))) return;
+
+  results.same("the species is Large", species.system.size, wanted.size);
+  results.same("its printed reach", species.system.reach, wanted.reach);
+  results.same("its natural armor", species.system.naturalArmor, wanted.naturalArmor);
+  results.same("its level adjustment",
+               species.system.levelAdjustment, wanted.levelAdjustment);
+  results.same("its named qualities", species.system.traits.length, wanted.traits);
+
+  if (!game.user?.isGM) {
+    results.ok("a character can be made to check the arithmetic on", false,
+               "only a GM can create the actor this needs");
+    return;
+  }
+
+  const source = species.toObject();
+  for (const key of ["_id", "_key", "_slug", "_stats", "ownership", "folder", "sort"]) {
+    delete source[key];
+  }
+
+  const abilities = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 };
+  let actor = null;
+  try {
+    actor = await Actor.implementation.create({
+      name: "Modern20 self-test (deleted when this finishes)",
+      type: "hero",
+      system: {
+        abilities: Object.fromEntries(
+          Object.entries(abilities).map(([key, value]) => [key, { value }])
+        )
+      }
+    });
+
+    // Every score is 10, so whatever the sheet shows above 10 is the species.
+    const before = actor.system.abilities.str.total;
+    results.same("with no species, Strength is the score that was rolled", before, 10);
+    results.same("with no species, size is Medium", actor.system.attributes.size, "medium");
+
+    let created = [];
+    try {
+      created = await actor.createEmbeddedDocuments("Item", [source]);
+    } catch (error) {
+      results.ok("the species item can be added to a character", false,
+                 String(error?.message ?? error));
+    }
+    if (!results.same("adding the species created one document", created.length, 1)) return;
+
+    const system = actor.system;
+    for (const [key, amount] of Object.entries(wanted.abilityModifiers)) {
+      if (!amount) continue;
+      results.same(`${key} is 10 ${amount >= 0 ? "+" : ""}${amount}`,
+                   system.abilities[key].total, 10 + amount);
+    }
+    results.same("the stored Strength score is untouched",
+                 actor.system._source.abilities.str.value, 10);
+
+    results.same("size comes from the species", system.attributes.size, wanted.size);
+    results.same("speed comes from the species",
+                 system.attributes.speed, wanted.baseSpeed);
+    results.same("reach comes from the species", system.attributes.reach, wanted.reach);
+    results.same("natural armor is in Defense",
+                 system.defense.naturalArmor, wanted.naturalArmor);
+    results.same("the species attack bonus is on attacks",
+                 system.attributes.attackMisc, wanted.attackBonus);
+    // "CR = Character Level + Level Adjustment", and a character with no
+    // class levels is still level 1.
+    results.same("challenge rating is level plus the adjustment",
+                 system.details.challengeRating,
+                 system.details.level + wanted.levelAdjustment);
+
+    // Large: "-1 size penalty to Defense", and +4 on grapple.
+    const large = MODERN20.sizes[wanted.size];
+    results.same("Defense carries the size penalty and the natural armor",
+                 system.defense.value, 10 + wanted.naturalArmor + large.mod);
+    results.same("grapple carries the size bonus",
+                 system.attributes.grapple, system.attributes.baseAttack + large.grapple);
+
+    // And now the half that matters: take it away again.
+    await actor.deleteEmbeddedDocuments("Item", [created[0].id]);
+    const after = actor.system;
+    results.same("removing the species returns Strength to the rolled score",
+                 after.abilities.str.total, 10);
+    results.same("removing the species returns size to Medium",
+                 after.attributes.size, "medium");
+    results.same("removing the species removes its natural armor",
+                 after.defense.naturalArmor, 0);
+    results.same("removing the species removes its attack bonus",
+                 after.attributes.attackMisc, 0);
+    results.same("removing the species returns reach to five feet",
+                 after.attributes.reach, 5);
+  } finally {
+    if (actor?.id) await actor.delete();
+  }
 }
 
 /** Every creature's sheet shows the Defense and the token the book gives it. */

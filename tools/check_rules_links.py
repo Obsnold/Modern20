@@ -359,7 +359,14 @@ def main() -> int:
         print(f"\ndata/coverage.json written: {total} rules pages linked to")
         return 0
 
-    recorded = baseline.get("links") or {}
+    # As in check_art: an absent key is not an empty baseline to pass against,
+    # it is a baseline another check's --update has overwritten.
+    recorded = baseline.get("links")
+    if not recorded:
+        print("FAIL  data/coverage.json has no \"links\" baseline to compare "
+              "against — run --update to record one")
+        return 1
+
     for pack, was in recorded.items():
         now = coverage.get(pack)
         if not now:

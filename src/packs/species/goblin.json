@@ -1,0 +1,52 @@
+{
+  "_id": "dOymLepUvHrabzYC",
+  "name": "Goblin",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/skoll/fangs.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Small. Goblins gain a +1 size bonus to Defense, a +1 size bonus on attack rolls, and a +4 size bonus on Hide checks. They suffer a –4 size penalty on grapple checks. Goblins must use smaller weapons than humans use, and their lifting and carrying limits are three-quarters of those of a Medium character. See the Small Characters sidebar for more information.</p><p><strong>Ability Modifiers:</strong> –2 Strength, +2 Dexterity, –2 Charisma.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Darkvision:</strong> Goblins can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and goblins can function with no light at all.</p><p><strong>Skill Bonuses:</strong> Goblins gain a +4 species bonus on Move Silently checks.</p><p><strong>Bonus Feat:</strong> Goblins are keenly aware of their surroundings and gain the bonus feat Alertness.</p><p><strong>Free Language Skills:</strong> Read/Write Goblin, Speak Goblin.</p><p><strong>Other Languages:</strong> Common (or local language), Giant.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.G8NmhO4LFbcgaw5i",
+    "size": "small",
+    "abilityModifiers": {
+      "str": -2,
+      "dex": 2,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": -2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Alertness"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Goblin, Speak Goblin.",
+    "otherLanguages": "Common (or local language), Giant.",
+    "traits": [
+      {
+        "name": "Darkvision",
+        "description": "<p>Goblins can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and goblins can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Goblins gain a +4 species bonus on Move Silently checks.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!dOymLepUvHrabzYC",
+  "folder": "RV0bFeuQgatOqxaB"
+}

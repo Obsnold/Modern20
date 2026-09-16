@@ -266,7 +266,15 @@ def main() -> int:
         print(f"data/coverage.json written: {total} icon(s) across the packs")
         return 1 if problems else 0
 
-    recorded = baseline.get("art") or {}
+    # No baseline means nothing to regress against, and a loop over nothing
+    # passes. Three checks share this file with a key each, so an absent key
+    # is somebody else's --update having overwritten it rather than a first run.
+    recorded = baseline.get("art")
+    if not recorded:
+        print("FAIL  data/coverage.json has no \"art\" baseline to compare "
+              "against — run --update to record one")
+        return 1
+
     for pack, was in sorted(recorded.items()):
         now = spread.get(pack)
         if not now:

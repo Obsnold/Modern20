@@ -1,0 +1,77 @@
+{
+  "_id": "Ei3K3jfoJ6zTiJmo",
+  "name": "Tiefling",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/daemon-skull.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Tieflings have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +2 Dexterity, +2 Intelligence, –2 Charisma.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Outsider Traits:</strong> As outsiders, tieflings can’t be raised from the dead.</p><p><strong>Darkvision:</strong> Tieflings can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and tieflings can function with no light at all.</p><p><strong>Energy Resistance:</strong> Tieflings have cold, electricity, and fire resistance 5.</p><p><strong>Spell-Like Abilities:</strong> A tiefling can use the darkness spell once per day, as cast by an Acolyte of the tiefling’s character level.</p><p><strong>Allegiance:</strong> Tieflings must begin play with an allegiance to evil.</p><p><strong>Skill Bonuses:</strong> Tieflings gain a +2 species bonus on Bluff and Hide checks.</p><p><strong>Bonus Feat:</strong> Tieflings receive either Archaic Weapons Proficiency or Simple Weapons Proficiency as a bonus feat.</p><p><strong>Free Language Skills:</strong> Read/Write Abyssal or Infernal, Read/Write Language (any one), Speak Abyssal or Infernal, Speak Language (any one).</p><p><strong>Other Languages:</strong> Any Shadow or Earth-based languages.</p><p><strong>Level Adjustment:</strong> +1</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpowerkind.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.xnvtRj30hUD7HX1d",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 0,
+      "dex": 2,
+      "con": 0,
+      "int": 2,
+      "wis": 0,
+      "cha": -2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 1,
+    "bonusFeats": [],
+    "bonusFeatOptions": [
+      "Archaic Weapons Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Abyssal or Infernal, Read/Write Language (any one), Speak Abyssal or Infernal, Speak Language (any one).",
+    "otherLanguages": "Any Shadow or Earth-based languages.",
+    "traits": [
+      {
+        "name": "Outsider Traits",
+        "description": "<p>As outsiders, tieflings can’t be raised from the dead.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Darkvision",
+        "description": "<p>Tieflings can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and tieflings can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Energy Resistance",
+        "description": "<p>Tieflings have cold, electricity, and fire resistance 5.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Spell-Like Abilities",
+        "description": "<p>A tiefling can use the darkness spell once per day, as cast by an Acolyte of the tiefling’s character level.</p>",
+        "sense": false,
+        "abilityType": "sp"
+      },
+      {
+        "name": "Allegiance",
+        "description": "<p>Tieflings must begin play with an allegiance to evil.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Tieflings gain a +2 species bonus on Bluff and Hide checks.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!Ei3K3jfoJ6zTiJmo",
+  "folder": "1UFRO8F3FveDuTtb"
+}
