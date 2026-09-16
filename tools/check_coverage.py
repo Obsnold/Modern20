@@ -160,17 +160,27 @@ def main() -> int:
     current = coverage()
 
     if args.update or not os.path.exists(BASELINE):
+        # Three checks share this file, one key each: "documents" here, "links"
+        # from check_rules_links and "art" from check_art. Read before writing
+        # or --update here silently deletes the other two baselines, and the
+        # regressions they exist to catch stop being caught at all.
+        baseline = {}
+        if os.path.exists(BASELINE):
+            with open(BASELINE, encoding="utf-8") as handle:
+                baseline = json.load(handle)
+
+        baseline["_comment"] = (
+            "How much of each SRD document the packs cover, by "
+            "tools/check_coverage.py. A document with nothing matched is "
+            "either rules text the system implements in code, or content not "
+            "imported yet; the review in the README says which. Regenerate "
+            "with --update after importing more, never to make a failure go "
+            "away."
+        )
+        baseline["documents"] = current
+
         with open(BASELINE, "w", encoding="utf-8") as handle:
-            json.dump({
-                "_comment": "How much of each SRD document the packs cover, by "
-                            "tools/check_coverage.py. A document with nothing "
-                            "matched is either rules text the system implements "
-                            "in code, or content not imported yet; the review in "
-                            "the README says which. Regenerate with --update "
-                            "after importing more, never to make a failure go "
-                            "away.",
-                "documents": current,
-            }, handle, indent=2, ensure_ascii=False)
+            json.dump(baseline, handle, indent=2, ensure_ascii=False)
             handle.write("\n")
         total = sum(d["matched"] for d in current.values())
         print(f"data/coverage.json written: {len(current)} documents, {total} sections covered")

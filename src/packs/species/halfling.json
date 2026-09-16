@@ -1,0 +1,58 @@
+{
+  "_id": "lcxgPrgHCW6DiAfb",
+  "name": "Halfling",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/delapouite/slingshot.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Small. Halflings gain a +1 size bonus to Defense, a +1 size bonus on attack rolls, and a +4 size bonus on Hide checks. They suffer a –4 size penalty on grapple checks. Halflings must use smaller weapons than humans use, and their lifting and carrying limits are three-quarters of those of a Medium character.</p><p><strong>Ability Modifiers:</strong> –2 Strength, +2 Dexterity.</p><p><strong>Base Speed:</strong> 20 feet.</p><p><strong>Special Combat Bonuses:</strong> Halflings gain a +1 species bonus on attacks with thrown weapons and slings.</p><p><strong>Saving Throw Bonuses:</strong> Halflings gain a +1 species bonus on all saving throws. In addition, they gain an additional +2 morale bonus on saving throws against fear.</p><p><strong>Skill Bonuses:</strong> Halflings gain a +2 species bonus on Climb, Jump, Listen, and Move Silently checks.</p><p><strong>Bonus Feat:</strong> Halflings gain the bonus feat Archaic Weapons Proficiency.</p><p><strong>Free Language Skills:</strong> Read/Write Common (or local language), Read/Write Halfling, Read/Write Language (any one), Speak Common (or local language), Speak Halfling, Speak Language (any one).</p><p><strong>Other Languages:</strong> Dwarven, Elven, Gnome, Goblin, Orc.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.sieJBH4fKjKhluk2",
+    "size": "small",
+    "abilityModifiers": {
+      "str": -2,
+      "dex": 2,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "baseSpeed": 20,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Archaic Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Read/Write Halfling, Read/Write Language (any one), Speak Common (or local language), Speak Halfling, Speak Language (any one).",
+    "otherLanguages": "Dwarven, Elven, Gnome, Goblin, Orc.",
+    "traits": [
+      {
+        "name": "Special Combat Bonuses",
+        "description": "<p>Halflings gain a +1 species bonus on attacks with thrown weapons and slings.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Saving Throw Bonuses",
+        "description": "<p>Halflings gain a +1 species bonus on all saving throws. In addition, they gain an additional +2 morale bonus on saving throws against fear.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Halflings gain a +2 species bonus on Climb, Jump, Listen, and Move Silently checks.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!lcxgPrgHCW6DiAfb",
+  "folder": "RV0bFeuQgatOqxaB"
+}

@@ -219,14 +219,30 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
 
   /** Ability modifiers must exist before anything that reads them. */
   prepareBaseData() {
+    this.prepareSpeciesModifiers();
+
     for (const ability of Object.values(this.abilities)) {
-      ability.total = ability.value + ability.tempMod - ability.damage;
+      ability.total =
+        ability.value + ability.speciesMod + ability.tempMod - ability.damage;
       ability.mod = Math.floor((ability.total - 10) / 2);
     }
     // Overwritten in prepareDerivedData once equipped armor is known.
     this.defense.equipment = 0;
     this.attributes.armorCheckPenalty = 0;
     this.attributes.maxDex = null;
+  }
+
+  /**
+   * What a species adjusts before any total is worked out.
+   *
+   * Zeroed here and added to by the subtype that can have one, so a species
+   * modifier is never written into the stored score: the number on the sheet
+   * stays the one that was rolled, and deleting the species item takes its
+   * +2 Constitution away with it. Nothing but `hero` overrides this — an
+   * ordinary is a person and a creature carries its scores already rolled.
+   */
+  prepareSpeciesModifiers() {
+    for (const ability of Object.values(this.abilities)) ability.speciesMod = 0;
   }
 
   prepareDerivedData() {

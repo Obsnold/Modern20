@@ -47,6 +47,71 @@
     </div>
   {{/each}}
 
+  {{#if species}}
+    <div class="m20-panel m20-panel--species">
+      <h3>
+        <img src="{{species.img}}" alt="{{species.name}}" class="m20-panel__icon">
+        {{species.name}}
+        <span class="m20-tag">{{species.sizeLabel}}</span>
+        <span class="m20-tag">{{localize "MODERN20.Speed"}} {{species.speed}}</span>
+        {{#if species.challengeRating}}
+          <span class="m20-tag" data-tooltip="{{localize 'MODERN20.Species.LevelAdjustment' adjustment=species.levelAdjustment}}">
+            {{localize "MODERN20.Species.ChallengeRating" cr=species.challengeRating}}
+          </span>
+        {{else}}
+          <span class="m20-tag m20-tag--source">
+            {{localize "MODERN20.Species.LevelAdjustmentUnprinted"}}
+          </span>
+        {{/if}}
+      </h3>
+
+      {{#if species.modifiers.length}}
+        <p class="m20-hint">
+          {{#each species.modifiers}}{{this.label}} {{this.value}}{{#unless @last}} &middot; {{/unless}}{{/each}}
+        </p>
+      {{/if}}
+      {{#if species.extraHitDice}}
+        <p class="m20-hint">
+          {{localize "MODERN20.Species.ExtraHitDice" dice=species.extraHitDice
+                     formula=species.hitDiceFormula}}
+        </p>
+      {{/if}}
+      {{#if species.freeLanguages}}
+        <p class="m20-hint">{{localize "MODERN20.Species.Languages" languages=species.freeLanguages}}</p>
+      {{/if}}
+      {{#if species.otherLanguages}}
+        <p class="m20-hint">{{localize "MODERN20.Species.OtherLanguages" languages=species.otherLanguages}}</p>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  {{#each sections.traits as |section|}}
+    {{#if section.items.length}}
+      <div class="m20-itemlist">
+        <h3>{{localize "MODERN20.Species.Traits"}}</h3>
+        {{#each section.items as |item|}}
+          <div class="m20-itemrow" data-item-id="{{item.id}}">
+            <img src="{{item.img}}" alt="{{item.name}}">
+            <span class="m20-itemrow__name">{{item.name}}</span>
+            {{#if item.system.sense}}
+              <span class="m20-tag">{{localize "MODERN20.Item.SpecialAbility.FIELDS.sense.label"}}</span>
+            {{/if}}
+            {{#if item.grantSource}}
+              <span class="m20-tag m20-tag--source" data-tooltip="{{item.grantSource}}">
+                <i class="fa-solid fa-link"></i> {{item.grantSource}}
+              </span>
+            {{/if}}
+            <button type="button" class="m20-icon" data-action="rollItem" title="{{localize 'MODERN20.ToChat'}}">
+              <i class="fa-solid fa-comment"></i>
+            </button>
+            <button type="button" class="m20-icon" data-action="editItem"><i class="fa-solid fa-pen"></i></button>
+            <button type="button" class="m20-icon" data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        {{/each}}
+      </div>
+    {{/if}}
+  {{/each}}
+
   {{#if advancement.length}}
     <div class="m20-itemlist">
       <h3>{{localize "MODERN20.Source.LogTitle"}}</h3>

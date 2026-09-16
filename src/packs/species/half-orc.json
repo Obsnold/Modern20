@@ -1,0 +1,52 @@
+{
+  "_id": "RQDVbAB37GBwOWP0",
+  "name": "Half-Orc",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Half-orcs have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +2 Strength, –2 Intelligence, –2 Charisma.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Orc Blood:</strong> For all special abilities and effects, a half-orc is considered as an orc. Half-orcs, for example, are just as susceptible to special effects that affect orcs as their orcish ancestors are, and they can use magic items that are only usable by orcs.</p><p><strong>Darkvision:</strong> Half-orcs can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and drow can function with no light at all.</p><p><strong>Bonus Feat:</strong> Half-orcs gain the bonus feat Archaic Weapons Proficiency.</p><p><strong>Free Language Skills:</strong> Read/Write Common (or local language), Read/Write Orc, Speak Common (or local language), Speak Orc.</p><p><strong>Other Languages:</strong> Abyssal, Draconic, Giant, Gnoll, Goblin.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.Pp6WNYNhRTHsl5bt",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 2,
+      "dex": 0,
+      "con": 0,
+      "int": -2,
+      "wis": 0,
+      "cha": -2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Archaic Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Read/Write Orc, Speak Common (or local language), Speak Orc.",
+    "otherLanguages": "Abyssal, Draconic, Giant, Gnoll, Goblin.",
+    "traits": [
+      {
+        "name": "Orc Blood",
+        "description": "<p>For all special abilities and effects, a half-orc is considered as an orc. Half-orcs, for example, are just as susceptible to special effects that affect orcs as their orcish ancestors are, and they can use magic items that are only usable by orcs.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Darkvision",
+        "description": "<p>Half-orcs can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and drow can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!RQDVbAB37GBwOWP0",
+  "folder": "RV0bFeuQgatOqxaB"
+}

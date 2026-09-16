@@ -1,0 +1,88 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <p class="m20-hint">{{localize "MODERN20.Creator.SpeciesHint"}}</p>
+
+  {{#if speciesList.length}}
+    <div class="m20-row">
+      <label>{{localize "MODERN20.Species.Title"}}</label>
+      <select name="speciesId">
+        {{!-- Not "none": d20 Modern's baseline is a human, and saying so is
+              clearer than an empty option a player has to interpret. --}}
+        <option value="">{{localize "MODERN20.Species.None"}}</option>
+        {{#each speciesList as |species|}}
+          <option value="{{species.uuid}}" {{#if (eq species.uuid ../choices.speciesId)}}selected{{/if}}>
+            {{species.name}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{#if chosenSpecies}}
+      <div class="m20-panel">
+        <h3>
+          <img src="{{chosenSpecies.img}}" alt="{{chosenSpecies.name}}" class="m20-panel__icon">
+          {{chosenSpecies.name}}
+          {{modern20Rules uuid=chosenSpecies.rulesPage}}
+        </h3>
+
+        {{#if chosenSpecies.modifiers.length}}
+          <p class="m20-hint">
+            {{#each chosenSpecies.modifiers}}{{this.label}} {{this.value}}{{#unless @last}} &middot; {{/unless}}{{/each}}
+          </p>
+        {{/if}}
+        <p class="m20-hint">
+          {{chosenSpecies.sizeLabel}} &middot;
+          {{localize "MODERN20.Speed"}} {{chosenSpecies.baseSpeed}}
+          {{#if chosenSpecies.naturalArmor}}
+            &middot; {{localize "MODERN20.Item.Species.FIELDS.naturalArmor.label"}} +{{chosenSpecies.naturalArmor}}
+          {{/if}}
+          {{#if chosenSpecies.attackBonus}}
+            &middot; {{localize "MODERN20.Item.Species.FIELDS.attackBonus.label"}} +{{chosenSpecies.attackBonus}}
+          {{/if}}
+        </p>
+
+        {{#if chosenSpecies.extraHitDice}}
+          <p class="m20-hint">
+            {{localize "MODERN20.Species.ExtraHitDice" dice=chosenSpecies.extraHitDice
+                       formula=chosenSpecies.hitDiceFormula}}
+          </p>
+        {{/if}}
+        {{#if chosenSpecies.levelAdjustment}}
+          <p class="m20-hint">
+            {{localize "MODERN20.Species.LevelAdjustment" adjustment=chosenSpecies.levelAdjustment}}
+          </p>
+        {{else}}
+          {{#unless chosenSpecies.hasLevelAdjustment}}
+            <p class="m20-hint">{{localize "MODERN20.Species.LevelAdjustmentUnprinted"}}</p>
+          {{/unless}}
+        {{/if}}
+
+        {{#if speciesFeatOptions.length}}
+          <h3>{{localize "MODERN20.Species.BonusFeat"}}</h3>
+          <select name="speciesFeat">
+            <option value="">{{localize "MODERN20.Creator.None"}}</option>
+            {{#each speciesFeatOptions as |feat|}}
+              <option value="{{feat}}" {{#if (eq feat ../choices.speciesFeat)}}selected{{/if}}>{{feat}}</option>
+            {{/each}}
+          </select>
+        {{/if}}
+
+        {{#if chosenSpecies.traits.length}}
+          <h3>{{localize "MODERN20.Species.Traits"}}</h3>
+          <div class="m20-choices">
+            {{#each chosenSpecies.traits as |trait|}}
+              <span class="m20-tag">{{trait}}</span>
+            {{/each}}
+          </div>
+        {{/if}}
+
+        {{#if chosenSpecies.freeLanguages}}
+          <p class="m20-hint">
+            {{localize "MODERN20.Species.Languages" languages=chosenSpecies.freeLanguages}}
+          </p>
+        {{/if}}
+      </div>
+    {{/if}}
+  {{else}}
+    <p class="m20-hint">{{localize "MODERN20.Creator.NoPack"}}</p>
+  {{/if}}
+</section>

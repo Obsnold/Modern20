@@ -1,0 +1,58 @@
+{
+  "_id": "xyyhjkiTwGnfMqPf",
+  "name": "Elf",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/fairy.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Elves have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +2 Dexterity, –2 Constitution.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Low-Light Vision:</strong> Elves can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p><p><strong>Spell Immunities:</strong> Elves are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects.</p><p><strong>Skill Bonuses:</strong> Elves gain a +2 species bonus on Listen, Search, and Spot checks. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door.</p><p><strong>Bonus Feat:</strong> Elves gain the bonus feat Archaic Weapons Proficiency.</p><p><strong>Free Language Skills:</strong> Read/Write Common (or local language), Read/Write Elven, Speak Common (or local language), Speak Elven.</p><p><strong>Other Languages:</strong> Draconic, Gnoll, Gnome, Goblin, Halfling, Orc, Sylvan.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.wnKiH1cvK0ROzyU6",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 0,
+      "dex": 2,
+      "con": -2,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Archaic Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Read/Write Elven, Speak Common (or local language), Speak Elven.",
+    "otherLanguages": "Draconic, Gnoll, Gnome, Goblin, Halfling, Orc, Sylvan.",
+    "traits": [
+      {
+        "name": "Low-Light Vision",
+        "description": "<p>Elves can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Spell Immunities",
+        "description": "<p>Elves are immune to sleep spells and effects, and they gain a +2 species bonus on saves against Enchantment spells or effects.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Elves gain a +2 species bonus on Listen, Search, and Spot checks. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!xyyhjkiTwGnfMqPf",
+  "folder": "RV0bFeuQgatOqxaB"
+}

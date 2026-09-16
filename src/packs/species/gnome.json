@@ -1,0 +1,76 @@
+{
+  "_id": "ZMdPGY1sKu1KZCco",
+  "name": "Gnome",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/crystal-ball.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Small. Gnomes gain a +1 size bonus to Defense, a +1 size bonus on attack rolls, and a +4 size bonus on Hide checks. They suffer a –4 size penalty on grapple checks. Gnomes must use smaller weapons than humans use, and their lifting and carrying limits are three-quarters of those of a Medium character.</p><p><strong>Ability Modifiers:</strong> –2 Strength, +2 Constitution.</p><p><strong>Base Speed:</strong> 20 feet.</p><p><strong>Special Combat Bonuses:</strong> Gnomes gain a +1 species bonus on attack rolls against bugbears, goblins (and other goblinoids), and kobolds. Gnomes also gain a +4 dodge bonus to their Defense against giant creatures (such as ogres and trolls); this bonus represents special training that gnomes undergo, during which they learn tricks that previous generations developed in their battles with giants. Note that any time a gnome loses his positive Dexterity bonus to Defense, such as when he’s caught flat-footed, he loses this dodge bonus, too.</p><p><strong>Illusion Mastery:</strong> Add +1 to the Difficulty Class for all saving throws against Illusion spells cast by gnomes.</p><p><strong>Speak with Animals:</strong> Once per day, a gnome can use speak with animals to speak with a burrowing mammal (a mole, gopher, ground hog, and so forth). It has a duration of 1 minute, and the gnome is considered a 1st-level caster when he uses this spell-like ability, regardless of his actual level.</p><p><strong>Low-Light Vision:</strong> Gnomes can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p><p><strong>Saving Throw Bonus:</strong> Gnomes gain a +2 species bonus on saving throws against illusions.</p><p><strong>Skill Bonuses:</strong> Gnomes gain a +2 species bonus on Listen checks. Gnomes who have one or more ranks in the Craft (pharmaceutical) skill also gain a +2 species bonus on Craft (pharmaceutical) checks.</p><p><strong>Bonus Feat:</strong> Gnomes gain the bonus feat Archaic Weapons Proficiency. They may treat gnome hooked hammers (see Chapter Two: Equipment) as archaic weapons instead of exotic weapons.</p><p><strong>Free Language Skills:</strong> Read/Write Common (or local language), Read/Write Gnome, Speak Common (or local language), Speak Gnome.</p><p><strong>Other Languages:</strong> Draconic, Dwarven, Elven, Giant, Goblin, Orc.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.EjMxphZlEP38kiEp",
+    "size": "small",
+    "abilityModifiers": {
+      "str": -2,
+      "dex": 0,
+      "con": 2,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "baseSpeed": 20,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Archaic Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Common (or local language), Read/Write Gnome, Speak Common (or local language), Speak Gnome.",
+    "otherLanguages": "Draconic, Dwarven, Elven, Giant, Goblin, Orc.",
+    "traits": [
+      {
+        "name": "Special Combat Bonuses",
+        "description": "<p>Gnomes gain a +1 species bonus on attack rolls against bugbears, goblins (and other goblinoids), and kobolds. Gnomes also gain a +4 dodge bonus to their Defense against giant creatures (such as ogres and trolls); this bonus represents special training that gnomes undergo, during which they learn tricks that previous generations developed in their battles with giants. Note that any time a gnome loses his positive Dexterity bonus to Defense, such as when he’s caught flat-footed, he loses this dodge bonus, too.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Illusion Mastery",
+        "description": "<p>Add +1 to the Difficulty Class for all saving throws against Illusion spells cast by gnomes.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Speak with Animals",
+        "description": "<p>Once per day, a gnome can use speak with animals to speak with a burrowing mammal (a mole, gopher, ground hog, and so forth). It has a duration of 1 minute, and the gnome is considered a 1st-level caster when he uses this spell-like ability, regardless of his actual level.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Low-Light Vision",
+        "description": "<p>Gnomes can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Saving Throw Bonus",
+        "description": "<p>Gnomes gain a +2 species bonus on saving throws against illusions.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Gnomes gain a +2 species bonus on Listen checks. Gnomes who have one or more ranks in the Craft (pharmaceutical) skill also gain a +2 species bonus on Craft (pharmaceutical) checks.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!ZMdPGY1sKu1KZCco",
+  "folder": "RV0bFeuQgatOqxaB"
+}

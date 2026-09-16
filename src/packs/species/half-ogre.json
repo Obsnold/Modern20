@@ -1,0 +1,46 @@
+{
+  "_id": "Zb6LrQ25pcccA0XP",
+  "name": "Half-Ogre",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/bull-horns.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Half-ogres have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +4 Strength, –2 Dexterity, +2 Constitution, –2 Intelligence, –2 Charisma.</p><p><strong>Extra Starting Hit Dice:</strong> A half-ogre gains 2 Hit Dice (2d8 hit points). The half-ogre’s Constitution modifier applies to each Hit Die when determining hit points.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Natural Armor Bonus:</strong> Half-ogres have thick hides and gain a +3 natural armor bonus to Defense.</p><p><strong>Attack Bonus:</strong> Half-ogres gain a +1 species bonus on attack rolls.</p><p><strong>Low-Light Vision:</strong> Half-ogres can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p><p><strong>Bonus Feat:</strong> Half-ogres gain the bonus feat Simple Weapons Proficiency.</p><p><strong>Free Language Skills:</strong> Speak Giant (or local language).</p><p><strong>Other Languages:</strong> Common, Gnoll, Goblin, Orc, Undertongue.</p><p><strong>Level Adjustment:</strong> +1</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpowerkind.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.pNpnLWdQwE2tRMxe",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 4,
+      "dex": -2,
+      "con": 2,
+      "int": -2,
+      "wis": 0,
+      "cha": -2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 2,
+    "hitDie": "d8",
+    "naturalArmor": 3,
+    "attackBonus": 1,
+    "reach": 5,
+    "levelAdjustment": 1,
+    "bonusFeats": [
+      "Simple Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Speak Giant (or local language).",
+    "otherLanguages": "Common, Gnoll, Goblin, Orc, Undertongue.",
+    "traits": [
+      {
+        "name": "Low-Light Vision",
+        "description": "<p>Half-ogres can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "sense": true,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!Zb6LrQ25pcccA0XP",
+  "folder": "1UFRO8F3FveDuTtb"
+}

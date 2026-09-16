@@ -1,0 +1,52 @@
+{
+  "_id": "10Bh4wtVv5ZMq7HU",
+  "name": "Gnoll",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/wolf-head.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Gnolls have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +4 Strength, +2 Constitution, –2 Intelligence, –2 Charisma.</p><p><strong>Extra Starting Hit Dice:</strong> A gnoll gains 2 Hit Dice (2d8 hit points). The gnoll’s Constitution modifier applies to each Hit Die when determining hit points.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Natural Armor Bonus:</strong> Gnolls have tough hides and gain a +1 natural armor bonus to Defense.</p><p><strong>Attack Bonus:</strong> Gnolls gain a +1 species bonus on attack rolls.</p><p><strong>Darkvision:</strong> Gnolls can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and gnolls can function with no light at all.</p><p><strong>Allegiance:</strong> Gnolls must begin play with an allegiance to chaos, evil, or both.</p><p><strong>Bonus Feat:</strong> Gnolls gain the bonus feat Simple Weapons Proficiency.</p><p><strong>Free Language Skills:</strong> Read/Write Gnoll (or local language), Speak Gnoll (or local language).</p><p><strong>Other Languages:</strong> Common, Goblin, Orc.</p><p><strong>Level Adjustment:</strong> +1</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpowerkind.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.loX4HcmemCAxOA9y",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 4,
+      "dex": 0,
+      "con": 2,
+      "int": -2,
+      "wis": 0,
+      "cha": -2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 2,
+    "hitDie": "d8",
+    "naturalArmor": 1,
+    "attackBonus": 1,
+    "reach": 5,
+    "levelAdjustment": 1,
+    "bonusFeats": [
+      "Simple Weapons Proficiency"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Gnoll (or local language), Speak Gnoll (or local language).",
+    "otherLanguages": "Common, Goblin, Orc.",
+    "traits": [
+      {
+        "name": "Darkvision",
+        "description": "<p>Gnolls can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and gnolls can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Allegiance",
+        "description": "<p>Gnolls must begin play with an allegiance to chaos, evil, or both.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!10Bh4wtVv5ZMq7HU",
+  "folder": "1UFRO8F3FveDuTtb"
+}

@@ -1,5 +1,64 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
 
+  {{#if (eq document.type "species")}}
+    {{formField fields.size value=system.size}}
+    {{formField fields.baseSpeed value=system.baseSpeed}}
+    {{formField fields.reach value=system.reach}}
+    {{formField fields.naturalArmor value=system.naturalArmor}}
+    {{formField fields.attackBonus value=system.attackBonus}}
+    {{formField fields.extraHitDice value=system.extraHitDice}}
+    {{formField fields.hitDie value=system.hitDie}}
+    {{formField fields.levelAdjustment value=system.levelAdjustment}}
+
+    <div class="form-group">
+      <label>{{localize "MODERN20.Item.Species.FIELDS.abilityModifiers.label"}}</label>
+      <div class="form-fields">
+        {{#each fields.abilityModifiers.fields as |field key|}}
+          {{formField field value=(lookup ../system.abilityModifiers key)}}
+        {{/each}}
+      </div>
+    </div>
+
+    {{!-- A species that offers a choice of bonus feat records which was
+          taken, the same way an occupation does. --}}
+    {{#if system.bonusFeatOptions.length}}
+      <div class="form-group">
+        <label>{{localize "MODERN20.Item.Species.FIELDS.bonusFeatChosen.label"}}</label>
+        <div class="form-fields">
+          <select name="system.bonusFeatChosen">
+            <option value="">{{localize "MODERN20.Creator.None"}}</option>
+            {{#each system.bonusFeatOptions as |feat|}}
+              <option value="{{feat}}" {{#if (eq feat ../system.bonusFeatChosen)}}selected{{/if}}>{{feat}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    {{/if}}
+    {{#if system.bonusFeats.length}}
+      <p class="m20-hint">
+        {{localize "MODERN20.Item.Species.FIELDS.bonusFeats.label"}}:
+        {{#each system.bonusFeats}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+      </p>
+    {{/if}}
+
+    {{formField fields.freeLanguages value=system.freeLanguages}}
+    {{formField fields.otherLanguages value=system.otherLanguages}}
+
+    {{#if system.traits.length}}
+      <div class="m20-itemlist">
+        <h3>{{localize "MODERN20.Item.Species.FIELDS.traits.label"}}</h3>
+        {{#each system.traits as |trait|}}
+          <div class="m20-itemrow">
+            <span class="m20-itemrow__name">{{trait.name}}</span>
+            {{#if trait.sense}}
+              <span class="m20-tag">{{localize "MODERN20.Item.SpecialAbility.FIELDS.sense.label"}}</span>
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    {{/if}}
+  {{/if}}
+
   {{#if (eq document.type "class")}}
     {{formField fields.tier value=system.tier}}
     {{formField fields.levels value=system.levels}}

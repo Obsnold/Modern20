@@ -126,10 +126,15 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     // Named sections keep the item-type ordering in code rather than in the
     // templates, which have no way to express an ordered list of types.
     context.sections = {
-      character: this._section(grouped, ["class", "occupation", "talent", "feat"]),
+      // Species first: it is what you are before what you do, and it is the
+      // order the creator asks in.
+      character: this._section(grouped, ["species", "class", "occupation", "talent", "feat"]),
       // A creature's own abilities and the feats it was printed with. Both
       // were being imported onto creatures that had nowhere to show them.
       abilities: this._section(grouped, ["specialAbility", "feat"]),
+      // A hero's are its species traits, and its feats are on the same tab
+      // already, so this is the abilities section without them.
+      traits: this._section(grouped, ["specialAbility"]),
       gear: this._section(grouped, ["weapon", "armor", "gear"]),
       casting: this._section(grouped, ["spell", "psiPower"])
     };
@@ -148,6 +153,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       weapon.attackSequence = sequence
         .map((bonus) => (bonus >= 0 ? `+${bonus}` : `${bonus}`)).join(" / ");
     }
+    context.species = this._prepareSpecies(actor);
     context.skills = this._prepareSkillRows(actor.system.skills);
     context.combat = this._prepareCombat(actor);
     context.creatureTypes = creatureTypeChoices();
@@ -320,6 +326,48 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * Flatten skills and their specialties into one display list, so
    * Knowledge (streetwise) renders as its own row under Knowledge.
    */
+  /**
+   * What the sheet says about a species, or null for a character who is
+   * simply human — which is every character in d20 Modern proper.
+   *
+   * The numbers are already applied to the sheet by the time this runs; what
+   * is assembled here is the account of where they came from, because a
+   * Strength of 20 with no explanation is the thing a player queries.
+   */
+  _prepareSpecies(actor) {
+    const item = actor.items.find((entry) => entry.type === "species");
+    if (!item) return null;
+    const system = item.system;
+
+    const modifiers = Object.entries(system.abilityModifiers ?? {})
+      .filter(([, amount]) => amount)
+      .map(([key, amount]) => ({
+        label: game.i18n.localize(MODERN20.abilities[key]),
+        value: amount >= 0 ? `+${amount}` : `${amount}`
+      }));
+
+    return {
+      id: item.id,
+      name: item.name,
+      img: item.img,
+      sizeLabel: game.i18n.localize(MODERN20.sizes[system.size]?.label ?? system.size),
+      speed: system.baseSpeed,
+      reach: system.reach,
+      naturalArmor: system.naturalArmor,
+      attackBonus: system.attackBonus,
+      extraHitDice: system.extraHitDice,
+      hitDiceFormula: `${system.extraHitDice}${system.hitDie}`,
+      modifiers,
+      freeLanguages: system.freeLanguages,
+      otherLanguages: system.otherLanguages,
+      // Null where the SRD prints the label and leaves it blank, so the sheet
+      // can say that rather than print a number the book does not give.
+      levelAdjustment: system.levelAdjustment,
+      challengeRating: actor.system.details?.challengeRating ?? null,
+      rulesPage: system.rulesPage
+    };
+  }
+
   _prepareSkillRows(skills) {
     const rows = [];
     for (const [key, cfg] of Object.entries(MODERN20.skills)) {

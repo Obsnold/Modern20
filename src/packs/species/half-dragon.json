@@ -1,0 +1,68 @@
+{
+  "_id": "aWBAleSCol4kJYzY",
+  "name": "Half-Dragon",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/dragon-head.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Half-dragons have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +8 Strength (+4 Strength if half-dragon has wings), +2 Constitution, +2 Intelligence, +2 Charisma.</p><p><strong>Base Speed:</strong> 30 feet. Weaker half-dragons have wings and can fly 30 feet (average maneuverability).</p><p><strong>Natural Armor Bonus:</strong> Half-dragons have scaly hides and gain a +4 natural armor bonus to Defense.</p><p><strong>Natural Weapons (Bite, Claw):</strong> A half-dragon can replace an unarmed attack with a bite attack (1d3 points of lethal piercing damage) or claw attack (1d3 points of lethal slashing damage). Using natural weapons to deal lethal damage does not provoke attacks of opportunity. Feats such as Combat Martial Arts may increase the amount of damage dealt.</p><p><strong>Breath Weapon:</strong> A half-dragon can use its breath weapon once per day. A half-dragon may also spend an action point to use its breath weapon, but each extra use of its breath weapon costs 1 action point. The type of breath weapon depends on the color of the half-dragon, as shown in Table: Half-Dragons. The save DC against the halfdragon’s breath weapon equals 10 + 1/2 the half-dragon’s character level (rounded down) + the half-dragon’s Constitution modifier.</p><p><strong>Low-Light Vision:</strong> Half-dragons can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p><p><strong>Darkvision:</strong> Half-dragon humans can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and half-dragon humans can function with no light at all.</p><p><strong>Immunities:</strong> Half-dragons are immune to sleep, paralysis, and one type of energy (see Table 1–5: Half-Dragons).</p><p><strong>Free Language Skills:</strong> Read/Write Draconic, Read/Write Language (any one), Speak Draconic, Speak Language (any one).</p><p><strong>Other Languages:</strong> Any Shadow or Earth-based languages.</p><p><strong>Level Adjustment:</strong> +3</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpowerkind.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.3348UrD00YFWXFP9",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 8,
+      "dex": 0,
+      "con": 2,
+      "int": 2,
+      "wis": 0,
+      "cha": 2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 4,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 3,
+    "bonusFeats": [],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Draconic, Read/Write Language (any one), Speak Draconic, Speak Language (any one).",
+    "otherLanguages": "Any Shadow or Earth-based languages.",
+    "traits": [
+      {
+        "name": "Natural Weapons (Bite, Claw)",
+        "description": "<p>A half-dragon can replace an unarmed attack with a bite attack (1d3 points of lethal piercing damage) or claw attack (1d3 points of lethal slashing damage). Using natural weapons to deal lethal damage does not provoke attacks of opportunity. Feats such as Combat Martial Arts may increase the amount of damage dealt.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Breath Weapon",
+        "description": "<p>A half-dragon can use its breath weapon once per day. A half-dragon may also spend an action point to use its breath weapon, but each extra use of its breath weapon costs 1 action point. The type of breath weapon depends on the color of the half-dragon, as shown in Table: Half-Dragons. The save DC against the halfdragon’s breath weapon equals 10 + 1/2 the half-dragon’s character level (rounded down) + the half-dragon’s Constitution modifier.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Low-Light Vision",
+        "description": "<p>Half-dragons can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Darkvision",
+        "description": "<p>Half-dragon humans can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and half-dragon humans can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Immunities",
+        "description": "<p>Half-dragons are immune to sleep, paralysis, and one type of energy (see Table 1–5: Half-Dragons).</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!aWBAleSCol4kJYzY",
+  "folder": "1UFRO8F3FveDuTtb"
+}

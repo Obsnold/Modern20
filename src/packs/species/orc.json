@@ -1,0 +1,54 @@
+{
+  "_id": "DltsTSlMSBjAWbv7",
+  "name": "Orc",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/lorc/battle-axe.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Orcs have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +4 Strength, –2 Intelligence, –2 Wisdom, –2 Charisma.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Darkvision:</strong> Orcs can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and orcs can function with no light at all.</p><p><strong>Light Sensitivity:</strong> Orcs suffer a –1 penalty to attack rolls in bright sunlight or within the radius of effects or spells that duplicate bright sunlight (such as daylight).</p><p><strong>Bonus Feat:</strong> Orcs receive the bonus feats Archaic Weapons Proficiency, Armor Proficiency (light), and Armor Proficiency (medium). They may treat orc double axes as archaic weapons instead of exotic weapons.</p><p><strong>Free Language Skills:</strong> Read/Write Orc, Speak Orc.</p><p><strong>Other Languages:</strong> Common (or local language), Goblin, Giant.</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspecies.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.GpewGSW5hWqpE4IR",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 4,
+      "dex": 0,
+      "con": 0,
+      "int": -2,
+      "wis": -2,
+      "cha": -2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 0,
+    "bonusFeats": [
+      "Archaic Weapons Proficiency",
+      "Armor Proficiency (light)",
+      "Armor Proficiency (medium)"
+    ],
+    "bonusFeatOptions": [],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Orc, Speak Orc.",
+    "otherLanguages": "Common (or local language), Goblin, Giant.",
+    "traits": [
+      {
+        "name": "Darkvision",
+        "description": "<p>Orcs can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and orcs can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Light Sensitivity",
+        "description": "<p>Orcs suffer a –1 penalty to attack rolls in bright sunlight or within the radius of effects or spells that duplicate bright sunlight (such as daylight).</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!DltsTSlMSBjAWbv7",
+  "folder": "RV0bFeuQgatOqxaB"
+}

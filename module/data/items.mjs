@@ -234,6 +234,109 @@ export class Modern20Feat extends Modern20ItemBase {
 }
 
 /**
+ * A playable species: what you are, before what you do.
+ *
+ * d20 Modern needs none of this — everyone is human and the baseline is the
+ * rules — but Urban Arcana prints two chapters of playable species, and both
+ * are written to the same shape: a size, a set of ability modifiers, a base
+ * speed, and then a list of named qualities. That shape is the schema.
+ *
+ * Every field here is applied by the hero model on each preparation pass, the
+ * way class progression is, so removing the species item removes everything
+ * it granted. The one exception is what has to be rolled or chosen — the
+ * extra Hit Dice and the bonus feat — which are applied once, when the
+ * species is added, because a hit point total that re-rolled itself on every
+ * render would be no use to anybody.
+ *
+ * The qualities live in `traits` rather than as separate documents. A species
+ * is then self-contained, like a class carrying its own progression table,
+ * and applying it creates one specialAbility item per trait on the actor.
+ */
+export class Modern20Species extends Modern20ItemBase {
+  static LOCALIZATION_PREFIXES = ["MODERN20.Item.Species"];
+
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      size: new fields.StringField({
+        required: true,
+        initial: "medium",
+        choices: Object.keys(MODERN20.sizes)
+      }),
+      // "These modifiers adjust the ability scores of every member of the
+      // species." Applied before totals are derived, never written into the
+      // stored score, so the score on the sheet stays the one that was rolled.
+      abilityModifiers: new fields.SchemaField(
+        Object.fromEntries(Object.keys(MODERN20.abilities).map((key) => [key, int(0)]))
+      ),
+      baseSpeed: int(30, { min: 0 }),
+      /**
+       * Racial Hit Dice, before the first class level.
+       *
+       * "A bugbear gains 3 Hit Dice (3d8 hit points). The bugbear's
+       * Constitution modifier applies to each Hit Die." Four of the eighteen
+       * species have these; everything else starts at zero and takes its hit
+       * points from its class.
+       */
+      extraHitDice: int(0, { min: 0 }),
+      hitDie: new fields.StringField({ initial: "d8" }),
+      naturalArmor: int(0),
+      // "Bugbears gain a +2 species bonus on attack rolls."
+      attackBonus: int(0),
+      reach: int(5, { min: 0 }),
+      /**
+       * How much more powerful than a baseline species this is.
+       *
+       * "CR = Character Level + Level Adjustment." It changes what the
+       * character is worth and what it needs to level, and explicitly not
+       * what it can do: "A character's CR is never used to determine how or
+       * when a character gains new skills and feats."
+       *
+       * Null, not zero, where the SRD prints the label and leaves it blank —
+       * which it does for the aasimar. Zero would be a claim the book does
+       * not make.
+       */
+      levelAdjustment: new fields.NumberField({
+        required: false, nullable: true, integer: true, initial: 0, min: 0
+      }),
+      // Feats the species always gets. The orc gets three.
+      bonusFeats: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+      // ...and feats it picks one of. The shadowkind human picks from 23.
+      bonusFeatOptions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+      bonusFeatChosen: new fields.StringField({ initial: "" }),
+      // Printed as prose and left as prose: this system does not model
+      // languages, and inventing a skill row for each would be inventing
+      // rules. They are shown so a player knows what they are owed.
+      freeLanguages: new fields.StringField({ initial: "" }),
+      otherLanguages: new fields.StringField({ initial: "" }),
+      /**
+       * The named qualities, as the chapter prints them.
+       *
+       * Darkvision, Spell Resistance, Light Blindness, Orc Blood. Each becomes
+       * a specialAbility item on the actor when the species is applied, which
+       * is the item type these already existed for.
+       */
+      traits: new fields.ArrayField(
+        new fields.SchemaField({
+          name: new fields.StringField({ required: true, blank: false }),
+          description: new fields.HTMLField({ initial: "" }),
+          // A way of perceiving, which is what a creature's senses line is
+          // made of and what a token's vision is set from.
+          sense: new fields.BooleanField({ initial: false }),
+          abilityType: new fields.StringField({ initial: "" })
+        }),
+        { initial: [] }
+      )
+    };
+  }
+
+  /** Every ability modifier this species applies, as [key, amount] pairs. */
+  get appliedAbilityModifiers() {
+    return Object.entries(this.abilityModifiers).filter(([, amount]) => amount);
+  }
+}
+
+/**
  * A creature's special quality or special attack: darkvision, improved grab,
  * a breath weapon, the traits its type confers.
  *

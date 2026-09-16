@@ -9,6 +9,7 @@
 
 export const EXPECTED = {
   "packs": {
+    "species": 18,
     "classes": 52,
     "occupations": 33,
     "talents": 52,
@@ -27,6 +28,19 @@ export const EXPECTED = {
     "pregens": 6,
     "guide": 1,
     "scenes": 1
+  },
+  "species": {
+    "uuid": "Compendium.modern20.species.Item.CFiLQnJ643KnHL8I",
+    "name": "Ogre",
+    "size": "large",
+    "baseSpeed": 30,
+    "reach": 10,
+    "naturalArmor": 5,
+    "attackBonus": 3,
+    "extraHitDice": 4,
+    "levelAdjustment": 3,
+    "abilityModifiers": {"str": 10, "dex": -2, "con": 4, "int": -4, "wis": 0, "cha": -4},
+    "traits": 2
   },
   "class": {
     "uuid": "Compendium.modern20.classes.Item.HT4H6K30vjBuhX1b",

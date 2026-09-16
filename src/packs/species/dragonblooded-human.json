@@ -1,0 +1,71 @@
+{
+  "_id": "ps3c9uScHWqcXxBq",
+  "name": "Dragonblooded Human",
+  "type": "species",
+  "img": "systems/modern20/assets/icons/sbed/claw.svg",
+  "system": {
+    "description": "<p><strong>Size:</strong> Medium. Dragonblooded humans have no special bonuses or penalties due to their size.</p><p><strong>Ability Modifiers:</strong> +2 Strength, +2 Constitution, +2 Charisma.</p><p><strong>Base Speed:</strong> 30 feet.</p><p><strong>Natural Weapon (Claw):</strong> Dragonblooded humans may use their sharp claws to deal lethal (slashing) damage instead of nonlethal damage with an unarmed attack. Attacks made with natural weapons do not provoke attacks of opportunity. Feats such as Combat Martial Arts may increase the amount of damage dealt.</p><p><strong>Low-Light Vision:</strong> Draconic humans can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p><p><strong>Darkvision:</strong> Dragonblooded humans can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dragonblooded humans can function with no light at all.</p><p><strong>Saving Throw Bonuses:</strong> Dragonblooded humans gain a +4 species bonus on saves against sleep and paralysis.</p><p><strong>Skill Bonuses:</strong> Dragonblooded humans gain a +2 species bonus on Intimidate and Spot skill checks.</p><p><strong>Bonus Feat:</strong> Dragonblooded humans receive either Archaic Weapons Proficiency or Simple Weapons Proficiency as a bonus feat.</p><p><strong>Free Language Skills:</strong> Read/Write Draconic, Read/Write Language (any one), Speak Draconic, Speak Language (any one).</p><p><strong>Other Languages:</strong> Any Shadow or Earth-based languages.</p><p><strong>Level Adjustment:</strong> +1</p>",
+    "source": "Urban Arcana SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpowerkind.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.YxMJh8UmUNBMPhNF.JournalEntryPage.TMhmvFsLtyCbNHLK",
+    "size": "medium",
+    "abilityModifiers": {
+      "str": 2,
+      "dex": 0,
+      "con": 2,
+      "int": 0,
+      "wis": 0,
+      "cha": 2
+    },
+    "baseSpeed": 30,
+    "extraHitDice": 0,
+    "hitDie": "d8",
+    "naturalArmor": 0,
+    "attackBonus": 0,
+    "reach": 5,
+    "levelAdjustment": 1,
+    "bonusFeats": [],
+    "bonusFeatOptions": [
+      "Archaic Weapons Proficiency",
+      "Simple Weapons Proficiency"
+    ],
+    "bonusFeatChosen": "",
+    "freeLanguages": "Read/Write Draconic, Read/Write Language (any one), Speak Draconic, Speak Language (any one).",
+    "otherLanguages": "Any Shadow or Earth-based languages.",
+    "traits": [
+      {
+        "name": "Natural Weapon (Claw)",
+        "description": "<p>Dragonblooded humans may use their sharp claws to deal lethal (slashing) damage instead of nonlethal damage with an unarmed attack. Attacks made with natural weapons do not provoke attacks of opportunity. Feats such as Combat Martial Arts may increase the amount of damage dealt.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Low-Light Vision",
+        "description": "<p>Draconic humans can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. They retain the ability to distinguish color and detail under these conditions.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Darkvision",
+        "description": "<p>Dragonblooded humans can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and dragonblooded humans can function with no light at all.</p>",
+        "sense": true,
+        "abilityType": ""
+      },
+      {
+        "name": "Saving Throw Bonuses",
+        "description": "<p>Dragonblooded humans gain a +4 species bonus on saves against sleep and paralysis.</p>",
+        "sense": false,
+        "abilityType": ""
+      },
+      {
+        "name": "Skill Bonuses",
+        "description": "<p>Dragonblooded humans gain a +2 species bonus on Intimidate and Spot skill checks.</p>",
+        "sense": false,
+        "abilityType": ""
+      }
+    ],
+    "activities": {}
+  },
+  "_key": "!items!ps3c9uScHWqcXxBq",
+  "folder": "1UFRO8F3FveDuTtb"
+}
