@@ -521,6 +521,13 @@
   color: var(--m20-ink);
 }
 
+/* The species tag in the header, which names what the character is rather
+   than something it carries, so it reads ahead of the class levels. */
+.modern20 .m20-tag--species {
+  border-color: var(--m20-accent);
+  font-weight: 600;
+}
+
 .modern20 .m20-panel__icon {
   width: 1.4rem;
   height: 1.4rem;

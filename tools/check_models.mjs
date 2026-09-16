@@ -193,6 +193,63 @@ if (!registeredSheets.length) {
 }
 
 /**
+ * Every document type the manifest declares has to have a name.
+ *
+ * Foundry builds the label for a subtype from `TYPES.<Document>.<type>` in the
+ * language file — a key nothing in the code writes out, which is why
+ * check_lang cannot see it and why three of them were missing. What a player
+ * gets without one is the raw id in the Create dialog: a system offering to
+ * make you a "specialAbility".
+ */
+{
+  const { readFileSync } = await import("node:fs");
+  const manifest = JSON.parse(readFileSync(join(ROOT, "system.json"), "utf8"));
+  const lang = JSON.parse(readFileSync(join(ROOT, "lang", "en.json"), "utf8"));
+
+  let named = 0;
+  for (const [kind, types] of Object.entries(manifest.documentTypes ?? {})) {
+    for (const type of Object.keys(types)) {
+      const label = lang.TYPES?.[kind]?.[type];
+      if (typeof label === "string" && label) { named++; continue; }
+      failures++;
+      console.log(`FAIL  ${kind} type "${type}" has no TYPES.${kind}.${type} `
+        + "label, so Foundry shows the raw id");
+    }
+  }
+  if (named) console.log(`PASS  ${named} document types named for the UI`);
+}
+
+/**
+ * Every pack of items has to be in the compendium browser.
+ *
+ * Modern20Browser.PACKS is a list somebody keeps by hand, and the species
+ * pack was not on it — nineteen packs in the manifest, thirteen searched, and
+ * no way to tell from either end. A pack of Actors is a judgment call (the
+ * pregens are six characters, not a catalogue) but a pack of Items is the
+ * thing the browser is for.
+ */
+{
+  const { readFileSync } = await import("node:fs");
+  const manifest = JSON.parse(readFileSync(join(ROOT, "system.json"), "utf8"));
+  const source = readFileSync(join(ROOT, "module", "apps", "browser.mjs"), "utf8");
+  const listed = new Set(
+    [...source.slice(source.indexOf("static PACKS = ["))
+      .slice(0, source.slice(source.indexOf("static PACKS = [")).indexOf("]"))
+      .matchAll(/"([a-z]+)"/g)].map((match) => match[1])
+  );
+
+  let browsable = 0;
+  for (const pack of manifest.packs ?? []) {
+    if (pack.type !== "Item") continue;
+    if (listed.has(pack.name)) { browsable++; continue; }
+    failures++;
+    console.log(`FAIL  the "${pack.name}" pack holds Items and is not in `
+      + "Modern20Browser.PACKS, so nothing can browse it");
+  }
+  console.log(`PASS  ${browsable} item packs reachable from the browser`);
+}
+
+/**
  * Every gun the SRD gives a magazine must derive a capacity from it.
  *
  * `ammo.max` is not stored: the equipment tables print the magazine as prose

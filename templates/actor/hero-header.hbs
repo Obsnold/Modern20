@@ -8,6 +8,14 @@
       {{#unless isGM}}<span class="m20-tag" title="{{localize 'MODERN20.Locked'}}">
         <i class="fa-solid fa-lock"></i>
       </span>{{/unless}}
+      {{!-- What you are, before what you do. Every system that has species
+            puts it here beside the class, and a character who is an ogre
+            should not have to open a tab to find out. --}}
+      {{#if species}}
+        <span class="m20-tag m20-tag--species" data-tooltip="{{species.sizeLabel}}">
+          {{species.name}}
+        </span>
+      {{/if}}
       {{#each system.details.classLevels}}
         <span class="m20-tag">{{this.name}} {{this.levels}}</span>
       {{else}}
