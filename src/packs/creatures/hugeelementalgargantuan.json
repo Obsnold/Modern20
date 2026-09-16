@@ -401,6 +401,10 @@
               "calculation": "flat",
               "dc": 32,
               "onSuccess": "half"
+            },
+            "area": {
+              "shape": "cone",
+              "size": 100
             }
           }
         }

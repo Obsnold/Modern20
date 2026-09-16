@@ -14,7 +14,24 @@
     "purchaseDC": 0,
     "restriction": "none",
     "progressLevel": 0,
-    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.xvAjT7w3aYNRXaIK"
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.xvAjT7w3aYNRXaIK",
+    "activities": {
+      "save": {
+        "type": "save",
+        "name": "Horn of Blasting",
+        "actionType": "attack",
+        "save": {
+          "ability": "fort",
+          "calculation": "flat",
+          "dc": 16,
+          "onSuccess": "half"
+        },
+        "area": {
+          "shape": "cone",
+          "size": 30
+        }
+      }
+    }
   },
   "_key": "!items!ZHeOKfBbOqoRf7kd",
   "flags": {

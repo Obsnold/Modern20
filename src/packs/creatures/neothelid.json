@@ -301,6 +301,10 @@
               "calculation": "flat",
               "dc": 30,
               "onSuccess": "negate"
+            },
+            "area": {
+              "shape": "cone",
+              "size": 50
             }
           }
         }

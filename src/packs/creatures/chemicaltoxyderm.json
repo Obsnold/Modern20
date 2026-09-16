@@ -284,6 +284,10 @@
               "calculation": "flat",
               "dc": 27,
               "onSuccess": "half"
+            },
+            "area": {
+              "shape": "cone",
+              "size": 50
             }
           }
         }

@@ -14,7 +14,24 @@
     "equipped": false,
     "purchaseDC": 27,
     "restriction": "none",
-    "progressLevel": 0
+    "progressLevel": 0,
+    "activities": {
+      "save": {
+        "type": "save",
+        "name": "Headlights of Blinding",
+        "actionType": "attack",
+        "save": {
+          "ability": "fort",
+          "calculation": "flat",
+          "dc": 15,
+          "onSuccess": "half"
+        },
+        "area": {
+          "shape": "cone",
+          "size": 50
+        }
+      }
+    }
   },
   "_key": "!items!yCOLJVP4cRpDMNwm",
   "flags": {
