@@ -30,7 +30,12 @@ jobs:
           node-version: 22
 
       - name: Install the linters and the type checker
-        run: npm install --no-audit --no-fund
+        run: |
+          npm install --no-audit --no-fund
+          # ruff is published on PyPI, not npm: package.json asked for
+          # @astral-sh/ruff, which does not exist, and the bare "ruff" on npm
+          # is an unrelated coroutine library. npm install failed outright.
+          python3 -m pip install --quiet --break-system-packages ruff
 
 
       # Lint, then every check: fourteen that read this repository and seven

@@ -4,8 +4,8 @@
 # node:20-bookworm image. That image ships
 # git, curl, python3 and node — verified as node 20.20.2 / python 3.11.2 by
 # running these checks inside it. The one install step brings in the linters
-# and the type checker, ruff included: its npm package ships the binary, so
-# there is no pip and no virtualenv to keep working.
+# and the type checker. ruff comes from PyPI rather than npm — npm has no
+# package of that name at all — so it is installed with pip alongside them.
 on:
   push:
   pull_request:
@@ -25,7 +25,10 @@ jobs:
           git checkout --quiet FETCH_HEAD
 
       - name: install the linters and the type checker
-        run: npm install --no-audit --no-fund
+        run: |
+          npm install --no-audit --no-fund
+          # ruff comes from PyPI; npm has no such package.
+          python3 -m pip install --quiet --break-system-packages ruff
 
       # A second definition of a name that already exists silently wins. That
       # shipped twice in one week in the scraper, so both languages check it:
