@@ -108,8 +108,13 @@ function castingActivity(type, system) {
           // "Partial" and "none" both mean the target still takes something;
           // the spell's text says what, so the card shows it rather than
           // halving a number the SRD never halves.
-          onSuccess: system.saveEffect === "half" ? "half"
-            : system.saveEffect === "negate" ? "negate" : "none"
+          // "partial" is what the SRD prints for a save that softens a spell
+          // without stopping it — "reduces damage to half and negates the
+          // blinding effect" — and it is one of the values the field takes.
+          // Collapsing it to "none" recorded three spells as having a save
+          // that did nothing at all.
+          onSuccess: ["half", "negate", "partial"].includes(system.saveEffect)
+            ? system.saveEffect : "none"
         }
       }
     };

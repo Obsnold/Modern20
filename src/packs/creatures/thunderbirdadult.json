@@ -348,7 +348,7 @@
               "ability": "ref",
               "calculation": "flat",
               "dc": 23,
-              "onSuccess": "negate"
+              "onSuccess": "half"
             }
           }
         }

@@ -504,7 +504,7 @@
               "ability": "ref",
               "calculation": "flat",
               "dc": 20,
-              "onSuccess": "negate"
+              "onSuccess": "half"
             },
             "damage": {
               "formula": "2d6",
@@ -553,7 +553,7 @@
               "ability": "ref",
               "calculation": "flat",
               "dc": 20,
-              "onSuccess": "negate"
+              "onSuccess": "half"
             },
             "damage": {
               "formula": "3d6",
