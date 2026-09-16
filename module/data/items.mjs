@@ -298,6 +298,10 @@ export class Modern20Species extends Modern20ItemBase {
        */
       extraHitDice: int(0, { min: 0 }),
       hitDie: new fields.StringField({ initial: "d8" }),
+      // What the racial Hit Dice actually came to when they were rolled, so
+      // removing the species can take back exactly what it gave rather than
+      // leaving a character with hit points it can no longer account for.
+      rolledHitPoints: int(0, { min: 0 }),
       naturalArmor: int(0),
       // "Bugbears gain a +2 species bonus on attack rolls."
       attackBonus: int(0),

@@ -348,6 +348,22 @@ async function checkSpecies(results) {
     }
     if (!results.same("adding the species created one document", created.length, 1)) return;
 
+    // Everything the species grants, which the createItem hook does whichever
+    // way the item arrived — this path is the drag-onto-a-sheet one.
+    const species = actor.items.find((item) => item.type === "species");
+    const traits = actor.items.filter((item) => item.type === "specialAbility");
+    results.same("its named qualities arrived as items",
+                 traits.length, wanted.traits);
+    results.ok("the racial Hit Dice were rolled and recorded",
+               (species?.system.rolledHitPoints ?? 0) > 0,
+               `recorded ${species?.system.rolledHitPoints}`);
+
+    // A character has one species; a second is refused by removing it again.
+    const speciesCount = () => actor.items.filter((i) => i.type === "species").length;
+    const one = speciesCount();
+    await actor.createEmbeddedDocuments("Item", [source]);
+    results.same("a second species is refused", speciesCount(), one);
+
     const system = actor.system;
     for (const [key, amount] of Object.entries(wanted.abilityModifiers)) {
       if (!amount) continue;
@@ -397,6 +413,7 @@ async function checkSpecies(results) {
                  system.details.startingFeats, MODERN20.startingFeats.nonhuman);
 
     // And now the half that matters: take it away again.
+    const hpBefore = actor.system.hp.max;
     await actor.deleteEmbeddedDocuments("Item", [created[0].id]);
     const after = actor.system;
     results.same("removing the species returns Strength to the rolled score",
@@ -413,6 +430,13 @@ async function checkSpecies(results) {
                  after.details.nonhuman, false);
     results.same("and the token gave the squares back",
                  actor.prototypeToken.width, MODERN20.sizes.medium.squares);
+    // The traits are copies of lines on the species, and an orphaned one
+    // claims the character still has darkvision.
+    results.same("removing the species removed its qualities",
+                 actor.items.filter((item) => item.type === "specialAbility").length, 0);
+    results.ok("removing the species gave back the racial hit points",
+               actor.system.hp.max <= hpBefore,
+               `${hpBefore} with the species, ${actor.system.hp.max} without`);
     results.same("and gives back the second starting feat",
                  after.details.startingFeats, MODERN20.startingFeats.human);
   } finally {
