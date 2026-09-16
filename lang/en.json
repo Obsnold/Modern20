@@ -2205,6 +2205,7 @@
       "Preview": "What changes",
       "Roll": "Roll",
       "Rolled": "Rolled",
+      "Skipped": "{name} is now level {level}. The level-up screen is off, so hit points, feats, talents and skill ranks are yours to set.",
       "Stat": "Statistic",
       "Talent": "Talent",
       "Title": "Level up",
@@ -2334,6 +2335,10 @@
       "encumbranceSpeed": {
         "hint": "A medium or heavy load reduces speed. The load is always shown either way.",
         "name": "Encumbrance slows characters"
+      },
+      "levelUpScreen": {
+        "hint": "Gaining a class level opens the screen that rolls hit points, grants the level's feats and talents and spends skill points. Turn it off to import a character that already has them: the + then just raises the level, and base attack, saves, Defense and Reputation follow it on their own.",
+        "name": "Level-up screen"
       },
       "lockPlayerSheets": {
         "hint": "Players build characters in the creator and the level-up screen, which apply the rules. Unlock to let them edit their sheets directly.",
