@@ -138,6 +138,18 @@ def main() -> int:
             problems.append("release.yml does not hold the tag to the version in "
                             "system.json")
 
+        # Whatever runs in the release job runs with `contents: write` — it
+        # can create releases and push to the repository. An action from
+        # actions/* is GitHub's own; anything else is a third party's code,
+        # pinned by a tag they control and free to change under it. Publishing
+        # is done with the `gh` CLI, which is already on the runner, so there
+        # is nothing here to trust.
+        for used in re.findall(r"uses:\s*(\S+)", release):
+            if not used.startswith("actions/"):
+                problems.append(f"release.yml uses {used}, which is not one of "
+                                "GitHub's own actions, in a job that can write "
+                                "to this repository")
+
     # The URLs a release is served from are written at release time from the
     # repository it runs in. A committed guess at them is a URL that points at
     # a repository that may not exist — this manifest said YOURNAME for weeks.

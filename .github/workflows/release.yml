@@ -126,21 +126,28 @@ jobs:
           zip -r -q "$ZIP" $CONTENTS
 
       - name: Publish
-        uses: softprops/action-gh-release@v2
-        with:
-          name: ${{ env.TAG }}
-          files: |
-            system.json
-            ${{ env.ZIP }}
-          body: |
-            Install by pasting this manifest URL into Foundry's **Install System** dialog:
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          # GitHub's own CLI, preinstalled on the runner, with the token this
+          # job already has. There is no first-party action for this — the old
+          # actions/create-release was archived in 2021 — and a third-party one
+          # would be somebody else's code running with contents: write.
+          cat > notes.md <<'NOTES'
+          Install by pasting this manifest URL into Foundry's **Install System** dialog:
 
-            ```
-            https://github.com/${{ github.repository }}/releases/latest/download/system.json
-            ```
+          ```
+          MANIFEST_URL
+          ```
+          NOTES
+          sed -i "s|MANIFEST_URL|https://github.com/$GITHUB_REPOSITORY/releases/latest/download/system.json|" notes.md
 
-            Or pin this exact version:
-
-            ```
-            https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/system.json
-            ```
+          # Re-runnable: a tag pushed again replaces the assets rather than
+          # failing because the release is already there.
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" system.json "$ZIP" --clobber
+          else
+            gh release create "$TAG" system.json "$ZIP" \
+              --title "$TAG" --notes-file notes.md
+          fi
