@@ -110,6 +110,12 @@ for (const [name, printed] of Object.entries(PRINTED)) {
   const human = name === "Human";
   same("whether it counts as nonhuman", Boolean(system.nonhuman), !human);
 
+  // Bookkeeping for what a roll came to, which no pack document has yet done.
+  if (system.rolledHitPoints) {
+    fail(`${name}: ships with ${system.rolledHitPoints} rolled hit points, `
+      + "which is a record of a roll on somebody's character");
+  }
+
   // A species with nothing to show is a species nobody can tell they have.
   if (!system.traits?.length) fail(`${name}: no named qualities`);
   for (const trait of system.traits ?? []) {

@@ -70,55 +70,84 @@ export async function speciesChoices() {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-/** The species a character already has, or null. */
-export function speciesOf(actor) {
-  return actor?.items?.find((item) => item.type === "species") ?? null;
-}
-
 /**
  * Add a species to a character, with everything it grants.
+ *
+ * The granting itself is done by the createItem hook in module/modern20.mjs,
+ * not here, so that a species dragged onto a sheet from the compendium gets
+ * the same treatment as one chosen in the creator. This function is the
+ * checked way in: it refuses a second species and records the feat that was
+ * picked before the item exists to fire the hook.
  *
  * @param {any} actor                    The character.
  * @param {string} uuid                  The species document to add.
  * @param {object} [options]
  * @param {string} [options.bonusFeat]   Which of the offered feats was taken.
  * @param {boolean} [options.rollHitDice]  Whether to roll the racial Hit Dice
- *   and add them. False when a sheet is being transcribed and already has the
- *   hit points written on it.
+ *   now. The creator passes false and rolls them itself, after the first
+ *   class level has set the hit points these are added to.
  * @returns {Promise<any|null>} The species item, or null if nothing was added.
  */
 export async function applySpecies(actor, uuid, { bonusFeat = "", rollHitDice = true } = {}) {
   if (!actor || !uuid) return null;
-
-  // Only a hero applies one. Every character-building item works this way —
-  // a class on an ordinary derives nothing either — but a species that went
-  // on and changed no number would look like it had worked, so say so.
-  if (actor.type !== "hero") {
-    problem(game.i18n.format("MODERN20.Species.HeroOnly", { name: actor.name }));
-    return null;
-  }
-
-  const existing = speciesOf(actor);
-  if (existing) {
-    problem(game.i18n.format("MODERN20.Species.AlreadyHas", {
-      name: actor.name, species: existing.name
-    }));
-    return null;
-  }
+  if (!canTakeSpecies(actor)) return null;
 
   const document = await foundry.utils.fromUuid(uuid);
   if (!document) return null;
 
   const source = document.toObject();
   if (bonusFeat) source.system.bonusFeatChosen = bonusFeat;
-  const stamp = sourceStamp({ origin: "species", label: document.name });
-  foundry.utils.setProperty(source, "flags.modern20.source", stamp);
+  source.system.rolledHitPoints = 0;
+  foundry.utils.setProperty(source, "flags.modern20.source",
+                            sourceStamp({ origin: "species", label: document.name }));
 
-  const [species] = await actor.createEmbeddedDocuments("Item", [source]);
-  if (!species) return null;
+  // The option travels to the createItem hook, which does the granting.
+  const [species] = await actor.createEmbeddedDocuments(
+    "Item", [source], { modern20RollHitDice: rollHitDice }
+  );
+  return species ?? null;
+}
 
-  // The named qualities, as items. The SRD prints these under SPECIES TRAITS
-  // and specialAbility is the type that already existed for exactly them.
+/**
+ * Whether this actor may take a species at all, saying why if not.
+ *
+ * Checked here and again in the hook, because the two ways in are different:
+ * this one is a function call that can refuse before anything is created, and
+ * the hook is a species already dropped on a sheet.
+ */
+export function canTakeSpecies(actor, ignore = null) {
+  // Only a hero applies one. Every character-building item works this way —
+  // a class on an ordinary derives nothing either — but a species that went
+  // on and changed no number would look like it had worked, so say so.
+  if (actor.type !== "hero") {
+    problem(game.i18n.format("MODERN20.Species.HeroOnly", { name: actor.name }));
+    return false;
+  }
+
+  const existing = actor.items.find(
+    (item) => item.type === "species" && item.id !== ignore
+  );
+  if (existing) {
+    problem(game.i18n.format("MODERN20.Species.AlreadyHas", {
+      name: actor.name, species: existing.name
+    }));
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Everything a species grants beyond the numbers its item derives.
+ *
+ * Called from the createItem hook, so it runs whichever way the item arrived.
+ * The traits become specialAbility items — the type that already existed for
+ * exactly them — and are stamped with the species, which is what lets
+ * removing it take them away again.
+ */
+export async function grantSpecies(actor, species, { rollHitDice = true } = {}) {
+  const stamp = species.flags?.modern20?.source
+    ?? sourceStamp({ origin: "species", label: species.name });
+
   const traits = (species.system.traits ?? []).map((trait) => ({
     name: trait.name,
     type: "specialAbility",
@@ -131,7 +160,7 @@ export async function applySpecies(actor, uuid, { bonusFeat = "", rollHitDice = 
       abilityType: trait.abilityType ?? "",
       sense: Boolean(trait.sense)
     },
-    flags: { modern20: { source: stamp } }
+    flags: { modern20: { source: stamp, speciesId: species.id } }
   }));
   if (traits.length) await actor.createEmbeddedDocuments("Item", traits);
 
@@ -151,11 +180,61 @@ export async function applySpecies(actor, uuid, { bonusFeat = "", rollHitDice = 
       name: actor.name, species: species.name
     }),
     lines,
-    img: species.img,
-    rules: ""
+    img: species.img
   });
+}
 
-  return species;
+/**
+ * Take back what a species gave, when the species itself is removed.
+ *
+ * The derived half — size, speed, reach, natural armor, the attack bonus and
+ * the ability modifiers — reverts on its own, because it was never stored.
+ * This is the rest. The traits go, because a trait is a copy of a line on the
+ * species and an orphaned one claims the character still has darkvision. The
+ * hit points go, because the roll was recorded for exactly this.
+ *
+ * The feats stay, and are named rather than removed: a feat is something the
+ * character learned, it may since have been a prerequisite for something
+ * else, and a player who wants it gone can delete it.
+ */
+export async function removeSpeciesGrants(actor, species) {
+  const traits = actor.items
+    .filter((item) => item.type === "specialAbility"
+      && item.flags?.modern20?.speciesId === species.id)
+    .map((item) => item.id);
+  if (traits.length) await actor.deleteEmbeddedDocuments("Item", traits);
+
+  const rolled = species.system.rolledHitPoints ?? 0;
+  if (rolled) {
+    const hp = actor.system.hp;
+    await actor.update({
+      "system.hp.max": Math.max(1, hp.max - rolled),
+      "system.hp.value": Math.max(0, Math.min(hp.value, hp.max - rolled))
+    });
+  }
+
+  const kept = (species.system.bonusFeats ?? []).slice();
+  if (species.system.bonusFeatChosen) kept.push(species.system.bonusFeatChosen);
+
+  const lines = [];
+  if (traits.length) {
+    lines.push(game.i18n.format("MODERN20.Species.RemovedTraits", { count: traits.length }));
+  }
+  if (rolled) {
+    lines.push(game.i18n.format("MODERN20.Species.RemovedHitPoints", { points: rolled }));
+  }
+  if (kept.length) {
+    lines.push(game.i18n.format("MODERN20.Species.KeptFeats", { names: kept.join(", ") }));
+  }
+  if (!lines.length) return;
+
+  await announce(actor, {
+    title: game.i18n.format("MODERN20.Species.Removed", {
+      name: actor.name, species: species.name
+    }),
+    lines,
+    img: species.img
+  });
 }
 
 /**
@@ -181,6 +260,9 @@ export async function rollRacialHitDice(actor, species) {
     "system.hp.max": hp.max + gained,
     "system.hp.value": hp.value + gained
   });
+  // Recorded on the species, so removing it gives back this number and not a
+  // fresh roll or an average.
+  await species.update({ "system.rolledHitPoints": gained });
 
   await roll.toMessage({
     speaker: foundry.documents.ChatMessage.getSpeaker({ actor }),

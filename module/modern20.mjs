@@ -22,6 +22,7 @@ import {
 import { Modern20ItemSheet } from "./sheets/item-sheet.mjs";
 import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
+import { canTakeSpecies, grantSpecies, removeSpeciesGrants } from "./apps/species.mjs";
 import { bindDamageControls } from "./apps/damage.mjs";
 import { registerConditions } from "./conditions.mjs";
 import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.mjs";
@@ -152,10 +153,34 @@ async function syncTokenToSize(actor, from, to) {
   await actor.update({ prototypeToken: { width: now, height: now } });
 }
 
-Hooks.on("createItem", async (item) => {
+/**
+ * A species grants what it grants however it arrived.
+ *
+ * The creator calls applySpecies, but a species is also a compendium item
+ * somebody can drag onto a sheet — and that path used to apply the derived
+ * half and nothing else, so the character was Large with the ability scores
+ * of an ogre and no darkvision, no bonus feat and no racial Hit Dice. Doing
+ * the granting here means there is one path, and the creator's is the same
+ * one with the Hit Dice deferred until its class levels have set hit points.
+ */
+Hooks.on("createItem", async (item, options) => {
   if (item.type !== "species") return;
   const actor = item.parent;
-  if (!actor) return;
+  if (!actor?.isOwner) return;
+  // One client grants it, or every connected owner grants it again.
+  if (game.users.activeGM?.id !== game.user.id
+      && !actor.testUserPermission(game.user, "OWNER")) return;
+
+  // A character has one species. Dropping a second is refused by removing it
+  // again, because a hook cannot stop the creation it is told about.
+  if (!canTakeSpecies(actor, item.id)) {
+    await actor.deleteEmbeddedDocuments("Item", [item.id]);
+    return;
+  }
+
+  await grantSpecies(actor, item, {
+    rollHitDice: options?.modern20RollHitDice ?? true
+  });
   // The stored size is the one the actor had before the species overrode it,
   // and the one it will go back to — not "medium", which would be a guess
   // about a sheet somebody may have set by hand.
@@ -165,7 +190,11 @@ Hooks.on("createItem", async (item) => {
 Hooks.on("deleteItem", async (item) => {
   if (item.type !== "species") return;
   const actor = item.parent;
-  if (!actor) return;
+  if (!actor?.isOwner) return;
+  if (game.users.activeGM?.id !== game.user.id
+      && !actor.testUserPermission(game.user, "OWNER")) return;
+
+  await removeSpeciesGrants(actor, item);
   await syncTokenToSize(actor, item.system.size, storedSize(actor));
 });
 

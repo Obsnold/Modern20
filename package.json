@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "check": "npm run check:python && npm run check:node",
     "check:python": "python3 tools/check_private.py && python3 tools/check_globals.py && python3 tools/check_app_props.py && python3 tools/check_lang.py && python3 tools/check_config.py && python3 tools/check_shadowing.py && python3 tools/check_packs.py && python3 tools/check_coverage.py && python3 tools/check_rules_links.py && python3 tools/check_art.py && python3 tools/check_release.py",
-    "check:node": "node tools/check_models.mjs && node tools/check_templates.mjs && node tools/check_species.mjs && node tools/check_casting.mjs && node tools/check_combat.mjs && node tools/check_creatures.mjs && node tools/check_objects.mjs && node tools/check_rules.mjs",
+    "check:node": "node tools/check_models.mjs && node tools/check_templates.mjs && node tools/check_species.mjs && node tools/check_classes.mjs && node tools/check_casting.mjs && node tools/check_combat.mjs && node tools/check_creatures.mjs && node tools/check_objects.mjs && node tools/check_rules.mjs",
     "test": "npm run lint && npm run typecheck && npm run check"
   },
   "devDependencies": {

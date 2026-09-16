@@ -1,6 +1,6 @@
 import { MODERN20 } from "../config.mjs";
 import { talentChoices, grant, grantNamedFeature, sourceStamp } from "./level-up.mjs";
-import { applyOccupationWealth, grantFeatByName } from "./occupation.mjs";
+import { grantFeatByName } from "./occupation.mjs";
 import { speciesChoices, applySpecies, rollRacialHitDice } from "./species.mjs";
 import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
@@ -402,8 +402,11 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
         // Picks made on the Occupation step travel with the item.
         source.system.skillsChosen = state.occupationSkills;
         source.system.bonusFeatChosen = state.occupationFeat;
-        const [created] = await actor.createEmbeddedDocuments("Item", [source]);
-        await applyOccupationWealth(actor, created);
+        // The Wealth bonus is applied by the createItem hook, which fires on
+        // the line above. Applying it here as well added it twice to every
+        // character the creator has ever made — one occupation, two bonuses,
+        // and two toasts saying so.
+        await actor.createEmbeddedDocuments("Item", [source]);
         if (state.occupationFeat) await grantFeatByName(actor, state.occupationFeat);
       }
     }

@@ -335,7 +335,9 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * Strength of 20 with no explanation is the thing a player queries.
    */
   _prepareSpecies(actor) {
-    const item = actor.items.find((entry) => entry.type === "species");
+    // The hero model's own getter, so "which species is this" is answered in
+    // one place. Every other actor type has none and returns undefined.
+    const item = actor.system.species;
     if (!item) return null;
     const system = item.system;
 
