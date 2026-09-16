@@ -220,6 +220,45 @@ if (!registeredSheets.length) {
 }
 
 /**
+ * Every area shape the packs name has to be one the canvas can draw.
+ *
+ * A shape the code does not know is refused at the table now rather than
+ * drawn as a circle, which means an activity naming one is an activity whose
+ * button reports a failure. Better to find that here.
+ */
+{
+  const { packDocuments } = await import("./lib/packs.mjs");
+  const { readFileSync } = await import("node:fs");
+  const manifest = JSON.parse(readFileSync(join(ROOT, "system.json"), "utf8"));
+  const source = readFileSync(join(ROOT, "module", "apps", "area.mjs"), "utf8");
+  const block = source.slice(source.indexOf("const SHAPES = {"));
+  const known = new Set(
+    [...block.slice(0, block.indexOf("};")).matchAll(/^\s*(\w+):/gm)].map((m) => m[1])
+  );
+
+  const used = new Map();
+  for (const pack of manifest.packs ?? []) {
+    for (const entry of packDocuments(ROOT, pack.name)) {
+      for (const document of [entry, ...(entry.items ?? [])]) {
+        for (const activity of Object.values(document.system?.activities ?? {})) {
+          const shape = activity?.area?.shape;
+          if (shape) used.set(shape, (used.get(shape) ?? 0) + 1);
+        }
+      }
+    }
+  }
+
+  for (const [shape, count] of used) {
+    if (!known.has(shape)) {
+      failures++;
+      console.log(`FAIL  ${count} activit(ies) name a "${shape}" area and `
+        + "module/apps/area.mjs cannot draw one");
+    }
+  }
+  console.log(`PASS  ${used.size} area shape(s) used across the packs, all drawable`);
+}
+
+/**
  * Every pack of items has to be in the compendium browser.
  *
  * Modern20Browser.PACKS is a list somebody keeps by hand, and the species

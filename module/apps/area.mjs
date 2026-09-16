@@ -14,10 +14,23 @@ import { announce, problem } from "./announce.mjs";
  * targets a player has deliberately chosen.
  */
 
+/**
+ * The shapes an activity can name, and what each draws.
+ *
+ * A Region takes a rectangle, a circle, an ellipse or a polygon, so a cone or
+ * a line would have to be a polygon worked out from where the attacker is
+ * standing and which way they are facing. Neither is here yet — and until one
+ * is, naming one has to fail rather than quietly draw a circle instead. An
+ * unrecognised shape used to fall through to a circle, which is a 30-foot
+ * cone of dragon fire rendered as a 30-foot sphere centred on the dragon.
+ */
 const SHAPES = {
   radius: "circle",
   circle: "circle",
-  square: "rectangle"
+  burst: "circle",
+  spread: "circle",
+  square: "rectangle",
+  cube: "rectangle"
 };
 
 /** Where to centre the area: the target, else the attacker, else the view. */
@@ -44,7 +57,13 @@ function shapeFor(activity, origin) {
   const size = activity.area?.size ?? 0;
   if (!size) return null;
 
-  const type = SHAPES[activity.area.shape] ?? "circle";
+  const type = SHAPES[activity.area.shape];
+  if (!type) {
+    problem(game.i18n.format("MODERN20.Area.UnknownShape", {
+      shape: activity.area.shape || "—"
+    }));
+    return null;
+  }
   const pixels = size * distancePixels();
   // Core follows the gridTemplates setting for whether a shape snaps to grid.
   const gridBased = game.settings.get("core", "gridTemplates") === true;

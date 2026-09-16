@@ -1105,7 +1105,8 @@
       "NoArea": "This activity has no area.",
       "NoScene": "No scene is active.",
       "Place": "Place area",
-      "Placed": "{name}: {size} ft. area placed. Drag it to reposition."
+      "Placed": "{name}: {size} ft. area placed. Drag it to reposition.",
+      "UnknownShape": "This system cannot draw a \"{shape}\" area yet, so nothing was placed."
     },
     "ArmorType": {
       "Heavy": "Heavy Armor",
