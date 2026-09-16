@@ -75,12 +75,6 @@ export function reloadAction(item) {
   return quick ? "move" : "fullRound";
 }
 
-/** Rounds a magazine holds, from "15 box" or "6 cyl.". */
-export function magazineSize(item) {
-  const match = String(item.system.magazine ?? "").match(/\d+/);
-  return match ? Number(match[0]) : 0;
-}
-
 /**
  * Ammunition the actor is carrying that this weapon can use.
  *

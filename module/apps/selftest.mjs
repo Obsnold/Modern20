@@ -79,11 +79,13 @@ export class Modern20SelfTest extends HandlebarsApplicationMixin(ApplicationV2) 
     }
   }
 
+  /** @this {Modern20SelfTest} */
   static async #onRun() {
     return this.run();
   }
 
   /** The failures as text, which is the thing worth sending to somebody. */
+  /** @this {Modern20SelfTest} */
   static async #onCopy() {
     const failures = (this.#results?.rows ?? []).filter((row) => !row.passed);
     const report = [

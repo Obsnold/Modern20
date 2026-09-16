@@ -2,14 +2,13 @@ import { MODERN20 } from "../config.mjs";
 import { enrichProse } from "../enrichers.mjs";
 import { resolveAttack, postAttackCard, postSaveCard, postCastCard, rollItemDamage } from "../apps/attack.mjs";
 import { availableActivities, defaultActivities } from "../apps/activities.mjs";
-import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition, magazineSize } from "../apps/accessories.mjs";
+import { accessoriesOf, reloadAction, ammunitionFor, carriedAmmunition } from "../apps/accessories.mjs";
 import { activityAction } from "../apps/actions.mjs";
 import { Modern20AttackDialog } from "../apps/attack-dialog.mjs";
 import { announce, acknowledge, problem } from "../apps/announce.mjs";
 import { setting } from "../settings.mjs";
 
 const { Item, ChatMessage } = foundry.documents;
-const { Roll } = foundry.dice;
 
 export class Modern20Item extends Item {
   /**
@@ -206,6 +205,10 @@ export class Modern20Item extends Item {
    * @param {object}  [options]
    * @param {number}  [options.situational]  A flat modifier, added to whatever
    *   the dialog contributes.
+   * @param {string}  [options.activityId]   Which of the weapon's attacks.
+   * @param {boolean} [options.spendAction]  Whether rolling it costs the
+   *   action. use() pays once for the whole use and passes false, so an
+   *   attack reached through an activity is not charged twice.
    * @param {boolean} [options.shiftKey]     Whether shift was held, which
    *   skips or opens the circumstance dialog depending on the setting.
    * @param {object}  [options.modifiers]    Circumstances already chosen, used

@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { talentChoices, featChoices, grant, grantNamedFeature, sourceStamp } from "./level-up.mjs";
+import { talentChoices, grant, grantNamedFeature, sourceStamp } from "./level-up.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./occupation.mjs";
 import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
@@ -248,6 +248,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
    * Add a subject to a skill taken per subject — Knowledge (Streetwise), or a
    * language. The subject appears as its own row with its own ranks, because
    * the SRD treats each as a separate skill.
+   * @this {Modern20CharacterCreator}
    */
   static #onAddSubject(event, target) {
     const key = target.dataset.skill;
@@ -263,6 +264,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     this.render();
   }
 
+  /** @this {Modern20CharacterCreator} */
   static async #onChange(event, form, formData) {
     const data = formData.object;
     const state = this.#choices;
@@ -318,6 +320,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
   }
 
   /** 4d6 keep highest three, six times — the conventional d20 method. */
+  /** @this {Modern20CharacterCreator} */
   static async #onRollAbilities() {
     const results = [];
     for (let i = 0; i < ABILITIES.length; i++) {
@@ -332,6 +335,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
     this.render();
   }
 
+  /** @this {Modern20CharacterCreator} */
   static #onResetAbilities() {
     this.#choices.method = "array";
     this.#choices.pool = [...STANDARD_ARRAY];
@@ -342,6 +346,7 @@ export class Modern20CharacterCreator extends HandlebarsApplicationMixin(Applica
   /**
    * Apply the choices. Abilities first, so the class level's hit points and
    * skill budget see the final Constitution and Intelligence.
+   * @this {Modern20CharacterCreator}
    */
   static async #onCreate() {
     const actor = this.actor;

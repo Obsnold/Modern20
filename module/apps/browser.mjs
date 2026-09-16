@@ -183,11 +183,13 @@ export class Modern20Browser extends HandlebarsApplicationMixin(ApplicationV2) {
     }
   }
 
+  /** @this {Modern20Browser} */
   static async #onClearFilters() {
     for (const key of Object.keys(this.#filters)) this.#filters[key] = "";
     await this.render();
   }
 
+  /** @this {Modern20Browser} */
   static async #onOpenEntry(event, target) {
     const entry = await foundry.utils.fromUuid(target.dataset.uuid);
     entry?.sheet?.render({ force: true });

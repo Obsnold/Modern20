@@ -3,8 +3,8 @@
 // SRD character-level milestones, independent of individual class level:
 // "A multiclass character receives a new feat every three character levels"
 // and "increases one ability score by +1 every four character levels".
-const FEAT_EVERY = 3;
-const ABILITY_INCREASE_EVERY = 4;
+export const FEAT_EVERY = 3;
+export const ABILITY_INCREASE_EVERY = 4;
 
 /**
  * Shared lookups for what a class level or an occupation can grant.

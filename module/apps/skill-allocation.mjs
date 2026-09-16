@@ -62,7 +62,7 @@ export function skillRows(actor, {
 
     const subjects = new Map();
     for (const entry of stored.specialties) subjects.set(entry.name, entry.ranks);
-    for (const [name, ranks] of Object.entries(pendingSpecialties[key] ?? {})) {
+    for (const name of Object.keys(pendingSpecialties[key] ?? {})) {
       if (!subjects.has(name)) subjects.set(name, 0);
     }
 

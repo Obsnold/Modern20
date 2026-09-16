@@ -178,5 +178,53 @@ if (!registeredSheets.length) {
   }
 }
 
+/**
+ * Every gun the SRD gives a magazine must derive a capacity from it.
+ *
+ * `ammo.max` is not stored: the equipment tables print the magazine as prose
+ * — "30 box", "6 cyl.", "1 int." — and the weapon model parses the number out
+ * of it. Everything about ammunition is gated on the result being non-zero:
+ * whether the Reload activity is offered, whether firing spends a round, and
+ * whether the gear tab shows 8/8 at all. A parse that comes back zero
+ * therefore does not fail, it just quietly turns the feature off for that
+ * weapon — which is how all eighty-two of them shipped with it off.
+ *
+ * Checked against the packs rather than a few strings, so a magazine written
+ * in a shape the parse does not read is a failure here and not a gun nobody
+ * can reload. The two things the tables print instead of a number are named:
+ * "-" for a weapon that has no magazine at all, and "Linked" for a belt-fed
+ * machine gun, which the SRD gives no capacity for either.
+ */
+{
+  const { packDocuments } = await import("./lib/packs.mjs");
+  const Weapon = CONFIG.Item.dataModels.weapon;
+  const NO_MAGAZINE = ["-", "linked"];
+
+  const printed = packDocuments(ROOT, "weapons")
+    .filter((document) => document.system?.magazine);
+  const empty = [];
+  let none = 0;
+
+  for (const document of printed) {
+    const magazine = document.system.magazine;
+    const system = { magazine, ammo: { value: 0, max: 0 } };
+    Weapon.prototype.prepareDerivedData.call(system);
+
+    if (system.ammo.max) continue;
+    if (NO_MAGAZINE.includes(magazine.trim().toLowerCase())) { none++; continue; }
+    empty.push(`${document.name} ("${magazine}")`);
+  }
+
+  if (empty.length) {
+    failures++;
+    console.log(`FAIL  ${empty.length} weapons print a magazine that derives no `
+      + `capacity, so they cannot be reloaded or fired dry: `
+      + `${empty.slice(0, 3).join(", ")}...`);
+  } else {
+    console.log(`PASS  ${printed.length - none} printed magazines derive a capacity, `
+      + `${none} print no magazine`);
+  }
+}
+
 console.log(failures ? `\n${failures} FAILURES` : "\nall checks passed");
 process.exit(failures ? 1 : 0);

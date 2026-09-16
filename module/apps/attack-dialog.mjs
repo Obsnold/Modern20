@@ -1,4 +1,3 @@
-import { MODERN20 } from "../config.mjs";
 import {
   ATTACK_MODIFIERS, DEFENSE_MODIFIERS, COVER, CONCEALMENT
 } from "../combat-data.mjs";
@@ -88,12 +87,32 @@ export function resolveModifiers(choices = {}, ranged = false) {
  * Resolves to null if the window is closed without rolling, which cancels the
  * attack rather than rolling with whatever happened to be ticked.
  */
+/**
+ * What the player ticked: the circumstances, not the arithmetic.
+ *
+ * @typedef {object} Choices
+ * @property {string[]} attack       Ids of the attack circumstances ticked.
+ * @property {string[]} defense      Ids of the defender's circumstances.
+ * @property {string}   cover        One cover step, or "" for none.
+ * @property {string}   concealment  One concealment step, or "" for none.
+ * @property {number}   situational  A modifier the GM called for by hand.
+ */
+
 export class Modern20AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   // ApplicationV2 owns `state` and eleven other accessors, so the dialog's own
   // data sits in private fields.
+  /** @type {Choices} */
   #choices;
+  /** @type {((chosen: Choices|null) => void)|null} */
   #resolve;
 
+  /**
+   * @param {any} item                     The weapon or activity being rolled.
+   * @param {object} [options]
+   * @param {string} [options.activityId]  Which of the item's activities.
+   * @param {Partial<Choices>} [options.remembered]  Last round's ticks, so a
+   *   second shot from cover does not have to be described again.
+   */
   constructor(item, { activityId = "shot", remembered = {} } = {}) {
     super({});
     this.item = item;
@@ -168,6 +187,7 @@ export class Modern20AttackDialog extends HandlebarsApplicationMixin(Application
     return context;
   }
 
+  /** @this {Modern20AttackDialog} */
   static async #onChange(event, form, formData) {
     const data = formData.object;
     // Checkbox groups arrive as a single value when only one is ticked.
@@ -182,11 +202,13 @@ export class Modern20AttackDialog extends HandlebarsApplicationMixin(Application
     this.render();
   }
 
+  /** @this {Modern20AttackDialog} */
   static async #onClear() {
     this.#choices = { attack: [], defense: [], cover: "", concealment: "", situational: 0 };
     this.render();
   }
 
+  /** @this {Modern20AttackDialog} */
   static async #onRoll() {
     const chosen = this.#choices;
     this.#resolve?.({ ...chosen });

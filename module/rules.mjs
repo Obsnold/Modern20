@@ -118,14 +118,19 @@ export async function rollCheck(written) {
  */
 export function activateRulesLinks() {
   document.addEventListener("click", (event) => {
-    const link = event.target.closest?.(`a.${LINK_CLASS}[data-rules-uuid]`);
+    const target = /** @type {HTMLElement} */ (event.target);
+    const link = /** @type {HTMLElement} */ (
+      target.closest?.(`a.${LINK_CLASS}[data-rules-uuid]`)
+    );
     if (link) {
       event.preventDefault();
       openRulesPage(link.dataset.rulesUuid);
       return;
     }
 
-    const check = event.target.closest?.("a.m20-check[data-check]");
+    const check = /** @type {HTMLElement} */ (
+      target.closest?.("a.m20-check[data-check]")
+    );
     if (check) {
       event.preventDefault();
       rollCheck(check.dataset.check);

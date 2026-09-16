@@ -321,6 +321,25 @@ export class Modern20Weapon extends Modern20ItemBase {
       })
     };
   }
+
+  /**
+   * How many rounds the magazine holds, from the magazine the SRD printed.
+   *
+   * The equipment tables give this as prose — "30 box", "6 cyl.", "1 int." —
+   * and `ammo.max` is the number the rest of the system reads: it is what
+   * offers the Reload activity, what spends a round on a shot, and what the
+   * gear tab shows as 8/8. Deriving it here rather than storing it in the
+   * packs means the printed string stays the one place the answer lives, and
+   * a weapon whose magazine is corrected gets the right capacity with it.
+   *
+   * Only when unset, so a GM who types a capacity on the sheet keeps it.
+   */
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    if (this.ammo.max) return;
+    const printed = String(this.magazine ?? "").match(/\d+/);
+    this.ammo.max = printed ? Number(printed[0]) : 0;
+  }
 }
 
 export class Modern20Armor extends Modern20ItemBase {

@@ -10,6 +10,7 @@ import { MODERN20 } from "./config.mjs";
  */
 
 /** The fields an imported effect targets, by the path it changes. */
+/** @type {[RegExp, (key: string) => string|undefined][]} */
 const TARGETS = [
   [/^system\.skills\.(\w+)\.misc$/, (key) => MODERN20.skills[key]?.label],
   [/^system\.saves\.(\w+)\.misc$/, (key) => MODERN20.saves[key]?.label],

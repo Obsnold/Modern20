@@ -11,6 +11,16 @@ const { Actor, ChatMessage } = foundry.documents;
 const { Roll } = foundry.dice;
 
 /**
+ * What a check can be told, beyond the modifier it is rolling.
+ *
+ * @typedef {object} CheckOptions
+ * @property {string} [flavor]     What the card calls the roll. Defaults to
+ *   the name of the thing rolled.
+ * @property {number|null} [dc]    The DC to report against, where the SRD
+ *   printed one. A check rolled from a sheet has none.
+ */
+
+/**
  * Whether an actor is one of the named creature types.
  *
  * A plain function rather than a private method: private members are
@@ -64,7 +74,7 @@ export class Modern20Actor extends Actor {
     return { img: art.img, texture: { src: art.token } };
   }
 
-  /** Data exposed to roll formulas via @-references, e.g. "@str.mod". */
+  /** Data exposed to roll formulas via at-references, e.g. "@str.mod". */
   getRollData() {
     const data = { ...super.getRollData() };
     const sys = this.system;
@@ -81,6 +91,10 @@ export class Modern20Actor extends Actor {
     return data;
   }
 
+  /**
+   * @param {string} abilityKey
+   * @param {CheckOptions} [options]
+   */
   async rollAbility(abilityKey, { flavor, dc = null } = {}) {
     const ability = this.system.abilities?.[abilityKey];
     if (!ability) throw new Error(`Unknown ability "${abilityKey}"`);
@@ -90,6 +104,10 @@ export class Modern20Actor extends Actor {
     });
   }
 
+  /**
+   * @param {string} saveKey
+   * @param {CheckOptions} [options]
+   */
   async rollSave(saveKey, { flavor, dc = null } = {}) {
     const save = this.system.saves?.[saveKey];
     if (!save) throw new Error(`Unknown save "${saveKey}"`);
@@ -102,6 +120,9 @@ export class Modern20Actor extends Actor {
   /**
    * Roll a skill, or one specialty of a skill such as Knowledge (streetwise).
    * Trained-only skills with no ranks are refused rather than rolled at a penalty.
+   *
+   * @param {string} skillKey
+   * @param {CheckOptions & {specialty?: string|null}} [options]
    */
   async rollSkill(skillKey, { specialty = null, flavor, dc = null } = {}) {
     const skill = this.system.skills?.[skillKey];
@@ -151,7 +172,11 @@ export class Modern20Actor extends Actor {
     return { ...result, remaining };
   }
 
-  /** Spend an action point, adding its die to a roll already made. */
+  /**
+   * Spend an action point, adding its die to a roll already made.
+   *
+   * @param {{flavor?: string}} [options]
+   */
   async spendActionPoint({ flavor } = {}) {
     const ap = this.system.actionPoints;
     if (!ap) {
@@ -259,11 +284,12 @@ export class Modern20Actor extends Actor {
    * vulnerability adds half again, energy resistance is subtracted, and
    * damage reduction is subtracted from anything that gets past it.
    *
-   * @param {number} amount            The damage rolled.
-   * @param {string} [damageType]      What the damage is. Blank is unknown,
-   *                                   which reduces nothing but the reduction.
-   * @param {string[]} [bypasses]      What the damage counts as for the
-   *                                   purpose of damage reduction: "silver".
+   * @param {number} amount        The damage rolled.
+   * @param {object} [options]
+   * @param {string} [options.damageType]  What the damage is. Blank is
+   *   unknown, which reduces nothing but the reduction.
+   * @param {string[]} [options.bypasses]  What the damage counts as for the
+   *   purpose of damage reduction: "silver".
    * @returns {{amount: number, immune: boolean, lines: string[]}}
    */
   ignoredDamage(amount, { damageType = "", bypasses = [] } = {}) {
@@ -708,6 +734,10 @@ export class Modern20Actor extends Actor {
    * rolled from a sheet has no DC — the GM sets one, or does not — and a check
    * rolled from a rules page usually has the one the SRD printed, which is
    * what makes clicking the sentence worth anything.
+   */
+  /**
+   * @param {number} modifier
+   * @param {CheckOptions} [options]
    */
   async #d20Roll(modifier, { flavor, dc = null } = {}) {
     const roll = await new Roll("1d20 + @mod", { mod: modifier }).evaluate();

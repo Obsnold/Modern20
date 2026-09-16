@@ -1,4 +1,3 @@
-import { MODERN20 } from "../config.mjs";
 import { ACTIVITY_DEFAULTS } from "../activity-defaults.mjs";
 import { castingTimeAction } from "./actions.mjs";
 
