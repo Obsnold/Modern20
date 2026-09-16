@@ -1,5 +1,5 @@
 import { MODERN20 } from "../config.mjs";
-import { announce } from "../apps/announce.mjs";
+import { announce, acknowledge } from "../apps/announce.mjs";
 import { Modern20LevelUpScreen } from "../apps/level-up-screen.mjs";
 import { Modern20CharacterCreator } from "../apps/character-creator.mjs";
 import { STANCES } from "../apps/actions.mjs";
@@ -658,8 +658,10 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
 
     // Gaining a level opens the level-up screen, which previews the whole
     // change and applies it on confirm. Losing one is a correction, not a
-    // decision, so it just decrements.
-    if (delta > 0) {
+    // decision, so it just decrements — and with the screen switched off,
+    // for importing a character that already has its hit points and feats,
+    // gaining one is a correction too.
+    if (delta > 0 && setting("levelUpScreen")) {
       try {
         await new Modern20LevelUpScreen(this.document, item).render(true);
       } catch (error) {
@@ -668,7 +670,18 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
       return;
     }
 
-    await item.update({ "system.levels": Math.max(0, item.system.levels + delta) });
+    const levels = Math.max(0, item.system.levels + delta);
+    await item.update({ "system.levels": levels });
+
+    // Say what the number did not do. Base attack, the saves, Defense and
+    // Reputation followed it; hit points, feats, talents and ranks did not,
+    // and a level that silently granted none of them is the thing somebody
+    // would otherwise find out about in play.
+    if (delta > 0) {
+      acknowledge(game.i18n.format("MODERN20.LevelScreen.Skipped", {
+        name: item.name, level: levels
+      }));
+    }
   }
 
   /** @this {Modern20ActorSheetBase} */

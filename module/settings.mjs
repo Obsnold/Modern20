@@ -68,6 +68,25 @@ export const SETTINGS = {
     scope: "world", config: true, type: Boolean, default: true
   },
 
+  /**
+   * Whether gaining a level opens the level-up screen.
+   *
+   * On by default, because the screen is how a level gets applied: it rolls
+   * the hit points, grants the talent and the feats the level is owed, raises
+   * an ability every fourth level, spends the skill points and writes the
+   * advancement log. With it off, the + on a class just raises the number.
+   *
+   * That is what importing a character wants. A sheet copied from paper
+   * already has its hit points, feats and ranks, and walking it up through
+   * the screen one level at a time would grant all of them a second time.
+   * Base attack, the saves, Defense and Reputation are derived from the
+   * class's progression table either way, so they follow the number on their
+   * own and are right as soon as it is.
+   */
+  levelUpScreen: {
+    scope: "world", config: true, type: Boolean, default: true
+  },
+
   /** Whether a heavy load actually slows a character down. */
   encumbranceSpeed: {
     scope: "world", config: true, type: Boolean, default: true
@@ -78,12 +97,6 @@ export const SETTINGS = {
     scope: "world", config: true, type: String, default: "1d6"
   },
 
-  /**
-   * When to ask about circumstance modifiers before an attack.
-   *
-   * Client-scoped: it is a preference about how you like to roll, not a rule,
-   * so two players at the same table can differ.
-   */
   /**
    * The version this world was last migrated to.
    *
@@ -96,6 +109,12 @@ export const SETTINGS = {
     scope: "world", config: false, type: String, default: ""
   },
 
+  /**
+   * When to ask about circumstance modifiers before an attack.
+   *
+   * Client-scoped: it is a preference about how you like to roll, not a rule,
+   * so two players at the same table can differ.
+   */
   attackDialog: {
     scope: "client", config: true, type: String, default: "always",
     choices: {

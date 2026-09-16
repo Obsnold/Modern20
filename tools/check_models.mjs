@@ -138,6 +138,20 @@ if (!registeredSheets.length) {
     }
   }
 
+  // And the other direction, which is the one that fails quietly. setting()
+  // falls back to SETTINGS[key]?.default so that preparation can run before
+  // registration, which means a key nothing declares reads as `undefined`
+  // rather than throwing: the feature behind it switches itself off and stays
+  // off. A typo does this, and so does deleting a setting whose callers are
+  // still there.
+  for (const key of [...code.matchAll(/\bsetting\("([^"]+)"\)/g)].map((m) => m[1])) {
+    if (!(key in SETTINGS)) {
+      failures++;
+      console.log(`FAIL  setting("${key}") is read but nothing declares it, `
+        + "so it reads as undefined and whatever depends on it is off");
+    }
+  }
+
   // A settings menu is a button that opens an application, and every part of
   // it can be wrong in a way nothing else notices: a name that is not a string
   // in the language file renders as the key, and a `type` that is not a class
