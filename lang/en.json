@@ -1102,6 +1102,7 @@
       "Special": "Type"
     },
     "Area": {
+      "NeedsTarget": "A cone or a line is aimed: target the token it should point at, then place it.",
       "NoArea": "This activity has no area.",
       "NoScene": "No scene is active.",
       "Place": "Place area",

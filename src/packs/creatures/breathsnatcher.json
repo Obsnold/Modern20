@@ -376,7 +376,23 @@
         "source": "Urban Arcana",
         "abilityType": "supernatural",
         "sense": false,
-        "activities": {}
+        "activities": {
+          "save": {
+            "type": "save",
+            "name": "Clawing Smoke",
+            "actionType": "attack",
+            "save": {
+              "ability": "fort",
+              "calculation": "flat",
+              "dc": 14,
+              "onSuccess": "half"
+            },
+            "area": {
+              "shape": "cone",
+              "size": 30
+            }
+          }
+        }
       },
       "_key": "!actors.items!5BRc8Ia1CgE5Gl6d.rzPIUFmshEwKA0qO"
     },

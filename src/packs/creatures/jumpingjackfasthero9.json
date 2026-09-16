@@ -453,6 +453,10 @@
               "formula": "2d6",
               "type": "fire",
               "addAbility": false
+            },
+            "area": {
+              "shape": "cone",
+              "size": 15
             }
           }
         }

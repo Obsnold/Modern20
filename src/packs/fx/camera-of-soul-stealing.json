@@ -14,7 +14,24 @@
     "purchaseDC": 37,
     "restriction": "none",
     "progressLevel": 0,
-    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.DVFk34dvibSjvUP6"
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.DVFk34dvibSjvUP6",
+    "activities": {
+      "save": {
+        "type": "save",
+        "name": "Camera of Soul Stealing",
+        "actionType": "attack",
+        "save": {
+          "ability": "will",
+          "calculation": "flat",
+          "dc": 20,
+          "onSuccess": "half"
+        },
+        "area": {
+          "shape": "cone",
+          "size": 30
+        }
+      }
+    }
   },
   "_key": "!items!BWZel3bFnA96p5Ru",
   "flags": {

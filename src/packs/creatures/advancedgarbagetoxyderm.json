@@ -444,6 +444,10 @@
               "formula": "10d6",
               "type": "bludgeoning",
               "addAbility": false
+            },
+            "area": {
+              "shape": "cone",
+              "size": 50
             }
           }
         }

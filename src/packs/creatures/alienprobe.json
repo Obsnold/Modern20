@@ -178,6 +178,10 @@
               "formula": "1d4",
               "type": "fire",
               "addAbility": false
+            },
+            "area": {
+              "shape": "cone",
+              "size": 60
             }
           }
         }
