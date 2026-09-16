@@ -1,3 +1,4 @@
+import { MODERN20 } from "./config.mjs";
 import { setting } from "./settings.mjs";
 
 /**
@@ -21,16 +22,6 @@ const SYSTEM_ID = "modern20";
 // sheets, a disc for the canvas.
 const ICONS = "systems/modern20/assets/icons/";
 const TOKENS = "systems/modern20/assets/tokens/";
-
-/**
- * What a creature of each size fills, in grid squares: the SRD's own Space
- * column over the five feet a square is, with half a square as the floor for
- * everything Tiny and smaller. The table the import builds tokens from.
- */
-const TOKEN_SQUARES = {
-  fine: 0.5, diminutive: 0.5, tiny: 0.5, small: 1, medium: 1,
-  large: 2, huge: 3, gargantuan: 4, colossal: 6
-};
 
 /**
  * The SRD's own size column — the modifier each size takes on Defense and on
@@ -91,7 +82,7 @@ async function migrateActors() {
   const updates = [];
   for (const actor of game.actors ?? []) {
     const size = sizeOf(actor);
-    const squares = TOKEN_SQUARES[size];
+    const squares = MODERN20.sizes[size]?.squares;
     if (!squares) continue;
 
     const update = { _id: actor.id };
@@ -213,7 +204,7 @@ async function migratePlacedTokens() {
   for (const scene of game.scenes ?? []) {
     const updates = [];
     for (const token of scene.tokens ?? []) {
-      const squares = TOKEN_SQUARES[sizeOf(token.actor ?? {})];
+      const squares = MODERN20.sizes[sizeOf(token.actor ?? {})]?.squares;
       if (!squares || squares === 1) continue;
       if (token.width !== 1 || token.height !== 1) continue;
       updates.push({ _id: token.id, width: squares, height: squares });
