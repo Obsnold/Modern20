@@ -98,7 +98,8 @@ export async function runSelfTest({ images = true } = {}) {
     };
   }
 
-  const groups = [
+/** @type {[string, (results: any) => Promise<void>][]} */
+    const groups = [
     ["Compendia", checkPacks],
     ["Character sheet", checkHero],
     ["Creatures", checkCreatures],

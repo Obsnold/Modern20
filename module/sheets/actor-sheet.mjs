@@ -26,6 +26,9 @@ const { ActorSheetV2 } = foundry.applications.sheets;
  * replaced rather than merged, so each subclass restates `classes`.
  */
 export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorSheetV2) {
+  // ApplicationV2 deep-merges DEFAULT_OPTIONS up the prototype chain, so a
+  // subclass names only what it changes and the sheet runs with the merge.
+  /** @type {object} */
   static DEFAULT_OPTIONS = {
     classes: ["modern20", "sheet", "actor"],
     position: { width: 820, height: 760 },
@@ -348,32 +351,39 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     return id ? this.document.items.get(id) : null;
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onRollAbility(event, target) {
     await this.document.rollAbility(target.dataset.ability);
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onRollSave(event, target) {
     await this.document.rollSave(target.dataset.save);
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onRollSkill(event, target) {
     const { skill, specialty } = target.dataset;
     await this.document.rollSkill(skill, { specialty: specialty || null });
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onRollItem(event, target) {
     await this._itemFromEvent(target)?.roll();
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onPurchaseItem(event, target) {
     // Shift-click buys on the black market, at the restriction surcharge.
     await this._itemFromEvent(target)?.purchase({ blackMarket: event.shiftKey });
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onSpendActionPoint() {
     await this.document.spendActionPoint();
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onCreateItem(event, target) {
     const type = target.dataset.type;
     await this.document.createEmbeddedDocuments("Item", [{
@@ -382,6 +392,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     }]);
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onEditItem(event, target) {
     this._itemFromEvent(target)?.sheet.render(true);
   }
@@ -396,6 +407,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * re-render that submitOnChange triggers when it loses focus.
    */
   /** Refill a weapon's magazine. */
+  /** @this {Modern20ActorSheetBase} */
   static async #onReloadWeapon(event, target) {
     const item = this._itemFromEvent(target);
     // The row's own select says which rounds to load, when there is a choice.
@@ -405,12 +417,14 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
   }
 
   /** Remove an accessory from the weapon it is fitted to. */
+  /** @this {Modern20ActorSheetBase} */
   static async #onDetachItem(event, target) {
     const item = this._itemFromEvent(target);
     if (item) await item.update({ "system.attachedTo": "" });
   }
 
   /** Take an item back out of the container it is packed in. */
+  /** @this {Modern20ActorSheetBase} */
   static async #onUnpackItem(event, target) {
     const item = this._itemFromEvent(target);
     if (!item) return;
@@ -422,6 +436,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    *
    * Deliberately not GM-only: resting is something a character does in play,
    * like equipping, and the pools it restores are the ones casting spent.
+   * @this {Modern20ActorSheetBase}
    */
   static async #onRestCasting() {
     await this.document.restoreCasting();
@@ -434,6 +449,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * progression table, so they are written. Ability scores do not: the SRD
    * gives a range for each size and picking within it is the point of building
    * a creature rather than copying one, so those are reported as guidance.
+   * @this {Modern20ActorSheetBase}
    */
   static async #onApplyCreatureType() {
     const actor = this.document;
@@ -492,6 +508,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * category". The Hit Dice are the GM's to set — the advancement entry on
    * the stat block says what the range is — and Apply type turns those into
    * base attack and saves.
+   * @this {Modern20ActorSheetBase}
    */
   static async #onAdvanceSize() {
     const actor = this.document;
@@ -539,19 +556,23 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    *
    * All of these are things a character does in play rather than part of
    * building one, so they stay with the player who owns the sheet.
+   * @this {Modern20ActorSheetBase}
    */
   static async #onTakeStance(event, target) {
     await this.document.takeStance(target.dataset.stance);
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onEndTurn() {
     await this.document.startTurn();
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onFiveFootStep() {
     await this.document.spendAction("fiveFootStep");
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onFullAttack(event, target) {
     const item = this._itemFromEvent(target);
     await item?.fullAttack({
@@ -566,6 +587,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * Shift skips the circumstance dialog, or opens it, depending on the
    * "Attack modifiers" setting. Shift-to-skip is the convention players
    * already know from other systems, so it is the default.
+   * @this {Modern20ActorSheetBase}
    */
   static async #onUseActivity(event, target) {
     const item = this._itemFromEvent(target);
@@ -573,6 +595,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     await item.use(target.dataset.activity, { shiftKey: event.shiftKey });
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onAdjustHealth(event, target) {
     const delta = Number(target.dataset.delta) || 0;
     if (!delta) return;
@@ -602,6 +625,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    *
    * Deliberately not GM-only: equipping is something a character does in play,
    * not part of building one, so it stays with the player who owns the sheet.
+   * @this {Modern20ActorSheetBase}
    */
   static async #onToggleEquipped(event, target) {
     const item = this._itemFromEvent(target);
@@ -609,6 +633,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     await item.update({ "system.equipped": !item.system.equipped });
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onOpenCreator() {
     // render() returns a promise: leaving it unawaited turned any failure into
     // an unhandled rejection, so the button appeared to do nothing at all.
@@ -623,6 +648,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
    * Raise or lower a class by one level from the sheet. Levelling is the most
    * common thing a player does, and it was only reachable by opening the class
    * item and editing a number.
+   * @this {Modern20ActorSheetBase}
    */
   static async #onAdjustClassLevel(event, target) {
     const item = this._itemFromEvent(target);
@@ -645,6 +671,7 @@ export class Modern20ActorSheetBase extends HandlebarsApplicationMixin(ActorShee
     await item.update({ "system.levels": Math.max(0, item.system.levels + delta) });
   }
 
+  /** @this {Modern20ActorSheetBase} */
   static async #onDeleteItem(event, target) {
     await this._itemFromEvent(target)?.deleteDialog();
   }

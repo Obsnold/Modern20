@@ -1,5 +1,8 @@
 import { MODERN20 } from "../config.mjs";
-import { talentChoices, featChoices, grant, grantNamedFeature, sourceStamp } from "./level-up.mjs";
+import {
+  talentChoices, featChoices, grant, grantNamedFeature, sourceStamp,
+  FEAT_EVERY, ABILITY_INCREASE_EVERY
+} from "./level-up.mjs";
 import { skillRows, spendOf, pointsForLevel, rankUpdates } from "./skill-allocation.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
@@ -16,8 +19,6 @@ const { ChatMessage } = foundry.documents;
  */
 
 const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
-const FEAT_EVERY = 3;
-const ABILITY_INCREASE_EVERY = 4;
 
 /** The cumulative progression row at or below a level. */
 function rowAt(progression, level) {
@@ -168,6 +169,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
    * Add a subject to a skill taken per subject — Knowledge (Streetwise), or a
    * language. The subject appears as its own row with its own ranks, because
    * the SRD treats each as a separate skill.
+   * @this {Modern20LevelUpScreen}
    */
   static #onAddSubject(event, target) {
     const key = target.dataset.skill;
@@ -183,6 +185,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
     this.render();
   }
 
+  /** @this {Modern20LevelUpScreen} */
   static async #onChange(event, form, formData) {
     const data = formData.object;
     const plan = this.#plan;
@@ -211,6 +214,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
   }
 
   /** Roll now so the result is visible before committing to the level. */
+  /** @this {Modern20LevelUpScreen} */
   static async #onRollHitPoints() {
     const faces = Number(String(this.classItem.system.hitDie).match(/d(\d+)/i)?.[1]) || 8;
     const roll = await new Roll(`1d${faces}`).evaluate();
@@ -220,6 +224,7 @@ export class Modern20LevelUpScreen extends HandlebarsApplicationMixin(Applicatio
   }
 
   /** Apply everything at once. Closing without confirming changes nothing. */
+  /** @this {Modern20LevelUpScreen} */
   static async #onConfirm() {
     const { actor, classItem } = this;
     const plan = this.#plan;

@@ -26,7 +26,7 @@ const { ChatMessage } = foundry.documents;
 /**
  * Post a record of something that happened, and warn if it needs noticing.
  *
- * @param {Actor}    actor        Whose record this is; the speaker.
+ * @param {any}      actor        Whose record this is; the speaker.
  * @param {object}   options
  * @param {string}   options.title    Headline, already localized.
  * @param {string[]} [options.lines]  Detail lines, already localized.
@@ -41,7 +41,7 @@ const { ChatMessage } = foundry.documents;
  */
 export async function announce(actor, {
   title, lines = [], img, warning = false, whisper = false, rules = ""
-} = {}) {
+}) {
   const content = await foundry.applications.handlebars.renderTemplate(
     "systems/modern20/templates/chat/record-card.hbs",
     {

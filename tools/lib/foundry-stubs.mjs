@@ -241,10 +241,12 @@ export function installStubs() {
   };
   // The ready hook installs one delegated click handler for rules links and
   // rules rolls, and the checks run every hook they recorded.
-  globalThis.document = {
+  // Cast: this replaces the DOM's own `document`, and nothing here is
+  // pretending to be a Document. It is the two calls the ready hook makes.
+  globalThis.document = /** @type {any} */ ({
     addEventListener: () => {},
     createElement: () => ({ dataset: {}, classList: { add: () => {} }, append: () => {} }),
-  };
+  });
 
   globalThis.foundry = {
     data: {

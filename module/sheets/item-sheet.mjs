@@ -124,6 +124,7 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
    *
    * A TypedSchemaField will not let an entry change type after the fact, so
    * the editor creates and deletes rather than converting.
+   * @this {Modern20ItemSheet}
    */
   static async #onAddActivity(event, target) {
     const type = target.dataset.type
@@ -141,6 +142,7 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     });
   }
 
+  /** @this {Modern20ItemSheet} */
   static async #onDeleteActivity(event, target) {
     const id = target.closest("[data-activity-id]")?.dataset.activityId;
     if (!id) return;
@@ -148,11 +150,13 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     await this.document.update({ [`system.activities.-=${id}`]: null });
   }
 
+  /** @this {Modern20ItemSheet} */
   static async #onAddPrerequisite() {
     const prerequisites = [...this.document.system.prerequisites, ""];
     await this.document.update({ "system.prerequisites": prerequisites });
   }
 
+  /** @this {Modern20ItemSheet} */
   static async #onRemovePrerequisite(event, target) {
     const index = Number(target.dataset.index);
     const prerequisites = this.document.system.prerequisites.filter((_, i) => i !== index);

@@ -121,6 +121,7 @@ export class Modern20ObjectSheet extends HandlebarsApplicationMixin(ActorSheetV2
   }
 
   /** The same -5 / -1 / +1 / +5 steps the other sheets carry. */
+  /** @this {Modern20ObjectSheet} */
   static async #onAdjustHealth(event, target) {
     const delta = Number(target.dataset.delta) || 0;
     await this.document.applyDamage(delta);
@@ -130,6 +131,7 @@ export class Modern20ObjectSheet extends HandlebarsApplicationMixin(ActorSheetV2
    * "When a character tries to break something with sudden force rather than
    * by dealing damage, use a Strength check." Rolled by whoever is pulling on
    * it, which is not the object.
+   * @this {Modern20ObjectSheet}
    */
   static async #onRollBreak() {
     const breaker = game.user.character ?? canvas.tokens?.controlled?.[0]?.actor;
@@ -205,6 +207,7 @@ export class Modern20VehicleSheet extends HandlebarsApplicationMixin(ActorSheetV
 
   /** Buying a vehicle is a Wealth check made by whoever is paying, not by the
    *  vehicle, so this asks the selected character to make it. */
+  /** @this {Modern20VehicleSheet} */
   static async #onPurchase(event) {
     const buyer = game.user.character ?? canvas.tokens?.controlled?.[0]?.actor;
     if (!buyer?.system?.wealth) {

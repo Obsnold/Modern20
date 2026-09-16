@@ -1,4 +1,3 @@
-import { MODERN20 } from "../config.mjs";
 import { placeArea } from "./area.mjs";
 import { announce, problem } from "./announce.mjs";
 
@@ -91,7 +90,9 @@ export function bindDamageControls(message, html) {
     <button type="button" data-m20-apply="-1">${game.i18n.localize("MODERN20.Damage.Heal")}</button>
   `;
 
-  for (const button of buttons.querySelectorAll("[data-m20-apply]")) {
+  for (const button of /** @type {NodeListOf<HTMLElement>} */ (
+    buttons.querySelectorAll("[data-m20-apply]")
+  )) {
     button.addEventListener("click", () => {
       applyAmount(total, {
         multiplier: Number(button.dataset.m20Apply),

@@ -81,7 +81,7 @@ Foundry's own **Update System** button does.
 
 ```bash
 npm install
-npm test          # lint, then every check
+npm test          # lint, type-check, then every check
 ```
 
 Eleven checks read this repository and seven build the system's data models
@@ -99,6 +99,7 @@ shipped:
 | `check_private.py` | nothing here should name the machine it was written on |
 | `check_creatures.mjs` | every creature's arithmetic against the SRD: 1,577 skill totals and 507 attacks |
 | `check_lang.py`, `check_config.py`, `check_globals.py`, `check_shadowing.py`, `check_app_props.py`, `check_coverage.py` | missing localization strings, config that has drifted from the SRD, globals Foundry removed, a name defined twice, a read-only assignment, and SRD coverage that has regressed |
+| `tsc --noEmit` | the code against its own JSDoc: a mistyped option name silently does nothing, and a doc that disagrees with the signature is a call written wrong by whoever believed it |
 
 ## License
 

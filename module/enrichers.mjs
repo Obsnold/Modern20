@@ -64,6 +64,17 @@ function terms(written) {
  *
  * A reference that resolves to nothing renders as its own words rather than as
  * a button that cannot roll — the same rule the rules links follow.
+ *
+ * @param {string} written
+ * @returns {Check|null}
+ *
+ * @typedef {object} Check
+ * @property {string} label        The localization key for what is rolled.
+ * @property {string} specialty    A subject, as in Knowledge (streetwise).
+ * @property {number|null} dc      The DC the SRD printed, where it printed one.
+ * @property {string} [skill]      Exactly one of these three is set, which is
+ * @property {string} [ability]    what tells the caller which of the actor's
+ * @property {string} [save]       three roll methods to call.
  */
 export function checkRoll(written) {
   const { skill, specialty, ability, save, dc } = terms(written);

@@ -74,6 +74,7 @@ console.log(`${scraped.types.length} types and ${scraped.progression.length} `
 
 // Hit die, attack column and good saves, transcribed from the page so a
 // parsing change that shifts a column is caught rather than shipped.
+/** @type {[string, string, string, string[]][]} */
 const expected = [
   ["aberration", "d8", "A", ["will"]],
   ["animal", "d8", "A", ["fort", "ref"]],

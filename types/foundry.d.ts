@@ -13,11 +13,11 @@
  * is everything this repository wrote.
  */
 
-declare const foundry: any;
-declare const game: any;
-declare const canvas: any;
-declare const ui: any;
-declare const CONFIG: any;
-declare const CONST: any;
-declare const Hooks: any;
-declare const Handlebars: any;
+declare var foundry: any;
+declare var game: any;
+declare var canvas: any;
+declare var ui: any;
+declare var CONFIG: any;
+declare var CONST: any;
+declare var Hooks: any;
+declare var Handlebars: any;

@@ -390,7 +390,9 @@ export class Modern20ActorBase extends foundry.abstract.TypeDataModel {
     for (const item of this.parent?.items ?? []) {
       if (item.type === "class") {
         for (const grant of item.system.classSkills ?? []) {
-          add(this.constructor.skillKey(grant.skill, grant.specialty), item.name);
+          const key = /** @type {typeof Modern20ActorBase} */ (this.constructor)
+            .skillKey(grant.skill, grant.specialty);
+          add(key, item.name);
         }
       } else if (item.type === "occupation") {
         // Stored as "skill" or "skill:Subject".

@@ -22,24 +22,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # No `cache: npm`: it needs a committed lockfile, and there is none.
-      # Three dev dependencies install in seconds, so the cache would save
-      # less than the failure it caused — "Dependencies lock file is not found".
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - name: Install the linters and the type checker
         run: |
-          npm install --no-audit --no-fund
+          # npm ci installs exactly what package-lock.json pins and fails if
+          # the lock file and package.json disagree, which is the difference
+          # between a check that runs what was tested and one that runs
+          # whatever was newest this morning.
+          npm ci --no-audit --no-fund
           # ruff is published on PyPI, not npm: package.json asked for
           # @astral-sh/ruff, which does not exist, and the bare "ruff" on npm
           # is an unrelated coroutine library. npm install failed outright.
           python3 -m pip install --quiet --break-system-packages ruff
 
 
-      # Lint, then every check: fourteen that read this repository and seven
-      # that build the system's data models against Foundry stubs.
+      # Lint, type-check, then every check: eleven that read this repository
+      # and seven that build the system's data models against Foundry stubs.
       - name: npm test
         run: npm test
 
