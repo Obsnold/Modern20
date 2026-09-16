@@ -38,10 +38,24 @@ export function creatureType(id) {
     .find((type) => key.startsWith(named(type))) ?? null;
 }
 
-/** "5d8" is five Hit Dice; "1/2 d8" and a bare "d8" are one. */
+/**
+ * How many Hit Dice a printed line comes to.
+ *
+ * "5d8" is five; "1/2 d8" and a bare "d8" are one. A creature that has taken
+ * character classes is written as several groups — "3d8+3 plus 3d8+3" is a
+ * bugbear with three levels of Fast hero, and six Hit Dice — and reading only
+ * the first gave forty-six creatures roughly half the Hit Dice they have.
+ *
+ * Only die groups count. The trailing "plus 40" of a terrestrial effluvium,
+ * and the "plus 7" a troll gets for being robust, are extra hit points and
+ * not dice.
+ */
 export function hitDiceCount(hitDice) {
-  const match = String(hitDice ?? "").match(/^\s*(\d+)\s*d/i);
-  return match ? Number(match[1]) : 1;
+  const printed = String(hitDice ?? "");
+  if (/^\s*\d+\s*\/\s*\d+/.test(printed)) return 1;
+
+  const groups = [...printed.matchAll(/(\d+)\s*d\s*\d+/gi)].map((match) => Number(match[1]));
+  return groups.reduce((total, count) => total + count, 0) || 1;
 }
 
 /**
