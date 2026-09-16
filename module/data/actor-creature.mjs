@@ -1,5 +1,5 @@
 import { CREATURE_TYPES } from "../creature-types.mjs";
-import { creatureType } from "../apps/creature-types.mjs";
+import { creatureType, hitDiceCount } from "../apps/creature-types.mjs";
 import { Modern20ActorBase, attributeFields } from "./actor-base.mjs";
 
 const fields = foundry.data.fields;
@@ -65,6 +65,6 @@ export class Modern20Creature extends Modern20ActorBase {
    * SRD's default for a creature's spell-like abilities.
    */
   get defaultCasterLevel() {
-    return Number(String(this.details.hitDice ?? "").match(/^\s*(\d+)/)?.[1]) || 1;
+    return hitDiceCount(this.details.hitDice);
   }
 }

@@ -176,8 +176,37 @@ for (const [text, id] of Object.entries(freeText)) {
   if (got?.id !== id) fail(`"${text}" resolved to "${got?.id}", expected "${id}"`);
 }
 if (derivedFromType("wyrm", "5d8")) fail("an unknown type should build nothing");
-if (hitDiceCount("d8") !== 1) fail("a bare hit die is one Hit Die");
-console.log(`${buildCases.length + Object.keys(freeText).length + 2} build cases checked`);
+
+/*
+ * Counting Hit Dice off the printed line.
+ *
+ * A creature that has taken character classes is written as several groups,
+ * and reading only the first gave forty-six of them roughly half the Hit Dice
+ * they have — which decides what a creature's spell-like abilities cast at,
+ * and what the Apply-creature-type button writes over its attack and saves
+ * with. The trailing "plus 40" and "plus 7 (robust)" are extra hit points and
+ * not dice; a fraction of a die is still one Hit Die.
+ */
+const hitDiceCases = [
+  ["5d8", 5],
+  ["d8", 1],
+  ["1/2 d8", 1],
+  ["1/4 d8", 1],
+  ["3d8+3 plus 3d8+3", 6],
+  ["2d8-2 plus 1d6-2 plus 2d6-2", 5],
+  ["6d8+42 plus 7d10+49 plus 7 (robust)", 13],
+  ["32d10+256 plus 40 (extra hit points)", 32],
+  ["", 1]
+];
+for (const [printed, want] of hitDiceCases) {
+  const got = hitDiceCount(printed);
+  if (got !== want) {
+    fail(`"${printed}" counts as ${got} Hit Dice, expected ${want}`);
+  }
+}
+
+console.log(`${buildCases.length + Object.keys(freeText).length + 1} build cases and `
+  + `${hitDiceCases.length} Hit Dice lines checked`);
 
 /* -- the per-size tables ------------------------------------------------ */
 
@@ -282,6 +311,24 @@ const ATTACK_SIZE_MODIFIER = {
 };
 
 let weapons = 0;
+// Every creature the book writes as more than one group of Hit Dice: the
+// count has to be all of them, not the first.
+{
+  let multi = 0;
+  for (const creature of creatures) {
+    const printed = String(creature.hitDice ?? "");
+    const groups = [...printed.matchAll(/(\d+)\s*d\s*\d+/gi)].map((m) => Number(m[1]));
+    if (groups.length < 2) continue;
+    multi++;
+    const want = groups.reduce((total, n) => total + n, 0);
+    const got = hitDiceCount(printed);
+    if (got !== want) {
+      fail(`${creature.name}: "${printed}" counts as ${got}, its groups come to ${want}`);
+    }
+  }
+  console.log(`${multi} creatures written in more than one group of Hit Dice`);
+}
+
 for (const creature of creatures) {
   const document = readCreatureDocument(creature.id);
   if (!document) continue;
