@@ -85,7 +85,7 @@ npm install
 npm test          # lint, type-check, then every check
 ```
 
-Twelve checks read this repository and twelve build the system's data models
+Thirteen checks read this repository and twelve build the system's data models
 against Foundry stubs. Each exists because something it now catches had already
 shipped:
 
@@ -98,6 +98,7 @@ shipped:
 | `check_art.py` | a broken image draws an empty frame and logs nothing, so 4,937 documents can lose their artwork in silence |
 | `check_release.py` | a release missing `assets/` installs perfectly and draws no artwork |
 | `check_hooks.py` | a hook fires on every connected client, so anything that writes has to pick one — `isGM` is true on every GM and `isOwner` is true for the owner and every GM, and either one lets two clients do the same work twice |
+| `check_provenance.py` | no compendium document may carry an e-mail address, a link to anywhere but the SRD, or boilerplate from the page it was scraped from — the site's footer had reached eleven documents and two of them shipped somebody's e-mail address |
 | `check_private.py` | nothing here should name the machine it was written on |
 | `check_creatures.mjs` | every creature's arithmetic against the SRD: 1,577 skill totals and 507 attacks |
 | `check_combat.mjs` | the action economy, the death states, and what threatens a critical — the Critical column is a threat range and a multiplier in one string, and reading it wrong made a greataxe crit on a 3 |
