@@ -1,6 +1,8 @@
 import { MODERN20 } from "../config.mjs";
 import { rollWealthCheck, commitWealthLoss } from "../dice/wealth.mjs";
-import { ACTION_COST, STANCES, canAfford, attackSequence } from "../apps/actions.mjs";
+import {
+  ACTION_COST, STANCES, canAfford, attackSequence, actionPointFormula
+} from "../apps/actions.mjs";
 import { announce, problem } from "../apps/announce.mjs";
 import { setting } from "../settings.mjs";
 import { OBJECT_DAMAGE_SHARE } from "../object-data.mjs";
@@ -173,7 +175,11 @@ export class Modern20Actor extends Actor {
   }
 
   /**
-   * Spend an action point, adding its die to a roll already made.
+   * Spend an action point, adding its dice to a roll already made.
+   *
+   * How many dice depends on character level — one to 7th, two to 14th, three
+   * past that — and more than one keeps the highest rather than adding them
+   * up. The setting names the die; the level decides how many of it.
    *
    * @param {{flavor?: string}} [options]
    */
@@ -188,7 +194,10 @@ export class Modern20Actor extends Actor {
       return null;
     }
 
-    const roll = await new Roll(setting("actionPointDie")).evaluate();
+    const formula = actionPointFormula(
+      this.system.details?.level ?? 1, setting("actionPointDie")
+    );
+    const roll = await new Roll(formula).evaluate();
     await this.update({ "system.actionPoints.value": ap.value - 1 });
     await roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this }),

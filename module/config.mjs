@@ -307,7 +307,23 @@ MODERN20.specialAmmunition = {
 MODERN20.actionPoints = {
   startingBase: 5,
   perLevel: 0.5,
-  die: "1d6"
+  die: "1d6",
+  /**
+   * How many dice one action point rolls, by character level.
+   *
+   * "Depending on the hero's character level, he or she may be able to roll
+   * more than one d6 when spending 1 action point. If the character does so,
+   * apply the highest result and disregard the other rolls." The highest, not
+   * the total: three dice are worth about a point and a half more than one,
+   * not three times as much.
+   *
+   * The table stops at 20th and so does this; past it the last row stands.
+   */
+  diceByLevel: [
+    { throughLevel: 7, dice: 1 },
+    { throughLevel: 14, dice: 2 },
+    { throughLevel: 20, dice: 3 }
+  ]
 };
 
 /**

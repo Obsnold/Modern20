@@ -261,6 +261,68 @@ for (const testCase of deathCases) {
 console.log(`${deathCases.length} death state cases checked`);
 
 /**
+ * How many dice one action point rolls, against the SRD's own table.
+ *
+ * "Depending on the hero's character level, he or she may be able to roll
+ * more than one d6 when spending 1 action point. If the character does so,
+ * apply the highest result and disregard the other rolls." The system rolled
+ * a flat 1d6 at every level, so a 15th-level hero spent a point for an
+ * average of 3.5 instead of the 4.96 three dice and the best of them give.
+ *
+ * Read out of the table rather than restated here: the rows are "1st–7th
+ * 1d6", "8th–14th 2d6", "15th–20th 3d6", with an en dash.
+ */
+{
+  const { actionPointFormula } = await import("../module/apps/actions.mjs");
+  const rules = JSON.parse(readFileSync(join(ROOT, "data", "rules.json"), "utf8"));
+  const pages = [];
+  (function walk(node) {
+    if (Array.isArray(node)) node.forEach(walk);
+    else if (node && typeof node === "object") {
+      if (node.name && node.html) pages.push(node);
+      Object.values(node).forEach(walk);
+    }
+  })(rules);
+
+  const page = pages.find((entry) => entry.name === "Action Points");
+  if (!page) fail("no Action Points page to check the table against");
+  else {
+    const text = page.html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+    const rows = [...text.matchAll(/(\d+)(?:st|nd|rd|th)[–-](\d+)(?:st|nd|rd|th)\s+(\d+)d6/g)]
+      .map(([, from, to, dice]) => [Number(from), Number(to), Number(dice)]);
+
+    if (rows.length < 3) fail(`only ${rows.length} rows read from the printed table`);
+
+    let checked = 0;
+    for (const [from, to, dice] of rows) {
+      // The first and last level of each band, and one in the middle.
+      for (const level of [from, Math.floor((from + to) / 2), to]) {
+        checked++;
+        const got = actionPointFormula(level, "1d6");
+        // One die is one die; more than one keeps the highest.
+        const want = dice > 1 ? `${dice}d6kh1` : "1d6";
+        if (got !== want) {
+          fail(`level ${level} spends an action point as ${got}, the table `
+            + `gives ${dice}d6 (${want})`);
+        }
+      }
+    }
+
+    // Past the table's last row, the last row stands.
+    const last = rows[rows.length - 1];
+    if (actionPointFormula(last[1] + 5, "1d6") !== `${last[2]}d6kh1`) {
+      fail("past the table's last level the last row should still apply");
+    }
+    // The die itself is the setting's, so a table that prefers a d8 gets one.
+    if (actionPointFormula(15, "1d8") !== `${last[2]}d8kh1`) {
+      fail("the setting's die is not carried into the formula");
+    }
+    console.log(`${rows.length} action point rows read from the table, `
+      + `${checked + 2} levels checked`);
+  }
+}
+
+/**
  * What threatens a critical, on every weapon the packs hold.
  *
  * The Critical column is a threat range and a multiplier in one string — a
