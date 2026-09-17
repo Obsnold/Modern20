@@ -6,7 +6,7 @@
   "system": {
     "description": "<p>This vehicle alarm triggers whenever an attempt is made to break into the vehicle (for example, by smashing the window or bypassing a door lock), unless the intruder succeeds at a @Check[skill:disableDevice|dc:30]{Disable Device check (DC 30)}.</p><p>When activated, the alarm sends a mental warning to the owner of the vehicle, although the owner must be within 1 mile of the vehicle to receive it. If the owner receives the warning and succeeds at a @Check[ability:wis|dc:10]{Wisdom check (DC 10)}, he also receives a mental picture of the individual or individuals attempting to break into the vehicle, as if standing next to them (lighting conditions apply).</p>",
     "source": "Urban Arcana",
-    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfx.html",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfxvehicle.html",
     "rulesPage": "Compendium.modern20.rules.JournalEntry.PGmH1EOulpH0Dyl9.JournalEntryPage.g8N9ZQl3ClKEEILN",
     "category": "Vehicular",
     "weight": 0.0,
