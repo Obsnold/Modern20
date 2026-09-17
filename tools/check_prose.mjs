@@ -35,7 +35,9 @@ const fail = (message) => { failures++; console.log(`FAIL  ${message}`); };
 const unenrich = (text) => String(text ?? "")
   .replace(/@(?:Check|UUID)\[[^\]]*\]\{([^}]*)\}/g, "$1")
   .replace(/@(?:Check|UUID)\[[^\]]*\]/g, "")
-  .replace(/<[^>]+>/g, "")
+  // A tag becomes a space, not nothing: "30 feet</p><p>from the vehicle"
+  // is two words and stripping the tags outright joins them.
+  .replace(/<[^>]+>/g, " ")
   .replace(/\s+/g, " ")
   .trim();
 
@@ -55,6 +57,29 @@ const SCRAPE_WRONG = new Map([
 ]);
 
 const PACKS = [
+  {
+    // The scrape's file is not named for its pack.
+    pack: "fx",
+    scrape: "fx_items",
+    /*
+     * No description here, deliberately.
+     *
+     * For fx the scrape is the weaker source: the pack's text is more
+     * complete, and the extra sentences are in the book — the staff of
+     * illumination's "uses 1 charge", the grenade's "purchase DC given below
+     * is for a box of six". Comparing the two would fail on the pack being
+     * right.
+     *
+     * The numbers are exact and are printed inline in each entry —
+     * "Type: Wondrous Item (magic); Caster Level: 5th; Purchase DC: 31;
+     * Weight: —" — which is where three wrong ones were found.
+     */
+    fields: [
+      ["category", "category", "prose"],
+      ["purchaseDC", "purchaseDC", "number"],
+      ["weight", "weight", "number"]
+    ]
+  },
   {
     pack: "feats",
     fields: [
@@ -97,9 +122,9 @@ const agrees = {
 let compared = 0;
 let skipped = 0;
 
-for (const { pack, fields } of PACKS) {
+for (const { pack, fields, scrape: file } of PACKS) {
   const scrape = new Map(
-    JSON.parse(readFileSync(join(ROOT, "data", `${pack}.json`), "utf8"))
+    JSON.parse(readFileSync(join(ROOT, "data", `${file ?? pack}.json`), "utf8"))
       .map((entry) => [entry.name, entry])
   );
   const documents = packDocuments(ROOT, pack);
@@ -128,7 +153,7 @@ for (const { pack, fields } of PACKS) {
         + `${JSON.stringify(String(JSON.stringify(want)).slice(0, 60))}`);
     }
   }
-  console.log(`${documents.length} ${pack} compared with data/${pack}.json`);
+  console.log(`${documents.length} ${pack} compared with data/${file ?? pack}.json`);
 }
 
 console.log(`${compared} fields compared, ${skipped} skipped where the scrape is wrong`);
