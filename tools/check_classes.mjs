@@ -96,6 +96,29 @@ for (const entry of classes) {
     }
   }
 
+  /*
+   * "Action Points: 6 + one-half character level, rounded down, every time
+   * the Techie attains a new level in this class."
+   *
+   * Five for the six basic classes, six for most advanced ones, seven for the
+   * prestige classes — and seven for the Swindler, which is an advanced class
+   * and so the reason this is read per class rather than assumed from a tier.
+   * The system used a flat five for all fifty-two, leaving every character
+   * with an advanced class a point short and a prestige one two short.
+   *
+   * Printed both ways, "6 + one-half" and "6 plus one-half"; matching only
+   * the first read 36 of the 52 and left the rest looking unprinted.
+   */
+  const base = text.match(
+    /[Aa]ction [Pp]oints?\s*:?[^.]{0,140}?(\d+)\s*(?:\+|plus)\s*one-half/
+  );
+  if (!base) {
+    fail(`${entry.name}: its page prints no action point base`);
+  } else if (system.actionPointBase !== Number(base[1])) {
+    fail(`${entry.name}: the pack gives an action point base of `
+      + `${system.actionPointBase}, the book prints ${base[1]}`);
+  }
+
   // "Hit Die: d10", or "The Acolyte gains 1d8 hit points per level".
   const die = text.match(/Hit Di(?:e|ce)\s*:?\s*(?:The [\w ]*? gains )?(\d?d\d+)/i);
   if (die) {
