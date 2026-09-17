@@ -20,7 +20,7 @@ https://github.com/Obsnold/modern20/releases/latest/download/system.json
 
 | | |
 |---|---|
-| **Characters** | All six basic classes and 46 advanced and prestige classes, 33 starting occupations, 52 talents, 137 feats — with a stepped creator and a level-up flow that apply the SRD's own arithmetic |
+| **Characters** | All six basic classes and 46 advanced and prestige classes, 33 starting occupations, 52 talents, 138 feats — with a stepped creator and a level-up flow that apply the SRD's own arithmetic |
 | **Species** | d20 Modern is played by humans; Urban Arcana prints 18 playable species and all 18 are here, from halflings to ogres — ability modifiers, size, speed, natural armor, racial Hit Dice and level adjustment, applied by the sheet and taken away again when the species is removed. Being a nonhuman costs a starting feat and a skill point per level, which the creator and the level-up screen both know. A plain Human is in the pack too, and leaving the step blank means the same thing |
 | **Rules** | Abilities, saves, Defense (normal, touch and flat-footed), initiative, grapple, all 41 skills with their specialties, action points, Reputation, massive damage, and the Wealth economy instead of currency |
 | **Equipment** | 180 weapons, 40 suits of armor, 289 pieces of gear and 147 FX items across d20 Modern, Urban Arcana and d20 Future, with purchase DCs, restriction ratings and progress levels |

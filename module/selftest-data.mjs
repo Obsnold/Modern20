@@ -13,7 +13,7 @@ export const EXPECTED = {
     "classes": 52,
     "occupations": 33,
     "talents": 52,
-    "feats": 137,
+    "feats": 138,
     "spells": 174,
     "psionics": 87,
     "weapons": 180,
