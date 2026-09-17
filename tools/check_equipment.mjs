@@ -46,8 +46,16 @@ const cellsOf = (row) =>
     .map(([, cell]) => cell.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ")
       .replace(/\s+/g, " ").trim());
 
-/** Every row of every table whose header carries the named columns. */
-function printedRows(...required) {
+/**
+ * Every row of every table whose header carries the named columns, and none
+ * of the excluded ones.
+ *
+ * The excluded half matters: nearly every table in the book has a Purchase DC
+ * and a Restriction, so "the gear tables" can only be described as the ones
+ * with those and without Damage, Equipment Bonus or Hit Points — which is to
+ * say, not the weapons, not the armor and not the vehicles.
+ */
+function printedRows(required, excluded = []) {
   const out = new Map();
   for (const page of pages) {
     let header = null;
@@ -56,7 +64,8 @@ function printedRows(...required) {
       const cells = cellsOf(row);
       if (cells.length < 4) continue;
       const joined = cells.join(" ").toLowerCase();
-      if (required.every((column) => joined.includes(column))) {
+      if (required.every((column) => joined.includes(column))
+        && !excluded.some((column) => joined.includes(column))) {
         header = cells.map((cell) => cell.toLowerCase().trim());
         continue;
       }
@@ -91,9 +100,13 @@ const digits = (value) => {
   return found ? Number(found[0]) : null;
 };
 
+// The tables abbreviate differently in different chapters: "Med." in the
+// weapons tables, a bare "H" in the vehicles one.
 const SIZES = { fine: "fine", dim: "diminutive", tiny: "tiny", small: "small", sm: "small",
   med: "medium", medium: "medium", large: "large", lg: "large", huge: "huge",
-  garg: "gargantuan", col: "colossal" };
+  garg: "gargantuan", col: "colossal",
+  f: "fine", d: "diminutive", t: "tiny", s: "small", m: "medium",
+  l: "large", h: "huge", g: "gargantuan", c: "colossal" };
 
 const rules_ = {
   same: (book, pack) => plain(book) === plain(pack),
@@ -141,6 +154,34 @@ const WEAPONS = [
   ["magazine", "magazine", rules_.blankOrSame],
   ["size", "size", rules_.size],
   ["weight", "weight", rules_.weight],
+  ["purchase dc", "purchaseDC", rules_.number],
+  ["restriction", "restriction", rules_.restriction]
+];
+
+const GEAR = [
+  ["weight", "weight", rules_.weight],
+  ["purchase dc", "purchaseDC", rules_.number],
+  ["restriction", "restriction", rules_.restriction]
+];
+
+/**
+ * A vehicle's whole stat line is a table row, twelve columns wide.
+ *
+ * Hit points are a schema object rather than a number, so they are read out
+ * of it; a top speed is printed as "140 (14)", the second figure being the
+ * same speed in squares, and is kept verbatim.
+ */
+const VEHICLES = [
+  ["crew", "crew", rules_.number],
+  ["pass", "passengers", rules_.number],
+  ["cargo", "cargo", rules_.blankOrSame],
+  ["init", "initiative", rules_.number],
+  ["maneuver", "maneuver", rules_.number],
+  ["top speed", "topSpeed", rules_.blankOrSame],
+  ["defense", "defense", rules_.number],
+  ["hardness", "hardness", rules_.number],
+  ["hit points", "hp", (book, pack) => digits(book) === (pack?.max ?? null)],
+  ["size", "size", rules_.size],
   ["purchase dc", "purchaseDC", rules_.number],
   ["restriction", "restriction", rules_.restriction]
 ];
@@ -216,6 +257,17 @@ function compare(pack, rows, columns) {
 
     for (const [column, field, agrees] of columns) {
       if (!(column in row)) continue;
+
+      /*
+       * An empty cell states nothing, and neither does "See text".
+       *
+       * Several entries are printed as a parent row with the numbers on the
+       * variants beneath it — "Microphone" with a blank Purchase DC and then
+       * Contact, Laser, Parabolic each with their own — and the pack holds
+       * the variants. They match the parent by name and there is nothing in
+       * it to compare against.
+       */
+      if (blank(row[column]) || /^see text$/i.test(plain(row[column]))) continue;
       fields++;
       if (agrees(row[column], document.system?.[field])) continue;
       fail(`${pack}: "${document.name}" has ${field} `
@@ -235,8 +287,13 @@ function compare(pack, rows, columns) {
   }
 }
 
-compare("weapons", printedRows("damage", "purchase dc"), WEAPONS);
-compare("armor", printedRows("equipment bonus", "armor penalty"), ARMOR);
+compare("weapons", printedRows(["damage", "purchase dc"]), WEAPONS);
+compare("armor", printedRows(["equipment bonus", "armor penalty"]), ARMOR);
+compare("vehicles", printedRows(["crew", "maneuver", "top speed"]), VEHICLES);
+compare("gear", printedRows(
+  ["purchase dc", "restriction"],
+  ["damage", "equipment bonus", "hit points", "craft dc", "repair dc"]
+), GEAR);
 
 console.log(failures ? `\n${failures} FAILURES` : "\nall equipment checks passed");
 process.exit(failures ? 1 : 0);
