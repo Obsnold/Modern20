@@ -22,7 +22,7 @@ import {
 import { Modern20ItemSheet } from "./sheets/item-sheet.mjs";
 import { rollWealthCheck, lossFormulaForGap } from "./dice/wealth.mjs";
 import { applyOccupationWealth, grantFeatByName } from "./apps/occupation.mjs";
-import { canTakeSpecies, grantSpecies, removeSpeciesGrants } from "./apps/species.mjs";
+import { canTakeSpecies, completeSpecies, uncompleteSpecies } from "./apps/species.mjs";
 import { bindDamageControls } from "./apps/damage.mjs";
 import { registerConditions } from "./conditions.mjs";
 import { activateRulesLinks, rulesLink, rulesTopic, skillRules } from "./rules.mjs";
@@ -121,81 +121,43 @@ Hooks.on("createItem", async (item) => {
 });
 
 /**
- * A species decides how big you are, and a token has to follow.
- *
- * Size is derived from the species item, so the sheet is right the moment one
- * is added — but a prototype token's width and height are stored, and nothing
- * derives them. An ogre hero was therefore Large on its sheet and one square
- * on the canvas. Both directions, because taking the species off has to give
- * the square back.
- *
- * Only where the token is still the footprint the old size implied: a token
- * somebody has resized by hand is a decision, which is the same rule
- * module/migrate.mjs follows for the creatures it repairs.
- */
-/** The size on the sheet with no species applied over it. */
-function storedSize(actor) {
-  return actor.system?._source?.attributes?.size ?? "medium";
-}
-
-async function syncTokenToSize(actor, from, to) {
-  if (!actor?.isOwner) return;
-  if (game.users.activeGM?.id !== game.user.id
-      && !actor.testUserPermission(game.user, "OWNER")) return;
-
-  const was = MODERN20.sizes[from]?.squares ?? 1;
-  const now = MODERN20.sizes[to]?.squares ?? 1;
-  if (was === now) return;
-
-  const token = actor.prototypeToken ?? {};
-  if (token.width !== was || token.height !== was) return;
-
-  await actor.update({ prototypeToken: { width: now, height: now } });
-}
-
-/**
  * A species grants what it grants however it arrived.
  *
- * The creator calls applySpecies, but a species is also a compendium item
- * somebody can drag onto a sheet — and that path used to apply the derived
- * half and nothing else, so the character was Large with the ability scores
- * of an ogre and no darkvision, no bonus feat and no racial Hit Dice. Doing
- * the granting here means there is one path, and the creator's is the same
- * one with the Hit Dice deferred until its class levels have set hit points.
+ * applySpecies and removeSpecies do the work themselves and await it, because
+ * their callers — the creator, the self-test — carry straight on and need it
+ * finished. They say so with an option, and these hooks stand down. What is
+ * left for the hooks is the other way in: a species dragged onto a sheet from
+ * the compendium, or deleted with the trash button, where nobody is waiting.
+ *
+ * A hook handler cannot be awaited by whatever caused it. That is the whole
+ * reason for the split: when the granting lived here alone, the creator
+ * raced it, and the self-test saw a species with none of its traits and then
+ * an exception from work still running against an actor it had deleted.
  */
 Hooks.on("createItem", async (item, options) => {
-  if (item.type !== "species") return;
+  if (item.type !== "species" || options?.modern20Species) return;
   const actor = item.parent;
   if (!actor?.isOwner) return;
-  // One client grants it, or every connected owner grants it again.
   if (game.users.activeGM?.id !== game.user.id
       && !actor.testUserPermission(game.user, "OWNER")) return;
 
   // A character has one species. Dropping a second is refused by removing it
   // again, because a hook cannot stop the creation it is told about.
   if (!canTakeSpecies(actor, item.id)) {
-    await actor.deleteEmbeddedDocuments("Item", [item.id]);
+    await actor.deleteEmbeddedDocuments("Item", [item.id], { modern20Species: true });
     return;
   }
-
-  await grantSpecies(actor, item, {
-    rollHitDice: options?.modern20RollHitDice ?? true
-  });
-  // The stored size is the one the actor had before the species overrode it,
-  // and the one it will go back to — not "medium", which would be a guess
-  // about a sheet somebody may have set by hand.
-  await syncTokenToSize(actor, storedSize(actor), item.system.size);
+  await completeSpecies(actor, item);
 });
 
-Hooks.on("deleteItem", async (item) => {
-  if (item.type !== "species") return;
+Hooks.on("deleteItem", async (item, options) => {
+  if (item.type !== "species" || options?.modern20Species) return;
   const actor = item.parent;
   if (!actor?.isOwner) return;
   if (game.users.activeGM?.id !== game.user.id
       && !actor.testUserPermission(game.user, "OWNER")) return;
 
-  await removeSpeciesGrants(actor, item);
-  await syncTokenToSize(actor, item.system.size, storedSize(actor));
+  await uncompleteSpecies(actor, item);
 });
 
 /**

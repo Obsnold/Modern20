@@ -3,6 +3,7 @@ import { MODERN20 } from "./config.mjs";
 import { RULES_TOPICS, SKILL_RULES } from "./rules-links.mjs";
 import { rulesTopic, skillRules } from "./rules.mjs";
 import { checkRoll } from "./enrichers.mjs";
+import { applySpecies, removeSpecies } from "./apps/species.mjs";
 
 /**
  * What this system does when it is actually running.
@@ -311,11 +312,6 @@ async function checkSpecies(results) {
     return;
   }
 
-  const source = species.toObject();
-  for (const key of ["_id", "_key", "_slug", "_stats", "ownership", "folder", "sort"]) {
-    delete source[key];
-  }
-
   const abilities = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 };
   let actor = null;
   try {
@@ -339,30 +335,41 @@ async function checkSpecies(results) {
     results.same("a human gets two starting feats",
                  actor.system.details.startingFeats, MODERN20.startingFeats.human);
 
-    let created = [];
+    /*
+     * Through applySpecies, not createEmbeddedDocuments.
+     *
+     * The granting is done by a createItem hook when a species is dragged
+     * onto a sheet, and a hook handler cannot be awaited by whatever caused
+     * it — so checking straight after a raw creation found a species with
+     * none of its traits, no rolled Hit Dice and a one-square token, and then
+     * threw when this test deleted the actor out from under work still
+     * running against it. applySpecies awaits all of it, which is also what
+     * the creator needs of it.
+     */
+    let applied = null;
     try {
-      created = await actor.createEmbeddedDocuments("Item", [source]);
+      applied = await applySpecies(actor, wanted.uuid);
     } catch (error) {
       results.ok("the species item can be added to a character", false,
                  String(error?.message ?? error));
     }
-    if (!results.same("adding the species created one document", created.length, 1)) return;
+    if (!results.ok("adding the species created one document", Boolean(applied))) return;
 
     // Everything the species grants, which the createItem hook does whichever
     // way the item arrived — this path is the drag-onto-a-sheet one.
-    const species = actor.items.find((item) => item.type === "species");
     const traits = actor.items.filter((item) => item.type === "specialAbility");
     results.same("its named qualities arrived as items",
                  traits.length, wanted.traits);
     results.ok("the racial Hit Dice were rolled and recorded",
-               (species?.system.rolledHitPoints ?? 0) > 0,
-               `recorded ${species?.system.rolledHitPoints}`);
+               (applied.system.rolledHitPoints ?? 0) > 0,
+               `recorded ${applied.system.rolledHitPoints}`);
 
     // A character has one species; a second is refused by removing it again.
     const speciesCount = () => actor.items.filter((i) => i.type === "species").length;
     const one = speciesCount();
-    await actor.createEmbeddedDocuments("Item", [source]);
-    results.same("a second species is refused", speciesCount(), one);
+    const second = await applySpecies(actor, wanted.uuid);
+    results.ok("a second species is refused", second === null && speciesCount() === one,
+               `${speciesCount()} species on the sheet`);
 
     const system = actor.system;
     for (const [key, amount] of Object.entries(wanted.abilityModifiers)) {
@@ -391,12 +398,21 @@ async function checkSpecies(results) {
                  system.details.challengeRating,
                  system.details.level + wanted.levelAdjustment);
 
-    // Large: "-1 size penalty to Defense", and +4 on grapple.
+    /*
+     * Large: "-1 size penalty to Defense", and +4 on grapple.
+     *
+     * With the species' own ability modifiers in them, which is the point and
+     * which the first version of these two lines left out: an ogre built on
+     * straight tens has Dexterity 8 and Strength 20, so its Defense carries a
+     * -1 for Dex and its grapple a +5 for Str.
+     */
     const large = MODERN20.sizes[wanted.size];
-    results.same("Defense carries the size penalty and the natural armor",
-                 system.defense.value, 10 + wanted.naturalArmor + large.mod);
-    results.same("grapple carries the size bonus",
-                 system.attributes.grapple, system.attributes.baseAttack + large.grapple);
+    results.same("Defense carries the size penalty, natural armor and Dexterity",
+                 system.defense.value,
+                 10 + wanted.naturalArmor + large.mod + system.abilities.dex.mod);
+    results.same("grapple carries the size bonus and Strength",
+                 system.attributes.grapple,
+                 system.attributes.baseAttack + system.abilities.str.mod + large.grapple);
 
     /*
      * What being a nonhuman costs, which is the part a player notices.
@@ -436,9 +452,10 @@ async function checkSpecies(results) {
     results.same("and removing the effect returns the species' speed",
                  actor.system.attributes.speed, wanted.baseSpeed);
 
-    // And now the half that matters: take it away again.
+    // And now the half that matters: take it away again, awaited for the same
+    // reason it was added that way.
     const hpBefore = actor.system.hp.max;
-    await actor.deleteEmbeddedDocuments("Item", [created[0].id]);
+    await removeSpecies(actor, applied);
     const after = actor.system;
     results.same("removing the species returns Strength to the rolled score",
                  after.abilities.str.total, 10);

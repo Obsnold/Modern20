@@ -70,14 +70,83 @@ export async function speciesChoices() {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+/** The size on the sheet with no species applied over it. */
+function storedSize(actor) {
+  return actor.system?._source?.attributes?.size ?? "medium";
+}
+
+/**
+ * A species decides how big you are, and a token has to follow.
+ *
+ * Size is derived from the species item, so the sheet is right the moment one
+ * is added — but a prototype token's width and height are stored, and nothing
+ * derives them. An ogre hero was Large on its sheet and one square on the
+ * canvas.
+ *
+ * Only where the token still matches the size it had: a token somebody has
+ * resized by hand is a decision, which is the rule module/migrate.mjs follows
+ * for the creatures it repairs.
+ */
+async function syncTokenToSize(actor, from, to) {
+  if (!actor?.isOwner) return;
+  if (game.users.activeGM?.id !== game.user.id
+      && !actor.testUserPermission(game.user, "OWNER")) return;
+
+  const was = MODERN20.sizes[from]?.squares ?? 1;
+  const now = MODERN20.sizes[to]?.squares ?? 1;
+  if (was === now) return;
+
+  const token = actor.prototypeToken ?? {};
+  if (token.width !== was || token.height !== was) return;
+
+  await actor.update({ prototypeToken: { width: now, height: now } });
+}
+
+/**
+ * Everything that happens once a species item exists on an actor.
+ *
+ * One function so that there is one answer, whether the item arrived through
+ * applySpecies — which awaits this — or by being dragged onto a sheet, where
+ * the createItem hook calls it and nobody is waiting.
+ */
+export async function completeSpecies(actor, species, { rollHitDice = true } = {}) {
+  await grantSpecies(actor, species, { rollHitDice });
+  await syncTokenToSize(actor, storedSize(actor), species.system.size);
+}
+
+/**
+ * Take a species off a character and await the consequences.
+ *
+ * The trash button on the sheet goes through the deleteItem hook instead;
+ * this is for a caller that has to know the work is finished.
+ */
+export async function removeSpecies(actor, species) {
+  if (!actor || !species) return;
+  await actor.deleteEmbeddedDocuments("Item", [species.id], { modern20Species: true });
+  await uncompleteSpecies(actor, species);
+}
+
+/**
+ * Everything that has to happen once a species item is gone.
+ *
+ * The mirror of completeSpecies, and shared the same way: removeSpecies
+ * awaits it, and the deleteItem hook calls it for the trash button on the
+ * sheet. Leaving the token out of the hook's path left an ex-ogre standing in
+ * four squares.
+ */
+export async function uncompleteSpecies(actor, species) {
+  await removeSpeciesGrants(actor, species);
+  await syncTokenToSize(actor, species.system.size, storedSize(actor));
+}
+
 /**
  * Add a species to a character, with everything it grants.
  *
- * The granting itself is done by the createItem hook in module/modern20.mjs,
- * not here, so that a species dragged onto a sheet from the compendium gets
- * the same treatment as one chosen in the creator. This function is the
- * checked way in: it refuses a second species and records the feat that was
- * picked before the item exists to fire the hook.
+ * The checked, awaited way in. It refuses a second species, records the feat
+ * that was picked, and finishes the granting before it returns — which the
+ * creator needs, because the next thing it does is set hit points the racial
+ * Hit Dice are added to. A species dragged onto a sheet instead goes through
+ * the createItem hook, which calls the same completeSpecies.
  *
  * @param {any} actor                    The character.
  * @param {string} uuid                  The species document to add.
@@ -101,11 +170,15 @@ export async function applySpecies(actor, uuid, { bonusFeat = "", rollHitDice = 
   foundry.utils.setProperty(source, "flags.modern20.source",
                             sourceStamp({ origin: "species", label: document.name }));
 
-  // The option travels to the createItem hook, which does the granting.
+  // The option tells the createItem hook to stand down: the granting happens
+  // here, awaited, because every caller of this carries straight on.
   const [species] = await actor.createEmbeddedDocuments(
-    "Item", [source], { modern20RollHitDice: rollHitDice }
+    "Item", [source], { modern20Species: true }
   );
-  return species ?? null;
+  if (!species) return null;
+
+  await completeSpecies(actor, species, { rollHitDice });
+  return species;
 }
 
 /**
