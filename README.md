@@ -85,7 +85,7 @@ npm install
 npm test          # lint, type-check, then every check
 ```
 
-Twelve checks read this repository and eleven build the system's data models
+Twelve checks read this repository and twelve build the system's data models
 against Foundry stubs. Each exists because something it now catches had already
 shipped:
 
@@ -101,6 +101,7 @@ shipped:
 | `check_private.py` | nothing here should name the machine it was written on |
 | `check_creatures.mjs` | every creature's arithmetic against the SRD: 1,577 skill totals and 507 attacks |
 | `check_combat.mjs` | the action economy, the death states, and what threatens a critical — the Critical column is a threat range and a multiplier in one string, and reading it wrong made a greataxe crit on a 3 |
+| `check_prose.mjs` | feats, occupations and talents against the scrape they were built from, field for field — the three packs no table covers, and so the three that had no check on their contents at all |
 | `check_equipment.mjs` | every weapon, suit of armor, vehicle and piece of gear against the table it was printed in, column by column — 2,459 columns across 454 documents, because the failure mode in a table a dozen columns wide is not a typo but a column |
 | `check_areas.mjs` | the geometry of a cone and a line against the dimensions the SRD prints — a shape that is a few degrees out covers the wrong squares and looks perfectly reasonable doing it |
 | `check_classes.mjs` | every class against the page it was imported from, joined by URL and not by name — thirteen shipped with three skill points per level because three is what the field starts at, and four carried a whole sentence where a die belongs |
