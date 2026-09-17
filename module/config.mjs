@@ -187,6 +187,11 @@ MODERN20.restrictions = {
   lic:  { label: "MODERN20.Restriction.Licensed", blackMarketDC: 1 },
   res:  { label: "MODERN20.Restriction.Restricted", blackMarketDC: 2 },
   mil:  { label: "MODERN20.Restriction.Military", blackMarketDC: 3 },
+  // "Illegal (+4)" is the fifth rating and it was here all along. What was
+  // missing is any item carrying it: the four the SRD marks illegal — a
+  // sawed-off shotgun, a fake ID, a black box, a dose of boost — imported as
+  // unrestricted, so they cost nothing extra on the black market and the
+  // browser's restriction filter put them with the groceries.
   ill:  { label: "MODERN20.Restriction.Illegal", blackMarketDC: 4 }
 };
 
