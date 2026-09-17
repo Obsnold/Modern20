@@ -102,8 +102,16 @@ function longestGap(text) {
  * quietening the check.
  */
 function authored(pack, name, field, text) {
-  if (text.includes("described neither")) {
-    return "the placeholder for an ability a stat block names and never describes";
+  /*
+   * Two placeholders, both beginning the same way and both this system's:
+   * "Printed in this creature's stat block, but described neither in the
+   * creature's own species traits nor in..." on 226 abilities, and "...but
+   * not defined in the SRD's feat list" on 59 feats. Matched on the stem they
+   * share, so a third sibling is covered rather than found one failure at a
+   * time — which is how the second one was found.
+   */
+  if (/printed in this creature.s stat block/i.test(text)) {
+    return "the placeholder for something a stat block names and never defines";
   }
   if (pack === "pregens" && field === "biography") {
     return "a ready-made character's own write-up";
@@ -115,6 +123,9 @@ function authored(pack, name, field, text) {
 }
 
 const PROSE = ["description", "benefit", "normal", "special", "biography"];
+
+/** The fields that quote the book directly, and so can be placed on a page. */
+const PLACEABLE = ["description", "benefit", "normal", "special"];
 
 function* prose(system) {
   for (const key of PROSE) {
@@ -153,6 +164,93 @@ for (const pack of manifest.packs ?? []) {
       }
     }
   }
+}
+
+/**
+ * An srdUrl has to name the page the entry is actually on.
+ *
+ * They were chapters, not entries. The ring of the ram linked to
+ * fxitems.html, which is an index page holding none of the chapter's text;
+ * its own entry is on fxpotion.html. 140 documents were like that, and the
+ * consequence is not only a link that lands in the wrong place — it is that
+ * an entry cannot be compared against the page it came from, which is the
+ * only way to catch one item's text appearing on another.
+ *
+ * Checked as coverage, not equality: a document's words must be on the page
+ * it names. Where a name is generic enough to be shared — a creature ability
+ * called "Darkvision 60 ft." whose wording appears in two chapters — the page
+ * holding some of it is accepted, because the parent creature really is
+ * printed there.
+ *
+ * Two things are out of scope and have to be, or the check reports 341
+ * problems of which 335 are its own. A creature's biography is assembled
+ * from the cells of its stat block — "attack 2 melee 1d4 slam full attack 2
+ * melee 1d4 slam skills hide 5" — and appears on no page in that order, not
+ * even the right one. And an entry too short to place is not evidence:
+ * "See Armor Proficiency (light)" is one window of cross-reference.
+ */
+{
+  const sources = new Map();
+  for (const page of pages) {
+    const source = page.source ?? "";
+    if (!sources.has(source)) sources.set(source, []);
+    sources.get(source).push(page.html);
+  }
+  const pageGrams = new Map();
+  for (const [source, htmls] of sources) {
+    const words = normalise(htmls.join(" ")).split(" ").filter(Boolean);
+    const set = new Set();
+    for (let at = 0; at + WINDOW <= words.length; at++) {
+      set.add(words.slice(at, at + WINDOW).join(" "));
+    }
+    pageGrams.set(source, set);
+  }
+
+  let placed = 0;
+  let orphaned = 0;
+  for (const pack of manifest.packs ?? []) {
+    for (const document of packDocuments(ROOT, pack.name)) {
+      for (const entry of [document, ...(document.items ?? [])]) {
+        const system = entry.system;
+        if (!system?.srdUrl) continue;
+
+        const named = String(system.srdUrl).split("/").pop();
+        const grams = pageGrams.get(named);
+        if (!grams) {
+          failures++;
+          console.log(`FAIL  ${pack.name}: "${entry.name}" links to "${named}", `
+            + "which is not a page in data/rules.json");
+          continue;
+        }
+
+        if (authored(pack.name, entry.name, "description", String(system.description ?? ""))) {
+          continue;
+        }
+
+        // Not biography: that field is assembled, not quoted.
+        const text = PLACEABLE
+          .map((key) => (typeof system[key] === "string" ? system[key] : ""))
+          .join(" ");
+        const words = normalise(text).split(" ").filter(Boolean);
+        // Fewer than three windows is a cross-reference, not a passage.
+        if (words.length < WINDOW + 2) continue;
+
+        let found = 0;
+        for (let at = 0; at + WINDOW <= words.length; at++) {
+          if (grams.has(words.slice(at, at + WINDOW).join(" "))) found++;
+        }
+        placed++;
+        if (found === 0) {
+          orphaned++;
+          failures++;
+          console.log(`FAIL  ${pack.name}: "${entry.name}" links to "${named}", `
+            + "which holds none of its text");
+        }
+      }
+    }
+  }
+  console.log(`${placed} documents checked against the page they link to, `
+    + `${orphaned} linking to a page without their text`);
 }
 
 console.log(`${fields} prose fields checked against ${corpus.length.toLocaleString()} `
