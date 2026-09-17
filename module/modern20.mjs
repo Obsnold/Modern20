@@ -106,6 +106,27 @@ Hooks.once("init", () => {
 });
 
 /**
+ * Whether this client is the one that should act on a hook.
+ *
+ * Foundry fires document and combat hooks on every connected client, so
+ * anything that writes has to decide which client writes. "The GM" is not an
+ * answer when two GMs are connected, and "an owner" is not an answer when a
+ * GM and the owner are both looking at the same character — which is how the
+ * occupation Wealth bonus came to be added twice, and would have had a
+ * dragged species create its traits twice and roll its racial Hit Dice twice.
+ *
+ * Foundry nominates one: game.users.activeGM resolves to the same user on
+ * every client. Where no GM is connected, an owner may act on their own
+ * document, and anything not about a particular document waits for a GM —
+ * which is what the combat hooks did before by asking for isGM.
+ */
+function actsOnHooks(actor = null) {
+  const activeGM = game.users?.activeGM;
+  if (activeGM) return activeGM.id === game.user.id;
+  return Boolean(actor?.isOwner);
+}
+
+/**
  * An occupation's Wealth increase is applied when it is added. The skill and
  * bonus feat choices are made inline - in the creator, or on the occupation
  * item's own sheet - rather than by interrupting with a dialog.
@@ -113,9 +134,7 @@ Hooks.once("init", () => {
 Hooks.on("createItem", async (item) => {
   if (item.type !== "occupation") return;
   const actor = item.parent;
-  if (!actor?.isOwner) return;
-  // One client applies it, or the bonus is added once per connected owner.
-  if (game.users.activeGM?.id !== game.user.id && !actor.testUserPermission(game.user, "OWNER")) return;
+  if (!actsOnHooks(actor)) return;
 
   await applyOccupationWealth(actor, item);
 });
@@ -137,9 +156,7 @@ Hooks.on("createItem", async (item) => {
 Hooks.on("createItem", async (item, options) => {
   if (item.type !== "species" || options?.modern20Species) return;
   const actor = item.parent;
-  if (!actor?.isOwner) return;
-  if (game.users.activeGM?.id !== game.user.id
-      && !actor.testUserPermission(game.user, "OWNER")) return;
+  if (!actsOnHooks(actor)) return;
 
   // A character has one species. Dropping a second is refused by removing it
   // again, because a hook cannot stop the creation it is told about.
@@ -153,9 +170,7 @@ Hooks.on("createItem", async (item, options) => {
 Hooks.on("deleteItem", async (item, options) => {
   if (item.type !== "species" || options?.modern20Species) return;
   const actor = item.parent;
-  if (!actor?.isOwner) return;
-  if (game.users.activeGM?.id !== game.user.id
-      && !actor.testUserPermission(game.user, "OWNER")) return;
+  if (!actsOnHooks(actor)) return;
 
   await uncompleteSpecies(actor, item);
 });
@@ -169,7 +184,7 @@ Hooks.on("updateItem", async (item, changes) => {
   const chosen = changes.system?.bonusFeatChosen;
   if (!chosen) return;
   const actor = item.parent;
-  if (!actor?.isOwner) return;
+  if (!actsOnHooks(actor)) return;
 
   await grantFeatByName(actor, chosen);
 });
@@ -186,7 +201,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => bindDamageControls(message,
  * update happens once rather than once per connected client.
  */
 Hooks.on("combatTurnChange", async (combat, previous, current) => {
-  if (!game.user.isGM || !setting("autoTurnReset")) return;
+  if (!actsOnHooks() || !setting("autoTurnReset")) return;
   const actor = combat.combatants.get(current?.combatantId)?.actor;
   if (!actor) return;
 
@@ -212,7 +227,7 @@ Hooks.on("combatTurnChange", async (combat, previous, current) => {
  * automated: who was aware of whom is the GM's call, not the tracker's.
  */
 Hooks.on("combatStart", async (combat) => {
-  if (!game.user.isGM) return;
+  if (!actsOnHooks()) return;
   const flatFooted = setting("autoFlatFooted");
   for (const combatant of combat.combatants) {
     const actor = combatant.actor;
