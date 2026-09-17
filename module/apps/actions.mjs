@@ -166,6 +166,28 @@ export function castingTimeAction(castingTime) {
 }
 
 /** Every action the SRD names, grouped by what it costs, for a picker. */
+/**
+ * The formula one action point rolls for a character of this level.
+ *
+ * The number of dice comes from the SRD's own table and the die itself from
+ * the setting, because a table that would rather spend a d8 can say so. More
+ * than one die keeps the highest — "apply the highest result and disregard
+ * the other rolls" — which is what Foundry's kh1 does.
+ *
+ * Exported as a pure function so the arithmetic can be checked directly.
+ *
+ * @param {number} level  Character level.
+ * @param {string} die    The die from the setting, as "1d6".
+ * @returns {string} A roll formula.
+ */
+export function actionPointFormula(level, die = "1d6") {
+  const faces = String(die).match(/d(\d+)/i)?.[1] ?? "6";
+  const rows = MODERN20.actionPoints.diceByLevel;
+  const row = rows.find((entry) => level <= entry.throughLevel) ?? rows[rows.length - 1];
+
+  return row.dice > 1 ? `${row.dice}d${faces}kh1` : `1d${faces}`;
+}
+
 export function actionsByCost() {
   const groups = Object.keys(MODERN20.actionTypes).map((type) => ({
     type,
