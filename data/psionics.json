@@ -1899,6 +1899,23 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanpsidesc.html"
   },
   {
+    "id": "powerResistance",
+    "name": "Power Resistance",
+    "level": 5,
+    "display": "Visual, Material",
+    "powerPoints": 9,
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "target": "Creature touched",
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates",
+    "keyAbility": "wis",
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "description": "<p>The target is granted power resistance equal to 12 + the manifester’s manifester level.</p>"
+  },
+  {
     "id": "prowess",
     "name": "Prowess",
     "keyAbility": "wis",

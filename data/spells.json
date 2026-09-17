@@ -1500,6 +1500,33 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxspelldesc1.html"
   },
   {
+    "id": "divination",
+    "name": "Divination",
+    "level": 4,
+    "school": "Divination",
+    "subschool": "",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "castingTime": "10 minutes",
+    "range": "Personal",
+    "area": "",
+    "target": "You",
+    "duration": "Instantaneous",
+    "savingThrow": "",
+    "spellResistance": "",
+    "lists": {
+      "arcane": 4,
+      "divine": null
+    },
+    "saveAbility": "",
+    "saveEffect": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanspelldesc.html",
+    "description": "<p>Similar to augury but more powerful, a divination spell can provide you with a useful piece of advice in reply to a question concerning a specific goal, event, or activity that is to occur within one week. The advice can be as simple as a short phrase, or it might take the form of a cryptic rhyme or omen. In all cases, the GM controls what information the caster receives. Note that if the caster doesn’t act on the information, the conditions may change so that the information no longer proves useful.</p><p>The base chance for a correct divination is 70% + 1% per caster level. The GM adjusts the chance if unusual circumstances require it (if, for example, unusual precautions against divination spells have been taken). If the dice roll fails, the caster knows the spell failed unless specific magic yielding false information is at work.</p><p>As with augury, multiple divinations about the same topic by the same caster use the same dice result as the first divination and yield the same answer each time.</p><p><strong>Material Component:</strong> Incense and a sacrificial offering appropriate to the caster’s religion (purchase DC 13).</p>"
+  },
+  {
     "id": "electromagneticPulse",
     "name": "Electromagnetic Pulse",
     "school": "Evocation",

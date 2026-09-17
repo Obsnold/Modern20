@@ -25,7 +25,7 @@ https://github.com/Obsnold/modern20/releases/latest/download/system.json
 | **Rules** | Abilities, saves, Defense (normal, touch and flat-footed), initiative, grapple, all 41 skills with their specialties, action points, Reputation, massive damage, and the Wealth economy instead of currency |
 | **Equipment** | 180 weapons, 40 suits of armor, 289 pieces of gear and 147 FX items across d20 Modern, Urban Arcana and d20 Future, with purchase DCs, restriction ratings and progress levels |
 | **Creatures** | 300 creatures from all three bestiaries, 85 vehicles and 14 objects you can shoot — each arriving with the token its stat block implies: size in squares, vision from its senses line, hit points on a bar |
-| **FX** | 174 spells and 87 psionic powers, with save DCs and casting handled by the sheet |
+| **FX** | 175 spells and 88 psionic powers, with save DCs and casting handled by the sheet |
 | **Reference** | The SRD's own text: 53 journal entries, 1,690 pages, linked in both directions — every document says which page its rules are on, and every page lists what it is the rules for |
 | **Ready to play** | Six pregenerated first-level characters, a five-page guide inside the game, and an example scene with its walls already drawn |
 
@@ -102,7 +102,7 @@ shipped:
 | `check_private.py` | nothing here should name the machine it was written on |
 | `check_creatures.mjs` | every creature's arithmetic against the SRD: 1,577 skill totals and 507 attacks |
 | `check_combat.mjs` | the action economy, the death states, and what threatens a critical — the Critical column is a threat range and a multiplier in one string, and reading it wrong made a greataxe crit on a 3 |
-| `check_srd_text.mjs` | every word of prose in every pack against the SRD, in windows of eight — a run of 25 words that is not in the book fails, which is where a paragraph from another game turned out to be — and every `srdUrl` against the page it names, because 143 of them named a chapter index holding none of the entry's text |
+| `check_srd_text.mjs` | every word of prose in every pack against the SRD in windows of eight — a run of 25 words that is not in the book fails, which is where a paragraph from another game turned out to be; every `srdUrl` against the page it names; and every printed entry against having a document at all, which is how a feat, a spell and a psionic power turned out to be missing |
 | `check_prose.mjs` | FX items, feats, occupations and talents against the scrape they were built from, field for field — the four packs no table covers, and so the four that had no check on their contents at all |
 | `check_equipment.mjs` | every weapon, suit of armor, vehicle and piece of gear against the table it was printed in, column by column — 2,459 columns across 454 documents, because the failure mode in a table a dozen columns wide is not a typo but a column |
 | `check_areas.mjs` | the geometry of a cone and a line against the dimensions the SRD prints — a shape that is a few degrees out covers the wrong squares and looks perfectly reasonable doing it |

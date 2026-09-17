@@ -253,6 +253,68 @@ for (const pack of manifest.packs ?? []) {
     + `${orphaned} linking to a page without their text`);
 }
 
+/**
+ * An entry the book prints and the packs do not have.
+ *
+ * The mirror of everything above, and how three absences were found: a feat
+ * called Arcane Skills that two starting occupations offer as their bonus
+ * feat, the spell Divination, and the psionic power Power Resistance. None of
+ * them was in the packs and none was in the scrape either, so nothing that
+ * compared the two could see it.
+ *
+ * An entry is a page with a Level line, which is what separates a spell or a
+ * power from the headings around it — "FX Wondrous Items", "Light Armor",
+ * "Progress Level 5 Equipment" are pages too. A name is matched with its
+ * bracketed or parenthesised suffix stripped, because the book writes
+ * "Acolyte (Arcane)" and "Delay Power [Metapsionic]" for entries the packs
+ * hold under the bare name.
+ */
+{
+  const held = new Set();
+  for (const pack of manifest.packs ?? []) {
+    for (const document of packDocuments(ROOT, pack.name)) {
+      for (const entry of [document, ...(document.items ?? [])]) {
+        if (entry.name) held.add(entry.name.trim().toLowerCase());
+      }
+    }
+  }
+
+  // Only the files the packs are actually built from.
+  const drawn = new Set();
+  for (const pack of manifest.packs ?? []) {
+    for (const document of packDocuments(ROOT, pack.name)) {
+      const url = document.system?.srdUrl;
+      if (url) drawn.add(String(url).split("/").pop());
+    }
+  }
+
+  const bare = (name) => name.replace(/\s*[[(][^\])]*[\])]\s*$/, "").trim().toLowerCase();
+
+  /*
+   * One page whose name is not a name. The scrape read the navigation strip
+   * at the top of martialartist.html — eleven advanced classes and the word
+   * "Ordinaries" run together — as the page's title. The entry itself is the
+   * Martial Artist, which the classes pack has.
+   */
+  const MANGLED = /^martial artist gunslinger infiltrator/i;
+  let entries = 0;
+  for (const page of pages) {
+    if (!drawn.has(page.source)) continue;
+    const text = page.html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+    // One Level line is an entry; a heading that lists its entries beneath it
+    // inherits one per entry, which is how "FX Wondrous Items" and the run-on
+    // page naming eleven advanced classes at once got in.
+    if ((text.match(/\bLevel\s*:/g) ?? []).length !== 1) continue;
+    entries++;
+    if (MANGLED.test(page.name)) continue;
+    if (held.has(page.name.trim().toLowerCase()) || held.has(bare(page.name))) continue;
+    failures++;
+    console.log(`FAIL  the SRD prints "${page.name}" in ${page.source} and no `
+      + "pack has it");
+  }
+  console.log(`${entries} printed entries checked for a document of their own`);
+}
+
 console.log(`${fields} prose fields checked against ${corpus.length.toLocaleString()} `
   + `words of SRD, ${ours} skipped as this system's own`);
 console.log(`widest run of text not in the book: ${widest} words `
