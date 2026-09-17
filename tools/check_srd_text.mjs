@@ -127,6 +127,16 @@ const PROSE = ["description", "benefit", "normal", "special", "biography"];
 /** The fields that quote the book directly, and so can be placed on a page. */
 const PLACEABLE = ["description", "benefit", "normal", "special"];
 
+/**
+ * The back-link block the import appends to a rules page.
+ *
+ * "In this world: Ambassador" and the rest — a list of the documents a page
+ * is the rules for, on 854 of the 1,685 pages. It is this system's writing,
+ * not the book's, and removing it leaves the rules text itself to be checked
+ * rather than exempting the page wholesale.
+ */
+const BACK_LINKS = /<section class="m20-in-world">[\s\S]*?<\/section>/g;
+
 function* prose(system) {
   for (const key of PROSE) {
     if (typeof system?.[key] === "string" && system[key]) yield [key, system[key]];
@@ -147,6 +157,29 @@ let widest = 0;
 
 for (const pack of manifest.packs ?? []) {
   for (const document of packDocuments(ROOT, pack.name)) {
+    /*
+     * Journal pages, which have no system and so were not being read at all:
+     * 1,685 pages of rules text and five of this project's own welcome
+     * journal, the largest body of prose here and the last of it to be
+     * checked. The guide is ours and says so; the rules are the book's.
+     */
+    if (pack.name !== "guide") {
+      for (const page of document.pages ?? []) {
+        const body = page.text?.content;
+        if (typeof body !== "string" || !body) continue;
+        fields++;
+
+        const { run, excerpt } = longestGap(body.replace(BACK_LINKS, " "));
+        widest = Math.max(widest, run);
+        if (run < THRESHOLD) continue;
+
+        failures++;
+        console.log(`FAIL  ${pack.name}: "${document.name}" page `
+          + `"${page.name}" has ${run} words in a row that are not in the `
+          + `SRD — "${excerpt.slice(0, 120)}"`);
+      }
+    }
+
     for (const entry of [document, ...(document.items ?? [])]) {
       const system = entry.system;
       if (!system || typeof system !== "object") continue;

@@ -55,6 +55,20 @@ SCRAPER_JUNK = (
 PROSE = ("description", "benefit", "normal", "special", "biography", "note")
 
 
+def journal_pages(document: dict):
+    """The rules and the welcome journal, which have no system field.
+
+    1,685 pages of rules text and five of the guide were outside this check
+    entirely because it looked only at system fields, and the one link to
+    another site in these packs was on one of them — found by grep, not by a
+    check. They are read now.
+    """
+    for page in document.get("pages") or []:
+        body = (page.get("text") or {}).get("content")
+        if isinstance(body, str) and body:
+            yield f'page[{page.get("name")}]', body
+
+
 def prose(system: dict):
     if not isinstance(system, dict):
         return
@@ -87,6 +101,32 @@ def main() -> int:
                 document = json.load(handle)
             if str(document.get("_key", "")).startswith("!folders!"):
                 continue
+
+            # The journal packs first: no system field, so the loop below
+            # would skip them entirely.
+            for field, text in journal_pages(document):
+                fields += 1
+                where = f"{pack}/{document.get('name')}"
+                plain = re.sub(r"<[^>]+>", " ", text)
+                found = EMAIL.search(plain)
+                if found:
+                    problems.append(
+                        f'{where} .{field} carries an e-mail address, '
+                        f'"{found.group(0)}"'
+                    )
+                for host in URL.findall(plain):
+                    if not any(host.endswith(good) for good in ALLOWED_HOSTS):
+                        problems.append(
+                            f'{where} .{field} links to "{host}", which is not '
+                            "the SRD or the licence"
+                        )
+                lowered = plain.lower()
+                for junk in SCRAPER_JUNK:
+                    if junk in lowered:
+                        problems.append(
+                            f'{where} .{field} carries "{junk}" from the page '
+                            "it was scraped from, not from the book"
+                        )
 
             entries = [document] + list(document.get("items") or [])
             for entry in entries:
