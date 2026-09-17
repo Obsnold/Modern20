@@ -2,7 +2,7 @@
   "_id": "tzUxgz98U6oAHvww",
   "name": "Drawbacks",
   "img": "systems/modern20/assets/icons/delapouite/perspective-dice-six-faces-random.svg",
-  "description": "@UUID[Compendium.modern20.rules.JournalEntry.aIKthCBZnrcjSaDf.JournalEntryPage.QcZPxSkEROfWIJkc]{Mutation Points}",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.aIKthCBZnrcjSaDf.JournalEntryPage.QcZPxSkEROfWIJkc]{Mutation Points} — You may take this drawback multiple times. Its effects stack.",
   "formula": "1d100",
   "replacement": true,
   "displayRoll": true,
@@ -10,7 +10,7 @@
     {
       "_id": "FvcTWpc0OBXQZdKa",
       "type": "text",
-      "text": "Ability Decay 1 — MP Value: 4",
+      "text": "Ability Decay — MP Value: 4",
       "img": null,
       "weight": 1,
       "range": [
@@ -218,7 +218,7 @@
     {
       "_id": "w0aqKw0QjSFotLiy",
       "type": "text",
-      "text": "Reduced Speed 1 — MP Value: 3",
+      "text": "Reduced Speed — MP Value: 3",
       "img": null,
       "weight": 1,
       "range": [

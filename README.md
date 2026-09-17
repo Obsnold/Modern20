@@ -85,7 +85,7 @@ npm install
 npm test          # lint, type-check, then every check
 ```
 
-Thirteen checks read this repository and thirteen build the system's data models
+Thirteen checks read this repository and fourteen build the system's data models
 against Foundry stubs. Each exists because something it now catches had already
 shipped:
 
@@ -105,6 +105,7 @@ shipped:
 | `check_srd_text.mjs` | every word of prose in every pack against the SRD in windows of eight — a run of 25 words that is not in the book fails, which is where a paragraph from another game turned out to be; every `srdUrl` against the page it names; and every printed entry against having a document at all, which is how a feat, a spell and a psionic power turned out to be missing |
 | `check_prose.mjs` | FX items, feats, occupations and talents against the scrape they were built from, field for field — the four packs no table covers, and so the four that had no check on their contents at all |
 | `check_equipment.mjs` | every weapon, suit of armor, vehicle and piece of gear against the table it was printed in, column by column — 2,459 columns across 454 documents, because the failure mode in a table a dozen columns wide is not a typo but a column |
+| `check_tables.mjs` | every random table's 371 results against the row each is printed on, joined by the roll range — a RollTable has no `system` and no pages, so neither provenance check was reading a word of them, and the site sets footnote superscripts as plain text in the cell, which is how seventeen results shipped with a marker reading as a weapon category or a damage grade |
 | `check_areas.mjs` | the geometry of a cone and a line against the dimensions the SRD prints — a shape that is a few degrees out covers the wrong squares and looks perfectly reasonable doing it |
 | `check_classes.mjs` | every class against the page it was imported from, joined by URL and not by name — thirteen shipped with three skill points per level because three is what the field starts at, and four carried a whole sentence where a die belongs |
 | `check_species.mjs` | all 19 species against numbers transcribed from the printed chapters, every printed label accounted for — a quality the import dropped is a species missing its darkvision with nothing to say so — and the nonhuman skill point rule against the 17 classes that print both figures |

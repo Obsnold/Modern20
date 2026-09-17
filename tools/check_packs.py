@@ -68,6 +68,18 @@ EMBEDDED = {"actors": ("items",), "journal": ("pages",), "items": ("effects",),
 TOKEN_TEXTURE = {"scaleX": 2, "scaleY": 2, "anchorX": 0.5, "anchorY": 0.25}
 
 
+def runs(numbers: list[int]) -> str:
+    """"91-93" rather than "91, 92, 93" — a gap is read as a span."""
+    spans: list[list[int]] = []
+    for number in numbers:
+        if spans and number == spans[-1][1] + 1:
+            spans[-1][1] = number
+        else:
+            spans.append([number, number])
+    return ", ".join(str(low) if low == high else f"{low}-{high}"
+                     for low, high in spans)
+
+
 def printed_creatures() -> list[dict]:
     """The creature stat blocks as scraped, which carry the printed totals."""
     path = os.path.join(srd.DATA, "creatures.json")
@@ -243,11 +255,21 @@ def main() -> int:
         # overlap is a result nobody can get to.
         if kind == "RollTable":
             for entry in contents:
-                faces = int((entry.get("formula") or "1d0").split("d")[-1] or 0)
+                # NdX rolls N to N*X, so the span is the formula's own, not
+                # 1 to the number of faces. Every table here is 1dX, but a
+                # 3d6 table that started at 1 would report two thirds of
+                # itself as a gap and hide the real ones.
+                dice = re.fullmatch(r"(\d*)d(\d+)", (entry.get("formula") or "").strip())
+                if not dice:
+                    fail(f"{pack}: \"{entry['name']}\" is rolled on "
+                         f"{entry.get('formula')!r}, which is not a die")
+                    continue
+                count = int(dice.group(1) or 1)
+                lowest, highest = count, count * int(dice.group(2))
                 covered = set()
                 for result in entry.get("results") or []:
                     low, high = (result.get("range") or [0, 0])[:2]
-                    if not 1 <= low <= high <= faces:
+                    if not lowest <= low <= high <= highest:
                         fail(f"{pack}: \"{entry['name']}\" has a result on {low}-{high}, "
                              f"outside its {entry.get('formula')}")
                         continue
@@ -258,6 +280,11 @@ def main() -> int:
                     covered |= rolls
                 if not entry.get("results"):
                     fail(f"{pack}: \"{entry['name']}\" has no results")
+                    continue
+                missing = sorted(set(range(lowest, highest + 1)) - covered)
+                if missing:
+                    fail(f"{pack}: \"{entry['name']}\" has nothing on "
+                         f"{runs(missing)} of its {entry.get('formula')}")
 
         used = {entry.get("folder") for entry in contents}
         for folder in folders:

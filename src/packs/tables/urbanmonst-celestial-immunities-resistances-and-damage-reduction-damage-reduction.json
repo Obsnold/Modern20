@@ -2,7 +2,7 @@
   "_id": "emYBegKbljdDePso",
   "name": "Celestial Immunities, Resistances, and Damage Reduction: Damage Reduction",
   "img": "systems/modern20/assets/icons/delapouite/perspective-dice-six-faces-random.svg",
-  "description": "@UUID[Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.Q0MaeVlbtJnpcpT2]{Celestial}",
+  "description": "@UUID[Compendium.modern20.rules.JournalEntry.F9sDg5FHLKUqVnLh.JournalEntryPage.Q0MaeVlbtJnpcpT2]{Celestial} — Includes weapons made of a specific material (silver or wood, for example) or weapons that deal a specific type of damage (ballistic, bludgeoning, piercing, or slashing).",
   "formula": "1d100",
   "replacement": true,
   "displayRoll": true,
@@ -23,7 +23,7 @@
     {
       "_id": "oQZRKyk5IdOa6jOh",
       "type": "text",
-      "text": "5/specific weapon type 1",
+      "text": "5/specific weapon type",
       "img": null,
       "weight": 1,
       "range": [
@@ -36,7 +36,7 @@
     {
       "_id": "mmAakTzTglNDKDZZ",
       "type": "text",
-      "text": "10/specific weapon type 1",
+      "text": "10/specific weapon type",
       "img": null,
       "weight": 1,
       "range": [
@@ -49,7 +49,7 @@
     {
       "_id": "uHsDvnvZX7dhNXKN",
       "type": "text",
-      "text": "20/specific weapon type 1",
+      "text": "20/specific weapon type",
       "img": null,
       "weight": 1,
       "range": [
@@ -123,6 +123,19 @@
       ],
       "drawn": false,
       "_key": "!tables.results!emYBegKbljdDePso.kjXxEwstuDYL6b5n"
+    },
+    {
+      "_id": "Wun1FoPFcBpeP8yJ",
+      "type": "text",
+      "text": "10/+2",
+      "img": null,
+      "weight": 1,
+      "range": [
+        91,
+        93
+      ],
+      "drawn": false,
+      "_key": "!tables.results!emYBegKbljdDePso.Wun1FoPFcBpeP8yJ"
     },
     {
       "_id": "G658m8Eai9BKR02C",
