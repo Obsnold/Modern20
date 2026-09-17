@@ -1,0 +1,47 @@
+{
+  "_id": "qcAu4CbbKcGmnwQc",
+  "name": "Power Resistance",
+  "type": "psiPower",
+  "img": "systems/modern20/assets/icons/lorc/magic-shield.svg",
+  "system": {
+    "description": "<p>The target is granted power resistance equal to 12 + the manifester’s manifester level.</p>",
+    "source": "d20 Modern SRD",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/fxpowers.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.hXGxrY1r1Ec6LQTW.JournalEntryPage.dU5VnggVvxUxOJHl",
+    "level": 5,
+    "display": "Visual, Material",
+    "powerPoints": 9,
+    "castingTime": "Attack action",
+    "range": "Touch",
+    "target": "Creature touched",
+    "duration": "1 minute/level",
+    "savingThrow": "Will negates",
+    "keyAbility": "wis",
+    "damage": "",
+    "damageType": "",
+    "scaling": {
+      "per": 0,
+      "max": 0
+    },
+    "saveAbility": "will",
+    "saveEffect": "negate",
+    "areaShape": {
+      "shape": "",
+      "size": 0
+    },
+    "activities": {
+      "manifest": {
+        "type": "save",
+        "name": "MODERN20.Cast.Manifest",
+        "actionType": "attack",
+        "save": {
+          "ability": "will",
+          "calculation": "caster",
+          "onSuccess": "negate"
+        }
+      }
+    }
+  },
+  "_key": "!items!qcAu4CbbKcGmnwQc",
+  "folder": "LY4so7VtHxijDdAW"
+}
