@@ -98,6 +98,16 @@
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/featorder.html"
   },
   {
+    "id": "arcaneSkills",
+    "name": "Arcane Skills",
+    "category": "",
+    "prerequisites": [],
+    "benefit": "The character gains the following class skills, as described under the Mage advanced class: Concentration, Craft (chemical), and Spellcraft. Further, the character gains Use Magic Device as a class skill, as described under the Occultist advanced class. This feat does not in and of itself grant spellcasting ability.",
+    "normal": "Arcane skills are special class skills available to the Acolyte, Occultist, Mage, Mystic, and Techno Mage advanced classes. Other classes may not buy ranks in these skills without this feat.",
+    "special": "",
+    "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
+  },
+  {
     "id": "archaicWeaponsProficiency",
     "name": "Archaic Weapons Proficiency",
     "category": "",
@@ -1498,8 +1508,8 @@
     "name": "Vehicle Specialization",
     "category": "",
     "prerequisites": [],
-    "benefit": "The character gains the following class skills, as described under the Mage advanced class: Concentration, Craft (chemical), and Spellcraft. Further, the character gains Use Magic Device as a class skill, as described under the Occultist advanced class.",
-    "normal": "Arcane skills are special class skills available to the Acolyte, Occultist, Mage, Mystic, and Techno Mage advanced classes. Other classes may not buy ranks in these skills without this feat.",
+    "benefit": "Choose a vehicle type (civilian aircraft, civilian cars, civilian motorcycles, civilian trucks, civilian water vehicles, other civilian vehicles, or military vehicles). When you are in control of a vehicle of the specified type, you gain a +2 competence bonus on skill checks, ability checks, and saving throws involving the vehicle.",
+    "normal": "",
     "special": "",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html"
   },

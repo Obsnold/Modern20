@@ -1,21 +1,21 @@
 {
-  "_id": "buTlAmZb5QcO0ZHZ",
+  "_id": "TQudzrcZCKAWtTIU",
   "name": "Vehicle Specialization",
   "type": "feat",
   "img": "systems/modern20/assets/icons/lorc/muscle-up.svg",
   "system": {
-    "description": "",
+    "description": "<p>You are proficient with one type of vehicle.</p>",
     "source": "Urban Arcana",
     "srdUrl": "https://spellbooksoftware.com/d20mrsd/urbanfeatorder.html",
+    "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.gBWL3Bsnokvxy8f5",
     "featType": "general",
-    "category": "",
     "prerequisites": [],
-    "benefit": "The character gains the following class skills, as described under the Mage advanced class: Concentration, Craft (chemical), and Spellcraft. Further, the character gains Use Magic Device as a class skill, as described under the Occultist advanced class.",
-    "normal": "Arcane skills are special class skills available to the Acolyte, Occultist, Mage, Mystic, and Techno Mage advanced classes. Other classes may not buy ranks in these skills without this feat.",
+    "benefit": "<p>Choose a vehicle type (civilian aircraft, civilian cars, civilian motorcycles, civilian trucks, civilian water vehicles, other civilian vehicles, or military vehicles). When you are in control of a vehicle of the specified type, you gain a +2 competence bonus on skill checks, ability checks, and saving throws involving the vehicle.</p>",
+    "normal": "",
     "special": "",
     "repeatable": false,
-    "rulesPage": "Compendium.modern20.rules.JournalEntry.GjRduek5MGzXTBU3.JournalEntryPage.gBWL3Bsnokvxy8f5"
+    "activities": {}
   },
-  "_key": "!items!buTlAmZb5QcO0ZHZ",
+  "_key": "!items!TQudzrcZCKAWtTIU",
   "folder": "2W3VHg09JuaKFTS0"
 }
