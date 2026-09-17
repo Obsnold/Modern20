@@ -270,6 +270,25 @@ async function checkHeroNumbers(results, actor, wanted, abilities) {
   results.same("grapple is base attack plus Strength",
                system.attributes.grapple, row.baseAttack + 2);
 
+  /*
+   * Action points: the class's own base plus half the character level.
+   *
+   * The base belongs to the class — five for a basic one, six for most
+   * advanced, seven for the prestige classes and the Swindler — and the
+   * system used a flat five for all fifty-two, so anyone with an advanced
+   * class was a point short.
+   */
+  {
+    const cls = actor.items.contents[0];
+    const base = cls?.system?.actionPointBase;
+    results.ok(`${wanted.name} has a printed action point base`, Boolean(base),
+               `base ${base}`);
+    results.same("action points are the class base plus half the level",
+                 system.actionPoints.max,
+                 base + Math.floor(system.details.level
+                   * MODERN20.actionPoints.perLevel));
+  }
+
   // Skills: ranks, the ability modifier, and nothing invented.
   const skill = system.skills.climb;
   results.ok("every SRD skill is on the sheet",

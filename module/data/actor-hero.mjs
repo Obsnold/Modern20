@@ -217,8 +217,8 @@ export class Modern20Hero extends Modern20ActorBase {
 
     this.actionPoints.max =
       this.actionPoints.maxOverride ??
-      MODERN20.actionPoints.startingBase +
-        Math.floor(this.details.level * MODERN20.actionPoints.perLevel);
+      this.#actionPointBase(classes)
+        + Math.floor(this.details.level * MODERN20.actionPoints.perLevel);
 
     // An occupation's Reputation bonus is a permanent character trait, so it
     // is derived. Its Wealth bonus is a one-time increase to starting Wealth
@@ -238,6 +238,37 @@ export class Modern20Hero extends Modern20ActorBase {
     this.skillPoints.remaining = this.skillPoints.available - this.skillPoints.spent;
 
     this.#flagOverspentSkills();
+  }
+
+  /**
+   * The action points a character has, from the class it last levelled in.
+   *
+   * "Action Points: 6 + one-half character level, rounded down, every time
+   * the Techie attains a new level in this class." The base belongs to the
+   * class, not the character — five for the six basic classes, six for most
+   * advanced ones, seven for the prestige classes and for the Swindler — so
+   * which class the last level was taken in is what decides it. The
+   * advancement log records exactly that.
+   *
+   * A character with no log is one that was imported or built by hand, and
+   * there is nothing to read. The highest base among its classes is the
+   * fallback, because five is right for six classes out of fifty-two and
+   * wrong for the rest; a table that disagrees has the override field.
+   */
+  #actionPointBase(classes) {
+    const fallback = MODERN20.actionPoints.startingBase;
+    if (!classes.length) return fallback;
+
+    const log = this.advancement ?? [];
+    const last = log.length
+      ? log.reduce((latest, entry) =>
+        (entry.characterLevel ?? 0) >= (latest.characterLevel ?? 0) ? entry : latest)
+      : null;
+
+    const named = last && classes.find((cls) => cls.name === last.className);
+    if (named) return named.system.actionPointBase ?? fallback;
+
+    return Math.max(...classes.map((cls) => cls.system.actionPointBase ?? fallback));
   }
 
   /**

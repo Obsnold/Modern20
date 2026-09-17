@@ -24,6 +24,17 @@ export class Modern20Class extends Modern20ItemBase {
       keyAbility: new fields.StringField({ initial: "" }),
       hitDie: new fields.StringField({ initial: "d8" }),
       skillPointsPerLevel: int(3, { min: 0 }),
+      /**
+       * The action points a character has on taking a level in this class.
+       *
+       * "Action Points: 6 + one-half character level, rounded down, every
+       * time the Techie attains a new level in this class." Five for the six
+       * basic classes, six for most advanced ones, seven for the prestige
+       * classes — and seven for the Swindler, which is an advanced class and
+       * the reason this is a field on the class rather than a number per
+       * tier.
+       */
+      actionPointBase: int(5, { min: 0 }),
       // A grant names a skill and, where the SRD gives one, the subject:
       // "Craft (structural)" makes that one Craft a class skill, not all of them.
       classSkills: new fields.ArrayField(
