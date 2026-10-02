@@ -1,0 +1,22 @@
+{
+  "name": "modern20",
+  "private": true,
+  "type": "module",
+  "description": "Build tooling for the Modern20 Foundry VTT system. The system ships as plain ES modules; this manifest only drives the SRD importer, the layout checks and the tests.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tools/test/",
+    "build": "node tools/build.mjs"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.4",
+    "mdast-util-to-string": "^4.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5"
+  }
+}
