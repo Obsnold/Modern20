@@ -6,6 +6,7 @@ import { buildOccupations } from "./occupations.mjs";
 import { buildSpecies } from "./species.mjs";
 import { buildEquipment } from "./equipment.mjs";
 import { buildClasses, buildTalents } from "./classes.mjs";
+import { buildCreatures } from "./creatures.mjs";
 
 export const PACKS = {
   rules: buildJournal,
@@ -18,4 +19,5 @@ export const PACKS = {
   occupations: buildOccupations,
   species: buildSpecies,
   equipment: buildEquipment,
+  creatures: buildCreatures,
 };

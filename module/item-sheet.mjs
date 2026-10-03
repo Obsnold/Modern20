@@ -19,9 +19,10 @@ const escape = (s) => foundry.utils.escapeHTML(String(s));
 /** "spellResistance" -> "Spell Resistance" */
 const label = (key) => key.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
 
-/** A link to another document, or a named entry in a list ("Craft (writing) (int)"), as HTML. */
+/** A link to another document, or a named entry in a list ("Craft (writing) (int)", "Survival +1 (+5 when tracking)"), as HTML. */
 function entry(value) {
-  const text = [value.name ?? value.value, value.specialty && `(${value.specialty})`, value.ability && `(${value.ability})`].filter(Boolean).join(" ");
+  const bonus = typeof value.bonus === "number" ? (value.bonus >= 0 ? `+${value.bonus}` : `${value.bonus}`) : "";
+  const text = [value.name ?? value.value, value.specialty && `(${value.specialty})`, value.ability && `(${value.ability})`, bonus, value.note && `(${value.note})`, value.detail && value.detail !== value.name && `[${value.detail}]`].filter(Boolean).join(" ");
   if (value.uuid) return `@UUID[${value.uuid}]{${escape(text)}}`;
   if ("class" in value && "level" in value) return `${escape(value.class)} ${value.level}`;
   return escape(text);
@@ -44,7 +45,8 @@ export function rows(system, prefix = "") {
     if (value === null || value === undefined || value === "" || value === false) continue;
     if (prefix && value === 0) continue;
     if (Array.isArray(value)) {
-      if (!value.length || (!prefix && key === "specialQualities")) continue;
+      // A species' special qualities are shown as prose with their text; a creature's are names.
+      if (!value.length || (!prefix && key === "specialQualities" && value[0]?.description)) continue;
       out.push({ label: name, html: value.map((v) => (isEntry(v) ? entry(v) : typeof v === "object" ? "" : escape(v))).filter(Boolean).join(", ") });
     } else if (isEntry(value)) out.push({ label: name, html: entry(value) });
     else if (typeof value === "object") out.push(...rows(value, name));
@@ -73,6 +75,30 @@ export function requirementsList(requirements) {
 
 const ordinal = (n) => `${n}${["th", "st", "nd", "rd"][(n % 100 - 20) % 10] ?? ["th", "st", "nd", "rd"][n % 100] ?? "th"}`;
 
+/** What the read-only template shows for any document: header, field table and rules text. */
+export async function describe(doc) {
+  const system = doc.system ?? {};
+  const enrich = (html) => TextEditor.implementation.enrichHTML(html, { relativeTo: doc, secrets: doc.isOwner });
+  const source = system.source?.page ? `@UUID[${system.source.page}]{${escape(system.source.book ?? "Source")}}` : escape(system.source?.book ?? "");
+  const table = rows(system).map((r) => `<tr><th>${escape(r.label)}</th><td>${r.html}</td></tr>`).join("");
+  const prose = [];
+  for (const key of PROSE) if (system[key]) prose.push({ title: key === "description" ? "" : label(key), html: await enrich(system[key]) });
+  // Species keep each special quality's text with its name.
+  for (const q of system.specialQualities ?? []) if (q?.description) prose.push({ title: q.name, html: await enrich(q.description) });
+  // Classes: requirements, the level table, then each feature and talent tree.
+  if (system.requirements?.length) prose.push({ title: "Requirements", html: await enrich(requirementsList(system.requirements)) });
+  if (system.levels?.[0]?.baseAttackBonus) prose.push({ title: "Class Table", html: levelTable(system.levels) });
+  for (const f of system.features ?? []) {
+    const at = f.levels?.length ? ` (${f.levels.map(ordinal).join(", ")})` : "";
+    prose.push({ title: `${f.name}${at}`, html: await enrich(f.description) });
+  }
+  for (const t of system.talentTrees ?? []) {
+    prose.push({ title: `${t.name} Talent Tree`, html: await enrich(`${t.description}<p>${t.talents.map(entry).join(", ")}</p>`) });
+  }
+  const typeLabel = game.i18n.localize(CONFIG[doc.documentName]?.typeLabels?.[doc.type] ?? `TYPES.${doc.documentName}.${doc.type}`);
+  return { doc, typeLabel, source: await enrich(source), table: await enrich(`<table class="modern20-fields">${table}</table>`), prose };
+}
+
 export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["modern20", "sheet", "item"],
@@ -81,39 +107,10 @@ export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   };
 
   static PARTS = {
-    body: { template: "systems/modern20/templates/item-sheet.hbs", scrollable: [""] },
+    body: { template: "systems/modern20/templates/document-sheet.hbs", scrollable: [""] },
   };
 
   async _prepareContext(options) {
-    const context = await super._prepareContext(options);
-    const item = this.document;
-    const system = item.system ?? {};
-    const enrich = (html) => TextEditor.implementation.enrichHTML(html, { relativeTo: item, secrets: item.isOwner });
-
-    const source = system.source?.page ? `@UUID[${system.source.page}]{${escape(system.source.book ?? "Source")}}` : escape(system.source?.book ?? "");
-    const table = rows(system).map((r) => `<tr><th>${escape(r.label)}</th><td>${r.html}</td></tr>`).join("");
-    const prose = [];
-    for (const key of PROSE) if (system[key]) prose.push({ title: key === "description" ? "" : label(key), html: await enrich(system[key]) });
-    // Species keep each special quality's text with its name.
-    for (const q of system.specialQualities ?? []) prose.push({ title: q.name, html: await enrich(q.description) });
-    // Classes: requirements, the level table, then each feature and talent tree.
-    if (system.requirements?.length) prose.push({ title: "Requirements", html: await enrich(requirementsList(system.requirements)) });
-    if (system.levels?.length) prose.push({ title: "Class Table", html: levelTable(system.levels) });
-    for (const f of system.features ?? []) {
-      const at = f.levels?.length ? ` (${f.levels.map(ordinal).join(", ")})` : "";
-      prose.push({ title: `${f.name}${at}`, html: await enrich(f.description) });
-    }
-    for (const t of system.talentTrees ?? []) {
-      prose.push({ title: `${t.name} Talent Tree`, html: await enrich(`${t.description}<p>${t.talents.map(entry).join(", ")}</p>`) });
-    }
-
-    Object.assign(context, {
-      item,
-      typeLabel: game.i18n.localize(CONFIG.Item.typeLabels?.[item.type] ?? `TYPES.Item.${item.type}`),
-      source: await enrich(source),
-      table: await enrich(`<table class="modern20-fields">${table}</table>`),
-      prose,
-    });
-    return context;
+    return Object.assign(await super._prepareContext(options), await describe(this.document));
   }
 }

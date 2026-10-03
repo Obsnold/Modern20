@@ -26,6 +26,13 @@
     }
   ],
   "documentTypes": {
+    "Actor": {
+      "creature": {
+        "htmlFields": [
+          "description"
+        ]
+      }
+    },
     "Item": {
       "class": {
         "htmlFields": [
@@ -201,6 +208,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "creatures",
+      "label": "Creatures",
+      "path": "packs/creatures",
+      "type": "Actor",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "packFolders": [
@@ -236,6 +254,13 @@
           "sorting": "m",
           "packs": [
             "equipment"
+          ]
+        },
+        {
+          "name": "Creatures",
+          "sorting": "m",
+          "packs": [
+            "creatures"
           ]
         }
       ]

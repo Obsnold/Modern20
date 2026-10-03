@@ -1,5 +1,8 @@
 {
   "TYPES": {
+    "Actor": {
+      "creature": "Creature"
+    },
     "Item": {
       "class": "Class",
       "talent": "Talent",
@@ -17,7 +20,8 @@
   },
   "MODERN20": {
     "SheetLabel": {
-      "Item": "Modern20 Item (read-only)"
+      "Item": "Modern20 Item (read-only)",
+      "Actor": "Modern20 Actor (read-only)"
     }
   }
 }

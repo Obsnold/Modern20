@@ -142,7 +142,7 @@ function splitFeatures(cell, headings, aliases) {
  * Skills the FX classes define in their own pages ("#### Spellcraft (Int)" under
  * Class Features) rather than as skill pages: name -> ability.
  */
-function classSkillSections() {
+export function classSkillSections() {
   const out = {};
   for (const path of listPages().filter(isClass)) {
     const features = readPage(path).root.children[0]?.child("Class Features");

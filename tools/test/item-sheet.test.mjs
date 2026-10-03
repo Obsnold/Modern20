@@ -44,3 +44,11 @@ test("a class's level table and requirements render", () => {
   assert.match(t, /<td>Weapon Focus<\/td>/);
   assert.match(requirementsList(soldier.requirements), /@UUID\[Compendium\.modern20\.feats\.Item\.\w+\]\{Personal Firearms Proficiency\}/);
 });
+
+test("a creature's table shows its stats, skills with bonuses, and linked feats", () => {
+  const wolf = table("Wolf");
+  assert.equal(wolf["Abilities: Dex"], "15");
+  assert.equal(wolf["Special Qualities"], "scent, trip, low-light vision");
+  assert.equal(wolf.Skills, "Hide +3, Listen +6, Move Silently +4, Spot +4, Survival +1 (+5 when tracking by scent)");
+  assert.match(table("Troll Tough Hero 7").Talents, /@UUID\[Compendium\.modern20\.talents\.Item\.\w+\]\{Acid Resistance \[Acid resistance 7\]\}/);
+});
