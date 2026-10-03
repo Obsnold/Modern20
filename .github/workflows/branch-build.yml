@@ -1,0 +1,120 @@
+# A test build of the rebuild branch, installable in Foundry.
+#
+# Every push to `rebuild` builds the packs, runs the tests, and replaces the
+# files on one fixed pre-release, `rebuild-latest`. Install it once from
+#
+#     https://github.com/<owner>/<repo>/releases/download/rebuild-latest/system.json
+#
+# and each later push shows up as an update. A pre-release is never "latest",
+# so installs from the normal release manifest are not offered these builds.
+#
+# Foundry only offers an update when the version goes up, so the published
+# manifest's version is system.json's with this run's number on the end
+# (0.3.6.12): newer than the last test build, older than the next real release.
+# system.json in the repository is not changed.
+
+name: Branch build
+
+on:
+  push:
+    branches:
+      - rebuild
+
+permissions:
+  contents: write
+
+concurrency:
+  group: branch-build
+  cancel-in-progress: true
+
+env:
+  TAG: rebuild-latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build the compendia
+        run: |
+          set -eu
+          npm ci --no-audit --no-fund
+          npm test
+          npm run build
+
+      - name: Write the manifest this build is served from
+        run: |
+          set -eu
+          ID="$(python3 -c 'import json; print(json.load(open("system.json"))["id"])')"
+          echo "ZIP=$ID-$TAG.zip" >> "$GITHUB_ENV"
+          ZIP="$ID-$TAG.zip" python3 - <<'PY'
+          import collections, json, os
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          tag = os.environ["TAG"]
+          base = f"https://github.com/{repository}"
+
+          with open("system.json", encoding="utf-8") as handle:
+              manifest = json.load(handle, object_pairs_hook=collections.OrderedDict)
+
+          manifest["version"] = f"{manifest['version']}.{os.environ['GITHUB_RUN_NUMBER']}"
+          manifest["url"] = base
+          manifest["bugs"] = f"{base}/issues"
+          manifest["manifest"] = f"{base}/releases/download/{tag}/system.json"
+          manifest["download"] = f"{base}/releases/download/{tag}/{os.environ['ZIP']}"
+
+          with open("system.json", "w", encoding="utf-8") as handle:
+              json.dump(manifest, handle, indent=2, ensure_ascii=False)
+              handle.write("\n")
+
+          print(f"version:  {manifest['version']}")
+          print(f"manifest: {manifest['manifest']}")
+          PY
+
+      - name: Zip what the manifest names
+        run: |
+          set -eu
+          CONTENTS="$(python3 - <<'PY'
+          import json, os
+          with open("system.json", encoding="utf-8") as handle:
+              manifest = json.load(handle)
+          paths = ["system.json", "README.md", "LICENSE.md", "OPEN_GAME_LICENSE.md",
+                   "templates", "assets"]
+          paths += [module.split("/")[0] for module in manifest.get("esmodules") or []]
+          paths += [style.split("/")[0] for style in manifest.get("styles") or []]
+          paths += [language["path"].split("/")[0]
+                    for language in manifest.get("languages") or []]
+          paths += [pack["path"].split("/")[0] for pack in manifest.get("packs") or []]
+          print(" ".join(sorted(p for p in set(paths) if os.path.exists(p))))
+          PY
+          )"
+          echo "zipping: $CONTENTS"
+          zip -r -q "$ZIP" $CONTENTS
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          cat > notes.md <<NOTES
+          Test build of the \`rebuild\` branch at ${GITHUB_SHA::7}. Install it by pasting this manifest URL into Foundry's **Install System** dialog:
+
+          \`\`\`
+          https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/system.json
+          \`\`\`
+          NOTES
+
+          # One release, moved to this commit each time: delete it with its tag
+          # and create it again, so the tag and the files always match.
+          gh release delete "$TAG" --cleanup-tag --yes 2>/dev/null || true
+          gh release create "$TAG" system.json "$ZIP" \
+            --target "$GITHUB_SHA" --prerelease \
+            --title "Rebuild (test build)" --notes-file notes.md

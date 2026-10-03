@@ -12,8 +12,8 @@
 #
 #   - the tag is held to the version in system.json, because a release whose
 #     manifest and tag disagree installs and then never offers an update
-#   - the compendia are compiled, because Foundry reads LevelDB and this
-#     repository holds one JSON per document
+#   - the compendia are built from the SRD submodule and compiled, because
+#     Foundry reads LevelDB and this repository holds markdown
 #   - the URLs are written from the repository this runs in, so the manifest
 #     points at its own release and a fork points at the fork
 #   - the zip holds what the manifest names, worked out from the manifest
@@ -38,6 +38,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - uses: actions/setup-node@v4
         with:
@@ -59,17 +61,15 @@ jobs:
           echo "TAG=$TAG" >> "$GITHUB_ENV"
           echo "ZIP=$ID-$TAG.zip" >> "$GITHUB_ENV"
 
-      - name: Compile the compendia
+      - name: Build the compendia
         run: |
           set -eu
-          npm install --no-audit --no-fund --global @foundryvtt/foundryvtt-cli
-          # src/packs holds one JSON per document; Foundry reads LevelDB. The
-          # compiled packs are not committed — they are built here, from the
-          # source the checks have just read.
-          for pack in $(python3 -c 'import json; print(" ".join(p["name"] for p in json.load(open("system.json"))["packs"]))'); do
-            fvtt package pack -n "$pack" --in "src/packs/$pack" --out packs >/dev/null
-            echo "  packed $pack"
-          done
+          # The packs are built from the markdown SRD in the srd/ submodule;
+          # Foundry reads LevelDB, so they are compiled here rather than
+          # committed. The build stops on any page that breaks its layout.
+          npm ci --no-audit --no-fund
+          npm test
+          npm run build
 
       - name: Write the URLs this release is served from
         run: |
@@ -119,7 +119,8 @@ jobs:
           paths += [language["path"].split("/")[0]
                     for language in manifest.get("languages") or []]
           paths += [pack["path"].split("/")[0] for pack in manifest.get("packs") or []]
-          print(" ".join(sorted(set(paths))))
+          import os
+          print(" ".join(sorted(p for p in set(paths) if os.path.exists(p))))
           PY
           )"
           echo "zipping: $CONTENTS"

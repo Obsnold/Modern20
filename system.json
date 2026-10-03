@@ -1,0 +1,191 @@
+{
+  "id": "modern20",
+  "title": "Modern20",
+  "description": "<p>A Foundry VTT game system for the d20 Modern System Reference Document, with Urban Arcana, d20 Future and the d20 Menace Manual.</p><p>This system includes Open Game Content released under the Open Game License v1.0a. See OPEN_GAME_LICENSE.md.</p>",
+  "version": "0.3.6",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Terry"
+    }
+  ],
+  "esmodules": [
+    "module/modern20.mjs"
+  ],
+  "styles": [
+    "css/modern20.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Item": {
+      "feat": {
+        "htmlFields": [
+          "description",
+          "benefit",
+          "normal",
+          "special"
+        ]
+      },
+      "spell": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "power": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "incantation": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "occupation": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "species": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "weapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "armor": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "equipment": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "ammunition": {
+        "htmlFields": [
+          "description"
+        ]
+      }
+    }
+  },
+  "packs": [
+    {
+      "name": "rules",
+      "label": "Rules",
+      "path": "packs/rules",
+      "type": "JournalEntry",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "feats",
+      "label": "Feats",
+      "path": "packs/feats",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "spells",
+      "label": "Spells",
+      "path": "packs/spells",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "powers",
+      "label": "Psionic Powers",
+      "path": "packs/powers",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "incantations",
+      "label": "Incantations",
+      "path": "packs/incantations",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "occupations",
+      "label": "Occupations",
+      "path": "packs/occupations",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "species",
+      "label": "Species",
+      "path": "packs/species",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "equipment",
+      "label": "Equipment",
+      "path": "packs/equipment",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Modern20",
+      "sorting": "m",
+      "packs": [
+        "rules",
+        "feats",
+        "spells",
+        "powers",
+        "incantations",
+        "occupations",
+        "species",
+        "equipment"
+      ]
+    }
+  ],
+  "license": "LICENSE.md"
+}

@@ -1,0 +1,16 @@
+<section class="modern20-item">
+  <header class="modern20-header">
+    <img src="{{item.img}}" alt="" width="64" height="64">
+    <div>
+      <h1>{{item.name}}</h1>
+      <p class="modern20-meta">{{typeLabel}}{{#if source}} · {{{source}}}{{/if}}</p>
+    </div>
+  </header>
+  {{{table}}}
+  {{#each prose}}
+    <div class="modern20-prose">
+      {{#if title}}<h2>{{title}}</h2>{{/if}}
+      {{{html}}}
+    </div>
+  {{/each}}
+</section>

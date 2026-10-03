@@ -1,0 +1,21 @@
+{
+  "TYPES": {
+    "Item": {
+      "feat": "Feat",
+      "spell": "Spell",
+      "power": "Psionic Power",
+      "incantation": "Incantation",
+      "occupation": "Occupation",
+      "species": "Species",
+      "weapon": "Weapon",
+      "armor": "Armor",
+      "equipment": "Equipment",
+      "ammunition": "Ammunition"
+    }
+  },
+  "MODERN20": {
+    "SheetLabel": {
+      "Item": "Modern20 Item (read-only)"
+    }
+  }
+}

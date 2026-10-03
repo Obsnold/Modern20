@@ -17,15 +17,9 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { compilePack } from "@foundryvtt/foundryvtt-cli";
 import { SRD_ROOT } from "./srd/reader.mjs";
-import { buildJournal } from "./build/journal.mjs";
-import { buildFeats } from "./build/feats.mjs";
-import { buildSpells, buildPowers, buildIncantations } from "./build/fx.mjs";
-import { buildOccupations } from "./build/occupations.mjs";
-import { buildSpecies } from "./build/species.mjs";
-import { buildEquipment } from "./build/equipment.mjs";
+import { PACKS } from "./build/packs.mjs";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
-const PACKS = { rules: buildJournal, feats: buildFeats, spells: buildSpells, powers: buildPowers, incantations: buildIncantations, occupations: buildOccupations, species: buildSpecies, equipment: buildEquipment };
 
 const results = {};
 let problems = 0;
