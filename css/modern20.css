@@ -9,3 +9,7 @@
 .modern20-item table.modern20-fields td { padding: 0.2rem 0.5rem; }
 .modern20-item .modern20-prose h2 { font-size: 1.1rem; margin: 0.75rem 0 0.25rem; }
 .modern20-item .modern20-prose table { font-size: 0.85em; }
+.modern20-item table.modern20-levels { width: 100%; font-size: 0.85em; text-align: center; }
+.modern20-item table.modern20-levels td:nth-child(6) { text-align: left; }
+.modern20-item dl.modern20-requirements dt { font-weight: 600; margin-top: 0.25rem; }
+.modern20-item dl.modern20-requirements dd { margin: 0 0 0 1rem; }

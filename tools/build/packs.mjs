@@ -5,9 +5,12 @@ import { buildSpells, buildPowers, buildIncantations } from "./fx.mjs";
 import { buildOccupations } from "./occupations.mjs";
 import { buildSpecies } from "./species.mjs";
 import { buildEquipment } from "./equipment.mjs";
+import { buildClasses, buildTalents } from "./classes.mjs";
 
 export const PACKS = {
   rules: buildJournal,
+  classes: buildClasses,
+  talents: buildTalents,
   feats: buildFeats,
   spells: buildSpells,
   powers: buildPowers,

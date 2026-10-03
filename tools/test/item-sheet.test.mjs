@@ -8,7 +8,7 @@ globalThis.foundry = {
   utils: { escapeHTML: (s) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`) },
   applications: { api: { HandlebarsApplicationMixin: (c) => c }, sheets: { ItemSheetV2: Base }, ux: { TextEditor: {} } },
 };
-const { rows } = await import("../../module/item-sheet.mjs");
+const { rows, levelTable, requirementsList } = await import("../../module/item-sheet.mjs");
 
 const items = Object.entries(PACKS).filter(([p]) => p !== "rules").flatMap(([, b]) => b().documents).filter((d) => d.system);
 const byName = (n) => items.find((d) => d.name === n);
@@ -35,4 +35,12 @@ test("printed values, links and nested values show", () => {
   assert.equal(dwarf["Abilities: Str"], undefined);         // a zero modifier
   assert.equal(dwarf["Special Qualities"], undefined);      // shown as prose
   assert.match(table("Teleport")["Failure: Text"], /^Mirrorcast\./);
+});
+
+test("a class's level table and requirements render", () => {
+  const soldier = byName("Soldier").system;
+  const t = levelTable(soldier.levels);
+  assert.equal((t.match(/<tr>/g) ?? []).length, 11);   // header + 10 levels
+  assert.match(t, /<td>Weapon Focus<\/td>/);
+  assert.match(requirementsList(soldier.requirements), /@UUID\[Compendium\.modern20\.feats\.Item\.\w+\]\{Personal Firearms Proficiency\}/);
 });

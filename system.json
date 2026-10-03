@@ -27,6 +27,16 @@
   ],
   "documentTypes": {
     "Item": {
+      "class": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "talent": {
+        "htmlFields": [
+          "description"
+        ]
+      },
       "feat": {
         "htmlFields": [
           "description",
@@ -88,6 +98,28 @@
       "label": "Rules",
       "path": "packs/rules",
       "type": "JournalEntry",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "classes",
+      "label": "Classes",
+      "path": "packs/classes",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "talents",
+      "label": "Talents",
+      "path": "packs/talents",
+      "type": "Item",
+      "system": "modern20",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
@@ -183,6 +215,8 @@
           "name": "Characters",
           "sorting": "m",
           "packs": [
+            "classes",
+            "talents",
             "feats",
             "occupations",
             "species"
