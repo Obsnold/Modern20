@@ -7,7 +7,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node --test tools/test/",
+    "test": "node --test tools/test/*.test.mjs",
     "build": "node tools/build.mjs"
   },
   "devDependencies": {
