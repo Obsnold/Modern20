@@ -173,17 +173,37 @@
   ],
   "packFolders": [
     {
-      "name": "Modern20",
+      "name": "d20 Modern SRD",
       "sorting": "m",
       "packs": [
-        "rules",
-        "feats",
-        "spells",
-        "powers",
-        "incantations",
-        "occupations",
-        "species",
-        "equipment"
+        "rules"
+      ],
+      "folders": [
+        {
+          "name": "Characters",
+          "sorting": "m",
+          "packs": [
+            "feats",
+            "occupations",
+            "species"
+          ]
+        },
+        {
+          "name": "Magic and Psionics",
+          "sorting": "m",
+          "packs": [
+            "spells",
+            "powers",
+            "incantations"
+          ]
+        },
+        {
+          "name": "Equipment",
+          "sorting": "m",
+          "packs": [
+            "equipment"
+          ]
+        }
       ]
     }
   ],

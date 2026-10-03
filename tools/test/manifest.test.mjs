@@ -11,7 +11,9 @@ const lang = JSON.parse(readFileSync(`${ROOT}lang/en.json`, "utf8"));
 test("system.json declares exactly the packs the build writes", () => {
   assert.deepEqual(manifest.packs.map((p) => p.name).sort(), Object.keys(PACKS).sort());
   for (const p of manifest.packs) assert.equal(p.path, `packs/${p.name}`);
-  assert.deepEqual(manifest.packFolders.flatMap((f) => f.packs).sort(), Object.keys(PACKS).sort());
+  // Every pack sits in exactly one pack folder, at any depth.
+  const packsIn = (folders) => folders.flatMap((f) => [...(f.packs ?? []), ...packsIn(f.folders ?? [])]);
+  assert.deepEqual(packsIn(manifest.packFolders).sort(), Object.keys(PACKS).sort());
 });
 
 test("every document the build writes has a type system.json declares, and a label", () => {
