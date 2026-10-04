@@ -66,6 +66,10 @@ jobs:
               manifest = json.load(handle, object_pairs_hook=collections.OrderedDict)
 
           manifest["version"] = f"{manifest['version']}.{os.environ['GITHUB_RUN_NUMBER']}"
+          # The browser caches stylesheets by address and Foundry imports this one into a CSS layer,
+          # where a reload can keep the old copy. Putting the version in the address makes every
+          # update fetch the stylesheet it ships with.
+          manifest["styles"] = [f"{style}?v={manifest['version']}" for style in manifest.get("styles", [])]
           manifest["url"] = base
           manifest["bugs"] = f"{base}/issues"
           manifest["manifest"] = f"{base}/releases/download/{tag}/system.json"
