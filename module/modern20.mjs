@@ -12,12 +12,15 @@ import { Modern20CharacterSheet } from "./character-sheet.mjs";
 import { registerModels } from "./data/foundry.mjs";
 import { Modern20Actor } from "./actor.mjs";
 import { registerRollSettings, bindAttackButtons } from "./roll.mjs";
+import { statusEffects } from "./rules/conditions.mjs";
 
 export const SYSTEM_ID = "modern20";
 
 Hooks.once("init", () => {
   registerModels();
   registerRollSettings();
+  // The SRD's conditions replace Foundry's default status effects.
+  CONFIG.statusEffects = statusEffects();
   CONFIG.Actor.documentClass = Modern20Actor;
   // Initiative: 1d20 + Dex and feats for a character, the printed bonus for a creature; ties by the bonus.
   CONFIG.Combat.initiative = { formula: "1d20 + @init", decimals: 2 };

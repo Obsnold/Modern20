@@ -80,7 +80,9 @@ export function deriveCharacter(system, items) {
 
   // Defense: 10 + class + Dex (up to the armor's limit) + size + armor + natural armor.
   const maxDex = armor.map((a) => a.system.maxDex).filter((m) => m !== null && m !== undefined);
-  const dexToDefense = maxDex.length ? Math.min(mod("dex"), ...maxDex) : mod("dex");
+  // A character that loses its Dexterity bonus keeps a Dexterity penalty.
+  const dexCapped = maxDex.length ? Math.min(mod("dex"), ...maxDex) : mod("dex");
+  const dexToDefense = fxv("loseDexBonus") > 0 ? Math.min(dexCapped, 0) : dexCapped;
   // Armor worn without its proficiency feat gives only its nonproficient bonus, and its armor
   // penalty applies to attack rolls too (Armor Proficiency, "Normal").
   const proficientIn = (a) => a.system.weightClass === "shield" || !a.system.weightClass || has(`Armor Proficiency (${a.system.weightClass})`);

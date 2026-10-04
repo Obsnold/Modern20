@@ -291,6 +291,8 @@ export const ACTOR_MODELS = {
       hitPoints: int(),
       reputation: int(),
       massiveDamage: int(),
+      /** Above 0, the character loses its Dexterity bonus to Defense (flat-footed, stunned, pinned). */
+      loseDexBonus: int(),
     }),
     details: obj({ allegiances: str(), age: str(), gender: str(), height: str(), weight: str(), biography: html() }),
   },
