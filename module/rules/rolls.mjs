@@ -10,6 +10,8 @@
  * "1d20 + 3 + 2" so the dice and the numbers show in chat as rolled.
  */
 
+import { chooses } from "./choices.mjs";
+
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
 
@@ -65,23 +67,34 @@ export function critical(text) {
 const SIZE_ATTACK = { fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, large: -1, huge: -2, gargantuan: -4, colossal: -8 };
 
 /**
- * An attack with a weapon: BAB, Str (melee) or Dex (ranged), size, and −4
- * without the weapon's proficiency feat. `feats` are the names of the feats
- * the character has.
+ * An attack with a weapon: BAB, Str (melee) or Dex (ranged, or a melee weapon
+ * taken with Weapon Finesse), size, −4 without the weapon's proficiency feat,
+ * Weapon Focus's +1, nonproficient armor's penalty, and effects. `feats` are
+ * the character's feats and talents as `{ name, choice }`; `options` what was
+ * ticked when asked (`pointBlank`).
  */
-export function attack(d, weapon, feats) {
+export function attack(d, weapon, feats, options = {}) {
   const s = weapon.system;
   const melee = !!s.melee;
-  const ability = melee ? "str" : "dex";
+  const named = (name) => feats.filter((f) => f.name === name);
+  const finesse = melee && named("Weapon Finesse").some((f) => chooses(f.choice, weapon.name)) && (d.modifiers.dex ?? 0) > (d.modifiers.str ?? 0);
+  const ability = melee && !finesse ? "str" : "dex";
   const needs = s.proficiency?.value ?? "";
-  // "Exotic Firearms Proficiency (grenade launchers)" is met by the feat taken for grenade launchers.
+  // "Exotic Firearms Proficiency (grenade launchers)" is met by that feat taken for grenade launchers,
+  // and a specific exotic proficiency by the feat taken for this weapon.
   const base = needs.replace(/\s*\(.*\)$/, "");
-  const proficient = !needs || feats.some((f) => f === needs || f === base || f.startsWith(`${base} (`));
+  const group = needs.match(/\((.+)\)$/)?.[1];
+  const proficient = !needs || feats.some((f) => f.name === needs || (f.name === base && (!/^Exotic/.test(base) || chooses(f.choice, group ?? weapon.name) || chooses(f.choice, weapon.name))));
+  const focus = named("Weapon Focus").some((f) => chooses(f.choice, weapon.name)) ? 1 : 0;
+  const pointBlank = !melee && options.pointBlank && named("Point Blank Shot").length ? 1 : 0;
   return d20(`${weapon.name}: ${melee ? "melee" : "ranged"} attack`, [
     { label: "Base attack", value: d.baseAttackBonus },
-    { label: ABILITY_NAMES[ability], value: d.modifiers[ability] ?? 0 },
+    { label: `${ABILITY_NAMES[ability]}${finesse ? " (Weapon Finesse)" : ""}`, value: d.modifiers[ability] ?? 0 },
     { label: "Size", value: SIZE_ATTACK[d.size] ?? 0 },
     { label: proficient ? "Proficient" : `Not proficient (${needs})`, value: proficient ? 0 : -4 },
+    { label: "Weapon Focus", value: focus },
+    { label: "Point Blank Shot", value: pointBlank },
+    { label: "Armor (not proficient)", value: d.defense?.armorAttackPenalty ?? 0 },
     { label: "Effects", value: d.attackBonus?.[melee ? "melee" : "ranged"] ?? 0 },
   ], { critical: critical(s.critical) });
 }
@@ -90,13 +103,13 @@ export function attack(d, weapon, feats) {
  * A weapon's damage: its dice, plus Str for a melee weapon. Null when the
  * weapon's damage is not dice (special, see text).
  */
-export function damage(d, weapon) {
+export function damage(d, weapon, options = {}) {
   const s = weapon.system;
   const dice = s.damage?.formula;
   if (!dice) return null;
   const str = s.melee ? d.modifiers.str ?? 0 : 0;
   const fx = d.damageBonus?.[s.melee ? "melee" : "ranged"] ?? 0;
-  const extra = [["Strength", str], ["Effects", fx]].filter(([, v]) => v);
+  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ["Effects", fx]].filter(([, v]) => v);
   const terms = [{ label: "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
   const formula = [dice, ...extra.map(([, v]) => (v < 0 ? `- ${-v}` : `+ ${v}`))].join(" ");
   return { title: `${weapon.name}: damage (${s.damageType || "untyped"})`, terms, formula, critical: critical(s.critical) };

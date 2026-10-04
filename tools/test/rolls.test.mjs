@@ -44,7 +44,7 @@ test("criticals as printed", () => {
 
 test("a melee attack and its damage add Str; without the proficiency feat it is −4", () => {
   const knife = gear.Knife;
-  const a = R.attack(d, knife, ["Simple Weapons Proficiency"]);
+  const a = R.attack(d, knife, [{ name: "Simple Weapons Proficiency" }]);
   assert.equal(a.formula, `1d20 + ${d.baseAttackBonus} + 3`);
   assert.deepEqual(R.damage(d, knife).formula, `${knife.system.damage.formula} + 3`);
   const untrained = R.attack(d, knife, []);
@@ -53,7 +53,7 @@ test("a melee attack and its damage add Str; without the proficiency feat it is 
 
 test("a firearm's attack uses Dex and its damage no Str", () => {
   const glock = gear["Glock 17 (9mm autoloader)"];
-  const a = R.attack(d, glock, ["Personal Firearms Proficiency"]);
+  const a = R.attack(d, glock, [{ name: "Personal Firearms Proficiency" }]);
   assert.equal(a.formula, `1d20 + ${d.baseAttackBonus} + 1`);
   assert.equal(R.damage(d, glock).formula, "2d6");
   assert.deepEqual(a.critical, { threat: 20, multiplier: 2 });
@@ -94,6 +94,31 @@ test("critical damage rolls the damage that many times", () => {
 test("effect bonuses reach attacks, damage and skills", () => {
   const knife = gear.Knife;
   const buffed = { ...d, attackBonus: { melee: 1, ranged: 0 }, damageBonus: { melee: 2, ranged: 0 } };
-  assert.equal(R.attack(buffed, knife, ["Simple Weapons Proficiency"]).formula, `1d20 + ${d.baseAttackBonus} + 3 + 1`);
+  assert.equal(R.attack(buffed, knife, [{ name: "Simple Weapons Proficiency" }]).formula, `1d20 + ${d.baseAttackBonus} + 3 + 1`);
   assert.equal(R.damage(buffed, knife).formula, `${knife.system.damage.formula} + 3 + 2`);
+});
+
+test("Weapon Focus, Weapon Finesse and an exotic proficiency count with the weapon they were taken for", () => {
+  const knife = gear.Knife, glock = gear["Glock 17 (9mm autoloader)"];
+  const feats = [{ name: "Simple Weapons Proficiency" }, { name: "Personal Firearms Proficiency" }, { name: "Weapon Focus", choice: "Glock 17" }];
+  const glockAttack = R.attack(d, glock, feats);
+  assert.ok(glockAttack.terms.some((t) => t.label === "Weapon Focus" && t.value === 1));
+  assert.ok(!R.attack(d, knife, feats).terms.some((t) => t.label === "Weapon Focus"));
+  const nimble = { ...d, modifiers: { ...d.modifiers, dex: 4 } };
+  const finesse = R.attack(nimble, knife, [...feats, { name: "Weapon Finesse", choice: "knife" }]);
+  assert.ok(finesse.terms.some((t) => t.label === "Dexterity (Weapon Finesse)" && t.value === 4));
+  const launcher = Object.values(gear).find((g) => /grenade launcher/i.test(g.system.proficiency?.value ?? ""));
+  if (launcher) {
+    // Proficient is worth 0, so it is left out of the breakdown: there is no "Not proficient" penalty.
+    assert.ok(!R.attack(d, launcher, [{ name: "Exotic Firearms Proficiency", choice: "grenade launchers" }]).terms.some((t) => /^Not proficient/.test(t.label)));
+    assert.ok(R.attack(d, launcher, [{ name: "Exotic Firearms Proficiency", choice: "rocket launchers" }]).terms.some((t) => /^Not proficient/.test(t.label)));
+  }
+});
+
+test("Point Blank Shot adds +1 to a ranged attack and its damage, when ticked", () => {
+  const glock = gear["Glock 17 (9mm autoloader)"];
+  const feats = [{ name: "Personal Firearms Proficiency" }, { name: "Point Blank Shot" }];
+  assert.ok(R.attack(d, glock, feats, { pointBlank: true }).terms.some((t) => t.label === "Point Blank Shot" && t.value === 1));
+  assert.ok(!R.attack(d, glock, feats, {}).terms.some((t) => t.label === "Point Blank Shot"));
+  assert.equal(R.damage(d, glock, { pointBlank: true }).formula, "2d6 + 1");
 });

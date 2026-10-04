@@ -107,3 +107,24 @@ test("skills: class skills by class and occupation, specialties, totals and the 
   assert.equal(row("climb").usable, true);
   assert.equal(d.skills.filter((s) => s.key === "craft").length, 0); // no Craft specialty taken yet
 });
+
+test("armor without its proficiency feat gives its nonproficient bonus, and its penalty applies to attacks", () => {
+  const vest = { type: "armor", name: "Vest", system: { equipped: true, weightClass: "medium", equipmentBonus: 4, nonproficientBonus: 2, maxDex: null, armorPenalty: -3 } };
+  const base = { abilities: { dex: { value: 10 } } };
+  const without = deriveCharacter(base, [vest]);
+  const withFeat = deriveCharacter(base, [vest, { type: "feat", name: "Armor Proficiency (medium)", system: {} }]);
+  assert.deepEqual([without.defense.value, without.defense.armorAttackPenalty], [12, -3]);
+  assert.deepEqual([withFeat.defense.value, withFeat.defense.armorAttackPenalty], [14, 0]);
+});
+
+test("Skill Emphasis (+3) and Educated (+2 to two Knowledge skills) add to the skills chosen", () => {
+  const d = deriveCharacter(
+    { abilities: { int: { value: 10 } }, skills: { climb: { ranks: 1, misc: 0 } }, specialtySkills: [{ skill: "knowledge", specialty: "history", ranks: 1, misc: 0 }, { skill: "knowledge", specialty: "civics", ranks: 1, misc: 0 }, { skill: "knowledge", specialty: "art", ranks: 1, misc: 0 }] },
+    [{ type: "talent", name: "Skill Emphasis", system: { choice: "Climb" } }, { type: "feat", name: "Educated", system: { choice: "Knowledge (history) and Knowledge (civics)" } }],
+  );
+  const row = (key, specialty = "") => d.skills.find((s) => s.key === key && s.specialty === specialty);
+  assert.equal(row("climb").total, 1 + 3);
+  assert.equal(row("knowledge", "history").total, 1 + 2);
+  assert.equal(row("knowledge", "civics").total, 1 + 2);
+  assert.equal(row("knowledge", "art").total, 1);
+});

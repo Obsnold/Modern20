@@ -92,6 +92,8 @@ export const ITEM_MODELS = {
   },
 
   talent: {
+    /** What was chosen when the talent was taken: Skill Emphasis's skill. */
+    choice: str(),
     className: str(),
     tree: str(),
     prerequisites: obj({ value: str(), talents: list(namedLink) }),
@@ -100,6 +102,8 @@ export const ITEM_MODELS = {
   },
 
   feat: {
+    /** What was chosen when the feat was taken: Weapon Focus's weapon, Educated's two Knowledge skills. */
+    choice: str(),
     featType: str({ choices: ["general", "metamagic", "metapsionic", "initial"] }),
     prerequisites: str(),
     description: html(),

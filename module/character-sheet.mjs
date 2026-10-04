@@ -11,6 +11,7 @@ import { ABILITIES, ACTOR_MODELS } from "./data/models.mjs";
 import { initial, obj } from "./data/schema.mjs";
 import { SKILLS } from "./data/skills.mjs";
 import { characterRolls } from "./roll.mjs";
+import { CHOICES } from "./rules/choices.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -127,7 +128,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
 
     const itemLists = Object.fromEntries(Object.entries(LISTS).map(([tab, groups]) => [tab, groups.map(([type, label]) => ({
       type, label,
-      items: ofType(type).map((i) => ({ id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon", detail: detail(i) })),
+      items: ofType(type).map((i) => ({ id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon", detail: detail(i), choiceKind: CHOICES[i.name] ?? "", choice: i.system.choice ?? "" })),
     }))]));
 
     Object.assign(context, {
@@ -172,13 +173,15 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const item = this.document.items.get(input.closest("[data-item-id]").dataset.itemId);
     if (!item) return;
     const field = input.dataset.itemField;
-    const value = input.value === "" ? null : Number(input.value);
+    const value = field === "choice" ? null : input.value === "" ? null : Number(input.value);
     if (field === "hitPoints") {
       // One roll per level, in order; a level not yet rolled is empty and counts the average.
       const index = Number(input.dataset.index);
       const rolls = Array.from({ length: Math.max(item.system.hitPoints.length, index + 1) }, (_, i) => item.system.hitPoints[i] ?? null);
       rolls[index] = value;
       await item.update({ "system.hitPoints": rolls });
+    } else if (field === "choice") {
+      await item.update({ "system.choice": input.value.trim() });
     } else if (field === "level") {
       await item.update({ "system.level": Math.max(1, Math.min(value ?? 1, item.system.maxLevel || 10)) });
     }

@@ -12,6 +12,7 @@
  */
 import { ABILITIES, abilityModifier } from "../data/models.mjs";
 import { SKILLS, skillKey } from "../data/skills.mjs";
+import { chosenSkills } from "./choices.mjs";
 
 /** Size modifiers to attack rolls and Defense, and to grapple checks. */
 export const SIZE_MODIFIERS = {
@@ -37,6 +38,8 @@ export function deriveCharacter(system, items) {
   const species = items.find((i) => i.type === "species");
   const occupation = items.find((i) => i.type === "occupation");
   const armor = items.filter((i) => i.type === "armor" && i.system.equipped);
+  const feats = items.filter((i) => i.type === "feat" || i.type === "talent");
+  const has = (name) => feats.some((f) => f.name === name);
 
   // Bonuses from active effects (applied by Foundry before this runs; zero without any).
   const fx = system.bonuses ?? {};
@@ -78,7 +81,11 @@ export function deriveCharacter(system, items) {
   // Defense: 10 + class + Dex (up to the armor's limit) + size + armor + natural armor.
   const maxDex = armor.map((a) => a.system.maxDex).filter((m) => m !== null && m !== undefined);
   const dexToDefense = maxDex.length ? Math.min(mod("dex"), ...maxDex) : mod("dex");
-  const equipment = armor.reduce((n, a) => n + (a.system.equipmentBonus ?? 0), 0);
+  // Armor worn without its proficiency feat gives only its nonproficient bonus, and its armor
+  // penalty applies to attack rolls too (Armor Proficiency, "Normal").
+  const proficientIn = (a) => a.system.weightClass === "shield" || !a.system.weightClass || has(`Armor Proficiency (${a.system.weightClass})`);
+  const equipment = armor.reduce((n, a) => n + ((proficientIn(a) ? a.system.equipmentBonus : a.system.nonproficientBonus) ?? 0), 0);
+  const armorAttackPenalty = armor.filter((a) => !proficientIn(a)).reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
   const natural = species?.system.naturalArmor ?? 0;
   const misc = (system.defense?.misc ?? 0) + fxv("defense");
   const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + natural + misc;
@@ -95,11 +102,18 @@ export function deriveCharacter(system, items) {
   }
   const isClassSkill = (key, specialty) => classSkills.has(key) || (!!specialty && classSkills.has(`${key}:${specialty}`));
 
+  // Skill Emphasis (a Dedicated hero talent): +3 with the chosen skill. Educated (a feat): +2 with each of two
+  // chosen Knowledge skills.
+  const choiceBonus = (key, specialty) => feats.reduce((n, f) => {
+    const per = { "Skill Emphasis": 3, Educated: 2 }[f.name];
+    if (!per) return n;
+    return n + (chosenSkills(f.system.choice).some((c) => skillKey(c.name) === key && (!c.specialty || c.specialty === (specialty ?? ""))) ? per : 0);
+  }, 0);
   const skillRow = (key, specialty, stored) => {
     const def = SKILLS[key];
     const ranks = stored?.ranks ?? 0;
     const isClass = isClassSkill(key, specialty);
-    const effects = fxv(`skills.${key}`) + fxv("allSkills");
+    const effects = fxv(`skills.${key}`) + fxv("allSkills") + choiceBonus(key, specialty);
     const total = ranks + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
     return {
       key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects,
@@ -136,7 +150,7 @@ export function deriveCharacter(system, items) {
     baseAttackBonus: bab,
     saves: { fort: base.fort + mod("con") + bonus.fort, ref: base.ref + mod("dex") + bonus.ref, will: base.will + mod("wis") + bonus.will },
     baseSaves: base,
-    defense: { value: defense, touch: defense - equipment - natural, flatFooted: defense - Math.max(dexToDefense, 0), class: defenseClass, armorPenalty },
+    defense: { value: defense, touch: defense - equipment - natural, flatFooted: defense - Math.max(dexToDefense, 0), class: defenseClass, armorPenalty, armorAttackPenalty },
     reputation,
     initiative: mod("dex") + bonus.initiative,
     attackBonus: { melee: fxv("attack.melee"), ranged: fxv("attack.ranged") },
