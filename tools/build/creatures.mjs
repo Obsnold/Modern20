@@ -88,11 +88,17 @@ function prototypeToken(name, system, token) {
 const REQUIRED = ["Init", "Spd", "Defense", "Atk", "Str", "Dex"];
 
 /** Every row a creature stat block may have, in the order printed. */
-const ROWS = ["CR", "Size", "Type", "HD", "hp", "Mas", "Init", "Spd", "Defense", "Touch", "Flat-Footed", "Defense Breakdown", "Defense (Flame Shield)",
+const ROWS = ["Class", "CR", "Size", "Type", "HD", "hp", "Mas", "Init", "Spd", "Defense", "Touch", "Flat-Footed", "Defense Breakdown", "Defense (Flame Shield)",
   "BAB", "Grap", "Atk", "Full Atk", "FS", "Reach", "SA", "SQ", "AL", "Fort", "Ref", "Will", "AP", "Rep", "Str", "Dex", "Con", "Int", "Wis", "Cha"];
 
 /** Feats creatures have that the d20 Modern SRD does not print as feats. */
 export const NOT_IN_SRD = new Set([...CLASS_NOT_IN_SRD, "Weapon Specialization", "Improved Critical", "Multiweapon Fighting"]);
+
+/**
+ * Talents a stat block names without saying which one: "uncanny dodge" could be
+ * Uncanny Dodge 1 or 2. Kept by name, unlinked, rather than guessed.
+ */
+export const AMBIGUOUS_TALENTS = new Set(["uncanny dodge"]);
 
 /** Items printed in more than one book; see duplicates.mjs. */
 export const DUPLICATES = {};
@@ -147,16 +153,25 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
 
   const top = page.root.children.find((s) => s.depth === 1);
   if (!top) return { creatures: [], problems };
-  const creatureSections = top.children.filter(isCreature);
+  // On a creature page every creature is a ## section. Elsewhere a creature is a
+  // section of its own wherever it is printed: the Arcanobot is the creature an
+  // FX item becomes, in a ### under the item.
+  const onCreaturePage = isCreaturePage(path);
+  const creatureSections = onCreaturePage ? top.children.filter(isCreature) : [...top.walk()].filter((s) => s !== top && isCreature(s));
   if (!creatureSections.length) return { creatures: [], problems };
 
-  // What every creature on the page shares: the page's description, its traits, and its other sections.
-  const shared = [...top.blocks.map((b) => b.node)];
-  for (const s of top.children.filter((s) => !isCreature(s))) for (const c of s.walk()) shared.push(c.heading, ...c.blocks.map((b) => b.node));
+  // What every creature on a creature page shares: its description, its traits, and its other sections.
+  // A creature printed elsewhere shares the section it is printed under (the item's description).
+  const shared = [];
+  if (onCreaturePage) {
+    shared.push(...top.blocks.map((b) => b.node));
+    for (const s of top.children.filter((s) => !isCreature(s))) for (const c of s.walk()) shared.push(c.heading, ...c.blocks.map((b) => b.node));
+  }
 
   const creatures = [];
   for (const section of creatureSections) {
     const blocks = section.blocks;
+    const context = onCreaturePage || !section.parent || section.parent === top ? [] : section.parent.blocks.filter((b) => b.kind !== "stats").map((b) => b.node);
     const statBlocks = blocks.filter((b) => b.kind === "stats");
     if (statBlocks.length !== 1) fail(section.line, `"${section.title}" has ${statBlocks.length} stat blocks; one creature per section`);
     const stats = statBlocks[0].rows;
@@ -227,7 +242,10 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
       for (const part of splitList(b.value)) {
         // "Charm (males)", "Savant (research)", "Acid resistance 7": the talent, then a detail.
         const candidates = [part, part.replace(/\s*\(.*\)$/, ""), part.replace(/\s+\d+$/, "")];
-        const t = candidates.map((c) => known.get(c.trim().toLowerCase())).find(Boolean);
+        // Hyphens and spaces do not tell talents apart: "fast talk" is Fast-Talk.
+        const loose = (x) => x.trim().toLowerCase().replace(/[-\s]+/g, " ");
+        const t = candidates.map((c) => known.get(c.trim().toLowerCase()) ?? [...known.values()].find((k) => loose(k.name) === loose(c))).find(Boolean);
+        if (!t && AMBIGUOUS_TALENTS.has(part.toLowerCase())) { talentList.push({ className: cls, name: part, detail: "", uuid: "" }); continue; }
         if (t) talentList.push({ className: cls, name: t.name, detail: part === t.name ? "" : part, uuid: t.uuid });
         else fail(b.line, `"${part}" is not a ${cls} talent`);
       }
@@ -235,6 +253,7 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
 
     const description = toHtml([
       ...shared,
+      ...context,
       ...blocks.filter((b) => b.kind !== "stats").map((b) => b.node),
     ]);
     const abilities = Object.fromEntries(["Str", "Dex", "Con", "Int", "Wis", "Cha"].map((k) => [k.toLowerCase(), stats[k] ? number(v(k)) : null]));
@@ -245,6 +264,7 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
     creatures.push({
       name, path, book, line: section.line, art: art(icon ?? "delapouite/person"),
       system: {
+        class: v("Class"),   // a character's class levels, on the stat blocks of named characters
         cr: { value: v("CR"), number: stats.CR ? challenge(v("CR")) : null },
         size: v("Size").toLowerCase(),
         type: { value: v("Type"), base: type?.[1] ?? "", subtypes: type?.[2] ? splitList(type[2]) : [] },
@@ -294,7 +314,7 @@ export function buildCreatures() {
   const problems = [];
   const all = [];
   const perPage = new Map();
-  for (const path of listPages().filter(isCreaturePage)) {
+  for (const path of listPages()) {
     const { creatures, problems: p } = readCreaturePage(path, context);
     problems.push(...p);
     all.push(...creatures);
@@ -307,8 +327,9 @@ export function buildCreatures() {
   const folder = (book, path) => {
     const bookKey = `creature-folder:${book}`;
     if (!folders.has(bookKey)) folders.set(bookKey, { id: stableId(bookKey), name: BOOKS[book] ?? book, parent: null });
-    if (perPage.get(path) < 2) return folders.get(bookKey).id;
-    // A page with several creatures (age categories, variants) gets a folder of its own.
+    if (perPage.get(path) < 2 && isCreaturePage(path)) return folders.get(bookKey).id;
+    // A page with several creatures (age categories, variants), or any page other than a creature
+    // page (an organization's people, a robot), gets a folder of its own.
     const pageKey = `${bookKey}:${path}`;
     if (!folders.has(pageKey)) folders.set(pageKey, { id: stableId(pageKey), name: readPage(path).title, parent: folders.get(bookKey).id });
     return folders.get(pageKey).id;

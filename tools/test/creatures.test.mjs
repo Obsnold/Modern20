@@ -12,7 +12,7 @@ const featName = Object.fromEntries(buildFeats().documents.map((d) => [`Compendi
 
 test("creatures build with every check passing, one actor per stat block", () => {
   assert.deepEqual(problems, []);
-  assert.equal(actors.length, 304);
+  assert.equal(actors.length, 316);
   assert.ok(actors.every((d) => d.type === "creature" && d.folder));
   assert.equal(byName["Create Crawling Claw"], undefined);   // a spell's stat block on a creature page
 });
@@ -74,4 +74,17 @@ test("each creature is pictured by its type, with art that exists as an icon and
   assert.deepEqual(pictured("Human Zombie"), ["delapouite/shambling-zombie.svg", "delapouite/shambling-zombie.svg"]);
   assert.deepEqual(pictured("Replacement Scientist (Human Smart Ordinary 5/Charismatic Ordinary 2)")[0], "lorc/vintage-robot.svg");
   assert.ok(byName["Police Assault Drone"], "footnote markers come off names");
+});
+
+test("creatures printed outside the creature pages: an FX item's creature, robots, an organization's people", () => {
+  const bot = byName.Arcanobot;
+  assert.equal(bot.flags.modern20.srd, "Arcana/FXItems/WondrousItems.md");
+  assert.equal(bot.system.size, "diminutive");
+  assert.equal(bot.prototypeToken.width, 0.5);
+  assert.match(bot.system.description, /action figures are durable/);   // the item it is printed under
+  assert.equal(byName["APE Police Robot"].system.type.base, "construct");
+  assert.equal(byName["Franz Draco"].system.class, "Male Efreeti Smart Hero 3/Charismatic Hero 4");
+  const octopus = byName.Octopus.system;
+  assert.deepEqual([octopus.cr.value, octopus.hitDice, octopus.hp.value], ["1/6 (1/2 if venomous)", "1/2 d8", 2]);
+  assert.ok(byName["Black Feather"].system.talents.some((t) => t.name === "uncanny dodge" && !t.uuid));
 });
