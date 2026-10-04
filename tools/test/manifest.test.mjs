@@ -34,7 +34,7 @@ test("every document the build writes has a type system.json declares, and a lab
 });
 
 test("files the manifest names exist", () => {
-  for (const f of [...manifest.esmodules, ...manifest.styles, ...manifest.languages.map((l) => l.path), "templates/document-sheet.hbs", "templates/character/header.hbs", "templates/character/main.hbs", "templates/character/skills.hbs", "templates/character/items.hbs", "templates/character/details.hbs"]) {
+  for (const f of [...manifest.esmodules, ...manifest.styles, ...manifest.languages.map((l) => l.path), "templates/document-sheet.hbs", "templates/character/header.hbs", "templates/character/main.hbs", "templates/character/skills.hbs", "templates/character/items.hbs", "templates/character/details.hbs", "templates/character/effects.hbs"]) {
     assert.ok(existsSync(`${ROOT}${f}`), f);
   }
 });

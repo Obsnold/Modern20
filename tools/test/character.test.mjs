@@ -2,7 +2,13 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildClasses } from "../build/classes.mjs";
 import { buildCreatures } from "../build/creatures.mjs";
-import { deriveCharacter, FEAT_BONUSES } from "../../module/rules/character.mjs";
+import { deriveCharacter } from "../../module/rules/character.mjs";
+import { applyEffects, FEAT_EFFECTS } from "../../module/rules/effects.mjs";
+import { buildFeats } from "../build/feats.mjs";
+
+const featDocs = Object.fromEntries(buildFeats().documents.filter((d) => d.type === "feat").map((d) => [d.name, d]));
+/** A character's system data with its feats' effects applied, as Foundry applies them. */
+const withFeats = (system, featNames) => applyEffects({ system }, featNames.flatMap((n) => featDocs[n]?.effects ?? [])).system;
 
 const classes = Object.fromEntries(buildClasses().documents.filter((d) => d.type === "class").map((d) => [d.name, d]));
 const printed = Object.fromEntries(buildCreatures().documents.filter((d) => d.system).map((d) => [d.name, d.system]));
@@ -15,7 +21,7 @@ function build(name, levels) {
     ...c.feats.map((f) => ({ type: "feat", name: f.name, system: {} })),
   ];
   const abilities = Object.fromEntries(Object.entries(c.abilities).map(([a, v]) => [a, { value: v }]));
-  return { d: deriveCharacter({ abilities }, items), c };
+  return { d: deriveCharacter(withFeats({ abilities }, c.feats.map((f) => f.name)), items), c };
 }
 
 test("Dr. Astrid Kolgrim, Smart Hero 4/Field Scientist 7", () => {
@@ -68,15 +74,20 @@ test("Defense, size and armor", () => {
 
 test("hit points: the first level's maximum, then rolls or the average", () => {
   const sh = classes["Strong Hero"].system;
-  const two = (rolls) => deriveCharacter({ abilities: { con: { value: 14 } } }, [{ type: "class", name: "Strong Hero", system: { ...sh, level: 2, hitPoints: rolls } }, { type: "feat", name: "Toughness", system: {} }]);
+  const two = (rolls) => deriveCharacter(withFeats({ abilities: { con: { value: 14 } } }, ["Toughness"]), [{ type: "class", name: "Strong Hero", system: { ...sh, level: 2, hitPoints: rolls } }]);
   assert.deepEqual(two([8, 3]).hitPoints, { max: 8 + 2 + 3 + 2 + 3, estimated: false });
   assert.deepEqual(two([]).hitPoints, { max: 8 + 2 + 5 + 2 + 3, estimated: true });   // d8: 8, then 5
 });
 
-test("every fixed-bonus feat is a feat the pack has", async () => {
-  const { buildFeats } = await import("../build/feats.mjs");
-  const names = new Set(buildFeats().documents.map((d) => d.name));
-  for (const n of Object.keys(FEAT_BONUSES)) assert.ok(names.has(n), n);
+test("every fixed-bonus feat in the pack carries its effect, transferred to its owner", () => {
+  for (const [name, changes] of Object.entries(FEAT_EFFECTS)) {
+    const e = featDocs[name]?.effects;
+    assert.equal(e?.length, 1, name);
+    assert.equal(e[0].transfer, true);
+    assert.deepEqual(e[0].changes.map((c) => [c.key, Number(c.value), c.mode]), changes.map(([k, v]) => [k, v, 2]));
+    assert.ok(e[0]._key.startsWith(`!items.effects!${featDocs[name]._id}.`));
+  }
+  assert.deepEqual(featDocs.Alertness.effects, []);
 });
 
 test("skills: class skills by class and occupation, specialties, totals and the rank cap", () => {

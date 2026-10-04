@@ -1,0 +1,21 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel">
+    <h3>Effects <a data-action="createEffect" data-tooltip="New effect"><i class="fa-solid fa-plus"></i></a></h3>
+    {{#each effects}}
+      <div class="m20-item {{#if disabled}}m20-unusable{{/if}}" data-effect-uuid="{{uuid}}">
+        <img src="{{img}}" alt="" width="28" height="28">
+        <a class="m20-item-name" data-action="editEffect">{{name}}</a>
+        <span class="m20-item-detail">{{changes}}{{#if source}} &middot; from {{source}}{{/if}}</span>
+        <a data-action="toggleEffect" class="{{#unless disabled}}m20-on{{/unless}}" data-tooltip="{{#if disabled}}Off: click to turn on{{else}}On: click to turn off{{/if}}"><i class="fa-solid fa-power-off"></i></a>
+        {{#if own}}<a data-action="deleteEffect" data-tooltip="Delete"><i class="fa-solid fa-trash"></i></a>{{/if}}
+      </div>
+    {{else}}
+      <p class="m20-hint">None. Feats such as Iron Will bring their own; New effect adds one of the character's own.</p>
+    {{/each}}
+  </div>
+  <div class="m20-panel">
+    <h3>What an effect can change</h3>
+    <p class="m20-hint">In an effect's Changes, use one of these keys with the mode Add and a number (negative for a penalty).</p>
+    <ul class="m20-keys">{{#each bonusKeys}}<li><code>{{this}}</code></li>{{/each}}</ul>
+  </div>
+</section>

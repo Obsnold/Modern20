@@ -41,6 +41,7 @@ export function skillCheck(d, row) {
     { label: "Ranks", value: Math.floor(row.ranks) },
     { label: ABILITY_NAMES[row.ability] ?? "Ability", value: ability },
     { label: "Misc", value: row.misc },
+    { label: "Effects", value: row.effects ?? 0 },
     { label: "Armor penalty", value: armor },
   ]);
 }
@@ -81,6 +82,7 @@ export function attack(d, weapon, feats) {
     { label: ABILITY_NAMES[ability], value: d.modifiers[ability] ?? 0 },
     { label: "Size", value: SIZE_ATTACK[d.size] ?? 0 },
     { label: proficient ? "Proficient" : `Not proficient (${needs})`, value: proficient ? 0 : -4 },
+    { label: "Effects", value: d.attackBonus?.[melee ? "melee" : "ranged"] ?? 0 },
   ], { critical: critical(s.critical) });
 }
 
@@ -93,8 +95,10 @@ export function damage(d, weapon) {
   const dice = s.damage?.formula;
   if (!dice) return null;
   const str = s.melee ? d.modifiers.str ?? 0 : 0;
-  const terms = [{ label: "Weapon", value: dice }, ...(str ? [{ label: "Strength", value: str }] : [])];
-  const formula = [dice, ...(str ? [str < 0 ? `- ${-str}` : `+ ${str}`] : [])].join(" ");
+  const fx = d.damageBonus?.[s.melee ? "melee" : "ranged"] ?? 0;
+  const extra = [["Strength", str], ["Effects", fx]].filter(([, v]) => v);
+  const terms = [{ label: "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
+  const formula = [dice, ...extra.map(([, v]) => (v < 0 ? `- ${-v}` : `+ ${v}`))].join(" ");
   return { title: `${weapon.name}: damage (${s.damageType || "untyped"})`, terms, formula, critical: critical(s.critical) };
 }
 

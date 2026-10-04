@@ -270,6 +270,24 @@ export const ACTOR_MODELS = {
     specialtySkills: list(obj({ skill: str({ choices: Object.keys(SKILLS).filter((k) => SKILLS[k].specialties) }), specialty: str(), ranks: num(), misc: int() })),
     /** The skills chosen from the occupation's list, which become class skills. */
     occupationSkills: list(str()),
+    /**
+     * Bonuses from active effects, on the character or carried by its items
+     * (a feat, a piece of gear, a condition). Never typed in: an effect adds to
+     * these (`system.bonuses.saves.will`, mode Add), and the totals include them.
+     */
+    bonuses: obj({
+      abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, int()]))),
+      attack: obj({ melee: int(), ranged: int() }),
+      damage: obj({ melee: int(), ranged: int() }),
+      saves: obj(Object.fromEntries(SAVES.map((k) => [k, int()]))),
+      skills: obj(Object.fromEntries(Object.keys(SKILLS).map((k) => [k, int()]))),
+      allSkills: int(),
+      defense: int(),
+      initiative: int(),
+      hitPoints: int(),
+      reputation: int(),
+      massiveDamage: int(),
+    }),
     details: obj({ allegiances: str(), age: str(), gender: str(), height: str(), weight: str(), biography: html() }),
   },
 

@@ -20,21 +20,6 @@ export const SIZE_MODIFIERS = {
   huge: { defense: -2, grapple: 8 }, gargantuan: { defense: -4, grapple: 12 }, colossal: { defense: -8, grapple: 16 },
 };
 
-/**
- * Feats whose benefit is a fixed bonus, by name, as their pages print it. Feats
- * with conditions or choices (Weapon Focus, Skill Emphasis) are not here: those
- * wait for effects a player can set up.
- */
-export const FEAT_BONUSES = {
-  "Great Fortitude": { fort: 2 },
-  "Iron Will": { will: 2 },
-  "Lightning Reflexes": { ref: 2 },
-  "Improved Initiative": { initiative: 4 },
-  "Renown": { reputation: 3 },
-  "Toughness": { hp: 3 },
-  "Improved Damage Threshold": { massiveDamage: 3 },
-};
-
 /** What a class contributes at a level: its row of the level table. */
 export function classRow(cls, level) {
   const rows = cls.levels ?? [];
@@ -53,11 +38,15 @@ export function deriveCharacter(system, items) {
   const occupation = items.find((i) => i.type === "occupation");
   const armor = items.filter((i) => i.type === "armor" && i.system.equipped);
 
-  // Abilities: the base score, plus the species' adjustment.
+  // Bonuses from active effects (applied by Foundry before this runs; zero without any).
+  const fx = system.bonuses ?? {};
+  const fxv = (path, fallback = 0) => path.split(".").reduce((o, k) => o?.[k], fx) ?? fallback;
+
+  // Abilities: the base score, plus the species' adjustment and any effect.
   const scores = {}, modifiers = {};
   for (const a of ABILITIES) {
     const base = system.abilities?.[a]?.value;
-    scores[a] = base === null || base === undefined ? null : base + (species?.system.abilities?.[a] ?? 0);
+    scores[a] = base === null || base === undefined ? null : base + (species?.system.abilities?.[a] ?? 0) + fxv(`abilities.${a}`);
     modifiers[a] = abilityModifier(scores[a]);
   }
   const mod = (a) => modifiers[a] ?? 0;
@@ -76,12 +65,11 @@ export function deriveCharacter(system, items) {
     reputation += row.reputation;
     breakdown.push({ name: c.name, level: c.system.level });
   }
-  reputation += occupation?.system.reputationBonus ?? 0;
-
-  // Feats with a fixed bonus. Toughness may be taken more than once.
-  const bonus = { fort: 0, ref: 0, will: 0, initiative: 0, reputation: 0, hp: 0, massiveDamage: 0 };
-  for (const f of items.filter((i) => i.type === "feat")) for (const [k, v] of Object.entries(FEAT_BONUSES[f.name] ?? {})) bonus[k] += v;
-  reputation += bonus.reputation;
+  reputation += (occupation?.system.reputationBonus ?? 0) + fxv("reputation");
+  const bonus = {
+    fort: fxv("saves.fort"), ref: fxv("saves.ref"), will: fxv("saves.will"),
+    initiative: fxv("initiative"), hp: fxv("hitPoints"), massiveDamage: fxv("massiveDamage"),
+  };
 
   // Size, from the species (Medium without one).
   const size = species?.system.size || "medium";
@@ -92,7 +80,7 @@ export function deriveCharacter(system, items) {
   const dexToDefense = maxDex.length ? Math.min(mod("dex"), ...maxDex) : mod("dex");
   const equipment = armor.reduce((n, a) => n + (a.system.equipmentBonus ?? 0), 0);
   const natural = species?.system.naturalArmor ?? 0;
-  const misc = system.defense?.misc ?? 0;
+  const misc = (system.defense?.misc ?? 0) + fxv("defense");
   const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + natural + misc;
   const armorPenalty = armor.reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
 
@@ -111,9 +99,10 @@ export function deriveCharacter(system, items) {
     const def = SKILLS[key];
     const ranks = stored?.ranks ?? 0;
     const isClass = isClassSkill(key, specialty);
-    const total = ranks + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + (def.armorPenalty ? armorPenalty : 0);
+    const effects = fxv(`skills.${key}`) + fxv("allSkills");
+    const total = ranks + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
     return {
-      key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0,
+      key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects,
       classSkill: isClass, maxRanks: isClass ? level + 3 : (level + 3) / 2, overMax: ranks > (isClass ? level + 3 : (level + 3) / 2),
       total, usable: !def.trainedOnly || ranks > 0, trainedOnly: def.trainedOnly, armorPenalty: def.armorPenalty,
     };
@@ -150,6 +139,8 @@ export function deriveCharacter(system, items) {
     defense: { value: defense, touch: defense - equipment - natural, flatFooted: defense - Math.max(dexToDefense, 0), class: defenseClass, armorPenalty },
     reputation,
     initiative: mod("dex") + bonus.initiative,
+    attackBonus: { melee: fxv("attack.melee"), ranged: fxv("attack.ranged") },
+    damageBonus: { melee: fxv("damage.melee"), ranged: fxv("damage.ranged") },
     grapple: bab + mod("str") + sizeMods.grapple,
     massiveDamage: scores.con === null ? null : scores.con + bonus.massiveDamage,
     bonusHitPoints: bonus.hp,

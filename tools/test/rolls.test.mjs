@@ -4,14 +4,17 @@ import { buildClasses } from "../build/classes.mjs";
 import { buildEquipment } from "../build/equipment.mjs";
 import { deriveCharacter } from "../../module/rules/character.mjs";
 import * as R from "../../module/rules/rolls.mjs";
+import { applyEffects } from "../../module/rules/effects.mjs";
+import { buildFeats } from "../build/feats.mjs";
 
 const classes = Object.fromEntries(buildClasses().documents.filter((d) => d.type === "class").map((d) => [d.name, d]));
 const gear = Object.fromEntries(buildEquipment().documents.filter((d) => d.system).map((d) => [d.name, d]));
 
-// A Strong Hero 3 with Str 16, Dex 13, Iron Will.
+// A Strong Hero 3 with Str 16, Dex 13, and Iron Will (its effect applied, as Foundry would).
+const ironWill = buildFeats().documents.find((x) => x.name === "Iron Will");
 const d = deriveCharacter(
-  { abilities: { str: { value: 16 }, dex: { value: 13 }, con: { value: 12 }, wis: { value: 10 } }, skills: { climb: { ranks: 6, misc: 0 }, decipherScript: { ranks: 0, misc: 0 } } },
-  [{ type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level: 3 } }, { type: "feat", name: "Iron Will", system: {} }],
+  applyEffects({ system: { abilities: { str: { value: 16 }, dex: { value: 13 }, con: { value: 12 }, wis: { value: 10 } }, skills: { climb: { ranks: 6, misc: 0 }, decipherScript: { ranks: 0, misc: 0 } } } }, ironWill.effects).system,
+  [{ type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level: 3 } }],
 );
 
 test("formulas show each modifier as rolled, and leave out zeros", () => {
@@ -86,4 +89,11 @@ test("critical damage rolls the damage that many times", () => {
   const crit = R.criticalDamage(dmg, 3);
   assert.equal(crit.formula, `(${dmg.formula}) + (${dmg.formula}) + (${dmg.formula})`);
   assert.match(crit.title, /critical \(×3\)$/);
+});
+
+test("effect bonuses reach attacks, damage and skills", () => {
+  const knife = gear.Knife;
+  const buffed = { ...d, attackBonus: { melee: 1, ranged: 0 }, damageBonus: { melee: 2, ranged: 0 } };
+  assert.equal(R.attack(buffed, knife, ["Simple Weapons Proficiency"]).formula, `1d20 + ${d.baseAttackBonus} + 3 + 1`);
+  assert.equal(R.damage(buffed, knife).formula, `${knife.system.damage.formula} + 3 + 2`);
 });

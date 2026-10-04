@@ -7,7 +7,8 @@
  * (rules/character.mjs). Items are added by dragging them from a compendium
  * or the sidebar onto the sheet, which ActorSheetV2 handles.
  */
-import { ABILITIES } from "./data/models.mjs";
+import { ABILITIES, ACTOR_MODELS } from "./data/models.mjs";
+import { initial, obj } from "./data/schema.mjs";
 import { SKILLS } from "./data/skills.mjs";
 import { characterRolls } from "./roll.mjs";
 
@@ -43,6 +44,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       rollSkill: Modern20CharacterSheet.#onRollSkill,
       rollAttack: Modern20CharacterSheet.#onRollAttack,
       rollDamage: Modern20CharacterSheet.#onRollDamage,
+      createEffect: Modern20CharacterSheet.#onCreateEffect,
+      editEffect: Modern20CharacterSheet.#onEditEffect,
+      toggleEffect: Modern20CharacterSheet.#onToggleEffect,
+      deleteEffect: Modern20CharacterSheet.#onDeleteEffect,
     },
   };
 
@@ -54,6 +59,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     feats: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
     gear: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
     magic: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
+    effects: { template: "systems/modern20/templates/character/effects.hbs", scrollable: [""] },
     details: { template: "systems/modern20/templates/character/details.hbs", scrollable: [""] },
   };
 
@@ -65,6 +71,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         { id: "feats", label: "Feats & Talents", icon: "fa-solid fa-star" },
         { id: "gear", label: "Gear", icon: "fa-solid fa-box-open" },
         { id: "magic", label: "Magic & Psionics", icon: "fa-solid fa-wand-sparkles" },
+        { id: "effects", label: "Effects", icon: "fa-solid fa-bolt" },
         { id: "details", label: "Details", icon: "fa-solid fa-book" },
       ],
       initial: "main",
@@ -138,6 +145,13 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       skills,
       specialtyChoices: Object.entries(SKILLS).filter(([, s]) => s.specialties).map(([key, s]) => ({ key, name: s.name, specialties: s.specialties })),
       itemLists,
+      // Every effect acting on the character: its own, and those its items carry to it.
+      effects: [...actor.allApplicableEffects()].map((e) => ({
+        id: e.id, uuid: e.uuid, name: e.name, img: e.img, disabled: e.disabled,
+        source: e.parent === actor ? "" : e.parent?.name ?? "", own: e.parent === actor,
+        changes: e.changes.map((c) => `${c.key.replace(/^system\.bonuses\./, "")} ${Number(c.value) >= 0 ? "+" : ""}${c.value}`).join(", "),
+      })),
+      bonusKeys: bonusKeys(),
       enrichedBiography: await TextEditor.implementation.enrichHTML(system.details.biography, { relativeTo: actor, secrets: actor.isOwner }),
       biographyField: system.schema.fields.details.fields.biography,
     });
@@ -169,6 +183,21 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       await item.update({ "system.level": Math.max(1, Math.min(value ?? 1, item.system.maxLevel || 10)) });
     }
   }
+
+  #effect(target) {
+    return fromUuidSync(target.closest("[data-effect-uuid]")?.dataset.effectUuid);
+  }
+
+  static async #onCreateEffect() {
+    const [effect] = await this.document.createEmbeddedDocuments("ActiveEffect", [{ name: "New effect", img: "icons/svg/aura.svg" }]);
+    effect?.sheet.render(true);
+  }
+  static #onEditEffect(event, target) { this.#effect(target)?.sheet.render(true); }
+  static async #onToggleEffect(event, target) {
+    const e = this.#effect(target);
+    if (e) await e.update({ disabled: !e.disabled });
+  }
+  static async #onDeleteEffect(event, target) { await this.#effect(target)?.deleteDialog(); }
 
   #item(target) {
     return this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
@@ -208,6 +237,19 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+/** The bonus fields an effect can add to, for the Effects tab's reference list. */
+function bonusKeys() {
+  const out = [];
+  const walk = (o, path) => {
+    for (const [k, v] of Object.entries(o)) {
+      if (v && typeof v === "object") walk(v, `${path}.${k}`);
+      else out.push(`${path}.${k}`);
+    }
+  };
+  walk(initial(obj(ACTOR_MODELS.character)).bonuses, "system.bonuses");
+  return out;
 }
 
 /** A line of detail for an item in a list: what a player would want to see without opening it. */
