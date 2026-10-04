@@ -7,7 +7,7 @@
         <tbody>
           {{#each abilities}}
             <tr>
-              <th>{{label}}</th>
+              <th><a data-action="rollAbility" data-ability="{{key}}" data-tooltip="Roll a {{label}} check">{{label}}</a></th>
               <td><input type="number" name="system.abilities.{{key}}.value" value="{{value}}" placeholder="—"></td>
               <td>{{adjustment}}</td>
               <td>{{score}}</td>
@@ -33,7 +33,7 @@
       </dl>
       <h3>Saves</h3>
       <dl class="m20-stats">
-        {{#each saves}}<dt>{{label}}</dt><dd class="m20-strong" data-tooltip="Base {{base}}">{{total}}</dd>{{/each}}
+        {{#each saves}}<dt><a data-action="rollSave" data-save="{{key}}" data-tooltip="Roll a {{label}} save">{{label}}</a></dt><dd class="m20-strong" data-tooltip="Base {{base}}">{{total}}</dd>{{/each}}
       </dl>
     </div>
   </div>

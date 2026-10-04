@@ -13,7 +13,7 @@
           </tr>
         {{else}}
           <tr class="{{#unless usable}}m20-unusable{{/unless}} {{#if overMax}}m20-over{{/if}}">
-            <td class="{{#if specialty}}m20-indent{{/if}}">{{label}}{{#if trainedOnly}}<sup data-tooltip="Trained only">T</sup>{{/if}}{{#if armorPenalty}}<sup data-tooltip="Armor penalty applies">A</sup>{{/if}}</td>
+            <td class="{{#if specialty}}m20-indent{{/if}}"><a data-action="rollSkill" data-skill="{{key}}" data-specialty="{{specialty}}" data-tooltip="Roll a {{label}} check">{{label}}</a>{{#if trainedOnly}}<sup data-tooltip="Trained only">T</sup>{{/if}}{{#if armorPenalty}}<sup data-tooltip="Armor penalty applies">A</sup>{{/if}}</td>
             <td>{{#if classSkill}}<i class="fa-solid fa-check" data-tooltip="Class skill"></i>{{/if}}</td>
             {{#if path}}
               <td><input type="number" step="0.5" min="0" name="{{path}}.ranks" value="{{ranks}}" data-tooltip="Max {{maxRanks}}"></td>

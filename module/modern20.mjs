@@ -10,11 +10,15 @@ import { Modern20ItemSheet } from "./item-sheet.mjs";
 import { Modern20ActorSheet } from "./actor-sheet.mjs";
 import { Modern20CharacterSheet } from "./character-sheet.mjs";
 import { registerModels } from "./data/foundry.mjs";
+import { Modern20Actor } from "./actor.mjs";
 
 export const SYSTEM_ID = "modern20";
 
 Hooks.once("init", () => {
   registerModels();
+  CONFIG.Actor.documentClass = Modern20Actor;
+  // Initiative: 1d20 + Dex and feats for a character, the printed bonus for a creature; ties by the bonus.
+  CONFIG.Combat.initiative = { formula: "1d20 + @init", decimals: 2 };
   const { DocumentSheetConfig } = foundry.applications.apps;
   DocumentSheetConfig.registerSheet(foundry.documents.Item, SYSTEM_ID, Modern20ItemSheet, {
     makeDefault: true,

@@ -7,6 +7,7 @@
           <img src="{{img}}" alt="" width="28" height="28">
           <a class="m20-item-name" data-action="editItem">{{name}}</a>
           <span class="m20-item-detail">{{detail}}</span>
+          {{#if weapon}}<a data-action="rollAttack" data-tooltip="Attack"><i class="fa-solid fa-dice-d20"></i></a><a data-action="rollDamage" data-tooltip="Damage"><i class="fa-solid fa-burst"></i></a>{{/if}}
           {{#if physical}}<a data-action="toggleEquipped" class="{{#if equipped}}m20-on{{/if}}" data-tooltip="{{#if equipped}}Equipped{{else}}Not equipped{{/if}}"><i class="fa-solid fa-shirt"></i></a>{{/if}}
           <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
         </div>

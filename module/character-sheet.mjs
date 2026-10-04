@@ -9,6 +9,7 @@
  */
 import { ABILITIES } from "./data/models.mjs";
 import { SKILLS } from "./data/skills.mjs";
+import { characterRolls } from "./roll.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -37,6 +38,11 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       toggleEquipped: Modern20CharacterSheet.#onToggleEquipped,
       addSpecialty: Modern20CharacterSheet.#onAddSpecialty,
       removeSpecialty: Modern20CharacterSheet.#onRemoveSpecialty,
+      rollAbility: Modern20CharacterSheet.#onRollAbility,
+      rollSave: Modern20CharacterSheet.#onRollSave,
+      rollSkill: Modern20CharacterSheet.#onRollSkill,
+      rollAttack: Modern20CharacterSheet.#onRollAttack,
+      rollDamage: Modern20CharacterSheet.#onRollDamage,
     },
   };
 
@@ -114,7 +120,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
 
     const itemLists = Object.fromEntries(Object.entries(LISTS).map(([tab, groups]) => [tab, groups.map(([type, label]) => ({
       type, label,
-      items: ofType(type).map((i) => ({ id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, detail: detail(i) })),
+      items: ofType(type).map((i) => ({ id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon", detail: detail(i) })),
     }))]));
 
     Object.assign(context, {
@@ -167,6 +173,12 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
   #item(target) {
     return this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
   }
+
+  static #onRollAbility(event, target) { return characterRolls(this.document).ability(target.dataset.ability); }
+  static #onRollSave(event, target) { return characterRolls(this.document).save(target.dataset.save); }
+  static #onRollSkill(event, target) { return characterRolls(this.document).skill(target.dataset.skill, target.dataset.specialty); }
+  static #onRollAttack(event, target) { return characterRolls(this.document).attack(this.#item(target)); }
+  static #onRollDamage(event, target) { return characterRolls(this.document).damage(this.#item(target)); }
 
   static #onEditItem(event, target) {
     this.#item(target)?.sheet.render(true);

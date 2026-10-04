@@ -6,6 +6,15 @@
       <p class="modern20-meta">{{typeLabel}}{{#if source}} · {{{source}}}{{/if}}</p>
     </div>
   </header>
+  {{#if rolls}}
+    <div class="m20-rollbar">
+      {{#each rolls.saves}}<a class="m20-roll-button" data-action="rollSave" data-save="{{key}}">{{label}} {{bonus}}</a>{{/each}}
+      {{#each rolls.abilities}}<a class="m20-roll-button" data-action="rollAbility" data-ability="{{key}}">{{label}} {{score}}</a>{{/each}}
+    </div>
+    {{#if rolls.skills.length}}
+      <div class="m20-rollbar">{{#each rolls.skills}}<a class="m20-roll-button" data-action="rollSkill" data-index="{{index}}">{{label}} {{bonus}}</a>{{/each}}</div>
+    {{/if}}
+  {{/if}}
   {{{table}}}
   {{#each prose}}
     <div class="modern20-prose">
