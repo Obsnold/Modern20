@@ -26,9 +26,37 @@ import { classSkillSections, NOT_IN_SRD as CLASS_NOT_IN_SRD, buildTalents, build
 import { resolveDuplicates } from "./duplicates.mjs";
 
 const CREATURE_PAGES = /^[^/]+\/Creatures\/[^/]+\.md$/;
-const ICON = "systems/modern20/assets/icons/lorc/wolf-head.svg";
-/** The same figure cut as a disc, for the token on the map. */
-const TOKEN = ICON.replace("/assets/icons/", "/assets/tokens/");
+/**
+ * Each creature is pictured by its type, as on main. The token is the same
+ * figure cut as a disc (assets/tokens). A type not listed here stops the build,
+ * so a new one is decided rather than drawn as something else.
+ */
+export const TYPE_ICONS = {
+  aberration: "delapouite/floating-tentacles",
+  animal: "lorc/wolf-head",
+  construct: "lorc/vintage-robot",
+  dragon: "lorc/dragon-head",
+  elemental: "sbed/fire",
+  fey: "lorc/fairy",
+  giant: "delapouite/giant",
+  humanoid: "delapouite/person",
+  "humanoid magical beast": "lorc/beast-eye",
+  "magical beast": "lorc/beast-eye",
+  "monstrous humanoid": "lorc/horned-helm",
+  ooze: "delapouite/slime",
+  outsider: "lorc/daemon-skull",
+  plant: "delapouite/carnivorous-plant",
+  undead: "delapouite/shambling-zombie",
+  vermin: "skoll/long-legged-spider",
+  "": "delapouite/person",   // a partial stat block that does not repeat its type (a werewolf's other forms)
+};
+
+/** Creatures pictured other than by their type: a replacement is a machine wearing a person. */
+export const CREATURE_ICONS = {
+  "Replacement Scientist (Human Smart Ordinary 5/Charismatic Ordinary 2)": "lorc/vintage-robot",
+};
+
+const art = (icon) => ({ img: `systems/modern20/assets/icons/${icon}.svg`, token: `systems/modern20/assets/tokens/${icon}.svg` });
 
 /** A token's width and height in grid squares, by size: the SRD's Space column. */
 export const TOKEN_SQUARES = {
@@ -43,7 +71,7 @@ export const TOKEN_SQUARES = {
 export const TOKEN_TEXTURE = { scaleX: 2, scaleY: 2, anchorX: 0.5, anchorY: 0.25 };
 
 /** A creature's prototype token: sized by the book, its hit points on a bar, and its darkvision. */
-function prototypeToken(name, system) {
+function prototypeToken(name, system, token) {
   const squares = TOKEN_SQUARES[system.size] ?? 1;
   const darkvision = system.specialQualities.map((q) => q.match(/^darkvision ([\d,]+)/i)?.[1]?.replace(/,/g, "")).find(Boolean);
   return {
@@ -51,7 +79,7 @@ function prototypeToken(name, system) {
     disposition: -1,                    // CONST.TOKEN_DISPOSITIONS.HOSTILE
     displayName: 20, displayBars: 20,   // CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
     bar1: { attribute: "hp" },
-    texture: { src: TOKEN, ...TOKEN_TEXTURE },
+    texture: { src: token, ...TOKEN_TEXTURE },
     sight: darkvision ? { enabled: true, range: Number(darkvision), visionMode: "darkvision" } : { enabled: false },
   };
 }
@@ -211,8 +239,11 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
     ]);
     const abilities = Object.fromEntries(["Str", "Dex", "Con", "Int", "Wis", "Cha"].map((k) => [k.toLowerCase(), stats[k] ? number(v(k)) : null]));
 
+    const name = section.title.replace(MARKERS, "").trim();   // "Police Assault Drone¹"
+    const icon = CREATURE_ICONS[name] ?? TYPE_ICONS[(type?.[1] ?? "").toLowerCase()];
+    if (!icon) fail(stats.Type?.line ?? section.line, `no icon for the "${type?.[1]}" type; add it to TYPE_ICONS in tools/build/creatures.mjs`);
     creatures.push({
-      name: section.title, path, book, line: section.line,
+      name, path, book, line: section.line, art: art(icon ?? "delapouite/person"),
       system: {
         cr: { value: v("CR"), number: stats.CR ? challenge(v("CR")) : null },
         size: v("Size").toLowerCase(),
@@ -287,10 +318,10 @@ export function buildCreatures() {
   for (const c of chosen) {
     const id = stableId(`creature:${c.path}:${c.name}`);
     documents.push({
-      _id: id, _key: `!actors!${id}`, name: c.name, type: "creature", img: ICON,
+      _id: id, _key: `!actors!${id}`, name: c.name, type: "creature", img: c.art.img,
       folder: folder(c.book, c.path), sort: 0,
       system: { ...c.system, source: { book: BOOKS[c.book] ?? c.book, page: pageUuid(c.path) } },
-      prototypeToken: prototypeToken(c.name, c.system),
+      prototypeToken: prototypeToken(c.name, c.system, c.art.token),
       items: [], effects: [], ownership: { default: 0 }, flags: { modern20: { srd: c.path } },
     });
   }

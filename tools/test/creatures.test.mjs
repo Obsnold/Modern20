@@ -1,6 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { buildCreatures, splitList } from "../build/creatures.mjs";
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { buildCreatures, splitList, TYPE_ICONS, CREATURE_ICONS } from "../build/creatures.mjs";
 import { buildFeats } from "../build/feats.mjs";
 
 const { documents, problems } = buildCreatures();
@@ -58,4 +60,18 @@ test("tokens are sized by the book and draw their art as main does", () => {
   assert.deepEqual([sizes.tiny, sizes.medium, sizes.large, sizes.huge, sizes.gargantuan, sizes.colossal], [0.5, 1, 2, 3, 4, 6]);
   const seeing = actors.filter((a) => a.prototypeToken.sight.enabled);
   assert.ok(seeing.length > 50 && seeing.every((a) => a.prototypeToken.sight.range >= 5));
+});
+
+test("each creature is pictured by its type, with art that exists as an icon and a token", () => {
+  const ROOT = fileURLToPath(new URL("../../", import.meta.url));
+  for (const icon of [...Object.values(TYPE_ICONS), ...Object.values(CREATURE_ICONS)]) {
+    assert.ok(existsSync(`${ROOT}assets/icons/${icon}.svg`), `icons/${icon}`);
+    assert.ok(existsSync(`${ROOT}assets/tokens/${icon}.svg`), `tokens/${icon}`);
+  }
+  const pictured = (name) => [byName[name].img.split("/icons/")[1], byName[name].prototypeToken.texture.src.split("/tokens/")[1]];
+  assert.deepEqual(pictured("Wolf"), ["lorc/wolf-head.svg", "lorc/wolf-head.svg"]);
+  assert.deepEqual(pictured("Ancient Dragon"), ["lorc/dragon-head.svg", "lorc/dragon-head.svg"]);
+  assert.deepEqual(pictured("Human Zombie"), ["delapouite/shambling-zombie.svg", "delapouite/shambling-zombie.svg"]);
+  assert.deepEqual(pictured("Replacement Scientist (Human Smart Ordinary 5/Charismatic Ordinary 2)")[0], "lorc/vintage-robot.svg");
+  assert.ok(byName["Police Assault Drone"], "footnote markers come off names");
 });
