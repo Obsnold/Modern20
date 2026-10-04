@@ -1,5 +1,5 @@
 <header class="m20-header">
-  <img class="m20-portrait" src="{{actor.img}}" data-edit="img" alt="{{actor.name}}" width="96" height="96">
+  <img class="m20-portrait" src="{{actor.img}}" data-action="editImage" data-edit="img" data-tooltip="Change portrait" alt="{{actor.name}}" width="96" height="96">
   <div class="m20-identity">
     <input class="m20-name" type="text" name="name" value="{{actor.name}}" placeholder="Name">
     <div class="m20-tags">
@@ -9,10 +9,20 @@
     </div>
   </div>
   <div class="m20-vitals">
-    <label>Hit Points
-      <span><input type="number" name="system.hp.value" value="{{system.hp.value}}"> / {{combat.hpMax}}{{#if combat.hpEstimated}}<i class="fa-solid fa-circle-question" data-tooltip="Some levels have no hit point roll yet and count the average"></i>{{/if}}</span>
-    </label>
-    <label>Temp <input type="number" name="system.hp.temp" value="{{system.hp.temp}}"></label>
-    <label>Action Points <input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}"></label>
+    <div class="m20-vital">
+      <span class="m20-vital-label">Hit Points</span>
+      <span class="m20-vital-value">
+        <input type="number" name="system.hp.value" value="{{system.hp.value}}">
+        <span class="m20-vital-max">/ {{combat.hpMax}}{{#if combat.hpEstimated}}<i class="fa-solid fa-circle-question" data-tooltip="Some levels have no hit point roll yet and count the average"></i>{{/if}}</span>
+      </span>
+    </div>
+    <div class="m20-vital">
+      <span class="m20-vital-label">Temp</span>
+      <span class="m20-vital-value"><input type="number" name="system.hp.temp" value="{{system.hp.temp}}"></span>
+    </div>
+    <div class="m20-vital">
+      <span class="m20-vital-label">Action Points</span>
+      <span class="m20-vital-value"><input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}"></span>
+    </div>
   </div>
 </header>

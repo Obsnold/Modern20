@@ -1,8 +1,15 @@
-/* The read-only item sheet. */
-/* The window's content is a flex column that hides overflow, so the sheet's one
-   part fills it and scrolls itself; scrollable: [""] only keeps the position. */
-.modern20.sheet .window-content { padding: 0; }
-.modern20.sheet .modern20-item { flex: 1; min-height: 0; overflow-y: auto; padding: 0.75rem 1rem; }
+/* Scrolling, as main does it. Core styles .application .window-content with
+   overflow: hidden, and a sheet's panels are not direct children of it, so a
+   panel cannot always take the leftover height. The content area scrolls; when
+   a panel does end up a flex child it scrolls itself instead, keeping the header
+   pinned. Only one engages, so there is a single scrollbar either way.
+   .application on the same element outranks the core rule whatever the load order. */
+.application.modern20 .window-content { display: flex; flex-direction: column; overflow-y: auto; padding: 0; }
+.modern20 .window-content > *:not(.tab) { flex: 0 0 auto; }
+.modern20 .window-content .tab { flex: 1 1 auto; min-height: 0; overflow-y: auto; scrollbar-gutter: stable; padding: 0.5rem 0.75rem; }
+
+/* The read-only item and creature sheets. */
+.modern20.sheet .modern20-item { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0.75rem 1rem; }
 .modern20-item .modern20-header { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
 .modern20-item .modern20-header img { border: none; flex: 0 0 64px; object-fit: contain; }
 .modern20-item .modern20-header h1 { margin: 0; border: none; font-size: 1.5rem; }
@@ -18,18 +25,20 @@
 .modern20-item dl.modern20-requirements dd { margin: 0 0 0 1rem; }
 
 /* The character sheet. */
-.modern20.sheet.character .window-content { padding: 0; display: flex; flex-direction: column; }
-.modern20.sheet.character .tab { flex: 1; min-height: 0; overflow-y: auto; padding: 0.5rem 0.75rem; }
-.modern20.sheet.character nav.tabs { flex: 0 0 auto; }
 .modern20 .m20-header { display: flex; gap: 0.75rem; align-items: center; padding: 0.5rem 0.75rem; flex: 0 0 auto; }
 .modern20 .m20-portrait { flex: 0 0 96px; height: 96px; object-fit: cover; border: none; cursor: pointer; }
 .modern20 .m20-identity { flex: 1; display: flex; flex-direction: column; gap: 0.3rem; }
 .modern20 .m20-name { font-size: 1.5rem; height: auto; }
 .modern20 .m20-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .modern20 .m20-tag { border: 1px solid var(--color-border, #999); border-radius: 3px; padding: 0 0.4rem; font-size: 0.85em; }
-.modern20 .m20-vitals { display: flex; flex-direction: column; gap: 0.2rem; min-width: 12rem; }
-.modern20 .m20-vitals label { display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; }
-.modern20 .m20-vitals input, .modern20 .m20-table input[type=number], .modern20 .m20-stats input[type=number] { width: 3.5rem; text-align: center; }
+/* Hit points, temporary hit points and action points, side by side. */
+.modern20 .m20-vitals { display: flex; gap: 0.5rem; }
+.modern20 .m20-vital { display: flex; flex-direction: column; align-items: center; border: 1px solid var(--color-border, #999); border-radius: 4px; padding: 0.25rem 0.5rem; }
+.modern20 .m20-vital-label { font-size: 0.75em; text-transform: uppercase; opacity: 0.8; }
+.modern20 .m20-vital-value { display: flex; align-items: center; gap: 0.25rem; font-size: 1.2em; }
+.modern20 .m20-vital-max { white-space: nowrap; }
+.modern20 .m20-vital input { width: 3.5rem; text-align: center; font-size: 1em; }
+.modern20 .m20-table input[type=number], .modern20 .m20-stats input[type=number] { width: 3.5rem; text-align: center; }
 .modern20 .m20-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .modern20 .m20-panel { margin-bottom: 0.75rem; }
 .modern20 .m20-panel h3 { border-bottom: 1px solid var(--color-border, #999); margin: 0 0 0.3rem; }
