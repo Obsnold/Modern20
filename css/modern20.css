@@ -16,3 +16,46 @@
 .modern20-item table.modern20-levels td:nth-child(6) { text-align: left; }
 .modern20-item dl.modern20-requirements dt { font-weight: 600; margin-top: 0.25rem; }
 .modern20-item dl.modern20-requirements dd { margin: 0 0 0 1rem; }
+
+/* The character sheet. */
+.modern20.sheet.character .window-content { padding: 0; display: flex; flex-direction: column; }
+.modern20.sheet.character .tab { flex: 1; min-height: 0; overflow-y: auto; padding: 0.5rem 0.75rem; }
+.modern20.sheet.character nav.tabs { flex: 0 0 auto; }
+.modern20 .m20-header { display: flex; gap: 0.75rem; align-items: center; padding: 0.5rem 0.75rem; flex: 0 0 auto; }
+.modern20 .m20-portrait { flex: 0 0 96px; height: 96px; object-fit: cover; border: none; cursor: pointer; }
+.modern20 .m20-identity { flex: 1; display: flex; flex-direction: column; gap: 0.3rem; }
+.modern20 .m20-name { font-size: 1.5rem; height: auto; }
+.modern20 .m20-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.modern20 .m20-tag { border: 1px solid var(--color-border, #999); border-radius: 3px; padding: 0 0.4rem; font-size: 0.85em; }
+.modern20 .m20-vitals { display: flex; flex-direction: column; gap: 0.2rem; min-width: 12rem; }
+.modern20 .m20-vitals label { display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; }
+.modern20 .m20-vitals input, .modern20 .m20-table input[type=number], .modern20 .m20-stats input[type=number] { width: 3.5rem; text-align: center; }
+.modern20 .m20-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.modern20 .m20-panel { margin-bottom: 0.75rem; }
+.modern20 .m20-panel h3 { border-bottom: 1px solid var(--color-border, #999); margin: 0 0 0.3rem; }
+.modern20 .m20-table { width: 100%; border-collapse: collapse; }
+.modern20 .m20-table th, .modern20 .m20-table td { padding: 0.1rem 0.3rem; text-align: center; }
+.modern20 .m20-table th:first-child, .modern20 .m20-table td:first-child { text-align: left; }
+.modern20 .m20-stats { display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 0.5rem; margin: 0; }
+.modern20 .m20-stats dt { font-weight: 600; }
+.modern20 .m20-stats dd { margin: 0; text-align: right; }
+.modern20 .m20-details { grid-template-columns: 8rem 1fr; }
+.modern20 .m20-details dd { text-align: left; }
+.modern20 .m20-strong { font-weight: 700; }
+.modern20 .m20-class, .modern20 .m20-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.15rem 0; }
+.modern20 .m20-class img, .modern20 .m20-item img { border: none; flex: 0 0 auto; }
+.modern20 .m20-item-name { flex: 0 0 auto; font-weight: 600; cursor: pointer; }
+.modern20 .m20-item-detail { flex: 1; opacity: 0.75; font-size: 0.9em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.modern20 .m20-class label { display: flex; align-items: center; gap: 0.3rem; }
+.modern20 .m20-class input { width: 3rem; text-align: center; }
+.modern20 .m20-rolls { flex: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem; }
+.modern20 .m20-rolls input { width: 2.5rem; }
+.modern20 .m20-skills .m20-skill-group th { padding-top: 0.4rem; }
+.modern20 .m20-skills .m20-skill-group input { width: 12rem; }
+.modern20 .m20-skills .m20-indent { padding-left: 1.2rem; }
+.modern20 .m20-skills sup { opacity: 0.6; margin-left: 0.15rem; }
+.modern20 .m20-unusable { opacity: 0.5; }
+.modern20 .m20-over input { outline: 2px solid var(--color-level-error, #c33); }
+.modern20 .m20-on { color: var(--color-level-success, #3a3); }
+.modern20 .m20-hint { opacity: 0.7; font-style: italic; }
+.modern20 .m20-biography .editor, .modern20 .m20-biography prose-mirror { min-height: 12rem; }

@@ -8,6 +8,7 @@
  * computes with beside them (a weight of "3 lb." is also `lb: 3`).
  */
 import { str, html, int, num, bool, list, obj } from "./schema.mjs";
+import { SKILLS } from "./skills.mjs";
 
 export const SIZES = ["fine", "diminutive", "tiny", "small", "medium", "large", "huge", "gargantuan", "colossal"];
 export const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
@@ -64,7 +65,7 @@ export const ITEM_MODELS = {
     /** The levels a character has in this class (on a character's copy; 1 in the compendium). */
     level: int({ initial: 1 }),
     /** The hit points rolled for each of those levels, in order; a missing roll counts the average. */
-    hitPoints: list(int()),
+    hitPoints: list(int({ nullable: true })),
     classType: str({ choices: ["basic", "advanced", "prestige"] }),
     ability: str({ choices: ABILITIES }),
     hitDie: int({ nullable: true }),
@@ -263,7 +264,10 @@ export const ACTOR_MODELS = {
     actionPoints: obj({ value: int() }),
     wealth: obj({ value: int() }),
     defense: obj({ misc: int() }),
-    skills: list(obj({ name: str(), specialty: str(), ranks: num(), misc: int() })),
+    /** Ranks in each skill (half ranks for cross-class skills), and any other bonus. */
+    skills: obj(Object.fromEntries(Object.entries(SKILLS).filter(([, s]) => !s.specialties).map(([k]) => [k, obj({ ranks: num(), misc: int() })]))),
+    /** Skills taken with a specialty: Craft (chemical), Knowledge (history), Perform (sing). */
+    specialtySkills: list(obj({ skill: str({ choices: Object.keys(SKILLS).filter((k) => SKILLS[k].specialties) }), specialty: str(), ranks: num(), misc: int() })),
     /** The skills chosen from the occupation's list, which become class skills. */
     occupationSkills: list(str()),
     details: obj({ allegiances: str(), age: str(), gender: str(), height: str(), weight: str(), biography: html() }),

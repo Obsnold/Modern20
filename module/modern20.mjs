@@ -8,6 +8,7 @@
  */
 import { Modern20ItemSheet } from "./item-sheet.mjs";
 import { Modern20ActorSheet } from "./actor-sheet.mjs";
+import { Modern20CharacterSheet } from "./character-sheet.mjs";
 import { registerModels } from "./data/foundry.mjs";
 
 export const SYSTEM_ID = "modern20";
@@ -20,8 +21,14 @@ Hooks.once("init", () => {
     label: "MODERN20.SheetLabel.Item",
   });
   DocumentSheetConfig.registerSheet(foundry.documents.Actor, SYSTEM_ID, Modern20ActorSheet, {
+    types: ["creature"],
     makeDefault: true,
     label: "MODERN20.SheetLabel.Actor",
+  });
+  DocumentSheetConfig.registerSheet(foundry.documents.Actor, SYSTEM_ID, Modern20CharacterSheet, {
+    types: ["character"],
+    makeDefault: true,
+    label: "MODERN20.SheetLabel.Character",
   });
   console.log(`${SYSTEM_ID} | Initialized`);
 });

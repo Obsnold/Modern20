@@ -1,0 +1,18 @@
+<header class="m20-header">
+  <img class="m20-portrait" src="{{actor.img}}" data-edit="img" alt="{{actor.name}}" width="96" height="96">
+  <div class="m20-identity">
+    <input class="m20-name" type="text" name="name" value="{{actor.name}}" placeholder="Name">
+    <div class="m20-tags">
+      <span class="m20-tag">Level {{d.level}}</span>
+      <span class="m20-tag">{{summary}}</span>
+      <span class="m20-tag">{{size}}</span>
+    </div>
+  </div>
+  <div class="m20-vitals">
+    <label>Hit Points
+      <span><input type="number" name="system.hp.value" value="{{system.hp.value}}"> / {{combat.hpMax}}{{#if combat.hpEstimated}}<i class="fa-solid fa-circle-question" data-tooltip="Some levels have no hit point roll yet and count the average"></i>{{/if}}</span>
+    </label>
+    <label>Temp <input type="number" name="system.hp.temp" value="{{system.hp.temp}}"></label>
+    <label>Action Points <input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}"></label>
+  </div>
+</header>

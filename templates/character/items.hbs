@@ -1,0 +1,18 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#each lists}}
+    <div class="m20-panel">
+      <h3>{{label}}</h3>
+      {{#each items}}
+        <div class="m20-item" data-item-id="{{id}}">
+          <img src="{{img}}" alt="" width="28" height="28">
+          <a class="m20-item-name" data-action="editItem">{{name}}</a>
+          <span class="m20-item-detail">{{detail}}</span>
+          {{#if physical}}<a data-action="toggleEquipped" class="{{#if equipped}}m20-on{{/if}}" data-tooltip="{{#if equipped}}Equipped{{else}}Not equipped{{/if}}"><i class="fa-solid fa-shirt"></i></a>{{/if}}
+          <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+        </div>
+      {{else}}
+        <p class="m20-hint">None. Drag from a compendium onto this sheet.</p>
+      {{/each}}
+    </div>
+  {{/each}}
+</section>

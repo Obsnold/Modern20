@@ -78,3 +78,21 @@ test("every fixed-bonus feat is a feat the pack has", async () => {
   const names = new Set(buildFeats().documents.map((d) => d.name));
   for (const n of Object.keys(FEAT_BONUSES)) assert.ok(names.has(n), n);
 });
+
+test("skills: class skills by class and occupation, specialties, totals and the rank cap", () => {
+  const strong = { type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level: 2 } };
+  const d = deriveCharacter({
+    abilities: { str: { value: 14 }, int: { value: 12 }, dex: { value: 10 } },
+    skills: { climb: { ranks: 5, misc: 1 }, hide: { ranks: 2.5, misc: 0 } },
+    specialtySkills: [{ skill: "knowledge", specialty: "tactics", ranks: 3, misc: 0 }, { skill: "knowledge", specialty: "history", ranks: 1, misc: 0 }],
+    occupationSkills: ["Knowledge (history)"],
+  }, [strong, { type: "armor", name: "Vest", system: { equipped: true, equipmentBonus: 2, armorPenalty: -2, maxDex: null } }]);
+  const row = (key, specialty = "") => d.skills.find((s) => s.key === key && s.specialty === specialty);
+  assert.deepEqual([row("climb").classSkill, row("climb").total, row("climb").maxRanks], [true, 5 + 2 + 1 - 2, 5]);   // ranks, Str, misc, armor
+  assert.deepEqual([row("hide").classSkill, row("hide").maxRanks, row("hide").overMax], [false, 2.5, false]);
+  assert.equal(row("knowledge", "tactics").classSkill, true);       // the Strong hero lists Knowledge (tactics)
+  assert.equal(row("knowledge", "history").classSkill, true);       // from the occupation
+  assert.equal(row("decipherScript").usable, false);                // trained only, no ranks
+  assert.equal(row("climb").usable, true);
+  assert.equal(d.skills.filter((s) => s.key === "craft").length, 0); // no Craft specialty taken yet
+});

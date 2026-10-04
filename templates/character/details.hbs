@@ -1,0 +1,15 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel">
+    <dl class="m20-stats m20-details">
+      <dt>Allegiances</dt><dd><input type="text" name="system.details.allegiances" value="{{system.details.allegiances}}"></dd>
+      <dt>Age</dt><dd><input type="text" name="system.details.age" value="{{system.details.age}}"></dd>
+      <dt>Gender</dt><dd><input type="text" name="system.details.gender" value="{{system.details.gender}}"></dd>
+      <dt>Height</dt><dd><input type="text" name="system.details.height" value="{{system.details.height}}"></dd>
+      <dt>Weight</dt><dd><input type="text" name="system.details.weight" value="{{system.details.weight}}"></dd>
+    </dl>
+  </div>
+  <div class="m20-panel m20-biography">
+    <h3>Biography</h3>
+    {{formField biographyField value=system.details.biography enriched=enrichedBiography toggled=true}}
+  </div>
+</section>

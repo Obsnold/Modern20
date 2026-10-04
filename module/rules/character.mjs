@@ -96,19 +96,33 @@ export function deriveCharacter(system, items) {
   const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + natural + misc;
   const armorPenalty = armor.reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
 
-  // Class skills: every class's list, and the skills chosen from the occupation.
+  // Class skills: every class's list, and the skills chosen from the occupation. A specialty skill
+  // ("Knowledge (history)") is a class skill when the class lists it, or lists the skill with no specialty.
   const classSkills = new Set();
-  for (const c of classes) for (const s of c.system.classSkills ?? []) classSkills.add(skillKey(s.name));
-  for (const name of system.occupationSkills ?? []) classSkills.add(skillKey(name));
+  const named = (s) => `${skillKey(s.name)}${s.specialty ? `:${s.specialty}` : ""}`;
+  for (const c of classes) for (const s of c.system.classSkills ?? []) classSkills.add(named(s));
+  for (const name of system.occupationSkills ?? []) {
+    const m = name.match(/^(.+?)(?: \((.+)\))?$/);
+    classSkills.add(named({ name: m[1], specialty: m[2] }));
+  }
+  const isClassSkill = (key, specialty) => classSkills.has(key) || (!!specialty && classSkills.has(`${key}:${specialty}`));
 
-  const skills = (system.skills ?? []).map((s) => {
-    const key = skillKey(s.name);
+  const skillRow = (key, specialty, stored) => {
     const def = SKILLS[key];
-    const isClass = classSkills.has(key);
-    const ability = def?.ability ? mod(def.ability) : 0;
-    const total = (s.ranks ?? 0) + ability + (s.misc ?? 0) + (def?.armorPenalty ? armorPenalty : 0);
-    return { ...s, key, classSkill: isClass, maxRanks: isClass ? level + 3 : (level + 3) / 2, total, usable: !def?.trainedOnly || (s.ranks ?? 0) > 0 };
-  });
+    const ranks = stored?.ranks ?? 0;
+    const isClass = isClassSkill(key, specialty);
+    const total = ranks + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + (def.armorPenalty ? armorPenalty : 0);
+    return {
+      key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0,
+      classSkill: isClass, maxRanks: isClass ? level + 3 : (level + 3) / 2, overMax: ranks > (isClass ? level + 3 : (level + 3) / 2),
+      total, usable: !def.trainedOnly || ranks > 0, trainedOnly: def.trainedOnly, armorPenalty: def.armorPenalty,
+    };
+  };
+  const skills = [];
+  for (const [key, def] of Object.entries(SKILLS)) {
+    if (def.specialties) for (const s of (system.specialtySkills ?? []).filter((x) => x.skill === key)) skills.push(skillRow(key, s.specialty, s));
+    else skills.push(skillRow(key, null, system.skills?.[key]));
+  }
 
   // Hit points: each level's roll on its class's Hit Die, plus the Con modifier (at least 1 a level).
   // The character's first level is the die's maximum; a level with no roll counts the average, rounded up.
