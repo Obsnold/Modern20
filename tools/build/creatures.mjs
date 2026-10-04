@@ -138,6 +138,12 @@ function challenge(value) {
   return m ? (m[2] ? Number(m[1]) / Number(m[2]) : Number(m[1])) : null;
 }
 
+/** A stat block of a creature with character class levels: "Cat Folk Fast Hero 1/Charismatic Hero 2". */
+const CLASSED = /\b(Strong|Fast|Tough|Smart|Dedicated|Charismatic) (Hero|Ordinary)\b|\b(Hero|Ordinary) \d/;
+
+/** Examples that are not built on the creature their page is about: a puppeteer's host is the human it controls. */
+export const NO_BASE = new Set(["Puppeteer Host (Human Charismatic Ordinary 5)"]);
+
 /** Is this section a creature? */
 const isCreature = (section) => section.blocks.some((b) => b.kind === "stats" && REQUIRED.every((k) => k in b.rows));
 
@@ -266,6 +272,8 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
       name, path, book, line: section.line, art: art(icon ?? "delapouite/person"),
       system: {
         class: v("Class"),   // a character's class levels, on the stat blocks of named characters
+        // Filled in once every creature is read: whether this is one of the book's worked examples.
+        example: { classed: CLASSED.test(name) || !!stats.Class || !!labels.Occupation || Object.keys(labels).some((l) => /^Talents \(/.test(l)), base: { name: "", uuid: "" } },
         cr: { value: v("CR"), number: stats.CR ? challenge(v("CR")) : null },
         size: v("Size").toLowerCase(),
         type: { value: v("Type"), base: type?.[1] ?? "", subtypes: type?.[2] ? splitList(type[2]) : [] },
@@ -322,11 +330,22 @@ export function buildCreatures() {
     perPage.set(path, creatures.length);
   }
   const { chosen, problems: dup, skipped } = resolveDuplicates(all, DUPLICATES, "tools/build/creatures.mjs");
+  const idOf = (c) => stableId(`creature:${c.path}:${c.name}`);
 
   // Each creature links to its type, and an example printed on a template's page to that template.
   const uuid = (pack, d) => `Compendium.modern20.${pack}.Item.${d._id}`;
   const types = new Map(buildCreatureTypes().documents.filter((d) => d.type === "creatureType").map((d) => [d.name.toLowerCase(), uuid("creature-types", d)]));
   const templates = new Map(buildTemplates().documents.filter((d) => d.type === "template").map((d) => [d.flags.modern20.srd, uuid("templates", d)]));
+  // An example is a creature with class levels, or one printed on a template's page. On a creature page
+  // it links to the base creature it was built from: the page's only other creature, or the one whose
+  // name it starts with ("Fleshraker Fast Hero 3" is a "Fleshraker (Knife Fiend)").
+  const isExample = (c) => c.system.example.classed || !!templates.get(c.path);
+  for (const c of chosen) {
+    if (!isExample(c) || !isCreaturePage(c.path) || NO_BASE.has(c.name)) continue;
+    const bases = chosen.filter((b) => b.path === c.path && !isExample(b));
+    const base = bases.length === 1 ? bases[0] : bases.find((b) => c.name.startsWith(b.name.replace(/\s*\(.*\)$/, "")));
+    if (base) c.system.example.base = { name: base.name, uuid: `Compendium.modern20.creatures.Actor.${idOf(base)}` };
+  }
   for (const c of chosen) {
     // The type as printed, or the type its wording ends with: the book prints a classed gargoyle as a
     // "humanoid magical beast", and the gargoyle is a magical beast.
@@ -341,27 +360,29 @@ export function buildCreatures() {
   const folder = (book, path) => {
     const bookKey = `creature-folder:${book}`;
     if (!folders.has(bookKey)) folders.set(bookKey, { id: stableId(bookKey), name: BOOKS[book] ?? book, parent: null });
-    if (perPage.get(path) < 2 && isCreaturePage(path)) return folders.get(bookKey).id;
-    // A page with several creatures (age categories, variants), or any page other than a creature
-    // page (an organization's people, a robot), gets a folder of its own.
+    if (perPage.get(path) < 2 && isCreaturePage(path) && !hasExample.has(path)) return folders.get(bookKey).id;
+    // A page with several creatures (age categories, variants, a base creature and its examples), or any
+    // page other than a creature page (an organization's people, a robot), gets a folder of its own,
+    // kept in the order the book prints them: the base creature first.
     const pageKey = `${bookKey}:${path}`;
-    if (!folders.has(pageKey)) folders.set(pageKey, { id: stableId(pageKey), name: readPage(path).title, parent: folders.get(bookKey).id });
+    if (!folders.has(pageKey)) folders.set(pageKey, { id: stableId(pageKey), name: readPage(path).title, parent: folders.get(bookKey).id, sorting: "m" });
     return folders.get(pageKey).id;
   };
 
+  const hasExample = new Set(chosen.filter(isExample).map((c) => c.path));
   const documents = [];
   for (const c of chosen) {
-    const id = stableId(`creature:${c.path}:${c.name}`);
+    const id = idOf(c);
     documents.push({
       _id: id, _key: `!actors!${id}`, name: c.name, type: "creature", img: c.art.img,
-      folder: folder(c.book, c.path), sort: 0,
+      folder: folder(c.book, c.path), sort: c.line,
       system: { ...c.system, source: { book: BOOKS[c.book] ?? c.book, page: pageUuid(c.path) } },
       prototypeToken: prototypeToken(c.name, c.system, c.art.token),
       items: [], effects: [], ownership: { default: 0 }, flags: { modern20: { srd: c.path } },
     });
   }
   for (const f of folders.values()) {
-    documents.push({ _id: f.id, _key: `!folders!${f.id}`, name: f.name, type: "Actor", folder: f.parent, sorting: "a", color: null, flags: {} });
+    documents.push({ _id: f.id, _key: `!folders!${f.id}`, name: f.name, type: "Actor", folder: f.parent, sorting: f.sorting ?? "a", color: null, flags: {} });
   }
   return { documents, problems, skipped };
 }

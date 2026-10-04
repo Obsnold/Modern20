@@ -256,6 +256,8 @@ export const ACTOR_MODELS = {
     size: str({ choices: SIZES }),
     type: obj({ value: str(), base: str(), subtypes: list(str()), uuid: str() }),
     template: str(),
+    /** One of the book's worked examples: a creature with class levels, built on `base`. */
+    example: obj({ classed: bool(), base: namedLink }),
     hitDice: str(),
     hp: obj({ value: int({ nullable: true }), max: int({ nullable: true }) }),
     massiveDamage: int({ nullable: true }),

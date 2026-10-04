@@ -88,3 +88,18 @@ test("creatures printed outside the creature pages: an FX item's creature, robot
   assert.deepEqual([octopus.cr.value, octopus.hitDice, octopus.hp.value], ["1/6 (1/2 if venomous)", "1/2 d8", 2]);
   assert.ok(byName["Black Feather"].system.talents.some((t) => t.name === "uncanny dodge" && !t.uuid));
 });
+
+test("the book's worked examples are marked, link their base, and sit with it in book order", () => {
+  const cat = byName["Cat Folk Fast Hero 1/Charismatic Hero 2"];
+  assert.equal(cat.system.example.classed, true);
+  assert.deepEqual(cat.system.example.base, { name: "Cat Folk", uuid: `Compendium.modern20.creatures.Actor.${byName["Cat Folk"]._id}` });
+  assert.equal(byName["Cat Folk"].system.example.classed, false);
+  assert.equal(cat.folder, byName["Cat Folk"].folder);
+  assert.ok(byName["Cat Folk"].sort < cat.sort, "base first");
+  assert.equal(byName["Fleshraker Fast Hero 3"].system.example.base.name, "Fleshraker (Knife Fiend)");
+  assert.equal(byName["Black Feather"].system.example.base.name, "");
+  assert.equal(byName["Puppeteer Host (Human Charismatic Ordinary 5)"].system.example.base.name, "");      // an organization's person, not a creature's example
+  assert.ok(byName["Human Zombie"].system.template && byName["Human Zombie"].system.example.base.name === "");
+  const examples = actors.filter((a) => a.system.example.classed || a.system.template);
+  assert.equal(examples.length, 58);
+});
