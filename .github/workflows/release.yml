@@ -86,9 +86,17 @@ jobs:
 
           manifest["url"] = base
           # The browser caches stylesheets by address and Foundry imports this one into a CSS layer,
-          # where a reload can keep the old copy. Putting the version in the address makes every
-          # update fetch the stylesheet it ships with.
-          manifest["styles"] = [f"{style}?v={manifest['version']}" for style in manifest.get("styles", [])]
+          # where a reload can keep the old copy. Each stylesheet is copied to a name with the version
+          # in it, so every update is a new address. Not a query string: Foundry checks that the files
+          # a manifest names exist, and a system naming one that does not is not shown at all.
+          import shutil
+          versioned = []
+          for style in manifest.get("styles", []):
+              stem, ext = style.rsplit(".", 1)
+              copy = f"{stem}.{manifest['version']}.{ext}"
+              shutil.copyfile(style, copy)
+              versioned.append(copy)
+          manifest["styles"] = versioned
           manifest["bugs"] = f"{base}/issues"
           manifest["readme"] = f"{base}#readme"
           manifest["changelog"] = f"{base}/releases"
