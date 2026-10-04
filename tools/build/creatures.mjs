@@ -27,6 +27,34 @@ import { resolveDuplicates } from "./duplicates.mjs";
 
 const CREATURE_PAGES = /^[^/]+\/Creatures\/[^/]+\.md$/;
 const ICON = "systems/modern20/assets/icons/lorc/wolf-head.svg";
+/** The same figure cut as a disc, for the token on the map. */
+const TOKEN = ICON.replace("/assets/icons/", "/assets/tokens/");
+
+/** A token's width and height in grid squares, by size: the SRD's Space column. */
+export const TOKEN_SQUARES = {
+  fine: 0.5, diminutive: 0.5, tiny: 0.5, small: 1, medium: 1, large: 2, huge: 3, gargantuan: 4, colossal: 6,
+};
+
+/**
+ * How a token draws its artwork: twice the token, anchored a quarter down, so a
+ * figure stands on its square rather than being contained by it. A drawing that
+ * exactly fills its square reads small on a map. Terry's numbers, from main.
+ */
+export const TOKEN_TEXTURE = { scaleX: 2, scaleY: 2, anchorX: 0.5, anchorY: 0.25 };
+
+/** A creature's prototype token: sized by the book, its hit points on a bar, and its darkvision. */
+function prototypeToken(name, system) {
+  const squares = TOKEN_SQUARES[system.size] ?? 1;
+  const darkvision = system.specialQualities.map((q) => q.match(/^darkvision ([\d,]+)/i)?.[1]?.replace(/,/g, "")).find(Boolean);
+  return {
+    name, width: squares, height: squares,
+    disposition: -1,                    // CONST.TOKEN_DISPOSITIONS.HOSTILE
+    displayName: 20, displayBars: 20,   // CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER
+    bar1: { attribute: "hp" },
+    texture: { src: TOKEN, ...TOKEN_TEXTURE },
+    sight: darkvision ? { enabled: true, range: Number(darkvision), visionMode: "darkvision" } : { enabled: false },
+  };
+}
 
 /** Rows every creature's stat block has; a block without them is not a creature. */
 const REQUIRED = ["Init", "Spd", "Defense", "Atk", "Str", "Dex"];
@@ -44,14 +72,20 @@ export const DUPLICATES = {};
 const SIZES = ["Fine", "Diminutive", "Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Colossal"];
 const MARKERS = /[¹²³⁴⁵⁶⁷⁸⁹]/g;
 
-/** Split on commas outside parentheses: "Survival +1 (+5 when tracking, by scent), Hide +3". */
+/**
+ * Split on commas outside parentheses: "Survival +1 (+5 when tracking, by scent), Hide +3".
+ * A comma between digits is a thousands separator ("darkvision 1,200 ft."), not a break.
+ */
 export function splitList(value) {
   const out = [];
   let depth = 0, cur = "";
-  for (const ch of value.replace(/\.$/, "")) {
+  const text = value.replace(/\.$/, "");
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
     if (ch === "(") depth++;
     if (ch === ")") depth--;
-    if (ch === "," && !depth) { out.push(cur.trim()); cur = ""; } else cur += ch;
+    const thousands = ch === "," && /\d/.test(text[i - 1] ?? "") && /^\d{3}\b/.test(text.slice(i + 1));
+    if (ch === "," && !depth && !thousands) { out.push(cur.trim()); cur = ""; } else cur += ch;
   }
   if (cur.trim()) out.push(cur.trim());
   return out;
@@ -184,7 +218,7 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
         size: v("Size").toLowerCase(),
         type: { value: v("Type"), base: type?.[1] ?? "", subtypes: type?.[2] ? splitList(type[2]) : [] },
         hitDice: v("HD"),
-        hp: n("hp"),
+        hp: { value: n("hp"), max: n("hp") },   // a value and a maximum, so a token bar can show it
         massiveDamage: n("Mas"),
         initiative: n("Init"),
         speed: { value: v("Spd"), ft: Number(v("Spd").match(/(\d+) ft\./)?.[1] ?? NaN) || null },   // "swim 80 ft." too
@@ -256,7 +290,7 @@ export function buildCreatures() {
       _id: id, _key: `!actors!${id}`, name: c.name, type: "creature", img: ICON,
       folder: folder(c.book, c.path), sort: 0,
       system: { ...c.system, source: { book: BOOKS[c.book] ?? c.book, page: pageUuid(c.path) } },
-      prototypeToken: { name: c.name, texture: { src: ICON } },
+      prototypeToken: prototypeToken(c.name, c.system),
       items: [], effects: [], ownership: { default: 0 }, flags: { modern20: { srd: c.path } },
     });
   }
