@@ -37,7 +37,7 @@ export class Modern20ActorSheet extends HandlebarsApplicationMixin(ActorSheetV2)
     return context;
   }
 
-  static #onRollAbility(event, target) { return creatureRolls(this.document).ability(target.dataset.ability); }
-  static #onRollSave(event, target) { return creatureRolls(this.document).save(target.dataset.save); }
-  static #onRollSkill(event, target) { return creatureRolls(this.document).skill(Number(target.dataset.index)); }
+  static #onRollAbility(event, target) { return creatureRolls(this.document).ability(target.dataset.ability, event); }
+  static #onRollSave(event, target) { return creatureRolls(this.document).save(target.dataset.save, event); }
+  static #onRollSkill(event, target) { return creatureRolls(this.document).skill(Number(target.dataset.index), event); }
 }

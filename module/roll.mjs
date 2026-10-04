@@ -1,44 +1,99 @@
 /**
  * Rolling: a roll from rules/rolls.mjs, made in Foundry and posted to chat
  * with its breakdown.
+ *
+ * Before a d20 roll the player is asked for a situational modifier and, on a
+ * character with action points, whether to spend one. Shift-click skips the
+ * question (or asks it, with the "Ask before rolling" setting off). An attack's
+ * card carries buttons for its damage, and on a threat for confirming the
+ * critical and rolling critical damage.
  */
 import { abilityModifier } from "./data/models.mjs";
 import * as R from "./rules/rolls.mjs";
 
+export const SYSTEM_ID = "modern20";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
+const escape = (s) => foundry.utils.escapeHTML(String(s));
 
-/** Post a roll to chat as `actor`; returns the Roll. */
-export async function post(actor, spec) {
+/** Settings for rolling; called from the init hook. */
+export function registerRollSettings() {
+  game.settings.register(SYSTEM_ID, "askBeforeRolling", {
+    name: "Ask before rolling",
+    hint: "Ask for a situational modifier, and whether to spend an action point, before a d20 roll. Shift-click does the opposite.",
+    scope: "client", config: true, type: Boolean, default: true,
+  });
+}
+
+/** Ask for a modifier and an action point; null if the player cancels. */
+async function ask(actor, spec, event) {
+  const wanted = game.settings.get(SYSTEM_ID, "askBeforeRolling") !== !!event?.shiftKey;
+  if (!wanted) return {};
+  const ap = actor.type === "character" ? actor.system.actionPoints.value : 0;
+  const die = R.actionPointDie(actor.system.derived?.level ?? 1);
+  const content = `
+    <div class="form-group"><label>Situational modifier</label><input type="number" name="modifier" value="0" autofocus></div>
+    ${ap > 0 ? `<div class="form-group"><label>Spend an action point (${escape(die.label.replace(/^Action point /, ""))}; ${ap} left)</label><input type="checkbox" name="actionPoint"></div>` : ""}`;
+  const result = await foundry.applications.api.DialogV2.prompt({
+    window: { title: spec.title },
+    content,
+    ok: { label: "Roll", callback: (ev, button) => ({ modifier: button.form.elements.modifier.valueAsNumber || 0, actionPoint: !!button.form.elements.actionPoint?.checked }) },
+    rejectClose: false,
+  });
+  if (!result) return null;
+  return { modifier: result.modifier, actionPoint: result.actionPoint ? die : null };
+}
+
+/**
+ * Post a roll to chat as `actor`; returns the Roll. `flags` are kept on the
+ * message for its buttons (an attack's weapon and critical).
+ */
+export async function post(actor, spec, { flags = {} } = {}) {
   if (!spec) return null;
   if (spec.unusable) { ui.notifications.warn(`${spec.title}: ${spec.unusable}`); return null; }
   const Roll = foundry.dice?.Roll ?? globalThis.Roll;
   const roll = await new Roll(spec.formula).evaluate();
-  const lines = spec.terms.map((t) => `<li>${foundry.utils.escapeHTML(t.label)} <strong>${signed(t.value)}</strong></li>`).join("");
-  let note = "";
+  const lines = spec.terms.map((t) => `<li>${escape(t.label)} <strong>${escape(signed(t.value))}</strong></li>`).join("");
+  let note = "", threat = false;
   if (spec.critical && spec.formula.startsWith("1d20")) {
-    const natural = roll.dice[0]?.total;
-    if (natural >= spec.critical.threat) note = `<p class="m20-crit">Critical threat (×${spec.critical.multiplier}): roll again to confirm.</p>`;
+    threat = (roll.dice[0]?.total ?? 0) >= spec.critical.threat;
+    if (threat) note = `<p class="m20-crit">Critical threat (×${spec.critical.multiplier}).</p>`;
   } else if (spec.critical) {
     note = `<p class="m20-hint">On a confirmed critical: ×${spec.critical.multiplier}.</p>`;
   }
-  const flavor = `<div class="m20-roll"><h3>${foundry.utils.escapeHTML(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}</div>`;
-  await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor });
+  const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}</div>`;
+  await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor, flags: { [SYSTEM_ID]: { ...flags, threat, critical: spec.critical, formula: spec.formula } } });
   return roll;
 }
 
-/** Every roll a character's sheet offers, by name. */
+/** Ask, spend the action point if one was chosen, and post. */
+async function rollD20(actor, spec, event, flags) {
+  if (!spec || spec.unusable) return post(actor, spec);
+  const added = await ask(actor, spec, event);
+  if (!added) return null;
+  if (added.actionPoint) {
+    const left = actor.system.actionPoints.value;
+    if (left < 1) { ui.notifications.warn(`${actor.name} has no action points left.`); return null; }
+    await actor.update({ "system.actionPoints.value": left - 1 });
+  }
+  // A critical is confirmed with the attack's own modifiers, the situational one included, but not an
+  // action point's die: a point spent on a roll applies to that roll alone.
+  const confirm = flags?.attack ? R.withAdditions(spec, { modifier: added.modifier }).formula : undefined;
+  return post(actor, R.withAdditions(spec, added), { flags: flags ? { ...flags, confirm } : {} });
+}
+
+/** Every roll a character's sheet offers, by name. Pass the click event so shift works. */
 export function characterRolls(actor) {
   const d = actor.system.derived;
   const feats = actor.items.filter((i) => i.type === "feat").map((i) => i.name);
   return {
-    ability: (key) => post(actor, R.abilityCheck(d, key)),
-    save: (key) => post(actor, R.savingThrow(d, key)),
-    skill: (key, specialty) => post(actor, R.skillCheck(d, d.skills.find((s) => s.key === key && s.specialty === (specialty ?? "")))),
-    attack: (item) => post(actor, R.attack(d, item, feats)),
-    damage: (item) => {
+    ability: (key, event) => rollD20(actor, R.abilityCheck(d, key), event),
+    save: (key, event) => rollD20(actor, R.savingThrow(d, key), event),
+    skill: (key, specialty, event) => rollD20(actor, R.skillCheck(d, d.skills.find((s) => s.key === key && s.specialty === (specialty ?? ""))), event),
+    attack: (item, event) => rollD20(actor, R.attack(d, item, feats), event, { attack: { actor: actor.uuid, item: item.id } }),
+    damage: (item, { multiplier = 1 } = {}) => {
       const spec = R.damage(d, item);
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
-      return post(actor, spec);
+      return post(actor, multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec);
     },
   };
 }
@@ -47,11 +102,11 @@ export function characterRolls(actor) {
 export function creatureRolls(actor) {
   const s = actor.system;
   return {
-    ability: (key) => post(actor, R.printed(`${key.toUpperCase()} check`, abilityModifier(s.abilities[key]))),
-    save: (key) => post(actor, R.printed(`${{ fort: "Fortitude", ref: "Reflex", will: "Will" }[key]} save`, s.saves[key])),
-    skill: (index) => {
+    ability: (key, event) => rollD20(actor, R.printed(`${key.toUpperCase()} check`, abilityModifier(s.abilities[key])), event),
+    save: (key, event) => rollD20(actor, R.printed(`${{ fort: "Fortitude", ref: "Reflex", will: "Will" }[key]} save`, s.saves[key]), event),
+    skill: (index, event) => {
       const k = s.skills[index];
-      return post(actor, R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus));
+      return rollD20(actor, R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus), event);
     },
   };
 }
@@ -60,4 +115,32 @@ export function creatureRolls(actor) {
 export function initiativeBonus(actor) {
   if (actor.type === "character") return actor.system.derived?.initiative ?? 0;
   return actor.system.initiative ?? 0;
+}
+
+/**
+ * Buttons on an attack's chat card: Damage always; on a threat, Confirm
+ * (the same attack again) and Critical damage. Bound on renderChatMessageHTML,
+ * which since v13 passes an HTMLElement.
+ */
+export function bindAttackButtons(message, html) {
+  const flags = message.getFlag(SYSTEM_ID, "attack") && message.flags[SYSTEM_ID];
+  if (!flags) return;
+  const actor = fromUuidSync(flags.attack.actor);
+  const item = actor?.items?.get(flags.attack.item);
+  if (!actor || !item) return;
+  const buttons = document.createElement("div");
+  buttons.className = "m20-card-buttons";
+  const add = (label, handler) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = label;
+    b.addEventListener("click", handler);
+    buttons.append(b);
+  };
+  add("Damage", () => characterRolls(actor).damage(item));
+  if (flags.threat && flags.critical) {
+    add("Confirm critical", () => post(actor, { title: `${item.name}: confirming the critical`, terms: [], formula: flags.confirm ?? flags.formula }));
+    add(`Critical damage (×${flags.critical.multiplier})`, () => characterRolls(actor).damage(item, { multiplier: flags.critical.multiplier }));
+  }
+  (html.querySelector(".message-content") ?? html).append(buttons);
 }

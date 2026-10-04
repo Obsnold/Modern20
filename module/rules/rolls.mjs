@@ -103,3 +103,41 @@ export function damage(d, weapon) {
  * Creatures carry totals, not their parts, so the breakdown is the total.
  */
 export const printed = (title, bonus) => d20(title, [{ label: "Bonus", value: bonus ?? 0 }]);
+
+/**
+ * The die an action point adds to a d20 roll, by character level: 1d6 at 1st
+ * to 7th, the higher of 2d6 at 8th to 14th, the highest of 3d6 at 15th to 20th.
+ */
+export function actionPointDie(level) {
+  if (level >= 15) return { formula: "3d6kh", label: "Action point (highest of 3d6)" };
+  if (level >= 8) return { formula: "2d6kh", label: "Action point (higher of 2d6)" };
+  return { formula: "1d6", label: "Action point (1d6)" };
+}
+
+/**
+ * A roll with what the player added when asked: a situational modifier, and
+ * an action point's die. The die joins the formula; the breakdown names both.
+ */
+export function withAdditions(spec, { modifier = 0, actionPoint = null } = {}) {
+  if (!spec || spec.unusable) return spec;
+  let { formula, terms } = spec;
+  if (modifier) {
+    formula += modifier < 0 ? ` - ${-modifier}` : ` + ${modifier}`;
+    terms = [...terms, { label: "Situational", value: modifier }];
+  }
+  if (actionPoint) {
+    formula += ` + ${actionPoint.formula}`;
+    terms = [...terms, { label: actionPoint.label, value: actionPoint.formula }];
+  }
+  return { ...spec, formula, terms };
+}
+
+/**
+ * Damage on a confirmed critical: the damage rolled that many times and added
+ * up, dice and bonuses alike, as the SRD multiplies it.
+ */
+export function criticalDamage(spec, multiplier) {
+  if (!spec) return null;
+  const formula = Array.from({ length: multiplier }, () => `(${spec.formula})`).join(" + ");
+  return { ...spec, title: `${spec.title}: critical (×${multiplier})`, formula, critical: null };
+}

@@ -78,3 +78,5 @@
 .m20-roll ul { margin: 0; padding-left: 1rem; font-size: 0.85em; }
 .m20-roll .m20-crit { font-weight: 700; color: var(--color-level-warning, #c80); margin: 0.2rem 0 0; }
 .m20-roll .m20-hint { opacity: 0.75; margin: 0.2rem 0 0; font-size: 0.85em; }
+.m20-card-buttons { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem; }
+.m20-card-buttons button { flex: 1 1 auto; line-height: 1.6; }

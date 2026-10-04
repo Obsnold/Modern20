@@ -64,3 +64,26 @@ test("every weapon in the pack can be turned into an attack, and damage where it
     if (dmg) assert.match(dmg.formula, /^\d+d\d+( [+-] \d+)?$/, w.name);
   }
 });
+
+test("an action point's die by character level", () => {
+  assert.equal(R.actionPointDie(1).formula, "1d6");
+  assert.equal(R.actionPointDie(7).formula, "1d6");
+  assert.equal(R.actionPointDie(8).formula, "2d6kh");
+  assert.equal(R.actionPointDie(14).formula, "2d6kh");
+  assert.equal(R.actionPointDie(15).formula, "3d6kh");
+});
+
+test("a situational modifier and an action point join the roll and its breakdown", () => {
+  const climb = R.skillCheck(d, d.skills.find((s) => s.key === "climb"));
+  const r = R.withAdditions(climb, { modifier: -2, actionPoint: R.actionPointDie(3) });
+  assert.equal(r.formula, "1d20 + 6 + 3 - 2 + 1d6");
+  assert.deepEqual(r.terms.slice(-2), [{ label: "Situational", value: -2 }, { label: "Action point (1d6)", value: "1d6" }]);
+  assert.equal(R.withAdditions(climb, {}).formula, climb.formula);
+});
+
+test("critical damage rolls the damage that many times", () => {
+  const dmg = R.damage(d, gear.Knife);
+  const crit = R.criticalDamage(dmg, 3);
+  assert.equal(crit.formula, `(${dmg.formula}) + (${dmg.formula}) + (${dmg.formula})`);
+  assert.match(crit.title, /critical \(×3\)$/);
+});

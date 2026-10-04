@@ -174,10 +174,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     return this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
   }
 
-  static #onRollAbility(event, target) { return characterRolls(this.document).ability(target.dataset.ability); }
-  static #onRollSave(event, target) { return characterRolls(this.document).save(target.dataset.save); }
-  static #onRollSkill(event, target) { return characterRolls(this.document).skill(target.dataset.skill, target.dataset.specialty); }
-  static #onRollAttack(event, target) { return characterRolls(this.document).attack(this.#item(target)); }
+  static #onRollAbility(event, target) { return characterRolls(this.document).ability(target.dataset.ability, event); }
+  static #onRollSave(event, target) { return characterRolls(this.document).save(target.dataset.save, event); }
+  static #onRollSkill(event, target) { return characterRolls(this.document).skill(target.dataset.skill, target.dataset.specialty, event); }
+  static #onRollAttack(event, target) { return characterRolls(this.document).attack(this.#item(target), event); }
   static #onRollDamage(event, target) { return characterRolls(this.document).damage(this.#item(target)); }
 
   static #onEditItem(event, target) {
