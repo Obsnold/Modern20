@@ -8,7 +8,7 @@ globalThis.foundry = {
   utils: { escapeHTML: (s) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`) },
   applications: { api: { HandlebarsApplicationMixin: (c) => c }, sheets: { ItemSheetV2: Base }, ux: { TextEditor: {} } },
 };
-const { rows, levelTable, requirementsList } = await import("../../module/item-sheet.mjs");
+const { rows, levelTable, requirementsList, sizeTable } = await import("../../module/item-sheet.mjs");
 
 const items = Object.entries(PACKS).filter(([p]) => p !== "rules").flatMap(([, b]) => b().documents).filter((d) => d.system);
 const byName = (n) => items.find((d) => d.name === n);
@@ -51,4 +51,13 @@ test("a creature's table shows its stats, skills with bonuses, and linked feats"
   assert.equal(wolf["Special Qualities"], "scent, trip, low-light vision");
   assert.equal(wolf.Skills, "Hide +3, Listen +6, Move Silently +4, Spot +4, Survival +1 (+5 when tracking by scent)");
   assert.match(table("Troll Tough Hero 7").Talents, /@UUID\[Compendium\.modern20\.talents\.Item\.\w+\]\{Acid Resistance \[Acid resistance 7\]\}/);
+});
+
+test("a creature type's size table and a template's fields render", () => {
+  const undead = byName("Undead").system;
+  assert.equal(table("Undead").Traits, undefined);   // shown as prose with their text
+  assert.match(sizeTable(undead.sizes), /<th>Minimum Hit Dice<\/th>/);
+  const zombie = table("Zombie");
+  assert.equal(zombie.Type, "undead");
+  assert.equal(zombie["Abilities: Changes: Str"], "2");
 });

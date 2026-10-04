@@ -96,6 +96,16 @@
         "htmlFields": [
           "description"
         ]
+      },
+      "creatureType": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "template": {
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   },
@@ -219,6 +229,28 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "creature-types",
+      "label": "Creature Types",
+      "path": "packs/creature-types",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "templates",
+      "label": "Templates",
+      "path": "packs/templates",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "packFolders": [
@@ -260,7 +292,9 @@
           "name": "Creatures",
           "sorting": "m",
           "packs": [
-            "creatures"
+            "creatures",
+            "creature-types",
+            "templates"
           ]
         }
       ]

@@ -24,6 +24,7 @@ import { featLookup } from "./feats.mjs";
 import { skillAbilities } from "./occupations.mjs";
 import { classSkillSections, NOT_IN_SRD as CLASS_NOT_IN_SRD, buildTalents, buildClasses } from "./classes.mjs";
 import { resolveDuplicates } from "./duplicates.mjs";
+import { buildCreatureTypes, buildTemplates } from "./creature-rules.mjs";
 
 const CREATURE_PAGES = /^[^/]+\/Creatures\/[^/]+\.md$/;
 /**
@@ -321,6 +322,19 @@ export function buildCreatures() {
     perPage.set(path, creatures.length);
   }
   const { chosen, problems: dup, skipped } = resolveDuplicates(all, DUPLICATES, "tools/build/creatures.mjs");
+
+  // Each creature links to its type, and an example printed on a template's page to that template.
+  const uuid = (pack, d) => `Compendium.modern20.${pack}.Item.${d._id}`;
+  const types = new Map(buildCreatureTypes().documents.filter((d) => d.type === "creatureType").map((d) => [d.name.toLowerCase(), uuid("creature-types", d)]));
+  const templates = new Map(buildTemplates().documents.filter((d) => d.type === "template").map((d) => [d.flags.modern20.srd, uuid("templates", d)]));
+  for (const c of chosen) {
+    // The type as printed, or the type its wording ends with: the book prints a classed gargoyle as a
+    // "humanoid magical beast", and the gargoyle is a magical beast.
+    const base = c.system.type.base.toLowerCase();
+    const named = types.get(base) ?? [...types.keys()].filter((t) => base.endsWith(` ${t}`)).sort((a, b) => b.length - a.length).map((t) => types.get(t))[0];
+    c.system.type.uuid = named ?? "";
+    c.system.template = templates.get(c.path) ?? "";
+  }
   problems.push(...dup);
 
   const folders = new Map();

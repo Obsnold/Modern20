@@ -7,6 +7,7 @@ import { buildSpecies } from "./species.mjs";
 import { buildEquipment } from "./equipment.mjs";
 import { buildClasses, buildTalents } from "./classes.mjs";
 import { buildCreatures } from "./creatures.mjs";
+import { buildCreatureTypes, buildTemplates } from "./creature-rules.mjs";
 
 export const PACKS = {
   rules: buildJournal,
@@ -20,4 +21,6 @@ export const PACKS = {
   species: buildSpecies,
   equipment: buildEquipment,
   creatures: buildCreatures,
+  "creature-types": buildCreatureTypes,
+  templates: buildTemplates,
 };

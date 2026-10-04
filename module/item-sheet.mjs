@@ -45,8 +45,9 @@ export function rows(system, prefix = "") {
     if (value === null || value === undefined || value === "" || value === false) continue;
     if (prefix && value === 0) continue;
     if (Array.isArray(value)) {
-      // A species' special qualities are shown as prose with their text; a creature's are names.
-      if (!value.length || (!prefix && key === "specialQualities" && value[0]?.description)) continue;
+      // Named entries with text of their own (a species' special qualities, a type's or template's
+      // traits) are shown as prose; a creature's special qualities are only names.
+      if (!value.length || (!prefix && value[0]?.description)) continue;
       out.push({ label: name, html: value.map((v) => (isEntry(v) ? entry(v) : typeof v === "object" ? "" : escape(v))).filter(Boolean).join(", ") });
     } else if (isEntry(value)) out.push({ label: name, html: entry(value) });
     else if (typeof value === "object") out.push(...rows(value, name));
@@ -73,6 +74,14 @@ export function requirementsList(requirements) {
   }).join("")}</dl>`;
 }
 
+/** A creature type's table of ability scores, minimum Hit Dice and natural weapon damage by size. */
+export function sizeTable(sizes) {
+  const cols = ["size", "str", "dex", "con", "minimumHitDice", "extraHitPoints", "slam", "bite", "claw", "gore"].filter((c) => sizes.some((s) => s[c]));
+  const head = cols.map((c) => `<th>${escape(label(c))}</th>`).join("");
+  const body = sizes.map((s) => `<tr>${cols.map((c) => `<td>${escape(c === "size" ? label(s[c]) : s[c])}</td>`).join("")}</tr>`).join("");
+  return `<table class="modern20-levels"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+}
+
 const ordinal = (n) => `${n}${["th", "st", "nd", "rd"][(n % 100 - 20) % 10] ?? ["th", "st", "nd", "rd"][n % 100] ?? "th"}`;
 
 /** What the read-only template shows for any document: header, field table and rules text. */
@@ -83,8 +92,10 @@ export async function describe(doc) {
   const table = rows(system).map((r) => `<tr><th>${escape(r.label)}</th><td>${r.html}</td></tr>`).join("");
   const prose = [];
   for (const key of PROSE) if (system[key]) prose.push({ title: key === "description" ? "" : label(key), html: await enrich(system[key]) });
-  // Species keep each special quality's text with its name.
-  for (const q of system.specialQualities ?? []) if (q?.description) prose.push({ title: q.name, html: await enrich(q.description) });
+  // Species, creature types and templates keep each trait's text with its name.
+  for (const q of [...(system.specialQualities ?? []), ...(system.traits ?? [])]) if (q?.description) prose.push({ title: q.name, html: await enrich(q.description) });
+  // A creature type's ability scores, minimum Hit Dice and natural weapons by size.
+  if (system.sizes?.length) prose.push({ title: "By Size", html: sizeTable(system.sizes) });
   // Classes: requirements, the level table, then each feature and talent tree.
   if (system.requirements?.length) prose.push({ title: "Requirements", html: await enrich(requirementsList(system.requirements)) });
   if (system.levels?.[0]?.baseAttackBonus) prose.push({ title: "Class Table", html: levelTable(system.levels) });
