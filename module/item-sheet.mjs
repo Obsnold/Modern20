@@ -86,7 +86,9 @@ const ordinal = (n) => `${n}${["th", "st", "nd", "rd"][(n % 100 - 20) % 10] ?? [
 
 /** What the read-only template shows for any document: header, field table and rules text. */
 export async function describe(doc) {
-  const system = doc.system ?? {};
+  // The stored fields, as plain data; a creature's ability modifiers are worked out, not stored.
+  const system = doc.system?.toObject?.() ?? doc.system ?? {};
+  if (doc.system?.modifiers) system.modifiers = doc.system.modifiers;
   const enrich = (html) => TextEditor.implementation.enrichHTML(html, { relativeTo: doc, secrets: doc.isOwner });
   const source = system.source?.page ? `@UUID[${system.source.page}]{${escape(system.source.book ?? "Source")}}` : escape(system.source?.book ?? "");
   const table = rows(system).map((r) => `<tr><th>${escape(r.label)}</th><td>${r.html}</td></tr>`).join("");
