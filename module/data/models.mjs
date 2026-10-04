@@ -43,6 +43,8 @@ const physical = {
   weight: printed({ lb: num({ nullable: true }) }),
   purchaseDC: printed({ dc: int({ nullable: true }) }),
   restriction: obj({ value: str(), level: str({ choices: ["lic", "res", "mil", "illegal"] }), modifier: int() }),
+  /** Worn or wielded, on a character: equipped armor counts toward Defense. */
+  equipped: bool(),
 };
 
 const spellLike = {
@@ -59,6 +61,10 @@ const spellLike = {
 
 export const ITEM_MODELS = {
   class: {
+    /** The levels a character has in this class (on a character's copy; 1 in the compendium). */
+    level: int({ initial: 1 }),
+    /** The hit points rolled for each of those levels, in order; a missing roll counts the average. */
+    hitPoints: list(int()),
     classType: str({ choices: ["basic", "advanced", "prestige"] }),
     ability: str({ choices: ABILITIES }),
     hitDie: int({ nullable: true }),
@@ -250,6 +256,19 @@ export const ITEM_MODELS = {
 // Actors
 
 export const ACTOR_MODELS = {
+  /** A hero or ordinary: everything else is worked out from the items it owns (rules/character.mjs). */
+  character: {
+    abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }) })]))),
+    hp: obj({ value: int(), temp: int() }),
+    actionPoints: obj({ value: int() }),
+    wealth: obj({ value: int() }),
+    defense: obj({ misc: int() }),
+    skills: list(obj({ name: str(), specialty: str(), ranks: num(), misc: int() })),
+    /** The skills chosen from the occupation's list, which become class skills. */
+    occupationSkills: list(str()),
+    details: obj({ allegiances: str(), age: str(), gender: str(), height: str(), weight: str(), biography: html() }),
+  },
+
   creature: {
     class: str(),
     cr: printed({ number: num({ nullable: true }) }),

@@ -4,6 +4,7 @@
  */
 import { toSchema } from "./schema.mjs";
 import { ITEM_MODELS, ACTOR_MODELS, ABILITIES, abilityModifier } from "./models.mjs";
+import { deriveCharacter } from "../rules/character.mjs";
 
 /** A TypeDataModel class whose schema is `fields`. */
 function model(name, fields) {
@@ -24,10 +25,23 @@ class CreatureData extends model("CreatureData", ACTOR_MODELS.creature) {
   }
 }
 
+/**
+ * A character: abilities, hit points and skill ranks stored; everything else
+ * (level, BAB, saves, Defense, skill totals) worked out from the items it owns,
+ * each time it is prepared.
+ */
+class CharacterData extends model("CharacterData", ACTOR_MODELS.character) {
+  prepareDerivedData() {
+    const items = this.parent?.items?.map((i) => ({ type: i.type, name: i.name, system: i.system })) ?? [];
+    this.derived = deriveCharacter(this, items);
+  }
+}
+
 /** Register every model with Foundry; called from the init hook. */
 export function registerModels() {
   for (const [type, fields] of Object.entries(ITEM_MODELS)) {
     CONFIG.Item.dataModels[type] = model(`${type[0].toUpperCase()}${type.slice(1)}Data`, fields);
   }
   CONFIG.Actor.dataModels.creature = CreatureData;
+  CONFIG.Actor.dataModels.character = CharacterData;
 }

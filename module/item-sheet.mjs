@@ -89,6 +89,8 @@ export async function describe(doc) {
   // The stored fields, as plain data; a creature's ability modifiers are worked out, not stored.
   const system = doc.system?.toObject?.() ?? doc.system ?? {};
   if (doc.system?.modifiers) system.modifiers = doc.system.modifiers;
+  // A character's level, BAB, saves, Defense and skill totals, worked out from its items.
+  if (doc.system?.derived) system.derived = doc.system.derived;
   const enrich = (html) => TextEditor.implementation.enrichHTML(html, { relativeTo: doc, secrets: doc.isOwner });
   const source = system.source?.page ? `@UUID[${system.source.page}]{${escape(system.source.book ?? "Source")}}` : escape(system.source?.book ?? "");
   const table = rows(system).map((r) => `<tr><th>${escape(r.label)}</th><td>${r.html}</td></tr>`).join("");

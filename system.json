@@ -27,6 +27,11 @@
   ],
   "documentTypes": {
     "Actor": {
+      "character": {
+        "htmlFields": [
+          "details.biography"
+        ]
+      },
       "creature": {
         "htmlFields": [
           "description"
