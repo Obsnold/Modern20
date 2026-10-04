@@ -14,7 +14,9 @@ export const SKILLS = {
   concentration: { name: "Concentration", ability: "con", trainedOnly: false, armorPenalty: false },
   craft: {
     name: "Craft", ability: "int", trainedOnly: false, armorPenalty: false,
-    specialties: ["chemical", "electronic", "mechanical", "pharmaceutical", "structural", "visual art", "writing"],
+    // "electrical" is d20 Future's: its classes, feats, starships, mecha and robots print Craft (electrical)
+    // throughout, beside d20 Modern's Craft (electronic).
+    specialties: ["chemical", "electrical", "electronic", "mechanical", "pharmaceutical", "structural", "visual art", "writing"],
   },
   decipherScript: { name: "Decipher Script", ability: "int", trainedOnly: true, armorPenalty: false },
   demolitions: { name: "Demolitions", ability: "int", trainedOnly: true, armorPenalty: false },

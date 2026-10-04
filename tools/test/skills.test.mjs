@@ -5,6 +5,7 @@ import { SKILLS, skillKey } from "../../module/data/skills.mjs";
 import { classSkillSections } from "../build/classes.mjs";
 import { buildClasses } from "../build/classes.mjs";
 import { buildOccupations } from "../build/occupations.mjs";
+import { buildCreatures } from "../build/creatures.mjs";
 
 test("every skill matches its skill page: key ability, trained only, armor penalty", () => {
   const pages = listPages().filter((p) => /^Modern\/Skills\/[A-Z]/.test(p));
@@ -33,4 +34,18 @@ test("every skill a class or occupation names is a skill", () => {
   const named = [...buildClasses().documents, ...buildOccupations().documents].filter((d) => d.system)
     .flatMap((d) => [...(d.system.classSkills ?? []), ...(d.system.skills?.options ?? [])]);
   for (const s of named) assert.ok(skillKey(s.name), s.name);
+});
+
+test("every specialty a class, occupation or creature names is one the skill lists", () => {
+  const docs = [...buildClasses().documents, ...buildOccupations().documents, ...buildCreatures().documents].filter((d) => d.system);
+  const unknown = new Set();
+  for (const d of docs) {
+    for (const s of [...(d.system.classSkills ?? []), ...(d.system.skills?.options ?? []), ...(d._key.startsWith("!actors!") ? d.system.skills : [])]) {
+      const def = SKILLS[skillKey(s.name)];
+      // "(any one)", "(select one)" and the like leave the choice to the player.
+      if (!s.specialty || !def?.specialties || /\b(any|select|choose|one|see)\b/i.test(s.specialty)) continue;
+      if (!def.specialties.includes(s.specialty)) unknown.add(`${d.name}: ${s.name} (${s.specialty})`);
+    }
+  }
+  assert.deepEqual([...unknown], []);
 });
