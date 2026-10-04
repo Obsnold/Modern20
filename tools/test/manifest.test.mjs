@@ -38,3 +38,19 @@ test("files the manifest names exist", () => {
     assert.ok(existsSync(`${ROOT}${f}`), f);
   }
 });
+
+test("every sheet part's template renders a single element, as ApplicationV2 requires", async () => {
+  const { readdirSync } = await import("node:fs");
+  const VOID = new Set(["img", "input", "br", "hr", "meta", "link", "source"]);
+  const templates = ["templates/document-sheet.hbs", ...readdirSync(`${ROOT}templates/character`).map((f) => `templates/character/${f}`)];
+  for (const t of templates) {
+    const html = readFileSync(`${ROOT}${t}`, "utf8").replace(/\{\{!--[\s\S]*?--\}\}/g, "").replace(/\{\{[\s\S]*?\}\}/g, "");
+    let depth = 0, roots = 0;
+    for (const [, close, tag, self] of html.matchAll(/<(\/?)([a-zA-Z][\w-]*)[^>]*?(\/?)>/g)) {
+      if (VOID.has(tag.toLowerCase()) || self) { if (!depth) roots++; continue; }
+      if (close) depth--; else { if (!depth) roots++; depth++; }
+    }
+    assert.equal(roots, 1, `${t} has ${roots} top-level elements`);
+    assert.equal(depth, 0, `${t} has unclosed tags`);
+  }
+});

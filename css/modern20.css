@@ -25,19 +25,20 @@
 .modern20-item dl.modern20-requirements dd { margin: 0 0 0 1rem; }
 
 /* The character sheet. */
+.modern20 .m20-top { flex: 0 0 auto; }
 .modern20 .m20-header { display: flex; gap: 0.75rem; align-items: center; padding: 0.5rem 0.75rem; flex: 0 0 auto; }
 .modern20 .m20-portrait { flex: 0 0 96px; height: 96px; object-fit: cover; border: none; cursor: pointer; }
 .modern20 .m20-identity { flex: 1; display: flex; flex-direction: column; gap: 0.3rem; }
 .modern20 .m20-name { font-size: 1.5rem; height: auto; }
 .modern20 .m20-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .modern20 .m20-tag { border: 1px solid var(--color-border, #999); border-radius: 3px; padding: 0 0.4rem; font-size: 0.85em; }
-/* Hit points, temporary hit points and action points, side by side. */
-.modern20 .m20-vitals { display: flex; gap: 0.5rem; }
-.modern20 .m20-vital { display: flex; flex-direction: column; align-items: center; border: 1px solid var(--color-border, #999); border-radius: 4px; padding: 0.25rem 0.5rem; }
-.modern20 .m20-vital-label { font-size: 0.75em; text-transform: uppercase; opacity: 0.8; }
-.modern20 .m20-vital-value { display: flex; align-items: center; gap: 0.25rem; font-size: 1.2em; }
-.modern20 .m20-vital-max { white-space: nowrap; }
-.modern20 .m20-vital input { width: 3.5rem; text-align: center; font-size: 1em; }
+/* Current, maximum and temporary hit points and action points: a row of four
+   equal boxes under the name. .application outranks core header and label styles. */
+.application.modern20 .m20-vitals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; padding: 0 0.75rem 0.5rem; flex: 0 0 auto; }
+.application.modern20 .m20-vital { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.15rem; border: 1px solid var(--color-border, #999); border-radius: 4px; padding: 0.3rem; margin: 0; }
+.application.modern20 .m20-vital-label { font-size: 0.75em; text-transform: uppercase; opacity: 0.8; white-space: nowrap; }
+.application.modern20 .m20-vital input { width: 4rem; text-align: center; font-size: 1.2em; height: auto; }
+.application.modern20 .m20-vital-number { font-size: 1.4em; font-weight: 700; line-height: 1.6; }
 .modern20 .m20-table input[type=number], .modern20 .m20-stats input[type=number] { width: 3.5rem; text-align: center; }
 .modern20 .m20-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .modern20 .m20-panel { margin-bottom: 0.75rem; }
