@@ -29,19 +29,21 @@ SOFTWARE.
 
 ## Artwork
 
-The icons in `assets/icons/` are from [game-icons.net](https://game-icons.net)
-and are licensed **CC BY 3.0** (a few are CC0). They are recoloured to this
-system's palette and given a background tile; the artwork is otherwise
-unchanged. Every author is credited in
-[assets/icons/CREDITS.md](assets/icons/CREDITS.md), which
-`tools/fetch_art.py` generates from what it fetched, so the attribution
-cannot fall out of step with the files.
+The icons in `assets/icons/`, and the token discs cut from them in
+`assets/tokens/`, are from [game-icons.net](https://game-icons.net) and are
+licensed under [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/)
+(CC BY 3.0); a few are CC0. They are recoloured to this system's palette and
+given a background tile, or cut as discs; the artwork is otherwise unchanged.
+Every artist is credited in [assets/icons/CREDITS.md](assets/icons/CREDITS.md),
+and a test checks that every icon and token is listed there.
 
 ## Game content
 
 Rules text and compendium content derived from the d20 Modern System Reference
-Document — the contents of `data/`, `src/packs/`, and the compiled packs — is
-Open Game Content, distributed under the Open Game License v1.0a. See
+Document — the markdown SRD in the `srd/` submodule (from
+[D20ModernSRD](https://github.com/Obsnold/D20ModernSRD)), and the compendium
+packs built from it in `packs/` — is Open Game Content, distributed under the
+Open Game License v1.0a. See
 [OPEN_GAME_LICENSE.md](OPEN_GAME_LICENSE.md) for the license and the full
 Section 15 copyright chain.
 

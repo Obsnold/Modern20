@@ -1,14 +1,19 @@
 # Icon credits
 
 The 163 icons in this directory are from [game-icons.net](https://game-icons.net),
-licensed **CC BY 3.0** (a few are CC0 — see the upstream
-[licence](https://game-icons.net/about.html)).
+by the artists named below, and are licensed under
+[Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/)
+(CC BY 3.0); a few are [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+See game-icons.net's [licence page](https://game-icons.net/about.html#license).
 
-They are recoloured to this system's palette and given a background
-tile; the artwork is otherwise unchanged. The ones an actor can be
-pictured by are cut a second time, as discs, in `../tokens`. Fetched from
-[game-icons/icons](https://github.com/game-icons/icons) at commit `82d948812bfe`
-by `scripts/fetch_art.py`, which also generates this file.
+**Changes:** each icon is recoloured to this system's palette and set on a
+square background tile; the artwork is otherwise unchanged. The icons an actor
+can be pictured by are also cut as discs, scaled to fill a grid square, in
+[`../tokens`](../tokens), and are credited here under the same names.
+
+The files were fetched from [game-icons/icons](https://github.com/game-icons/icons)
+at commit `82d948812bfe`. `tools/test/credits.test.mjs` checks that every icon
+and token in `assets/` is listed below, and that everything listed exists.
 
 ## By author
 
