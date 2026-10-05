@@ -34,6 +34,8 @@ class CharacterData extends model("CharacterData", ACTOR_MODELS.character) {
   prepareDerivedData() {
     const items = this.parent?.items?.map((i) => ({ type: i.type, name: i.name, system: i.system })) ?? [];
     this.derived = deriveCharacter(this, items);
+    // Not stored: the maximum beside the current value, so a token bar on "hp" has both.
+    this.hp.max = this.derived.hitPoints.max;
   }
 }
 
