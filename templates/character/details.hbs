@@ -8,6 +8,32 @@
       <dt>Weight</dt><dd><input type="text" name="system.details.weight" value="{{system.details.weight}}"></dd>
     </dl>
   </div>
+  <div class="m20-panel">
+    <h3>Languages
+      <a data-action="addLanguage" data-tooltip="Add a language"><i class="fa-solid fa-plus"></i></a>
+      {{#if languages.species}}<a class="m20-roll-button" data-action="addSpeciesLanguages" data-tooltip="{{languages.species.free}}">Add {{languages.species.name}} languages</a>{{/if}}
+    </h3>
+    <p class="m20-hint">Your native language is known without ranks. Each other language costs a rank: Speak Language to speak it, Read/Write Language to read and write it.</p>
+    <p class="{{#if languages.ranks.speak.over}}m20-warning{{else}}m20-hint{{/if}}">Bought with ranks: speak {{languages.ranks.speak.have}} of {{languages.ranks.speak.ranks}}, read/write {{languages.ranks.readWrite.have}} of {{languages.ranks.readWrite.ranks}}{{#if languages.ranks.readWrite.over}} <span class="m20-warning">(more read/write than ranks)</span>{{/if}}.</p>
+    {{#if languages.species.other}}<p class="m20-hint">{{languages.species.name}} may also learn: {{languages.species.other}}.</p>{{/if}}
+    {{#if languages.occupation}}<p class="m20-hint">{{languages.occupation}}</p>{{/if}}
+    <table class="m20-table m20-languages">
+      <thead><tr><th>Language</th><th>Speak</th><th>Read/Write</th><th>From</th><th></th></tr></thead>
+      <tbody>
+        {{#each languages.list}}
+          <tr>
+            <td><input type="text" value="{{name}}" placeholder="Name it" data-language="{{index}}" data-field="name"></td>
+            <td><input type="checkbox" {{#if speak}}checked{{/if}} data-language="{{index}}" data-field="speak"></td>
+            <td><input type="checkbox" {{#if readWrite}}checked{{/if}} data-language="{{index}}" data-field="readWrite"></td>
+            <td><select data-language="{{index}}" data-field="source">{{#each sources}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></td>
+            <td><a data-action="removeLanguage" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a></td>
+          </tr>
+        {{else}}
+          <tr><td colspan="5" class="m20-hint">None yet. Add your native language.</td></tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
   <div class="m20-panel m20-biography">
     <h3>Biography</h3>
     {{formField biographyField value=system.details.biography enriched=enrichedBiography toggled=true}}

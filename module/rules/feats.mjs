@@ -25,6 +25,7 @@
  *                      either), `attack` bonus, `threat`, critical `multiplier` (rules/unarmed.mjs)
  *   streetfighting     extra damage once a round with an unarmed strike or light weapon
  *   speed              feet added to base speed
+ *   wealth             added to a starting Wealth bonus (Windfall's +3)
  */
 export const FEAT_RULES = {
   "great-fortitude": { effects: [["system.bonuses.saves.fort", 2]] },
@@ -32,6 +33,7 @@ export const FEAT_RULES = {
   "lightning-reflexes": { effects: [["system.bonuses.saves.ref", 2]] },
   "improved-initiative": { effects: [["system.bonuses.initiative", 4]] },
   "renown": { effects: [["system.bonuses.reputation", 3]] },
+  "windfall": { wealth: 3, effects: [["system.bonuses.skills.profession", 1]] },
   "toughness": { effects: [["system.bonuses.hitPoints", 3]] },
   "improved-damage-threshold": { effects: [["system.bonuses.massiveDamage", 3]] },
 

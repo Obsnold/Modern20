@@ -4,7 +4,8 @@
  * to the character. The rules are rules/wealth.mjs.
  */
 import * as W from "./rules/wealth.mjs";
-import { wealthCheck } from "./roll.mjs";
+import { wealthCheck, characterRolls } from "./roll.mjs";
+import { identify } from "./rules/identify.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
 async function rollFormula(formula) {
@@ -60,5 +61,41 @@ export async function sell(actor, item) {
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
     content: `<div class="m20-roll"><h3>Sold ${escape(item.name)} (sale value ${s.value})</h3><p>Wealth +${wealth} → +${after}${gain ? "" : ": too cheap to make a difference"}.</p></div>`,
+  });
+}
+
+/** Roll a new character's starting Wealth bonus, and set it. Asks first, as it replaces the current one. */
+export async function rollStartingWealth(actor) {
+  const occupation = actor.items.find((i) => i.type === "occupation");
+  const windfall = actor.items.some((i) => i.type === "feat" && identify(i) === "windfall");
+  const professionRanks = Math.floor(actor.system.skills.profession?.ranks ?? 0);
+  const w = W.startingWealth({ occupation: occupation?.system.wealthBonus ?? 0, windfall, professionRanks });
+  const ok = await foundry.applications.api.DialogV2.confirm({
+    window: { title: "Starting Wealth" },
+    content: `<p>Roll ${escape(w.parts.map(([l, v]) => (l === v ? v : `${l} ${v}`)).join(" + "))} for ${escape(actor.name)}'s starting Wealth bonus? It replaces the current +${actor.system.wealth.value ?? 0}.</p>`,
+  });
+  if (!ok) return;
+  const Roll = foundry.dice?.Roll ?? globalThis.Roll;
+  const roll = await new Roll(w.formula).evaluate();
+  await actor.update({ "system.wealth.value": roll.total, "system.wealth.regainedLevel": Math.max(1, actor.system.derived?.level ?? 1) });
+  await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor: `<div class="m20-roll"><h3>Starting Wealth</h3><ul>${w.parts.map(([l, v]) => `<li>${escape(l)} <strong>${escape(v)}</strong></li>`).join("")}</ul><p>${escape(W.financialCondition(roll.total))}.</p></div>` });
+}
+
+/**
+ * Regaining Wealth for a new level: a Profession check (a Wisdom check without ranks) against
+ * the current Wealth bonus: +1, and +1 for every 5 over. One check for each level gained.
+ */
+export async function regainWealth(actor, event) {
+  const wealth = actor.system.wealth.value ?? 0;
+  const ranks = actor.system.skills.profession?.ranks ?? 0;
+  const rolls = characterRolls(actor);
+  const roll = ranks > 0 ? await rolls.skill("profession", "", event) : await rolls.ability("wis", event);
+  if (!roll) return;
+  const gain = W.regained(roll.total, wealth);
+  const level = (actor.system.wealth.regainedLevel || 1) + 1;
+  await actor.update({ "system.wealth.value": wealth + gain, "system.wealth.regainedLevel": level });
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content: `<div class="m20-roll"><h3>Wealth for level ${level}</h3><p>${roll.total} against DC ${wealth}: ${gain ? `Wealth +${wealth} → +${wealth + gain}` : "no gain"}.</p></div>`,
   });
 }

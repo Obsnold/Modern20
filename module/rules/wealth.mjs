@@ -47,3 +47,17 @@ export function financialCondition(wealth) {
   if (wealth <= 30) return "Rich";
   return "Very rich";
 }
+
+/**
+ * A 1st-level character's starting Wealth bonus: 2d4, plus the occupation's Wealth bonus,
+ * Windfall's +3, and +1 for 1 to 4 ranks in Profession. Returns the formula and its parts.
+ */
+export function startingWealth({ occupation = 0, windfall = false, professionRanks = 0 } = {}) {
+  const parts = [
+    ["2d4", "2d4"],
+    occupation ? ["Occupation", occupation] : null,
+    windfall ? ["Windfall", 3] : null,
+    professionRanks >= 1 && professionRanks <= 4 ? ["Profession ranks", 1] : null,
+  ].filter(Boolean);
+  return { formula: parts.map(([, v]) => v).join(" + "), parts };
+}

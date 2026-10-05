@@ -47,7 +47,10 @@
         <dt>Size</dt><dd><select name="system.size" data-tooltip="Empty: the species' size, or Medium"><option value="">—</option>{{#each sizes}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></dd>
         <dt>Natural armor</dt><dd><input type="number" name="system.naturalArmor" value="{{system.naturalArmor}}" data-tooltip="Added to any the species gives"></dd>
         <dt>Defense (misc)</dt><dd><input type="number" name="system.defense.misc" value="{{system.defense.misc}}"></dd>
-        <dt><a data-action="wealthCheck" data-tooltip="Buy something: a Wealth check against its purchase DC">Wealth</a></dt><dd><input type="number" name="system.wealth.value" value="{{system.wealth.value}}" data-tooltip="{{wealthCondition}}"></dd>
+        <dt><a data-action="wealthCheck" data-tooltip="Buy something: a Wealth check against its purchase DC">Wealth</a></dt><dd class="m20-wealth"><input type="number" name="system.wealth.value" value="{{system.wealth.value}}" data-tooltip="{{wealthCondition}}">
+          <a data-action="startingWealth" data-tooltip="Roll starting Wealth: 2d4 + occupation + Windfall + 1 for Profession ranks"><i class="fa-solid fa-dice"></i></a>
+          {{#if wealthDue}}<a class="m20-roll-button" data-action="regainWealth" data-tooltip="A Profession check (Wisdom without ranks) against your Wealth bonus: +1, and +1 per 5 over">Wealth for level {{wealthDue}}</a>{{/if}}
+        </dd>
       </dl>
       <h3>Saves</h3>
       <dl class="m20-stats">

@@ -324,7 +324,10 @@ export const ACTOR_MODELS = {
     slotsUsed: list(obj({ class: str(), level: int(), used: int() })),
     /** The ability each +1 at 4th, 8th, 12th ... level went to, in order. */
     abilityIncreases: list(str({ choices: ABILITIES })),
-    wealth: obj({ value: int() }),
+    /** The Wealth bonus, and the character level Wealth was last regained for (a Profession check each new level). */
+    wealth: obj({ value: int(), regainedLevel: int() }),
+    /** Languages known: spoken, read and written, and where each came from (rules/languages.mjs). */
+    languages: list(obj({ name: str(), speak: bool(), readWrite: bool(), source: str({ choices: ["native", "species", "occupation", "ranks"] }) })),
     defense: obj({ misc: int() }),
     /**
      * Ranks in each skill (half ranks for cross-class skills), any other bonus, and `classSkill` for a

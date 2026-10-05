@@ -17,7 +17,8 @@ import { identify } from "../rules/identify.mjs";
 import { restHealing } from "../rules/damage.mjs";
 import { financialCondition } from "../rules/wealth.mjs";
 import { applyToActor, rollSave } from "../damage.mjs";
-import { buy, sell } from "../wealth.mjs";
+import { buy, sell, rollStartingWealth, regainWealth } from "../wealth.mjs";
+import { speciesLanguages, languageRanks, SOURCES } from "../rules/languages.mjs";
 import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
 import { ammoFor, reloadWeapon } from "../ammo.mjs";
 import { magazineOf, fits } from "../rules/ammo.mjs";
@@ -73,6 +74,11 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       wealthCheck: Modern20CharacterSheet.#onWealthCheck,
       reload: Modern20CharacterSheet.#onReload,
       toggleGrant: Modern20CharacterSheet.#onToggleGrant,
+      startingWealth: Modern20CharacterSheet.#onStartingWealth,
+      regainWealth: Modern20CharacterSheet.#onRegainWealth,
+      addLanguage: Modern20CharacterSheet.#onAddLanguage,
+      addSpeciesLanguages: Modern20CharacterSheet.#onAddSpeciesLanguages,
+      removeLanguage: Modern20CharacterSheet.#onRemoveLanguage,
       belowZeroSave: Modern20CharacterSheet.#onBelowZeroSave,
       rollUnarmed: Modern20CharacterSheet.#onRollUnarmed,
       rollGrab: Modern20CharacterSheet.#onRollGrab,
@@ -239,6 +245,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         })),
       },
       wealthCondition: financialCondition(system.wealth.value ?? 0),
+      // One Profession check to regain Wealth for each level gained since it was last made.
+      wealthDue: (d.level ?? 0) > Math.max(1, system.wealth.regainedLevel || 1) ? (system.wealth.regainedLevel || 1) + 1 : null,
+      languages: languagesContext(actor),
       belowZero: belowZero(actor),
       magic: magicContext(actor, ofType),
       featGrants: grantsContext(actor),
@@ -254,6 +263,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     super._onRender(context, options);
     for (const input of this.element.querySelectorAll("[data-item-field]")) {
       input.addEventListener("change", (event) => this.#updateItemField(event));
+    }
+    for (const input of this.element.querySelectorAll("[data-language]")) {
+      input.addEventListener("change", (event) => this.#updateLanguage(event));
     }
     for (const select of this.element.querySelectorAll("[data-increase]")) {
       select.addEventListener("change", (event) => this.#updateIncrease(event));
@@ -297,6 +309,45 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       await item.update({ "system.level": Math.max(1, Math.min(value ?? 1, item.system.maxLevel || 10)) });
     }
   }
+
+  /** A field of one language: its name, whether it is spoken or read and written, where it came from. */
+  async #updateLanguage(event) {
+    event.stopPropagation();
+    const input = event.currentTarget;
+    const list = this.document.system.toObject().languages;
+    const lang = list[Number(input.dataset.language)];
+    if (!lang) return;
+    const field = input.dataset.field;
+    lang[field] = input.type === "checkbox" ? input.checked : input.value.trim();
+    await this.document.update({ "system.languages": list });
+  }
+
+  static async #onAddLanguage() {
+    const list = this.document.system.toObject().languages;
+    // A character's first language is its native one, known without ranks.
+    list.push({ name: "", speak: true, readWrite: true, source: list.length ? "ranks" : "native" });
+    await this.document.update({ "system.languages": list });
+  }
+
+  /** Add the languages the species gives, merged with those already known. */
+  static async #onAddSpeciesLanguages() {
+    const species = this.document.items.find((i) => i.type === "species");
+    if (!species) return;
+    const list = this.document.system.toObject().languages;
+    for (const l of speciesLanguages(species.system.languages.free)) {
+      const known = l.name && list.find((x) => x.name.toLowerCase() === l.name.toLowerCase());
+      if (known) { known.speak ||= l.speak; known.readWrite ||= l.readWrite; } else list.push(l);
+    }
+    await this.document.update({ "system.languages": list });
+  }
+
+  static async #onRemoveLanguage(event, target) {
+    const list = this.document.system.toObject().languages.filter((_, i) => i !== Number(target.dataset.index));
+    await this.document.update({ "system.languages": list });
+  }
+
+  static async #onStartingWealth() { await rollStartingWealth(this.document); }
+  static async #onRegainWealth(event) { await regainWealth(this.document, event); }
 
   /** One of the ability increases: which ability it went to, or (none chosen) removed from the list's end. */
   async #updateIncrease(event) {
@@ -453,6 +504,21 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+/** The Details tab's languages: each one's fields, and those bought against the language skills' ranks. */
+function languagesContext(actor) {
+  const s = actor.system;
+  const rank = (key) => s.skills[key]?.ranks ?? 0;
+  const ranks = languageRanks(s.languages, { speakRanks: rank("speakLanguage"), readWriteRanks: rank("readWriteLanguage") });
+  const species = actor.items.find((i) => i.type === "species");
+  const occupation = actor.items.find((i) => i.type === "occupation");
+  return {
+    list: s.languages.map((l, index) => ({ ...l, index, sources: SOURCES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1), selected: v === l.source })) })),
+    ranks,
+    species: species ? { name: species.name, free: species.system.languages.free.join(", "), other: species.system.languages.other.join(", ") } : null,
+    occupation: occupation?.system.skills.languages ? `${occupation.name}: ${occupation.system.skills.languages}` : "",
+  };
 }
 
 /**

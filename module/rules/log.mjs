@@ -50,7 +50,7 @@ export function fieldLabel(path) {
   if ((m = p.match(/^details\.(\w+)$/))) return m[1][0].toUpperCase() + m[1].slice(1);
   const named = {
     name: "Name", img: "Portrait", "hp.value": "Current HP", "hp.temp": "Temp HP", "hp.max": "Max HP",
-    "actionPoints.value": "Action points", "powerPoints.value": "Power points", "powerPoints.freeUsed": "Free 0-level powers used", slotsUsed: "Spell slots used", "wealth.value": "Wealth", "defense.misc": "Defense (misc)",
+    "actionPoints.value": "Action points", "powerPoints.value": "Power points", "powerPoints.freeUsed": "Free 0-level powers used", slotsUsed: "Spell slots used", "wealth.value": "Wealth", "wealth.regainedLevel": "Wealth regained for level", languages: "Languages", "defense.misc": "Defense (misc)",
     specialtySkills: "Specialty skills", level: "level", hitPoints: "hit point rolls", equipped: "equipped",
     quantity: "quantity", count: "Hit Dice", prepared: "prepared", cast: "cast", "progress.successes": "successes", "progress.failures": "failures in a row", choice: "choice", chosenSkills: "occupation skills", "prototypeToken.name": "Token name",
   };

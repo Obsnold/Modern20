@@ -142,3 +142,8 @@
 .modern20 .m20-grant { margin-bottom: 0.4rem; }
 .modern20 .m20-grant p { margin: 0.1rem 0; }
 .modern20 .m20-grant label { display: inline-flex; align-items: center; gap: 0.2rem; margin-right: 0.8rem; }
+.modern20 .m20-wealth { display: flex; align-items: center; gap: 0.3rem; }
+.modern20 .m20-wealth a { cursor: pointer; }
+.modern20 .m20-languages input[type="text"] { width: 100%; }
+.modern20 .m20-languages td { text-align: center; }
+.modern20 .m20-languages td:first-child { text-align: left; }
