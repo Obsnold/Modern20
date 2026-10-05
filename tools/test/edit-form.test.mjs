@@ -72,3 +72,20 @@ test("a list's rows edited by index keep the fields the form does not show", asy
   ]);
   assert.deepEqual(mergeIndexed(list, { 5: { ranks: 1 } }), list);
 });
+
+test("numbers from the character sheet: an emptied box, a fraction in a whole number, a nullable score", async () => {
+  const { castNumbers } = await import("../../module/sheets/edit-form.mjs");
+  const spec = obj(ACTOR_MODELS.character);
+  const out = castNumbers(spec, {
+    hp: { value: null, temp: 2.6 }, wealth: { value: null }, baseSpeed: null,
+    abilities: { str: { value: null } }, skills: { hide: { ranks: 2.5, misc: null } },
+    specialtySkills: { 0: { ranks: 1.5, misc: null } }, details: { age: "30" },
+  });
+  assert.deepEqual(out.hp, { value: 0, temp: 3 });
+  assert.equal(out.wealth.value, 0);
+  assert.equal(out.baseSpeed, null);
+  assert.equal(out.abilities.str.value, null);
+  assert.deepEqual(out.skills.hide, { ranks: 2.5, misc: 0 });
+  assert.deepEqual(out.specialtySkills, { 0: { ranks: 1.5, misc: 0 } });
+  assert.equal(out.details.age, "30");
+});

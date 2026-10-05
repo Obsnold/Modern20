@@ -135,3 +135,23 @@ export function mergeIndexed(list, form) {
   if (!form || Array.isArray(form)) return form ?? list;
   return list.map((entry, i) => (form[i] && typeof form[i] === "object" ? { ...entry, ...form[i] } : entry));
 }
+
+/**
+ * Numbers from a form as their fields take them: an emptied box 0 (or null, where the field
+ * allows none), and a whole-number field rounded. Only the fields present are touched; a list
+ * sent as its rows (`{ 0: {...} }`) or as an array is gone through row by row.
+ */
+export function castNumbers(spec, value) {
+  if (value === undefined) return value;
+  if (spec.kind === "number") return cast(spec, value, null);
+  if (spec.kind === "object" && value && typeof value === "object" && !Array.isArray(value)) {
+    const out = { ...value };
+    for (const [k, s] of Object.entries(spec.fields)) if (k in out) out[k] = castNumbers(s, out[k]);
+    return out;
+  }
+  if (spec.kind === "array" && value && typeof value === "object") {
+    if (Array.isArray(value)) return value.map((v) => castNumbers(spec.of, v));
+    return Object.fromEntries(Object.entries(value).map(([i, v]) => [i, castNumbers(spec.of, v)]));
+  }
+  return value;
+}

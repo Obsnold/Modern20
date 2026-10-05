@@ -9,7 +9,7 @@
  */
 import { ABILITIES, ACTOR_MODELS, SIZES } from "../data/models.mjs";
 import { initial, obj } from "../data/schema.mjs";
-import { mergeIndexed } from "./edit-form.mjs";
+import { mergeIndexed, castNumbers } from "./edit-form.mjs";
 import { SKILLS } from "../data/skills.mjs";
 import { characterRolls } from "../roll.mjs";
 import { CHOICES } from "../rules/choices.mjs";
@@ -265,11 +265,15 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
   }
 
   /**
-   * The form's data, with the specialty skills' rows merged into the list rather than replacing
-   * it: their inputs carry only ranks, misc and class skill, not which skill and specialty.
+   * The form's data, its numbers as their fields take them, and the specialty skills' rows merged
+   * into the list rather than replacing it: their inputs carry only ranks, misc and class skill,
+   * not which skill and specialty.
    */
   _processFormData(event, form, formData) {
     const data = super._processFormData(event, form, formData);
+    // An emptied box is 0 (or none, where the field allows it), and a whole number is rounded,
+    // rather than the whole save being refused.
+    if (data.system) data.system = castNumbers(obj(ACTOR_MODELS.character), data.system);
     if (data.system?.specialtySkills) data.system.specialtySkills = mergeIndexed(this.document.system.toObject().specialtySkills, data.system.specialtySkills);
     return data;
   }
@@ -294,7 +298,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const item = this.document.items.get(input.closest("[data-item-id]").dataset.itemId);
     if (!item) return;
     const field = input.dataset.itemField;
-    const value = ["choice", "chosenSkill", "ammunition"].includes(field) ? null : input.value === "" ? null : Number(input.value);
+    // Numbers are whole, except a creature type's Hit Dice ("1/2 d8" is half a die); a bad entry is no entry.
+    let value = ["choice", "chosenSkill", "ammunition"].includes(field) || input.value === "" ? null : Number(input.value);
+    if (value !== null && (Number.isNaN(value) || field !== "count")) value = Number.isNaN(value) ? null : Math.round(value);
     if (field === "hitPoints") {
       // One roll per level, in order; a level not yet rolled is empty and counts the average.
       const index = Number(input.dataset.index);
