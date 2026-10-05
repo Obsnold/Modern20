@@ -22,6 +22,11 @@
  *   ### Bonus Feats              a list of feats
  *   ### Talents                  (basic classes) #### <Tree> Talent Tree, ##### <Talent>
  *
+ * A spellcasting or psionic class's casting section (### Arcane Spells, ### Divine
+ * Spells, ### Psionic Powers) holds its tables, read into `casting` (readCasting):
+ * spells per day by class level, spells or powers known, power points a day, and
+ * the bonus spells or power points of a high ability score.
+ *
  * Every feature the class table names must have its section (FEATURE_ALIASES
  * pairs the few the book names differently), every listed feat must be in the
  * feats pack (NOT_IN_SRD names the few the SRD never prints), and every class
@@ -327,6 +332,7 @@ export function readClass(path, { feats, skills, prestige }) {
     featureList.push({ name: s.title, levels: featureLevels.get(s.title) ?? [], description });
   }
   const description = toHtml(top.blocks.map((b) => b.node));
+  const casting = readCasting(name, features, fail);
 
   return {
     entry: {
@@ -346,12 +352,99 @@ export function readClass(path, { feats, skills, prestige }) {
         bonusFeats,
         features: featureList,
         talentTrees: trees,
+        casting,
         description,
       },
     },
     talents,
     problems,
   };
+}
+
+/**
+ * The spell lists each caster casts from: its own, and d20 Arcana's arcane or divine
+ * list (the spells pack's levels name these). A Mystic or Holy/Unholy Knight casts
+ * as an Acolyte, a Techno Mage as a Mage.
+ */
+const SPELL_LISTS = {
+  "Mage": ["Mage", "Arcane"], "Techno Mage": ["Mage", "Arcane"],
+  "Acolyte": ["Acolyte", "Divine"], "Mystic": ["Acolyte", "Divine"], "Holy/Unholy Knight": ["Acolyte", "Divine"],
+  "Telepath": ["Telepath"], "Battle Mind": ["Battle Mind"], "Psionic Agent": ["Psionic Agent"],
+};
+/** Spells a caster's list leaves out: "Mystics do not have 'cure' or 'inflict' spells", nor raise dead. */
+const EXCLUDED = { "Mystic": "^(mass )?(cure|inflict) |^raise dead$" };
+/** Classes that add to others' casting: their levels count toward its caster level, and raise its spells a day. */
+const BOOSTS = { "Archmage": "arcane", "Ecclesiarch": "divine" };
+
+const ORDINAL = /^(\d+)/;
+const range = (cell) => {
+  const m = cell.replace(/[–—]/g, "-").match(/^(\d+)(?:\s*-\s*(\d+))?/);
+  return m ? { from: Number(m[1]), to: Number(m[2] ?? m[1]) } : null;
+};
+const value = (cell) => (/^\s*[—–-]?\s*$/.test(cell) ? null : Number(cell.replace(/\*/g, "")));
+
+/**
+ * A casting table: its spell level columns and its rows (a class level, or a range of
+ * ability scores, and a number per column). A two-row header (the spell levels in a
+ * row of their own under "—Spells per Day by Spell Level—") is read as one.
+ */
+function castingTable(table, fail) {
+  let header = table.header, rows = table.rows;
+  if (rows[0] && !rows[0].cells[0]?.trim() && rows[0].cells.slice(1).some((c) => ORDINAL.test(c.replace(/\*/g, "")))) {
+    header = header.map((h, i) => (i > 0 && rows[0].cells[i]?.trim()) || h);
+    rows = rows.slice(1);
+  }
+  const cols = header.map((h, i) => ({ i, m: h.replace(/\*/g, "").trim().match(ORDINAL) })).filter((c) => c.i > 0 && c.m);
+  const points = header.findIndex((h) => /Pts\/Day|Power Points/i.test(h));
+  const out = { columns: cols.map((c) => Number(c.m[1])), rows: [], points: [] };
+  for (const row of rows) {
+    const r = range(row.cells[0] ?? "");
+    if (!r) { fail(row.line, `casting table row "${row.cells[0]}" is not a level or score range`); continue; }
+    out.rows.push({ ...r, values: cols.map((c) => value(row.cells[c.i] ?? "")) });
+    if (points >= 0) out.points.push({ ...r, points: value(row.cells[points] ?? "") ?? 0 });
+  }
+  return out;
+}
+
+const ABILITY_WORDS = { Strength: "str", Dexterity: "dex", Constitution: "con", Intelligence: "int", Wisdom: "wis", Charisma: "cha" };
+
+/** A caster's casting, from its casting section's tables and text; `kind` "" for a class that does not cast. */
+export function readCasting(name, features, fail) {
+  const empty = { columns: [], rows: [] };
+  const none = { kind: "", feature: "", ability: "", bonusAbility: "", spontaneous: false, boosts: false, lists: [], excluded: "", perDay: empty, known: empty, powerPoints: [], bonusSpells: empty, bonusPoints: [] };
+  if (BOOSTS[name]) return { ...none, kind: BOOSTS[name], boosts: true };
+  const section = features.children.find((s) => /^(Arcane Spells|Divine Spells|Psionic Powers)$/.test(s.title));
+  if (!section) return none;
+  const kind = { "Arcane Spells": "arcane", "Divine Spells": "divine", "Psionic Powers": "psionic" }[section.title];
+  if (!SPELL_LISTS[name]) fail(section.line, `${name} casts, but SPELL_LISTS in tools/build/classes.mjs does not say from which lists`);
+  const words = text(section.blocks.map((b) => b.node));
+  // "10 + the spell's level + the Mage's Intelligence modifier"; a psionic power's DC uses each power's own key ability.
+  const dc = words.match(/10 \+ the (?:spell|power)[’']s level \+ the [^.]*?(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma) modifier/);
+  if (kind !== "psionic" && !dc) fail(section.line, `cannot find the saving throw DC ("10 + the spell's level + the ... <Ability> modifier")`);
+  const c = {
+    kind, feature: section.title, ability: dc ? ABILITY_WORDS[dc[1]] : "", bonusAbility: "", spontaneous: false, boosts: false,
+    lists: SPELL_LISTS[name] ?? [], excluded: EXCLUDED[name] ?? "",
+    perDay: empty, known: empty, powerPoints: [], bonusSpells: empty, bonusPoints: [],
+  };
+  for (const b of section.blocks.filter((x) => x.kind === "table")) {
+    const first = b.header[0] ?? "";
+    const t = castingTable(b, fail);
+    const score = first.match(/^(Str|Dex|Con|Int|Wis|Cha) Score$/);
+    if (score) {
+      c.bonusAbility = score[1].toLowerCase();
+      if (/Power Points/i.test(b.header[1] ?? "")) c.bonusPoints = t.points;
+      else c.bonusSpells = { columns: t.columns, rows: t.rows };
+    } else if (/Known/i.test(b.caption ?? "")) {
+      c.known = { columns: t.columns, rows: t.rows };
+      c.spontaneous = true;
+    } else if (kind === "psionic") {
+      c.known = { columns: t.columns, rows: t.rows };
+      c.powerPoints = t.points.map((p) => p.points);
+    } else c.perDay = { columns: t.columns, rows: t.rows };
+  }
+  if (kind !== "psionic" && !c.perDay.rows.length) fail(section.line, `no spells per day table`);
+  if (kind === "psionic" && !c.powerPoints.length) fail(section.line, `no Pts/Day column in the powers table`);
+  return c;
 }
 
 /** Build the classes and talents packs: `{ classes, talents }`, each `{ documents, problems }`. */

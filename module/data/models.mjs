@@ -33,6 +33,8 @@ const classLevel = obj({ class: str(), level: int() });
 const target = obj({ label: str(), value: str() });
 /** A trait printed with its own text. */
 const trait = obj({ name: str(), description: html() });
+/** A casting table: its spell levels, and per class level (or range of ability scores) a number for each. */
+const castingTable = obj({ columns: list(int()), rows: list(obj({ from: int(), to: int(), values: list(int({ nullable: true })) })) });
 /** A value as printed, and the number in it. */
 const printed = (number) => obj({ value: str(), ...number });
 
@@ -87,6 +89,28 @@ const ITEM_FIELDS = {
     bonusFeats: list(link),
     features: list(obj({ name: str(), levels: list(int()), description: html() })),
     talentTrees: list(obj({ name: str(), description: html(), talents: list(namedLink) })),
+    /** A caster's spells or powers, as its class page prints them (tools/build/classes.mjs readCasting); `kind` "" if it does not cast. */
+    casting: obj({
+      kind: str({ choices: ["arcane", "divine", "psionic"] }),
+      feature: str(),
+      /** The ability its saving throw DCs add; a psionic power names its own key ability. */
+      ability: str({ choices: ABILITIES }),
+      /** The ability whose score gives bonus spells or power points. */
+      bonusAbility: str({ choices: ABILITIES }),
+      /** Casts from the spells it knows without preparing them (a Mystic). */
+      spontaneous: bool(),
+      /** Adds its levels to another class's casting, rather than casting itself (Archmage, Ecclesiarch). */
+      boosts: bool(),
+      /** The spell lists it casts from, as the spells and powers name them ("Mage", "Arcane"). */
+      lists: list(str()),
+      /** A pattern for spells its list leaves out. */
+      excluded: str(),
+      perDay: castingTable,
+      known: castingTable,
+      powerPoints: list(int()),
+      bonusSpells: castingTable,
+      bonusPoints: list(obj({ from: int(), to: int(), points: int() })),
+    }),
     description: html(),
     source,
   },
@@ -124,6 +148,9 @@ const ITEM_FIELDS = {
     castingTime: str(),
     spellResistance: str(),
     levels: list(classLevel),
+    /** On a prepared caster's copy: how many times it is prepared today, and how many of those are cast. */
+    prepared: int(),
+    cast: int(),
     source,
   },
 
@@ -152,6 +179,8 @@ const ITEM_FIELDS = {
     skillCheck: obj({ value: str(), checks: list(obj({ skill: str(), dc: int({ nullable: true }), successes: int() })) }),
     failure: obj({ value: str(), text: str() }),
     options: str(),
+    /** On a character's copy, while it is being cast: the successes on each skill check, and the failures in a row. */
+    progress: obj({ successes: list(int()), failures: int() }),
     source,
   },
 
@@ -283,6 +312,10 @@ export const ACTOR_MODELS = {
     hp: obj({ value: int(), temp: int() }),
     /** Action points left, and the character level they have been given up to (5 + half the level, at each level). */
     actionPoints: obj({ value: int(), granted: int() }),
+    /** Power points left today, and the free 0-level manifestations used. */
+    powerPoints: obj({ value: int(), freeUsed: int() }),
+    /** Spell slots spent today by a spontaneous caster, by class and spell level. */
+    slotsUsed: list(obj({ class: str(), level: int(), used: int() })),
     /** The ability each +1 at 4th, 8th, 12th ... level went to, in order. */
     abilityIncreases: list(str({ choices: ABILITIES })),
     wealth: obj({ value: int() }),

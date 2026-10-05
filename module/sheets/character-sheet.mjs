@@ -18,6 +18,8 @@ import { restHealing } from "../rules/damage.mjs";
 import { financialCondition } from "../rules/wealth.mjs";
 import { applyToActor } from "../damage.mjs";
 import { buy, sell } from "../wealth.mjs";
+import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
+import { casterFor, castingOf } from "../rules/casting.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -32,7 +34,6 @@ const signed = (n) => (n === null || n === undefined ? "—" : n >= 0 ? `+${n}` 
 const LISTS = {
   feats: [["talent", "Talents"], ["feat", "Feats"], ["occupation", "Occupation"], ["species", "Species"], ["template", "Templates"]],
   gear: [["weapon", "Weapons"], ["armor", "Armor"], ["equipment", "Equipment"], ["ammunition", "Ammunition"]],
-  magic: [["spell", "Spells"], ["power", "Psionic Powers"], ["incantation", "Incantations"]],
 };
 
 export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
@@ -63,6 +64,12 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       buyItem: Modern20CharacterSheet.#onBuyItem,
       sellItem: Modern20CharacterSheet.#onSellItem,
       wealthCheck: Modern20CharacterSheet.#onWealthCheck,
+      castSpell: Modern20CharacterSheet.#onCastSpell,
+      manifestPower: Modern20CharacterSheet.#onManifestPower,
+      newDay: Modern20CharacterSheet.#onNewDay,
+      adjustSlot: Modern20CharacterSheet.#onAdjustSlot,
+      incantationCheck: Modern20CharacterSheet.#onIncantationCheck,
+      resetIncantation: Modern20CharacterSheet.#onResetIncantation,
     },
   };
 
@@ -73,7 +80,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     skills: { template: "systems/modern20/templates/character/skills.hbs", scrollable: [""] },
     feats: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
     gear: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
-    magic: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
+    magic: { template: "systems/modern20/templates/character/magic.hbs", scrollable: [""] },
     effects: { template: "systems/modern20/templates/character/effects.hbs", scrollable: [""] },
     details: { template: "systems/modern20/templates/character/details.hbs", scrollable: [""] },
     log: { template: "systems/modern20/templates/log.hbs", scrollable: [""] },
@@ -213,6 +220,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         })),
       },
       wealthCondition: financialCondition(system.wealth.value ?? 0),
+      magic: magicContext(actor, ofType),
       log: logContext(actor, this.logFilter),
       enrichedBiography: await TextEditor.implementation.enrichHTML(system.details.biography, { relativeTo: actor, secrets: actor.isOwner }),
       biographyField: system.schema.fields.details.fields.biography,
@@ -252,6 +260,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       await item.update({ "system.chosenSkills": [...chosen] });
     } else if (field === "choice") {
       await item.update({ "system.choice": input.value.trim() });
+    } else if (field === "prepared") {
+      await item.update({ "system.prepared": Math.max(0, value ?? 0), "system.cast": Math.min(item.system.cast, Math.max(0, value ?? 0)) });
     } else if (field === "count") {
       // Hit Dice of a creature type: a fraction ("1/2 d8") is allowed, down to an eighth.
       await item.update({ "system.count": Math.max(0.125, value ?? 1) });
@@ -268,6 +278,21 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     list[index] = event.currentTarget.value;
     while (list.length && !list.at(-1)) list.pop();
     await this.document.update({ "system.abilityIncreases": list.map((a) => a ?? "") });
+  }
+
+  static async #onCastSpell(event, target) { const i = this.#item(target); if (i) await castSpell(this.document, i); }
+  static async #onManifestPower(event, target) { const i = this.#item(target); if (i) await manifest(this.document, i); }
+  static async #onNewDay() { await newDay(this.document); }
+  static async #onAdjustSlot(event, target) {
+    await adjustSlot(this.document, target.dataset.class, Number(target.dataset.level), Number(target.dataset.delta));
+  }
+  static async #onIncantationCheck(event, target) {
+    const i = this.#item(target);
+    if (i) await incantationCheck(this.document, i, Number(target.dataset.index), event);
+  }
+  static async #onResetIncantation(event, target) {
+    const i = this.#item(target);
+    if (i) await i.update({ "system.progress.successes": [], "system.progress.failures": 0 });
   }
 
   static async #onToggleCondition(event, target) {
@@ -379,6 +404,75 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+const ORDINALS = ["0-level", "1st-level", "2nd-level", "3rd-level", "4th-level", "5th-level", "6th-level", "7th-level", "8th-level", "9th-level"];
+const ABBR = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
+
+/**
+ * The Magic tab: each casting class's slots or power points and DC, the spells and powers
+ * grouped by level for the class that casts them, and incantations with their checks.
+ */
+function magicContext(actor, ofType) {
+  const d = actor.system.derived ?? {};
+  const list = d.casters ?? [];
+  const scores = d.scores ?? {};
+  const spells = ofType("spell"), powers = ofType("power");
+  const row = (i) => {
+    const found = casterFor(i, list);
+    const c = found ? castingOf(i, found.caster, found.level, scores) : null;
+    return {
+      id: i.id, name: i.name, img: i.img, found: !!found, level: found?.level ?? null, className: found?.caster.name ?? "",
+      prepared: i.system.prepared ?? 0, cast: i.system.cast ?? 0, left: (i.system.prepared ?? 0) - (i.system.cast ?? 0),
+      preparedCaster: found?.caster.prepared, dc: c?.hasSave ? c.dc : null, cost: c?.cost ?? 0, meets: c?.meets ?? true,
+      needs: c ? `${ABBR[c.ability] ?? c.ability} ${c.needs}` : "", detail: [i.system.range, i.system.duration].filter(Boolean).join("; "),
+    };
+  };
+  const group = (items) => {
+    const rows = items.map(row);
+    const levels = [...new Set(rows.filter((r) => r.found).map((r) => r.level))].sort((a, b) => a - b);
+    const out = levels.map((l) => ({ label: `${ORDINALS[l] ?? `${l}th-level`}`, items: rows.filter((r) => r.found && r.level === l) }));
+    const off = rows.filter((r) => !r.found);
+    if (off.length) out.push({ label: "Not on your lists", off: true, items: off });
+    return out;
+  };
+  const used = (name) => Object.fromEntries(actor.system.slotsUsed.filter((s) => s.class === name).map((s) => [s.level, s.used]));
+  const casters = list.map((c) => {
+    const u = used(c.name);
+    const mine = [...spells, ...powers].filter((i) => casterFor(i, [c]));
+    const atLevel = (l) => mine.filter((i) => casterFor(i, [c]).level === l);
+    const levels = [...new Set([...Object.keys(c.perDay), ...Object.keys(c.known)].map(Number))].sort((a, b) => a - b);
+    return {
+      name: c.name, kind: c.kind, psionic: c.kind === "psionic", casterLevel: c.casterLevel, spontaneous: c.spontaneous, prepared: c.prepared,
+      dc: c.ability ? `10 + level + ${ABBR[c.ability]} (${c.abilityModifier >= 0 ? "+" : ""}${c.abilityModifier})` : "10 + level + the power's key ability",
+      levels: levels.map((l) => {
+        const max = c.perDay[l] ?? null;
+        const prepared = atLevel(l).reduce((n, i) => n + (i.system.prepared ?? 0), 0);
+        const known = c.known[l] ?? null;
+        return {
+          level: l, max, used: u[l] ?? 0, prepared, over: c.prepared && max !== null && prepared > max,
+          known, have: atLevel(l).length, knownOver: known !== null && atLevel(l).length > known,
+        };
+      }),
+    };
+  });
+  const powerMax = list.reduce((n, c) => n + c.powerPoints, 0);
+  const free = list.reduce((n, c) => Math.max(n, c.freeManifestations), 0);
+  return {
+    casters, any: list.length > 0,
+    powerPoints: powerMax || powers.length ? { value: actor.system.powerPoints.value, max: powerMax, freeUsed: actor.system.powerPoints.freeUsed, free } : null,
+    spells: group(spells), powers: group(powers),
+    incantations: ofType("incantation").map((i) => {
+      const checks = i.system.skillCheck.checks;
+      return {
+        id: i.id, name: i.name, img: i.img, failures: i.system.progress.failures, failure: i.system.failure.value,
+        checks: checks.map((c, index) => ({
+          index, skill: c.skill, need: c.successes, have: i.system.progress.successes[index] ?? 0,
+          dc: c.dc ?? checks.slice(0, index).reverse().find((x) => x.dc !== null)?.dc ?? "—",
+        })),
+      };
+    }),
+  };
 }
 
 /** An occupation's skill options as tick boxes, and how many of them it lets a character choose. */

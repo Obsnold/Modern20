@@ -15,6 +15,7 @@ import { SKILLS, skillKey } from "../data/skills.mjs";
 import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { advancement } from "./advancement.mjs";
+import { casters } from "./casting.mjs";
 import { identify } from "./identify.mjs";
 import { racialHitDice } from "./creature.mjs";
 
@@ -198,6 +199,8 @@ export function deriveCharacter(system, items) {
     massiveDamage: scores.con === null ? null : scores.con + bonus.massiveDamage,
     bonusHitPoints: bonus.hp,
     skills,
+    // Spellcasting and psionic classes: slots, spells known, caster levels, power points (rules/casting.mjs).
+    casters: casters(classes, scores, level),
     // Points to spend and spent, and what the levels are owed (rules/advancement.mjs).
     advancement: advancement({
       level, heroicLevel: classes.reduce((n, c) => n + c.system.level, 0), classes, intMod: mod("int"),

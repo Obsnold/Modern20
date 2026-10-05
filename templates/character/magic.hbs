@@ -1,0 +1,93 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#if magic.any}}
+    <div class="m20-panel">
+      <h3>Casting <a class="m20-roll-button" data-action="newDay" data-tooltip="Every spell slot and prepared spell back, power points to full"><i class="fa-solid fa-sun"></i> New day</a></h3>
+      {{#each magic.casters}}
+        <div class="m20-caster">
+          <p><strong>{{name}}</strong> <span class="m20-hint">caster level {{casterLevel}}; saving throw DC {{dc}}{{#if prepared}}; prepares spells{{/if}}{{#if spontaneous}}; casts spells known{{/if}}</span></p>
+          <table class="m20-table m20-slots">
+            <thead><tr><th>Level</th>{{#each levels}}<th>{{level}}</th>{{/each}}</tr></thead>
+            <tbody>
+              {{#unless psionic}}
+                <tr><th>{{#if prepared}}Prepared / a day{{else}}Used / a day{{/if}}</th>
+                  {{#each levels}}<td class="{{#if over}}m20-warning{{/if}}">
+                    {{#if ../prepared}}{{prepared}} / {{max}}{{else}}
+                      <a data-action="adjustSlot" data-class="{{../name}}" data-level="{{level}}" data-delta="-1"><i class="fa-solid fa-minus"></i></a>
+                      {{used}} / {{max}}
+                      <a data-action="adjustSlot" data-class="{{../name}}" data-level="{{level}}" data-delta="1"><i class="fa-solid fa-plus"></i></a>
+                    {{/if}}
+                  </td>{{/each}}
+                </tr>
+              {{/unless}}
+              {{#if spontaneous}}<tr><th>Known</th>{{#each levels}}<td class="{{#if knownOver}}m20-warning{{/if}}">{{have}} / {{known}}</td>{{/each}}</tr>{{/if}}
+              {{#if psionic}}<tr><th>Known</th>{{#each levels}}<td class="{{#if knownOver}}m20-warning{{/if}}">{{have}} / {{known}}</td>{{/each}}</tr>{{/if}}
+            </tbody>
+          </table>
+        </div>
+      {{/each}}
+      {{#if magic.powerPoints}}
+        <div class="m20-power-points">
+          <label>Power points <input type="number" name="system.powerPoints.value" value="{{magic.powerPoints.value}}"> / {{magic.powerPoints.max}}</label>
+          <label data-tooltip="0-level powers are free this many times a day (3 + psionic level), then cost 1 point">Free 0-level used <input type="number" name="system.powerPoints.freeUsed" value="{{magic.powerPoints.freeUsed}}"> / {{magic.powerPoints.free}}</label>
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <div class="m20-panel">
+    <h3>Spells</h3>
+    {{#each magic.spells}}
+      <h4 class="{{#if off}}m20-hint{{/if}}">{{label}}</h4>
+      {{#each items}}
+        <div class="m20-item" data-item-id="{{id}}">
+          <img src="{{img}}" alt="" width="28" height="28">
+          <a class="m20-item-name" data-action="editItem">{{name}}</a>
+          {{#if preparedCaster}}<label class="m20-prepared" data-tooltip="Times prepared today; {{cast}} cast">Prepared <input type="number" min="0" value="{{prepared}}" data-item-field="prepared"></label>{{/if}}
+          <span class="m20-item-detail">{{#if dc}}DC {{dc}}; {{/if}}{{detail}}</span>
+          {{#unless meets}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="Needs {{needs}} to cast"></i>{{/unless}}
+          {{#if found}}<a data-action="castSpell" data-tooltip="Cast{{#if preparedCaster}} ({{left}} left){{/if}}"><i class="fa-solid fa-wand-sparkles"></i></a>{{/if}}
+          <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+        </div>
+      {{/each}}
+    {{else}}
+      <p class="m20-hint">None. Drag spells from the Spells compendium onto this sheet.</p>
+    {{/each}}
+  </div>
+
+  <div class="m20-panel">
+    <h3>Psionic Powers</h3>
+    {{#each magic.powers}}
+      <h4 class="{{#if off}}m20-hint{{/if}}">{{label}}</h4>
+      {{#each items}}
+        <div class="m20-item" data-item-id="{{id}}">
+          <img src="{{img}}" alt="" width="28" height="28">
+          <a class="m20-item-name" data-action="editItem">{{name}}</a>
+          <span class="m20-item-detail">{{#if found}}{{#if level}}{{cost}} pp{{else}}free / 1 pp{{/if}}; {{/if}}{{#if dc}}DC {{dc}}; {{/if}}{{detail}}</span>
+          {{#unless meets}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="Needs {{needs}} to manifest"></i>{{/unless}}
+          {{#if found}}<a data-action="manifestPower" data-tooltip="Manifest"><i class="fa-solid fa-brain"></i></a>{{/if}}
+          <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+        </div>
+      {{/each}}
+    {{else}}
+      <p class="m20-hint">None. Drag powers from the Psionic Powers compendium onto this sheet.</p>
+    {{/each}}
+  </div>
+
+  <div class="m20-panel">
+    <h3>Incantations</h3>
+    {{#each magic.incantations}}
+      <div class="m20-item" data-item-id="{{id}}">
+        <img src="{{img}}" alt="" width="28" height="28">
+        <a class="m20-item-name" data-action="editItem">{{name}}</a>
+        <span class="m20-item-detail">
+          {{#each checks}}<a class="m20-roll-button" data-action="incantationCheck" data-index="{{index}}" data-tooltip="Roll a {{skill}} check against DC {{dc}}">{{skill}} {{have}}/{{need}}</a> {{/each}}
+          {{#if failures}}<span class="m20-warning" data-tooltip="Failure: {{failure}}">{{failures}} failed in a row</span>{{/if}}
+        </span>
+        <a data-action="resetIncantation" data-tooltip="Start again"><i class="fa-solid fa-rotate-left"></i></a>
+        <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+      </div>
+    {{else}}
+      <p class="m20-hint">None. Drag incantations from the Incantations compendium onto this sheet.</p>
+    {{/each}}
+  </div>
+</section>

@@ -99,11 +99,9 @@ export function fromForm(spec, form, source) {
   if (spec.kind === "array") {
     if (isScalar(spec.of)) {
       const parts = Array.isArray(form) ? form : String(form ?? "").split(/\r?\n/).map((p) => p.trim());
-      // Numbers keep their places (a class's hit point rolls, a blank one not yet rolled); text drops blank lines.
-      if (spec.of.kind === "number") {
-        while (parts.length && parts.at(-1) === "") parts.pop();
-        return parts.map((p) => cast(spec.of, p));
-      }
+      // Numbers keep their places, blank lines included (a hit point roll not yet made, a casting
+      // table's "—"); text drops blank lines.
+      if (spec.of.kind === "number") return form === "" ? [] : parts.map((p) => cast(spec.of, p));
       return parts.filter(Boolean).map((p) => cast(spec.of, p));
     }
     const list = source ?? [];

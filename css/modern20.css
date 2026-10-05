@@ -124,3 +124,15 @@
 .modern20 .m20-edit legend a { margin-left: 0.3rem; cursor: pointer; }
 .modern20 .m20-edit textarea { width: 100%; font-family: monospace; }
 .modern20 .m20-edit-html prose-mirror { min-height: 6rem; display: block; }
+
+/* The Magic tab. */
+.modern20 .m20-caster { margin-bottom: 0.4rem; }
+.modern20 .m20-caster p { margin: 0.2rem 0; }
+.modern20 .m20-slots td, .modern20 .m20-slots th { text-align: center; white-space: nowrap; }
+.modern20 .m20-slots a { cursor: pointer; font-size: 0.8em; }
+.modern20 .m20-power-points { display: flex; gap: 1rem; flex-wrap: wrap; }
+.modern20 .m20-power-points input, .modern20 .m20-prepared input { width: 3.5rem; }
+.modern20 .m20-panel h4 { margin: 0.4rem 0 0.1rem; }
+.m20-cast dl { display: grid; grid-template-columns: max-content 1fr; gap: 0 0.5rem; margin: 0.2rem 0; }
+.m20-cast dt { font-weight: bold; }
+.m20-cast dd { margin: 0; }

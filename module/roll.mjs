@@ -16,6 +16,7 @@ import { identify } from "./rules/identify.mjs";
 import { rulesFor } from "./rules/feats.mjs";
 import { readAttacks, attackRoll, damageRoll } from "./rules/attacks.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
+import { bindLevelCheck } from "./casting.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -206,6 +207,7 @@ export function bindAttackButtons(message, html) {
   const flags = message.flags?.[SYSTEM_ID];
   if (flags?.damage) return bindDamageButtons(message, html, flags);
   if (flags?.save) return bindSaveButtons(message, html, flags);
+  if (flags?.levelCheck) return bindLevelCheck(message, html, flags);
   if (!flags?.attack) return;
   const actor = fromUuidSync(flags.attack.actor);
   // Only those who can roll for the actor get its buttons: a player cannot roll another's damage.

@@ -27,9 +27,9 @@ export const PLAY_LIMIT = 500;
 export const CHUNK = 50;
 
 /** Actor fields whose changes are play (temporary), not build. */
-const PLAY_ACTOR_FIELDS = new Set(["system.hp.value", "system.hp.temp", "system.actionPoints.value"]);
+const PLAY_ACTOR_FIELDS = new Set(["system.hp.value", "system.hp.temp", "system.actionPoints.value", "system.powerPoints.value", "system.powerPoints.freeUsed", "system.slotsUsed"]);
 /** Item fields whose changes are play. */
-const PLAY_ITEM_FIELDS = new Set(["system.equipped", "system.quantity"]);
+const PLAY_ITEM_FIELDS = new Set(["system.equipped", "system.quantity", "system.prepared", "system.cast", "system.progress.successes", "system.progress.failures"]);
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
@@ -50,9 +50,9 @@ export function fieldLabel(path) {
   if ((m = p.match(/^details\.(\w+)$/))) return m[1][0].toUpperCase() + m[1].slice(1);
   const named = {
     name: "Name", img: "Portrait", "hp.value": "Current HP", "hp.temp": "Temp HP", "hp.max": "Max HP",
-    "actionPoints.value": "Action points", "wealth.value": "Wealth", "defense.misc": "Defense (misc)",
+    "actionPoints.value": "Action points", "powerPoints.value": "Power points", "powerPoints.freeUsed": "Free 0-level powers used", slotsUsed: "Spell slots used", "wealth.value": "Wealth", "defense.misc": "Defense (misc)",
     specialtySkills: "Specialty skills", level: "level", hitPoints: "hit point rolls", equipped: "equipped",
-    quantity: "quantity", count: "Hit Dice", choice: "choice", chosenSkills: "occupation skills", "prototypeToken.name": "Token name",
+    quantity: "quantity", count: "Hit Dice", prepared: "prepared", cast: "cast", "progress.successes": "successes", "progress.failures": "failures in a row", choice: "choice", chosenSkills: "occupation skills", "prototypeToken.name": "Token name",
   };
   return named[p] ?? p.split(".").map((w) => w.replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase()).join(" ");
 }

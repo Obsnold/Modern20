@@ -48,7 +48,7 @@ test("every item and creature in the packs survives a round trip through its edi
 test("an edit changes what was edited, lists of values one a line, and blank numbers as the field allows", () => {
   const spec = obj(ITEM_MODELS.class);
   const source = conform(spec, { hitPoints: [null, 5], classSkills: [], level: 2 });
-  const back = fromForm(spec, { level: "3", hitPoints: "\n5\n7\n", maxLevel: "" }, source);
+  const back = fromForm(spec, { level: "3", hitPoints: "\n5\n7", maxLevel: "" }, source);
   assert.equal(back.level, 3);
   assert.deepEqual(back.hitPoints, [null, 5, 7]);
   assert.equal(back.maxLevel, 0);
