@@ -3,7 +3,9 @@ import assert from "node:assert/strict";
 import { buildClasses } from "../build/classes.mjs";
 import { buildCreatures } from "../build/creatures.mjs";
 import { deriveCharacter } from "../../module/rules/character.mjs";
-import { applyEffects, FEAT_EFFECTS } from "../../module/rules/effects.mjs";
+import { applyEffects } from "../../module/rules/effects.mjs";
+import { FEAT_RULES } from "../../module/rules/feats.mjs";
+import { slug } from "../../module/rules/identify.mjs";
 import { buildFeats } from "../build/feats.mjs";
 
 const featDocs = Object.fromEntries(buildFeats().documents.filter((d) => d.type === "feat").map((d) => [d.name, d]));
@@ -80,9 +82,13 @@ test("hit points: the first level's maximum, then rolls or the average", () => {
 });
 
 test("every fixed-bonus feat in the pack carries its effect, transferred to its owner", () => {
-  for (const [name, changes] of Object.entries(FEAT_EFFECTS)) {
+  // The builder's own output, before the packs add identifiers: identified by the same slug.
+  const byId = Object.fromEntries(Object.values(featDocs).map((d) => [slug(d.name), d.name]));
+  for (const [id, rules] of Object.entries(FEAT_RULES).filter(([, r]) => r.effects)) {
+    const name = byId[id];
+    const changes = rules.effects;
     const e = featDocs[name]?.effects;
-    assert.equal(e?.length, 1, name);
+    assert.equal(e?.length, 1, id);
     assert.equal(e[0].transfer, true);
     assert.deepEqual(e[0].changes.map((c) => [c.key, Number(c.value), c.mode]), changes.map(([k, v]) => [k, v, 2]));
     assert.ok(e[0]._key.startsWith(`!items.effects!${featDocs[name]._id}.`));
@@ -153,4 +159,10 @@ test("class skills from a class, a feat, the occupation, or by hand; an occupati
   // An FX skill with ranks but no class or feat that grants it.
   assert.equal(row("psicraft").restricted, true);
   assert.equal(row("spellcraft").restricted, false);
+});
+
+test("a renamed feat or armor proficiency still counts: the rules know items by identifier", () => {
+  const vest = { type: "armor", name: "Vest", system: { equipped: true, weightClass: "light", equipmentBonus: 3, nonproficientBonus: 1, maxDex: null, armorPenalty: 0 } };
+  const renamed = { type: "feat", name: "My light armor training", system: { identifier: "armor-proficiency-light" } };
+  assert.equal(deriveCharacter({ abilities: { dex: { value: 10 } } }, [vest, renamed]).defense.value, 13);
 });

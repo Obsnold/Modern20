@@ -12,6 +12,8 @@ import { abilityModifier } from "./data/models.mjs";
 import * as R from "./rules/rolls.mjs";
 import { recordRoll } from "./log.mjs";
 import { SYSTEM_ID } from "./config.mjs";
+import { identify } from "./rules/identify.mjs";
+import { rulesFor } from "./rules/feats.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -100,14 +102,14 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild } = {}
 /** Every roll a character's sheet offers, by name. Pass the click event so shift works. */
 export function characterRolls(actor) {
   const d = actor.system.derived;
-  const feats = actor.items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ name: i.name, choice: i.system.choice ?? "" }));
+  const feats = actor.items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ name: i.name, identifier: identify(i), choice: i.system.choice ?? "" }));
   return {
     ability: (key, event) => rollD20(actor, R.abilityCheck(d, key), event),
     save: (key, event) => rollD20(actor, R.savingThrow(d, key), event),
     skill: (key, specialty, event) => rollD20(actor, R.skillCheck(d, d.skills.find((s) => s.key === key && s.specialty === (specialty ?? ""))), event),
     attack: (item, event) => {
       // Point Blank Shot is the player's call: the SRD's "within 30 feet" is not something the sheet can see.
-      const options = !item.system.melee && feats.some((f) => f.name === "Point Blank Shot") ? [{ name: "pointBlank", label: "Within 30 feet (Point Blank Shot: +1 attack and damage)" }] : [];
+      const options = !item.system.melee && feats.some((f) => rulesFor(f.identifier).pointBlank) ? [{ name: "pointBlank", label: "Within 30 feet (Point Blank Shot: +1 attack and damage)" }] : [];
       return rollD20(actor, R.attack(d, item, feats), event, { attack: { actor: actor.uuid, item: item.id } }, { options, rebuild: (ticked) => R.attack(d, item, feats, ticked) });
     },
     damage: (item, { multiplier = 1, pointBlank = false } = {}) => {

@@ -13,6 +13,7 @@ import { SKILLS } from "../data/skills.mjs";
 import { characterRolls } from "../roll.mjs";
 import { CHOICES } from "../rules/choices.mjs";
 import { logContext } from "../log.mjs";
+import { identify } from "../rules/identify.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -138,7 +139,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       type, label,
       items: ofType(type).map((i) => ({
         id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon",
-        detail: detail(i), choiceKind: CHOICES[i.name] ?? "", choice: i.system.choice ?? "",
+        detail: detail(i), choiceKind: CHOICES[identify(i)] ?? "", choice: i.system.choice ?? "",
         occupation: i.type === "occupation" ? occupationChoices(i) : null,
       })),
     }))]));

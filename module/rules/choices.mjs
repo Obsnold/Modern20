@@ -5,17 +5,11 @@
  * matched loosely so a player need not type a weapon's full printed name.
  */
 
-/** Feat and talent names that take a choice, and what is chosen. */
-export const CHOICES = {
-  "Weapon Focus": "weapon",
-  "Weapon Finesse": "weapon",
-  "Exotic Melee Weapon Proficiency": "weapon",
-  "Exotic Firearms Proficiency": "weapon group",
-  "Educated": "two Knowledge skills",
-  "Skill Emphasis": "skill",
-};
+import { FEAT_RULES } from "./feats.mjs";
 
-/** Lower case, no apostrophes, and no plural "s": "grenade launchers" and "grenade launcher" are one choice. */
+/** Identifiers of the feats and talents taken with a choice, and what is chosen. */
+export const CHOICES = Object.fromEntries(Object.entries(FEAT_RULES).filter(([, r]) => r.choice).map(([id, r]) => [id, r.choice]));
+
 const plain = (s) => (s ?? "").toLowerCase().replace(/[’']/g, "").replace(/\s+/g, " ").trim().replace(/(\w{3,})s\b/g, "$1");
 const base = (s) => plain(s).replace(/\s*\(.*\)$/, "");
 

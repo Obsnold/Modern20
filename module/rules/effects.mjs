@@ -6,17 +6,6 @@
  */
 export const MODES = { CUSTOM: 0, MULTIPLY: 1, ADD: 2, DOWNGRADE: 3, UPGRADE: 4, OVERRIDE: 5 };
 
-/** The effects of the feats whose benefit is a fixed bonus, as their pages print it. */
-export const FEAT_EFFECTS = {
-  "Great Fortitude": [["system.bonuses.saves.fort", 2]],
-  "Iron Will": [["system.bonuses.saves.will", 2]],
-  "Lightning Reflexes": [["system.bonuses.saves.ref", 2]],
-  "Improved Initiative": [["system.bonuses.initiative", 4]],
-  "Renown": [["system.bonuses.reputation", 3]],
-  "Toughness": [["system.bonuses.hitPoints", 3]],
-  "Improved Damage Threshold": [["system.bonuses.massiveDamage", 3]],
-};
-
 /** Apply `effects` (each `{ disabled, changes: [{ key, mode, value }] }`) to a copy of an actor's `{ system }`. */
 export function applyEffects(actor, effects) {
   const out = structuredClone(actor);

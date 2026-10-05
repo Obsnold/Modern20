@@ -13,18 +13,14 @@
 import { ABILITIES, abilityModifier } from "../data/models.mjs";
 import { SKILLS, skillKey } from "../data/skills.mjs";
 import { chosenSkills } from "./choices.mjs";
+import { rulesFor } from "./feats.mjs";
+import { identify } from "./identify.mjs";
 
 /** Size modifiers to attack rolls and Defense, and to grapple checks. */
 export const SIZE_MODIFIERS = {
   fine: { defense: 8, grapple: -16 }, diminutive: { defense: 4, grapple: -12 }, tiny: { defense: 2, grapple: -8 },
   small: { defense: 1, grapple: -4 }, medium: { defense: 0, grapple: 0 }, large: { defense: -1, grapple: 4 },
   huge: { defense: -2, grapple: 8 }, gargantuan: { defense: -4, grapple: 12 }, colossal: { defense: -8, grapple: 16 },
-};
-
-/** Feats that make skills class skills (Arcane Skills, Psionic Skills), as their pages list them. */
-export const FEAT_CLASS_SKILLS = {
-  "Arcane Skills": ["Concentration", "Craft (chemical)", "Spellcraft", "Use Magic Device"],
-  "Psionic Skills": ["Autohypnosis", "Concentration", "Psicraft"],
 };
 
 /** What a class contributes at a level: its row of the level table. */
@@ -44,8 +40,9 @@ export function deriveCharacter(system, items) {
   const species = items.find((i) => i.type === "species");
   const occupation = items.find((i) => i.type === "occupation");
   const armor = items.filter((i) => i.type === "armor" && i.system.equipped);
-  const feats = items.filter((i) => i.type === "feat" || i.type === "talent");
-  const has = (name) => feats.some((f) => f.name === name);
+  // Feats and talents, each with its rules (rules/feats.mjs).
+  const feats = items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ ...i, rules: rulesFor(identify(i)) }));
+  const armorProficiencies = new Set(feats.map((f) => f.rules.armorProficiency).filter(Boolean));
 
   // Bonuses from active effects (applied by Foundry before this runs; zero without any).
   const fx = system.bonuses ?? {};
@@ -91,7 +88,7 @@ export function deriveCharacter(system, items) {
   const dexToDefense = fxv("loseDexBonus") > 0 ? Math.min(dexCapped, 0) : dexCapped;
   // Armor worn without its proficiency feat gives only its nonproficient bonus, and its armor
   // penalty applies to attack rolls too (Armor Proficiency, "Normal").
-  const proficientIn = (a) => a.system.weightClass === "shield" || !a.system.weightClass || has(`Armor Proficiency (${a.system.weightClass})`);
+  const proficientIn = (a) => a.system.weightClass === "shield" || !a.system.weightClass || armorProficiencies.has(a.system.weightClass);
   const equipment = armor.reduce((n, a) => n + ((proficientIn(a) ? a.system.equipmentBonus : a.system.nonproficientBonus) ?? 0), 0);
   const armorAttackPenalty = armor.filter((a) => !proficientIn(a)).reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
   const natural = species?.system.naturalArmor ?? 0;
@@ -106,17 +103,16 @@ export function deriveCharacter(system, items) {
   const parse = (text) => { const m = text.match(/^(.+?)(?: [\(\[](.+)[\)\]])?$/); return { name: m[1], specialty: m[2] ?? "" }; };
   const sources = { class: new Set(), feat: new Set(), occupation: new Set() };
   for (const c of classes) for (const s of c.system.classSkills ?? []) sources.class.add(named(s));
-  for (const f of feats) for (const s of FEAT_CLASS_SKILLS[f.name] ?? []) sources.feat.add(named(parse(s)));
+  for (const f of feats) for (const s of f.rules.classSkills ?? []) sources.feat.add(named(parse(s)));
   for (const s of occupation?.system.chosenSkills ?? []) sources.occupation.add(named(parse(s)));
   const from = (set, key, specialty) => set.has(key) || (!!specialty && set.has(`${key}:${specialty}`));
   const classSource = (key, specialty, stored) =>
     from(sources.class, key, specialty) ? "class" : from(sources.feat, key, specialty) ? "feat"
       : from(sources.occupation, key, specialty) ? "occupation" : stored?.classSkill ? "chosen" : "";
 
-  // Skill Emphasis (a Dedicated hero talent): +3 with the chosen skill. Educated (a feat): +2 with each of two
-  // chosen Knowledge skills.
+  // A bonus to chosen skills: Skill Emphasis (a Dedicated hero talent) +3, Educated +2 to each of two.
   const choiceBonus = (key, specialty) => feats.reduce((n, f) => {
-    const per = { "Skill Emphasis": 3, Educated: 2 }[f.name];
+    const per = f.rules.skillBonus;
     if (!per) return n;
     return n + (chosenSkills(f.system.choice).some((c) => skillKey(c.name) === key && (!c.specialty || c.specialty === (specialty ?? ""))) ? per : 0);
   }, 0);

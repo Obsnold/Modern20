@@ -1,6 +1,7 @@
 /** Every compendium pack the build writes, by the name system.json gives it. */
 import { conform, obj } from "../../module/data/schema.mjs";
 import { once } from "./once.mjs";
+import { slug } from "../../module/rules/identify.mjs";
 import { ITEM_MODELS, ACTOR_MODELS } from "../../module/data/models.mjs";
 import { buildJournal } from "./journal.mjs";
 import { buildFeats } from "./feats.mjs";
@@ -41,5 +42,11 @@ export function modelFor(doc) {
  */
 export const PACKS = Object.fromEntries(Object.entries(BUILDERS).map(([name, build]) => [name, once(() => {
   const r = build();
-  return { ...r, documents: r.documents.map((d) => { const m = modelFor(d); return m ? { ...d, system: conform(m, d.system) } : d; }) };
+  return { ...r, documents: r.documents.map((d) => {
+    const m = modelFor(d);
+    if (!m) return d;
+    // An item's identifier: the slug of its name, without the book a split duplicate is named for.
+    const system = d._key.startsWith("!items!") ? { identifier: slug(d.name), ...d.system } : d.system;
+    return { ...d, system: conform(m, system) };
+  }) };
 })]));

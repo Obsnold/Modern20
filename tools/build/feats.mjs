@@ -19,7 +19,9 @@ import { listPages, readPage, toHtml, text } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
 import { resolveDuplicates } from "./duplicates.mjs";
-import { FEAT_EFFECTS, MODES } from "../../module/rules/effects.mjs";
+import { MODES } from "../../module/rules/effects.mjs";
+import { FEAT_RULES } from "../../module/rules/feats.mjs";
+import { slug } from "../../module/rules/identify.mjs";
 
 const SECTIONS = ["Prerequisites", "Benefit", "Normal", "Special"];
 const TYPES = { METAMAGIC: "metamagic", METAPSIONIC: "metapsionic", INITIAL: "initial" };
@@ -85,9 +87,9 @@ export function readFeat(path) {
   return { feat, problems };
 }
 
-/** A feat's active effect, when its benefit is a fixed bonus (FEAT_EFFECTS): transferred to whoever owns it. */
+/** A feat's active effect, when its benefit is a fixed bonus (rules/feats.mjs): transferred to whoever owns it. */
 function featEffects(itemId, feat) {
-  const changes = FEAT_EFFECTS[feat.name];
+  const changes = FEAT_RULES[slug(feat.name)]?.effects;
   if (!changes) return [];
   const id = stableId(`feat-effect:${feat.path}`);
   return [{

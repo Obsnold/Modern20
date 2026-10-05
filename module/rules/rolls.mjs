@@ -11,6 +11,8 @@
  */
 
 import { chooses } from "./choices.mjs";
+import { rulesFor } from "./feats.mjs";
+import { slug } from "./identify.mjs";
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
@@ -76,17 +78,20 @@ const SIZE_ATTACK = { fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, larg
 export function attack(d, weapon, feats, options = {}) {
   const s = weapon.system;
   const melee = !!s.melee;
-  const named = (name) => feats.filter((f) => f.name === name);
-  const finesse = melee && named("Weapon Finesse").some((f) => chooses(f.choice, weapon.name)) && (d.modifiers.dex ?? 0) > (d.modifiers.str ?? 0);
+  // Each feat with its identifier and rules (rules/feats.mjs); `{ name }` alone is identified by its name.
+  const owned = feats.map((f) => ({ ...f, id: f.identifier || slug(f.name) })).map((f) => ({ ...f, rules: rulesFor(f.id) }));
+  const forThisWeapon = (f) => chooses(f.choice, weapon.name);
+  const finesse = melee && owned.some((f) => f.rules.finesse && forThisWeapon(f)) && (d.modifiers.dex ?? 0) > (d.modifiers.str ?? 0);
   const ability = melee && !finesse ? "str" : "dex";
   const needs = s.proficiency?.value ?? "";
   // "Exotic Firearms Proficiency (grenade launchers)" is met by that feat taken for grenade launchers,
   // and a specific exotic proficiency by the feat taken for this weapon.
-  const base = needs.replace(/\s*\(.*\)$/, "");
+  const base = slug(needs.replace(/\s*\(.*\)$/, ""));
   const group = needs.match(/\((.+)\)$/)?.[1];
-  const proficient = !needs || feats.some((f) => f.name === needs || (f.name === base && (!/^Exotic/.test(base) || chooses(f.choice, group ?? weapon.name) || chooses(f.choice, weapon.name))));
-  const focus = named("Weapon Focus").some((f) => chooses(f.choice, weapon.name)) ? 1 : 0;
-  const pointBlank = !melee && options.pointBlank && named("Point Blank Shot").length ? 1 : 0;
+  const proficient = !needs || owned.some((f) => f.id === slug(needs)
+    || (f.id === base && (f.rules.proficiency !== "chosen" || chooses(f.choice, group ?? weapon.name) || forThisWeapon(f))));
+  const focus = owned.filter((f) => f.rules.weaponFocus && forThisWeapon(f)).reduce((n, f) => n + f.rules.weaponFocus, 0);
+  const pointBlank = !melee && options.pointBlank ? Math.max(0, ...owned.map((f) => f.rules.pointBlank ?? 0)) : 0;
   return d20(`${weapon.name}: ${melee ? "melee" : "ranged"} attack`, [
     { label: "Base attack", value: d.baseAttackBonus },
     { label: `${ABILITY_NAMES[ability]}${finesse ? " (Weapon Finesse)" : ""}`, value: d.modifiers[ability] ?? 0 },

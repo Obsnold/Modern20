@@ -60,7 +60,7 @@ const spellLike = {
 // ---------------------------------------------------------------------------
 // Items
 
-export const ITEM_MODELS = {
+const ITEM_FIELDS = {
   class: {
     /** The levels a character has in this class (on a character's copy; 1 in the compendium). */
     level: int({ initial: 1 }),
@@ -258,6 +258,12 @@ export const ITEM_MODELS = {
     source,
   },
 };
+
+/**
+ * Every item type, each with its identifier first: the slug of the name the SRD
+ * prints, which the rules know it by (rules/identify.mjs).
+ */
+export const ITEM_MODELS = Object.fromEntries(Object.entries(ITEM_FIELDS).map(([type, fields]) => [type, { identifier: str(), ...fields }]));
 
 // ---------------------------------------------------------------------------
 // Actors
