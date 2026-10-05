@@ -17,6 +17,22 @@
     {{#if rolls.skills.length}}
       <div class="m20-rollbar">{{#each rolls.skills}}<a class="m20-roll-button" data-action="rollSkill" data-index="{{index}}">{{label}} {{bonus}}</a>{{/each}}</div>
     {{/if}}
+    {{#each rolls.attacks}}
+      <div class="m20-attacks">
+        <h3>{{label}}</h3>
+        {{#each choices}}
+          {{#each this}}
+            {{#if first}}<p class="m20-hint m20-or">or</p>{{/if}}
+            <div class="m20-attack" data-line="{{line}}" data-choice="{{choice}}" data-index="{{index}}">
+              <span class="m20-item-name">{{name}} <span class="m20-hint">{{kind}}</span></span>
+              {{#each bonuses}}<a class="m20-roll-button" data-action="rollCreatureAttack" data-bonus="{{bonus}}" data-tooltip="Attack">{{label}}</a>{{/each}}
+              {{#if damage}}<a class="m20-roll-button" data-action="rollCreatureDamage" data-tooltip="Damage"><i class="fa-solid fa-burst"></i> {{damage}}</a>{{/if}}
+              {{#if note}}<span class="m20-hint">plus {{note}}</span>{{/if}}
+            </div>
+          {{/each}}
+        {{/each}}
+      </div>
+    {{/each}}
   {{/if}}
   {{{table}}}
   {{#each prose}}

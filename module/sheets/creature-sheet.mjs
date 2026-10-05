@@ -6,6 +6,7 @@ import { describe } from "./document-sheet.mjs";
 import { creatureRolls } from "../roll.mjs";
 import { logContext } from "../log.mjs";
 import { creatureParts } from "../rules/creature.mjs";
+import { readAttacks, attackRows } from "../rules/attacks.mjs";
 import { SYSTEM_ID } from "../config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -20,6 +21,8 @@ export class Modern20CreatureSheet extends HandlebarsApplicationMixin(ActorSheet
       rollAbility: Modern20CreatureSheet.#onRollAbility,
       rollSave: Modern20CreatureSheet.#onRollSave,
       rollSkill: Modern20CreatureSheet.#onRollSkill,
+      rollCreatureAttack: Modern20CreatureSheet.#onRollAttack,
+      rollCreatureDamage: Modern20CreatureSheet.#onRollDamage,
       filterLog: Modern20CreatureSheet.#onFilterLog,
       buildCharacter: Modern20CreatureSheet.#onBuildCharacter,
     },
@@ -38,6 +41,10 @@ export class Modern20CreatureSheet extends HandlebarsApplicationMixin(ActorSheet
       saves: [["fort", "Fort"], ["ref", "Ref"], ["will", "Will"]].filter(([k]) => s.saves?.[k] !== null && s.saves?.[k] !== undefined).map(([key, label]) => ({ key, label, bonus: signed(s.saves[key]) })),
       abilities: ["str", "dex", "con", "int", "wis", "cha"].filter((k) => s.abilities?.[k] !== null && s.abilities?.[k] !== undefined).map((key) => ({ key, label: key[0].toUpperCase() + key.slice(1), score: s.abilities[key] })),
       skills: (s.skills ?? []).map((k, index) => ({ index, label: `${k.name}${k.specialty ? ` (${k.specialty})` : ""}`, bonus: signed(k.bonus) })),
+      // The printed Attack and Full Attack lines, each attack with a button per attack bonus and one for damage.
+      attacks: [["attack", "Attack"], ["fullAttack", "Full attack"]]
+        .map(([line, label]) => ({ label, choices: attackRows(line, readAttacks(s[line])) }))
+        .filter((a) => a.choices.length),
     };
     context.log = logContext(this.document, this.logFilter);
     context.canBuild = !!(s.type?.uuid || s.example?.base?.uuid) && Actor.implementation.canUserCreate(game.user);
@@ -53,6 +60,14 @@ export class Modern20CreatureSheet extends HandlebarsApplicationMixin(ActorSheet
 
   static #onRollAbility(event, target) { return creatureRolls(this.document).ability(target.dataset.ability, event); }
   static #onRollSave(event, target) { return creatureRolls(this.document).save(target.dataset.save, event); }
+  static #onRollAttack(event, target) {
+    const row = target.closest("[data-line]").dataset;
+    return creatureRolls(this.document).attack(row.line, Number(row.choice), Number(row.index), Number(target.dataset.bonus), event);
+  }
+  static #onRollDamage(event, target) {
+    const row = target.closest("[data-line]").dataset;
+    return creatureRolls(this.document).damage(row.line, Number(row.choice), Number(row.index));
+  }
   static #onRollSkill(event, target) { return creatureRolls(this.document).skill(Number(target.dataset.index), event); }
 
   /**

@@ -14,6 +14,8 @@ import { recordRoll } from "./log.mjs";
 import { SYSTEM_ID } from "./config.mjs";
 import { identify } from "./rules/identify.mjs";
 import { rulesFor } from "./rules/feats.mjs";
+import { readAttacks, attackRoll, damageRoll } from "./rules/attacks.mjs";
+import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -96,7 +98,24 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild } = {}
   const ticked = Object.fromEntries(options.map((o) => [o.name, !!added[o.name]]));
   if (rebuild) spec = rebuild(ticked);
   const confirm = flags?.attack ? R.withAdditions(spec, { modifier: added.modifier }).formula : undefined;
-  return post(actor, R.withAdditions(spec, added), { flags: flags ? { ...flags, confirm, attack: { ...flags.attack, ...ticked } } : {} });
+  return post(actor, R.withAdditions(spec, added), {
+    flags: flags ? { ...flags, confirm, attack: { ...flags.attack, ...ticked } } : {},
+    judge: flags?.attack ? (roll) => judgeAgainstTarget(roll, { touch: flags.attack.touch }) : undefined,
+  });
+}
+
+/**
+ * An attack against the one token targeted, if one is: whether it hits its Defense (touch
+ * Defense for a touch attack). A natural 20 always hits and a natural 1 always misses.
+ */
+function judgeAgainstTarget(roll, { touch = false } = {}) {
+  const targets = [...(game.user.targets ?? [])];
+  if (targets.length !== 1) return {};
+  const defense = defenseOf(targets[0].actor, { touch });
+  if (defense === null || defense === undefined) return {};
+  const natural = roll.dice[0]?.total;
+  const hit = natural === 20 || (natural !== 1 && roll.total >= defense);
+  return { hit: { name: targets[0].name, defense, touch, hit } };
 }
 
 /** Every roll a character's sheet offers, by name. Pass the click event so shift works. */
@@ -115,7 +134,8 @@ export function characterRolls(actor) {
     damage: (item, { multiplier = 1, pointBlank = false } = {}) => {
       const spec = R.damage(d, item, { pointBlank });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
-      return post(actor, multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec);
+      const nonlethal = /nonlethal/i.test(item.system.damageType ?? "");
+      return post(actor, multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec, { flags: { damage: { nonlethal } } });
     },
   };
 }
@@ -130,6 +150,20 @@ export function creatureRolls(actor) {
       const k = s.skills[index];
       return rollD20(actor, R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus), event);
     },
+    // An attack from the printed Attack or Full Attack line (rules/attacks.mjs): its choice, its place in that
+    // choice, and which of its iterative bonuses.
+    attack: (line, choice, index, bonus, event) => {
+      const a = readAttacks(s[line])[choice]?.[index];
+      if (!a) return null;
+      return rollD20(actor, attackRoll(a, bonus), event, { attack: { actor: actor.uuid, line, choice, index, touch: a.touch } });
+    },
+    damage: (line, choice, index, multiplier = 1) => {
+      const a = readAttacks(s[line])[choice]?.[index];
+      if (!a) return null;
+      const spec = damageRoll(a, multiplier);
+      if (!spec) return ui.notifications.info(`${a.name}: its damage is not a roll (${a.note || "see the creature's description"}).`);
+      return post(actor, spec, { flags: { damage: { nonlethal: spec.nonlethal } } });
+    },
   };
 }
 
@@ -139,20 +173,21 @@ export function initiativeBonus(actor) {
   return actor.system.initiative ?? 0;
 }
 
-/** A token's Defense: a character's worked out, a creature's as printed. */
-function defenseOf(actor) {
-  return actor?.type === "character" ? actor.system.derived?.defense?.value : actor?.system.defense?.value;
+/** A token's Defense, or its touch Defense: a character's worked out, a creature's as printed. */
+function defenseOf(actor, { touch = false } = {}) {
+  const defense = actor?.type === "character" ? actor.system.derived?.defense : actor?.system.defense;
+  return touch ? defense?.touch : defense?.value;
 }
 
 /**
  * Confirm a critical: the attack rolled again with the same modifiers. With
  * one token targeted, the card compares the roll with its Defense.
  */
-async function confirmCritical(actor, item, flags) {
+async function confirmCritical(actor, name, flags) {
   const targets = [...(game.user.targets ?? [])];
   const target = targets.length === 1 ? targets[0] : null;
-  const defense = target ? defenseOf(target.actor) : null;
-  return post(actor, { title: `${item.name}: confirming the critical`, terms: [], formula: flags.confirm ?? flags.formula }, {
+  const defense = target ? defenseOf(target.actor, { touch: flags.attack.touch }) : null;
+  return post(actor, { title: `${name}: confirming the critical`, terms: [], formula: flags.confirm ?? flags.formula }, {
     flags: { attack: flags.attack, confirming: true, critical: flags.critical },
     judge: (roll) => (defense === null || defense === undefined ? {} : { against: { name: target.name, defense, confirmed: roll.total >= defense } }),
   });
@@ -168,16 +203,32 @@ async function confirmCritical(actor, item, flags) {
  *                               without a target, both, for the table to choose
  */
 export function bindAttackButtons(message, html) {
-  const flags = message.getFlag(SYSTEM_ID, "attack") && message.flags[SYSTEM_ID];
-  if (!flags) return;
+  const flags = message.flags?.[SYSTEM_ID];
+  if (flags?.damage) return bindDamageButtons(message, html, flags);
+  if (flags?.save) return bindSaveButtons(message, html, flags);
+  if (!flags?.attack) return;
   const actor = fromUuidSync(flags.attack.actor);
-  const item = actor?.items?.get(flags.attack.item);
   // Only those who can roll for the actor get its buttons: a player cannot roll another's damage.
-  if (!actor || !item || !actor.isOwner) return;
-  const pointBlank = !!flags.attack.pointBlank;
+  if (!actor || !actor.isOwner) return;
   const multiplier = flags.critical?.multiplier ?? 2;
-  const normal = () => characterRolls(actor).damage(item, { pointBlank });
-  const critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank });
+  let name, normal, critical;
+  if (flags.attack.item) {
+    // A character's weapon.
+    const item = actor.items?.get(flags.attack.item);
+    if (!item) return;
+    const pointBlank = !!flags.attack.pointBlank;
+    name = item.name;
+    normal = () => characterRolls(actor).damage(item, { pointBlank });
+    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank });
+  } else {
+    // A creature's printed attack.
+    const { line, choice, index } = flags.attack;
+    const a = readAttacks(actor.system[line])[choice]?.[index];
+    if (!a) return;
+    name = a.name;
+    normal = () => creatureRolls(actor).damage(line, choice, index);
+    critical = () => creatureRolls(actor).damage(line, choice, index, multiplier);
+  }
 
   const buttons = document.createElement("div");
   buttons.className = "m20-card-buttons";
@@ -189,6 +240,12 @@ export function bindAttackButtons(message, html) {
     buttons.append(b);
   };
 
+  if (flags.hit && !flags.confirming) {
+    const verdict = document.createElement("p");
+    verdict.className = flags.hit.hit ? "m20-crit" : "m20-hint";
+    verdict.textContent = `${flags.hit.hit ? "Hits" : "Misses"} ${flags.hit.name} (${flags.hit.touch ? "touch " : ""}Defense ${flags.hit.defense}).`;
+    buttons.append(verdict);
+  }
   if (flags.confirming && flags.against) {
     const verdict = document.createElement("p");
     verdict.className = flags.against.confirmed ? "m20-crit" : "m20-hint";
@@ -197,7 +254,7 @@ export function bindAttackButtons(message, html) {
       : `Not confirmed against ${flags.against.name} (Defense ${flags.against.defense}): a normal hit.`;
     buttons.append(verdict);
   }
-  const handlers = { damage: normal, critical, confirm: () => confirmCritical(actor, item, flags) };
+  const handlers = { damage: normal, critical, confirm: () => confirmCritical(actor, name, flags) };
   for (const b of R.cardButtons(flags)) add(b.label, handlers[b.kind]);
   (html.querySelector(".message-content") ?? html).append(buttons);
 }

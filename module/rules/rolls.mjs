@@ -167,6 +167,7 @@ export function criticalDamage(spec, multiplier) {
 /**
  * The buttons an attack's chat card offers, from what the card records:
  *
+ *   an attack that missed:      nothing (judged against a target's Defense; a miss is never a threat)
  *   an attack with no threat:   Damage
  *   an attack with a threat:    Confirm critical, and no damage until it is resolved
  *   the confirmation:           against a target's Defense, the one damage it earned;
@@ -176,6 +177,7 @@ export function criticalDamage(spec, multiplier) {
  */
 export function cardButtons(flags) {
   const m = flags.critical?.multiplier ?? 2;
+  if (!flags.confirming && flags.hit && !flags.hit.hit) return [];
   if (flags.confirming) {
     if (flags.against) return [flags.against.confirmed ? { kind: "critical", label: `Critical damage (×${m})` } : { kind: "damage", label: "Damage" }];
     return [{ kind: "critical", label: `Confirmed: critical damage (×${m})` }, { kind: "damage", label: "Not confirmed: damage" }];

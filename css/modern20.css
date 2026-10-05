@@ -72,6 +72,11 @@
 
 /* Rolls: buttons on sheets, and the breakdown on a chat card. */
 .modern20 .m20-rollbar { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0 0 0.5rem; }
+.modern20 .m20-attacks { margin: 0 0 0.5rem; }
+.modern20 .m20-attacks h3 { margin: 0.3rem 0; }
+.modern20 .m20-attack { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; margin: 0.15rem 0; }
+.modern20 .m20-attack .m20-item-name { min-width: 10rem; }
+.modern20 .m20-or { margin: 0.1rem 0; font-style: italic; }
 .modern20 .m20-roll-button { border: 1px solid var(--color-border, #999); border-radius: 3px; padding: 0.05rem 0.4rem; cursor: pointer; white-space: nowrap; }
 .modern20 a[data-action^="roll"] { cursor: pointer; }
 .m20-roll h3 { margin: 0 0 0.2rem; font-size: 1em; }
