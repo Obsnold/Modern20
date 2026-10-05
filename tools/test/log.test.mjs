@@ -49,11 +49,24 @@ test("effects: a condition or switching an effect is play; an effect of the char
   assert.equal(L.rollEntry("Will save", 17, meta).kind, "play");
 });
 
-test("the log keeps every build entry and the newest play entries", () => {
-  const b = (n) => ({ kind: "build", n }), p = (n) => ({ kind: "play", n });
-  const log = L.append([b(1), p(1), p(2), b(2), p(3)], [p(4), b(3)], 2);
-  assert.deepEqual(log.map((e) => `${e.kind[0]}${e.n}`), ["b1", "b2", "p3", "p4", "b3"]);
-  const many = L.append([], Array.from({ length: 600 }, (_, i) => p(i)));
-  assert.equal(many.length, L.PLAY_LIMIT);
-  assert.equal(many[0].n, 100);
+test("the log is written a chunk at a time: an entry sends only the chunk it joins", () => {
+  const e = (kind, n) => ({ kind, n, time: n });
+  let { update, log } = L.append(undefined, [e("build", 1), e("play", 2)]);
+  assert.deepEqual(Object.keys(update).sort(), ["flags.modern20.log.build.0", "flags.modern20.log.play.0"]);
+  ({ update, log } = L.append(log, [e("play", 3)]));
+  assert.deepEqual(Object.keys(update), ["flags.modern20.log.play.0"]);   // the build chunk is not sent again
+  assert.deepEqual(L.entries(log).map((x) => x.n), [1, 2, 3]);
+});
+
+test("the session log is pruned a chunk at a time and build entries are never pruned", () => {
+  let log;
+  for (let i = 0; i < 700; i++) log = L.append(log, [{ kind: "play", n: i, time: i }, ...(i % 100 ? [] : [{ kind: "build", n: i, time: i }])]).log;
+  const play = L.entries(log).filter((x) => x.kind === "play");
+  assert.ok(play.length >= L.PLAY_LIMIT && play.length < L.PLAY_LIMIT + L.CHUNK, `${play.length} kept`);
+  assert.equal(play.at(-1).n, 699);
+  assert.equal(L.entries(log).filter((x) => x.kind === "build").length, 7);
+  // Pruning shows in the update as Foundry's deletion key, not as a rewritten chunk.
+  const full = Object.fromEntries(Array.from({ length: 11 }, (_, k) => [k, Array.from({ length: L.CHUNK }, (_, i) => ({ kind: "play", time: k * 100 + i }))]));
+  const { update } = L.append({ play: full }, [{ kind: "play", time: 99999 }]);
+  assert.ok("flags.modern20.log.play.-=0" in update);
 });

@@ -10,13 +10,21 @@
  *           last PLAY_LIMIT are kept.
  *
  * What is play is listed here; anything not listed is build, so a change
- * nobody anticipated is kept rather than pruned. Plain functions over plain
+ * nobody anticipated is kept rather than pruned.
+ *
+ * The log is stored in chunks of CHUNK entries, by kind
+ * (`{ build: { 0: [...], 1: [...] }, play: { ... } }`), so adding an entry
+ * writes one small chunk rather than the whole log: at 500 session entries a
+ * single list would send well over 100 KB with every hit point change. Session
+ * entries are pruned a chunk at a time, so between PLAY_LIMIT and
+ * PLAY_LIMIT + CHUNK are kept. Plain functions over plain
  * data, so the classification and the wording are tested; module/log.mjs wires
  * them to Foundry's hooks.
  */
 import { SKILLS } from "../data/skills.mjs";
 
 export const PLAY_LIMIT = 500;
+export const CHUNK = 50;
 
 /** Actor fields whose changes are play (temporary), not build. */
 const PLAY_ACTOR_FIELDS = new Set(["system.hp.value", "system.hp.temp", "system.actionPoints.value"]);
@@ -114,11 +122,46 @@ export function effectEntry(effect, action, meta) {
 /** A dice roll: play. */
 export const rollEntry = (title, total, meta) => ({ ...meta, kind: "play", text: `Rolled ${title}: ${total}`, changes: [] });
 
-/** The log with `entries` added: every build entry kept, the newest `limit` play entries kept. */
-export function append(log, entries, limit = PLAY_LIMIT) {
-  const all = [...(log ?? []), ...entries];
-  let play = all.filter((e) => e.kind === "play").length;
-  return all.filter((e) => e.kind !== "play" || play-- <= limit);
+/** Every entry in a chunked log, oldest first. */
+export function entries(log) {
+  const all = [];
+  for (const kind of ["build", "play"]) for (const key of chunkKeys(log?.[kind])) all.push(...log[kind][key]);
+  return all.sort((a, b) => a.time - b.time || (a.seq ?? 0) - (b.seq ?? 0));
+}
+
+const chunkKeys = (chunks) => Object.keys(chunks ?? {}).filter((k) => /^\d+$/.test(k)).map(Number).sort((a, b) => a - b);
+
+/**
+ * Add `entries` to a chunked log. Returns the update that does it, as
+ * flattened paths under `path` (only the chunks that change, and `-=` keys
+ * for the session chunks pruned), and the log as it will be.
+ */
+export function append(log, newEntries, { limit = PLAY_LIMIT, path = "flags.modern20.log" } = {}) {
+  const next = { build: { ...(log?.build ?? {}) }, play: { ...(log?.play ?? {}) } };
+  const update = {};
+  for (const kind of ["build", "play"]) {
+    const add = newEntries.filter((e) => e.kind === kind);
+    if (!add.length) continue;
+    const keys = chunkKeys(next[kind]);
+    let key = keys.length ? keys.at(-1) : 0;
+    let chunk = [...(next[kind][key] ?? [])];
+    for (const e of add) {
+      if (chunk.length >= CHUNK) { next[kind][key] = chunk; update[`${path}.${kind}.${key}`] = chunk; key += 1; chunk = []; }
+      chunk.push(e);
+    }
+    next[kind][key] = chunk;
+    update[`${path}.${kind}.${key}`] = chunk;
+  }
+  // Session entries past the limit: drop whole chunks, oldest first, while what is left still holds the limit.
+  let keys = chunkKeys(next.play);
+  const count = () => keys.reduce((n, k) => n + next.play[k].length, 0);
+  while (keys.length > 1 && count() - next.play[keys[0]].length >= limit) {
+    const old = keys.shift();
+    delete next.play[old];
+    delete update[`${path}.play.${old}`];
+    update[`${path}.play.-=${old}`] = null;
+  }
+  return { update, log: next };
 }
 
 const TYPE_LABELS = {

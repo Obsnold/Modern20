@@ -25,14 +25,16 @@ export function registerLogSettings() {
 }
 
 const limit = () => game.settings.get(SYSTEM_ID, "logPlayLimit") ?? L.PLAY_LIMIT;
-const meta = (userId = game.user.id) => ({ id: foundry.utils.randomID(), time: Date.now(), user: userId, userName: game.users.get(userId)?.name ?? "Unknown" });
-const logged = (actor) => actor && ["character", "creature"].includes(actor.type);
+const meta = (userId = game.user.id) => ({ id: foundry.utils.randomID(), time: Date.now(), seq: seq++, user: userId, userName: game.users.get(userId)?.name ?? "Unknown" });
+/** An actor the log records: a character or creature in the world (a compendium's cannot be changed). */
+const logged = (actor) => actor && !actor.pack && ["character", "creature"].includes(actor.type);
+let seq = 0;
 
 /** Add entries to an actor's log in a write of its own, which is not itself logged. */
 export async function record(actor, entries) {
   if (!logged(actor) || !entries.length || !actor.isOwner) return;
-  const log = L.append(actor.getFlag(SYSTEM_ID, "log") ?? [], entries, limit());
-  await actor.update({ [`flags.${SYSTEM_ID}.log`]: log }, { [NO_LOG]: true, render: true });
+  const { update } = L.append(actor.getFlag(SYSTEM_ID, "log"), entries, { limit: limit() });
+  await actor.update(update, { [NO_LOG]: true });
 }
 
 /** Register the hooks; called once, at init. */
@@ -43,7 +45,9 @@ export function registerLogHooks() {
     const flat = foundry.utils.flattenObject(changes);
     const entries = L.actorEntries(actor.toObject(), flat, meta(userId));
     if (!entries.length) return;
-    foundry.utils.setProperty(changes, `flags.${SYSTEM_ID}.log`, L.append(actor.getFlag(SYSTEM_ID, "log") ?? [], entries, limit()));
+    for (const [path, value] of Object.entries(L.append(actor.getFlag(SYSTEM_ID, "log"), entries, { limit: limit() }).update)) {
+      foundry.utils.setProperty(changes, path, value);
+    }
   });
 
   // Items: noted before the change, written after it.
@@ -81,7 +85,7 @@ export const recordRoll = (actor, title, total) => record(actor, [L.rollEntry(ti
 /** The log as a sheet shows it: newest first, filtered to "all", "build" or "play". */
 export function logContext(actor, filter = "all") {
   const time = new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" });
-  const entries = (actor.getFlag(SYSTEM_ID, "log") ?? []).filter((e) => filter === "all" || e.kind === filter).slice().reverse();
+  const entries = L.entries(actor.getFlag(SYSTEM_ID, "log")).filter((e) => filter === "all" || e.kind === filter).reverse();
   return {
     filter,
     filters: [["all", "All"], ["build", "Build"], ["play", "Session"]].map(([id, label]) => ({ id, label, active: id === filter })),
