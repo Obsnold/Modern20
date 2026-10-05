@@ -9,6 +9,7 @@
  */
 import { ABILITIES, ACTOR_MODELS, SIZES } from "../data/models.mjs";
 import { initial, obj } from "../data/schema.mjs";
+import { mergeIndexed } from "./edit-form.mjs";
 import { SKILLS } from "../data/skills.mjs";
 import { characterRolls } from "../roll.mjs";
 import { CHOICES } from "../rules/choices.mjs";
@@ -261,6 +262,16 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       biographyField: system.schema.fields.details.fields.biography,
     });
     return context;
+  }
+
+  /**
+   * The form's data, with the specialty skills' rows merged into the list rather than replacing
+   * it: their inputs carry only ranks, misc and class skill, not which skill and specialty.
+   */
+  _processFormData(event, form, formData) {
+    const data = super._processFormData(event, form, formData);
+    if (data.system?.specialtySkills) data.system.specialtySkills = mergeIndexed(this.document.system.toObject().specialtySkills, data.system.specialtySkills);
+    return data;
   }
 
   /** Fields on an owned item (a class's level, a hit point roll) save to that item. */
@@ -524,7 +535,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const row = target.closest("[data-skill]");
     const specialty = row.querySelector(".m20-new-specialty")?.value.trim();
     if (!specialty) return;
-    const list = [...this.document.system.toObject().specialtySkills];
+    // Rows left with no skill (saved before the sheet merged them) are dropped while adding.
+    const list = this.document.system.toObject().specialtySkills.filter((s) => s.skill);
     if (list.some((s) => s.skill === row.dataset.skill && s.specialty === specialty)) return;
     list.push({ skill: row.dataset.skill, specialty, ranks: 0, misc: 0 });
     await this.document.update({ "system.specialtySkills": list });

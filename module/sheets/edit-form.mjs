@@ -124,3 +124,14 @@ export function specAt(spec, path) {
   }
   return s ?? null;
 }
+
+/**
+ * A list edited by its entries' inputs ("system.specialtySkills.0.ranks"), which a form sends as
+ * `{ 0: { ranks } }`: those fields merged into the list's entries, keeping the fields the form
+ * does not show (a specialty skill's skill and specialty). Entries the form sends that the list
+ * does not have are ignored.
+ */
+export function mergeIndexed(list, form) {
+  if (!form || Array.isArray(form)) return form ?? list;
+  return list.map((entry, i) => (form[i] && typeof form[i] === "object" ? { ...entry, ...form[i] } : entry));
+}

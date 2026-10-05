@@ -62,3 +62,13 @@ test("a path below system finds its field description, through lists", () => {
   assert.equal(specAt(spec, "skills.0.bonus").kind, "number");
   assert.equal(specAt(spec, "nope"), null);
 });
+
+test("a list's rows edited by index keep the fields the form does not show", async () => {
+  const { mergeIndexed } = await import("../../module/sheets/edit-form.mjs");
+  const list = [{ skill: "knowledge", specialty: "history", ranks: 0, misc: 0, classSkill: false }, { skill: "craft", specialty: "writing", ranks: 2, misc: 0, classSkill: true }];
+  assert.deepEqual(mergeIndexed(list, { 0: { ranks: 4, misc: 1, classSkill: true } }), [
+    { skill: "knowledge", specialty: "history", ranks: 4, misc: 1, classSkill: true },
+    { skill: "craft", specialty: "writing", ranks: 2, misc: 0, classSkill: true },
+  ]);
+  assert.deepEqual(mergeIndexed(list, { 5: { ranks: 1 } }), list);
+});
