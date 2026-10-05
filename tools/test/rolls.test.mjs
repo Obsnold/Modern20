@@ -122,3 +122,14 @@ test("Point Blank Shot adds +1 to a ranged attack and its damage, when ticked", 
   assert.ok(!R.attack(d, glock, feats, {}).terms.some((t) => t.label === "Point Blank Shot"));
   assert.equal(R.damage(d, glock, { pointBlank: true }).formula, "2d6 + 1");
 });
+
+test("an attack card offers no damage until a critical threat is resolved", () => {
+  const crit = { threat: 19, multiplier: 3 };
+  const kinds = (flags) => R.cardButtons(flags).map((b) => b.kind);
+  assert.deepEqual(kinds({ threat: false, critical: crit }), ["damage"]);
+  assert.deepEqual(kinds({ threat: true, critical: crit }), ["confirm"]);
+  assert.deepEqual(kinds({ confirming: true, critical: crit }), ["critical", "damage"]);                       // no target: the table chooses
+  assert.deepEqual(kinds({ confirming: true, critical: crit, against: { confirmed: true } }), ["critical"]);
+  assert.deepEqual(kinds({ confirming: true, critical: crit, against: { confirmed: false } }), ["damage"]);
+  assert.equal(R.cardButtons({ confirming: true, critical: crit, against: { confirmed: true } })[0].label, "Critical damage (×3)");
+});

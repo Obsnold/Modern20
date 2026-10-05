@@ -53,9 +53,10 @@ async function ask(actor, spec, event, options = []) {
 
 /**
  * Post a roll to chat as `actor`; returns the Roll. `flags` are kept on the
- * message for its buttons (an attack's weapon and critical).
+ * message for its buttons (an attack's weapon and critical); `judge(roll)`
+ * adds flags that depend on the result (whether a critical was confirmed).
  */
-export async function post(actor, spec, { flags = {} } = {}) {
+export async function post(actor, spec, { flags = {}, judge } = {}) {
   if (!spec) return null;
   if (spec.unusable) { ui.notifications.warn(`${spec.title}: ${spec.unusable}`); return null; }
   const Roll = foundry.dice?.Roll ?? globalThis.Roll;
@@ -69,7 +70,8 @@ export async function post(actor, spec, { flags = {} } = {}) {
     note = `<p class="m20-hint">On a confirmed critical: ×${spec.critical.multiplier}.</p>`;
   }
   const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}</div>`;
-  await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor, flags: { [SYSTEM_ID]: { ...flags, threat, critical: spec.critical, formula: spec.formula } } });
+  const judged = judge?.(roll) ?? {};
+  await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor, flags: { [SYSTEM_ID]: { ...flags, ...judged, threat, critical: spec.critical ?? flags.critical, formula: spec.formula } } });
   return roll;
 }
 
@@ -134,10 +136,33 @@ export function initiativeBonus(actor) {
   return actor.system.initiative ?? 0;
 }
 
+/** A token's Defense: a character's worked out, a creature's as printed. */
+function defenseOf(actor) {
+  return actor?.type === "character" ? actor.system.derived?.defense?.value : actor?.system.defense?.value;
+}
+
 /**
- * Buttons on an attack's chat card: Damage always; on a threat, Confirm
- * (the same attack again) and Critical damage. Bound on renderChatMessageHTML,
- * which since v13 passes an HTMLElement.
+ * Confirm a critical: the attack rolled again with the same modifiers. With
+ * one token targeted, the card compares the roll with its Defense.
+ */
+async function confirmCritical(actor, item, flags) {
+  const targets = [...(game.user.targets ?? [])];
+  const target = targets.length === 1 ? targets[0] : null;
+  const defense = target ? defenseOf(target.actor) : null;
+  return post(actor, { title: `${item.name}: confirming the critical`, terms: [], formula: flags.confirm ?? flags.formula }, {
+    flags: { attack: flags.attack, confirming: true, critical: flags.critical },
+    judge: (roll) => (defense === null || defense === undefined ? {} : { against: { name: target.name, defense, confirmed: roll.total >= defense } }),
+  });
+}
+
+/**
+ * Buttons on an attack's chat card. Bound on renderChatMessageHTML, which
+ * since v13 passes an HTMLElement.
+ *
+ *   an attack with no threat:   Damage
+ *   an attack with a threat:    Confirm critical (and nothing else until it is resolved)
+ *   the confirmation:           against a targeted token's Defense, Critical damage or Damage;
+ *                               without a target, both, for the table to choose
  */
 export function bindAttackButtons(message, html) {
   const flags = message.getFlag(SYSTEM_ID, "attack") && message.flags[SYSTEM_ID];
@@ -145,6 +170,11 @@ export function bindAttackButtons(message, html) {
   const actor = fromUuidSync(flags.attack.actor);
   const item = actor?.items?.get(flags.attack.item);
   if (!actor || !item) return;
+  const pointBlank = !!flags.attack.pointBlank;
+  const multiplier = flags.critical?.multiplier ?? 2;
+  const normal = () => characterRolls(actor).damage(item, { pointBlank });
+  const critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank });
+
   const buttons = document.createElement("div");
   buttons.className = "m20-card-buttons";
   const add = (label, handler) => {
@@ -154,11 +184,16 @@ export function bindAttackButtons(message, html) {
     b.addEventListener("click", handler);
     buttons.append(b);
   };
-  const pointBlank = !!flags.attack.pointBlank;
-  add("Damage", () => characterRolls(actor).damage(item, { pointBlank }));
-  if (flags.threat && flags.critical) {
-    add("Confirm critical", () => post(actor, { title: `${item.name}: confirming the critical`, terms: [], formula: flags.confirm ?? flags.formula }));
-    add(`Critical damage (×${flags.critical.multiplier})`, () => characterRolls(actor).damage(item, { multiplier: flags.critical.multiplier, pointBlank }));
+
+  if (flags.confirming && flags.against) {
+    const verdict = document.createElement("p");
+    verdict.className = flags.against.confirmed ? "m20-crit" : "m20-hint";
+    verdict.textContent = flags.against.confirmed
+      ? `Confirmed against ${flags.against.name} (Defense ${flags.against.defense}).`
+      : `Not confirmed against ${flags.against.name} (Defense ${flags.against.defense}): a normal hit.`;
+    buttons.append(verdict);
   }
+  const handlers = { damage: normal, critical, confirm: () => confirmCritical(actor, item, flags) };
+  for (const b of R.cardButtons(flags)) add(b.label, handlers[b.kind]);
   (html.querySelector(".message-content") ?? html).append(buttons);
 }

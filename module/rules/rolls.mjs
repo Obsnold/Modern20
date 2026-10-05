@@ -158,3 +158,23 @@ export function criticalDamage(spec, multiplier) {
   const formula = Array.from({ length: multiplier }, () => `(${spec.formula})`).join(" + ");
   return { ...spec, title: `${spec.title}: critical (×${multiplier})`, formula, critical: null };
 }
+
+/**
+ * The buttons an attack's chat card offers, from what the card records:
+ *
+ *   an attack with no threat:   Damage
+ *   an attack with a threat:    Confirm critical, and no damage until it is resolved
+ *   the confirmation:           against a target's Defense, the one damage it earned;
+ *                               without a target, both, for the table to choose
+ *
+ * Each is `{ kind: "damage" | "critical" | "confirm", label }`.
+ */
+export function cardButtons(flags) {
+  const m = flags.critical?.multiplier ?? 2;
+  if (flags.confirming) {
+    if (flags.against) return [flags.against.confirmed ? { kind: "critical", label: `Critical damage (×${m})` } : { kind: "damage", label: "Damage" }];
+    return [{ kind: "critical", label: `Confirmed: critical damage (×${m})` }, { kind: "damage", label: "Not confirmed: damage" }];
+  }
+  if (flags.threat && flags.critical) return [{ kind: "confirm", label: "Confirm critical" }];
+  return [{ kind: "damage", label: "Damage" }];
+}
