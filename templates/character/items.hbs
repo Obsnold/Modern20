@@ -1,4 +1,15 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#if grants.length}}
+    <div class="m20-panel">
+      <h3>Feats you are given</h3>
+      {{#each grants}}
+        <div class="m20-grant">
+          <p class="{{#if over}}m20-warning{{else}}m20-hint{{/if}}">{{text}} ({{taken}} of {{choose}} taken).</p>
+          {{#each options}}<label><input type="checkbox" data-action="toggleGrant" data-source="{{../source}}" data-index="{{index}}" {{#if checked}}checked{{/if}}> {{label}}</label>{{/each}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
   {{#each lists}}
     <div class="m20-panel">
       <h3>{{label}}{{#if count}} <span class="{{#if count.over}}m20-warning{{else}}m20-hint{{/if}}" data-tooltip="{{count.parts}}">{{count.text}}</span>{{/if}}</h3>

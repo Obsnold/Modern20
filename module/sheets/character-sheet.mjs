@@ -22,6 +22,9 @@ import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../ca
 import { ammoFor, reloadWeapon } from "../ammo.mjs";
 import { magazineOf, fits } from "../rules/ammo.mjs";
 import { unarmedRules } from "../rules/unarmed.mjs";
+import { featGrants } from "../rules/advancement.mjs";
+import { slug } from "../rules/identify.mjs";
+import { SYSTEM_ID } from "../config.mjs";
 import { rulesFor } from "../rules/feats.mjs";
 import { casterFor, castingOf } from "../rules/casting.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
@@ -69,6 +72,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       sellItem: Modern20CharacterSheet.#onSellItem,
       wealthCheck: Modern20CharacterSheet.#onWealthCheck,
       reload: Modern20CharacterSheet.#onReload,
+      toggleGrant: Modern20CharacterSheet.#onToggleGrant,
       belowZeroSave: Modern20CharacterSheet.#onBelowZeroSave,
       rollUnarmed: Modern20CharacterSheet.#onRollUnarmed,
       rollGrab: Modern20CharacterSheet.#onRollGrab,
@@ -120,6 +124,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     context = await super._preparePartContext(partId, context, options);
     if (context.tabs && partId in context.tabs) context.tab = context.tabs[partId];
     if (partId in LISTS) context.lists = context.itemLists[partId];
+    context.grants = partId === "feats" ? context.featGrants : [];
     return context;
   }
 
@@ -179,7 +184,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const adv = d.advancement ?? {};
     const tally = (t, parts) => (t && t.allowed !== null && t.allowed !== undefined ? { text: `${t.have} of ${t.allowed}`, over: t.over, under: t.under, parts } : null);
     const counts = {
-      feat: tally(adv.feats, adv.featParts && `2 at 1st level and 1 every 3 levels (${adv.featParts.general}), class bonus feats (${adv.featParts.bonus}), starting feats (${adv.featParts.starting})`),
+      feat: tally(adv.feats, adv.featParts && `2 at 1st level and 1 every 3 levels (${adv.featParts.general}), class bonus feats (${adv.featParts.bonus}), starting feats (${adv.featParts.starting}), occupation (${adv.featParts.occupation}), species (${adv.featParts.species})`),
       talent: tally(adv.talents, "One for each Talent in your class levels"),
     };
     const itemLists = Object.fromEntries(Object.entries(LISTS).map(([tab, groups]) => [tab, groups.map(([type, label]) => ({
@@ -236,6 +241,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       wealthCondition: financialCondition(system.wealth.value ?? 0),
       belowZero: belowZero(actor),
       magic: magicContext(actor, ofType),
+      featGrants: grantsContext(actor),
       log: logContext(actor, this.logFilter),
       enrichedBiography: await TextEditor.implementation.enrichHTML(system.details.biography, { relativeTo: actor, secrets: actor.isOwner }),
       biographyField: system.schema.fields.details.fields.biography,
@@ -306,6 +312,22 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
   static #onRollGrab(event) { return characterRolls(this.document).grab(event); }
   static #onRollGrapple(event) { return characterRolls(this.document).grapple(event); }
   static async #onBelowZeroSave(event, target) { await rollSave(this.document, target.dataset.kind, event); }
+  /** Take or give back a feat an occupation, species or first class offers. */
+  static async #onToggleGrant(event, target) {
+    const actor = this.document;
+    const grant = featGrants(actor.items.contents).find((g) => g.source === target.dataset.source);
+    const option = grant?.options[Number(target.dataset.index)];
+    if (!option) return;
+    const owned = ownedFeat(actor, option, grant.source);
+    if (owned) return owned.delete();
+    const feat = option.uuid ? await fromUuid(option.uuid) : null;
+    if (!feat) return ui.notifications.warn(`${option.name} is not in the feats compendium.`);
+    const data = feat.toObject();
+    delete data._id;
+    foundry.utils.mergeObject(data, { system: { choice: option.specialty ?? "" }, flags: { [SYSTEM_ID]: { grantedBy: grant.source } }, _stats: { compendiumSource: feat.uuid } });
+    await actor.createEmbeddedDocuments("Item", [data]);
+  }
+
   static async #onReload(event, target) { const i = this.#item(target); if (i) await reloadWeapon(this.document, i); }
   static async #onCastSpell(event, target) { const i = this.#item(target); if (i) await castSpell(this.document, i); }
   static async #onManifestPower(event, target) { const i = this.#item(target); if (i) await manifest(this.document, i); }
@@ -431,6 +453,29 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+/**
+ * The feat a grant's option names, if the character has it: one the grant added, or else any
+ * feat of that identifier (and choice) the character already has, dragged on by hand.
+ */
+function ownedFeat(actor, option, source) {
+  const id = slug(option.name);
+  const matches = actor.items.filter((i) => i.type === "feat" && identify(i) === id && (!option.specialty || (i.system.choice ?? "").toLowerCase() === option.specialty.toLowerCase()));
+  return matches.find((i) => i.getFlag(SYSTEM_ID, "grantedBy") === source) ?? matches[0] ?? null;
+}
+
+/** The Feats tab's picker: each occupation, species or starting-feats grant, its options ticked where taken. */
+function grantsContext(actor) {
+  return featGrants(actor.items.contents).map((g) => {
+    const options = g.options.map((o, index) => ({ index, label: o.specialty ? `${o.name} (${o.specialty})` : o.name, checked: !!ownedFeat(actor, o, g.source) }));
+    const taken = options.filter((o) => o.checked).length;
+    const all = g.choose >= g.options.length;
+    return {
+      source: g.source, options, taken, choose: g.choose, over: taken > g.choose, under: taken < g.choose,
+      text: `${g.name} (${g.label}): ${all ? (g.choose === 1 ? "gives" : "gives all of") : `choose ${g.choose} of`} these`,
+    };
+  });
 }
 
 /** An unarmed strike's damage, as the tooltip gives it: "1d3 nonlethal", "1d4 lethal or nonlethal, 19–20". */

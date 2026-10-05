@@ -12,8 +12,8 @@
  *                    skill 2 (Modern/Skills/skillsoverview)
  *   maximum ranks    character level + 3 in a class skill, half that cross-class
  *   feats            two at 1st level, then one every three character levels, plus the
- *                    bonus feats of class levels and the first class's starting feats
- *                    (Modern/BasicClasses/MulticlassCharacters)
+ *                    bonus feats of class levels, the first class's starting feats, and any
+ *                    an occupation or species gives (Modern/BasicClasses/MulticlassCharacters)
  *   talents          one for each Talent in the class levels taken
  *   ability increase +1 to one score every four character levels
  */
@@ -69,18 +69,42 @@ export const skillPointsSpent = (rows) => rows.reduce((n, r) => n + (r.ranks ?? 
  * `level` is the character level (a creature's Hit Dice included), `heroicLevel` its class
  * levels alone; `skills` the derived skill rows; `counts` the feats and talents it has.
  */
-export function advancement({ level, heroicLevel, classes, intMod, nonhuman, skills, counts, granted, increases }) {
+export function advancement({ level, heroicLevel, classes, intMod, nonhuman, skills, counts, granted, increases, grants = [] }) {
   const g = classGrants(classes, { intMod, nonhuman });
+  // Feats an occupation or species gives, on top of the levels' (the starting feats are counted with the class).
+  const given = (kind) => grants.filter((x) => x.kind === kind).reduce((n, x) => n + x.choose, 0);
   // A creature with no class levels counts its feats and skills by its type's own rules (printed on the type): not checked.
   const pick = (have, allowed) => ({ have, allowed, over: allowed !== null && have > allowed, under: allowed !== null && have < allowed });
   const ranks = skills.filter((r) => r.ranks > maxRanks(level, r.classSkill)).map((r) => ({ key: r.key, specialty: r.specialty, max: maxRanks(level, r.classSkill) }));
   return {
     skillPoints: pick(skillPointsSpent(skills), heroicLevel ? g.skillPoints : null),
     overRanks: ranks,
-    feats: pick(counts.feats, heroicLevel ? featsAllowed(level) + g.bonusFeats + g.startingFeats : null),
-    featParts: { general: featsAllowed(level), bonus: g.bonusFeats, starting: g.startingFeats },
+    feats: pick(counts.feats, heroicLevel ? featsAllowed(level) + g.bonusFeats + g.startingFeats + given("occupation") + given("species") : null),
+    featParts: { general: featsAllowed(level), bonus: g.bonusFeats, starting: g.startingFeats, occupation: given("occupation"), species: given("species") },
     talents: pick(counts.talents, g.talents),
     actionPoints: actionPointsDue(heroicLevel, granted),
     abilityIncreases: { allowed: abilityIncreases(level), chosen: increases.length },
   };
+}
+
+/**
+ * The feats a character's occupation, species and first class give it to choose from or
+ * take: `[{ source, kind, label, choose, options: [{ name, specialty, uuid }] }]`. `source`
+ * is the giving item's id. A starting feat is given outright (all must be taken); an
+ * occupation or species may offer a choice of one (Criminal: Brawl or Personal Firearms
+ * Proficiency), or give its only option.
+ */
+export function featGrants(items) {
+  const occupation = items.find((i) => i.type === "occupation");
+  const species = items.find((i) => i.type === "species");
+  const firstClass = items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0)[0];
+  const out = [];
+  const add = (item, kind, label, choice) => {
+    const options = (choice?.options ?? []).filter((o) => o.name);
+    if (item && options.length) out.push({ source: item.id ?? item._id ?? item.name, name: item.name, kind, label, choose: Math.min(choice.choose ?? options.length, options.length), options });
+  };
+  add(occupation, "occupation", "occupation", occupation?.system.feats);
+  add(species, "species", "species", species?.system.bonusFeats);
+  add(firstClass, "starting", "starting feats", firstClass && { choose: firstClass.system.startingFeats?.length ?? 0, options: firstClass.system.startingFeats ?? [] });
+  return out;
 }

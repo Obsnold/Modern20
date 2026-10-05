@@ -14,7 +14,7 @@ import { ABILITIES, abilityModifier } from "../data/models.mjs";
 import { SKILLS, skillKey } from "../data/skills.mjs";
 import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
-import { advancement } from "./advancement.mjs";
+import { advancement, featGrants } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
 
 /**
@@ -227,6 +227,7 @@ export function deriveCharacter(system, items) {
       nonhuman: !!species && !/human$/i.test(species.name ?? ""), skills,
       counts: { feats: items.filter((i) => i.type === "feat").length, talents: items.filter((i) => i.type === "talent").length },
       granted: system.actionPoints?.granted ?? 0, increases: system.abilityIncreases ?? [],
+      grants: featGrants(items),
     }),
   };
 }

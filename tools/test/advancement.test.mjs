@@ -30,7 +30,7 @@ test("a Fast hero 3 with Int 12: skill points, feats, talents and action points"
   // Hide is a Fast hero class skill: 7 ranks cost 7 points, one over the 3 + 3 a 3rd-level character may have.
   assert.equal(a.skillPoints.have, 7);
   // Two feats and one at 3rd, the bonus feat at 2nd, and Simple Weapons Proficiency to start.
-  assert.deepEqual(a.featParts, { general: 3, bonus: 1, starting: 1 });
+  assert.deepEqual(a.featParts, { general: 3, bonus: 1, starting: 1, occupation: 0, species: 0 });
   assert.equal(a.feats.allowed, 5);
   assert.equal(a.talents.allowed, 2);
   assert.equal(a.actionPoints.points, 17);
@@ -66,4 +66,25 @@ test("Wealth: what a purchase costs, a sale brings, and a level gives back", () 
 
 test("natural healing: a level's worth a night, twice that for bed rest, none below 0", () => {
   assert.deepEqual([restHealing(5, 10), restHealing(5, 10, { bedRest: true }), restHealing(5, -2)], [5, 10, null]);
+});
+
+test("feats an occupation, species and first class give, and the feat count that includes them", async () => {
+  const { featGrants } = await import("../../module/rules/advancement.mjs");
+  const occupation = PACKS.occupations().documents.find((d) => d.name === "Criminal");
+  const species = PACKS.species().documents.find((d) => d.name === "Dwarf");
+  const items = [
+    { type: "class", name: "Charismatic Hero", id: "c1", system: { ...classes["Charismatic Hero"].system, level: 3 } },
+    { type: "class", name: "Telepath", id: "c2", system: { ...classes.Telepath.system, level: 6 } },
+    { type: "occupation", name: occupation.name, id: "o1", system: occupation.system },
+    { type: "species", name: species.name, id: "s1", system: species.system },
+  ];
+  const grants = featGrants(items);
+  assert.deepEqual(grants.map((g) => [g.kind, g.choose, g.options.map((o) => o.name)]), [
+    ["occupation", 1, ["Brawl", "Personal Firearms Proficiency"]],
+    ["species", 1, ["Archaic Weapons Proficiency"]],
+    ["starting", 1, ["Simple Weapons Proficiency"]],
+  ]);
+  const d = deriveCharacter({ abilities: abilities() }, items);
+  // 5 by level, 3 class bonus feats, a starting feat, and one each from the occupation and species.
+  assert.equal(d.advancement.feats.allowed, 11);
 });
