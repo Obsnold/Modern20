@@ -1,9 +1,8 @@
 /**
- * A read-only sheet for every item type.
- *
- * It shows what the importer stored, so the packs can be checked in Foundry
- * before there are data models or per-type sheets: the item's fields as a
- * table, its rules text, and a link to the SRD page it came from.
+ * The read-only view of a document: its stored fields as a table, its rules
+ * text, and a link to the SRD page it came from. `describe` builds it for any
+ * document; the item sheet is this view, and so is the creature sheet
+ * (creature-sheet.mjs), with rolls added.
  */
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;

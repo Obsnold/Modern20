@@ -11,8 +11,7 @@
  * itself logged.
  */
 import * as L from "./rules/log.mjs";
-
-const SYSTEM_ID = "modern20";
+import { SYSTEM_ID } from "./config.mjs";
 const NO_LOG = "modern20NoLog";
 
 /** Settings for the log; called from the init hook. */

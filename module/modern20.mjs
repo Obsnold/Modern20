@@ -5,16 +5,16 @@
  * actor type (module/data), characters whose numbers are worked out from what
  * they own (module/rules), and rolls (module/roll.mjs).
  */
-import { Modern20ItemSheet } from "./item-sheet.mjs";
-import { Modern20ActorSheet } from "./actor-sheet.mjs";
-import { Modern20CharacterSheet } from "./character-sheet.mjs";
+import { SYSTEM_ID } from "./config.mjs";
+import { Modern20ItemSheet } from "./sheets/document-sheet.mjs";
+import { Modern20CreatureSheet } from "./sheets/creature-sheet.mjs";
+import { Modern20CharacterSheet } from "./sheets/character-sheet.mjs";
 import { registerModels } from "./data/foundry.mjs";
 import { Modern20Actor } from "./actor.mjs";
 import { registerRollSettings, bindAttackButtons } from "./roll.mjs";
 import { statusEffects } from "./rules/conditions.mjs";
 import { registerLogSettings, registerLogHooks } from "./log.mjs";
 
-export const SYSTEM_ID = "modern20";
 
 Hooks.once("init", () => {
   registerModels();
@@ -37,7 +37,7 @@ Hooks.once("init", () => {
     makeDefault: true,
     label: "MODERN20.SheetLabel.Item",
   });
-  DocumentSheetConfig.registerSheet(foundry.documents.Actor, SYSTEM_ID, Modern20ActorSheet, {
+  DocumentSheetConfig.registerSheet(foundry.documents.Actor, SYSTEM_ID, Modern20CreatureSheet, {
     types: ["creature"],
     makeDefault: true,
     label: "MODERN20.SheetLabel.Actor",

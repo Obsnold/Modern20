@@ -8,7 +8,7 @@ globalThis.foundry = {
   utils: { escapeHTML: (s) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`) },
   applications: { api: { HandlebarsApplicationMixin: (c) => c }, sheets: { ItemSheetV2: Base }, ux: { TextEditor: {} } },
 };
-const { rows, levelTable, requirementsList, sizeTable } = await import("../../module/item-sheet.mjs");
+const { rows, levelTable, requirementsList, sizeTable } = await import("../../module/sheets/document-sheet.mjs");
 
 const items = Object.entries(PACKS).filter(([p]) => p !== "rules").flatMap(([, b]) => b().documents).filter((d) => d.system);
 const byName = (n) => items.find((d) => d.name === n);

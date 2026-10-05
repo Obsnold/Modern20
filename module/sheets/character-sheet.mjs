@@ -7,12 +7,12 @@
  * (rules/character.mjs). Items are added by dragging them from a compendium
  * or the sidebar onto the sheet, which ActorSheetV2 handles.
  */
-import { ABILITIES, ACTOR_MODELS } from "./data/models.mjs";
-import { initial, obj } from "./data/schema.mjs";
-import { SKILLS } from "./data/skills.mjs";
-import { characterRolls } from "./roll.mjs";
-import { CHOICES } from "./rules/choices.mjs";
-import { logContext } from "./log.mjs";
+import { ABILITIES, ACTOR_MODELS } from "../data/models.mjs";
+import { initial, obj } from "../data/schema.mjs";
+import { SKILLS } from "../data/skills.mjs";
+import { characterRolls } from "../roll.mjs";
+import { CHOICES } from "../rules/choices.mjs";
+import { logContext } from "../log.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;

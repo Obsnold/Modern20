@@ -11,8 +11,7 @@
 import { abilityModifier } from "./data/models.mjs";
 import * as R from "./rules/rolls.mjs";
 import { recordRoll } from "./log.mjs";
-
-export const SYSTEM_ID = "modern20";
+import { SYSTEM_ID } from "./config.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 

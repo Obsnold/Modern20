@@ -1,24 +1,24 @@
 /**
- * A read-only sheet for every actor type, the counterpart of the item sheet:
- * the actor's stored fields as a table, its rules text, and its source page.
+ * The creature sheet: the read-only view of the stat block (document-sheet.mjs),
+ * with rolls from its printed bonuses and its log.
  */
-import { describe } from "./item-sheet.mjs";
-import { creatureRolls } from "./roll.mjs";
-import { logContext } from "./log.mjs";
+import { describe } from "./document-sheet.mjs";
+import { creatureRolls } from "../roll.mjs";
+import { logContext } from "../log.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
-export class Modern20ActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+export class Modern20CreatureSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["modern20", "sheet", "actor"],
     position: { width: 640, height: 720 },
     window: { resizable: true },
     actions: {
-      rollAbility: Modern20ActorSheet.#onRollAbility,
-      rollSave: Modern20ActorSheet.#onRollSave,
-      rollSkill: Modern20ActorSheet.#onRollSkill,
-      filterLog: Modern20ActorSheet.#onFilterLog,
+      rollAbility: Modern20CreatureSheet.#onRollAbility,
+      rollSave: Modern20CreatureSheet.#onRollSave,
+      rollSkill: Modern20CreatureSheet.#onRollSkill,
+      filterLog: Modern20CreatureSheet.#onFilterLog,
     },
   };
 
