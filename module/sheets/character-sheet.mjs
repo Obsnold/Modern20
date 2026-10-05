@@ -14,6 +14,11 @@ import { characterRolls } from "../roll.mjs";
 import { CHOICES } from "../rules/choices.mjs";
 import { logContext } from "../log.mjs";
 import { identify } from "../rules/identify.mjs";
+import { restHealing } from "../rules/damage.mjs";
+import { financialCondition } from "../rules/wealth.mjs";
+import { applyToActor } from "../damage.mjs";
+import { buy, sell } from "../wealth.mjs";
+import { conditionStatus } from "./creature-sheet.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -52,6 +57,12 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       toggleEffect: Modern20CharacterSheet.#onToggleEffect,
       deleteEffect: Modern20CharacterSheet.#onDeleteEffect,
       filterLog: Modern20CharacterSheet.#onFilterLog,
+      toggleCondition: Modern20CharacterSheet.#onToggleCondition,
+      grantActionPoints: Modern20CharacterSheet.#onGrantActionPoints,
+      rest: Modern20CharacterSheet.#onRest,
+      buyItem: Modern20CharacterSheet.#onBuyItem,
+      sellItem: Modern20CharacterSheet.#onSellItem,
+      wealthCheck: Modern20CharacterSheet.#onWealthCheck,
     },
   };
 
@@ -148,13 +159,22 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const specialtyIndex = new Map(system.specialtySkills.map((s, i) => [`${s.skill}:${s.specialty}`, i]));
     for (const s of skills) if (s.specialty) s.index = specialtyIndex.get(`${s.key}:${s.specialty}`);
 
+    // What the levels allow beside what the character has (rules/advancement.mjs), for the Feats and Skills tabs.
+    const adv = d.advancement ?? {};
+    const tally = (t, parts) => (t && t.allowed !== null && t.allowed !== undefined ? { text: `${t.have} of ${t.allowed}`, over: t.over, under: t.under, parts } : null);
+    const counts = {
+      feat: tally(adv.feats, adv.featParts && `2 at 1st level and 1 every 3 levels (${adv.featParts.general}), class bonus feats (${adv.featParts.bonus}), starting feats (${adv.featParts.starting})`),
+      talent: tally(adv.talents, "One for each Talent in your class levels"),
+    };
     const itemLists = Object.fromEntries(Object.entries(LISTS).map(([tab, groups]) => [tab, groups.map(([type, label]) => ({
       type, label,
       items: ofType(type).map((i) => ({
         id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon",
         detail: detail(i), choiceKind: CHOICES[identify(i)] ?? "", choice: i.system.choice ?? "",
         occupation: i.type === "occupation" ? occupationChoices(i) : null,
+        dc: "purchaseDC" in i.system ? i.system.purchaseDC?.dc ?? null : null,
       })),
+      count: counts[type] ?? null,
     }))]));
 
     Object.assign(context, {
@@ -182,6 +202,17 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         changes: e.changes.map((c) => `${c.key.replace(/^system\.bonuses\./, "")} ${Number(c.value) >= 0 ? "+" : ""}${c.value}`).join(", "),
       })),
       bonusKeys: bonusKeys(),
+      status: conditionStatus(actor, system.hp.value, system.hp.max),
+      advancement: {
+        skillPoints: tally(adv.skillPoints, "Each class level: its skill points + Int modifier; your first level ×4. A cross-class rank costs 2."),
+        actionPoints: adv.actionPoints?.points ? { points: adv.actionPoints.points, levels: adv.actionPoints.levels.join(", ") } : null,
+        // A select for each +1 the levels give (every 4th), and any chosen beyond them.
+        increases: Array.from({ length: Math.max(adv.abilityIncreases?.allowed ?? 0, system.abilityIncreases.length) }, (_, i) => ({
+          index: i, level: (i + 1) * 4, extra: i >= (adv.abilityIncreases?.allowed ?? 0),
+          options: ABILITIES.map((a) => ({ value: a, label: ABILITY_NAMES[a], selected: system.abilityIncreases[i] === a })),
+        })),
+      },
+      wealthCondition: financialCondition(system.wealth.value ?? 0),
       log: logContext(actor, this.logFilter),
       enrichedBiography: await TextEditor.implementation.enrichHTML(system.details.biography, { relativeTo: actor, secrets: actor.isOwner }),
       biographyField: system.schema.fields.details.fields.biography,
@@ -194,6 +225,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     super._onRender(context, options);
     for (const input of this.element.querySelectorAll("[data-item-field]")) {
       input.addEventListener("change", (event) => this.#updateItemField(event));
+    }
+    for (const select of this.element.querySelectorAll("[data-increase]")) {
+      select.addEventListener("change", (event) => this.#updateIncrease(event));
     }
   }
 
@@ -224,6 +258,65 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     } else if (field === "level") {
       await item.update({ "system.level": Math.max(1, Math.min(value ?? 1, item.system.maxLevel || 10)) });
     }
+  }
+
+  /** One of the ability increases: which ability it went to, or (none chosen) removed from the list's end. */
+  async #updateIncrease(event) {
+    event.stopPropagation();
+    const index = Number(event.currentTarget.dataset.increase);
+    const list = [...this.document.system.abilityIncreases];
+    list[index] = event.currentTarget.value;
+    while (list.length && !list.at(-1)) list.pop();
+    await this.document.update({ "system.abilityIncreases": list.map((a) => a ?? "") });
+  }
+
+  static async #onToggleCondition(event, target) {
+    await this.document.toggleStatusEffect(target.dataset.condition);
+  }
+
+  /** Give the action points due for the levels gained since they were last given. */
+  static async #onGrantActionPoints() {
+    const actor = this.document;
+    const due = actor.system.derived?.advancement?.actionPoints;
+    if (!due?.points) return;
+    await actor.update({ "system.actionPoints.value": actor.system.actionPoints.value + due.points, "system.actionPoints.granted": due.levels.at(-1) });
+  }
+
+  /** Natural healing: a night's rest, or a day of complete bed rest. */
+  static async #onRest() {
+    const actor = this.document;
+    const level = actor.system.derived?.level ?? 1;
+    const choice = await foundry.applications.api.DialogV2.wait({
+      window: { title: `${actor.name}: rest` },
+      content: `<p>A night's rest (8 hours) heals ${Math.max(1, level)} hit points; a day of complete bed rest heals ${Math.max(1, level) * 2}.</p>`,
+      buttons: [{ action: "night", label: "Night's rest", default: true }, { action: "bed", label: "Bed rest" }],
+      rejectClose: false,
+    });
+    if (!choice) return;
+    const healed = restHealing(level, actor.system.hp.value, { bedRest: choice === "bed" });
+    if (healed === null) return ui.notifications.warn(`${actor.name} is below 0 hit points and does not heal naturally: a Fortitude save (DC 20) each day starts the recovery, and a failure loses 1 hit point.`);
+    await applyToActor(actor, healed, { healing: true });
+  }
+
+  static async #onBuyItem(event, target) {
+    const item = this.#item(target);
+    if (item) await buy(this.document, item.system.purchaseDC.dc, item.name, event);
+  }
+
+  static async #onSellItem(event, target) {
+    const item = this.#item(target);
+    if (item) await sell(this.document, item);
+  }
+
+  /** A Wealth check for anything: asks for the purchase DC. */
+  static async #onWealthCheck(event) {
+    const result = await foundry.applications.api.DialogV2.prompt({
+      window: { title: "Wealth check" },
+      content: `<div class="form-group"><label>What</label><input type="text" name="what" placeholder="Something"></div><div class="form-group"><label>Purchase DC</label><input type="number" name="dc" value="10" autofocus></div>`,
+      ok: { label: "Buy", callback: (ev, button) => ({ what: button.form.elements.what.value.trim() || "something", dc: button.form.elements.dc.valueAsNumber || 0 }) },
+      rejectClose: false,
+    });
+    if (result) await buy(this.document, result.dc, result.what, event);
   }
 
   #effect(target) {

@@ -258,3 +258,9 @@ export function bindAttackButtons(message, html) {
   for (const b of R.cardButtons(flags)) add(b.label, handlers[b.kind]);
   (html.querySelector(".message-content") ?? html).append(buttons);
 }
+
+/** A Wealth check against `dc`, asked and posted like any d20 roll; returns the Roll, or null if cancelled. */
+export function wealthCheck(actor, dc, title, event) {
+  const wealth = actor.system.wealth.value ?? 0;
+  return rollD20(actor, R.d20(`${title} (purchase DC ${dc})`, [{ label: "Wealth bonus", value: wealth }]), event);
+}

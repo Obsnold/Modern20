@@ -281,7 +281,10 @@ export const ACTOR_MODELS = {
     naturalArmor: int(),
     abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }) })]))),
     hp: obj({ value: int(), temp: int() }),
-    actionPoints: obj({ value: int() }),
+    /** Action points left, and the character level they have been given up to (5 + half the level, at each level). */
+    actionPoints: obj({ value: int(), granted: int() }),
+    /** The ability each +1 at 4th, 8th, 12th ... level went to, in order. */
+    abilityIncreases: list(str({ choices: ABILITIES })),
     wealth: obj({ value: int() }),
     defense: obj({ misc: int() }),
     /**

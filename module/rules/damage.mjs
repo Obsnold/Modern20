@@ -66,3 +66,13 @@ export function applyHit(target, amount, { healing = false, nonlethal = false } 
 
 /** Hit points after a failed massive damage save: -1, unless already lower. */
 export const failedMassive = (value) => Math.min(value, -1);
+
+/**
+ * Natural healing: 1 hit point per character level for a night's rest, 2 for a day of
+ * complete bed rest. A character below 0 does not heal naturally until a Fortitude save
+ * (DC 20) starts the recovery: null then.
+ */
+export function restHealing(level, hp, { bedRest = false } = {}) {
+  if (hp < 0) return null;
+  return Math.max(1, level) * (bedRest ? 2 : 1);
+}

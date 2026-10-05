@@ -14,6 +14,7 @@ import { ABILITIES, abilityModifier } from "../data/models.mjs";
 import { SKILLS, skillKey } from "../data/skills.mjs";
 import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
+import { advancement } from "./advancement.mjs";
 import { identify } from "./identify.mjs";
 import { racialHitDice } from "./creature.mjs";
 
@@ -52,13 +53,14 @@ export function deriveCharacter(system, items) {
   const fx = system.bonuses ?? {};
   const fxv = (path, fallback = 0) => path.split(".").reduce((o, k) => o?.[k], fx) ?? fallback;
 
-  // Abilities: the base score, plus the species' adjustment and any effect.
+  // Abilities: the base score, plus the species' adjustment, the +1s chosen every four levels, and any effect.
   const scores = {}, modifiers = {};
+  const increases = (a) => (system.abilityIncreases ?? []).filter((x) => x === a).length;
   for (const a of ABILITIES) {
     const base = system.abilities?.[a]?.value;
     const lost = templates.some((t) => t.system.abilities?.lost?.includes(a));   // an undead has no Constitution
     const fromTemplates = templates.reduce((n, t) => n + (t.system.abilities?.changes?.[a] ?? 0), 0);
-    scores[a] = base === null || base === undefined || lost ? null : base + (species?.system.abilities?.[a] ?? 0) + fromTemplates + fxv(`abilities.${a}`);
+    scores[a] = base === null || base === undefined || lost ? null : base + (species?.system.abilities?.[a] ?? 0) + fromTemplates + increases(a) + fxv(`abilities.${a}`);
     modifiers[a] = abilityModifier(scores[a]);
   }
   const mod = (a) => modifiers[a] ?? 0;
@@ -196,5 +198,13 @@ export function deriveCharacter(system, items) {
     massiveDamage: scores.con === null ? null : scores.con + bonus.massiveDamage,
     bonusHitPoints: bonus.hp,
     skills,
+    // Points to spend and spent, and what the levels are owed (rules/advancement.mjs).
+    advancement: advancement({
+      level, heroicLevel: classes.reduce((n, c) => n + c.system.level, 0), classes, intMod: mod("int"),
+      // d20 Future's classes give a nonhuman a point fewer; a character with no species is human.
+      nonhuman: !!species && !/human$/i.test(species.name ?? ""), skills,
+      counts: { feats: items.filter((i) => i.type === "feat").length, talents: items.filter((i) => i.type === "talent").length },
+      granted: system.actionPoints?.granted ?? 0, increases: system.abilityIncreases ?? [],
+    }),
   };
 }

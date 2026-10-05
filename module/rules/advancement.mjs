@@ -1,0 +1,86 @@
+/**
+ * What a character's levels give it to spend, and what it has spent: action
+ * points, skill points, feats, talents and ability increases. The sheet shows
+ * these as counts and warnings, not limits: a GM's house rules and the book's
+ * odd cases (a class feature that grants a feat by name) are the table's call.
+ *
+ *   action points    5 + half the character level, rounded down, at 1st level and every
+ *                    level after (Modern/BasicClasses; a creature's own Hit Dice do not count)
+ *   skill points     each class level: its class's points + Int modifier; the character's
+ *                    first level ×4 (Modern/BasicClasses). A d20 Future class gives one
+ *                    fewer to a nonhuman. A class skill costs 1 point a rank, a cross-class
+ *                    skill 2 (Modern/Skills/skillsoverview)
+ *   maximum ranks    character level + 3 in a class skill, half that cross-class
+ *   feats            two at 1st level, then one every three character levels, plus the
+ *                    bonus feats of class levels and the first class's starting feats
+ *                    (Modern/BasicClasses/MulticlassCharacters)
+ *   talents          one for each Talent in the class levels taken
+ *   ability increase +1 to one score every four character levels
+ */
+
+export const actionPointsFor = (level) => 5 + Math.floor(level / 2);
+
+/** The action points not yet given: one grant for each level above `granted`, up to `level`. */
+export function actionPointsDue(level, granted = 0) {
+  const levels = [];
+  for (let l = Math.max(granted, 0) + 1; l <= level; l++) levels.push(l);
+  return { levels, points: levels.reduce((n, l) => n + actionPointsFor(l), 0) };
+}
+
+export const maxRanks = (level, classSkill) => (classSkill ? level + 3 : (level + 3) / 2);
+export const featsAllowed = (level) => (level >= 1 ? 2 + Math.floor(level / 3) : 0);
+export const abilityIncreases = (level) => Math.floor(Math.max(level, 0) / 4);
+
+/** A class's skill points a level for this character: its number + Int, one fewer for a nonhuman where the class says so. */
+function perLevel(cls, intMod, nonhuman) {
+  const sp = cls.system.skillPoints ?? {};
+  const base = (sp.perLevel ?? 0) - (nonhuman && /nonhumans/i.test(sp.value ?? "") ? 1 : 0);
+  // The SRD's skill pages give no minimum; at least 1 a level, as in the d20 System, so a low Intelligence never takes points away.
+  return Math.max(1, base + intMod);
+}
+
+/**
+ * What the classes (in the order taken; the first is the character's 1st level) give:
+ * skill points, feats beyond the general ones, and talents.
+ */
+export function classGrants(classes, { intMod = 0, nonhuman = false } = {}) {
+  let skillPoints = 0, bonusFeats = 0, talents = 0;
+  const startingFeats = classes[0]?.system.startingFeats?.length ?? 0;
+  classes.forEach((c, i) => {
+    const level = c.system.level ?? 1;
+    const n = perLevel(c, intMod, nonhuman);
+    skillPoints += n * level + (i === 0 ? n * 3 : 0);   // ×4 at the character's first level
+    for (const row of (c.system.levels ?? []).filter((l) => l.level <= level)) {
+      for (const f of row.features ?? []) {
+        if (/^bonus feat/i.test(f.name)) bonusFeats++;
+        else if (/^talent$/i.test(f.name)) talents++;
+      }
+    }
+  });
+  return { skillPoints, bonusFeats, talents, startingFeats };
+}
+
+/** Skill points spent on ranks: 1 a rank in a class skill, 2 cross-class. */
+export const skillPointsSpent = (rows) => rows.reduce((n, r) => n + (r.ranks ?? 0) * (r.classSkill ? 1 : 2), 0);
+
+/**
+ * The whole picture, for the sheet: `{ have, allowed, over }` for each of skill points,
+ * feats and talents, the action points due, and the ability increases owed and chosen.
+ * `level` is the character level (a creature's Hit Dice included), `heroicLevel` its class
+ * levels alone; `skills` the derived skill rows; `counts` the feats and talents it has.
+ */
+export function advancement({ level, heroicLevel, classes, intMod, nonhuman, skills, counts, granted, increases }) {
+  const g = classGrants(classes, { intMod, nonhuman });
+  // A creature with no class levels counts its feats and skills by its type's own rules (printed on the type): not checked.
+  const pick = (have, allowed) => ({ have, allowed, over: allowed !== null && have > allowed, under: allowed !== null && have < allowed });
+  const ranks = skills.filter((r) => r.ranks > maxRanks(level, r.classSkill)).map((r) => ({ key: r.key, specialty: r.specialty, max: maxRanks(level, r.classSkill) }));
+  return {
+    skillPoints: pick(skillPointsSpent(skills), heroicLevel ? g.skillPoints : null),
+    overRanks: ranks,
+    feats: pick(counts.feats, heroicLevel ? featsAllowed(level) + g.bonusFeats + g.startingFeats : null),
+    featParts: { general: featsAllowed(level), bonus: g.bonusFeats, starting: g.startingFeats },
+    talents: pick(counts.talents, g.talents),
+    actionPoints: actionPointsDue(heroicLevel, granted),
+    abilityIncreases: { allowed: abilityIncreases(level), chosen: increases.length },
+  };
+}

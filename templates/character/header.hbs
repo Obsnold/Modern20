@@ -26,6 +26,16 @@
   <label class="m20-vital">
     <span class="m20-vital-label">Action Points</span>
     <input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}">
+    {{#if advancement.actionPoints}}<a class="m20-roll-button" data-action="grantActionPoints" data-tooltip="5 + half your level, for level {{advancement.actionPoints.levels}}">+{{advancement.actionPoints.points}} for level {{advancement.actionPoints.levels}}</a>{{/if}}
   </label>
+  <div class="m20-vital">
+    <span class="m20-vital-label">Rest</span>
+    <a class="m20-roll-button" data-action="rest" data-tooltip="Natural healing: 1 hit point per level a night, 2 for bed rest"><i class="fa-solid fa-bed"></i> Rest</a>
+  </div>
+</div>
+<div class="m20-status">
+  <span class="m20-conditions">
+    {{#each status.conditions}}<a class="m20-condition {{#if active}}m20-on{{/if}}" data-action="toggleCondition" data-condition="{{id}}" data-tooltip="{{name}}"><img src="{{img}}" alt="{{name}}" width="20" height="20"></a>{{/each}}
+  </span>
 </div>
 </div>

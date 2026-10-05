@@ -1,4 +1,5 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  {{#if advancement.skillPoints}}<p class="{{#if advancement.skillPoints.over}}m20-warning{{else}}m20-hint{{/if}}" data-tooltip="{{advancement.skillPoints.parts}}">Skill points spent: {{advancement.skillPoints.text}}. Maximum ranks: your level + 3 in a class skill, half that cross-class.</p>{{/if}}
   <table class="m20-table m20-skills">
     <thead><tr><th>Skill</th><th>Class</th><th>Ranks</th><th>Misc</th><th>Total</th></tr></thead>
     <tbody>
