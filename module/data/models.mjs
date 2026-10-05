@@ -156,6 +156,8 @@ export const ITEM_MODELS = {
   },
 
   occupation: {
+    /** On a character's copy: the skills chosen from `skills.options` ("Knowledge (history)"). */
+    chosenSkills: list(str()),
     prerequisite: str(),
     minimumAge: int({ nullable: true }),
     reputationBonus: int(),
@@ -268,12 +270,13 @@ export const ACTOR_MODELS = {
     actionPoints: obj({ value: int() }),
     wealth: obj({ value: int() }),
     defense: obj({ misc: int() }),
-    /** Ranks in each skill (half ranks for cross-class skills), and any other bonus. */
-    skills: obj(Object.fromEntries(Object.entries(SKILLS).filter(([, s]) => !s.specialties).map(([k]) => [k, obj({ ranks: num(), misc: int() })]))),
+    /**
+     * Ranks in each skill (half ranks for cross-class skills), any other bonus, and `classSkill` for a
+     * skill made a class skill by hand: a Personality's Bonus Class Skill, a GM's ruling.
+     */
+    skills: obj(Object.fromEntries(Object.entries(SKILLS).filter(([, s]) => !s.specialties).map(([k]) => [k, obj({ ranks: num(), misc: int(), classSkill: bool() })]))),
     /** Skills taken with a specialty: Craft (chemical), Knowledge (history), Perform (sing). */
-    specialtySkills: list(obj({ skill: str({ choices: Object.keys(SKILLS).filter((k) => SKILLS[k].specialties) }), specialty: str(), ranks: num(), misc: int() })),
-    /** The skills chosen from the occupation's list, which become class skills. */
-    occupationSkills: list(str()),
+    specialtySkills: list(obj({ skill: str({ choices: Object.keys(SKILLS).filter((k) => SKILLS[k].specialties) }), specialty: str(), ranks: num(), misc: int(), classSkill: bool() })),
     /**
      * Bonuses from active effects, on the character or carried by its items
      * (a feat, a piece of gear, a condition). Never typed in: an effect adds to

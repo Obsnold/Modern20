@@ -96,8 +96,8 @@ test("skills: class skills by class and occupation, specialties, totals and the 
     abilities: { str: { value: 14 }, int: { value: 12 }, dex: { value: 10 } },
     skills: { climb: { ranks: 5, misc: 1 }, hide: { ranks: 2.5, misc: 0 } },
     specialtySkills: [{ skill: "knowledge", specialty: "tactics", ranks: 3, misc: 0 }, { skill: "knowledge", specialty: "history", ranks: 1, misc: 0 }],
-    occupationSkills: ["Knowledge (history)"],
-  }, [strong, { type: "armor", name: "Vest", system: { equipped: true, equipmentBonus: 2, armorPenalty: -2, maxDex: null } }]);
+  }, [strong, { type: "armor", name: "Vest", system: { equipped: true, equipmentBonus: 2, armorPenalty: -2, maxDex: null } },
+    { type: "occupation", name: "Academic", system: { chosenSkills: ["Knowledge (history)"] } }]);
   const row = (key, specialty = "") => d.skills.find((s) => s.key === key && s.specialty === specialty);
   assert.deepEqual([row("climb").classSkill, row("climb").total, row("climb").maxRanks], [true, 5 + 2 + 1 - 2, 5]);   // ranks, Str, misc, armor
   assert.deepEqual([row("hide").classSkill, row("hide").maxRanks, row("hide").overMax], [false, 2.5, false]);
@@ -132,4 +132,25 @@ test("Skill Emphasis (+3) and Educated (+2 to two Knowledge skills) add to the s
 test("half ranks in a cross-class skill do not add to the check until they make a whole rank", () => {
   const d = deriveCharacter({ abilities: { dex: { value: 10 } }, skills: { hide: { ranks: 2.5, misc: 0 } } }, []);
   assert.equal(d.skills.find((s) => s.key === "hide").total, 2);
+});
+
+test("class skills from a class, a feat, the occupation, or by hand; an occupation's +1 when it already is one", () => {
+  const strong = { type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level: 1 } };
+  const d = deriveCharacter({
+    abilities: { int: { value: 10 }, wis: { value: 10 }, str: { value: 10 }, cha: { value: 10 } },
+    skills: { swim: { ranks: 1, misc: 0, classSkill: false }, bluff: { ranks: 1, misc: 0, classSkill: true }, spellcraft: { ranks: 1, misc: 0 }, psicraft: { ranks: 1, misc: 0 } },
+    specialtySkills: [{ skill: "craft", specialty: "chemical", ranks: 0, misc: 0 }],
+  }, [strong, { type: "feat", name: "Arcane Skills", system: {} }, { type: "occupation", name: "Rural", system: { chosenSkills: ["Swim", "Survival"] } }]);
+  const row = (key, specialty = "") => d.skills.find((s) => s.key === key && s.specialty === specialty);
+  assert.equal(row("climb").classSource, "class");
+  assert.equal(row("spellcraft").classSource, "feat");
+  assert.equal(row("craft", "chemical").classSource, "feat");
+  assert.equal(row("survival").classSource, "occupation");
+  assert.equal(row("bluff").classSource, "chosen");
+  // Swim is a Strong hero class skill already, so choosing it from the occupation gives +1.
+  assert.deepEqual([row("swim").classSource, row("swim").occupationBonus, row("swim").total], ["class", 1, 1 + 1]);
+  assert.equal(row("survival").occupationBonus, 0);
+  // An FX skill with ranks but no class or feat that grants it.
+  assert.equal(row("psicraft").restricted, true);
+  assert.equal(row("spellcraft").restricted, false);
 });

@@ -12,9 +12,13 @@
             </td>
           </tr>
         {{else}}
-          <tr class="{{#unless usable}}m20-unusable{{/unless}} {{#if overMax}}m20-over{{/if}}">
+          <tr class="{{#unless usable}}m20-unusable{{/unless}} {{#if overMax}}m20-over{{/if}} {{#if restricted}}m20-restricted{{/if}}" {{#if restricted}}data-tooltip="Only characters with a class or feat (Arcane Skills, Psionic Skills) that grants this skill can buy ranks in it"{{/if}}>
             <td class="{{#if specialty}}m20-indent{{/if}}"><a data-action="rollSkill" data-skill="{{key}}" data-specialty="{{specialty}}" data-tooltip="Roll a {{label}} check">{{label}}</a>{{#if trainedOnly}}<sup data-tooltip="Trained only">T</sup>{{/if}}{{#if armorPenalty}}<sup data-tooltip="Armor penalty applies">A</sup>{{/if}}</td>
-            <td>{{#if classSkill}}<i class="fa-solid fa-check" data-tooltip="Class skill"></i>{{/if}}</td>
+            <td>
+              {{#if fromItems}}<i class="fa-solid fa-check" data-tooltip="{{sourceLabel}}{{#if occupationBonus}}; chosen from your occupation as well, for +1{{/if}}"></i>
+              {{else if path}}<input type="checkbox" name="{{path}}.classSkill" {{#if classSkill}}checked{{/if}} data-tooltip="Make this a class skill (a Personality's Bonus Class Skill, a GM's ruling)">
+              {{else}}<input type="checkbox" name="system.specialtySkills.{{index}}.classSkill" {{#if classSkill}}checked{{/if}} data-tooltip="Make this a class skill (a Personality's Bonus Class Skill, a GM's ruling)">{{/if}}
+            </td>
             {{#if path}}
               <td><input type="number" step="0.5" min="0" name="{{path}}.ranks" value="{{ranks}}" data-tooltip="Max {{maxRanks}}"></td>
               <td><input type="number" name="{{path}}.misc" value="{{misc}}"></td>

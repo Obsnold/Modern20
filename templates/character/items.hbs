@@ -12,6 +12,14 @@
           {{#if physical}}<a data-action="toggleEquipped" class="{{#if equipped}}m20-on{{/if}}" data-tooltip="{{#if equipped}}Equipped{{else}}Not equipped{{/if}}"><i class="fa-solid fa-shirt"></i></a>{{/if}}
           <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
         </div>
+        {{#if occupation}}
+          <div class="m20-occupation-skills" data-item-id="{{id}}">
+            <p class="{{#if occupation.over}}m20-warning{{else}}m20-hint{{/if}}">Choose {{occupation.choose}} as permanent class skills ({{occupation.count}} chosen). One that is already a class skill gives +1 instead.{{#if occupation.languages}} {{occupation.languages}}{{/if}}</p>
+            {{#each occupation.options}}
+              <label><input type="checkbox" data-item-field="chosenSkill" data-value="{{label}}" {{#if checked}}checked{{/if}}> {{label}}</label>
+            {{/each}}
+          </div>
+        {{/if}}
       {{else}}
         <p class="m20-hint">None. Drag from a compendium onto this sheet.</p>
       {{/each}}

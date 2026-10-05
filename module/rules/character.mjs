@@ -21,6 +21,12 @@ export const SIZE_MODIFIERS = {
   huge: { defense: -2, grapple: 8 }, gargantuan: { defense: -4, grapple: 12 }, colossal: { defense: -8, grapple: 16 },
 };
 
+/** Feats that make skills class skills (Arcane Skills, Psionic Skills), as their pages list them. */
+export const FEAT_CLASS_SKILLS = {
+  "Arcane Skills": ["Concentration", "Craft (chemical)", "Spellcraft", "Use Magic Device"],
+  "Psionic Skills": ["Autohypnosis", "Concentration", "Psicraft"],
+};
+
 /** What a class contributes at a level: its row of the level table. */
 export function classRow(cls, level) {
   const rows = cls.levels ?? [];
@@ -93,16 +99,19 @@ export function deriveCharacter(system, items) {
   const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + natural + misc;
   const armorPenalty = armor.reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
 
-  // Class skills: every class's list, and the skills chosen from the occupation. A specialty skill
-  // ("Knowledge (history)") is a class skill when the class lists it, or lists the skill with no specialty.
-  const classSkills = new Set();
+  // Class skills, and where each comes from: a class's list, a feat that grants them (Arcane Skills), the
+  // skills chosen from the occupation, or a skill marked by hand. A specialty skill ("Knowledge (history)")
+  // is a class skill when its source names it, or names the skill with no specialty.
   const named = (s) => `${skillKey(s.name)}${s.specialty ? `:${s.specialty}` : ""}`;
-  for (const c of classes) for (const s of c.system.classSkills ?? []) classSkills.add(named(s));
-  for (const name of system.occupationSkills ?? []) {
-    const m = name.match(/^(.+?)(?: \((.+)\))?$/);
-    classSkills.add(named({ name: m[1], specialty: m[2] }));
-  }
-  const isClassSkill = (key, specialty) => classSkills.has(key) || (!!specialty && classSkills.has(`${key}:${specialty}`));
+  const parse = (text) => { const m = text.match(/^(.+?)(?: [\(\[](.+)[\)\]])?$/); return { name: m[1], specialty: m[2] ?? "" }; };
+  const sources = { class: new Set(), feat: new Set(), occupation: new Set() };
+  for (const c of classes) for (const s of c.system.classSkills ?? []) sources.class.add(named(s));
+  for (const f of feats) for (const s of FEAT_CLASS_SKILLS[f.name] ?? []) sources.feat.add(named(parse(s)));
+  for (const s of occupation?.system.chosenSkills ?? []) sources.occupation.add(named(parse(s)));
+  const from = (set, key, specialty) => set.has(key) || (!!specialty && set.has(`${key}:${specialty}`));
+  const classSource = (key, specialty, stored) =>
+    from(sources.class, key, specialty) ? "class" : from(sources.feat, key, specialty) ? "feat"
+      : from(sources.occupation, key, specialty) ? "occupation" : stored?.classSkill ? "chosen" : "";
 
   // Skill Emphasis (a Dedicated hero talent): +3 with the chosen skill. Educated (a feat): +2 with each of two
   // chosen Knowledge skills.
@@ -114,13 +123,19 @@ export function deriveCharacter(system, items) {
   const skillRow = (key, specialty, stored) => {
     const def = SKILLS[key];
     const ranks = stored?.ranks ?? 0;
-    const isClass = isClassSkill(key, specialty);
-    const effects = fxv(`skills.${key}`) + fxv("allSkills") + choiceBonus(key, specialty);
+    const source = classSource(key, specialty, stored);
+    const isClass = !!source;
+    // An occupation skill that is already a class skill (from a class or a feat) gives +1 instead.
+    const occupationBonus = from(sources.occupation, key, specialty) && (from(sources.class, key, specialty) || from(sources.feat, key, specialty)) ? 1 : 0;
+    const effects = fxv(`skills.${key}`) + fxv("allSkills") + choiceBonus(key, specialty) + occupationBonus;
     // Cross-class ranks are bought in halves; only whole ranks add to a check.
     const total = Math.floor(ranks) + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
     return {
       key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects,
-      classSkill: isClass, maxRanks: isClass ? level + 3 : (level + 3) / 2, overMax: ranks > (isClass ? level + 3 : (level + 3) / 2),
+      classSkill: isClass, classSource: source, occupationBonus,
+      // FX skills: "Other classes may not buy ranks in these skills without this feat" (Arcane Skills).
+      restricted: !!def.fx && !isClass && ranks > 0,
+      maxRanks: isClass ? level + 3 : (level + 3) / 2, overMax: ranks > (isClass ? level + 3 : (level + 3) / 2),
       total, usable: !def.trainedOnly || ranks > 0, trainedOnly: def.trainedOnly, armorPenalty: def.armorPenalty,
     };
   };

@@ -117,7 +117,11 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     for (const row of d.skills ?? []) {
       const def = SKILLS[row.key];
       if (def.specialties && last !== row.key) skills.push({ header: true, key: row.key, name: def.name });
-      skills.push({ ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}` });
+      skills.push({
+        ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}`,
+        // A class skill from a class, feat or occupation shows a tick; any other can be marked by hand.
+        fromItems: row.classSource && row.classSource !== "chosen", sourceLabel: CLASS_SOURCES[row.classSource] ?? "",
+      });
       last = row.key;
     }
     for (const [key, def] of Object.entries(SKILLS)) {
@@ -128,7 +132,11 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
 
     const itemLists = Object.fromEntries(Object.entries(LISTS).map(([tab, groups]) => [tab, groups.map(([type, label]) => ({
       type, label,
-      items: ofType(type).map((i) => ({ id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon", detail: detail(i), choiceKind: CHOICES[i.name] ?? "", choice: i.system.choice ?? "" })),
+      items: ofType(type).map((i) => ({
+        id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon",
+        detail: detail(i), choiceKind: CHOICES[i.name] ?? "", choice: i.system.choice ?? "",
+        occupation: i.type === "occupation" ? occupationChoices(i) : null,
+      })),
     }))]));
 
     Object.assign(context, {
@@ -173,13 +181,19 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const item = this.document.items.get(input.closest("[data-item-id]").dataset.itemId);
     if (!item) return;
     const field = input.dataset.itemField;
-    const value = field === "choice" ? null : input.value === "" ? null : Number(input.value);
+    const value = ["choice", "chosenSkill"].includes(field) ? null : input.value === "" ? null : Number(input.value);
     if (field === "hitPoints") {
       // One roll per level, in order; a level not yet rolled is empty and counts the average.
       const index = Number(input.dataset.index);
       const rolls = Array.from({ length: Math.max(item.system.hitPoints.length, index + 1) }, (_, i) => item.system.hitPoints[i] ?? null);
       rolls[index] = value;
       await item.update({ "system.hitPoints": rolls });
+    } else if (field === "chosenSkill") {
+      // An occupation's skill choices: tick or untick one; the occupation's limit is shown, not enforced.
+      const skill = input.dataset.value;
+      const chosen = new Set(item.system.chosenSkills);
+      if (input.checked) chosen.add(skill); else chosen.delete(skill);
+      await item.update({ "system.chosenSkills": [...chosen] });
     } else if (field === "choice") {
       await item.update({ "system.choice": input.value.trim() });
     } else if (field === "level") {
@@ -241,6 +255,20 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     await this.document.update({ "system.specialtySkills": list });
   }
 }
+
+/** An occupation's skill options as tick boxes, and how many of them it lets a character choose. */
+function occupationChoices(item) {
+  const s = item.system;
+  const chosen = new Set(s.chosenSkills);
+  const options = s.skills.options.map((o) => {
+    const label = o.specialty ? `${o.name} (${o.specialty})` : o.name;
+    return { label, checked: chosen.has(label) };
+  });
+  return { choose: s.skills.choose, count: chosen.size, over: chosen.size > s.skills.choose, options, languages: s.skills.languages };
+}
+
+/** Where a class skill comes from, for its tooltip. */
+const CLASS_SOURCES = { class: "A class skill of one of your classes", feat: "A class skill from a feat (Arcane Skills, Psionic Skills)", occupation: "A class skill from your occupation" };
 
 /** The bonus fields an effect can add to, for the Effects tab's reference list. */
 function bonusKeys() {
