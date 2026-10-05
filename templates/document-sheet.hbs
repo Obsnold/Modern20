@@ -25,6 +25,7 @@
     <div class="m20-rollbar">
       {{#each rolls.saves}}<a class="m20-roll-button" data-action="rollSave" data-save="{{key}}">{{label}} {{bonus}}</a>{{/each}}
       {{#each rolls.abilities}}<a class="m20-roll-button" data-action="rollAbility" data-ability="{{key}}">{{label}} {{score}}</a>{{/each}}
+      {{#if rolls.grapple}}<a class="m20-roll-button" data-action="rollGrapple" data-tooltip="Grapple check, opposed">Grapple {{rolls.grapple}}</a>{{/if}}
     </div>
     {{#if rolls.skills.length}}
       <div class="m20-rollbar">{{#each rolls.skills}}<a class="m20-roll-button" data-action="rollSkill" data-index="{{index}}">{{label}} {{bonus}}</a>{{/each}}</div>

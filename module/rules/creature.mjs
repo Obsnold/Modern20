@@ -84,6 +84,7 @@ export function creatureParts(creature, { base = null, classNames = [] } = {}) {
     system: {
       size: s.size ?? "",
       naturalArmor: natural,
+      baseSpeed: s.speed?.ft ?? null,
       abilities: Object.fromEntries(Object.entries(s.abilities ?? {}).map(([a, v]) => [a, { value: v }])),
       hp: { value: s.hp?.max ?? 0 },
       actionPoints: { value: s.actionPoints ?? 0 },

@@ -18,6 +18,7 @@ import { readAttacks, attackRoll, damageRoll } from "./rules/attacks.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 import { bindLevelCheck } from "./casting.mjs";
 import { spendAmmo } from "./ammo.mjs";
+import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
@@ -152,14 +153,49 @@ export function characterRolls(actor) {
         before: (ticked) => (item.system.melee ? true : spendAmmo(actor, item, ticked.mode ?? modes[0]?.[0] ?? "single")),
       });
     },
-    damage: (item, { multiplier = 1, pointBlank = false, mode } = {}) => {
+    /**
+     * An unarmed strike: nonlethal, or lethal (−4 without Combat Martial Arts), with the
+     * unarmed feats' die, bonus and critical (rules/unarmed.mjs).
+     */
+    unarmed: (event) => {
+      const u = unarmedRules(feats.map((f) => rulesFor(f.identifier)));
+      const options = [{ name: "lethal", label: u.lethalAllowed ? "Lethal damage (Combat Martial Arts)" : "Lethal damage (−4 on the attack)" }];
+      if (u.streetfighting) options.push({ name: "streetfighting", label: `Streetfighting: +${u.streetfighting} damage (once a round)` });
+      const build = (ticked = {}) => withTerms(R.attack(d, unarmedWeapon(u, ticked), feats), unarmedTerms(u, ticked));
+      return rollD20(actor, build(), event, { attack: { actor: actor.uuid, item: "unarmed" } }, { options, rebuild: build });
+    },
+    /** Starting a grapple: a melee touch attack to grab, judged against the target's touch Defense. */
+    grab: (event) => {
+      const spec = R.d20("Grab: melee touch attack (to start a grapple)", [
+        { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
+        { label: "Size", value: R.SIZE_ATTACK[d.size] ?? 0 }, { label: "Effects", value: d.attackBonus?.melee ?? 0 },
+      ]);
+      return rollD20(actor, spec, event, { attack: { actor: actor.uuid, item: "grab", touch: true } });
+    },
+    /** A grapple check: base attack + Str + the size's grapple modifier, opposed by the target's. */
+    grapple: (event) => rollD20(actor, R.d20("Grapple check (opposed)", [
+      { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
+      { label: "Size (grapple)", value: d.grapple - d.baseAttackBonus - (d.modifiers.str ?? 0) },
+    ]), event),
+    damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false } = {}) => {
+      // The unarmed strike is not an item: rebuilt from the feats, as it was attacked with.
+      const u = item === "unarmed" ? unarmedRules(feats.map((f) => rulesFor(f.identifier))) : null;
+      if (u) item = unarmedWeapon(u, { lethal });
       const spec = R.damage(d, item, { pointBlank, mode });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
       const nonlethal = /nonlethal/i.test(item.system.damageType ?? "");
       if (mode === "autofire") spec.title += ` — everyone in the square: Reflex DC ${AUTOFIRE_REFLEX_DC} or take it`;
-      return post(actor, multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec, { flags: { damage: { nonlethal } } });
+      let rolled = multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec;
+      // Streetfighting's extra die, once a round, is not multiplied on a critical.
+      if (u?.streetfighting && streetfighting) rolled = { ...rolled, formula: `${rolled.formula} + ${u.streetfighting}`, terms: [...rolled.terms, { label: "Streetfighting", value: u.streetfighting }] };
+      return post(actor, rolled, { flags: { damage: { nonlethal } } });
     },
   };
+}
+
+/** A roll with more named terms, its formula rebuilt (an unarmed strike's Brawl bonus). */
+function withTerms(spec, terms) {
+  return R.d20(spec.title, [...spec.terms, ...terms], { critical: spec.critical });
 }
 
 /**
@@ -190,6 +226,7 @@ export function creatureRolls(actor) {
       const k = s.skills[index];
       return rollD20(actor, R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus), event);
     },
+    grapple: (event) => rollD20(actor, R.printed("Grapple check (opposed)", s.grapple), event),
     // An attack from the printed Attack or Full Attack line (rules/attacks.mjs): its choice, its place in that
     // choice, and which of its iterative bonuses.
     attack: (line, choice, index, bonus, event) => {
@@ -253,7 +290,17 @@ export function bindAttackButtons(message, html) {
   if (!actor || !actor.isOwner) return;
   const multiplier = flags.critical?.multiplier ?? 2;
   let name, normal, critical;
-  if (flags.attack.item) {
+  if (flags.attack.item === "grab") {
+    // A grab that hits goes on to the opposed grapple check to hold.
+    if (flags.hit && !flags.hit.hit) return;
+    name = "Grab";
+    normal = () => characterRolls(actor).grapple();
+  } else if (flags.attack.item === "unarmed") {
+    const lethal = !!flags.attack.lethal, streetfighting = !!flags.attack.streetfighting;
+    name = "Unarmed strike";
+    normal = () => characterRolls(actor).damage("unarmed", { lethal, streetfighting });
+    critical = () => characterRolls(actor).damage("unarmed", { lethal, streetfighting, multiplier });
+  } else if (flags.attack.item) {
     // A character's weapon.
     const item = actor.items?.get(flags.attack.item);
     if (!item) return;
@@ -297,7 +344,8 @@ export function bindAttackButtons(message, html) {
     buttons.append(verdict);
   }
   const handlers = { damage: normal, critical, confirm: () => confirmCritical(actor, name, flags) };
-  for (const b of R.cardButtons(flags)) add(b.label, handlers[b.kind]);
+  if (flags.attack.item === "grab") add("Grapple check to hold", normal);
+  else for (const b of R.cardButtons(flags)) add(b.label, handlers[b.kind]);
   (html.querySelector(".message-content") ?? html).append(buttons);
 }
 

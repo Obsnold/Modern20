@@ -67,7 +67,7 @@ export function critical(text) {
 }
 
 /** The size modifier on attack rolls (the same as on Defense). */
-const SIZE_ATTACK = { fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, large: -1, huge: -2, gargantuan: -4, colossal: -8 };
+export const SIZE_ATTACK = { fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, large: -1, huge: -2, gargantuan: -4, colossal: -8 };
 
 /**
  * An attack with a weapon: BAB, Str (melee) or Dex (ranged, or a melee weapon

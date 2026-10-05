@@ -311,6 +311,8 @@ export const ACTOR_MODELS = {
     size: str({ choices: SIZES }),
     /** Natural armor beyond a species' (a creature's hide). */
     naturalArmor: int(),
+    /** Base speed in feet, for a character with no species to give one (a creature built from parts); empty for the species' (or 30). */
+    baseSpeed: int({ nullable: true }),
     abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }) })]))),
     /** Current and temporary hit points; `recovering` once a character below 0 has started to heal naturally. */
     hp: obj({ value: int(), temp: int(), recovering: bool() }),
@@ -345,6 +347,9 @@ export const ACTOR_MODELS = {
       allSkills: int(),
       defense: int(),
       initiative: int(),
+      /** Feet added to base speed, and to grapple checks. */
+      speed: int(),
+      grapple: int(),
       hitPoints: int(),
       reputation: int(),
       massiveDamage: int(),

@@ -21,6 +21,8 @@ import { buy, sell } from "../wealth.mjs";
 import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
 import { ammoFor, reloadWeapon } from "../ammo.mjs";
 import { magazineOf, fits } from "../rules/ammo.mjs";
+import { unarmedRules } from "../rules/unarmed.mjs";
+import { rulesFor } from "../rules/feats.mjs";
 import { casterFor, castingOf } from "../rules/casting.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
 
@@ -68,6 +70,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       wealthCheck: Modern20CharacterSheet.#onWealthCheck,
       reload: Modern20CharacterSheet.#onReload,
       belowZeroSave: Modern20CharacterSheet.#onBelowZeroSave,
+      rollUnarmed: Modern20CharacterSheet.#onRollUnarmed,
+      rollGrab: Modern20CharacterSheet.#onRollGrab,
+      rollGrapple: Modern20CharacterSheet.#onRollGrapple,
       castSpell: Modern20CharacterSheet.#onCastSpell,
       manifestPower: Modern20CharacterSheet.#onManifestPower,
       newDay: Modern20CharacterSheet.#onNewDay,
@@ -199,6 +204,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         bab: signed(d.baseAttackBonus), initiative: signed(d.initiative), grapple: signed(d.grapple),
         defense: d.defense ?? {}, reputation: signed(d.reputation), massiveDamage: d.massiveDamage ?? "—",
         hpMax: d.hitPoints?.max ?? 0, hpEstimated: d.hitPoints?.estimated,
+        speed: d.speed ? { ...d.speed, double: d.speed.value * 2, default: ofType("species")[0]?.system.speed || 30 } : {},
+        unarmed: unarmedSummary(items),
       },
       summary: (d.classes ?? []).map((c) => `${c.name} ${c.level}`).join(" / ") || "No class",
       size: d.size ? d.size[0].toUpperCase() + d.size.slice(1) : "Medium",
@@ -295,6 +302,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     await this.document.update({ "system.abilityIncreases": list.map((a) => a ?? "") });
   }
 
+  static #onRollUnarmed(event) { return characterRolls(this.document).unarmed(event); }
+  static #onRollGrab(event) { return characterRolls(this.document).grab(event); }
+  static #onRollGrapple(event) { return characterRolls(this.document).grapple(event); }
   static async #onBelowZeroSave(event, target) { await rollSave(this.document, target.dataset.kind, event); }
   static async #onReload(event, target) { const i = this.#item(target); if (i) await reloadWeapon(this.document, i); }
   static async #onCastSpell(event, target) { const i = this.#item(target); if (i) await castSpell(this.document, i); }
@@ -421,6 +431,13 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+/** An unarmed strike's damage, as the tooltip gives it: "1d3 nonlethal", "1d4 lethal or nonlethal, 19–20". */
+function unarmedSummary(items) {
+  const u = unarmedRules(items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => rulesFor(identify(i))));
+  const crit = [u.threat < 20 && `${u.threat}–20`, u.multiplier > 2 && `×${u.multiplier}`].filter(Boolean).join("/");
+  return `${u.nonlethalDie} + Str nonlethal${u.lethalAllowed ? `, or ${u.lethalDie} lethal` : ", lethal at −4"}${u.attack ? `; +${u.attack} to attack` : ""}${crit ? `; critical ${crit}` : ""}`;
 }
 
 /**

@@ -16,6 +16,18 @@ import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { advancement } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
+
+/**
+ * Speed in armor: the armor's printed speed for a base of 30 feet ("20"), or for 20 feet where
+ * it prints both ("20 ft./15 ft."); another base slowed in the same proportion, to the 5 feet.
+ */
+export function armoredSpeed(base, armor) {
+  const parts = String(armor.system.speed?.value ?? "").split("/").map((p) => Number(p.match(/\d+/)?.[0] ?? NaN));
+  if (Number.isNaN(parts[0])) return base;
+  if (base === 20 && !Number.isNaN(parts[1] ?? NaN)) return parts[1];
+  if (base === 30) return parts[0];
+  return Math.min(base, Math.ceil((base * parts[0]) / 30 / 5) * 5);
+}
 import { identify } from "./identify.mjs";
 import { racialHitDice } from "./creature.mjs";
 
@@ -117,6 +129,12 @@ export function deriveCharacter(system, items) {
   const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + natural + misc;
   const armorPenalty = armor.reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
 
+  // Speed: the species' (or a built creature's own, or 30 feet), plus talents and effects; armor slows it.
+  const baseSpeed = (system.baseSpeed ?? species?.system.speed ?? 30) + feats.reduce((n, f) => n + (f.rules.speed ?? 0), 0) + fxv("speed");
+  const worn = armor.filter((a) => a.system.weightClass !== "shield");
+  const speedValue = worn.reduce((v, a) => Math.min(v, armoredSpeed(baseSpeed, a)), baseSpeed);
+  const speed = { base: baseSpeed, value: speedValue, run: speedValue * 4, armored: speedValue < baseSpeed };
+
   // Class skills, and where each comes from: a class's list, a feat that grants them (Arcane Skills), the
   // skills chosen from the occupation, or a skill marked by hand. A specialty skill ("Knowledge (history)")
   // is a class skill when its source names it, or names the skill with no specialty.
@@ -195,7 +213,8 @@ export function deriveCharacter(system, items) {
     initiative: mod("dex") + bonus.initiative,
     attackBonus: { melee: fxv("attack.melee"), ranged: fxv("attack.ranged") },
     damageBonus: { melee: fxv("damage.melee"), ranged: fxv("damage.ranged") },
-    grapple: bab + mod("str") + sizeMods.grapple,
+    grapple: bab + mod("str") + sizeMods.grapple + fxv("grapple"),
+    speed,
     massiveDamage: scores.con === null ? null : scores.con + bonus.massiveDamage,
     bonusHitPoints: bonus.hp,
     skills,

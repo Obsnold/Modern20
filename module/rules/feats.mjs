@@ -21,6 +21,10 @@
  *                      automatic); autofire needs no feat, but takes −4 without the one
  *                      with `autofire`
  *   autofire           no −4 on autofire (Advanced Firearms Proficiency)
+ *   unarmed            what it does for an unarmed strike: `die` (nonlethal, or with `lethal`
+ *                      either), `attack` bonus, `threat`, critical `multiplier` (rules/unarmed.mjs)
+ *   streetfighting     extra damage once a round with an unarmed strike or light weapon
+ *   speed              feet added to base speed
  */
 export const FEAT_RULES = {
   "great-fortitude": { effects: [["system.bonuses.saves.fort", 2]] },
@@ -42,6 +46,18 @@ export const FEAT_RULES = {
   "double-tap": { fireMode: "doubleTap" },
   "burst-fire": { fireMode: "burst" },
   "advanced-firearms-proficiency": { autofire: true },
+
+  "brawl": { unarmed: { die: "1d6", attack: 1 } },
+  "improved-brawl": { unarmed: { die: "1d8", attack: 2 } },
+  "combat-martial-arts": { unarmed: { die: "1d4", lethal: true } },
+  "improved-combat-martial-arts": { unarmed: { threat: 19 } },
+  "advanced-combat-martial-arts": { unarmed: { multiplier: 3 } },
+  "streetfighting": { streetfighting: "1d4" },
+
+  // Fast hero talents.
+  "increased-speed": { speed: 5 },
+  "improved-increased-speed": { speed: 5 },
+  "advanced-increased-speed": { speed: 5 },
   "exotic-melee-weapon-proficiency": { choice: "weapon", proficiency: "chosen" },
   "exotic-firearms-proficiency": { choice: "weapon group", proficiency: "chosen" },
 
