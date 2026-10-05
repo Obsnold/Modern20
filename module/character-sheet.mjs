@@ -12,6 +12,7 @@ import { initial, obj } from "./data/schema.mjs";
 import { SKILLS } from "./data/skills.mjs";
 import { characterRolls } from "./roll.mjs";
 import { CHOICES } from "./rules/choices.mjs";
+import { logContext } from "./log.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -49,6 +50,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       editEffect: Modern20CharacterSheet.#onEditEffect,
       toggleEffect: Modern20CharacterSheet.#onToggleEffect,
       deleteEffect: Modern20CharacterSheet.#onDeleteEffect,
+      filterLog: Modern20CharacterSheet.#onFilterLog,
     },
   };
 
@@ -62,6 +64,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     magic: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
     effects: { template: "systems/modern20/templates/character/effects.hbs", scrollable: [""] },
     details: { template: "systems/modern20/templates/character/details.hbs", scrollable: [""] },
+    log: { template: "systems/modern20/templates/log.hbs", scrollable: [""] },
   };
 
   static TABS = {
@@ -74,6 +77,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         { id: "magic", label: "Magic & Psionics", icon: "fa-solid fa-wand-sparkles" },
         { id: "effects", label: "Effects", icon: "fa-solid fa-bolt" },
         { id: "details", label: "Details", icon: "fa-solid fa-book" },
+        { id: "log", label: "Log", icon: "fa-solid fa-clock-rotate-left" },
       ],
       initial: "main",
     },
@@ -161,6 +165,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         changes: e.changes.map((c) => `${c.key.replace(/^system\.bonuses\./, "")} ${Number(c.value) >= 0 ? "+" : ""}${c.value}`).join(", "),
       })),
       bonusKeys: bonusKeys(),
+      log: logContext(actor, this.logFilter),
       enrichedBiography: await TextEditor.implementation.enrichHTML(system.details.biography, { relativeTo: actor, secrets: actor.isOwner }),
       biographyField: system.schema.fields.details.fields.biography,
     });
@@ -209,6 +214,13 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const [effect] = await this.document.createEmbeddedDocuments("ActiveEffect", [{ name: "New effect", img: "icons/svg/aura.svg" }]);
     effect?.sheet.render(true);
   }
+  /** Which of the log's entries the Log tab shows: all, build or session. */
+  logFilter = "all";
+  static #onFilterLog(event, target) {
+    this.logFilter = target.dataset.filter;
+    this.render({ parts: ["log"] });
+  }
+
   static #onEditEffect(event, target) { this.#effect(target)?.sheet.render(true); }
   static async #onToggleEffect(event, target) {
     const e = this.#effect(target);

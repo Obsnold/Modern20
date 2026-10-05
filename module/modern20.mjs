@@ -12,12 +12,15 @@ import { registerModels } from "./data/foundry.mjs";
 import { Modern20Actor } from "./actor.mjs";
 import { registerRollSettings, bindAttackButtons } from "./roll.mjs";
 import { statusEffects } from "./rules/conditions.mjs";
+import { registerLogSettings, registerLogHooks } from "./log.mjs";
 
 export const SYSTEM_ID = "modern20";
 
 Hooks.once("init", () => {
   registerModels();
   registerRollSettings();
+  registerLogSettings();
+  registerLogHooks();
   // The SRD's conditions replace Foundry's default status effects, keeping Foundry's Invisible, which hides
   // a token. Blinded is the status Foundry's vision treats as blind.
   const invisible = CONFIG.statusEffects.find((e) => e.id === "invisible");

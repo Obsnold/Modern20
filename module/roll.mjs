@@ -10,6 +10,7 @@
  */
 import { abilityModifier } from "./data/models.mjs";
 import * as R from "./rules/rolls.mjs";
+import { recordRoll } from "./log.mjs";
 
 export const SYSTEM_ID = "modern20";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
@@ -72,6 +73,7 @@ export async function post(actor, spec, { flags = {}, judge } = {}) {
   const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}</div>`;
   const judged = judge?.(roll) ?? {};
   await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor, flags: { [SYSTEM_ID]: { ...flags, ...judged, threat, critical: spec.critical ?? flags.critical, formula: spec.formula } } });
+  await recordRoll(actor, spec.title, roll.total);
   return roll;
 }
 

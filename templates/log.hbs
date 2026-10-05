@@ -1,0 +1,22 @@
+<section class="tab {{tab.cssClass}} m20-log" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-log-filters">
+    {{#each log.filters}}<a class="m20-roll-button {{#if active}}m20-on{{/if}}" data-action="filterLog" data-filter="{{id}}">{{label}}</a>{{/each}}
+    <span class="m20-hint">Build entries are kept for good; the session log keeps its newest entries.</span>
+  </div>
+  {{#each log.entries}}
+    <div class="m20-log-entry {{#if build}}m20-log-build{{/if}}">
+      <div class="m20-log-head">
+        <span class="m20-tag">{{#if build}}Build{{else}}Session{{/if}}</span>
+        <strong>{{userName}}</strong>
+        <span class="m20-hint">{{when}}</span>
+      </div>
+      {{#if changes.length}}
+        <ul>{{#each changes}}<li>{{label}}: {{from}} → <strong>{{to}}</strong></li>{{/each}}</ul>
+      {{else}}
+        <p>{{text}}</p>
+      {{/if}}
+    </div>
+  {{else}}
+    <p class="m20-hint">Nothing yet. Changes made from now on are recorded here, with who made them.</p>
+  {{/each}}
+</section>

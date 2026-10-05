@@ -42,7 +42,7 @@ test("files the manifest names exist", () => {
 test("every sheet part's template renders a single element, as ApplicationV2 requires", async () => {
   const { readdirSync } = await import("node:fs");
   const VOID = new Set(["img", "input", "br", "hr", "meta", "link", "source"]);
-  const templates = ["templates/document-sheet.hbs", ...readdirSync(`${ROOT}templates/character`).map((f) => `templates/character/${f}`)];
+  const templates = ["templates/document-sheet.hbs", "templates/log.hbs", ...readdirSync(`${ROOT}templates/character`).map((f) => `templates/character/${f}`)];
   for (const t of templates) {
     const html = readFileSync(`${ROOT}${t}`, "utf8").replace(/\{\{!--[\s\S]*?--\}\}/g, "").replace(/\{\{[\s\S]*?\}\}/g, "");
     let depth = 0, roots = 0;

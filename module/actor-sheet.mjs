@@ -4,6 +4,7 @@
  */
 import { describe } from "./item-sheet.mjs";
 import { creatureRolls } from "./roll.mjs";
+import { logContext } from "./log.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -17,6 +18,7 @@ export class Modern20ActorSheet extends HandlebarsApplicationMixin(ActorSheetV2)
       rollAbility: Modern20ActorSheet.#onRollAbility,
       rollSave: Modern20ActorSheet.#onRollSave,
       rollSkill: Modern20ActorSheet.#onRollSkill,
+      filterLog: Modern20ActorSheet.#onFilterLog,
     },
   };
 
@@ -34,7 +36,15 @@ export class Modern20ActorSheet extends HandlebarsApplicationMixin(ActorSheetV2)
       abilities: ["str", "dex", "con", "int", "wis", "cha"].filter((k) => s.abilities?.[k] !== null && s.abilities?.[k] !== undefined).map((key) => ({ key, label: key[0].toUpperCase() + key.slice(1), score: s.abilities[key] })),
       skills: (s.skills ?? []).map((k, index) => ({ index, label: `${k.name}${k.specialty ? ` (${k.specialty})` : ""}`, bonus: signed(k.bonus) })),
     };
+    context.log = logContext(this.document, this.logFilter);
     return context;
+  }
+
+  /** Which of the log's entries are shown: all, build or session. */
+  logFilter = "all";
+  static #onFilterLog(event, target) {
+    this.logFilter = target.dataset.filter;
+    this.render();
   }
 
   static #onRollAbility(event, target) { return creatureRolls(this.document).ability(target.dataset.ability, event); }

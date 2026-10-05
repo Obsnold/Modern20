@@ -22,4 +22,20 @@
       {{{html}}}
     </div>
   {{/each}}
+  {{#if log}}
+    <details class="m20-log">
+      <summary><h2>Log ({{log.entries.length}})</h2></summary>
+      <div class="m20-log-filters">
+        {{#each log.filters}}<a class="m20-roll-button {{#if active}}m20-on{{/if}}" data-action="filterLog" data-filter="{{id}}">{{label}}</a>{{/each}}
+      </div>
+      {{#each log.entries}}
+        <div class="m20-log-entry {{#if build}}m20-log-build{{/if}}">
+          <div class="m20-log-head"><span class="m20-tag">{{#if build}}Build{{else}}Session{{/if}}</span> <strong>{{userName}}</strong> <span class="m20-hint">{{when}}</span></div>
+          {{#if changes.length}}<ul>{{#each changes}}<li>{{label}}: {{from}} → <strong>{{to}}</strong></li>{{/each}}</ul>{{else}}<p>{{text}}</p>{{/if}}
+        </div>
+      {{else}}
+        <p class="m20-hint">Nothing yet. Changes made from now on are recorded here, with who made them.</p>
+      {{/each}}
+    </details>
+  {{/if}}
 </section>
