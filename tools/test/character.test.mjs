@@ -128,3 +128,8 @@ test("Skill Emphasis (+3) and Educated (+2 to two Knowledge skills) add to the s
   assert.equal(row("knowledge", "civics").total, 1 + 2);
   assert.equal(row("knowledge", "art").total, 1);
 });
+
+test("half ranks in a cross-class skill do not add to the check until they make a whole rank", () => {
+  const d = deriveCharacter({ abilities: { dex: { value: 10 } }, skills: { hide: { ranks: 2.5, misc: 0 } } }, []);
+  assert.equal(d.skills.find((s) => s.key === "hide").total, 2);
+});

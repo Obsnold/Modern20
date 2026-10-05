@@ -169,7 +169,8 @@ export function bindAttackButtons(message, html) {
   if (!flags) return;
   const actor = fromUuidSync(flags.attack.actor);
   const item = actor?.items?.get(flags.attack.item);
-  if (!actor || !item) return;
+  // Only those who can roll for the actor get its buttons: a player cannot roll another's damage.
+  if (!actor || !item || !actor.isOwner) return;
   const pointBlank = !!flags.attack.pointBlank;
   const multiplier = flags.critical?.multiplier ?? 2;
   const normal = () => characterRolls(actor).damage(item, { pointBlank });

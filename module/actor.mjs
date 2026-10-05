@@ -30,6 +30,7 @@ export class Modern20Actor extends foundry.documents.Actor {
   getRollData() {
     const data = super.getRollData();
     data.init = initiativeBonus(this);
+    data.initTie = data.init / 100;
     return data;
   }
 }

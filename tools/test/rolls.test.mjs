@@ -24,7 +24,7 @@ test("formulas show each modifier as rolled, and leave out zeros", () => {
 
 test("a save: base, ability and feats", () => {
   const will = R.savingThrow(d, "will");
-  assert.deepEqual(will.terms, [{ label: "Base", value: 1 }, { label: "Feats", value: 2 }]);   // Strong Hero 3 Will +1, Wis +0, Iron Will
+  assert.deepEqual(will.terms, [{ label: "Base", value: 1 }, { label: "Feats and effects", value: 2 }]);   // Strong Hero 3 Will +1, Wis +0, Iron Will
   assert.equal(will.formula, "1d20 + 1 + 2");
 });
 

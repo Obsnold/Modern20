@@ -46,3 +46,14 @@ test("ability modifiers", () => {
   assert.deepEqual([3, 9, 10, 11, 18, 21].map(abilityModifier), [-4, -1, 0, 0, 4, 5]);
   assert.equal(abilityModifier(null), null);
 });
+
+test("no description links to a markdown page (only the rules journal turns those into Foundry links)", () => {
+  const offenders = [];
+  for (const [pack, build] of Object.entries(PACKS)) {
+    if (pack === "rules") continue;
+    for (const doc of build().documents) {
+      if (doc.system && /href="[^"]*\.md(#[^"]*)?"/.test(JSON.stringify(doc.system))) offenders.push(`${pack}: ${doc.name}`);
+    }
+  }
+  assert.deepEqual(offenders, []);
+});

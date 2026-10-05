@@ -116,7 +116,8 @@ export function deriveCharacter(system, items) {
     const ranks = stored?.ranks ?? 0;
     const isClass = isClassSkill(key, specialty);
     const effects = fxv(`skills.${key}`) + fxv("allSkills") + choiceBonus(key, specialty);
-    const total = ranks + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
+    // Cross-class ranks are bought in halves; only whole ranks add to a check.
+    const total = Math.floor(ranks) + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
     return {
       key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects,
       classSkill: isClass, maxRanks: isClass ? level + 3 : (level + 3) / 2, overMax: ranks > (isClass ? level + 3 : (level + 3) / 2),

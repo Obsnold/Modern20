@@ -30,7 +30,7 @@ export const savingThrow = (d, save) => {
   return d20(`${SAVE_NAMES[save]} save`, [
     { label: "Base", value: d.baseSaves[save] },
     { label: ABILITY_NAMES[ability], value: d.modifiers[ability] ?? 0 },
-    { label: "Feats", value: misc },
+    { label: "Feats and effects", value: misc },
   ]);
 };
 
