@@ -18,6 +18,7 @@ import { registerDyingHooks } from "./damage.mjs";
 
 
 Hooks.once("init", () => {
+  versionTemplates([Modern20ItemSheet, Modern20CreatureSheet, Modern20CharacterSheet]);
   registerModels();
   registerRollSettings();
   registerLogSettings();
@@ -54,3 +55,19 @@ Hooks.once("init", () => {
 
 // An attack's chat card: Damage, and on a threat Confirm critical and Critical damage.
 Hooks.on("renderChatMessageHTML", (message, html) => bindAttackButtons(message, html));
+
+/**
+ * Put the system's version on the address of every template its sheets load
+ * ("templates/character/main.hbs?v=0.4.1"). Foundry fetches templates as plain files, and a
+ * browser can keep serving an old copy after an update; a new address each version means it
+ * never does. The file server ignores the query, and templates are not named in system.json, so
+ * nothing checks the address. Run at init, once the version is known.
+ */
+function versionTemplates(sheets) {
+  const v = encodeURIComponent(game.system.version);
+  for (const sheet of sheets) {
+    for (const part of Object.values(sheet.PARTS ?? {})) {
+      if (part.template?.startsWith(`systems/${SYSTEM_ID}/`) && !part.template.includes("?")) part.template = `${part.template}?v=${v}`;
+    }
+  }
+}
