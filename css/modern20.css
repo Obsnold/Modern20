@@ -103,3 +103,24 @@
 .modern20 .m20-log-entry ul, .modern20 .m20-log-entry p { margin: 0.1rem 0 0; padding-left: 1rem; }
 .modern20 .m20-log-entry p { padding-left: 0; }
 .modern20 details.m20-log summary h2 { display: inline; }
+
+/* Conditions: every one as an icon, the ones the actor is in lit. */
+.modern20 .m20-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.3rem 0; }
+.modern20 .m20-status input[type="number"] { width: 4rem; }
+.modern20 .m20-conditions { display: flex; flex-wrap: wrap; gap: 2px; }
+.modern20 .m20-condition img { border: none; opacity: 0.25; filter: grayscale(1); cursor: pointer; }
+.modern20 .m20-condition.m20-on img { opacity: 1; filter: none; }
+.modern20 .m20-increases { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.3rem; }
+.modern20 .m20-increases select { width: auto; }
+
+/* The edit view: a grid of labelled inputs per group, fieldsets for groups and lists. */
+.modern20 .modern20-header { position: relative; }
+.modern20 .m20-edit-toggle { margin-left: auto; align-self: flex-start; border: 1px solid var(--color-border, #999); border-radius: 3px; padding: 0.1rem 0.5rem; cursor: pointer; white-space: nowrap; }
+.modern20 .m20-edit { display: flex; flex-direction: column; gap: 0.4rem; }
+.modern20 .m20-edit-grid { display: grid; grid-template-columns: max-content 1fr; gap: 0.2rem 0.6rem; align-items: center; }
+.modern20 .m20-edit-grid > label { font-weight: bold; }
+.modern20 .m20-edit fieldset { border: 1px solid var(--color-border-light-tertiary, #bbb); border-radius: 4px; padding: 0.3rem 0.5rem; margin: 0; }
+.modern20 .m20-edit legend { font-weight: bold; padding: 0 0.3rem; }
+.modern20 .m20-edit legend a { margin-left: 0.3rem; cursor: pointer; }
+.modern20 .m20-edit textarea { width: 100%; font-family: monospace; }
+.modern20 .m20-edit-html prose-mirror { min-height: 6rem; display: block; }

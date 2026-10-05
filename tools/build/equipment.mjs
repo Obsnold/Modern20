@@ -129,7 +129,8 @@ function feet(v) {
 /** "+3" -> 3, "–1" -> -1, "—" -> 0. */
 function bonus(v) {
   const s = strip(v);
-  return /^[+–-]\d+$/.test(s) ? num(s) : 0;
+  // "+0" and "–0" are both 0 (and not -0, which a form would save back as 0).
+  return /^[+–-]\d+$/.test(s) ? num(s) + 0 : 0;
 }
 
 /** Parse footnote paragraphs: "¹ Reach weapon.\ ² Double weapon." -> { "¹": "Reach weapon.", ... } */

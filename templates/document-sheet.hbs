@@ -5,7 +5,19 @@
       <h1>{{doc.name}}</h1>
       <p class="modern20-meta">{{typeLabel}}{{#if source}} · {{{source}}}{{/if}}</p>
     </div>
+    {{#if canEdit}}<a class="m20-edit-toggle {{#if editing}}m20-on{{/if}}" data-action="toggleEdit" data-tooltip="{{#if editing}}Back to the stat block{{else}}Edit every field{{/if}}"><i class="fa-solid {{#if editing}}fa-eye{{else}}fa-pen-to-square{{/if}}"></i> {{#if editing}}View{{else}}Edit{{/if}}</a>{{/if}}
   </header>
+  {{#if editing}}
+    {{{editor}}}
+  {{else}}
+  {{#if status}}
+    <div class="m20-status">
+      <label>HP <input type="number" name="system.hp.value" value="{{status.hp}}" {{#unless canEdit}}disabled{{/unless}}> / {{status.max}}</label>
+      <span class="m20-conditions">
+        {{#each status.conditions}}<a class="m20-condition {{#if active}}m20-on{{/if}}" data-action="toggleCondition" data-condition="{{id}}" data-tooltip="{{name}}"><img src="{{img}}" alt="{{name}}" width="20" height="20"></a>{{/each}}
+      </span>
+    </div>
+  {{/if}}
   {{#if canBuild}}
     <div class="m20-rollbar"><a class="m20-roll-button" data-action="buildCharacter" data-tooltip="Make a character from this creature's type, Hit Dice, scores, feats and class levels, to change and advance"><i class="fa-solid fa-hammer"></i> Build as a character</a></div>
   {{/if}}
@@ -41,6 +53,7 @@
       {{{html}}}
     </div>
   {{/each}}
+  {{/if}}
   {{#if log}}
     <details class="m20-log">
       <summary><h2>Log ({{log.entries.length}})</h2></summary>

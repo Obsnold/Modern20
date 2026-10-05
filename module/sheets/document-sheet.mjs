@@ -3,7 +3,15 @@
  * text, and a link to the SRD page it came from. `describe` builds it for any
  * document; the item sheet is this view, and so is the creature sheet
  * (creature-sheet.mjs), with rolls added.
+ *
+ * Both can be switched to an edit view (`Editable`), a form built from the
+ * type's field descriptions (edit-form.mjs), for a document that can be changed:
+ * one in the world, not a compendium's.
  */
+import { ITEM_MODELS, ACTOR_MODELS } from "../data/models.mjs";
+import { obj, initial } from "../data/schema.mjs";
+import { editForm, fromForm, specAt } from "./edit-form.mjs";
+
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 const { TextEditor } = foundry.applications.ux;
@@ -113,7 +121,76 @@ export async function describe(doc) {
   return { doc, typeLabel, source: await enrich(source), table: await enrich(`<table class="modern20-fields">${table}</table>`), prose };
 }
 
-export class Modern20ItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+/**
+ * A sheet with an edit view: the Edit button in its header swaps the read-only
+ * view for a form of every stored field. Changes save as they are made.
+ */
+export function Editable(Base) {
+  return class extends Base {
+    static DEFAULT_OPTIONS = {
+      form: { submitOnChange: true, closeOnSubmit: false },
+      actions: { toggleEdit: this.onToggleEdit, addEntry: this.onAddEntry, removeEntry: this.onRemoveEntry },
+    };
+
+    /** Whether the edit view is showing. */
+    editing = false;
+
+    /** The type's field description, as one object (data/models.mjs). */
+    get fieldSpec() {
+      const models = this.document.documentName === "Item" ? ITEM_MODELS : ACTOR_MODELS;
+      return obj(models[this.document.type] ?? {});
+    }
+
+    async _prepareContext(options) {
+      const context = await super._prepareContext(options);
+      context.canEdit = this.isEditable;
+      context.editing = this.editing && this.isEditable;
+      if (context.editing) {
+        context.editor = editForm(this.fieldSpec.fields, this.document.system.toObject(), { html: richText });
+      }
+      return context;
+    }
+
+    /** What the form sent, as the document's data: lists rebuilt from their entries' inputs. */
+    _processFormData(event, form, formData) {
+      const data = super._processFormData(event, form, formData);
+      if (data.system) data.system = fromForm(this.fieldSpec, data.system, this.document.system.toObject());
+      return data;
+    }
+
+    static onToggleEdit() {
+      this.editing = !this.editing;
+      this.render();
+    }
+
+    /** Add an entry to a list ("system.traits"), with its fields' defaults. */
+    static async onAddEntry(event, target) {
+      const path = target.dataset.path;
+      const spec = specAt(this.fieldSpec, path.replace(/^system\.?/, ""));
+      if (spec?.kind !== "array") return;
+      const list = [...(foundry.utils.getProperty(this.document.toObject(), path) ?? []), initial(spec.of)];
+      await this.document.update({ [path]: list });
+    }
+
+    static async onRemoveEntry(event, target) {
+      const path = target.dataset.path;
+      const list = [...(foundry.utils.getProperty(this.document.toObject(), path) ?? [])];
+      list.splice(Number(target.dataset.index), 1);
+      await this.document.update({ [path]: list });
+    }
+  };
+}
+
+/** Foundry's rich text editor for an HTML field, or a plain text area if it cannot make one. */
+function richText(name, value) {
+  try {
+    return new foundry.data.fields.HTMLField().toInput({ name, value, toggled: true }).outerHTML;
+  } catch {
+    return `<textarea name="${escape(name)}" rows="6">${escape(value)}</textarea>`;
+  }
+}
+
+export class Modern20ItemSheet extends Editable(HandlebarsApplicationMixin(ItemSheetV2)) {
   static DEFAULT_OPTIONS = {
     classes: ["modern20", "sheet", "item"],
     position: { width: 600, height: 640 },
