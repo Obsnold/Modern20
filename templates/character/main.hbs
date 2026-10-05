@@ -3,7 +3,7 @@
     <div class="m20-panel">
       <h3>Abilities</h3>
       <table class="m20-table">
-        <thead><tr><th></th><th>Base</th><th>Species</th><th>Score</th><th>Mod</th></tr></thead>
+        <thead><tr><th></th><th>Base</th><th data-tooltip="From species and templates">Adj.</th><th>Score</th><th>Mod</th></tr></thead>
         <tbody>
           {{#each abilities}}
             <tr>
@@ -28,6 +28,8 @@
         <dt>Grapple</dt><dd>{{combat.grapple}}</dd>
         <dt>Reputation</dt><dd>{{combat.reputation}}</dd>
         <dt>Massive Damage</dt><dd>{{combat.massiveDamage}}</dd>
+        <dt>Size</dt><dd><select name="system.size" data-tooltip="Empty: the species' size, or Medium"><option value="">—</option>{{#each sizes}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></dd>
+        <dt>Natural armor</dt><dd><input type="number" name="system.naturalArmor" value="{{system.naturalArmor}}" data-tooltip="Added to any the species gives"></dd>
         <dt>Defense (misc)</dt><dd><input type="number" name="system.defense.misc" value="{{system.defense.misc}}"></dd>
         <dt>Wealth</dt><dd><input type="number" name="system.wealth.value" value="{{system.wealth.value}}"></dd>
       </dl>
@@ -39,7 +41,22 @@
   </div>
 
   <div class="m20-panel">
-    <h3>Classes</h3>
+    <h3>Classes{{#if creatureType}} <span class="m20-hint">({{creatureType}})</span>{{/if}}</h3>
+    {{#each creatureTypes}}
+      <div class="m20-class" data-item-id="{{id}}">
+        <img src="{{img}}" alt="" width="32" height="32">
+        <a class="m20-item-name" data-action="editItem">{{name}}</a>
+        <label>Hit Dice <input type="number" min="0.125" step="any" value="{{count}}" data-item-field="count"></label>
+        {{#if replaced}}
+          <span class="m20-hint" data-tooltip="A creature of 1 Hit Die or less that takes class levels loses its own Hit Die">Replaced by class levels</span>
+        {{else}}
+          <span class="m20-rolls">HP (d{{hitDie}}):
+            {{#each rolls}}<input type="number" min="1" value="{{value}}" placeholder="—" data-item-field="hitPoints" data-index="{{index}}">{{/each}}
+          </span>
+        {{/if}}
+        <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+      </div>
+    {{/each}}
     {{#each classes}}
       <div class="m20-class" data-item-id="{{id}}">
         <img src="{{img}}" alt="" width="32" height="32">
@@ -51,7 +68,7 @@
         <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
       </div>
     {{else}}
-      <p class="m20-hint">Drag a class from the Classes compendium onto this sheet.</p>
+      {{#unless creatureTypes.length}}<p class="m20-hint">Drag a class from the Classes compendium onto this sheet, or a creature type to build a creature.</p>{{/unless}}
     {{/each}}
   </div>
 </section>

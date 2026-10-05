@@ -52,7 +52,7 @@ export function fieldLabel(path) {
     name: "Name", img: "Portrait", "hp.value": "Current HP", "hp.temp": "Temp HP", "hp.max": "Max HP",
     "actionPoints.value": "Action points", "wealth.value": "Wealth", "defense.misc": "Defense (misc)",
     specialtySkills: "Specialty skills", level: "level", hitPoints: "hit point rolls", equipped: "equipped",
-    quantity: "quantity", choice: "choice", chosenSkills: "occupation skills", "prototypeToken.name": "Token name",
+    quantity: "quantity", count: "Hit Dice", choice: "choice", chosenSkills: "occupation skills", "prototypeToken.name": "Token name",
   };
   return named[p] ?? p.split(".").map((w) => w.replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase()).join(" ");
 }
@@ -166,7 +166,7 @@ export function append(log, newEntries, { limit = PLAY_LIMIT, path = "flags.mode
 
 const TYPE_LABELS = {
   class: "class", talent: "talent", feat: "feat", spell: "spell", power: "power", incantation: "incantation",
-  occupation: "occupation", species: "species", weapon: "weapon", armor: "armor", equipment: "equipment", ammunition: "ammunition",
+  occupation: "occupation", species: "species", creatureType: "creature type", template: "template", weapon: "weapon", armor: "armor", equipment: "equipment", ammunition: "ammunition",
 };
 const typeLabel = (type) => TYPE_LABELS[type] ?? type;
 

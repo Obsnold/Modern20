@@ -5,6 +5,8 @@
 import { describe } from "./document-sheet.mjs";
 import { creatureRolls } from "../roll.mjs";
 import { logContext } from "../log.mjs";
+import { creatureParts } from "../rules/creature.mjs";
+import { SYSTEM_ID } from "../config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -19,6 +21,7 @@ export class Modern20CreatureSheet extends HandlebarsApplicationMixin(ActorSheet
       rollSave: Modern20CreatureSheet.#onRollSave,
       rollSkill: Modern20CreatureSheet.#onRollSkill,
       filterLog: Modern20CreatureSheet.#onFilterLog,
+      buildCharacter: Modern20CreatureSheet.#onBuildCharacter,
     },
   };
 
@@ -37,6 +40,7 @@ export class Modern20CreatureSheet extends HandlebarsApplicationMixin(ActorSheet
       skills: (s.skills ?? []).map((k, index) => ({ index, label: `${k.name}${k.specialty ? ` (${k.specialty})` : ""}`, bonus: signed(k.bonus) })),
     };
     context.log = logContext(this.document, this.logFilter);
+    context.canBuild = !!(s.type?.uuid || s.example?.base?.uuid) && Actor.implementation.canUserCreate(game.user);
     return context;
   }
 
@@ -50,4 +54,42 @@ export class Modern20CreatureSheet extends HandlebarsApplicationMixin(ActorSheet
   static #onRollAbility(event, target) { return creatureRolls(this.document).ability(target.dataset.ability, event); }
   static #onRollSave(event, target) { return creatureRolls(this.document).save(target.dataset.save, event); }
   static #onRollSkill(event, target) { return creatureRolls(this.document).skill(Number(target.dataset.index), event); }
+
+  /**
+   * A character with this creature's parts (rules/creature.mjs): its type at its Hit Dice, its
+   * scores, feats and talents, and a worked example's class levels, made in the world and opened.
+   */
+  static async #onBuildCharacter() {
+    const creature = this.document;
+    const base = creature.system.example?.classed ? await fromUuid(creature.system.example.base.uuid) : null;
+    const classPack = game.packs.get(`${SYSTEM_ID}.classes`);
+    const classIndex = await classPack.getIndex();
+    const parts = creatureParts(creature, { base, classNames: classIndex.map((c) => c.name) });
+
+    const items = [];
+    const missing = [];
+    const add = async (uuid, system = {}) => {
+      const item = await fromUuid(uuid);
+      if (!item) return missing.push(uuid);
+      const data = item.toObject();
+      delete data._id;
+      foundry.utils.mergeObject(data, { system, "_stats.compendiumSource": item.uuid });
+      items.push(data);
+    };
+    if (parts.type) await add(parts.type.uuid, { count: parts.type.count });
+    for (const [name, level] of Object.entries(parts.classes)) {
+      const entry = classIndex.find((c) => c.name === name);
+      if (entry) await add(entry.uuid, { level }); else missing.push(name);
+    }
+    // A feat taken more than once (Weapon Finesse for bite, claw and gore) is one item per choice.
+    for (const { uuid, choice } of parts.items) await add(uuid, choice ? { choice } : {});
+
+    const actor = await Actor.implementation.create({
+      name: parts.name, img: parts.img, type: "character", system: parts.system, items,
+      // The creature's token: its art, size and scale, and whose side it is on.
+      prototypeToken: (({ texture, width, height, disposition }) => ({ texture, width, height, disposition }))(creature.prototypeToken.toObject()),
+    });
+    if (missing.length) ui.notifications.warn(`${actor.name}: could not find ${missing.join(", ")}.`);
+    actor?.sheet.render(true);
+  }
 }

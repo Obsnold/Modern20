@@ -229,6 +229,10 @@ const ITEM_FIELDS = {
   },
 
   creatureType: {
+    /** On a creature's copy: how many Hit Dice of the type it has (a fraction for "1/2 d8"). */
+    count: num({ initial: 1 }),
+    /** The hit points rolled for each of those Hit Dice; a missing roll counts the average. */
+    hitPoints: list(int({ nullable: true })),
     hitDie: int({ nullable: true }),
     baseAttack: printed({ rate: num({ nullable: true }) }),
     goodSaves: obj({ value: str(), saves: list(str({ choices: SAVES })) }),
@@ -271,6 +275,10 @@ export const ITEM_MODELS = Object.fromEntries(Object.entries(ITEM_FIELDS).map(([
 export const ACTOR_MODELS = {
   /** A hero or ordinary: everything else is worked out from the items it owns (rules/character.mjs). */
   character: {
+    /** A creature's size, when it has no species to give one; empty for the species' (or Medium). */
+    size: str({ choices: SIZES }),
+    /** Natural armor beyond a species' (a creature's hide). */
+    naturalArmor: int(),
     abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }) })]))),
     hp: obj({ value: int(), temp: int() }),
     actionPoints: obj({ value: int() }),

@@ -7,7 +7,7 @@
  * (rules/character.mjs). Items are added by dragging them from a compendium
  * or the sidebar onto the sheet, which ActorSheetV2 handles.
  */
-import { ABILITIES, ACTOR_MODELS } from "../data/models.mjs";
+import { ABILITIES, ACTOR_MODELS, SIZES } from "../data/models.mjs";
 import { initial, obj } from "../data/schema.mjs";
 import { SKILLS } from "../data/skills.mjs";
 import { characterRolls } from "../roll.mjs";
@@ -25,7 +25,7 @@ const signed = (n) => (n === null || n === undefined ? "—" : n >= 0 ? `+${n}` 
 
 /** The lists on the Feats and Gear tabs: which item types go in each, in order. */
 const LISTS = {
-  feats: [["talent", "Talents"], ["feat", "Feats"], ["occupation", "Occupation"], ["species", "Species"]],
+  feats: [["talent", "Talents"], ["feat", "Feats"], ["occupation", "Occupation"], ["species", "Species"], ["template", "Templates"]],
   gear: [["weapon", "Weapons"], ["armor", "Armor"], ["equipment", "Equipment"], ["ammunition", "Ammunition"]],
   magic: [["spell", "Spells"], ["power", "Psionic Powers"], ["incantation", "Incantations"]],
 };
@@ -104,11 +104,24 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const items = actor.items.contents;
     const ofType = (t) => items.filter((i) => i.type === t).sort((a, b) => a.sort - b.sort);
     const species = ofType("species")[0];
+    const templates = ofType("template");
 
-    const abilities = ABILITIES.map((a) => ({
-      key: a, label: ABILITY_NAMES[a], value: system.abilities[a].value,
-      adjustment: species?.system.abilities?.[a] ? signed(species.system.abilities[a]) : "",
-      score: d.scores?.[a] ?? "—", modifier: signed(d.modifiers?.[a]),
+    // The species' and templates' changes to each score; a template that takes a score away shows a dash.
+    const abilities = ABILITIES.map((a) => {
+      const change = (species?.system.abilities?.[a] ?? 0) + templates.reduce((n, t) => n + (t.system.abilities?.changes?.[a] ?? 0), 0);
+      const lost = templates.some((t) => t.system.abilities?.lost?.includes(a));
+      return {
+        key: a, label: ABILITY_NAMES[a], value: system.abilities[a].value,
+        adjustment: lost ? "—" : change ? signed(change) : "",
+        score: d.scores?.[a] ?? "—", modifier: signed(d.modifiers?.[a]),
+      };
+    });
+
+    // A creature's own Hit Dice: its type, how many, and a roll for each whole one.
+    const creatureTypes = ofType("creatureType").map((t) => ({
+      id: t.id, name: t.name, img: t.img, count: t.system.count, hitDie: t.system.hitDie,
+      replaced: d.replacedHitDice,
+      rolls: d.replacedHitDice ? [] : Array.from({ length: Math.max(1, Math.floor(t.system.count ?? 0)) }, (_, i) => ({ index: i, value: t.system.hitPoints[i] ?? "" })),
     }));
 
     const classes = ofType("class").map((c) => ({
@@ -156,6 +169,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       summary: (d.classes ?? []).map((c) => `${c.name} ${c.level}`).join(" / ") || "No class",
       size: d.size ? d.size[0].toUpperCase() + d.size.slice(1) : "Medium",
       classes,
+      creatureTypes,
+      creatureType: d.creatureType ? d.creatureType[0].toUpperCase() + d.creatureType.slice(1) : "",
+      sizes: SIZES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1), selected: v === system.size })),
       skills,
       specialtyChoices: Object.entries(SKILLS).filter(([, s]) => s.specialties).map(([key, s]) => ({ key, name: s.name, specialties: s.specialties })),
       itemLists,
@@ -202,6 +218,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       await item.update({ "system.chosenSkills": [...chosen] });
     } else if (field === "choice") {
       await item.update({ "system.choice": input.value.trim() });
+    } else if (field === "count") {
+      // Hit Dice of a creature type: a fraction ("1/2 d8") is allowed, down to an eighth.
+      await item.update({ "system.count": Math.max(0.125, value ?? 1) });
     } else if (field === "level") {
       await item.update({ "system.level": Math.max(1, Math.min(value ?? 1, item.system.maxLevel || 10)) });
     }
@@ -306,6 +325,7 @@ function detail(item) {
     case "feat": return s.prerequisites;
     case "spell": case "power": return (s.levels ?? []).map((l) => `${l.class} ${l.level}`).join(", ");
     case "species": return `${s.size}, speed ${s.speed} ft.`;
+    case "template": return [s.kind, s.type && `becomes ${s.type}`].filter(Boolean).join(", ");
     default: return s.weight?.value ? `${s.weight.value}` : "";
   }
 }

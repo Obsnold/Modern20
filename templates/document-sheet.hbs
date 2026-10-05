@@ -6,6 +6,9 @@
       <p class="modern20-meta">{{typeLabel}}{{#if source}} · {{{source}}}{{/if}}</p>
     </div>
   </header>
+  {{#if canBuild}}
+    <div class="m20-rollbar"><a class="m20-roll-button" data-action="buildCharacter" data-tooltip="Make a character from this creature's type, Hit Dice, scores, feats and class levels, to change and advance"><i class="fa-solid fa-hammer"></i> Build as a character</a></div>
+  {{/if}}
   {{#if rolls}}
     <div class="m20-rollbar">
       {{#each rolls.saves}}<a class="m20-roll-button" data-action="rollSave" data-save="{{key}}">{{label}} {{bonus}}</a>{{/each}}

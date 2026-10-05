@@ -15,6 +15,7 @@ import { SKILLS, skillKey } from "../data/skills.mjs";
 import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { identify } from "./identify.mjs";
+import { racialHitDice } from "./creature.mjs";
 
 /** Size modifiers to attack rolls and Defense, and to grapple checks. */
 export const SIZE_MODIFIERS = {
@@ -40,6 +41,9 @@ export function deriveCharacter(system, items) {
   const species = items.find((i) => i.type === "species");
   const occupation = items.find((i) => i.type === "occupation");
   const armor = items.filter((i) => i.type === "armor" && i.system.equipped);
+  // A creature built from parts: its type (with how many Hit Dice it has), and any templates.
+  const creatureType = items.find((i) => i.type === "creatureType");
+  const templates = items.filter((i) => i.type === "template");
   // Feats and talents, each with its rules (rules/feats.mjs).
   const feats = items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ ...i, rules: rulesFor(identify(i)) }));
   const armorProficiencies = new Set(feats.map((f) => f.rules.armorProficiency).filter(Boolean));
@@ -52,7 +56,9 @@ export function deriveCharacter(system, items) {
   const scores = {}, modifiers = {};
   for (const a of ABILITIES) {
     const base = system.abilities?.[a]?.value;
-    scores[a] = base === null || base === undefined ? null : base + (species?.system.abilities?.[a] ?? 0) + fxv(`abilities.${a}`);
+    const lost = templates.some((t) => t.system.abilities?.lost?.includes(a));   // an undead has no Constitution
+    const fromTemplates = templates.reduce((n, t) => n + (t.system.abilities?.changes?.[a] ?? 0), 0);
+    scores[a] = base === null || base === undefined || lost ? null : base + (species?.system.abilities?.[a] ?? 0) + fromTemplates + fxv(`abilities.${a}`);
     modifiers[a] = abilityModifier(scores[a]);
   }
   const mod = (a) => modifiers[a] ?? 0;
@@ -61,6 +67,18 @@ export function deriveCharacter(system, items) {
   let level = 0, bab = 0, defenseClass = 0, reputation = 0;
   const base = { fort: 0, ref: 0, will: 0 };
   const breakdown = [];
+  // A creature's own Hit Dice. One with 1 Hit Die or less that takes class levels "advances as human
+  // characters do": its class levels replace its Hit Die.
+  const hd = creatureType ? creatureType.system.count ?? 0 : 0;
+  const replaced = hd > 0 && hd <= 1 && classes.length > 0;
+  const creatureSize = system.size || species?.system.size || "medium";
+  const racial = replaced ? null : racialHitDice(creatureType?.system, hd, mod("con"), creatureType?.system.hitPoints, creatureSize);
+  if (racial) {
+    level += racial.level;
+    bab += racial.baseAttack;
+    for (const s of Object.keys(base)) base[s] += racial.saves[s];
+    breakdown.push({ name: `${creatureType.name} (Hit Dice)`, level: racial.hitDice });
+  }
   for (const c of classes) {
     const row = classRow(c.system, c.system.level);
     if (!row) continue;
@@ -77,8 +95,8 @@ export function deriveCharacter(system, items) {
     initiative: fxv("initiative"), hp: fxv("hitPoints"), massiveDamage: fxv("massiveDamage"),
   };
 
-  // Size, from the species (Medium without one).
-  const size = species?.system.size || "medium";
+  // Size: the character's own (a creature's), else the species', else Medium.
+  const size = creatureSize;
   const sizeMods = SIZE_MODIFIERS[size] ?? SIZE_MODIFIERS.medium;
 
   // Defense: 10 + class + Dex (up to the armor's limit) + size + armor + natural armor.
@@ -91,7 +109,7 @@ export function deriveCharacter(system, items) {
   const proficientIn = (a) => a.system.weightClass === "shield" || !a.system.weightClass || armorProficiencies.has(a.system.weightClass);
   const equipment = armor.reduce((n, a) => n + ((proficientIn(a) ? a.system.equipmentBonus : a.system.nonproficientBonus) ?? 0), 0);
   const armorAttackPenalty = armor.filter((a) => !proficientIn(a)).reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
-  const natural = species?.system.naturalArmor ?? 0;
+  const natural = (species?.system.naturalArmor ?? 0) + (system.naturalArmor ?? 0);
   const misc = (system.defense?.misc ?? 0) + fxv("defense");
   const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + natural + misc;
   const armorPenalty = armor.reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
@@ -143,7 +161,8 @@ export function deriveCharacter(system, items) {
 
   // Hit points: each level's roll on its class's Hit Die, plus the Con modifier (at least 1 a level).
   // The character's first level is the die's maximum; a level with no roll counts the average, rounded up.
-  let hp = 0, estimated = false, first = true;
+  // A creature's Hit Dice come first, and then its first class level is rolled like any other.
+  let hp = racial?.hitPoints ?? 0, estimated = racial?.estimated ?? false, first = !racial;
   for (const c of classes) {
     const die = c.system.hitDie ?? 0;
     for (let l = 0; l < Math.min(c.system.level, c.system.levels?.length ?? 0); l++) {
@@ -156,6 +175,10 @@ export function deriveCharacter(system, items) {
 
   return {
     level,
+    // What the creature is: its type, or the type a template makes it (a zombie is undead).
+    creatureType: templates.map((t) => t.system.type).filter(Boolean).at(-1) || creatureType?.name || "",
+    racialHitDice: racial ? racial.hitDice : 0,
+    replacedHitDice: replaced,
     hitPoints: { max: hp + bonus.hp, estimated },
     classes: breakdown,
     scores,
