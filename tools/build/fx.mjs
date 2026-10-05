@@ -17,6 +17,7 @@
  * named in INDEX_PAGES and skipped; any other page without a stat block is an
  * error, so a spell that loses its table is caught rather than dropped.
  */
+import { once } from "./once.mjs";
 import { listPages, readPage, toHtml } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
@@ -272,6 +273,6 @@ function buildKind(kind) {
   return { documents, problems, skipped };
 }
 
-export const buildSpells = () => buildKind("spell");
-export const buildPowers = () => buildKind("power");
-export const buildIncantations = () => buildKind("incantation");
+export const buildSpells = once(() => buildKind("spell"));
+export const buildPowers = once(() => buildKind("power"));
+export const buildIncantations = once(() => buildKind("incantation"));

@@ -17,6 +17,7 @@
  * printed with it), and feats against the feats pack, so an occupation can only
  * offer things that exist.
  */
+import { once } from "./once.mjs";
 import { listPages, readPage, toHtml } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
@@ -34,7 +35,7 @@ export function isOccupation(path) {
 }
 
 /** Skill name -> key ability ("Int", or "None"), from every skill page's stat block. */
-export function skillAbilities() {
+export const skillAbilities = once(function skillAbilities() {
   const out = {};
   for (const path of listPages()) {
     if (!/^[^/]+\/Skills\/[^/]+\.md$/.test(path)) continue;
@@ -43,7 +44,7 @@ export function skillAbilities() {
     if (ability) out[top.title] ??= ability;
   }
   return out;
-}
+});
 
 /** "Choose three of ..." / "Select one of ..." -> 3 / 1, or null. */
 function count(text, verb) {
@@ -143,7 +144,7 @@ export function readOccupation(path, { skills, feats }) {
 }
 
 /** Build the occupations pack: `{ documents, problems }`. */
-export function buildOccupations() {
+export const buildOccupations = once(function buildOccupations() {
   const context = { skills: skillAbilities(), feats: featLookup() };
   const problems = [];
   const folders = {};
@@ -167,4 +168,4 @@ export function buildOccupations() {
     documents.push({ _id: id, _key: `!folders!${id}`, name: BOOKS[book] ?? book, type: "Item", folder: null, sorting: "a", color: null, flags: {} });
   }
   return { documents, problems };
-}
+});

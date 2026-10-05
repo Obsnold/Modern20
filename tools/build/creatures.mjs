@@ -17,6 +17,7 @@
  * the skill pages and its feats and talents against their packs, so a creature
  * can only list what exists.
  */
+import { once } from "./once.mjs";
 import { listPages, readPage, toHtml } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
@@ -311,7 +312,7 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
 }
 
 /** Build the creatures pack: `{ documents, problems, skipped }`. */
-export function buildCreatures() {
+export const buildCreatures = once(function buildCreatures() {
   const talents = new Map();   // class -> talent name (lower case) -> { name, uuid }
   for (const d of buildTalents().documents) {
     if (d.type !== "talent") continue;
@@ -385,4 +386,4 @@ export function buildCreatures() {
     documents.push({ _id: f.id, _key: `!folders!${f.id}`, name: f.name, type: "Actor", folder: f.parent, sorting: f.sorting ?? "a", color: null, flags: {} });
   }
   return { documents, problems, skipped };
-}
+});

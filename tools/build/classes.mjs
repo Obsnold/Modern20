@@ -27,6 +27,7 @@
  * feats pack (NOT_IN_SRD names the few the SRD never prints), and every class
  * skill must be a skill page with the ability printed beside it.
  */
+import { once } from "./once.mjs";
 import { posix } from "node:path";
 import { listPages, readPage, toHtml, text } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
@@ -142,7 +143,7 @@ function splitFeatures(cell, headings, aliases) {
  * Skills the FX classes define in their own pages ("#### Spellcraft (Int)" under
  * Class Features) rather than as skill pages: name -> ability.
  */
-export function classSkillSections() {
+export const classSkillSections = once(function classSkillSections() {
   const out = {};
   for (const path of listPages().filter(isClass)) {
     const features = readPage(path).root.children[0]?.child("Class Features");
@@ -152,7 +153,7 @@ export function classSkillSections() {
     }
   }
   return out;
-}
+});
 
 /** Check one class page; returns `{ entry, talents, problems }`. */
 export function readClass(path, { feats, skills, prestige }) {
@@ -430,7 +431,6 @@ export function buildClassesAndTalents() {
   return { classes: { documents: classDocs, problems }, talents: { documents: talentDocs, problems: [] } };
 }
 
-let cached;
-const both = () => (cached ??= buildClassesAndTalents());
+const both = once(buildClassesAndTalents);
 export const buildClasses = () => both().classes;
 export const buildTalents = () => both().talents;

@@ -7,6 +7,7 @@
  * the rules journal is navigable inside Foundry the way the markdown is on
  * GitHub.
  */
+import { once } from "./once.mjs";
 import { posix } from "node:path";
 import { listPages, readPage, toHtml, text } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
@@ -61,7 +62,7 @@ function folders(paths) {
 }
 
 /** Build the rules journal: `{ documents, problems }`. */
-export function buildJournal() {
+export const buildJournal = once(function buildJournal() {
   const paths = listPages();
   const known = new Set(paths);
   const problems = [];
@@ -83,4 +84,4 @@ export function buildJournal() {
     });
   }
   return { documents, problems };
-}
+});

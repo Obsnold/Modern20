@@ -14,6 +14,7 @@
  * line, and the build stops, so the markdown cannot drift from the format the
  * importer reads.
  */
+import { once } from "./once.mjs";
 import { listPages, readPage, toHtml, text } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
@@ -97,7 +98,7 @@ function featEffects(itemId, feat) {
 }
 
 /** Build the feats pack: `{ documents, problems, skipped }`. */
-export function buildFeats() {
+export const buildFeats = once(function buildFeats() {
   const problems = [];
   const feats = [];
   for (const path of featPages()) {
@@ -128,7 +129,7 @@ export function buildFeats() {
     documents.push({ _id: id, _key: `!folders!${id}`, name: BOOKS[book] ?? book, type: "Item", folder: null, sorting: "a", color: null, flags: {} });
   }
   return { documents, problems, skipped };
-}
+});
 
 /**
  * Look feats up by the name another page prints, for linking to the feats pack.

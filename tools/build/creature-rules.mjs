@@ -21,6 +21,7 @@
  * every trait is kept, by name, with its text, so what needs a GM's judgement
  * ("loses all feats except ...") is still there to read.
  */
+import { once } from "./once.mjs";
 import { listPages, readPage, toHtml, text } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
@@ -174,7 +175,7 @@ function documents(entries, kind) {
   return out;
 }
 
-export function buildCreatureTypes() {
+export const buildCreatureTypes = once(function buildCreatureTypes() {
   const problems = [], entries = [];
   for (const path of listPages().filter((p) => TYPE_PAGES.test(p) && p !== TYPE_INDEX)) {
     const { entry, problems: p } = readCreatureType(path);
@@ -182,9 +183,9 @@ export function buildCreatureTypes() {
     if (entry) entries.push(entry);
   }
   return { documents: documents(entries, "creatureType"), problems };
-}
+});
 
-export function buildTemplates() {
+export const buildTemplates = once(function buildTemplates() {
   const problems = [], entries = [];
   for (const path of listPages()) {
     const r = readTemplate(path);
@@ -193,4 +194,4 @@ export function buildTemplates() {
     entries.push(r.entry);
   }
   return { documents: documents(entries, "template"), problems };
-}
+});

@@ -21,6 +21,7 @@
  * Every value is kept as printed; the ones a sheet will compute with (weight,
  * purchase DC, restriction, damage dice, bonuses) are also parsed.
  */
+import { once } from "./once.mjs";
 import { listPages, readPage, toHtml } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
@@ -317,7 +318,7 @@ export function readEquipmentPage(path, { feats }) {
 }
 
 /** Build the equipment pack: `{ documents, problems, skipped }`. */
-export function buildEquipment() {
+export const buildEquipment = once(function buildEquipment() {
   const context = { feats: featLookup() };
   const problems = [];
   const documents = [];
@@ -352,4 +353,4 @@ export function buildEquipment() {
     documents.push({ _id: f.id, _key: `!folders!${f.id}`, name: f.name, type: "Item", folder: f.parent, sorting: "a", color: null, flags: {} });
   }
   return { documents, problems, skipped };
-}
+});

@@ -18,6 +18,7 @@
  * with no ## sections. The traits every species has are read into fields and
  * checked; every other trait is kept, by name, as a special quality.
  */
+import { once } from "./once.mjs";
 import { listPages, readPage, toHtml } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
@@ -159,7 +160,7 @@ export function readSpecies(path, { feats }) {
 }
 
 /** Build the species pack: `{ documents, problems }`. */
-export function buildSpecies() {
+export const buildSpecies = once(function buildSpecies() {
   const context = { feats: featLookup() };
   const problems = [];
   const folders = {};
@@ -180,4 +181,4 @@ export function buildSpecies() {
     documents.push({ _id: id, _key: `!folders!${id}`, name: BOOKS[book] ?? book, type: "Item", folder: null, sorting: "a", color: null, flags: {} });
   }
   return { documents, problems };
-}
+});
