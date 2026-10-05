@@ -10,6 +10,31 @@
       {{/each}}
     </div>
   {{/if}}
+  {{#each classChoices}}
+    <div class="m20-panel m20-class-choices">
+      <h3>{{name}}</h3>
+      {{#if talents}}
+        <p class="{{#if talents.over}}m20-warning{{else}}m20-hint{{/if}}">Talents: {{talents.taken}} of {{talents.slots}} taken.</p>
+        {{#each talents.trees}}
+          <div class="m20-tree"><strong>{{name}}</strong>
+            {{#each talents}}
+              <label class="{{#if unmet}}m20-unmet{{/if}}" {{#if unmet}}data-tooltip="Needs {{unmet}}"{{/if}}{{#if check}}data-tooltip="Check by hand: {{check}}"{{/if}}>
+                <input type="checkbox" data-action="toggleTalent" data-name="{{name}}" data-uuid="{{uuid}}" {{#if unmet}}data-unmet="{{unmet}}"{{/if}} {{#if checked}}checked{{/if}}> {{name}}{{#if check}} <i class="fa-solid fa-circle-question"></i>{{/if}}
+              </label>
+            {{/each}}
+          </div>
+        {{/each}}
+      {{/if}}
+      {{#if bonus}}
+        <details class="m20-bonus-feats" {{#if bonus.slots}}open{{/if}}>
+          <summary class="{{#if bonus.over}}m20-warning{{else}}m20-hint{{/if}}">Bonus feats: {{bonus.taken}} of {{bonus.slots}} taken, from this list</summary>
+          {{#each bonus.options}}
+            <label {{#if have}}{{#unless checked}}data-tooltip="You have this feat; tick to count it as a bonus feat"{{/unless}}{{/if}}><input type="checkbox" data-action="toggleBonusFeat" data-class="{{../id}}" data-index="{{index}}" {{#if checked}}checked{{/if}}> {{label}}{{#if have}}{{#unless checked}} <i class="fa-solid fa-check m20-hint"></i>{{/unless}}{{/if}}</label>
+          {{/each}}
+        </details>
+      {{/if}}
+    </div>
+  {{/each}}
   {{#each lists}}
     <div class="m20-panel">
       <h3>{{label}}{{#if count}} <span class="{{#if count.over}}m20-warning{{else}}m20-hint{{/if}}" data-tooltip="{{count.parts}}">{{count.text}}</span>{{/if}}</h3>

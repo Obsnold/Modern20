@@ -24,6 +24,7 @@ import { ammoFor, reloadWeapon } from "../ammo.mjs";
 import { magazineOf, fits } from "../rules/ammo.mjs";
 import { unarmedRules } from "../rules/unarmed.mjs";
 import { featGrants } from "../rules/advancement.mjs";
+import { bonusFeatSlots, talentPrerequisites } from "../rules/talents.mjs";
 import { slug } from "../rules/identify.mjs";
 import { SYSTEM_ID } from "../config.mjs";
 import { rulesFor } from "../rules/feats.mjs";
@@ -74,6 +75,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       wealthCheck: Modern20CharacterSheet.#onWealthCheck,
       reload: Modern20CharacterSheet.#onReload,
       toggleGrant: Modern20CharacterSheet.#onToggleGrant,
+      toggleBonusFeat: Modern20CharacterSheet.#onToggleBonusFeat,
+      toggleTalent: Modern20CharacterSheet.#onToggleTalent,
       startingWealth: Modern20CharacterSheet.#onStartingWealth,
       regainWealth: Modern20CharacterSheet.#onRegainWealth,
       addLanguage: Modern20CharacterSheet.#onAddLanguage,
@@ -131,6 +134,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     if (context.tabs && partId in context.tabs) context.tab = context.tabs[partId];
     if (partId in LISTS) context.lists = context.itemLists[partId];
     context.grants = partId === "feats" ? context.featGrants : [];
+    context.classChoices = partId === "feats" ? context.classChoiceList : [];
     return context;
   }
 
@@ -251,6 +255,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       belowZero: belowZero(actor),
       magic: magicContext(actor, ofType),
       featGrants: grantsContext(actor),
+      classChoiceList: await classChoicesContext(actor),
       log: logContext(actor, this.logFilter),
       enrichedBiography: await TextEditor.implementation.enrichHTML(system.details.biography, { relativeTo: actor, secrets: actor.isOwner }),
       biographyField: system.schema.fields.details.fields.biography,
@@ -377,6 +382,32 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     delete data._id;
     foundry.utils.mergeObject(data, { system: { choice: option.specialty ?? "" }, flags: { [SYSTEM_ID]: { grantedBy: grant.source } }, _stats: { compendiumSource: feat.uuid } });
     await actor.createEmbeddedDocuments("Item", [data]);
+  }
+
+  /**
+   * Take a feat from a class's bonus feat list as one of its bonus feats, or give it back. A
+   * feat the character already has is marked as the bonus feat rather than added again.
+   */
+  static async #onToggleBonusFeat(event, target) {
+    const actor = this.document;
+    const cls = actor.items.get(target.dataset.class);
+    const option = cls?.system.bonusFeats[Number(target.dataset.index)];
+    if (!option) return;
+    const marked = bonusFeatItem(actor, cls.id, option);
+    if (marked) return marked.getFlag(SYSTEM_ID, "bonusAdded") ? marked.delete() : marked.unsetFlag(SYSTEM_ID, "bonusFor");
+    const existing = ownedFeat(actor, option, null);
+    if (existing && !existing.getFlag(SYSTEM_ID, "bonusFor")) return existing.setFlag(SYSTEM_ID, "bonusFor", cls.id);
+    await addFromCompendium(actor, option, { bonusFor: cls.id, bonusAdded: true });
+  }
+
+  /** Take a talent from a class's trees, or give it back. */
+  static async #onToggleTalent(event, target) {
+    const actor = this.document;
+    const option = { name: target.dataset.name, uuid: target.dataset.uuid };
+    const owned = actor.items.find((i) => i.type === "talent" && identify(i) === slug(option.name));
+    if (owned) return owned.delete();
+    if (target.dataset.unmet) ui.notifications.warn(`${option.name}: prerequisites not met (${target.dataset.unmet}).`);
+    await addFromCompendium(actor, option, {});
   }
 
   static async #onReload(event, target) { const i = this.#item(target); if (i) await reloadWeapon(this.document, i); }
@@ -519,6 +550,70 @@ function languagesContext(actor) {
     species: species ? { name: species.name, free: species.system.languages.free.join(", "), other: species.system.languages.other.join(", ") } : null,
     occupation: occupation?.system.skills.languages ? `${occupation.name}: ${occupation.system.skills.languages}` : "",
   };
+}
+
+/** Compendium talents, loaded once each: the sheet reads their prerequisites on every render. */
+const TALENTS = new Map();
+async function talentDoc(uuid) {
+  if (!TALENTS.has(uuid)) TALENTS.set(uuid, await fromUuid(uuid));
+  return TALENTS.get(uuid);
+}
+
+/** Add a feat or talent from its compendium link, with flags. */
+async function addFromCompendium(actor, option, flags) {
+  const doc = option.uuid ? await fromUuid(option.uuid) : null;
+  if (!doc) return ui.notifications.warn(`${option.name} is not in a compendium.`);
+  const data = doc.toObject();
+  delete data._id;
+  foundry.utils.mergeObject(data, { system: option.specialty ? { choice: option.specialty } : {}, flags: { [SYSTEM_ID]: flags }, _stats: { compendiumSource: doc.uuid } });
+  await actor.createEmbeddedDocuments("Item", [data]);
+}
+
+/** The feat marked as one of a class's bonus feats for this option, if there is one. */
+function bonusFeatItem(actor, classId, option) {
+  const id = slug(option.name);
+  return actor.items.find((i) => i.type === "feat" && i.getFlag(SYSTEM_ID, "bonusFor") === classId && identify(i) === id
+    && (!option.specialty || (i.system.choice ?? "").toLowerCase() === option.specialty.toLowerCase())) ?? null;
+}
+
+/**
+ * The Feats tab's class choices: each class's bonus feat list (with how many its levels give
+ * and which are taken as bonus feats), and its talent trees (with each talent's prerequisites).
+ */
+async function classChoicesContext(actor) {
+  const classes = actor.items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0).sort((a, b) => a.sort - b.sort);
+  const talents = actor.items.filter((i) => i.type === "talent");
+  const owned = talents.map((t) => ({ name: t.name, tree: t.system.tree }));
+  const out = [];
+  for (const c of classes) {
+    const slots = bonusFeatSlots(c);
+    const bonus = c.system.bonusFeats.map((o, index) => ({
+      index, label: o.specialty ? `${o.name} (${o.specialty})` : o.name, checked: !!bonusFeatItem(actor, c.id, o),
+      have: !!ownedFeat(actor, o, null),
+    }));
+    const taken = bonus.filter((b) => b.checked).length;
+    // Each talent's own item, for its prerequisites: from the compendium the tree links to.
+    const trees = [];
+    for (const tree of c.system.talentTrees) {
+      const rows = [];
+      for (const t of tree.talents) {
+        const doc = t.uuid ? await talentDoc(t.uuid) : null;
+        const pre = doc ? talentPrerequisites(doc, owned) : { met: true, missing: [] };
+        const checked = talents.some((x) => identify(x) === slug(t.name));
+        rows.push({ name: t.name, uuid: t.uuid, checked, met: pre.met, unmet: pre.met === false && !checked ? pre.missing.join(", ") : "", check: pre.met === null ? pre.missing.join(" ") : "" });
+      }
+      trees.push({ name: tree.name, talents: rows });
+    }
+    const talentSlots = (c.system.levels ?? []).filter((l) => l.level <= c.system.level).reduce((n, l) => n + l.features.filter((f) => /^talent$/i.test(f.name)).length, 0);
+    const talentsTaken = talents.filter((t) => t.system.className === c.name).length;
+    if (!bonus.length && !trees.length) continue;
+    out.push({
+      id: c.id, name: c.name,
+      bonus: bonus.length ? { options: bonus, taken, slots, over: taken > slots } : null,
+      talents: trees.length ? { trees, taken: talentsTaken, slots: talentSlots, over: talentsTaken > talentSlots } : null,
+    });
+  }
+  return out;
 }
 
 /**

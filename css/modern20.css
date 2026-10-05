@@ -147,3 +147,8 @@
 .modern20 .m20-languages input[type="text"] { width: 100%; }
 .modern20 .m20-languages td { text-align: center; }
 .modern20 .m20-languages td:first-child { text-align: left; }
+.modern20 .m20-class-choices label { display: inline-flex; align-items: center; gap: 0.2rem; margin-right: 0.8rem; }
+.modern20 .m20-tree { margin: 0.2rem 0; }
+.modern20 .m20-tree strong { margin-right: 0.5rem; }
+.modern20 .m20-unmet { opacity: 0.55; }
+.modern20 .m20-bonus-feats summary { cursor: pointer; }
