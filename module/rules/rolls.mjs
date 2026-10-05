@@ -13,6 +13,7 @@
 import { chooses } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { slug } from "./identify.mjs";
+import { MODES, extraDice, AUTOFIRE_DEFENSE } from "./ammo.mjs";
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
@@ -73,7 +74,8 @@ const SIZE_ATTACK = { fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 0, larg
  * taken with Weapon Finesse), size, −4 without the weapon's proficiency feat,
  * Weapon Focus's +1, nonproficient armor's penalty, and effects. `feats` are
  * the character's feats and talents as `{ name, choice }`; `options` what was
- * ticked when asked (`pointBlank`).
+ * ticked when asked (`pointBlank`, and `mode` a firing mode: "doubleTap", "burst",
+ * "autofire"; rules/ammo.mjs).
  */
 export function attack(d, weapon, feats, options = {}) {
   const s = weapon.system;
@@ -92,6 +94,9 @@ export function attack(d, weapon, feats, options = {}) {
     || (f.id === base && (f.rules.proficiency !== "chosen" || chooses(f.choice, group ?? weapon.name) || forThisWeapon(f))));
   const focus = owned.filter((f) => f.rules.weaponFocus && forThisWeapon(f)).reduce((n, f) => n + f.rules.weaponFocus, 0);
   const pointBlank = !melee && options.pointBlank ? Math.max(0, ...owned.map((f) => f.rules.pointBlank ?? 0)) : 0;
+  const mode = MODES[options.mode];
+  // Autofire without Advanced Firearms Proficiency: −4.
+  const autofirePenalty = options.mode === "autofire" && !owned.some((f) => f.rules.autofire) ? -4 : 0;
   return d20(`${weapon.name}: ${melee ? "melee" : "ranged"} attack`, [
     { label: "Base attack", value: d.baseAttackBonus },
     { label: `${ABILITY_NAMES[ability]}${finesse ? " (Weapon Finesse)" : ""}`, value: d.modifiers[ability] ?? 0 },
@@ -99,9 +104,15 @@ export function attack(d, weapon, feats, options = {}) {
     { label: proficient ? "Proficient" : `Not proficient (${needs})`, value: proficient ? 0 : -4 },
     { label: "Weapon Focus", value: focus },
     { label: "Point Blank Shot", value: pointBlank },
+    { label: mode?.label ?? "Firing mode", value: mode?.attack ?? 0 },
+    { label: "Autofire (no Advanced Firearms Proficiency)", value: autofirePenalty },
     { label: "Armor (not proficient)", value: d.defense?.armorAttackPenalty ?? 0 },
     { label: "Effects", value: d.attackBonus?.[melee ? "melee" : "ranged"] ?? 0 },
-  ], { critical: critical(s.critical) });
+  ], {
+    critical: critical(s.critical),
+    // Autofire is against a 10-foot square, Defense 10, not a target's Defense.
+    ...(options.mode === "autofire" ? { againstDefense: AUTOFIRE_DEFENSE, title: `${weapon.name}: autofire` } : {}),
+  });
 }
 
 /**
@@ -110,12 +121,12 @@ export function attack(d, weapon, feats, options = {}) {
  */
 export function damage(d, weapon, options = {}) {
   const s = weapon.system;
-  const dice = s.damage?.formula;
+  const dice = s.damage?.formula && MODES[options.mode]?.dice ? extraDice(s.damage.formula, MODES[options.mode].dice) : s.damage?.formula;
   if (!dice) return null;
   const str = s.melee ? d.modifiers.str ?? 0 : 0;
   const fx = d.damageBonus?.[s.melee ? "melee" : "ranged"] ?? 0;
   const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ["Effects", fx]].filter(([, v]) => v);
-  const terms = [{ label: "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
+  const terms = [{ label: MODES[options.mode]?.dice ? `Weapon (${MODES[options.mode].label}, +${MODES[options.mode].dice} di${MODES[options.mode].dice === 1 ? "e" : "ce"})` : "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
   const formula = [dice, ...extra.map(([, v]) => (v < 0 ? `- ${-v}` : `+ ${v}`))].join(" ");
   return { title: `${weapon.name}: damage (${s.damageType || "untyped"})`, terms, formula, critical: critical(s.critical) };
 }

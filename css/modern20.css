@@ -136,3 +136,6 @@
 .m20-cast dl { display: grid; grid-template-columns: max-content 1fr; gap: 0 0.5rem; margin: 0.2rem 0; }
 .m20-cast dt { font-weight: bold; }
 .m20-cast dd { margin: 0; }
+.modern20 .m20-ammo { display: inline-flex; align-items: center; gap: 0.2rem; }
+.modern20 .m20-ammo input, .modern20 .m20-quantity { width: 3.5rem; }
+.modern20 .m20-ammo select { width: auto; max-width: 12rem; }

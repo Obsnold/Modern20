@@ -16,9 +16,11 @@ import { logContext } from "../log.mjs";
 import { identify } from "../rules/identify.mjs";
 import { restHealing } from "../rules/damage.mjs";
 import { financialCondition } from "../rules/wealth.mjs";
-import { applyToActor } from "../damage.mjs";
+import { applyToActor, rollSave } from "../damage.mjs";
 import { buy, sell } from "../wealth.mjs";
 import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
+import { ammoFor, reloadWeapon } from "../ammo.mjs";
+import { magazineOf, fits } from "../rules/ammo.mjs";
 import { casterFor, castingOf } from "../rules/casting.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
 
@@ -64,6 +66,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       buyItem: Modern20CharacterSheet.#onBuyItem,
       sellItem: Modern20CharacterSheet.#onSellItem,
       wealthCheck: Modern20CharacterSheet.#onWealthCheck,
+      reload: Modern20CharacterSheet.#onReload,
+      belowZeroSave: Modern20CharacterSheet.#onBelowZeroSave,
       castSpell: Modern20CharacterSheet.#onCastSpell,
       manifestPower: Modern20CharacterSheet.#onManifestPower,
       newDay: Modern20CharacterSheet.#onNewDay,
@@ -180,6 +184,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         detail: detail(i), choiceKind: CHOICES[identify(i)] ?? "", choice: i.system.choice ?? "",
         occupation: i.type === "occupation" ? occupationChoices(i) : null,
         dc: "purchaseDC" in i.system ? i.system.purchaseDC?.dc ?? null : null,
+        ammo: i.type === "weapon" && !i.system.melee ? ammoContext(actor, i) : null,
+        quantity: i.type === "ammunition" ? i.system.quantity : null,
+        counted: i.type === "ammunition",
       })),
       count: counts[type] ?? null,
     }))]));
@@ -220,6 +227,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         })),
       },
       wealthCondition: financialCondition(system.wealth.value ?? 0),
+      belowZero: belowZero(actor),
       magic: magicContext(actor, ofType),
       log: logContext(actor, this.logFilter),
       enrichedBiography: await TextEditor.implementation.enrichHTML(system.details.biography, { relativeTo: actor, secrets: actor.isOwner }),
@@ -245,7 +253,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const item = this.document.items.get(input.closest("[data-item-id]").dataset.itemId);
     if (!item) return;
     const field = input.dataset.itemField;
-    const value = ["choice", "chosenSkill"].includes(field) ? null : input.value === "" ? null : Number(input.value);
+    const value = ["choice", "chosenSkill", "ammunition"].includes(field) ? null : input.value === "" ? null : Number(input.value);
     if (field === "hitPoints") {
       // One roll per level, in order; a level not yet rolled is empty and counts the average.
       const index = Number(input.dataset.index);
@@ -260,6 +268,13 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       await item.update({ "system.chosenSkills": [...chosen] });
     } else if (field === "choice") {
       await item.update({ "system.choice": input.value.trim() });
+    } else if (field === "ammunition") {
+      await item.update({ "system.ammunition": input.value });
+    } else if (field === "loaded") {
+      const mag = magazineOf(item.system.magazine);
+      await item.update({ "system.loaded": Math.max(0, Math.min(value ?? 0, mag && mag.capacity !== Infinity ? mag.capacity : Infinity)) });
+    } else if (field === "quantity") {
+      await item.update({ "system.quantity": value === null ? null : Math.max(0, value) });
     } else if (field === "prepared") {
       await item.update({ "system.prepared": Math.max(0, value ?? 0), "system.cast": Math.min(item.system.cast, Math.max(0, value ?? 0)) });
     } else if (field === "count") {
@@ -280,6 +295,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     await this.document.update({ "system.abilityIncreases": list.map((a) => a ?? "") });
   }
 
+  static async #onBelowZeroSave(event, target) { await rollSave(this.document, target.dataset.kind, event); }
+  static async #onReload(event, target) { const i = this.#item(target); if (i) await reloadWeapon(this.document, i); }
   static async #onCastSpell(event, target) { const i = this.#item(target); if (i) await castSpell(this.document, i); }
   static async #onManifestPower(event, target) { const i = this.#item(target); if (i) await manifest(this.document, i); }
   static async #onNewDay() { await newDay(this.document); }
@@ -318,7 +335,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       rejectClose: false,
     });
     if (!choice) return;
-    const healed = restHealing(level, actor.system.hp.value, { bedRest: choice === "bed" });
+    const healed = restHealing(level, actor.system.hp.value, { bedRest: choice === "bed", recovering: actor.system.hp.recovering });
     if (healed === null) return ui.notifications.warn(`${actor.name} is below 0 hit points and does not heal naturally: a Fortitude save (DC 20) each day starts the recovery, and a failure loses 1 hit point.`);
     await applyToActor(actor, healed, { healing: true });
   }
@@ -404,6 +421,32 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+/**
+ * The save a character below 0 has to make next, for the button by its hit points: dying (each
+ * round), waking (stable, each hour), recovery (awake below 0, each day); null if none.
+ */
+function belowZero(actor) {
+  const hp = actor.system.hp.value, st = actor.statuses;
+  if (hp >= 0 || st.has("dead")) return null;
+  if (st.has("dying")) return { kind: "dying", label: "Dying: Fortitude DC 20", tip: "Each round: stable on a success, 1 hit point lost on a failure. Treat Injury (DC 15) also stabilises; mark Stable by hand." };
+  if (st.has("stable") && st.has("unconscious")) return { kind: "waking", label: "Unconscious: Fortitude DC 20", tip: "Each hour (once tended, or unaided): regain consciousness, disabled" };
+  if (!actor.system.hp.recovering) return { kind: "recovery", label: "Below 0: Fortitude DC 20", tip: "Each day: start healing naturally, or lose 1 hit point" };
+  return null;
+}
+
+/** A ranged weapon's rounds: what it holds and can hold, and the ammunition it can use (fitting ones first). */
+function ammoContext(actor, weapon) {
+  const mag = magazineOf(weapon.system.magazine);
+  const current = ammoFor(actor, weapon);
+  const all = actor.items.filter((i) => i.type === "ammunition");
+  const options = [...all.filter((a) => fits(weapon, a)), ...all.filter((a) => !fits(weapon, a))]
+    .map((a) => ({ id: a.id, label: `${a.name}${a.system.quantity !== null ? ` (${a.system.quantity})` : ""}${fits(weapon, a) ? "" : " — not its caliber"}`, selected: a.id === current?.id }));
+  return {
+    magazine: !!mag && mag.capacity !== Infinity, capacity: mag?.capacity, loaded: weapon.system.loaded ?? 0,
+    linked: mag?.capacity === Infinity, options, none: !options.length,
+  };
 }
 
 const ORDINALS = ["0-level", "1st-level", "2nd-level", "3rd-level", "4th-level", "5th-level", "6th-level", "7th-level", "8th-level", "9th-level"];

@@ -14,6 +14,7 @@ import { Modern20Actor } from "./actor.mjs";
 import { registerRollSettings, bindAttackButtons } from "./roll.mjs";
 import { statusEffects } from "./rules/conditions.mjs";
 import { registerLogSettings, registerLogHooks } from "./log.mjs";
+import { registerDyingHooks } from "./damage.mjs";
 
 
 Hooks.once("init", () => {
@@ -21,6 +22,7 @@ Hooks.once("init", () => {
   registerRollSettings();
   registerLogSettings();
   registerLogHooks();
+  registerDyingHooks();
   // The SRD's conditions replace Foundry's default status effects, keeping Foundry's Invisible, which hides
   // a token. Blinded is the status Foundry's vision treats as blind.
   const invisible = CONFIG.statusEffects.find((e) => e.id === "invisible");

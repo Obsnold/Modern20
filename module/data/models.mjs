@@ -224,6 +224,9 @@ const ITEM_FIELDS = {
     reflexDC: str(),
     proficiency: obj({ value: str(), uuid: str() }),
     melee: bool(),
+    /** On a character's copy: rounds in its magazine, and the id of the ammunition item it is loaded from. */
+    loaded: int(),
+    ammunition: str(),
     description: html(),
     source,
   },
@@ -309,7 +312,8 @@ export const ACTOR_MODELS = {
     /** Natural armor beyond a species' (a creature's hide). */
     naturalArmor: int(),
     abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }) })]))),
-    hp: obj({ value: int(), temp: int() }),
+    /** Current and temporary hit points; `recovering` once a character below 0 has started to heal naturally. */
+    hp: obj({ value: int(), temp: int(), recovering: bool() }),
     /** Action points left, and the character level they have been given up to (5 + half the level, at each level). */
     actionPoints: obj({ value: int(), granted: int() }),
     /** Power points left today, and the free 0-level manifestations used. */

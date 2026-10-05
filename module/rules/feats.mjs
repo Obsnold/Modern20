@@ -17,6 +17,10 @@
  *   proficiency        weapons it makes a character proficient with: "chosen" for the
  *                      exotic proficiencies, which name a weapon or group when taken
  *   armorProficiency   the weight of armor it lets a character wear without penalty
+ *   fireMode           a firing mode it allows: "doubleTap" (a semiautomatic), "burst" (an
+ *                      automatic); autofire needs no feat, but takes −4 without the one
+ *                      with `autofire`
+ *   autofire           no −4 on autofire (Advanced Firearms Proficiency)
  */
 export const FEAT_RULES = {
   "great-fortitude": { effects: [["system.bonuses.saves.fort", 2]] },
@@ -35,6 +39,9 @@ export const FEAT_RULES = {
   "weapon-focus": { choice: "weapon", weaponFocus: 1 },
   "weapon-finesse": { choice: "weapon", finesse: true },
   "point-blank-shot": { pointBlank: 1 },
+  "double-tap": { fireMode: "doubleTap" },
+  "burst-fire": { fireMode: "burst" },
+  "advanced-firearms-proficiency": { autofire: true },
   "exotic-melee-weapon-proficiency": { choice: "weapon", proficiency: "chosen" },
   "exotic-firearms-proficiency": { choice: "weapon group", proficiency: "chosen" },
 

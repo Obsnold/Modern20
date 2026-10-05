@@ -17,6 +17,8 @@ import { rulesFor } from "./rules/feats.mjs";
 import { readAttacks, attackRoll, damageRoll } from "./rules/attacks.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 import { bindLevelCheck } from "./casting.mjs";
+import { spendAmmo } from "./ammo.mjs";
+import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -40,7 +42,9 @@ async function ask(actor, spec, event, options = []) {
   const die = R.actionPointDie(actor.system.derived?.level ?? 1);
   const content = `
     <div class="form-group"><label>Situational modifier</label><input type="number" name="modifier" value="0" autofocus></div>
-    ${options.map((o) => `<div class="form-group"><label>${escape(o.label)}</label><input type="checkbox" name="${o.name}"></div>`).join("")}
+    ${options.map((o) => (o.choices
+      ? `<div class="form-group"><label>${escape(o.label)}</label><select name="${o.name}">${o.choices.map(([v, l]) => `<option value="${escape(v)}">${escape(l)}</option>`).join("")}</select></div>`
+      : `<div class="form-group"><label>${escape(o.label)}</label><input type="checkbox" name="${o.name}"></div>`)).join("")}
     ${ap > 0 ? `<div class="form-group"><label>Spend an action point (${escape(die.label.replace(/^Action point /, ""))}; ${ap} left)</label><input type="checkbox" name="actionPoint"></div>` : ""}`;
   const result = await foundry.applications.api.DialogV2.prompt({
     window: { title: spec.title },
@@ -48,7 +52,7 @@ async function ask(actor, spec, event, options = []) {
     ok: { label: "Roll", callback: (ev, button) => ({
       modifier: button.form.elements.modifier.valueAsNumber || 0,
       actionPoint: !!button.form.elements.actionPoint?.checked,
-      ...Object.fromEntries(options.map((o) => [o.name, !!button.form.elements[o.name]?.checked])),
+      ...Object.fromEntries(options.map((o) => [o.name, o.choices ? button.form.elements[o.name]?.value : !!button.form.elements[o.name]?.checked])),
     }) },
     rejectClose: false,
   });
@@ -85,10 +89,14 @@ export async function post(actor, spec, { flags = {}, judge } = {}) {
  * Ask, spend the action point if one was chosen, and post. `rebuild` makes the
  * roll again from what was ticked (an attack with Point Blank Shot).
  */
-async function rollD20(actor, spec, event, flags, { options = [], rebuild } = {}) {
+async function rollD20(actor, spec, event, flags, { options = [], rebuild, before } = {}) {
   if (!spec || spec.unusable) return post(actor, spec);
   const added = await ask(actor, spec, event, options);
   if (!added) return null;
+  // What was chosen: a tick box's yes or no, a choice's value (or, not asked, its first).
+  const ticked = Object.fromEntries(options.map((o) => [o.name, o.choices ? added[o.name] ?? o.choices[0][0] : !!added[o.name]]));
+  // Anything the roll costs besides an action point (a weapon's rounds); it can stop the roll.
+  if (before && (await before(ticked)) === false) return null;
   if (added.actionPoint) {
     const left = actor.system.actionPoints.value;
     if (left < 1) { ui.notifications.warn(`${actor.name} has no action points left.`); return null; }
@@ -96,13 +104,18 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild } = {}
   }
   // A critical is confirmed with the attack's own modifiers, the situational one included, but not an
   // action point's die: a point spent on a roll applies to that roll alone.
-  const ticked = Object.fromEntries(options.map((o) => [o.name, !!added[o.name]]));
   if (rebuild) spec = rebuild(ticked);
   const confirm = flags?.attack ? R.withAdditions(spec, { modifier: added.modifier }).formula : undefined;
   return post(actor, R.withAdditions(spec, added), {
     flags: flags ? { ...flags, confirm, attack: { ...flags.attack, ...ticked } } : {},
-    judge: flags?.attack ? (roll) => judgeAgainstTarget(roll, { touch: flags.attack.touch }) : undefined,
+    judge: flags?.attack ? (roll) => (spec.againstDefense ? judgeAgainstArea(roll, spec.againstDefense) : judgeAgainstTarget(roll, { touch: flags.attack.touch })) : undefined,
   });
+}
+
+/** Autofire: against the square's Defense, not a token's. */
+function judgeAgainstArea(roll, defense) {
+  const natural = roll.dice[0]?.total;
+  return { hit: { name: "the 10-foot square", defense, touch: false, hit: natural === 20 || (natural !== 1 && roll.total >= defense) } };
 }
 
 /**
@@ -130,15 +143,41 @@ export function characterRolls(actor) {
     attack: (item, event) => {
       // Point Blank Shot is the player's call: the SRD's "within 30 feet" is not something the sheet can see.
       const options = !item.system.melee && feats.some((f) => rulesFor(f.identifier).pointBlank) ? [{ name: "pointBlank", label: "Within 30 feet (Point Blank Shot: +1 attack and damage)" }] : [];
-      return rollD20(actor, R.attack(d, item, feats), event, { attack: { actor: actor.uuid, item: item.id } }, { options, rebuild: (ticked) => R.attack(d, item, feats, ticked) });
+      const modes = firingModes(item, feats);
+      if (modes.length > 1) options.unshift({ name: "mode", label: "Firing mode", choices: modes });
+      return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0] }), event, { attack: { actor: actor.uuid, item: item.id } }, {
+        options,
+        rebuild: (ticked) => R.attack(d, item, feats, ticked),
+        // A firearm spends its rounds as it fires: none left, no attack.
+        before: (ticked) => (item.system.melee ? true : spendAmmo(actor, item, ticked.mode ?? modes[0]?.[0] ?? "single")),
+      });
     },
-    damage: (item, { multiplier = 1, pointBlank = false } = {}) => {
-      const spec = R.damage(d, item, { pointBlank });
+    damage: (item, { multiplier = 1, pointBlank = false, mode } = {}) => {
+      const spec = R.damage(d, item, { pointBlank, mode });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
       const nonlethal = /nonlethal/i.test(item.system.damageType ?? "");
+      if (mode === "autofire") spec.title += ` — everyone in the square: Reflex DC ${AUTOFIRE_REFLEX_DC} or take it`;
       return post(actor, multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec, { flags: { damage: { nonlethal } } });
     },
   };
+}
+
+/**
+ * The firing modes a ranged weapon offers, as `[value, label]`: single shots, a double tap
+ * (a semiautomatic, with Double Tap), a burst (an automatic, with Burst Fire) and autofire.
+ * A weapon that fires only on automatic (a machine gun) offers autofire first.
+ */
+function firingModes(item, feats) {
+  if (item.system.melee) return [];
+  const has = (mode) => feats.some((f) => rulesFor(f.identifier).fireMode === mode);
+  const modes = [];
+  const semi = semiautomatic(item), auto = automatic(item);
+  if (semi || !auto) modes.push(["single", "Single shot"]);
+  if (semi && has("doubleTap")) modes.push(["doubleTap", "Double tap (2 rounds: −2 attack, +1 die)"]);
+  if (auto && has("burst")) modes.push(["burst", "Burst fire (5 rounds: −4 attack, +2 dice)"]);
+  if (auto) modes.push(["autofire", `Autofire (10 rounds: a 10-ft. square, Defense 10; Reflex DC ${AUTOFIRE_REFLEX_DC})`]);
+  if (!semi && auto) modes.push(["single", "Single shot"]);
+  return modes;
 }
 
 /** A creature's rolls, from its printed bonuses. */
@@ -219,9 +258,10 @@ export function bindAttackButtons(message, html) {
     const item = actor.items?.get(flags.attack.item);
     if (!item) return;
     const pointBlank = !!flags.attack.pointBlank;
+    const mode = flags.attack.mode;
     name = item.name;
-    normal = () => characterRolls(actor).damage(item, { pointBlank });
-    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank });
+    normal = () => characterRolls(actor).damage(item, { pointBlank, mode });
+    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank, mode });
   } else {
     // A creature's printed attack.
     const { line, choice, index } = flags.attack;

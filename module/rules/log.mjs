@@ -27,7 +27,7 @@ export const PLAY_LIMIT = 500;
 export const CHUNK = 50;
 
 /** Actor fields whose changes are play (temporary), not build. */
-const PLAY_ACTOR_FIELDS = new Set(["system.hp.value", "system.hp.temp", "system.actionPoints.value", "system.powerPoints.value", "system.powerPoints.freeUsed", "system.slotsUsed"]);
+const PLAY_ACTOR_FIELDS = new Set(["system.hp.value", "system.hp.temp", "system.hp.recovering", "system.actionPoints.value", "system.powerPoints.value", "system.powerPoints.freeUsed", "system.slotsUsed"]);
 /** Item fields whose changes are play. */
 const PLAY_ITEM_FIELDS = new Set(["system.equipped", "system.quantity", "system.prepared", "system.cast", "system.progress.successes", "system.progress.failures"]);
 

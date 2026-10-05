@@ -70,9 +70,61 @@ export const failedMassive = (value) => Math.min(value, -1);
 /**
  * Natural healing: 1 hit point per character level for a night's rest, 2 for a day of
  * complete bed rest. A character below 0 does not heal naturally until a Fortitude save
- * (DC 20) starts the recovery: null then.
+ * (DC 20) starts the recovery (`recovering`): null until then.
  */
-export function restHealing(level, hp, { bedRest = false } = {}) {
-  if (hp < 0) return null;
+export function restHealing(level, hp, { bedRest = false, recovering = false } = {}) {
+  if (hp < 0 && !recovering) return null;
   return Math.max(1, level) * (bedRest ? 2 : 1);
+}
+
+/** The Fortitude save a dying character makes each round to stabilise, and later to wake and to start healing. */
+export const DYING_DC = 20;
+/** Treat Injury to stabilise a dying character. */
+export const STABILISE_DC = 15;
+
+/**
+ * The conditions hit points put a character in, as on/off for each:
+ *
+ *   1 or more        none of them
+ *   0                disabled
+ *   −1 to −9         dying and unconscious; or once stable, stable and unconscious, or (awake)
+ *                    stable and disabled
+ *   −10 or lower     dead (a construct or undead at 0)
+ *
+ * `stable` is whether it was stable (damage makes a stable character dying again: pass false),
+ * `awake` whether a stable one has come round.
+ */
+export function hpConditions(value, { stable = false, awake = false, destroyedAtZero = false } = {}) {
+  const off = { dead: false, dying: false, disabled: false, stable: false, unconscious: false };
+  const state = hpState(value, { destroyedAtZero });
+  if (state === "dead") return { ...off, dead: true };
+  if (state === "disabled") return { ...off, disabled: true };
+  if (state === "dying") {
+    if (!stable) return { ...off, dying: true, unconscious: true };
+    return awake ? { ...off, stable: true, disabled: true } : { ...off, stable: true, unconscious: true };
+  }
+  return off;
+}
+
+/**
+ * The saves of a character below 0, each Fortitude DC 20 (Modern/deathdyinghealing):
+ *
+ *   dying      each round: stable on a success, 1 hit point lost on a failure
+ *   waking     a stable character, each hour: awake (disabled) on a success
+ *   recovery   an awake character below 0, each day: heals naturally from then on with a
+ *              success, loses 1 hit point with a failure
+ *
+ * Returns what follows: `{ value, stable, awake, recovering, text }`.
+ */
+export function belowZeroSave(kind, value, passed) {
+  if (kind === "dying") {
+    return passed ? { value, stable: true, text: "Stabilises: no longer losing hit points, but still unconscious." }
+      : { value: value - 1, stable: false, text: value - 1 <= -10 ? "Fails, and dies." : `Fails: loses 1 hit point (${value - 1}).` };
+  }
+  if (kind === "waking") {
+    return passed ? { value, stable: true, awake: true, text: "Regains consciousness: disabled, with hit points still below 0." }
+      : { value, stable: true, awake: false, text: "Stays unconscious; another save in an hour." };
+  }
+  return passed ? { value, stable: true, awake: true, recovering: true, text: "Starts to recover: heals naturally from now on." }
+    : { value: value - 1, stable: true, awake: true, recovering: false, text: value - 1 <= -10 ? "Fails, and dies." : `Fails: loses 1 hit point (${value - 1}).` };
 }
