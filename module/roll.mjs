@@ -139,7 +139,14 @@ export function characterRolls(actor) {
   return {
     ability: (key, event) => rollD20(actor, R.abilityCheck(d, key), event),
     save: (key, event) => rollD20(actor, R.savingThrow(d, key), event),
-    skill: (key, specialty, event) => rollD20(actor, R.skillCheck(d, d.skills.find((s) => s.key === key && s.specialty === (specialty ?? ""))), event),
+    skill: (key, specialty, event) => {
+      const row = d.skills.find((s) => s.key === key && s.specialty === (specialty ?? ""));
+      const spec = R.skillCheck(d, row);
+      // Talents that add to a skill in a situation (Fast-Talk while lying): a tick box each.
+      const levels = Object.fromEntries(actor.items.filter((i) => i.type === "class").map((c) => [c.name, c.system.level]));
+      const bonuses = row ? R.situationalBonuses(row, feats.map((f) => rulesFor(f.identifier)), levels) : [];
+      return rollD20(actor, spec, event, undefined, { options: bonuses, rebuild: (ticked) => R.withSituational(spec, bonuses, ticked) });
+    },
     attack: (item, event) => {
       // Point Blank Shot is the player's call: the SRD's "within 30 feet" is not something the sheet can see.
       const options = !item.system.melee && feats.some((f) => rulesFor(f.identifier).pointBlank) ? [{ name: "pointBlank", label: "Within 30 feet (Point Blank Shot: +1 attack and damage)" }] : [];

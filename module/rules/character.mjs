@@ -151,12 +151,17 @@ export function deriveCharacter(system, items) {
     from(sources.class, key, specialty) ? "class" : from(sources.feat, key, specialty) ? "feat"
       : from(sources.occupation, key, specialty) ? "occupation" : stored?.classSkill ? "chosen" : "";
 
+  // A bonus that is a number, or a class's level (Savant: the Smart level).
+  const amount = (v) => (typeof v === "number" ? v : classes.filter((c) => c.name === v?.classLevel).reduce((n, c) => n + c.system.level, 0));
   // A bonus to chosen skills: Skill Emphasis (a Dedicated hero talent) +3, Educated +2 to each of two.
   const choiceBonus = (key, specialty) => feats.reduce((n, f) => {
     const per = f.rules.skillBonus;
     if (!per) return n;
-    return n + (chosenSkills(f.system.choice).some((c) => skillKey(c.name) === key && (!c.specialty || c.specialty === (specialty ?? ""))) ? per : 0);
+    return n + (chosenSkills(f.system.choice).some((c) => skillKey(c.name) === key && (!c.specialty || c.specialty === (specialty ?? ""))) ? amount(per) : 0);
   }, 0);
+  // Bonuses on named skills (Alertness: Listen and Spot +2); a skill named without a specialty covers them all.
+  const featSkillBonus = (key, specialty) => feats.reduce((n, f) => n + Object.entries(f.rules.skillBonuses ?? {})
+    .reduce((m, [name, v]) => { const p = parse(name); return m + (skillKey(p.name) === key && (!p.specialty || p.specialty.toLowerCase() === (specialty ?? "").toLowerCase()) ? v : 0); }, 0), 0);
   const skillRow = (key, specialty, stored) => {
     const def = SKILLS[key];
     const ranks = stored?.ranks ?? 0;
@@ -164,7 +169,7 @@ export function deriveCharacter(system, items) {
     const isClass = !!source;
     // An occupation skill that is already a class skill (from a class or a feat) gives +1 instead.
     const occupationBonus = from(sources.occupation, key, specialty) && (from(sources.class, key, specialty) || from(sources.feat, key, specialty)) ? 1 : 0;
-    const effects = fxv(`skills.${key}`) + fxv("allSkills") + choiceBonus(key, specialty) + occupationBonus;
+    const effects = fxv(`skills.${key}`) + fxv("allSkills") + choiceBonus(key, specialty) + featSkillBonus(key, specialty) + occupationBonus;
     // Cross-class ranks are bought in halves; only whole ranks add to a check.
     const total = Math.floor(ranks) + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
     return {
@@ -220,7 +225,7 @@ export function deriveCharacter(system, items) {
     initiative: mod("dex") + bonus.initiative,
     attackBonus: { melee: fxv("attack.melee"), ranged: fxv("attack.ranged") },
     damageBonus: { melee: fxv("damage.melee"), ranged: fxv("damage.ranged") },
-    grapple: bab + mod("str") + sizeMods.grapple + fxv("grapple"),
+    grapple: bab + mod("str") + sizeMods.grapple + fxv("grapple") + feats.reduce((n, f) => n + (f.rules.grapple ?? 0), 0),
     speed,
     massiveDamage: scores.con === null ? null : scores.con + bonus.massiveDamage,
     bonusHitPoints: bonus.hp,

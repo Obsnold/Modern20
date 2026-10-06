@@ -26,6 +26,7 @@ import { magazineOf, fits } from "../rules/ammo.mjs";
 import { unarmedRules } from "../rules/unarmed.mjs";
 import { featGrants, pointsAfter, rankCost } from "../rules/advancement.mjs";
 import { bonusFeatSlots, talentPrerequisites } from "../rules/talents.mjs";
+import { classRequirements } from "../rules/requirements.mjs";
 import { slug } from "../rules/identify.mjs";
 import { SYSTEM_ID } from "../config.mjs";
 import { rulesFor } from "../rules/feats.mjs";
@@ -169,7 +170,17 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       rolls: d.replacedHitDice ? [] : Array.from({ length: Math.max(1, Math.floor(t.system.count ?? 0)) }, (_, i) => ({ index: i, value: t.system.hitPoints[i] ?? "" })),
     }));
 
+    // An advanced or prestige class's requirements, checked against the character as it is now.
+    const have = { d, feats: ofType("feat"), talents: ofType("talent"), occupation: ofType("occupation")[0] };
+    const requirementsOf = (c) => {
+      if (!c.system.requirements?.length || !d.skills) return null;
+      const rows = classRequirements(c, have);
+      const unmet = rows.filter((r) => r.met === false);
+      const check = rows.filter((r) => r.met === null);
+      return { met: !unmet.length, unmet: unmet.flatMap((r) => r.missing).join("; "), check: check.map((r) => r.label).join(", ") };
+    };
     const classes = ofType("class").map((c) => ({
+      requirements: requirementsOf(c),
       id: c.id, name: c.name, img: c.img, level: c.system.level, hitDie: c.system.hitDie, max: c.system.maxLevel,
       rolls: Array.from({ length: c.system.level }, (_, i) => ({ index: i, value: c.system.hitPoints[i] ?? "" })),
     }));

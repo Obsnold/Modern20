@@ -87,6 +87,11 @@
         </span>
         <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
       </div>
+      {{#if requirements}}
+        <p class="m20-requirements {{#if requirements.met}}m20-hint{{else}}m20-warning{{/if}}">
+          {{#if requirements.met}}<i class="fa-solid fa-check"></i> Requirements met{{else}}<i class="fa-solid fa-triangle-exclamation"></i> Requirements not met: {{requirements.unmet}}{{/if}}{{#if requirements.check}} <span class="m20-hint">(check by hand: {{requirements.check}})</span>{{/if}}
+        </p>
+      {{/if}}
     {{else}}
       {{#unless creatureTypes.length}}<p class="m20-hint">Drag a class from the Classes compendium onto this sheet, or a creature type to build a creature.</p>{{/unless}}
     {{/each}}

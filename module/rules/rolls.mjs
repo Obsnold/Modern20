@@ -197,3 +197,25 @@ export function cardButtons(flags) {
   if (flags.threat && flags.critical) return [{ kind: "confirm", label: "Confirm critical" }];
   return [{ kind: "damage", label: "Damage" }];
 }
+
+/**
+ * The situational bonuses a skill check can take (rules/feats.mjs `situational`: Fast-Talk,
+ * Charm, Empathy), as `{ name, label, value }` for the roll's tick boxes. `rules` are the
+ * character's feats' and talents' rules, `levels` its class levels by class name.
+ */
+export function situationalBonuses(row, rules, levels) {
+  const out = [];
+  rules.forEach((r, i) => (r.situational ?? []).forEach((s, j) => {
+    const applies = s.skills === "cha" ? row.ability === "cha" : s.skills.includes(row.name);
+    const value = typeof s.bonus === "number" ? s.bonus : levels[s.bonus?.classLevel] ?? 0;
+    if (applies && value) out.push({ name: `situational${i}_${j}`, label: `${s.label} (+${value})`, value, term: s.label.split(":")[0] });
+  }));
+  return out;
+}
+
+/** A roll with the situational bonuses ticked added as terms. */
+export function withSituational(spec, bonuses, ticked) {
+  const on = bonuses.filter((b) => ticked[b.name]);
+  if (!on.length) return spec;
+  return d20(spec.title, [...spec.terms, ...on.map((b) => ({ label: b.term, value: b.value }))], { critical: spec.critical });
+}
