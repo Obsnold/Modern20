@@ -101,5 +101,5 @@ test("the book's worked examples are marked, link their base, and sit with it in
   assert.equal(byName["Puppeteer Host (Human Charismatic Ordinary 5)"].system.example.base.name, "");      // an organization's person, not a creature's example
   assert.ok(byName["Human Zombie"].system.template && byName["Human Zombie"].system.example.base.name === "");
   const examples = actors.filter((a) => a.system.example.classed || a.system.template);
-  assert.equal(examples.length, 58);
+  assert.equal(examples.length, 61);
 });

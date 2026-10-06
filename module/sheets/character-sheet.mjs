@@ -641,11 +641,19 @@ function languagesContext(actor) {
   };
 }
 
-/** Compendium talents, loaded once each: the sheet reads their prerequisites on every render. */
-const TALENTS = new Map();
+/**
+ * A compendium talent's name and prerequisites, by uuid, from its pack's index: one request for a whole
+ * pack, made once, where loading each talent would take a request each (seconds, for a class's trees).
+ */
+const TALENT_INDEX = new Map();
 async function talentDoc(uuid) {
-  if (!TALENTS.has(uuid)) TALENTS.set(uuid, await fromUuid(uuid));
-  return TALENTS.get(uuid);
+  // "Compendium.modern20.talents.Item.<id>": the pack is the second and third parts.
+  const pack = game.packs.get(uuid.split(".").slice(1, 3).join("."));
+  if (!pack) return null;
+  if (!TALENT_INDEX.has(pack.collection)) {
+    TALENT_INDEX.set(pack.collection, pack.getIndex({ fields: ["system.prerequisites"] }).then((index) => new Map(index.map((e) => [e.uuid, e]))));
+  }
+  return (await TALENT_INDEX.get(pack.collection)).get(uuid) ?? null;
 }
 
 /** Add a feat or talent from its compendium link, with flags. */

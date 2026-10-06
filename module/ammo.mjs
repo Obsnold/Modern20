@@ -32,6 +32,7 @@ export async function reloadWeapon(actor, weapon) {
   const mag = A.magazineOf(weapon.system.magazine);
   if (!mag || mag.capacity === Infinity) return ui.notifications.info(`${weapon.name} is not reloaded by magazine${mag ? "; a belt feeds it" : ""}.`);
   const ammo = ammoFor(actor, weapon);
+  if (!ammo && weapon.system.noAmmunition) return refill(actor, weapon, mag);
   if (!ammo) return ui.notifications.warn(`${actor.name} has no ammunition for ${weapon.name}. Add some, and choose it on the weapon's row.`);
   // Ammunition with no count (a special round the book prices by the box without saying how many) fills the magazine.
   const supply = ammo.system.quantity ?? mag.capacity;
@@ -42,5 +43,16 @@ export async function reloadWeapon(actor, weapon) {
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
     content: `<div class="m20-roll"><p>Reloads ${escape(weapon.name)} with ${r.added} ${escape(ammo.name)} (${r.loaded}/${mag.capacity}): ${escape(r.action)}.</p></div>`,
+  });
+}
+
+/** Refill a weapon the book sells no ammunition for: its magazine full, nothing drawn from what is carried. */
+async function refill(actor, weapon, mag) {
+  const loaded = weapon.system.loaded ?? 0;
+  if (loaded >= mag.capacity) return ui.notifications.info(`${weapon.name} is already full.`);
+  await weapon.update({ "system.loaded": mag.capacity });
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content: `<div class="m20-roll"><p>Reloads ${escape(weapon.name)} (${mag.capacity}/${mag.capacity}): ${escape(A.reloadAction(mag.type))}.</p></div>`,
   });
 }

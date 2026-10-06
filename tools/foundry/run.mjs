@@ -66,7 +66,7 @@ async function main() {
       } else console.log(`✔ ${name} [${elapsed()}]`);
     }
     // A second player in a browser of their own (players.mjs), unless the checks run are chosen otherwise.
-    const playerCheck = "a player in their own browser: their character works, the GM's and others' do not, and the logs record them once";
+    const playerCheck = "a player in their own browser: their character works, the GM's and others' do not, the logs record them once, rolls made at once by both are all logged, and a dying save card comes once";
     if (chosenBy(playerCheck)) {
       ran++;
       const before = problems.length;
@@ -76,6 +76,9 @@ async function main() {
         // The refusal the check provokes (damage to a creature the player does not own) is expected.
         const player = await join(browser, "Player", problems, { label: "player's ", expected: /can change its hit points/ });
         errors.push(...await player.evaluate(`(${PLAYERS.AS_PLAYER.toString()})(${JSON.stringify(ids)})`));
+        // Both rolling for the same character at once.
+        const together = `(${PLAYERS.TOGETHER.toString()})(${JSON.stringify(ids)})`;
+        for (const e of await Promise.all([page.evaluate(together), player.evaluate(together)])) errors.push(...e);
         errors.push(...await page.evaluate(`(${PLAYERS.AFTER.toString()})(${JSON.stringify(ids)})`));
         await player.close();
       } catch (e) {

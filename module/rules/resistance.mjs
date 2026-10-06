@@ -5,7 +5,8 @@
  *                       energy). Printed with what overcomes it: "10/+1" (a magic weapon),
  *                       "5/silver", "5/ballistic", "1/—" (nothing)
  *   resistance          ignores an amount of each hit of one energy type: acid, cold,
- *                       electricity, fire, sonic/concussion
+ *                       electricity, fire, sonic/concussion; or of one weapon type (a malleable
+ *                       creature's "bludgeoning resistance 5")
  *   immunity            ignores all of a type ("immune to fire", "piercing immunity")
  *
  * Damage is reduced part by part: a creature's "1d8+9 plus 1d6 fire" is a physical part and a
@@ -21,6 +22,9 @@ export function damageKinds(type) {
   return String(type ?? "").toLowerCase().split(/[,/]|\band\b/).map((t) => t.trim()).filter(Boolean).map((t) => ENERGY_NAMES[t] ?? t);
 }
 
+/** The weapon damage types a resistance can name (Menaces/Creatures/MalleableCreatureTemplate). */
+const PHYSICAL = ["bludgeoning", "piercing", "slashing", "ballistic"];
+
 /** Whether a part of damage is energy (resisted) rather than a weapon's (reduced by DR). */
 export const isEnergy = (kinds) => kinds.some((k) => ENERGY.includes(k));
 
@@ -35,7 +39,7 @@ export function readDefenses(qualities) {
     const dr = t.match(/damage reduction (\d+)\/\s*([^\s(]+)/);
     if (dr) out.dr.push({ amount: Number(dr[1]), overcome: dr[2].replace(/^[–—-]$/, "—") });
     const res = t.match(/^((?:\w+(?:\/\w+)?)(?:,? (?:and )?\w+)*) resistance (\d+)$/);
-    if (res) for (const k of damageKinds(res[1].replace(/\band\b/g, ","))) if (ENERGY.includes(k)) out.resist[k] = Math.max(out.resist[k] ?? 0, Number(res[2]));
+    if (res) for (const k of damageKinds(res[1].replace(/\band\b/g, ","))) if ([...ENERGY, ...PHYSICAL].includes(k)) out.resist[k] = Math.max(out.resist[k] ?? 0, Number(res[2]));
     const imm = t.match(/^immune to (.+)$/) ?? t.match(/^(\w+) immunity$/);
     if (imm) for (const k of damageKinds(imm[1].replace(/\b(weapons|damage)\b/g, "").replace(/\band\b/g, ","))) {
       if ([...ENERGY, "piercing", "slashing", "bludgeoning", "ballistic"].includes(k)) out.immune.push(k);
@@ -69,8 +73,8 @@ export function damageParts(terms, total, mainType) {
 }
 
 /**
- * Damage after defenses: each part reduced by an immunity to it, by resistance (energy), or by
- * damage reduction (a weapon's). DR the weapon overcomes is skipped: one that names the weapon's
+ * Damage after defenses: each part reduced by an immunity to it, by resistance (energy, or a weapon
+ * type a resistance names), and a weapon's by damage reduction. DR the weapon overcomes is skipped: one that names the weapon's
  * kind ("5/piercing" against a piercing weapon), or any DR when `ignoreDR` (a magic or silver
  * weapon, which the card cannot know). The largest DR that applies is used.
  *
@@ -87,14 +91,13 @@ export function reduceDamage(parts, defenses, { ignoreDR = false } = {}) {
       stopped.push({ by: `immune to ${immune}`, amount });
       continue;
     }
-    if (isEnergy(kinds)) {
-      const k = kinds.find((x) => defenses.resist[x]);
-      if (k) {
-        const cut = Math.min(amount, defenses.resist[k]);
-        if (cut) stopped.push({ by: `${k} resistance ${defenses.resist[k]}`, amount: cut });
-        amount -= cut;
-      }
-    } else if (!ignoreDR) {
+    const k = kinds.find((x) => defenses.resist[x]);
+    if (k) {
+      const cut = Math.min(amount, defenses.resist[k]);
+      if (cut) stopped.push({ by: `${k} resistance ${defenses.resist[k]}`, amount: cut });
+      amount -= cut;
+    }
+    if (!isEnergy(kinds) && !ignoreDR) {
       const dr = defenses.dr.filter((d) => !kinds.includes(d.overcome)).sort((a, b) => b.amount - a.amount)[0];
       if (dr) {
         const cut = Math.min(amount, dr.amount);

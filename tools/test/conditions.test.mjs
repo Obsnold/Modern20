@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { listPages, readPage } from "../srd/reader.mjs";
-import { CONDITIONS, statusEffects } from "../../module/rules/conditions.mjs";
+import { CONDITIONS, statusEffects, creatureConditions } from "../../module/rules/conditions.mjs";
 import { applyEffects } from "../../module/rules/effects.mjs";
 import { deriveCharacter } from "../../module/rules/character.mjs";
 import { ACTOR_MODELS } from "../../module/data/models.mjs";
@@ -32,4 +32,21 @@ test("shaken, fatigued and stunned change the numbers they print", () => {
   assert.deepEqual([fatigued.scores.str, fatigued.scores.dex], [12, 12]);
   const stunned = deriveCharacter(applyEffects({ system }, [effect("stunned")]).system, []);
   assert.equal(stunned.defense.value, plain.defense.value - 2 - 2);   // –2, and the +2 Dex bonus is lost
+});
+
+test("a creature's conditions, as changes to its printed totals", () => {
+  const wolf = { str: 13, dex: 15, con: 15, int: 2, wis: 12, cha: 6 };
+  const of = (id) => creatureConditions(CONDITIONS[id].changes ?? [], wolf, (name) => ({ Hide: "dex", Listen: "wis" })[name] ?? null);
+  // Shaken: −2 on attacks, saves and skills; nothing on Defense.
+  const shaken = of("shaken");
+  assert.deepEqual([shaken.attack("melee"), shaken.save("will"), shaken.skill("Listen"), shaken.defense()], [-2, -2, -2, 0]);
+  // Fatigued: −2 Str and Dex, so Str 13 → 11 and Dex 15 → 13: −1 on melee attacks and damage, Reflex, Defense and Dex skills.
+  const fatigued = of("fatigued");
+  assert.deepEqual([fatigued.attack("melee"), fatigued.damage("melee"), fatigued.save("ref"), fatigued.save("fort"), fatigued.defense(), fatigued.skill("Hide"), fatigued.initiative()], [-1, -1, -1, 0, -1, -1, -1]);
+  // Flat-footed: its +2 Dexterity bonus to Defense gone.
+  assert.equal(of("flatFooted").defense(), -2);
+  // A creature with a Dexterity penalty keeps it when flat-footed.
+  assert.equal(creatureConditions(CONDITIONS.flatFooted.changes, { dex: 8 }).defense(), 0);
+  // A nonability (an ooze's Int) changes nothing.
+  assert.equal(creatureConditions(CONDITIONS.fatigued.changes, { str: null, dex: 10 }).attack("melee"), 0);
 });

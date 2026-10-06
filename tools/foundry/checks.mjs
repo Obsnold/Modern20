@@ -77,6 +77,50 @@ export async function PRELUDE() {
     since(count) {
       return game.messages.contents.slice(count);
     },
+    /**
+     * Each pack's items (`packs`, by name) added at once to a character of their own: its numbers must be
+     * numbers, every tab must draw with nothing a reader would see as broken, and every weapon's attack and damage must roll.
+     */
+    async everything(packs) {
+      const errors = [];
+      const { wait, readable } = window.m20test;
+      const R = await import("/systems/modern20/module/rules/rolls.mjs");
+      const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 14 }]));
+      for (const name of packs) {
+        const pack = game.packs.get(`modern20.${name}`);
+        const actor = await Actor.implementation.create({ name: `Everything: ${pack.metadata.label}`, type: "character", system: { abilities } });
+        try {
+          const items = (await pack.getDocuments()).map((d) => {
+            const o = d.toObject();
+            delete o._id;
+            foundry.utils.setProperty(o, "_stats.compendiumSource", d.uuid);
+            return o;
+          });
+          await actor.createEmbeddedDocuments("Item", items);
+          const d = actor.system.derived;
+          if (![d.level, d.baseAttackBonus, d.defense.value, d.hitPoints.max, ...Object.values(d.saves)].every(Number.isFinite)) errors.push(`${pack.metadata.label}: the character's numbers are not numbers`);
+          await actor.sheet.render({ force: true });
+          await wait(() => actor.sheet.rendered, `${pack.metadata.label}'s sheet`, 60000);
+          for (const tab of ["main", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
+            actor.sheet.changeTab(tab, "primary");
+            await new Promise((r) => setTimeout(r, 100));
+            for (const bad of readable(actor.sheet.element.querySelector(`section.tab[data-tab="${tab}"]`)).slice(0, 5)) errors.push(`${pack.metadata.label}, ${tab} tab: ${bad}`);
+          }
+          await actor.sheet.close();
+          // Every weapon's attack and damage, as its buttons make them, rolled by Foundry (not posted: one card each would take minutes).
+          for (const w of actor.items.filter((i) => i.type === "weapon")) {
+            for (const spec of [R.attack(d, w, []), R.damage(d, w, {})].filter(Boolean)) {
+              const roll = await new Roll(spec.formula).evaluate();
+              if (!Number.isFinite(roll.total)) errors.push(`${w.name}: "${spec.formula}" did not roll`);
+            }
+          }
+        } catch (e) {
+          errors.push(`${pack.metadata.label}: ${e.message}`);
+        }
+        await actor.delete();
+      }
+      return errors;
+    },
     async take(pack, name, system = {}) {
       const source = await window.m20test.doc(pack, name);
       const o = source.toObject();
@@ -544,7 +588,7 @@ export const CHECKS = {
     return errors;
   },
 
-  async "the roll dialog: a modifier, an action point, firing modes, Point Blank Shot and a talent's note"() {
+  async "the roll dialog: a modifier, an action point, firing modes, Point Blank Shot, a talent's note and Swim's gear"() {
     const errors = [];
     const { take, wait, click, dialog } = window.m20test;
     await game.settings.set("modern20", "askBeforeRolling", true);
@@ -594,6 +638,12 @@ export const CHECKS = {
       await dialog({ [name]: true });
       await wait(() => game.messages.size > n, "the Bluff with Fast-Talk");
       if (!termsOf(game.messages.contents.at(-1)).some((t) => /^Fast-Talk \+3$/.test(t))) errors.push(`Fast-Talk ticked is not on the card: ${termsOf(game.messages.contents.at(-1)).join("; ")}`);
+      // Swim offers −1 for every 5 pounds of gear: the rifle and its rounds.
+      const { gearWeight } = await import("/systems/modern20/module/roll.mjs");
+      const penalty = -Math.floor(gearWeight(actor) / 5);
+      const swim = await roll("skills", "[data-action=rollSkill][data-skill=swim]", { swimGear: true }, "Swim check");
+      if (!swim.labels.some((l) => /Gear carried/.test(l))) errors.push(`the Swim dialog offers no gear penalty: ${swim.labels.join("; ")}`);
+      if (!termsOf(swim.message).includes(`Gear carried ${penalty}`)) errors.push(`the Swim card has no "Gear carried ${penalty}": ${termsOf(swim.message).join("; ")}`);
     } catch (e) {
       errors.push(e.message);
     }
@@ -792,7 +842,7 @@ export const CHECKS = {
     return errors;
   },
 
-  async "a creature's attack and damage buttons, and the edit view saving a field and a list entry"() {
+  async "a creature's attack and damage buttons, a condition on its rolls, and the edit view saving a field and a list entry"() {
     const errors = [];
     const { doc, wait, click, type } = window.m20test;
     const wolf = await Actor.implementation.create((await doc("creatures", "Wolf")).toObject());
@@ -807,6 +857,13 @@ export const CHECKS = {
       click(wolf.sheet.element, "[data-action=rollCreatureDamage]");
       await wait(() => game.messages.size > n, "the bite's damage");
       if (!game.messages.contents.at(-1).getFlag("modern20", "damage")) errors.push("the damage card cannot be applied");
+      // Shaken from its condition strip: −2 on its printed Will save.
+      click(wolf.sheet.element, "[data-action=toggleCondition][data-condition=shaken]");
+      await wait(() => wolf.statuses.has("shaken"), "the wolf to be shaken");
+      const { creatureRolls } = await import("/systems/modern20/module/roll.mjs");
+      await creatureRolls(wolf).save("will");
+      const will = game.messages.contents.at(-1);
+      if (!/Conditions/.test(will.flavor) || !/- 2$/.test(will.rolls[0]?.formula ?? "")) errors.push(`a shaken wolf's Will save: "${will.rolls[0]?.formula}", without −2 for its conditions`);
       // The edit view: a field changed and saved, a list entry added and removed, the rest left as it was.
       const hd = wolf.system.hitDice;
       wolf.sheet.editing = true;
@@ -850,12 +907,12 @@ export const CHECKS = {
     return errors;
   },
 
-  async "the book's odd weapons and swarms: a quarterstaff's and a concussion grenade's damage, a swarm's automatic damage"() {
+  async "the book's odd weapons and swarms: a quarterstaff's and a concussion grenade's damage, a taser reloaded, a swarm's automatic damage"() {
     const errors = [];
     const { take, doc, wait, click } = window.m20test;
     const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 12 }]));
     const actor = await Actor.implementation.create({ name: "Odd weapons (test)", type: "character", system: { abilities } });
-    await actor.createEmbeddedDocuments("Item", [await take("equipment", "Quarterstaff"), await take("equipment", "Grenade, concussion")]);
+    await actor.createEmbeddedDocuments("Item", [await take("equipment", "Quarterstaff"), await take("equipment", "Grenade, concussion"), await take("equipment", "Taser")]);
     const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
     try {
       // A double weapon rolls its first end's dice; a nonlethal grenade's card applies nonlethal damage.
@@ -866,6 +923,15 @@ export const CHECKS = {
       const grenade = game.messages.contents.at(-1);
       if (!/4d6/.test(grenade.rolls[0]?.formula ?? "")) errors.push(`the concussion grenade rolled "${grenade.rolls[0]?.formula}", not 4d6`);
       if (!grenade.getFlag("modern20", "damage")?.nonlethal) errors.push("the concussion grenade's damage is not nonlethal");
+      // A taser: no ammunition in the book, so reloading refills it, and then it fires.
+      const { reloadWeapon } = await import("/systems/modern20/module/ammo.mjs");
+      const taser = actor.items.find((i) => i.name === "Taser");
+      await reloadWeapon(actor, taser);
+      if (taser.system.loaded !== 1) errors.push(`the taser holds ${taser.system.loaded} after reloading, not 1`);
+      const n = game.messages.size;
+      await characterRolls(actor).attack(taser);
+      if (game.messages.size === n) errors.push("the reloaded taser did not fire");
+      else if (taser.system.loaded !== 0) errors.push(`the taser holds ${taser.system.loaded} after firing, not 0`);
     } catch (e) {
       errors.push(e.message);
     }
@@ -920,7 +986,9 @@ export const CHECKS = {
   async "the log at its limit: 600 session entries keep the last 500 or so, pruned without a warning"() {
     const errors = [];
     const { record } = await import("/systems/modern20/module/log.mjs");
-    const { rollEntry, entries, PLAY_LIMIT, CHUNK } = await import("/systems/modern20/module/rules/log.mjs");
+    const { rollEntry, entries, PLAY_LIMIT } = await import("/systems/modern20/module/rules/log.mjs");
+    // Written 50 at a time: each write a chunk, pruned whole, so 500 to 549 are kept.
+    const CHUNK = 50;
     const actor = await Actor.implementation.create({ name: "Long log (test)", type: "character" });
     try {
       let n = 0;
@@ -931,7 +999,7 @@ export const CHECKS = {
       if (play.length < PLAY_LIMIT || play.length >= PLAY_LIMIT + CHUNK) errors.push(`${play.length} session entries kept of 600, expected ${PLAY_LIMIT} to ${PLAY_LIMIT + CHUNK - 1}`);
       if (play.at(-1)?.text !== "Rolled a test roll: 599") errors.push(`the newest entry is "${play.at(-1)?.text}"`);
       const chunks = Object.keys(actor.getFlag("modern20", "log").play);
-      if (chunks.includes("0")) errors.push(`the oldest chunk was not deleted (chunks ${chunks.join(", ")})`);
+      if (chunks.length !== Math.ceil(play.length / CHUNK)) errors.push(`${chunks.length} session chunks for ${play.length} entries: the oldest were not deleted`);
     } catch (e) {
       errors.push(e.message);
     }
@@ -981,5 +1049,13 @@ export const CHECKS = {
     }
     await actor.delete();
     return errors;
+  },
+
+  async "everything in the compendiums, part 1: every class, talent, class feature, feat, spell and power on a character"() {
+    return window.m20test.everything(["classes", "talents", "features", "feats", "spells", "powers"]);
+  },
+
+  async "everything in the compendiums, part 2: every incantation, occupation, species, piece of equipment, creature type and template"() {
+    return window.m20test.everything(["incantations", "occupations", "species", "equipment", "creature-types", "templates"]);
   },
 };

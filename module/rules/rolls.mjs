@@ -137,10 +137,11 @@ export function damage(d, weapon, options = {}) {
 }
 
 /**
- * A creature's printed bonus, rolled: "Fort +5", "Spot +4", "Str 13".
- * Creatures carry totals, not their parts, so the breakdown is the total.
+ * A creature's printed bonus, rolled: "Fort +5", "Spot +4", "Str 13". Creatures carry totals, not
+ * their parts, so the breakdown is the total, and what its conditions change (rules/conditions.mjs
+ * creatureConditions).
  */
-export const printed = (title, bonus) => d20(title, [{ label: "Bonus", value: bonus ?? 0 }]);
+export const printed = (title, bonus, conditions = 0) => d20(title, [{ label: "Bonus", value: bonus ?? 0 }, { label: "Conditions", value: conditions }]);
 
 /**
  * The die an action point adds to a d20 roll, by character level: 1d6 at 1st

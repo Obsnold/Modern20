@@ -27,6 +27,7 @@ import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
 import { featLookup } from "./feats.mjs";
 import { resolveDuplicates } from "./duplicates.mjs";
+import { magazineOf, fits } from "../../module/rules/ammo.mjs";
 
 const EQUIPMENT_PAGES = /^(Modern|Arcana|Future)\/Equipment\/(?!Vehicles\/)(?!Vehicles\.md$)/;
 
@@ -363,6 +364,13 @@ export const buildEquipment = once(function buildEquipment() {
       system: { ...item.system, source: { book: BOOKS[item.book] ?? item.book, page: pageUuid(item.path) } },
       effects: [], ownership: { default: 0 }, flags: { modern20: { srd: item.path, section: item.section } },
     });
+  }
+  // A weapon with a magazine that none of the book's ammunition fits (a taser's cartridge, a flamethrower's
+  // fuel, a grenade launcher's grenades): reloading it refills it without drawing on ammunition carried.
+  const ammunition = documents.filter((d) => d.type === "ammunition");
+  for (const w of documents.filter((d) => d.type === "weapon" && !d.system.melee)) {
+    const mag = magazineOf(w.system.magazine);
+    w.system.noAmmunition = !!mag && mag.capacity !== Infinity && !ammunition.some((a) => fits(w, a));
   }
   for (const f of folders.values()) {
     documents.push({ _id: f.id, _key: `!folders!${f.id}`, name: f.name, type: "Item", folder: f.parent, sorting: "a", color: null, flags: {} });

@@ -19,6 +19,9 @@ export function hitDiceCount(text) {
 
 const atLeastOne = (hd) => Math.max(1, Math.floor(hd));
 
+/** Every die in printed Hit Dice, of every kind: "10d8+20 plus 3d6+6 plus 4d6+8" -> 17. */
+export const totalDice = (text) => [...String(text ?? "").matchAll(/(\d+)d\d+/g)].reduce((n, m) => n + Number(m[1]), 0);
+
 export const goodSave = (hd) => 2 + Math.floor(atLeastOne(hd) / 2);
 export const poorSave = (hd) => Math.floor(atLeastOne(hd) / 3);
 export const baseAttack = (hd, rate) => Math.floor(atLeastOne(hd) * rate);
@@ -82,13 +85,10 @@ export function classLevels(name, classNames) {
 export function creatureParts(creature, { base = null, classNames = [], species = [] } = {}) {
   const s = creature.system;
   const natural = Number((s.defense?.breakdown ?? "").match(/([+-]\d+) natural/)?.[1] ?? 0);
-  // A printed hero (Dr. Astrid Kolgrim: "Smart 4/Field Scientist 7") is its classes and its species, with no
-  // creature Hit Dice of its own: its printed Hit Dice are its class levels'.
-  // So is a worked example with no base creature that is a person (a humanoid, or one a template made: "Human
-  // Strong Ordinary 1", a vampire): its Hit Dice are its class levels'. One that is not (Baal, an outsider) has
-  // Hit Dice of its own besides.
-  const person = !!s.example?.classed && !s.example?.base?.uuid && (s.type?.base === "humanoid" || !!s.template);
-  const hero = !!s.class || person;
+  // A printed hero (Dr. Astrid Kolgrim: "Smart 4/Field Scientist 7"), or a worked example with no base creature
+  // ("Human Strong Ordinary 1", a vampire), is its classes and its species. Its printed Hit Dice are its class
+  // levels' and any of its own besides: those beyond its class levels (Franz Draco, an efreeti, has 10).
+  const hero = !!s.class || (!!s.example?.classed && !s.example?.base?.uuid);
   const classText = s.class || creature.name;
   const own = !hero && s.example?.classed && base ? base.system : s;
   const classes = hero ? classLevels(classText, classNames) : s.example?.classed ? classLevels(creature.name, classNames) : {};
@@ -99,8 +99,9 @@ export function creatureParts(creature, { base = null, classNames = [], species 
   const named = (sp) => sp.name.replace(/\s*\(.*\)$/, "");
   const sp = hero ? [...species].sort((a, b) => named(b).length - named(a).length).find((x) => new RegExp(`(^|[\\s,(])${named(x)}\\b`, "i").test(classText)) ?? null : null;
   // Its character level: its own Hit Dice (which class levels replace at 1 or less) and its class levels.
-  const hd = hero ? 0 : hitDiceCount(own.hitDice) ?? 0;
-  const level = heroic + (hero || (heroic && hd <= 1) ? 0 : atLeastOne(hd));
+  const ownDice = hero ? Math.max(0, totalDice(s.hitDice) - heroic) : 0;
+  const hd = hero ? ownDice : hitDiceCount(own.hitDice) ?? 0;
+  const level = heroic + (hero ? ownDice : heroic && hd <= 1 ? 0 : atLeastOne(hd));
   // The printed scores already hold the species' adjustments: the character's own are without them.
   const scores = Object.fromEntries(Object.entries(s.abilities ?? {}).map(([a, v]) => [a, { value: v === null ? null : v - (sp?.system.abilities?.[a] ?? 0) }]));
   return {
@@ -118,7 +119,7 @@ export function creatureParts(creature, { base = null, classNames = [], species 
       wealth: { value: 0, regainedLevel: level },
       ordinary,
     },
-    type: !hero && own.type?.uuid ? { uuid: own.type.uuid, count: hitDiceCount(own.hitDice) ?? 1 } : null,
+    type: !own.type?.uuid ? null : hero ? (ownDice ? { uuid: own.type.uuid, count: ownDice } : null) : { uuid: own.type.uuid, count: hitDiceCount(own.hitDice) ?? 1 },
     species: sp ? { uuid: sp.uuid, name: sp.name } : null,
     classes,
     items: [...(s.feats ?? []), ...(s.talents ?? [])].filter((f) => f.uuid).map((f) => ({ uuid: f.uuid, choice: f.specialty ?? "" })),

@@ -17,19 +17,20 @@ export async function syncFeatures(actor) {
   const owned = actor.items.filter((i) => i.type === "feature" && i.getFlag(SYSTEM_ID, "grantedBy"))
     .map((i) => ({ id: i.id, classId: i.getFlag(SYSTEM_ID, "grantedBy"), name: i.name, rank: i.system.rank }));
   const { add, remove, ranks } = featureChanges(featuresDue(classes), owned);
-  if (remove.length) await actor.deleteEmbeddedDocuments("Item", remove);
-  if (ranks.length) await actor.updateEmbeddedDocuments("Item", ranks.map((r) => ({ _id: r.id, "system.rank": r.rank })));
+  // Each write checks the character is still there: it may be deleted while the features load.
+  if (remove.length && exists(actor)) await actor.deleteEmbeddedDocuments("Item", remove);
+  if (ranks.length && exists(actor)) await actor.updateEmbeddedDocuments("Item", ranks.map((r) => ({ _id: r.id, "system.rank": r.rank })));
   if (!add.length) return;
-  const data = [];
-  for (const f of add) {
-    const source = await fromUuid(f.uuid);
-    if (!source) continue;
+  // The new features' sources, loaded together.
+  const sources = await Promise.all(add.map((f) => fromUuid(f.uuid)));
+  const data = add.map((f, i) => {
+    const source = sources[i];
+    if (!source) return null;
     const o = source.toObject();
     delete o._id;
-    foundry.utils.mergeObject(o, { system: { rank: f.rank }, flags: { [SYSTEM_ID]: { grantedBy: f.classId } }, _stats: { compendiumSource: source.uuid } });
-    data.push(o);
-  }
-  if (data.length) await actor.createEmbeddedDocuments("Item", data);
+    return foundry.utils.mergeObject(o, { system: { rank: f.rank }, flags: { [SYSTEM_ID]: { grantedBy: f.classId } }, _stats: { compendiumSource: source.uuid } });
+  }).filter(Boolean);
+  if (data.length && exists(actor)) await actor.createEmbeddedDocuments("Item", data);
 }
 
 /** The same, a moment later, so several changes at once make one pass. */

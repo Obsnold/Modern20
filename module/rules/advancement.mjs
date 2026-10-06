@@ -35,11 +35,15 @@ export function inOrder(classes, starting = "") {
   return first ? [first, ...classes.filter((c) => c !== first)] : [];
 }
 
-/** The action points not yet given: one grant for each level above `granted`, up to `level`. */
-export function actionPointsDue(level, granted = 0) {
+/**
+ * The action points not yet given: one grant for each class level above `granted`, up to `level`.
+ * Each is 5 + half the character level at that point, which for a creature with class levels counts
+ * its own Hit Dice too (`hitDice`, the levels they make).
+ */
+export function actionPointsDue(level, granted = 0, hitDice = 0) {
   const levels = [];
   for (let l = Math.max(granted, 0) + 1; l <= level; l++) levels.push(l);
-  return { levels, points: levels.reduce((n, l) => n + actionPointsFor(l), 0) };
+  return { levels, points: levels.reduce((n, l) => n + actionPointsFor(l + hitDice), 0) };
 }
 
 export const maxRanks = (level, classSkill) => (classSkill ? level + 3 : (level + 3) / 2);
@@ -122,7 +126,7 @@ export function advancement({ level, heroicLevel, classes, intMod, nonhuman, ski
     feats: pick(counts.feats, heroicLevel ? featsAllowed(level) + g.bonusFeats + g.startingFeats + given("occupation") + given("species") : null),
     featParts: { general: featsAllowed(level), bonus: g.bonusFeats, starting: g.startingFeats, occupation: given("occupation"), species: given("species") },
     talents: pick(counts.talents, g.talents),
-    actionPoints: ordinary ? { levels: [], points: 0 } : actionPointsDue(heroicLevel, granted),
+    actionPoints: ordinary ? { levels: [], points: 0 } : actionPointsDue(heroicLevel, granted, level - heroicLevel),
     abilityIncreases: { allowed: abilityIncreases(level), chosen: increases.length },
     notBasic: ordinary ? classes.filter((c) => c.system.classType !== "basic").map((c) => c.name) : [],
   };

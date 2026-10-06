@@ -13,6 +13,7 @@ import * as R from "../../module/rules/rolls.mjs";
 import { deriveCharacter } from "../../module/rules/character.mjs";
 import { creatureParts } from "../../module/rules/creature.mjs";
 import { initial, obj } from "../../module/data/schema.mjs";
+import { applyEffects } from "../../module/rules/effects.mjs";
 import { ACTOR_MODELS } from "../../module/data/models.mjs";
 
 const creatures = PACKS.creatures().documents.filter((d) => d.type === "creature");
@@ -41,13 +42,13 @@ test("every creature's attack lines read as attacks, each with damage that rolls
   assert.deepEqual(problems, []);
 });
 
-test("every creature's damage reduction and energy resistance is read from its special qualities", () => {
+test("every creature's damage reduction and resistances are read from its special qualities", () => {
   const problems = [];
   for (const c of creatures) {
     for (const q of c.system.specialQualities ?? []) {
       const t = q.toLowerCase(), r = readDefenses([q]);
       if (/damage reduction \d/.test(t) && !r.dr.length) problems.push(`${c.name}: "${q}"`);
-      if (new RegExp(`\\b(${ENERGY.join("|")})\\b.*resistance \\d`).test(t) && !Object.keys(r.resist).length) problems.push(`${c.name}: "${q}"`);
+      if (new RegExp(`\\b(${[...ENERGY, "bludgeoning", "piercing", "slashing", "ballistic"].join("|")})\\b.*resistance \\d`).test(t) && !Object.keys(r.resist).length) problems.push(`${c.name}: "${q}"`);
     }
   }
   assert.deepEqual(problems, []);
@@ -95,4 +96,31 @@ test("every printed hero and worked example names classes the compendium has", (
     .filter((c) => !Object.keys(creatureParts(c, { classNames, species: [] }).classes).length)
     .map((c) => `${c.name}: ${c.system.class || "(its name)"}`);
   assert.deepEqual(problems, []);
+});
+
+test("every creature built as a character (Build as a character) matches its stat block's base attack and saves, nearly always", () => {
+  const docs = (p) => PACKS[p]().documents.filter((d) => d.system);
+  const byUuid = {};
+  for (const p of ["creature-types", "classes", "species", "feats", "talents"]) for (const d of docs(p)) byUuid[`Compendium.modern20.${p}.Item.${d._id}`] = d;
+  const creatureByUuid = Object.fromEntries(creatures.map((d) => [`Compendium.modern20.creatures.Actor.${d._id}`, d]));
+  const species = docs("species").map((d) => ({ ...d, uuid: `Compendium.modern20.species.Item.${d._id}` }));
+  let bab = 0, saves = 0;
+  const problems = [];
+  for (const c of creatures) {
+    const parts = creatureParts(c, { base: creatureByUuid[c.system.example?.base?.uuid] ?? null, classNames: classes.map((x) => x.name), species });
+    const items = [];
+    if (parts.type) items.push({ type: "creatureType", name: byUuid[parts.type.uuid].name, system: { ...byUuid[parts.type.uuid].system, count: parts.type.count } });
+    if (parts.species) { const sp = species.find((x) => x.uuid === parts.species.uuid); items.push({ type: "species", name: sp.name, system: sp.system, effects: sp.effects }); }
+    for (const [n, l] of Object.entries(parts.classes)) items.push({ type: "class", name: n, system: { ...classes.find((x) => x.name === n).system, level: l } });
+    for (const f of parts.items) { const d = byUuid[f.uuid]; if (d) items.push({ type: d.type, name: d.name, system: { ...d.system, choice: f.choice }, effects: d.effects }); }
+    const d = deriveCharacter(applyEffects({ system: parts.system }, []).system, items);
+    if (![d.level, d.baseAttackBonus, d.saves.fort, d.saves.ref, d.saves.will, d.hitPoints.max].every(Number.isFinite)) problems.push(`${c.name}: not numbers`);
+    if (d.baseAttackBonus === c.system.baseAttackBonus?.bonus) bab++;
+    if (["fort", "ref", "will"].every((k) => c.system.saves?.[k] === null || d.saves[k] === c.system.saves[k])) saves++;
+  }
+  assert.deepEqual(problems, []);
+  // The rest are the book's own sums, templates' changes (Build leaves them out: the printed scores hold them),
+  // and elementals' saves, which go by element. Fewer matching than this is a step back.
+  assert.ok(bab >= 291, `base attack matches ${bab} of ${creatures.length}`);
+  assert.ok(saves >= 248, `saves match ${saves} of ${creatures.length}`);
 });

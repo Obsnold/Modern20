@@ -249,6 +249,8 @@ const ITEM_FIELDS = {
     /** On a character's copy: rounds in its magazine, and the id of the ammunition item it is loaded from. */
     loaded: int(),
     ammunition: str(),
+    /** The book sells no ammunition for it (a taser, a flamethrower): reloading refills it, with nothing drawn from what is carried. */
+    noAmmunition: bool(),
     description: html(),
     source,
   },

@@ -21,6 +21,8 @@ import { spendAmmo } from "./ammo.mjs";
 import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
 import { resolveValue, mechanicsContext } from "./rules/effects.mjs";
+import { creatureConditions } from "./rules/conditions.mjs";
+import { skillKey, SKILLS } from "./data/skills.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -149,7 +151,12 @@ export function characterRolls(actor) {
     save: (key, event) => rollD20(actor, R.savingThrow(d, key), event, undefined, { notes: notes(R.rollTargets.save(key)) }),
     skill: (key, specialty, event) => {
       const row = d.skills.find((s) => s.key === key && s.specialty === (specialty ?? ""));
-      return rollD20(actor, R.skillCheck(d, row), event, undefined, { notes: row ? notes(R.rollTargets.skill(row)) : undefined });
+      const n = row ? notes(R.rollTargets.skill(row)) : undefined;
+      // Swim: −1 for every 5 pounds of gear carried (Modern/Skills/Swim), offered with the weight of all the
+      // character's gear, since the sheet cannot know what was left on the shore.
+      const lb = key === "swim" ? gearWeight(actor) : 0;
+      if (n && lb >= 5) n.ticks.push({ name: "swimGear", label: `Gear carried: ${lb} lb. of gear (−1 per 5 lb.)`, value: -Math.floor(lb / 5), term: "Gear carried" });
+      return rollD20(actor, R.skillCheck(d, row), event, undefined, { notes: n });
     },
     attack: (item, event) => {
       // Point Blank Shot is the player's call: the SRD's "within 30 feet" is not something the sheet can see.
@@ -205,6 +212,11 @@ export function characterRolls(actor) {
   };
 }
 
+/** The weight of everything a character has that has one, in pounds. */
+export function gearWeight(actor) {
+  return Math.round(actor.items.reduce((n, i) => n + (Number(i.system.weight?.lb) || 0), 0) * 10) / 10;
+}
+
 /** Every note the actor's feats, talents and species carry (tools/build/mechanics.mjs), each with its source. */
 export function notesOf(actor) {
   return actor.items.filter((i) => ["feat", "talent", "species", "feature"].includes(i.type))
@@ -242,27 +254,40 @@ function firingModes(item, feats) {
   return modes;
 }
 
-/** A creature's rolls, from its printed bonuses. */
+/**
+ * What a creature's conditions change on its printed rolls (rules/conditions.mjs): from the changes of
+ * the effects on it, the token HUD's conditions among them.
+ */
+export function conditionsOf(actor) {
+  const changes = [...(actor.effects ?? [])].filter((e) => e.active ?? !e.disabled).flatMap((e) => e.changes ?? []);
+  return creatureConditions(changes, actor.system.abilities, (name) => SKILLS[skillKey(name) ?? ""]?.ability || null);
+}
+
+/** A creature's rolls, from its printed bonuses and what its conditions change. */
 export function creatureRolls(actor) {
   const s = actor.system;
+  const c = conditionsOf(actor);
   return {
-    ability: (key, event) => rollD20(actor, R.printed(`${key.toUpperCase()} check`, abilityModifier(s.abilities[key])), event),
-    save: (key, event) => rollD20(actor, R.printed(`${{ fort: "Fortitude", ref: "Reflex", will: "Will" }[key]} save`, s.saves[key]), event),
+    ability: (key, event) => rollD20(actor, R.printed(`${key.toUpperCase()} check`, abilityModifier(s.abilities[key]), c.ability(key)), event),
+    save: (key, event) => rollD20(actor, R.printed(`${{ fort: "Fortitude", ref: "Reflex", will: "Will" }[key]} save`, s.saves[key], c.save(key)), event),
     skill: (index, event) => {
       const k = s.skills[index];
-      return rollD20(actor, R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus), event);
+      return rollD20(actor, R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus, c.skill(k.name)), event);
     },
-    grapple: (event) => rollD20(actor, R.printed("Grapple check (opposed)", s.grapple), event),
+    grapple: (event) => rollD20(actor, R.printed("Grapple check (opposed)", s.grapple, c.grapple()), event),
     // An attack from the printed Attack or Full Attack line (rules/attacks.mjs): its choice, its place in that
     // choice, and which of its iterative bonuses.
     attack: (line, choice, index, bonus, event) => {
       const a = readAttacks(s[line])[choice]?.[index];
       if (!a) return null;
-      return rollD20(actor, attackRoll(a, bonus), event, { attack: { actor: actor.uuid, line, choice, index, touch: a.touch } });
+      return rollD20(actor, withTerms(attackRoll(a, bonus), [{ label: "Conditions", value: c.attack(a.kind) }]), event, { attack: { actor: actor.uuid, line, choice, index, touch: a.touch } });
     },
     damage: (line, choice, index, multiplier = 1) => {
-      const a = readAttacks(s[line])[choice]?.[index];
-      if (!a) return null;
+      const printedAttack = readAttacks(s[line])[choice]?.[index];
+      if (!printedAttack) return null;
+      // A Strength penalty (fatigued) is less Strength in a melee attack's damage, multiplied with it on a critical.
+      const fix = printedAttack.damage && printedAttack.kind === "melee" ? c.damage("melee") : 0;
+      const a = fix ? { ...printedAttack, damage: `${printedAttack.damage}${fix < 0 ? "-" : "+"}${Math.abs(fix)}` } : printedAttack;
       const spec = damageRoll(a, multiplier);
       if (!spec) return ui.notifications.info(`${a.name}: its damage is not a roll (${a.note || "see the creature's description"}).`);
       // A natural or weapon attack's damage: physical, any energy it adds labelled on its dice ("1d6[fire]").
@@ -274,13 +299,14 @@ export function creatureRolls(actor) {
 /** The initiative bonus Foundry's combat tracker rolls with: `1d20 + @init`. */
 export function initiativeBonus(actor) {
   if (actor.type === "character") return actor.system.derived?.initiative ?? 0;
-  return actor.system.initiative ?? 0;
+  return (actor.system.initiative ?? 0) + conditionsOf(actor).initiative();
 }
 
 /** A token's Defense, or its touch Defense: a character's worked out, a creature's as printed. */
 function defenseOf(actor, { touch = false } = {}) {
-  const defense = actor?.type === "character" ? actor.system.derived?.defense : actor?.system.defense;
-  return touch ? defense?.touch : defense?.value;
+  if (actor?.type === "character") return touch ? actor.system.derived?.defense?.touch : actor.system.derived?.defense?.value;
+  const printed = touch ? actor?.system.defense?.touch : actor?.system.defense?.value;
+  return printed === null || printed === undefined ? printed : printed + conditionsOf(actor).defense();
 }
 
 /**

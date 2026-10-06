@@ -7,7 +7,8 @@
  * their numbers. It then takes away what the startup update should restore (a feat's effect, a
  * class feature), as an older version would have left them, and marks the world as updated by an
  * older version. Foundry is restarted on this repository, and the same characters must come back
- * with the same numbers, every sheet must draw cleanly, and nothing may go wrong in the console.
+ * with the same numbers and whatever the compendiums now say better (a weapon's damage), every
+ * sheet must draw cleanly, and nothing may go wrong in the console.
  */
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
@@ -52,6 +53,8 @@ async function MAKE() {
     await take("species", "Elf"), await take("occupations", "Criminal"),
     await take("feats", "Alertness"), await take("feats", "Personal Firearms Proficiency"), await take("talents", "Melee Smash"),
     await take("equipment", "Colt Python (.357 revolver)"), await take("equipment", "Leather jacket", { equipped: true }),
+    // Read differently since: a double weapon's damage, and a weapon the book sells no ammunition for.
+    await take("equipment", "Quarterstaff"), await take("equipment", "Taser"),
   ]);
   const caster = await Actor.implementation.create({ name: "Upgraded mage", type: "character", system: { abilities: abilities({ str: 8, dex: 12, con: 10, int: 16, wis: 12, cha: 14 }) } });
   await caster.createEmbeddedDocuments("Item", [await take("classes", "Smart Hero", { level: 3 }), await take("classes", "Mage", { level: 1 }), await take("feats", "Iron Will")]);
@@ -102,6 +105,11 @@ async function CHECK(before) {
     }
     await actor.sheet.close();
   }
+  // What the book says of an item, read better since, refreshed on the character's copy.
+  const hero = game.actors.getName("Upgraded hero");
+  const staff = hero?.items.find((i) => i.name === "Quarterstaff");
+  if (staff?.system.damage.formula !== "1d6") errors.push(`the quarterstaff's damage formula is "${staff?.system.damage.formula}", not the compendium's 1d6`);
+  if (!hero?.items.find((i) => i.name === "Taser")?.system.noAmmunition) errors.push("the taser is not marked as having no ammunition to buy");
   const wolf = game.actors.getName("Wolf");
   if (wolf?.system.hp.value !== before.wolf) errors.push(`the wolf's hit points: ${wolf?.system.hp.value}, not ${before.wolf}`);
   await wolf?.sheet.render({ force: true });

@@ -141,6 +141,14 @@ function challenge(value) {
 
 /** A stat block of a creature with character class levels: "Cat Folk Fast Hero 1/Charismatic Hero 2". */
 const CLASSED = /\b(Strong|Fast|Tough|Smart|Dedicated|Charismatic) (Hero|Ordinary)\b|\b(Hero|Ordinary) \d/;
+/** A name with any class's levels in it: "Etoile Techie 5", "Breathsnatcher Infiltrator 4". */
+const classedName = (() => {
+  let re;
+  return (name) => {
+    re ??= new RegExp(`\\b(${buildClasses().documents.filter((d) => d.type === "class").map((d) => d.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")}) \\d+\\b`);
+    return CLASSED.test(name) || re.test(name);
+  };
+})();
 
 /** Examples that are not built on the creature their page is about: a puppeteer's host is the human it controls. */
 export const NO_BASE = new Set(["Puppeteer Host (Human Charismatic Ordinary 5)"]);
@@ -274,7 +282,7 @@ export function readCreaturePage(path, { feats, skills, talents, classes }) {
       system: {
         class: v("Class"),   // a character's class levels, on the stat blocks of named characters
         // Filled in once every creature is read: whether this is one of the book's worked examples.
-        example: { classed: CLASSED.test(name) || !!stats.Class || !!labels.Occupation || Object.keys(labels).some((l) => /^Talents \(/.test(l)), base: { name: "", uuid: "" } },
+        example: { classed: classedName(name) || !!stats.Class || !!labels.Occupation || Object.keys(labels).some((l) => /^Talents \(/.test(l)), base: { name: "", uuid: "" } },
         cr: { value: v("CR"), number: stats.CR ? challenge(v("CR")) : null },
         size: v("Size").toLowerCase(),
         type: { value: v("Type"), base: type?.[1] ?? "", subtypes: type?.[2] ? splitList(type[2]) : [] },

@@ -1,16 +1,20 @@
 /**
  * Keeping the world's items in step with the compendiums: an item a character got from a
  * Modern20 compendium carries copies of its mechanics (its effects and roll notes,
- * tools/build/mechanics.mjs). When the system is updated, the GM's client refreshes those
- * copies from their source, once per version, so a feat whose effect changed (or that has one
- * for the first time) works on characters made before. Everything else on the item (a choice,
- * a level, ranks, what was prepared) is the character's and is left alone.
+ * tools/build/mechanics.mjs), and of what the book says it does that the rules read (BOOK_FIELDS: a
+ * weapon's damage formula). When the system is updated, the GM's client refreshes those copies from
+ * their source, once per version, so a feat whose effect changed (or that has one for the first
+ * time) works on characters made before. Everything else on the item (a choice, a level, ranks,
+ * what was prepared, rounds loaded) is the character's and is left alone.
  */
 import { SYSTEM_ID } from "./config.mjs";
 import { changesOf } from "./rules/effects.mjs";
 import { syncFeatures } from "./features.mjs";
 
 const NO_LOG = "modern20NoLog";
+
+/** The book's data on an item that the rules read, kept in step with the compendium: never a character's own choice. */
+const BOOK_FIELDS = ["system.damage.formula", "system.noAmmunition"];
 
 /** The setting that records which version last refreshed the world. */
 export function registerSyncSettings() {
@@ -24,7 +28,7 @@ async function sourceOf(item) {
   return fromUuid(uuid).catch(() => null);
 }
 
-/** Refresh one item's effects and notes from its source. Returns whether anything changed. */
+/** Refresh one item's effects, notes and book fields from its source. Returns whether anything changed. */
 async function refresh(item, source) {
   const fresh = source.effects.map((e) => {
     const data = e.toObject();
@@ -33,14 +37,22 @@ async function refresh(item, source) {
   });
   // Compared as stored (v14 keeps an effect's changes in `system.changes`).
   const stored = (e) => [e.name, changesOf(e).map(({ key, type, value }) => [key, type, value])];
-  const same = JSON.stringify(item.effects.map((e) => stored(e.toObject()))) === JSON.stringify(fresh.map(stored))
-    && JSON.stringify(item.system.rollNotes ?? null) === JSON.stringify(source.system.rollNotes ?? null);
-  if (same) return false;
+  const sameEffects = JSON.stringify(item.effects.map((e) => stored(e.toObject()))) === JSON.stringify(fresh.map(stored));
+  // The roll notes and book fields that differ from the source's.
+  const { getProperty, hasProperty } = foundry.utils;
+  const changes = {};
+  for (const path of ["system.rollNotes", ...BOOK_FIELDS]) {
+    if (!hasProperty(source, path)) continue;
+    if (JSON.stringify(getProperty(item, path) ?? null) !== JSON.stringify(getProperty(source, path) ?? null)) changes[path] = getProperty(source, path);
+  }
+  if (sameEffects && !Object.keys(changes).length) return false;
   // A fresh options object each call: Foundry writes the parent into the one it is given.
   const opts = () => ({ [NO_LOG]: true });
-  if (item.effects.size) await item.deleteEmbeddedDocuments("ActiveEffect", item.effects.map((e) => e.id), opts());
-  if (fresh.length) await item.createEmbeddedDocuments("ActiveEffect", fresh, opts());
-  if ("rollNotes" in (source.system ?? {})) await item.update({ "system.rollNotes": source.system.rollNotes }, opts());
+  if (!sameEffects) {
+    if (item.effects.size) await item.deleteEmbeddedDocuments("ActiveEffect", item.effects.map((e) => e.id), opts());
+    if (fresh.length) await item.createEmbeddedDocuments("ActiveEffect", fresh, opts());
+  }
+  if (Object.keys(changes).length) await item.update(changes, opts());
   return true;
 }
 

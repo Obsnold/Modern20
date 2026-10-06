@@ -49,25 +49,36 @@ test("effects: a condition or switching an effect is play; an effect of the char
   assert.equal(L.rollEntry("Will save", 17, meta).kind, "play");
 });
 
-test("the log is written a chunk at a time: an entry sends only the chunk it joins", () => {
+test("the log is written a chunk at a time: each write a chunk of its own, sending only that", () => {
   const e = (kind, n) => ({ kind, n, time: n });
   let { update, log } = L.append(undefined, [e("build", 1), e("play", 2)]);
   assert.deepEqual(Object.keys(update).sort(), ["flags.modern20.log.build.0", "flags.modern20.log.play.0"]);
   ({ update, log } = L.append(log, [e("play", 3)]));
-  assert.deepEqual(Object.keys(update), ["flags.modern20.log.play.0"]);   // the build chunk is not sent again
+  assert.deepEqual(Object.keys(update), ["flags.modern20.log.play.1"]);   // nothing written before is sent again
   assert.deepEqual(L.entries(log).map((x) => x.n), [1, 2, 3]);
+});
+
+test("two people writing at once, each from the log as they last saw it, lose nothing: their chunks are their own", () => {
+  const seen = L.append(undefined, [{ kind: "play", n: 1, time: 1 }]).log;
+  const gm = L.append(seen, [{ kind: "play", n: 2, time: 2 }], { key: 1000 });
+  const player = L.append(seen, [{ kind: "play", n: 3, time: 3 }], { key: 1001 });
+  // Both updates applied, as the server would: neither overwrites the other's chunk.
+  const both = { play: { ...seen.play } };
+  for (const u of [gm.update, player.update]) for (const [path, chunk] of Object.entries(u)) both.play[path.split(".").at(-1)] = chunk;
+  assert.deepEqual(L.entries(both).map((x) => x.n), [1, 2, 3]);
 });
 
 test("the session log is pruned a chunk at a time and build entries are never pruned", () => {
   let log;
   for (let i = 0; i < 700; i++) log = L.append(log, [{ kind: "play", n: i, time: i }, ...(i % 100 ? [] : [{ kind: "build", n: i, time: i }])]).log;
   const play = L.entries(log).filter((x) => x.kind === "play");
-  assert.ok(play.length >= L.PLAY_LIMIT && play.length < L.PLAY_LIMIT + L.CHUNK, `${play.length} kept`);
+  assert.equal(play.length, L.PLAY_LIMIT);
   assert.equal(play.at(-1).n, 699);
   assert.equal(L.entries(log).filter((x) => x.kind === "build").length, 7);
-  // A pruned chunk is named for deleting (module/log.mjs: Foundry's deletion operator), not rewritten.
-  const full = Object.fromEntries(Array.from({ length: 11 }, (_, k) => [k, Array.from({ length: L.CHUNK }, (_, i) => ({ kind: "play", time: k * 100 + i }))]));
-  const { update, removed } = L.append({ play: full }, [{ kind: "play", time: 99999 }]);
+  // A pruned chunk is named for deleting (module/log.mjs: Foundry's deletion operator), not rewritten; an
+  // older log's chunks of 50 (keys 0, 1, ...) go the same way, oldest first.
+  const full = Object.fromEntries(Array.from({ length: 11 }, (_, k) => [k, Array.from({ length: 50 }, (_, i) => ({ kind: "play", time: k * 100 + i }))]));
+  const { update, removed } = L.append({ play: full }, [{ kind: "play", time: 99999 }], { key: 1791311226183000 });
   assert.deepEqual(removed, ["flags.modern20.log.play.0"]);
-  assert.ok(!Object.keys(update).some((k) => k.endsWith(".play.0") || k.includes("-=")));
+  assert.deepEqual(Object.keys(update), ["flags.modern20.log.play.1791311226183000"]);
 });

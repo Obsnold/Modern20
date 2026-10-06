@@ -150,3 +150,9 @@ test("an ordinary: rolled 1st-level hit points, no action points, talents or bon
   assert.deepEqual(ordinary.advancement.notBasic, ["Soldier"]);
   assert.deepEqual(hero.advancement.notBasic, []);
 });
+
+test("a creature's class levels give action points by its character level, its own Hit Dice counted", () => {
+  // A 2 Hit Die creature's 1st class level is its 3rd character level: 5 + 1.
+  assert.deepEqual(actionPointsDue(1, 0, 2), { levels: [1], points: 6 });
+  assert.deepEqual(actionPointsDue(2, 0, 2), { levels: [1, 2], points: 6 + 7 });
+});

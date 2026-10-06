@@ -12,6 +12,7 @@
  */
 import * as L from "./rules/log.mjs";
 import { SYSTEM_ID } from "./config.mjs";
+import { exists } from "./presence.mjs";
 const NO_LOG = "modern20NoLog";
 
 /** Settings for the log; called from the init hook. */
@@ -29,15 +30,42 @@ const meta = (userId = game.user.id) => ({ id: foundry.utils.randomID(), time: D
 const logged = (actor) => actor && !actor.pack && ["character", "creature"].includes(actor.type);
 let seq = 0;
 
-/** Add entries to an actor's log in a write of its own, which is not itself logged. */
-export async function record(actor, entries) {
-  if (!logged(actor) || !entries.length || !actor.isOwner) return;
-  await actor.update(appended(actor, entries), { [NO_LOG]: true });
+/**
+ * Entries waiting to be written, by actor: a burst of changes (a character built with twenty items, a
+ * level's features) makes one write, not one each. Each actor's writes go one after another.
+ */
+const queued = new Map();
+/** The last write of each actor's log, which the next waits for: it reads the log that write leaves. */
+const lastWrite = new Map();
+
+/**
+ * Add entries to an actor's log in a write of its own, which is not itself logged. Entries recorded
+ * within a moment of each other go in the same write; resolves once they are written.
+ */
+export function record(actor, entries) {
+  if (!logged(actor) || !entries.length || !actor.isOwner) return Promise.resolve();
+  let q = queued.get(actor.uuid);
+  if (!q) {
+    q = { entries: [] };
+    const before = lastWrite.get(actor.uuid) ?? Promise.resolve();
+    q.written = new Promise((resolve) => setTimeout(resolve, 20)).then(() => before).then(async () => {
+      queued.delete(actor.uuid);
+      if (exists(actor)) await actor.update(appended(actor, q.entries), { [NO_LOG]: true });
+    }).catch((e) => console.error(`modern20 | the log of ${actor.name} was not written:`, e)).finally(() => {
+      if (lastWrite.get(actor.uuid) === q.written) lastWrite.delete(actor.uuid);
+    });
+    lastWrite.set(actor.uuid, q.written);
+    queued.set(actor.uuid, q);
+  }
+  q.entries.push(...entries);
+  return q.written;
 }
 
 /** The update that adds `entries` to an actor's log: its new chunks, and the session chunks pruned deleted. */
 function appended(actor, entries) {
-  const { update, removed } = L.append(actor.getFlag(SYSTEM_ID, "log"), entries, { limit: limit() });
+  // A key of its own for each write, from the time: two people writing at once never share one.
+  const key = Date.now() * 1000 + Math.floor(Math.random() * 1000);
+  const { update, removed } = L.append(actor.getFlag(SYSTEM_ID, "log"), entries, { limit: limit(), key });
   for (const path of removed) update[path] = new foundry.data.operators.ForcedDeletion();
   return update;
 }

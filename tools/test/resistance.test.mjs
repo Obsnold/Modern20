@@ -45,3 +45,12 @@ test("a Tough hero's damage reduction and energy resistance, from talents", () =
   assert.deepEqual(d.defenses, { dr: [{ amount: 2, overcome: "—" }], resist: { fire: 3 }, immune: [] });
   assert.deepEqual(characterDefenses({}), { dr: [], resist: {}, immune: [] });
 });
+
+test("a weapon type's resistance: the first 5 of each bludgeoning hit ignored, then any damage reduction", () => {
+  const malleable = readDefenses(["bludgeoning resistance 5", "increased reach"]);
+  assert.deepEqual(malleable.resist, { bludgeoning: 5 });
+  assert.deepEqual(reduceDamage([{ type: "Bludgeoning", amount: 8 }], malleable), { total: 3, stopped: [{ by: "bludgeoning resistance 5", amount: 5 }] });
+  assert.equal(reduceDamage([{ type: "Piercing", amount: 8 }], malleable).total, 8);
+  const both = { dr: [{ amount: 2, overcome: "—" }], resist: { bludgeoning: 5 }, immune: [] };
+  assert.equal(reduceDamage([{ type: "Bludgeoning", amount: 10 }], both).total, 3);
+});

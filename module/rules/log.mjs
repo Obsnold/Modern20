@@ -12,19 +12,19 @@
  * What is play is listed here; anything not listed is build, so a change
  * nobody anticipated is kept rather than pruned.
  *
- * The log is stored in chunks of CHUNK entries, by kind
- * (`{ build: { 0: [...], 1: [...] }, play: { ... } }`), so adding an entry
- * writes one small chunk rather than the whole log: at 500 session entries a
- * single list would send well over 100 KB with every hit point change. Session
- * entries are pruned a chunk at a time, so between PLAY_LIMIT and
- * PLAY_LIMIT + CHUNK are kept. Plain functions over plain
- * data, so the classification and the wording are tested; module/log.mjs wires
- * them to Foundry's hooks.
+ * The log is stored in chunks, by kind (`{ build: { <key>: [...], ... }, play: { ... } }`),
+ * each write's entries a chunk of their own under a new key: adding an entry sends that small
+ * chunk rather than the whole log (at 500 session entries a single list would send well over
+ * 100 KB with every hit point change), and two people writing at once (the GM and a player,
+ * each rolling for the same character) never write the same chunk, so neither loses the other's
+ * entries. Keys are numbers, in the order written (module/log.mjs makes them from the time).
+ * Session entries are pruned a chunk at a time, oldest first, once more than PLAY_LIMIT are kept.
+ * Plain functions over plain data, so the classification and the wording are tested;
+ * module/log.mjs wires them to Foundry's hooks.
  */
 import { SKILLS } from "../data/skills.mjs";
 
 export const PLAY_LIMIT = 500;
-export const CHUNK = 50;
 
 /** Actor fields whose changes are play (temporary), not build. */
 const PLAY_ACTOR_FIELDS = new Set(["system.hp.value", "system.hp.temp", "system.hp.recovering", "system.actionPoints.value", "system.powerPoints.value", "system.powerPoints.freeUsed", "system.slotsUsed"]);
@@ -132,34 +132,28 @@ export function entries(log) {
 const chunkKeys = (chunks) => Object.keys(chunks ?? {}).filter((k) => /^\d+$/.test(k)).map(Number).sort((a, b) => a - b);
 
 /**
- * Add `entries` to a chunked log. Returns the update that does it, as
- * flattened paths under `path` (only the chunks that change), the paths of the
- * session chunks pruned (`removed`: the update deletes them, module/log.mjs), and
- * the log as it will be.
+ * Add `entries` to a chunked log, as a chunk of their own under `key` (by default the next number
+ * after the log's last). Returns the update that does it, as flattened paths under `path` (only
+ * the new chunks), the paths of the session chunks pruned (`removed`: the update deletes them,
+ * module/log.mjs), and the log as it will be.
  */
-export function append(log, newEntries, { limit = PLAY_LIMIT, path = "flags.modern20.log" } = {}) {
+export function append(log, newEntries, { limit = PLAY_LIMIT, path = "flags.modern20.log", key } = {}) {
   const next = { build: { ...(log?.build ?? {}) }, play: { ...(log?.play ?? {}) } };
+  const at = key ?? Math.max(-1, ...chunkKeys(next.build), ...chunkKeys(next.play)) + 1;
   const update = {}, removed = [];
   for (const kind of ["build", "play"]) {
     const add = newEntries.filter((e) => e.kind === kind);
     if (!add.length) continue;
-    const keys = chunkKeys(next[kind]);
-    let key = keys.length ? keys.at(-1) : 0;
-    let chunk = [...(next[kind][key] ?? [])];
-    for (const e of add) {
-      if (chunk.length >= CHUNK) { next[kind][key] = chunk; update[`${path}.${kind}.${key}`] = chunk; key += 1; chunk = []; }
-      chunk.push(e);
-    }
-    next[kind][key] = chunk;
-    update[`${path}.${kind}.${key}`] = chunk;
+    next[kind][at] = [...(next[kind][at] ?? []), ...add];
+    update[`${path}.${kind}.${at}`] = next[kind][at];
   }
   // Session entries past the limit: drop whole chunks, oldest first, while what is left still holds the limit.
-  let keys = chunkKeys(next.play);
-  const count = () => keys.reduce((n, k) => n + next.play[k].length, 0);
-  while (keys.length > 1 && count() - next.play[keys[0]].length >= limit) {
+  const keys = chunkKeys(next.play);
+  let count = keys.reduce((n, k) => n + next.play[k].length, 0);
+  while (keys.length > 1 && count - next.play[keys[0]].length >= limit) {
     const old = keys.shift();
+    count -= next.play[old].length;
     delete next.play[old];
-    delete update[`${path}.play.${old}`];
     removed.push(`${path}.play.${old}`);
   }
   return { update, removed, log: next };

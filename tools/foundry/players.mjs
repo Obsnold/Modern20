@@ -1,7 +1,8 @@
 /**
  * A second player, in a browser of their own: what a player may and may not do, with the GM
  * connected too. run.mjs runs SETUP as the GM, joins as the player and runs AS_PLAYER in their
- * browser, then AFTER as the GM. Each is sent to its page on its own, so each is self-contained.
+ * browser, then TOGETHER in both browsers at once (each rolling for the player's hero), then AFTER
+ * as the GM. Each is sent to its page on its own, so each is self-contained.
  */
 
 /** As the GM: a player user, a hero they own, the GM's own character with an attack card in chat, a creature. */
@@ -69,17 +70,51 @@ export async function AS_PLAYER({ heroId, npcId, creatureId, gmCard }) {
   return errors;
 }
 
-/** As the GM again: the player's change and roll are each in the hero's log once, under the player's name. */
+/** In both browsers at the same moment: five saves each for the player's hero, the GM's Reflex and the player's Will. */
+export async function TOGETHER({ heroId }) {
+  const hero = game.actors.get(heroId);
+  const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+  const save = game.user.isGM ? "ref" : "will";
+  await Promise.all(Array.from({ length: 5 }, () => characterRolls(hero).save(save)));
+  return [];
+}
+
+/**
+ * As the GM again, the player still connected: the player's change and roll are each in the hero's log
+ * once, under the player's name; the saves both made at once are all there; and the hero dying in
+ * combat gets one save card on its turn, not one from each browser.
+ */
 export async function AFTER({ heroId }) {
   const errors = [];
   const hero = game.actors.get(heroId);
   await new Promise((r) => setTimeout(r, 1500));
   const { entries } = await import("/systems/modern20/module/rules/log.mjs");
   const log = entries(hero.getFlag("modern20", "log"));
+  for (const [save, by] of [["Reflex", "the GM"], ["Will", "the player"]]) {
+    const n = log.filter((e) => new RegExp(`${save} save`).test(e.text ?? "")).length;
+    if (n !== 5) errors.push(`${n} of ${by}'s 5 ${save} saves, made while the other rolled too, are in the log`);
+  }
   const hp = log.filter((e) => e.kind === "play" && e.changes?.some((c) => c.label === "Current HP" && c.to === "3"));
   if (hp.length !== 1) errors.push(`the hit point change is in the log ${hp.length} times, not once`);
   else if (hp[0].userName !== "Player") errors.push(`the hit point change is logged as made by ${hp[0].userName}`);
   const saves = log.filter((e) => /Fortitude save/.test(e.text ?? ""));
   if (saves.length !== 1) errors.push(`the player's save is in the log ${saves.length} times, not once`);
+  // Dying in combat: one save card at the start of its turn, with two browsers connected.
+  try {
+    const { applyToActor } = await import("/systems/modern20/module/damage.mjs");
+    await applyToActor(hero, hero.system.hp.value + 3);
+    // A combat of no scene, which every browser's tracker shows. (Foundry 14's tracker throws, in a browser
+    // viewing another scene, when a scene's combat changes turn: its own fault, not the system's.)
+    const combat = await Combat.implementation.create({ scene: null });
+    await combat.createEmbeddedDocuments("Combatant", [{ actorId: hero.id }]);
+    const n = game.messages.size;
+    await combat.startCombat();
+    await new Promise((r) => setTimeout(r, 2000));
+    const cards = game.messages.contents.slice(n).filter((m) => m.getFlag("modern20", "save")?.kind === "dying");
+    if (cards.length !== 1) errors.push(`${cards.length} dying save cards at the start of its turn, not 1`);
+    await combat.delete();
+  } catch (e) {
+    errors.push(`dying in combat: ${e.message}`);
+  }
   return errors;
 }

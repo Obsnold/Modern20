@@ -86,7 +86,7 @@ test("most classed examples rebuild to their printed attack bonus from their bas
     n++;
     if (d.baseAttackBonus === c.system.baseAttackBonus.bonus) ok++; else off.push(c.name);
   }
-  assert.equal(n, 33);
+  assert.equal(n, 36);
   assert.equal(ok, n - 4);
   // The four the book prints otherwise: the Skunk Ape keeps the 1 Hit Die its class levels should replace, and
   // three are one off.
@@ -162,4 +162,15 @@ test("the book's ordinaries and the people of its worked examples build with the
   const baal = creatureParts(named["Baal, Charismatic Hero 10/Negotiator 8"], { classNames });
   assert.equal(baal.type.count, 8);
   assert.deepEqual(classLevels("Sand Slave Terrorist (Human Tough Ordinary 3/Smart Ordinary 3)", classNames), { "Tough Hero": 3, "Smart Hero": 3 });
+});
+
+test("a person's printed Hit Dice beyond their class levels are their own: Franz Draco, an efreeti, has 10", () => {
+  const classNames = Object.keys(classes);
+  const franz = creatureParts(named["Franz Draco"], { classNames });
+  assert.deepEqual(franz.classes, { "Smart Hero": 3, "Charismatic Hero": 4 });
+  assert.equal(franz.type.count, 10);
+  assert.equal(franz.system.wealth.regainedLevel, 17);
+  // An example with an advanced class's levels in its name is built on its base creature.
+  assert.equal(named["Etoile Techie 5"].system.example.base.name, "Etoile");
+  assert.deepEqual(creatureParts(named["Etoile Techie 5"], { base: named.Etoile, classNames }).classes, { Techie: 5 });
 });

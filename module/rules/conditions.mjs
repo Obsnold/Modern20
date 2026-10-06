@@ -47,3 +47,44 @@ export function statusEffects() {
     id, name: c.name, img: c.img, description: `<p>${c.text}</p>`, system: { changes: c.changes ?? [] },
   }));
 }
+
+const ABILITY_OF_SAVE = { fort: "con", ref: "dex", will: "wis" };
+const mod = (score) => (score === null || score === undefined ? null : Math.floor((score - 10) / 2));
+
+/**
+ * What a creature's conditions change on its printed rolls. A creature's numbers are totals, so the
+ * conditions' changes (`changes`: their `system.bonuses.*` adds, as on a character) are worked out
+ * as differences from what is printed: a penalty to Strength or Dexterity is the change in its
+ * modifier, carried to what that ability adds to (attacks, saves, skills, initiative, Defense).
+ * `abilities` are the creature's printed scores; `skillAbility(name)` the key ability of a skill
+ * by its printed name. Returns functions giving each roll's adjustment, and Defense's.
+ */
+export function creatureConditions(changes, abilities, skillAbility = () => null) {
+  const b = {};
+  for (const c of changes) {
+    if ((c.type ?? "add") !== "add" || !c.key?.startsWith("system.bonuses.")) continue;
+    const key = c.key.slice("system.bonuses.".length);
+    b[key] = (b[key] ?? 0) + Number(c.value || 0);
+  }
+  const delta = (a) => {
+    const before = mod(abilities?.[a]);
+    return before === null ? 0 : mod(abilities[a] + (b[`abilities.${a}`] ?? 0)) - before;
+  };
+  // Defense: the Dexterity modifier it now adds (none of a bonus, when the condition loses it, but any
+  // penalty still), in place of the printed one.
+  const dexBefore = mod(abilities?.dex) ?? 0, dexAfter = dexBefore + delta("dex");
+  const defense = (b.defense ?? 0) + ((b.loseDexBonus ?? 0) > 0 ? Math.min(dexAfter, 0) : dexAfter) - dexBefore;
+  return {
+    ability: (a) => delta(a),
+    save: (s) => (b[`saves.${s}`] ?? 0) + delta(ABILITY_OF_SAVE[s]),
+    skill: (name) => {
+      const a = skillAbility(name);
+      return (b.allSkills ?? 0) + (a ? delta(a) : 0);
+    },
+    attack: (kind) => (kind === "ranged" ? (b["attack.ranged"] ?? 0) + delta("dex") : (b["attack.melee"] ?? 0) + delta("str")),
+    damage: (kind) => (kind === "ranged" ? 0 : delta("str")),
+    initiative: () => (b.initiative ?? 0) + delta("dex"),
+    grapple: () => (b.grapple ?? 0) + delta("str"),
+    defense: () => defense,
+  };
+}
