@@ -78,9 +78,12 @@ export async function PRELUDE() {
       return game.messages.contents.slice(count);
     },
     async take(pack, name, system = {}) {
-      const o = (await window.m20test.doc(pack, name)).toObject();
+      const source = await window.m20test.doc(pack, name);
+      const o = source.toObject();
       delete o._id;
       foundry.utils.mergeObject(o.system, system);
+      // As dragging from a compendium records it: where the copy came from.
+      foundry.utils.setProperty(o, "_stats.compendiumSource", source.uuid);
       return o;
     },
   };
@@ -722,6 +725,128 @@ export const CHECKS = {
       errors.push(e.message);
     }
     await actor.delete();
+    return errors;
+  },
+
+  async "Wealth, resting and languages from the sheet: buy, sell, starting Wealth, a night's rest, species languages"() {
+    const errors = [];
+    const { take, wait, click, dialog } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Shopper (test)", type: "character", system: { abilities, wealth: { value: 12, regainedLevel: 3 } } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("classes", "Fast Hero", { level: 3 }), await take("species", "Elf"), await take("occupations", "Criminal"),
+      await take("equipment", "Knife"), await take("equipment", "Colt Python (.357 revolver)"),
+    ]);
+    await actor.sheet.render({ force: true });
+    await wait(() => actor.sheet.rendered, "the sheet");
+    const el = () => actor.sheet.element;
+    const step = async (what, act) => { try { await act(); } catch (e) { errors.push(`${what}: ${e.message}`); } };
+    await step("buying a knife (within means: no roll)", async () => {
+      actor.sheet.changeTab("gear", "primary");
+      const knife = actor.items.find((i) => i.name === "Knife");
+      const n = game.messages.size;
+      click(el(), `[data-item-id="${knife.id}"] [data-action=buyItem]`);
+      await wait(() => game.messages.size > n, "the purchase card");
+      if (!/Bought Knife/.test(game.messages.contents.at(-1).content)) errors.push("the purchase card does not say what was bought");
+    });
+    await step("selling the Colt Python", async () => {
+      const colt = actor.items.find((i) => i.name.startsWith("Colt Python"));
+      const wealth = actor.system.wealth.value;
+      const n = game.messages.size;
+      click(el(), `[data-item-id="${colt.id}"] [data-action=sellItem]`);
+      await dialog({}, "legal");
+      await wait(() => !actor.items.get(colt.id) && game.messages.contents.slice(n).some((m) => /Sold/.test(m.content)), "the revolver to be sold, and its card");
+      if (actor.system.wealth.value < wealth) errors.push(`Wealth fell selling: ${wealth} → ${actor.system.wealth.value}`);
+    });
+    await step("rolling starting Wealth", async () => {
+      actor.sheet.changeTab("main", "primary");
+      const n = game.messages.size;
+      click(el(), "[data-action=startingWealth]");
+      await dialog({}, "yes");
+      await wait(() => game.messages.contents.slice(n).some((m) => /Starting Wealth/.test(m.flavor ?? "")), "the starting Wealth roll");
+      const w = actor.system.wealth.value;
+      // 2d4 + Criminal's +1: 3 to 9.
+      if (w < 3 || w > 9) errors.push(`starting Wealth ${w}, not 2d4 + 1`);
+    });
+    await step("a night's rest", async () => {
+      await actor.update({ "system.hp.value": 2 });
+      click(el(), "[data-action=rest]");
+      await dialog({}, "night");
+      await wait(() => actor.system.hp.value === 5, `a night's rest to heal 3 (now ${actor.system.hp.value})`);
+    });
+    await step("the Elf's languages", async () => {
+      actor.sheet.changeTab("details", "primary");
+      click(el(), "[data-action=addSpeciesLanguages]");
+      await wait(() => actor.system.languages.some((l) => l.name === "Elven" && l.speak && l.readWrite), "Elven to be known");
+      click(el(), "[data-action=addLanguage]");
+      await wait(() => actor.system.languages.length === 3, "a language to be added");
+    });
+    await step("the log recording the changes", async () => {
+      actor.sheet.changeTab("log", "primary");
+      await new Promise((r) => setTimeout(r, 300));
+      const text = el().querySelector("section.tab[data-tab=log]")?.innerText ?? "";
+      for (const want of [/Wealth/, /Current HP/, /Languages/]) if (!want.test(text)) errors.push(`the Log tab has nothing about ${want.source}`);
+    });
+    await actor.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "a creature's attack and damage buttons, and the edit view saving a field and a list entry"() {
+    const errors = [];
+    const { doc, wait, click, type } = window.m20test;
+    const wolf = await Actor.implementation.create((await doc("creatures", "Wolf")).toObject());
+    try {
+      await wolf.sheet.render({ force: true });
+      await wait(() => wolf.sheet.element?.querySelector("[data-action=rollCreatureAttack]"), "the wolf's attack buttons");
+      let n = game.messages.size;
+      click(wolf.sheet.element, "[data-action=rollCreatureAttack]");
+      await wait(() => game.messages.size > n, "the bite's attack");
+      if (!/Bite/i.test(game.messages.contents.at(-1).flavor)) errors.push("the attack card does not name the bite");
+      n = game.messages.size;
+      click(wolf.sheet.element, "[data-action=rollCreatureDamage]");
+      await wait(() => game.messages.size > n, "the bite's damage");
+      if (!game.messages.contents.at(-1).getFlag("modern20", "damage")) errors.push("the damage card cannot be applied");
+      // The edit view: a field changed and saved, a list entry added and removed, the rest left as it was.
+      const hd = wolf.system.hitDice;
+      wolf.sheet.editing = true;
+      await wolf.sheet.render({ force: true });
+      await wait(() => wolf.sheet.element?.querySelector("input[name=\"system.allegiances\"]"), "the edit view");
+      type(wolf.sheet.element, "input[name=\"system.allegiances\"]", "the pack");
+      await wait(() => wolf.system.allegiances === "the pack", "the allegiance to save");
+      if (wolf.system.hitDice !== hd) errors.push(`saving one field changed the Hit Dice: ${hd} → ${wolf.system.hitDice}`);
+      const skills = wolf.system.skills.length;
+      click(wolf.sheet.element, "[data-action=addEntry][data-path=\"system.skills\"]");
+      await wait(() => wolf.system.skills.length === skills + 1, "a skill entry to be added");
+      await wait(() => wolf.sheet.element?.querySelector(`[data-action=removeEntry][data-path="system.skills"][data-index="${skills}"]`), "the new entry's remove button");
+      click(wolf.sheet.element, `[data-action=removeEntry][data-path="system.skills"][data-index="${skills}"]`);
+      await wait(() => wolf.system.skills.length === skills, "the entry to be removed");
+      await wolf.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await wolf.delete();
+    return errors;
+  },
+
+  async "the startup update: an item with an out-of-date effect is refreshed from its compendium, once"() {
+    const errors = [];
+    const { take } = window.m20test;
+    const { syncWorldItems } = await import("/systems/modern20/module/sync.mjs");
+    const item = await Item.implementation.create(await take("feats", "Alertness"));
+    const effect = item.effects.contents[0];
+    // Out of date: a different bonus than the compendium's +2.
+    await effect.update({ "system.changes": effect.changes.map((c) => ({ ...c, value: 9 })) });
+    await game.settings.set("modern20", "syncedVersion", "");
+    await syncWorldItems();
+    const values = item.effects.contents.flatMap((e) => e.changes.map((c) => Number(c.value)));
+    if (values.some((v) => v !== 2)) errors.push(`after the update its effect gives ${values.join(", ")}, not the compendium's 2`);
+    if (game.settings.get("modern20", "syncedVersion") !== game.system.version) errors.push("the update did not record the version");
+    // Run again for the same version: nothing to do.
+    await item.effects.contents[0].update({ "system.changes": item.effects.contents[0].changes.map((c) => ({ ...c, value: 9 })) });
+    await syncWorldItems();
+    if (Number(item.effects.contents[0].changes[0].value) !== 9) errors.push("the update ran again for the same version");
+    await item.delete();
     return errors;
   },
 };

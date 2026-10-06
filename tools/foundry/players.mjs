@@ -51,6 +51,12 @@ export async function AS_PLAYER({ heroId, npcId, creatureId, gmCard }) {
     const hp = creature.system.hp.value;
     await applyToActor(creature, 5);
     if (creature.system.hp.value !== hp) errors.push(`the player damaged a creature they do not own: ${hp} → ${creature.system.hp.value}`);
+    // A creature they may only observe: its sheet opens, but offers no Edit and no hit points to change.
+    await creature.sheet.render({ force: true });
+    await wait(() => creature.sheet.rendered, "the observed creature's sheet");
+    if (creature.sheet.element.querySelector("[data-action=toggleEdit]")) errors.push("the player is offered Edit on a creature they only observe");
+    if (creature.sheet.element.querySelector("input[name=\"system.hp.value\"]:not([disabled])")) errors.push("the player can change an observed creature's hit points");
+    await creature.sheet.close();
     // Their own hit points, changed on their sheet.
     const box = hero.sheet.element.querySelector("input[name=\"system.hp.value\"]");
     box.value = "3";

@@ -36,10 +36,11 @@ async function refresh(item, source) {
   const same = JSON.stringify(item.effects.map((e) => stored(e.toObject()))) === JSON.stringify(fresh.map(stored))
     && JSON.stringify(item.system.rollNotes ?? null) === JSON.stringify(source.system.rollNotes ?? null);
   if (same) return false;
-  const opts = { [NO_LOG]: true };
-  if (item.effects.size) await item.deleteEmbeddedDocuments("ActiveEffect", item.effects.map((e) => e.id), opts);
-  if (fresh.length) await item.createEmbeddedDocuments("ActiveEffect", fresh, opts);
-  if ("rollNotes" in (source.system ?? {})) await item.update({ "system.rollNotes": source.system.rollNotes }, opts);
+  // A fresh options object each call: Foundry writes the parent into the one it is given.
+  const opts = () => ({ [NO_LOG]: true });
+  if (item.effects.size) await item.deleteEmbeddedDocuments("ActiveEffect", item.effects.map((e) => e.id), opts());
+  if (fresh.length) await item.createEmbeddedDocuments("ActiveEffect", fresh, opts());
+  if ("rollNotes" in (source.system ?? {})) await item.update({ "system.rollNotes": source.system.rollNotes }, opts());
   return true;
 }
 

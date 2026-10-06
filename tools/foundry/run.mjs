@@ -13,7 +13,8 @@
  *   FOUNDRY_TEST_DATA  the test data folder, made if missing: ../foundry-test-data
  *   FOUNDRY_LICENSE    an activated license.json: ~/.local/share/FoundryVTT/Config/license.json
  *   CHROMIUM           the browser: /usr/bin/chromium
- *   FOUNDRY_CHECK      run only the checks whose names contain this (and take no screenshots)
+ *   FOUNDRY_CHECK      run only the checks whose names contain this, or any of several separated by
+ *                      "|" (and take no screenshots)
  *   FOUNDRY_SCREENSHOTS  0 to take no screenshots of the sheets (screenshots.mjs); 1 to take them
  *                      even with FOUNDRY_CHECK (FOUNDRY_CHECK=none FOUNDRY_SCREENSHOTS=1: only them)
  *
@@ -123,7 +124,7 @@ async function main() {
     await page.evaluate(`(${PRELUDE.toString()})()`);
     console.log(`[${elapsed()}] in the game\n`);
 
-    const chosen = Object.entries(CHECKS).filter(([n]) => !only || n.toLowerCase().includes(only));
+    const chosen = Object.entries(CHECKS).filter(([n]) => !only || only.split("|").some((o) => n.toLowerCase().includes(o.trim())));
     ran = chosen.length;
     for (const [name, check] of chosen) {
       const before = problems.length;
@@ -149,7 +150,7 @@ async function main() {
     }
     // A second player in a browser of their own (players.mjs), unless the checks run are chosen otherwise.
     const playerCheck = "a player in their own browser: their character works, the GM's and others' do not, and the logs record them once";
-    if (!only || playerCheck.toLowerCase().includes(only)) {
+    if (!only || only.split("|").some((o) => playerCheck.toLowerCase().includes(o.trim()))) {
       ran++;
       const before = problems.length;
       let errors = [];
