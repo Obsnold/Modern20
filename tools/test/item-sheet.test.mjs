@@ -23,7 +23,8 @@ test("every item's field table renders without throwing, and never shows an empt
 
 test("printed values, links and nested values show", () => {
   const beretta = table("Beretta 92F (9mm autoloader)");
-  assert.equal(beretta["Weight: Value"], "3 lb.");
+  assert.equal(beretta.Weight, "3 lb.");
+  assert.equal(beretta["Weight: Lb"], undefined);   // the number worked from it, not shown again
   assert.match(beretta.Proficiency, /^@UUID\[Compendium\.modern20\.feats\.Item\.\w+\]\{Personal Firearms Proficiency\}$/);
   assert.equal(beretta.Description, undefined);   // shown as prose, not in the table
   const gaseous = table("Gaseous Form");
@@ -47,6 +48,13 @@ test("a class's level table and requirements render", () => {
 
 test("a creature's table shows its stats, skills with bonuses, and linked feats", () => {
   const wolf = table("Wolf");
+  // As a stat block prints them: one row each, not the printed text beside the number worked from it.
+  assert.equal(wolf.Speed, "50 ft.");
+  assert.equal(wolf["Speed: Ft"], undefined);
+  assert.match(wolf["Hit Points"], /^\d+ \/ \d+$/);
+  assert.equal(wolf["Base Attack Bonus"], "+1");
+  assert.equal(wolf.Defense, "14");
+  assert.equal(wolf.CR, "1");
   assert.equal(wolf["Abilities: Dex"], "15");
   assert.equal(wolf["Special Qualities"], "scent, trip, low-light vision");
   assert.equal(wolf.Skills, "Hide +3, Listen +6, Move Silently +4, Spot +4, Survival +1 (+5 when tracking by scent)");

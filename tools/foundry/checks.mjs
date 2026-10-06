@@ -656,4 +656,29 @@ export const CHECKS = {
     await actor.delete();
     return errors;
   },
+
+  async "current hit points follow the maximum while at full: a new character, a level gained, but not when hurt"() {
+    const errors = [];
+    const { take, wait } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: a === "con" ? 14 : 10 }]));
+    const actor = await Actor.implementation.create({ name: "Hit points (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Tough Hero", { level: 1 })]);
+    const cls = actor.items.find((i) => i.type === "class");
+    try {
+      // A new Tough hero: 1st level's d10 at its maximum, Con +2.
+      await wait(() => actor.system.hp.value === 12, `a new character at full (12), not ${actor.system.hp.value}`);
+      await cls.update({ "system.level": 2 });
+      await wait(() => actor.system.hp.value === actor.system.hp.max && actor.system.hp.max > 12, `full health to follow a level gained (now ${actor.system.hp.value} of ${actor.system.hp.max})`);
+      await actor.update({ "system.hp.value": 5 });
+      const max = actor.system.hp.max;
+      await cls.update({ "system.level": 3 });
+      await wait(() => actor.system.hp.max > max, "the maximum to rise");
+      await new Promise((r) => setTimeout(r, 500));
+      if (actor.system.hp.value !== 5) errors.push(`a hurt character's hit points moved with the maximum: ${actor.system.hp.value}, expected 5`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
 };

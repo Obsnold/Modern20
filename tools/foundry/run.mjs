@@ -130,10 +130,11 @@ async function main() {
       try {
         // A check written as a named method (`async "name"() {}`) is sent as a plain function.
         const source = check.toString().replace(/^async\s+"[^"]*"\s*\(/, "async function (");
-        // Each check gets two minutes: one that hangs (a dialog left open) fails rather than stalling the run.
+        // Each check gets five minutes (one run alone loads the compendiums cold): one that hangs (a dialog
+        // left open) fails rather than stalling the run.
         errors = await Promise.race([
           page.evaluate(`(${source})()`),
-          new Promise((_, reject) => setTimeout(() => reject(new Error("took longer than 2 minutes")), 120000)),
+          new Promise((_, reject) => setTimeout(() => reject(new Error("took longer than 5 minutes")), 300000)),
         ]);
       } catch (e) {
         errors = [`threw: ${e.message.split("\n")[0]}`];

@@ -16,6 +16,7 @@ import { statusEffects } from "./rules/conditions.mjs";
 import { registerLogSettings, registerLogHooks } from "./log.mjs";
 import { registerDyingHooks } from "./damage.mjs";
 import { registerSyncSettings, syncWorldItems } from "./sync.mjs";
+import { registerHitPointHooks } from "./hitpoints.mjs";
 import { SYSTEM_TYPE } from "./rules/effects.mjs";
 
 
@@ -29,6 +30,7 @@ Hooks.once("init", () => {
   registerSyncSettings();
   registerLogHooks();
   registerDyingHooks();
+  registerHitPointHooks();
   // The SRD's conditions replace Foundry's default status effects, keeping Foundry's Invisible, which hides
   // a token. Blinded is the status Foundry's vision treats as blind.
   const invisible = CONFIG.statusEffects.find((e) => e.id === "invisible");

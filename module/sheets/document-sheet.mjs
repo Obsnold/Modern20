@@ -25,7 +25,9 @@ const HIDDEN = new Set(["source", ...PROSE, "features", "talentTrees", "requirem
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
 /** "spellResistance" -> "Spell Resistance" */
-const label = (key) => key.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
+/** Field names a reader knows by another: "CR", not "Cr". */
+const NAMES = { cr: "CR", hp: "Hit Points", dc: "DC" };
+const label = (key) => NAMES[key] ?? key.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
 
 /** A link to another document, or a named entry in a list ("Craft (writing) (int)", "Survival +1 (+5 when tracking)"), as HTML. */
 function entry(value) {
@@ -49,9 +51,25 @@ export function rows(system, prefix = "") {
     if (!prefix && HIDDEN.has(key)) continue;
     // A class's levels are its level table, shown on its own (a spell's levels are class and level pairs).
     if (!prefix && key === "levels" && value?.[0]?.baseAttackBonus) continue;
-    const name = prefix ? `${prefix}: ${label(key)}` : label(key);
+    // A group's own value is named by the group: "Defense 16", then "Defense: Touch 13".
+    const name = prefix ? (key === "value" ? prefix : `${prefix}: ${label(key)}`) : label(key);
     if (value === null || value === undefined || value === "" || value === false) continue;
     if (prefix && value === 0) continue;
+    if (value && typeof value === "object" && !Array.isArray(value) && !isEntry(value)) {
+      // Current and maximum together: "58 / 58".
+      const keys = Object.keys(value);
+      if (keys.length === 2 && typeof value.value === "number" && typeof value.max === "number") {
+        out.push({ label: name, html: `${value.value} / ${value.max}` });
+        continue;
+      }
+      // A value as printed ("20 ft.", "+4", "3 lb."): shown once, without the number worked from it
+      // (Speed: Ft 20); any other text beside it (a class's first-level skill points) still shows.
+      if (typeof value.value === "string" && value.value) {
+        out.push({ label: name, html: escape(value.value) });
+        out.push(...rows(Object.fromEntries(Object.entries(value).filter(([k, v]) => k !== "value" && typeof v !== "number")), name));
+        continue;
+      }
+    }
     if (Array.isArray(value)) {
       // Named entries with text of their own (a species' special qualities, a type's or template's
       // traits) are shown as prose; a creature's special qualities are only names.

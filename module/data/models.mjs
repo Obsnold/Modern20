@@ -322,8 +322,11 @@ export const ACTOR_MODELS = {
     /** Base speed in feet, for a character with no species to give one (a creature built from parts); empty for the species' (or 30). */
     baseSpeed: int({ nullable: true }),
     abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }) })]))),
-    /** Current and temporary hit points; `recovering` once a character below 0 has started to heal naturally. */
-    hp: obj({ value: int(), temp: int(), recovering: bool() }),
+    /**
+     * Current and temporary hit points; `recovering` once a character below 0 has started to heal naturally;
+     * `lastMax` the maximum when last seen, so current hit points can follow it while at full (rules/damage.mjs).
+     */
+    hp: obj({ value: int(), temp: int(), recovering: bool(), lastMax: int() }),
     /** Action points left, and the character level they have been given up to (5 + half the level, at each level). */
     actionPoints: obj({ value: int(), granted: int() }),
     /** Power points left today, and the free 0-level manifestations used. */

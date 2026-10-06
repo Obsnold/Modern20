@@ -35,7 +35,7 @@ const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", 
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
 
 /** Fields the log never records: the log itself, and Foundry's own bookkeeping. */
-const IGNORED = [/^flags\.modern20\.log/, /^_stats/, /^sort$/, /^ownership/, /^folder$/, /^flags\.core/];
+const IGNORED = [/^system\.hp\.lastMax$/, /^flags\.modern20\.log/, /^_stats/, /^sort$/, /^ownership/, /^folder$/, /^flags\.core/];
 
 export const kindOfActorField = (path) => (PLAY_ACTOR_FIELDS.has(path) ? "play" : "build");
 export const kindOfItemField = (path) => (PLAY_ITEM_FIELDS.has(path) ? "play" : "build");
