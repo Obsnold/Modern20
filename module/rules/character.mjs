@@ -62,7 +62,8 @@ export function deriveCharacter(system, items) {
   const creatureType = items.find((i) => i.type === "creatureType");
   const templates = items.filter((i) => i.type === "template");
   // Feats and talents, each with its rules (rules/feats.mjs).
-  const feats = items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ ...i, rules: rulesFor(identify(i)) }));
+  // Feats, talents and class features: each with its rules (a Soldier's Weapon Focus feature is the feat's).
+  const feats = items.filter((i) => ["feat", "talent", "feature"].includes(i.type)).map((i) => ({ ...i, rules: rulesFor(identify(i)) }));
   const armorProficiencies = new Set(feats.map((f) => f.rules.armorProficiency).filter(Boolean));
 
   // Bonuses from active effects: those Foundry applied before this runs (conditions, effects made on the

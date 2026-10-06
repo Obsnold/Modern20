@@ -64,6 +64,9 @@ export const FEATURE_ALIASES = {
   },
 };
 
+/** Class feature sections that are not features a character is given: bonus feats and talents are picked. */
+const NOT_FEATURES = new Set(["Bonus Feats", "Talents"]);
+
 /** Feats a class lists that the SRD never prints, so the feats pack cannot have them. */
 export const NOT_IN_SRD = new Set(["Improved Sunder", "Armor Proficiency (archaic)"]);
 
@@ -498,6 +501,24 @@ export function buildClassesAndTalents() {
     }
   }
 
+  // Class features: an item each, for a character to be given as the class reaches its level. Bonus feats and
+  // talents are not features of their own: a character picks those from the class's lists and trees.
+  const featureDocs = [], featureFolders = {};
+  for (const c of entries) {
+    for (const f of c.system.features) {
+      if (NOT_FEATURES.has(f.name)) { f.uuid = ""; continue; }
+      const id = stableId(`feature:${c.path}:${f.name}`);
+      f.uuid = `Compendium.modern20.features.Item.${id}`;
+      const folder = (featureFolders[c.name] ??= stableId(`feature-folder:${c.name}`));
+      featureDocs.push({
+        _id: id, _key: `!items!${id}`, name: f.name, type: "feature", img: ICONS.class, folder, sort: 0,
+        system: { className: c.name, levels: f.levels, description: f.description, source: { book: BOOKS[c.book] ?? c.book, page: pageUuid(c.path) } },
+        effects: [], ownership: { default: 0 }, flags: { modern20: { srd: c.path } },
+      });
+    }
+  }
+  for (const [name, id] of Object.entries(featureFolders)) featureDocs.push({ _id: id, _key: `!folders!${id}`, name, type: "Item", folder: null, sorting: "a", color: null, flags: {} });
+
   // Classes.
   const classDocs = [], classFolders = {};
   const allTalents = [...talentUuid.keys()];
@@ -521,9 +542,10 @@ export function buildClassesAndTalents() {
   }
   for (const f of Object.values(classFolders)) classDocs.push({ _id: f.id, _key: `!folders!${f.id}`, name: f.name, type: "Item", folder: null, sorting: "a", color: null, flags: {} });
 
-  return { classes: { documents: classDocs, problems }, talents: { documents: talentDocs, problems: [] } };
+  return { classes: { documents: classDocs, problems }, talents: { documents: talentDocs, problems: [] }, features: { documents: featureDocs, problems: [] } };
 }
 
 const both = once(buildClassesAndTalents);
 export const buildClasses = () => both().classes;
 export const buildTalents = () => both().talents;
+export const buildFeatures = () => both().features;

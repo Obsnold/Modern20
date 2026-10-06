@@ -8,6 +8,7 @@
  */
 import { SYSTEM_ID } from "./config.mjs";
 import { changesOf } from "./rules/effects.mjs";
+import { syncFeatures } from "./features.mjs";
 
 const NO_LOG = "modern20NoLog";
 
@@ -57,6 +58,8 @@ export async function syncWorldItems() {
     const source = await sourceOf(item);
     if (source && (await refresh(item, source))) changed++;
   }
+  // Characters made before class features were items, or whose features changed, are given them.
+  for (const actor of game.actors.filter((a) => a.type === "character")) await syncFeatures(actor);
   await game.settings.set(SYSTEM_ID, "syncedVersion", version);
   if (changed) ui.notifications.info(`Modern20 ${version}: updated ${changed} item${changed === 1 ? "" : "s"} from the compendiums.`);
 }

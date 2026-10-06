@@ -90,7 +90,7 @@ export const CHECKS = {
   async "the compendiums load, and every document in them is valid"() {
     const errors = [];
     const packs = game.packs.filter((p) => p.metadata.packageName === "modern20");
-    if (packs.length !== 13) errors.push(`${packs.length} compendiums, not 13`);
+    if (packs.length !== 14) errors.push(`${packs.length} compendiums, not 14`);
     for (const pack of packs) {
       const docs = await pack.getDocuments();
       if (!docs.length) errors.push(`${pack.collection} is empty`);
@@ -675,6 +675,49 @@ export const CHECKS = {
       await wait(() => actor.system.hp.max > max, "the maximum to rise");
       await new Promise((r) => setTimeout(r, 500));
       if (actor.system.hp.value !== 5) errors.push(`a hurt character's hit points moved with the maximum: ${actor.system.hp.value}, expected 5`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
+
+  async "class features come and go with class levels, and Weapon Specialization adds to damage"() {
+    const errors = [];
+    const { take, wait, doc, click } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 12 }]));
+    const actor = await Actor.implementation.create({ name: "Soldier (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("classes", "Strong Hero", { level: 3 }), await take("classes", "Soldier", { level: 1 }),
+      await take("feats", "Simple Weapons Proficiency"), await take("equipment", "Club"),
+    ]);
+    const soldier = actor.items.find((i) => i.name === "Soldier");
+    const names = () => actor.items.filter((i) => i.type === "feature").map((i) => i.name).sort().join(", ");
+    try {
+      await wait(() => names() === "Weapon Focus", `Weapon Focus at Soldier 1 (have: ${names()})`);
+      await soldier.update({ "system.level": 2 });
+      await wait(() => names() === "Weapon Focus, Weapon Specialization", `Weapon Specialization at Soldier 2 (have: ${names()})`);
+      // Weapon Specialization for the club: +2 on its damage.
+      const special = actor.items.find((i) => i.name === "Weapon Specialization");
+      await special.update({ "system.choice": "club" });
+      const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+      await characterRolls(actor).damage(actor.items.find((i) => i.name === "Club"));
+      if (!/Weapon Specialization/.test(game.messages.contents.at(-1).flavor)) errors.push("the club's damage card has no Weapon Specialization");
+      await soldier.update({ "system.level": 1 });
+      await wait(() => names() === "Weapon Focus", `Weapon Specialization taken away at Soldier 1 again (have: ${names()})`);
+      await soldier.delete();
+      await wait(() => names() === "", `the Soldier's features gone with the class (have: ${names()})`);
+      // A character built from a printed hero is given its classes' features.
+      const c = await doc("creatures", "Dr. Astrid Kolgrim");
+      await c.sheet.render({ force: true });
+      await wait(() => c.sheet.element?.querySelector("[data-action=buildCharacter]"), "the Build button");
+      const before = new Set(game.actors.map((a) => a.id));
+      click(c.sheet.element, "[data-action=buildCharacter]");
+      const built = await wait(() => game.actors.find((a) => !before.has(a.id) && a.type === "character"), "Dr. Kolgrim to be built", 30000);
+      await c.sheet.close();
+      await wait(() => built.items.some((i) => i.type === "feature" && i.system.className === "Field Scientist"), "her Field Scientist features", 20000);
+      await built.sheet.close();
+      await built.delete();
     } catch (e) {
       errors.push(e.message);
     }

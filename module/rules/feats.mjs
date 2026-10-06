@@ -8,6 +8,7 @@
  *   skillBonus         a bonus to the skills chosen: a number, or { classLevel } for a class's level
  *   classSkills        skills it makes class skills
  *   weaponFocus        a bonus to attacks with the weapon chosen
+ *   weaponSpecialization  a bonus to damage with the weapon chosen (a class feature)
  *   finesse            Dexterity for attacks with the melee weapon chosen
  *   pointBlank         +1 to ranged attacks and damage within 30 feet (asked when attacking)
  *   proficiency        weapons it makes a character proficient with: "chosen" for the
@@ -36,7 +37,10 @@ export const FEAT_RULES = {
   "educated": { choice: "two Knowledge skills", skillBonus: 2 },
   "skill-emphasis": { choice: "skill", skillBonus: 3 },   // a Dedicated hero talent
 
-  "weapon-focus": { choice: "weapon", weaponFocus: 1 },
+  "weapon-focus": { choice: "weapon", weaponFocus: 1 },   // a feat, and a Soldier's 1st-level feature
+  // Class features: +2 damage with a chosen weapon, and the Greater form's +2 more with the same one.
+  "weapon-specialization": { choice: "weapon", weaponSpecialization: 2 },
+  "greater-weapon-specialization": { choice: "weapon", weaponSpecialization: 2 },
   "weapon-finesse": { choice: "weapon", finesse: true },
   "point-blank-shot": { pointBlank: 1 },
   "double-tap": { fireMode: "doubleTap" },

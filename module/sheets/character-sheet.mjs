@@ -43,7 +43,7 @@ const signed = (n) => (n === null || n === undefined ? "—" : n >= 0 ? `+${n}` 
 
 /** The lists on the Feats and Gear tabs: which item types go in each, in order. */
 const LISTS = {
-  feats: [["talent", "Talents"], ["feat", "Feats"], ["occupation", "Occupation"], ["species", "Species"], ["template", "Templates"]],
+  feats: [["feature", "Class Features"], ["talent", "Talents"], ["feat", "Feats"], ["occupation", "Occupation"], ["species", "Species"], ["template", "Templates"]],
   gear: [["weapon", "Weapons"], ["armor", "Armor"], ["equipment", "Equipment"], ["ammunition", "Ammunition"]],
 };
 
@@ -725,7 +725,7 @@ function grantsContext(actor) {
 
 /** An unarmed strike's damage, as the tooltip gives it: "1d3 nonlethal", "1d4 lethal or nonlethal, 19–20". */
 function unarmedSummary(items) {
-  const u = unarmedRules(items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => rulesFor(identify(i))));
+  const u = unarmedRules(items.filter((i) => ["feat", "talent", "feature"].includes(i.type)).map((i) => rulesFor(identify(i))));
   const crit = [u.threat < 20 && `${u.threat}–20`, u.multiplier > 2 && `×${u.multiplier}`].filter(Boolean).join("/");
   return `${u.nonlethalDie} + Str nonlethal${u.lethalAllowed ? `, or ${u.lethalDie} lethal` : ", lethal at −4"}${u.attack ? `; +${u.attack} to attack` : ""}${crit ? `; critical ${crit}` : ""}`;
 }
@@ -862,6 +862,7 @@ function detail(item) {
     case "feat": return s.prerequisites;
     case "spell": case "power": return (s.levels ?? []).map((l) => `${l.class} ${l.level}`).join(", ");
     case "species": return `${s.size}, speed ${s.speed} ft.`;
+    case "feature": return `${s.className}${s.levels?.length ? `, level ${s.levels.join(", ")}` : ""}${s.rank > 1 ? ` (×${s.rank})` : ""}`;
     case "template": return [s.kind, s.type && `becomes ${s.type}`].filter(Boolean).join(", ");
     default: return s.weight?.value ? `${s.weight.value}` : "";
   }

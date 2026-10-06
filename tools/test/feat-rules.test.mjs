@@ -6,7 +6,7 @@ import { PACKS } from "../build/packs.mjs";
 import { SKILLS, skillKey } from "../../module/data/skills.mjs";
 
 const items = Object.entries(PACKS).filter(([p]) => p !== "rules" && p !== "creatures").flatMap(([, b]) => b().documents).filter((d) => d.system && d._key.startsWith("!items!"));
-const featsAndTalents = items.filter((d) => d.type === "feat" || d.type === "talent");
+const featsAndTalents = items.filter((d) => ["feat", "talent", "feature"].includes(d.type));
 
 test("identifiers are slugs of the printed name, without a split duplicate's book", () => {
   assert.equal(slug("Armor Proficiency (light)"), "armor-proficiency-light");
@@ -23,7 +23,7 @@ test("every item in the packs carries its identifier, and both copies of a split
   assert.ok(wild.every((d) => d.system.identifier === "wild-talent"));
 });
 
-test("every feat or talent the registry gives rules is one the packs have", () => {
+test("every feat, talent or class feature the registry gives rules is one the packs have", () => {
   const ids = new Set(featsAndTalents.map((d) => d.system.identifier));
   for (const id of Object.keys(FEAT_RULES)) assert.ok(ids.has(id), id);
 });

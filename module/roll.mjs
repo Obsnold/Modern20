@@ -142,7 +142,7 @@ function judgeAgainstTarget(roll, { touch = false } = {}) {
 /** Every roll a character's sheet offers, by name. Pass the click event so shift works. */
 export function characterRolls(actor) {
   const d = actor.system.derived;
-  const feats = actor.items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ name: i.name, identifier: identify(i), choice: i.system.choice ?? "" }));
+  const feats = actor.items.filter((i) => ["feat", "talent", "feature"].includes(i.type)).map((i) => ({ name: i.name, identifier: identify(i), choice: i.system.choice ?? "" }));
   const notes = (targets) => R.notesFor(notesOf(actor), targets, resolverFor(actor));
   return {
     ability: (key, event) => rollD20(actor, R.abilityCheck(d, key), event, undefined, { notes: notes(R.rollTargets.ability(key)) }),
@@ -191,7 +191,7 @@ export function characterRolls(actor) {
       // The unarmed strike is not an item: rebuilt from the feats, as it was attacked with.
       const u = item === "unarmed" ? unarmedRules(feats.map((f) => rulesFor(f.identifier))) : null;
       if (u) item = unarmedWeapon(u, { lethal });
-      const spec = R.damage(d, item, { pointBlank, mode });
+      const spec = R.damage(d, item, { pointBlank, mode, feats });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
       const nonlethal = /nonlethal/i.test(item.system.damageType ?? "");
       if (mode === "autofire") spec.title += ` — everyone in the square: Reflex DC ${AUTOFIRE_REFLEX_DC} or take it`;
@@ -206,7 +206,7 @@ export function characterRolls(actor) {
 
 /** Every note the actor's feats, talents and species carry (tools/build/mechanics.mjs), each with its source. */
 export function notesOf(actor) {
-  return actor.items.filter((i) => ["feat", "talent", "species"].includes(i.type))
+  return actor.items.filter((i) => ["feat", "talent", "species", "feature"].includes(i.type))
     .flatMap((i) => (i.system.rollNotes ?? []).map((n) => ({ ...n, source: i.name })));
 }
 

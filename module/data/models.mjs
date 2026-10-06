@@ -92,7 +92,8 @@ const ITEM_FIELDS = {
     })),
     maxLevel: int(),
     bonusFeats: list(link),
-    features: list(obj({ name: str(), levels: list(int()), description: html() })),
+    /** Its features: each with the class levels it comes at, and (`uuid`) its item in the class features pack. */
+    features: list(obj({ name: str(), levels: list(int()), description: html(), uuid: str() })),
     talentTrees: list(obj({ name: str(), description: html(), talents: list(namedLink) })),
     /** A caster's spells or powers, as its class page prints them (tools/build/classes.mjs readCasting); `kind` "" if it does not cast. */
     casting: obj({
@@ -126,6 +127,19 @@ const ITEM_FIELDS = {
     className: str(),
     tree: str(),
     prerequisites: obj({ value: str(), talents: list(namedLink) }),
+    description: html(),
+    rollNotes,
+    source,
+  },
+
+  feature: {
+    /** The class it is a feature of, and the levels of that class it comes at. */
+    className: str(),
+    levels: list(int()),
+    /** On a character's copy: how many of those levels its class has reached (Ability Surge at 2nd, 5th and 8th). */
+    rank: int(),
+    /** What was chosen with it: Weapon Specialization's weapon. */
+    choice: str(),
     description: html(),
     rollNotes,
     source,

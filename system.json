@@ -49,6 +49,11 @@
           "description"
         ]
       },
+      "feature": {
+        "htmlFields": [
+          "description"
+        ]
+      },
       "feat": {
         "htmlFields": [
           "description",
@@ -141,6 +146,17 @@
       "name": "talents",
       "label": "Talents",
       "path": "packs/talents",
+      "type": "Item",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "features",
+      "label": "Class Features",
+      "path": "packs/features",
       "type": "Item",
       "system": "modern20",
       "ownership": {
@@ -273,6 +289,7 @@
           "packs": [
             "classes",
             "talents",
+            "features",
             "feats",
             "occupations",
             "species"

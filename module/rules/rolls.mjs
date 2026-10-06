@@ -117,7 +117,8 @@ export function attack(d, weapon, feats, options = {}) {
 }
 
 /**
- * A weapon's damage: its dice, plus Str for a melee weapon. Null when the
+ * A weapon's damage: its dice, plus Str for a melee weapon, and Weapon Specialization's bonus
+ * with the weapon chosen (`options.feats`, the character's feats and features). Null when the
  * weapon's damage is not dice (special, see text).
  */
 export function damage(d, weapon, options = {}) {
@@ -126,7 +127,10 @@ export function damage(d, weapon, options = {}) {
   if (!dice) return null;
   const str = s.melee ? d.modifiers.str ?? 0 : 0;
   const fx = d.damageBonus?.[s.melee ? "melee" : "ranged"] ?? 0;
-  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ["Effects", fx]].filter(([, v]) => v);
+  // Weapon Specialization (a class feature) with the weapon chosen, and its Greater form: +2 each.
+  const owned = (options.feats ?? []).map((f) => ({ ...f, rules: rulesFor(f.identifier || slug(f.name)) }));
+  const special = owned.filter((f) => f.rules.weaponSpecialization && chooses(f.choice, weapon.name)).reduce((n, f) => n + f.rules.weaponSpecialization, 0);
+  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ["Weapon Specialization", special], ["Effects", fx]].filter(([, v]) => v);
   const terms = [{ label: MODES[options.mode]?.dice ? `Weapon (${MODES[options.mode].label}, +${MODES[options.mode].dice} di${MODES[options.mode].dice === 1 ? "e" : "ce"})` : "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
   const formula = [dice, ...extra.map(([, v]) => (v < 0 ? `- ${-v}` : `+ ${v}`))].join(" ");
   return { title: `${weapon.name}: damage (${s.damageType || "untyped"})`, terms, formula, critical: critical(s.critical) };

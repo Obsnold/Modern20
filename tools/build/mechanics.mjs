@@ -125,6 +125,13 @@ export const NOTES = {
   "talent:improved-extreme-effort": [note(["ability.str", "skill.str"], "Improved Extreme Effort: stacks with Extreme Effort", 2)],
   "talent:advanced-extreme-effort": [note(["ability.str", "skill.str"], "Advanced Extreme Effort: stacks with the others", 2)],
 
+  // Class features.
+  "feature:combat-casting": [note(["skill.concentration"], "Combat Casting: Concentration to cast on the defensive", 4)],
+  "feature:combat-manifestation": [note(["skill.concentration"], "Combat Manifestation: Concentration to manifest on the defensive", 4)],
+  "feature:urban-survival": [note(["skill.survival"], "Urban Survival: in urban areas", 4)],
+  "feature:resist-venom": [note(["save"], "Resist Venom: against natural poisons", 4)],
+  "feature:machine-empathy": [note(["skill"], "Machine Empathy: with an electronic or mechanical device", 2)],
+
   // Species.
   "species:dragonblooded-human": [note(["save"], "Dragonblooded: +4 against sleep and paralysis", 4)],
   "species:drow-dark-elf": [
@@ -152,4 +159,13 @@ export const NOTES = {
     note(["save"], "Halfling: +2 morale against fear", 2),
   ],
   "species:orc": [note(["attack"], "Orc light sensitivity: −1 in bright sunlight", -1)],
+};
+
+/**
+ * Effects a character switches on when they apply (on the Effects tab), built switched off:
+ * `{ name, changes }`, as EFFECTS. The Thrasher's Ability Surge: +4 Strength and Dexterity, −2 on
+ * every save, while it lasts.
+ */
+export const TOGGLES = {
+  "feature:ability-surge": { name: "Ability Surge (switch on while surging)", changes: [["abilities.str", 4], ["abilities.dex", 4], ["saves.fort", -2], ["saves.ref", -2], ["saves.will", -2]] },
 };
