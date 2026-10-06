@@ -28,6 +28,7 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
 import { CHECKS, PRELUDE } from "./checks.mjs";
 import { SETUP, SHOW } from "./screenshots.mjs";
+import * as PLAYERS from "./players.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, "../..");
@@ -146,6 +147,39 @@ async function main() {
         for (const e of [...errors, ...logged]) console.log(`    ${e}`);
       } else console.log(`✔ ${name} [${elapsed()}]`);
     }
+    // A second player in a browser of their own (players.mjs), unless the checks run are chosen otherwise.
+    const playerCheck = "a player in their own browser: their character works, the GM's and others' do not, and the logs record them once";
+    if (!only || playerCheck.toLowerCase().includes(only)) {
+      ran++;
+      const before = problems.length;
+      let errors = [];
+      try {
+        const ids = await page.evaluate(`(${PLAYERS.SETUP.toString()})()`);
+        const player = await browser.newPage({ viewport: { width: 1600, height: 1000 } });
+        // The refusal the check provokes (damage to a creature the player does not own) is expected.
+        const expected = /can change its hit points/;
+        player.on("console", (m) => {
+          if (["error", "warning"].includes(m.type()) && !HARMLESS.some((r) => r.test(m.text())) && !expected.test(m.text())) problems.push(`player's ${m.type()}: ${m.text()}`);
+        });
+        player.on("pageerror", (e) => problems.push(`player's uncaught: ${e.message}`));
+        await player.goto(`${URL}/join`, { waitUntil: "networkidle" });
+        await player.fill("input[name=username]", "Player");
+        await player.click("button[name=join]");
+        await player.waitForFunction(() => window.game?.ready === true, null, { timeout: 90000 });
+        errors.push(...await player.evaluate(`(${PLAYERS.AS_PLAYER.toString()})(${JSON.stringify(ids)})`));
+        errors.push(...await page.evaluate(`(${PLAYERS.AFTER.toString()})(${JSON.stringify(ids)})`));
+        await player.close();
+      } catch (e) {
+        errors.push(`threw: ${e.message.split("\n")[0]}`);
+      }
+      const logged = problems.slice(before);
+      if (errors.length || logged.length) {
+        failed++;
+        console.log(`✖ ${playerCheck}`);
+        for (const e of [...errors, ...logged]) console.log(`    ${e}`);
+      } else console.log(`✔ ${playerCheck} [${elapsed()}]`);
+    }
+
     // Pictures of the sheets, for a person to look over (screenshots.mjs).
     if (process.env.FOUNDRY_SCREENSHOTS === "1" || (process.env.FOUNDRY_SCREENSHOTS !== "0" && !only)) {
       const dir = path.join(DATA, "screenshots");
