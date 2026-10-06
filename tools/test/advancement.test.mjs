@@ -115,3 +115,22 @@ test("skill points as ranks are bought: the cost by the class the level is in", 
   // A skill a feat or the occupation makes a class skill costs 1 whatever the class.
   assert.equal(rankCost({ alwaysClass: true, classFor: [] }, "Telepath"), 1);
 });
+
+test("the 1st level's class: the one chosen, or else a basic class, for its hit points, ×4 skill points and starting feats", async () => {
+  const { inOrder } = await import("../../module/rules/advancement.mjs");
+  const fast = { type: "class", name: "Fast Hero", system: { ...classes["Fast Hero"].system, level: 4 } };
+  const gun = { type: "class", name: "Gunslinger", system: { ...classes.Gunslinger.system, level: 2 } };
+  const tough = { type: "class", name: "Tough Hero", system: { ...classes["Tough Hero"].system, level: 1 } };
+  assert.deepEqual(inOrder([gun, fast]).map((c) => c.name), ["Fast Hero", "Gunslinger"]);   // an advanced class cannot be first
+  assert.deepEqual(inOrder([fast, tough], "Tough Hero").map((c) => c.name), ["Tough Hero", "Fast Hero"]);
+  const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+  // The same classes in either order: the same character, its 1st level a Fast hero's d8 at its maximum.
+  const a = deriveCharacter({ abilities }, [gun, fast]), b = deriveCharacter({ abilities }, [fast, gun]);
+  assert.equal(a.hitPoints.max, b.hitPoints.max);
+  assert.equal(a.startingClass, "Fast Hero");
+  // Starting as a Tough hero instead: its d10 at the maximum, and its skill points ×4.
+  const t = deriveCharacter({ abilities, startingClass: "Tough Hero" }, [fast, tough]);
+  const f = deriveCharacter({ abilities, startingClass: "Fast Hero" }, [fast, tough]);
+  assert.equal(t.hitPoints.max - f.hitPoints.max, 10 - 8 - (Math.ceil(11 / 2) - Math.ceil(9 / 2)));
+  assert.notEqual(t.advancement.skillPoints.allowed, f.advancement.skillPoints.allowed);
+});

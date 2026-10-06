@@ -273,6 +273,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       // One Profession check to regain Wealth for each level gained since it was last made.
       wealthDue: (d.level ?? 0) > Math.max(1, system.wealth.regainedLevel || 1) ? (system.wealth.regainedLevel || 1) + 1 : null,
       languages: languagesContext(actor),
+      // Which class the 1st level was in, when there is more than one to choose from.
+      startingClass: ofType("class").length > 1 ? ofType("class").map((c) => ({ name: c.name, selected: c.name === d.startingClass })) : null,
       levelling: {
         current: levellingClass(actor),
         classes: ofType("class").map((c) => ({ name: c.name, selected: c.name === levellingClass(actor) })),
@@ -434,7 +436,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
   /** Take or give back a feat an occupation, species or first class offers. */
   static async #onToggleGrant(event, target) {
     const actor = this.document;
-    const grant = featGrants(actor.items.contents).find((g) => g.source === target.dataset.source);
+    const grant = featGrants(actor.items.contents, actor.system.startingClass).find((g) => g.source === target.dataset.source);
     const option = grant?.options[Number(target.dataset.index)];
     if (!option) return;
     const owned = ownedFeat(actor, option, grant.source);
@@ -710,7 +712,7 @@ function ownedFeat(actor, option, source) {
 
 /** The Feats tab's picker: each occupation, species or starting-feats grant, its options ticked where taken. */
 function grantsContext(actor) {
-  return featGrants(actor.items.contents).map((g) => {
+  return featGrants(actor.items.contents, actor.system.startingClass).map((g) => {
     const options = g.options.map((o, index) => ({ index, label: o.specialty ? `${o.name} (${o.specialty})` : o.name, checked: !!ownedFeat(actor, o, g.source) }));
     const taken = options.filter((o) => o.checked).length;
     const all = g.choose >= g.options.length;

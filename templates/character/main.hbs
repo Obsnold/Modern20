@@ -63,6 +63,13 @@
 
   <div class="m20-panel">
     <h3>Classes{{#if creatureType}} <span class="m20-hint">({{creatureType}})</span>{{/if}}</h3>
+    {{#if startingClass}}
+      <p class="m20-levelling">First level as
+        <select name="system.startingClass" data-tooltip="The class of your 1st level: its maximum hit points, ×4 skill points and starting feats">
+          {{#each startingClass}}<option value="{{name}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}
+        </select>
+      </p>
+    {{/if}}
     {{#each creatureTypes}}
       <div class="m20-class" data-item-id="{{id}}">
         <img src="{{img}}" alt="" width="32" height="32">

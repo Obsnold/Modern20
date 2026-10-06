@@ -21,6 +21,16 @@
 
 export const actionPointsFor = (level) => 5 + Math.floor(level / 2);
 
+/**
+ * A character's classes, the one its 1st level was in first: the one named (`system.startingClass`),
+ * or else a basic class, as a 1st level must be (an advanced class has requirements), or else the
+ * first. The 1st level's class gives the maximum hit points, ×4 skill points and its starting feats.
+ */
+export function inOrder(classes, starting = "") {
+  const first = classes.find((c) => c.name === starting) ?? classes.find((c) => c.system.classType === "basic") ?? classes[0];
+  return first ? [first, ...classes.filter((c) => c !== first)] : [];
+}
+
 /** The action points not yet given: one grant for each level above `granted`, up to `level`. */
 export function actionPointsDue(level, granted = 0) {
   const levels = [];
@@ -118,10 +128,10 @@ export function advancement({ level, heroicLevel, classes, intMod, nonhuman, ski
  * occupation or species may offer a choice of one (Criminal: Brawl or Personal Firearms
  * Proficiency), or give its only option.
  */
-export function featGrants(items) {
+export function featGrants(items, startingClass = "") {
   const occupation = items.find((i) => i.type === "occupation");
   const species = items.find((i) => i.type === "species");
-  const firstClass = items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0)[0];
+  const firstClass = inOrder(items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0), startingClass)[0];
   const out = [];
   const add = (item, kind, label, choice) => {
     const options = (choice?.options ?? []).filter((o) => o.name);

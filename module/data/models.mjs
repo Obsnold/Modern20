@@ -353,6 +353,8 @@ export const ACTOR_MODELS = {
      * its class skills, 2 in any other. Empty for the last class on the sheet.
      */
     levellingAs: str(),
+    /** The class the 1st level was in (its name), for its maximum hit points, ×4 skill points and starting feats; empty for a basic class. */
+    startingClass: str(),
     /**
      * Bonuses from active effects, on the character or carried by its items
      * (a feat, a piece of gear, a condition). Never typed in: an effect adds to

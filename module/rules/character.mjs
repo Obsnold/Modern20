@@ -14,7 +14,7 @@ import { ABILITIES, abilityModifier } from "../data/models.mjs";
 import { SKILLS, skillKey } from "../data/skills.mjs";
 import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
-import { advancement, featGrants } from "./advancement.mjs";
+import { advancement, featGrants, inOrder } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
 import { withSystemBonuses, mechanicsContext } from "./effects.mjs";
 import { characterDefenses } from "./resistance.mjs";
@@ -53,7 +53,8 @@ export function classRow(cls, level) {
  * `{ type, name, system }`, a class item carrying `system.level`.
  */
 export function deriveCharacter(system, items) {
-  const classes = items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0);
+  // The class its 1st level was in first (rules/advancement.mjs inOrder).
+  const classes = inOrder(items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0), system.startingClass);
   const species = items.find((i) => i.type === "species");
   const occupation = items.find((i) => i.type === "occupation");
   const armor = items.filter((i) => i.type === "armor" && i.system.equipped);
@@ -223,6 +224,7 @@ export function deriveCharacter(system, items) {
     replacedHitDice: replaced,
     hitPoints: { max: hp + bonus.hp, estimated },
     classes: breakdown,
+    startingClass: classes[0]?.name ?? "",
     scores,
     modifiers,
     size,
@@ -250,7 +252,7 @@ export function deriveCharacter(system, items) {
       nonhuman: !!species && !/human$/i.test(species.name ?? ""), skills,
       counts: { feats: items.filter((i) => i.type === "feat").length, talents: items.filter((i) => i.type === "talent").length },
       granted: system.actionPoints?.granted ?? 0, increases: system.abilityIncreases ?? [],
-      grants: featGrants(items),
+      grants: featGrants(items, system.startingClass),
     }),
   };
 }
