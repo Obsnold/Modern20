@@ -72,15 +72,16 @@ export async function post(actor, spec, { flags = {}, judge } = {}) {
   const Roll = foundry.dice?.Roll ?? globalThis.Roll;
   const roll = await new Roll(spec.formula).evaluate();
   const lines = spec.terms.map((t) => `<li>${escape(t.label)} <strong>${escape(signed(t.value))}</strong></li>`).join("");
+  const judged = judge?.(roll) ?? {};
   let note = "", threat = false;
   if (spec.critical && spec.formula.startsWith("1d20")) {
-    threat = (roll.dice[0]?.total ?? 0) >= spec.critical.threat;
+    // A threat is a hit in the weapon's range: a roll judged a miss is not one.
+    threat = (roll.dice[0]?.total ?? 0) >= spec.critical.threat && !(judged.hit && !judged.hit.hit);
     if (threat) note = `<p class="m20-crit">Critical threat (×${spec.critical.multiplier}).</p>`;
   } else if (spec.critical) {
     note = `<p class="m20-hint">On a confirmed critical: ×${spec.critical.multiplier}.</p>`;
   }
   const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}</div>`;
-  const judged = judge?.(roll) ?? {};
   await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor, flags: { [SYSTEM_ID]: { ...flags, ...judged, threat, critical: spec.critical ?? flags.critical, formula: spec.formula } } });
   await recordRoll(actor, spec.title, roll.total);
   return roll;
@@ -96,13 +97,11 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild, befor
   if (!added) return null;
   // What was chosen: a tick box's yes or no, a choice's value (or, not asked, its first).
   const ticked = Object.fromEntries(options.map((o) => [o.name, o.choices ? added[o.name] ?? o.choices[0][0] : !!added[o.name]]));
+  // An action point is checked first, so a roll it stops has not spent anything else.
+  if (added.actionPoint && actor.system.actionPoints.value < 1) { ui.notifications.warn(`${actor.name} has no action points left.`); return null; }
   // Anything the roll costs besides an action point (a weapon's rounds); it can stop the roll.
   if (before && (await before(ticked)) === false) return null;
-  if (added.actionPoint) {
-    const left = actor.system.actionPoints.value;
-    if (left < 1) { ui.notifications.warn(`${actor.name} has no action points left.`); return null; }
-    await actor.update({ "system.actionPoints.value": left - 1 });
-  }
+  if (added.actionPoint) await actor.update({ "system.actionPoints.value": actor.system.actionPoints.value - 1 });
   // A critical is confirmed with the attack's own modifiers, the situational one included, but not an
   // action point's die: a point spent on a roll applies to that roll alone.
   if (rebuild) spec = rebuild(ticked);

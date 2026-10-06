@@ -70,6 +70,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       filterLog: Modern20CharacterSheet.#onFilterLog,
       toggleCondition: Modern20CharacterSheet.#onToggleCondition,
       grantActionPoints: Modern20CharacterSheet.#onGrantActionPoints,
+      actionPointsDone: Modern20CharacterSheet.#onActionPointsDone,
+      wealthDone: Modern20CharacterSheet.#onWealthDone,
       rest: Modern20CharacterSheet.#onRest,
       buyItem: Modern20CharacterSheet.#onBuyItem,
       sellItem: Modern20CharacterSheet.#onSellItem,
@@ -482,6 +484,17 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const due = actor.system.derived?.advancement?.actionPoints;
     if (!due?.points) return;
     await actor.update({ "system.actionPoints.value": actor.system.actionPoints.value + due.points, "system.actionPoints.granted": due.levels.at(-1) });
+  }
+
+  /** Action points already given for the levels the character has (one made before they were tracked): none owed. */
+  static async #onActionPointsDone() {
+    const due = this.document.system.derived?.advancement?.actionPoints;
+    if (due?.levels.length) await this.document.update({ "system.actionPoints.granted": due.levels.at(-1) });
+  }
+
+  /** Wealth already regained for the levels the character has: no Profession checks owed. */
+  static async #onWealthDone() {
+    await this.document.update({ "system.wealth.regainedLevel": this.document.system.derived?.level ?? 1 });
   }
 
   /** Natural healing: a night's rest, or a day of complete bed rest. */

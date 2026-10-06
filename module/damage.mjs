@@ -15,6 +15,17 @@ const escape = (s) => foundry.utils.escapeHTML(String(s));
 /** The conditions hit points set (rules/damage.mjs hpConditions). */
 const HP_CONDITIONS = ["dead", "dying", "disabled", "stable", "unconscious"];
 
+/** What rules/damage.mjs needs to know about an actor. */
+function targetOf(actor) {
+  if (actor.type === "character") {
+    const d = actor.system.derived ?? {};
+    return { hp: { value: actor.system.hp.value, temp: actor.system.hp.temp, max: actor.system.hp.max }, threshold: d.massiveDamage, type: d.creatureType };
+  }
+  const s = actor.system;
+  // A stat block that prints no threshold has its Constitution score's (Modern/deathdyinghealing).
+  return { hp: { value: s.hp.value ?? s.hp.max ?? 0, temp: 0, max: s.hp.max ?? s.hp.value ?? 0 }, threshold: s.massiveDamage ?? s.abilities?.con ?? null, type: s.type?.base };
+}
+
 const destroyedAtZero = (actor) => ["construct", "undead"].includes(String(targetOf(actor).type ?? "").toLowerCase());
 
 /**

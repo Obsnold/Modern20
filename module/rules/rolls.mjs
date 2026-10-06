@@ -111,7 +111,8 @@ export function attack(d, weapon, feats, options = {}) {
   ], {
     critical: critical(s.critical),
     // Autofire is against a 10-foot square, Defense 10, not a target's Defense.
-    ...(options.mode === "autofire" ? { againstDefense: AUTOFIRE_DEFENSE, title: `${weapon.name}: autofire` } : {}),
+    // and an area attack scores no critical.
+    ...(options.mode === "autofire" ? { againstDefense: AUTOFIRE_DEFENSE, title: `${weapon.name}: autofire`, critical: null } : {}),
   });
 }
 

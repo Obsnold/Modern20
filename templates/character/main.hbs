@@ -49,7 +49,8 @@
         <dt>Defense (misc)</dt><dd><input type="number" name="system.defense.misc" value="{{system.defense.misc}}"></dd>
         <dt><a data-action="wealthCheck" data-tooltip="Buy something: a Wealth check against its purchase DC">Wealth</a></dt><dd class="m20-wealth"><input type="number" name="system.wealth.value" value="{{system.wealth.value}}" data-tooltip="{{wealthCondition}}">
           <a data-action="startingWealth" data-tooltip="Roll starting Wealth: 2d4 + occupation + Windfall + 1 for Profession ranks"><i class="fa-solid fa-dice"></i></a>
-          {{#if wealthDue}}<a class="m20-roll-button" data-action="regainWealth" data-tooltip="A Profession check (Wisdom without ranks) against your Wealth bonus: +1, and +1 per 5 over">Wealth for level {{wealthDue}}</a>{{/if}}
+          {{#if wealthDue}}<a class="m20-roll-button" data-action="regainWealth" data-tooltip="A Profession check (Wisdom without ranks) against your Wealth bonus: +1, and +1 per 5 over">Wealth for level {{wealthDue}}</a>
+            <a data-action="wealthDone" data-tooltip="Already done for every level you have: a character made before this was tracked"><i class="fa-solid fa-check"></i></a>{{/if}}
         </dd>
       </dl>
       <h3>Saves</h3>

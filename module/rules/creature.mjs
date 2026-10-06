@@ -78,6 +78,11 @@ export function creatureParts(creature, { base = null, classNames = [] } = {}) {
   const s = creature.system;
   const own = s.example?.classed && base ? base.system : s;
   const natural = Number((s.defense?.breakdown ?? "").match(/([+-]\d+) natural/)?.[1] ?? 0);
+  const classes = s.example?.classed ? classLevels(creature.name, classNames) : {};
+  const heroic = Object.values(classes).reduce((n, l) => n + l, 0);
+  // Its character level: its own Hit Dice (which class levels replace at 1 or less) and its class levels.
+  const hd = hitDiceCount(own.hitDice) ?? 0;
+  const level = heroic + (heroic && hd <= 1 ? 0 : atLeastOne(hd));
   return {
     name: creature.name,
     img: creature.img,
@@ -87,10 +92,13 @@ export function creatureParts(creature, { base = null, classNames = [] } = {}) {
       baseSpeed: s.speed?.ft ?? null,
       abilities: Object.fromEntries(Object.entries(s.abilities ?? {}).map(([a, v]) => [a, { value: v }])),
       hp: { value: s.hp?.max ?? 0 },
-      actionPoints: { value: s.actionPoints ?? 0 },
+      // The printed creature is already at its level: its action points are as printed, not owed for its
+      // class levels, and its Wealth owes no check for a level it has. Levels gained later are.
+      actionPoints: { value: s.actionPoints ?? 0, granted: heroic },
+      wealth: { value: 0, regainedLevel: level },
     },
     type: own.type?.uuid ? { uuid: own.type.uuid, count: hitDiceCount(own.hitDice) ?? 1 } : null,
-    classes: s.example?.classed ? classLevels(creature.name, classNames) : {},
+    classes,
     items: [...(s.feats ?? []), ...(s.talents ?? [])].filter((f) => f.uuid).map((f) => ({ uuid: f.uuid, choice: f.specialty ?? "" })),
   };
 }

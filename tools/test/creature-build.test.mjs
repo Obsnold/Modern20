@@ -115,3 +115,11 @@ test("a character built from a printed creature: its parts, and the numbers they
   assert.equal(d.size, "medium");
   assert.deepEqual(classLevels("Tooth Fairy Fast Hero 3/Smart Hero 1", Object.keys(classes)), { "Fast Hero": 3, "Smart Hero": 1 });
 });
+
+test("a character built from a creature owes no action points or Wealth checks for levels it already has", () => {
+  const parts = creatureParts(named["Gargoyle Tough Hero 3"], { base: named.Gargoyle, classNames: Object.keys(classes) });
+  assert.equal(parts.system.actionPoints.granted, 3);
+  assert.equal(parts.system.wealth.regainedLevel, hitDiceCount(named.Gargoyle.system.hitDice) + 3);
+  const drow = creatureParts(named["Drow Fast Hero 2"], { base: named.Drow, classNames: Object.keys(classes) });
+  assert.equal(drow.system.wealth.regainedLevel, 2);   // its 1 Hit Die replaced by its class levels
+});
