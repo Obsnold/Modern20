@@ -11,6 +11,7 @@
 import { ITEM_MODELS, ACTOR_MODELS } from "../data/models.mjs";
 import { obj, initial } from "../data/schema.mjs";
 import { editForm, fromForm, specAt } from "./edit-form.mjs";
+import { SKILLS } from "../data/skills.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -89,6 +90,19 @@ export function sizeTable(sizes) {
   return `<table class="modern20-levels"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
 }
 
+const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
+const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
+
+/** A note's roll as words: "skill.bluff" → "Bluff checks", "save.fort" → "Fortitude saves". */
+function rollName(roll) {
+  const [kind, what] = roll.split(".");
+  if (kind === "skill") return what ? (ABILITY_NAMES[what] ? `${ABILITY_NAMES[what]}-based skill checks` : `${SKILLS[what]?.name ?? what} checks`) : "skill checks";
+  if (kind === "save") return what ? `${SAVE_NAMES[what] ?? what} saves` : "saves";
+  if (kind === "ability") return what ? `${ABILITY_NAMES[what] ?? what} checks` : "ability checks";
+  if (kind === "attack") return what ? `${what} attacks` : "attacks";
+  return { check: "all checks", grapple: "grapple checks", casterLevel: "caster level checks", defense: "Defense" }[kind] ?? roll;
+}
+
 const ordinal = (n) => `${n}${["th", "st", "nd", "rd"][(n % 100 - 20) % 10] ?? ["th", "st", "nd", "rd"][n % 100] ?? "th"}`;
 
 /** What the read-only template shows for any document: header, field table and rules text. */
@@ -107,7 +121,7 @@ export async function describe(doc) {
   for (const q of [...(system.specialQualities ?? []), ...(system.traits ?? [])]) if (q?.description) prose.push({ title: q.name, html: await enrich(q.description) });
   // Notes: what it gives in a situation, shown on the rolls it is for.
   if (system.notes?.length) {
-    prose.push({ title: "When Rolling", html: `<ul>${system.notes.map((n) => `<li>${escape(n.text)}${n.value ? ` <strong>(${escape(/^[-@]/.test(n.value) ? n.value : `+${n.value}`)})</strong>` : ""} <span class="modern20-meta">${escape(n.rolls.join(", "))}</span></li>`).join("")}</ul>` });
+    prose.push({ title: "When Rolling", html: `<ul>${system.notes.map((n) => `<li>${escape(n.text)}${n.value ? ` <strong>(${escape(/^[-@]/.test(n.value) ? n.value : `+${n.value}`)})</strong>` : ""} <span class="modern20-meta">on ${escape(n.rolls.map(rollName).join(", "))}</span></li>`).join("")}</ul>` });
   }
   // A creature type's ability scores, minimum Hit Dice and natural weapons by size.
   if (system.sizes?.length) prose.push({ title: "By Size", html: sizeTable(system.sizes) });
