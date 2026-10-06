@@ -8,6 +8,7 @@
  * the GM to everything else.
  */
 import * as D from "./rules/damage.mjs";
+import { readDefenses, damageParts, reduceDamage } from "./rules/resistance.mjs";
 import { characterRolls, creatureRolls } from "./roll.mjs";
 import { SYSTEM_ID } from "./config.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s));
@@ -56,14 +57,22 @@ export async function setHitPoints(actor, hp, { lost = false, stable: nowStable,
 export async function applyToActor(actor, amount, options = {}) {
   if (!actor.isOwner) return ui.notifications.warn(`Only the GM or ${actor.name}'s owner can change its hit points.`);
   const target = targetOf(actor);
+  // Damage reduction, resistance and immunity, part by part (rules/resistance.mjs).
+  let reduced = null;
+  if (!options.healing && options.parts?.length) {
+    const defenses = actor.type === "character" ? actor.system.derived?.defenses ?? { dr: [], resist: {}, immune: [] } : readDefenses(actor.system.specialQualities);
+    reduced = reduceDamage(options.parts, defenses, { ignoreDR: options.ignoreDR });
+    amount = reduced.total;
+  }
   const result = D.applyHit(target, amount, options);
   await setHitPoints(actor, result.hp, { lost: !options.healing && result.hp.value < target.hp.value });
   const label = result.state ? ` — ${CONFIG.statusEffects.find((e) => e.id === result.state)?.name ?? result.state}` : "";
+  const stopped = reduced?.stopped.length ? `<p class="m20-hint">Stopped: ${reduced.stopped.map((x) => `${x.amount} by ${escape(x.by)}`).join("; ")}.</p>` : "";
   const save = result.save
     ? `<p class="m20-crit">${result.save.kind === "massive" ? "Massive damage" : "Nonlethal damage at the threshold"}: Fortitude DC ${result.save.dc}.</p>` : "";
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
-    content: `<div class="m20-roll"><h3>${escape(actor.name)}: ${escape(result.text)}</h3><p>Hit points ${target.hp.value} → ${result.hp.value}${result.hp.temp !== target.hp.temp ? ` (temporary ${target.hp.temp} → ${result.hp.temp})` : ""}${escape(label)}</p>${save}</div>`,
+    content: `<div class="m20-roll"><h3>${escape(actor.name)}: ${escape(result.text)}</h3><p>Hit points ${target.hp.value} → ${result.hp.value}${result.hp.temp !== target.hp.temp ? ` (temporary ${target.hp.temp} → ${result.hp.temp})` : ""}${escape(label)}</p>${stopped}${save}</div>`,
     flags: { [SYSTEM_ID]: result.save ? { save: { actor: actor.uuid, ...result.save } } : {} },
   });
 }
@@ -87,18 +96,28 @@ export function bindDamageButtons(message, html, flags) {
   const roll = message.rolls?.[0];
   if (!roll) return;
   const nonlethal = !!flags.damage.nonlethal;
-  const apply = (factor, healing = false) => async () => {
+  // The roll's parts by the labels on its dice ("plus 1d6 fire"), the rest of the weapon's type.
+  const terms = roll.terms.map((t) => (t.operator ? { operator: t.operator } : { flavor: t.flavor, total: t.total }));
+  const parts = damageParts(terms, roll.total, flags.damage.type ?? "");
+  const apply = (factor, { healing = false, ignoreDR = false } = {}) => async () => {
     const tokens = chosenTokens();
     if (!tokens.length) return ui.notifications.warn("Target or select the tokens to apply it to.");
-    for (const t of tokens) if (t.actor) await applyToActor(t.actor, Math.floor(roll.total * factor), { nonlethal: nonlethal && !healing, healing });
+    const scaled = parts.map((p) => ({ ...p, amount: Math.floor(p.amount * factor) }));
+    for (const t of tokens) {
+      if (t.actor) await applyToActor(t.actor, Math.floor(roll.total * factor), { nonlethal: nonlethal && !healing, healing, parts: healing ? null : scaled, ignoreDR });
+    }
   };
   const buttons = document.createElement("div");
   buttons.className = "m20-card-buttons";
   buttons.append(
     button(nonlethal ? "Apply (nonlethal)" : "Apply", apply(1)),
     button("Half", apply(0.5)),
-    button("Heal", apply(1, true)),
+    button("Heal", apply(1, { healing: true })),
   );
+  // Damage reduction a magic or silver weapon overcomes ("10/+1", "5/silver"): the card cannot know the weapon is one.
+  const ignore = button("Ignore DR", apply(1, { ignoreDR: true }));
+  ignore.dataset.tooltip = "Apply without damage reduction: a weapon that overcomes it (magic, silver, ...)";
+  buttons.append(ignore);
   (html.querySelector(".message-content") ?? html).append(buttons);
 }
 

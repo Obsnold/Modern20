@@ -17,6 +17,7 @@ import { rulesFor } from "./feats.mjs";
 import { advancement, featGrants } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
 import { withSystemBonuses, mechanicsContext } from "./effects.mjs";
+import { characterDefenses } from "./resistance.mjs";
 
 /**
  * Speed in armor: the armor's printed speed for a base of 30 feet ("20"), or for 20 feet where
@@ -236,6 +237,8 @@ export function deriveCharacter(system, items) {
     grapple: bab + mod("str") + sizeMods.grapple + fxv("grapple"),
     speed,
     massiveDamage: scores.con === null ? null : scores.con + bonus.massiveDamage,
+    // Damage reduction and resistances, from talents and effects (rules/resistance.mjs).
+    defenses: characterDefenses(fx),
     bonusHitPoints: bonus.hp,
     skills,
     // Spellcasting and psionic classes: slots, spells known, caster levels, power points (rules/casting.mjs).

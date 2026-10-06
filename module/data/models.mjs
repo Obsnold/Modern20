@@ -370,6 +370,9 @@ export const ACTOR_MODELS = {
       hitPoints: int(),
       reputation: int(),
       massiveDamage: int(),
+      /** Damage reduction (x/—: nothing overcomes it), and resistance to each kind of energy (rules/resistance.mjs). */
+      damageReduction: int(),
+      energyResistance: obj({ acid: int(), cold: int(), electricity: int(), fire: int(), sonic: int() }),
       /** Above 0, the character loses its Dexterity bonus to Defense (flat-footed, stunned, pinned). */
       loseDexBonus: int(),
     }),

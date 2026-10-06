@@ -198,7 +198,8 @@ export function characterRolls(actor) {
       let rolled = multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec;
       // Streetfighting's extra die, once a round, is not multiplied on a critical.
       if (u?.streetfighting && streetfighting) rolled = { ...rolled, formula: `${rolled.formula} + ${u.streetfighting}`, terms: [...rolled.terms, { label: "Streetfighting", value: u.streetfighting }] };
-      return post(actor, rolled, { flags: { damage: { nonlethal } } });
+      // The weapon's damage type, for damage reduction and resistance when it is applied (an unarmed strike's is bludgeoning).
+      return post(actor, rolled, { flags: { damage: { nonlethal, type: u ? "bludgeoning" : item.system.damageType ?? "" } } });
     },
   };
 }
@@ -263,7 +264,8 @@ export function creatureRolls(actor) {
       if (!a) return null;
       const spec = damageRoll(a, multiplier);
       if (!spec) return ui.notifications.info(`${a.name}: its damage is not a roll (${a.note || "see the creature's description"}).`);
-      return post(actor, spec, { flags: { damage: { nonlethal: spec.nonlethal } } });
+      // A natural or weapon attack's damage: physical, any energy it adds labelled on its dice ("1d6[fire]").
+      return post(actor, spec, { flags: { damage: { nonlethal: spec.nonlethal, type: "" } } });
     },
   };
 }

@@ -32,6 +32,7 @@
       <h3>Combat</h3>
       <dl class="m20-stats">
         <dt>Defense</dt><dd class="m20-strong">{{combat.defense.value}}{{#if combat.defenseNotes}} <i class="fa-solid fa-circle-info m20-hint" data-tooltip="{{combat.defenseNotes}}"></i>{{/if}}</dd>
+        {{#if combat.resistances}}<dt>Damage reduction</dt><dd data-tooltip="Applied by Apply on damage cards">{{combat.resistances}}</dd>{{/if}}
         <dt>Touch / Flat-footed</dt><dd>{{combat.defense.touch}} / {{combat.defense.flatFooted}}</dd>
         <dt>Base Attack Bonus</dt><dd>{{combat.bab}}</dd>
         <dt>Initiative</dt><dd>{{combat.initiative}}</dd>

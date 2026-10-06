@@ -74,6 +74,15 @@ export const EFFECTS = {
   "talent:improved-melee-smash": [["damage.melee", 1]],
   "talent:advanced-melee-smash": [["damage.melee", 1]],
   "talent:robust": [["hitPoints", "@classes.tough-hero.level"]],
+  // Tough hero: damage reduction a point a talent, and resistance to an energy of the Con modifier.
+  "talent:damage-reduction-1": [["damageReduction", 1]],
+  "talent:damage-reduction-2": [["damageReduction", 1]],
+  "talent:damage-reduction-3": [["damageReduction", 1]],
+  "talent:acid-resistance": [["energyResistance.acid", "@abilities.con.mod"]],
+  "talent:cold-resistance": [["energyResistance.cold", "@abilities.con.mod"]],
+  "talent:electricity-resistance": [["energyResistance.electricity", "@abilities.con.mod"]],
+  "talent:fire-resistance": [["energyResistance.fire", "@abilities.con.mod"]],
+  "talent:sonic-concussion-resistance": [["energyResistance.sonic", "@abilities.con.mod"]],
 
   // Species: their always-on bonuses (ability adjustments and natural armor are fields of the species).
   "species:aasimar": skills(2, "listen", "spot"),

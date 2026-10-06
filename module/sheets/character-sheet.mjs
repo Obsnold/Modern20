@@ -237,6 +237,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         defense: d.defense ?? {}, reputation: signed(d.reputation), massiveDamage: d.massiveDamage ?? "—",
         hpMax: d.hitPoints?.max ?? 0, hpEstimated: d.hitPoints?.estimated,
         // Defense in a situation (Dodge, a dwarf against giants): shown, for the table to apply.
+        // Damage reduction and resistances, if any: "DR 2/—; fire 3".
+        resistances: [...(d.defenses?.dr ?? []).map((x) => `DR ${x.amount}/${x.overcome}`), ...Object.entries(d.defenses?.resist ?? {}).map(([k, v]) => `${k} ${v}`)].join("; "),
         defenseNotes: notesOf(actor).filter((n) => n.rolls.includes("defense")).map((n) => n.text).join("; "),
         speed: d.speed ? { ...d.speed, double: d.speed.value * 2, default: ofType("species")[0]?.system.speed || 30 } : {},
         unarmed: unarmedSummary(items),
