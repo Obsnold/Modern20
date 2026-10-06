@@ -57,9 +57,25 @@ export function fits(weapon, ammo) {
   if (/^rail gun shards/i.test(ammo.name)) return /^rail gun/i.test(n);
   const c = caliberOf(ammo.name);
   if (!c) return false;
-  const esc = c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return new RegExp(`(^|[\\s(/])${esc}(?![\\dmR])`, "i").test(n);
+  return calibersMatch(c, caliberIn(weapon) ?? "");
 }
+
+/** A caliber named in text: ".50", "9mm", "7.62mmR", "12-gauge" (or "12-ga"). */
+const CALIBER = /(?:^|[\s(/])(\.\d+(?:AE)?|\d+(?:\.\d+)?mmR?|\d+-(?:gauge|ga)\b)/i;
+
+/**
+ * The caliber a weapon fires: the one its name gives ("Beretta 92F (9mm autoloader)"), or else
+ * the first its description names ("This .50-caliber machine gun ...", the M2HB). Only the first,
+ * so a weapon that mentions another (the OICW's 20mm grenade launcher) is not taken to fire it.
+ */
+export function caliberIn(weapon) {
+  const fromName = (weapon.name ?? "").match(CALIBER)?.[1];
+  const found = fromName ?? String(weapon.system?.description ?? "").replace(/<[^>]+>/g, " ").match(CALIBER)?.[1];
+  return found ? found.replace(/-ga$/i, "-gauge") : null;
+}
+
+/** Whether two calibers are the same: ".50" is ".50", not ".50AE"; "7.62mm" is not "7.62mmR". */
+const calibersMatch = (a, b) => a.toLowerCase() === b.toLowerCase();
 
 /**
  * Firing: whether a weapon holding `loaded` rounds can fire in `mode`, and what is left.

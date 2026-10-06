@@ -22,6 +22,12 @@ test("ammunition fits a weapon by the caliber in its name", () => {
   assert.equal(fits(weapon("AKM/AK-47"), ammo("7.62mmR")), true);
   assert.equal(fits(weapon("AKM/AK-47"), ammo("7.62mm")), false);
   assert.equal(fits(weapon("Benelli 121 M1"), ammo("12-gauge buckshot")), true);
+  // A caliber only the description names: the M2HB's ".50-caliber machine gun", the OICW's 5.56mm (not its 20mm launcher).
+  assert.equal(fits(weapon("M2HB"), ammo(".50 caliber")), true);
+  assert.equal(fits(weapon("OICW"), ammo("5.56mm")), true);
+  assert.equal(fits(weapon("TacMil"), ammo("7.62mm")), true);
+  assert.equal(fits(weapon("TacMil"), ammo("7.62mmR")), false);
+  assert.equal(fits(weapon("Desert Eagle"), ammo(".50 caliber")), false);
   // Every firearm with a magazine has a caliber some ammunition in the book fits, or names none.
   const calibered = gear.filter((d) => d.type === "weapon" && magazineOf(d.system.magazine) && /\(\.?\d/.test(d.name));
   const unfit = calibered.filter((w) => !gear.some((a) => a.type === "ammunition" && fits(w, a))).map((w) => w.name);
