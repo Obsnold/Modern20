@@ -20,7 +20,7 @@ const { TextEditor } = foundry.applications.ux;
 /** Fields shown as rules text rather than in the table, in this order. */
 const PROSE = ["benefit", "normal", "special", "description"];
 /** Fields not in the table: the source is the header link; a class's levels, features and talent trees get sections of their own. */
-const HIDDEN = new Set(["source", ...PROSE, "features", "talentTrees", "requirements", "notes"]);
+const HIDDEN = new Set(["source", ...PROSE, "features", "talentTrees", "requirements", "rollNotes"]);
 
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -120,8 +120,8 @@ export async function describe(doc) {
   // Species, creature types and templates keep each trait's text with its name.
   for (const q of [...(system.specialQualities ?? []), ...(system.traits ?? [])]) if (q?.description) prose.push({ title: q.name, html: await enrich(q.description) });
   // Notes: what it gives in a situation, shown on the rolls it is for.
-  if (system.notes?.length) {
-    prose.push({ title: "When Rolling", html: `<ul>${system.notes.map((n) => `<li>${escape(n.text)}${n.value ? ` <strong>(${escape(/^[-@]/.test(n.value) ? n.value : `+${n.value}`)})</strong>` : ""} <span class="modern20-meta">on ${escape(n.rolls.map(rollName).join(", "))}</span></li>`).join("")}</ul>` });
+  if (system.rollNotes?.length) {
+    prose.push({ title: "When Rolling", html: `<ul>${system.rollNotes.map((n) => `<li>${escape(n.text)}${n.value ? ` <strong>(${escape(/^[-@]/.test(n.value) ? n.value : `+${n.value}`)})</strong>` : ""} <span class="modern20-meta">on ${escape(n.rolls.map(rollName).join(", "))}</span></li>`).join("")}</ul>` });
   }
   // A creature type's ability scores, minimum Hit Dice and natural weapons by size.
   if (system.sizes?.length) prose.push({ title: "By Size", html: sizeTable(system.sizes) });
@@ -164,7 +164,8 @@ export function Editable(Base) {
       context.canEdit = this.isEditable;
       context.editing = this.editing && this.isEditable;
       if (context.editing) {
-        context.editor = editForm(this.fieldSpec.fields, this.document.system.toObject(), { html: richText });
+        // Not "editor": Foundry has a Handlebars helper of that name, which a template value of the same name loses to.
+        context.editFormHtml = editForm(this.fieldSpec.fields, this.document.system.toObject(), { html: richText });
       }
       return context;
     }

@@ -49,7 +49,7 @@ test("skill feats on a character, and a situational talent offered when rolling"
   assert.equal(row("intimidate").total, 16);  // 10 ranks, Cha +4, Confident +2
   assert.equal(row("disguise").total, 14);
   // Fast-Talk's note: on Bluff, its value the Charismatic level; not on Intimidate.
-  const notes = items.flatMap((i) => i.system.notes ?? []);
+  const notes = items.flatMap((i) => i.system.rollNotes ?? []);
   const context = mechanicsContext(items.filter((i) => i.type === "class"), d.level, d.modifiers);
   const on = (r) => notesFor(notes, rollTargets.skill(r), (v) => resolveValue(v, context)).ticks.map((t) => [t.term, t.value]);
   assert.deepEqual(on(row("bluff")), [["Fast-Talk", 3]]);
@@ -105,7 +105,7 @@ test("species: always-on bonuses as effects, situational ones as notes", () => {
   const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
   const elf = deriveCharacter({ abilities }, [{ type: "species", name: "Elf", system: species.Elf.system, effects: species.Elf.effects }]);
   assert.equal(elf.skills.find((r) => r.key === "spot").total, 2);
-  const dwarf = species.Dwarf.system.notes;
+  const dwarf = species.Dwarf.system.rollNotes;
   assert.ok(notesFor(dwarf, rollTargets.save("fort")).ticks.some((t) => /poison/.test(t.label)));
   assert.ok(notesFor(dwarf, ["defense"]).texts.some((t) => /giants/.test(t)));
   // Every note is for rolls the system makes, or Defense.

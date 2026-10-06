@@ -207,7 +207,7 @@ export function characterRolls(actor) {
 /** Every note the actor's feats, talents and species carry (tools/build/mechanics.mjs), each with its source. */
 export function notesOf(actor) {
   return actor.items.filter((i) => ["feat", "talent", "species"].includes(i.type))
-    .flatMap((i) => (i.system.notes ?? []).map((n) => ({ ...n, source: i.name })));
+    .flatMap((i) => (i.system.rollNotes ?? []).map((n) => ({ ...n, source: i.name })));
 }
 
 /** A note's value worked out for the actor: a number, or a formula of its class levels, level and ability modifiers. */

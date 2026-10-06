@@ -24,6 +24,11 @@ export default [
     languageOptions: { ecmaVersion: "latest", sourceType: "module", globals: { ...globals.node } },
   },
   {
+    // The Foundry tests: a Node runner, and checks it sends into the game's page.
+    files: ["tools/foundry/**/*.mjs"],
+    languageOptions: { globals: { ...globals.node, ...globals.browser, ...foundry } },
+  },
+  {
     rules: {
       "no-unused-vars": ["error", { args: "none", caughtErrors: "none" }],
     },

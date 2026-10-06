@@ -68,7 +68,7 @@ export const PACKS = Object.fromEntries(Object.entries(BUILDERS).map(([name, bui
     const system = isItem ? { identifier: slug(d.name), ...d.system } : d.system;
     // Its mechanics (mechanics.mjs): notes in its data, and the always-on bonuses as an effect.
     const key = `${d.type}:${slug(d.name)}`;
-    if (isItem && NOTES[key]) system.notes = NOTES[key];
+    if (isItem && NOTES[key]) system.rollNotes = NOTES[key];
     const effects = isItem && EFFECTS[key] ? [mechanicsEffect(d, EFFECTS[key])] : d.effects;
     return { ...d, system: conform(m, system), ...(effects ? { effects } : {}) };
   }) };

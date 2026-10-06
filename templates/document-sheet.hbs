@@ -8,7 +8,7 @@
     {{#if canEdit}}<a class="m20-edit-toggle {{#if editing}}m20-on{{/if}}" data-action="toggleEdit" data-tooltip="{{#if editing}}Back to the stat block{{else}}Edit every field{{/if}}"><i class="fa-solid {{#if editing}}fa-eye{{else}}fa-pen-to-square{{/if}}"></i> {{#if editing}}View{{else}}Edit{{/if}}</a>{{/if}}
   </header>
   {{#if editing}}
-    {{{editor}}}
+    {{{editFormHtml}}}
   {{else}}
   {{#if status}}
     <div class="m20-status">

@@ -1,6 +1,6 @@
 /**
  * Keeping the world's items in step with the compendiums: an item a character got from a
- * Modern20 compendium carries copies of its mechanics (its effects and notes,
+ * Modern20 compendium carries copies of its mechanics (its effects and roll notes,
  * tools/build/mechanics.mjs). When the system is updated, the GM's client refreshes those
  * copies from their source, once per version, so a feat whose effect changed (or that has one
  * for the first time) works on characters made before. Everything else on the item (a choice,
@@ -33,12 +33,12 @@ async function refresh(item, source) {
   // Compared as stored (v14 keeps an effect's changes in `system.changes`).
   const stored = (e) => [e.name, changesOf(e).map(({ key, type, value }) => [key, type, value])];
   const same = JSON.stringify(item.effects.map((e) => stored(e.toObject()))) === JSON.stringify(fresh.map(stored))
-    && JSON.stringify(item.system.notes ?? null) === JSON.stringify(source.system.notes ?? null);
+    && JSON.stringify(item.system.rollNotes ?? null) === JSON.stringify(source.system.rollNotes ?? null);
   if (same) return false;
   const opts = { [NO_LOG]: true };
   if (item.effects.size) await item.deleteEmbeddedDocuments("ActiveEffect", item.effects.map((e) => e.id), opts);
   if (fresh.length) await item.createEmbeddedDocuments("ActiveEffect", fresh, opts);
-  if ("notes" in (source.system ?? {})) await item.update({ "system.notes": source.system.notes }, opts);
+  if ("rollNotes" in (source.system ?? {})) await item.update({ "system.rollNotes": source.system.rollNotes }, opts);
   return true;
 }
 
