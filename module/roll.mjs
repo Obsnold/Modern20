@@ -207,7 +207,7 @@ export function characterRolls(actor) {
 /** Every note the actor's feats, talents and species carry (tools/build/mechanics.mjs), each with its source. */
 export function notesOf(actor) {
   return actor.items.filter((i) => ["feat", "talent", "species", "feature"].includes(i.type))
-    .flatMap((i) => (i.system.rollNotes ?? []).map((n) => ({ ...n, source: i.name })));
+    .flatMap((i) => (i.system.rollNotes ?? []).map((n) => ({ ...n, source: i.name, rank: i.system.rank || 1 })));
 }
 
 /** A note's value worked out for the actor: a number, or a formula of its class levels, level and ability modifiers. */
@@ -215,7 +215,7 @@ export function resolverFor(actor) {
   const d = actor.system.derived ?? {};
   const classes = actor.items.filter((i) => i.type === "class");
   const context = mechanicsContext(classes, d.level ?? 0, d.modifiers ?? {});
-  return (value) => resolveValue(value, context);
+  return (value, note) => resolveValue(value, { ...context, rank: note?.rank ?? 1 });
 }
 
 /** A roll with more named terms, its formula rebuilt (an unarmed strike's Brawl bonus). */

@@ -391,6 +391,8 @@ export const ACTOR_MODELS = {
       massiveDamage: int(),
       /** Damage reduction (x/—: nothing overcomes it), and resistance to each kind of energy (rules/resistance.mjs). */
       damageReduction: int(),
+      /** Damage reduction a magic weapon overcomes (x/+1: the Thrasher's). */
+      damageReductionMagic: int(),
       energyResistance: obj({ acid: int(), cold: int(), electricity: int(), fire: int(), sonic: int() }),
       /** Above 0, the character loses its Dexterity bonus to Defense (flat-footed, stunned, pinned). */
       loseDexBonus: int(),

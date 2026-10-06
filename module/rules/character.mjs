@@ -74,7 +74,7 @@ export function deriveCharacter(system, items) {
     return [a, v === null || v === undefined ? 0 : abilityModifier(v + (species?.system.abilities?.[a] ?? 0))];
   }));
   const heroic = classes.reduce((n, c) => n + c.system.level, 0);
-  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => e.transfer !== false && !e.disabled));
+  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => e.transfer !== false && !e.disabled).map((e) => ({ ...e, rank: i.system?.rank || 1 })));
   const fx = withSystemBonuses(system.bonuses, itemEffects, mechanicsContext(classes, heroic + Math.floor(creatureType?.system.count ?? 0), baseMods));
   const fxv = (path, fallback = 0) => path.split(".").reduce((o, k) => o?.[k], fx) ?? fallback;
 

@@ -92,7 +92,8 @@ export function withSystemBonuses(bonuses, effects, context = {}) {
     if (e.disabled) continue;
     for (const c of changesOf(e)) {
       if (!isSystemChange(c) || !c.key.startsWith("system.bonuses.")) continue;
-      addAt(out, c.key.slice("system.bonuses.".length), resolveValue(c.value, context));
+      // `@rank`: how many of a class feature's levels its class has reached (Medical Specialist +1, +2, +3).
+      addAt(out, c.key.slice("system.bonuses.".length), resolveValue(c.value, { ...context, rank: e.rank ?? 1 }));
     }
   }
   return out;
@@ -100,7 +101,8 @@ export function withSystemBonuses(bonuses, effects, context = {}) {
 
 /**
  * What a formula can refer to: `@classes.<identifier>.level` (each class's level), `@level` (the
- * character's level), and `@abilities.<ability>.mod` (from the scores before any effect).
+ * character's level), `@abilities.<ability>.mod` (from the scores before any effect), and on a
+ * class feature's effect or note `@rank` (how many of its levels its class has reached).
  */
 export function mechanicsContext(classes, level, modifiers) {
   const slugOf = (name) => name.toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

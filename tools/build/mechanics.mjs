@@ -84,6 +84,11 @@ export const EFFECTS = {
   "talent:fire-resistance": [["energyResistance.fire", "@abilities.con.mod"]],
   "talent:sonic-concussion-resistance": [["energyResistance.sonic", "@abilities.con.mod"]],
 
+  // Class features that always apply.
+  "feature:improved-reaction": [["initiative", 2]],
+  "feature:damage-reduction": [["damageReductionMagic", 5]],   // the Thrasher's 5/+1
+  "feature:medical-specialist": [["skills.treatInjury", "@rank"]],   // +1, +2 at 5th, +3 at 8th
+
   // Species: their always-on bonuses (ability adjustments and natural armor are fields of the species).
   "species:aasimar": skills(2, "listen", "spot"),
   "species:bugbear": [...attacks(2), ...skills(4, "moveSilently")],
@@ -131,6 +136,24 @@ export const NOTES = {
   "feature:urban-survival": [note(["skill.survival"], "Urban Survival: in urban areas", 4)],
   "feature:resist-venom": [note(["save"], "Resist Venom: against natural poisons", 4)],
   "feature:machine-empathy": [note(["skill"], "Machine Empathy: with an electronic or mechanical device", 2)],
+  "feature:fearless": [note(["save.will"], "Fearless: against fear (a Dreadnought is immune)", 4)],
+  "feature:stability": [note(["ability", "grapple"], "Stability: to resist a trip, overrun, being knocked prone or a bull rush", 4)],
+  "feature:trap-sense": [note(["save.ref"], "Trap Sense: to avoid a trap", "@rank"), note(["defense"], "Trap Sense: dodge bonus to Defense against traps (+1 a rank)")],
+  "feature:combat-sense": [note(["attack"], "Combat Sense: against the opponent designated", "@rank")],
+  "feature:restricted-access": [note(["skill.computerUse"], "Restricted Access: to defeat computer security", 5), note(["skill.research"], "Restricted Access", 5)],
+  "feature:false-allegiance": [note(["skill.cha"], "False Allegiance: with someone of the same allegiance", 2)],
+  "feature:jury-rig": [note(["skill.repair"], "Jury-Rig: a temporary or jury-rigged repair", 2)],
+  "feature:read-write-code": [note(["skill.computerUse"], "Read/Write Code: degrading a program, its weak points found", 2)],
+  "feature:sweep": [note(["skill.spot"], "Sweep: sweeping an area for surveillance", 4)],
+  "feature:profile": [note(["skill"], "Profile: uncovering evidence on, or locating, the suspect", 2)],
+  "feature:know-location": [note(["skill.navigate", "skill.survival"], "Know Location: to avoid becoming lost", 2)],
+  "feature:super-cybersurgeon": [note(["skill.treatInjury"], "Super Cybersurgeon: cybernetic surgery", 4)],
+  "feature:smite-allegiance": [note(["attack.melee"], "Smite Allegiance: against the opposing allegiance (an action point)", "@abilities.cha.mod")],
+  "feature:target-species": [note(["skill.bluff", "skill.intimidate", "skill.listen", "skill.senseMotive", "skill.spot", "skill.survival"], "Target Species: against the target species", 2)],
+  "feature:shadow-enemy": [note(["skill.bluff", "skill.listen", "skill.search", "skill.senseMotive", "skill.spot"], "Shadow Enemy: against the chosen Shadow creatures", "@rank")],
+  "feature:xenoresistance": [note(["save"], "Xenoresistance: against another species' extraordinary, spell-like or supernatural attacks", 1)],
+  "feature:xenodefense": [note(["defense"], "Xenodefense: +1 insight bonus to Defense against the opponent designated")],
+  "feature:monkeys-unite": [note(["attack"], "Monkeys Unite: adjacent to another Space Monkey", 1)],
 
   // Species.
   "species:dragonblooded-human": [note(["save"], "Dragonblooded: +4 against sleep and paralysis", 4)],
@@ -163,9 +186,14 @@ export const NOTES = {
 
 /**
  * Effects a character switches on when they apply (on the Effects tab), built switched off:
- * `{ name, changes }`, as EFFECTS. The Thrasher's Ability Surge: +4 Strength and Dexterity, −2 on
- * every save, while it lasts.
+ * `{ name, changes }`, as EFFECTS: a shield manifested, a surge, a defensive stance. The Thrasher's
+ * Ability Surge: +4 Strength and Dexterity, −2 on every save, while it lasts.
  */
 export const TOGGLES = {
+  "feature:psychic-shield": { name: "Psychic Shield (switch on while manifested)", changes: [["defense", 3]] },
+  "feature:improved-psychic-shield": { name: "Improved Psychic Shield (switch on in place of Psychic Shield)", changes: [["defense", 6]] },
+  "feature:fortunes-favor": { name: "Fortune's Favor (switch on for the round)", changes: [["defense", 2]] },
+  "feature:defensive-position": { name: "Defensive Position (switch on with cover)", changes: [["defense", 2], ["saves.ref", 2]] },
+  "feature:master-defender": { name: "Master Defender (switch on fighting defensively, in medium or heavier armor)", changes: [["defense", "2 * @rank"]] },
   "feature:ability-surge": { name: "Ability Surge (switch on while surging)", changes: [["abilities.str", 4], ["abilities.dex", 4], ["saves.fort", -2], ["saves.ref", -2], ["saves.will", -2]] },
 };

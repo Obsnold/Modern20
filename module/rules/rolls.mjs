@@ -224,7 +224,7 @@ export function notesFor(notes, targets, resolve = Number) {
   const ticks = [], texts = [];
   notes.forEach((n, i) => {
     if (!(n.rolls ?? []).some((r) => targets.includes(r))) return;
-    const value = n.value === "" || n.value === undefined ? null : resolve(n.value);
+    const value = n.value === "" || n.value === undefined ? null : resolve(n.value, n);
     if (value) ticks.push({ name: `note${i}`, label: `${n.text} (${value > 0 ? "+" : ""}${value})`, value, term: n.text.split(":")[0] });
     else texts.push(n.text);
   });

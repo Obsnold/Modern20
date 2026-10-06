@@ -46,9 +46,9 @@ export function readDefenses(qualities) {
 
 /** A character's defenses, from its bonuses (talents' and effects' damage reduction and resistances). */
 export function characterDefenses(bonuses) {
-  const dr = Number(bonuses?.damageReduction ?? 0);
+  const dr = Number(bonuses?.damageReduction ?? 0), magic = Number(bonuses?.damageReductionMagic ?? 0);
   const resist = Object.fromEntries(ENERGY.map((k) => [k, Number(bonuses?.energyResistance?.[k] ?? 0)]).filter(([, v]) => v > 0));
-  return { dr: dr > 0 ? [{ amount: dr, overcome: "—" }] : [], resist, immune: [] };
+  return { dr: [...(dr > 0 ? [{ amount: dr, overcome: "—" }] : []), ...(magic > 0 ? [{ amount: magic, overcome: "+1" }] : [])], resist, immune: [] };
 }
 
 /**

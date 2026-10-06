@@ -55,3 +55,26 @@ test("Ability Surge is built switched off, for the player to switch on while sur
   assert.ok(toggle, "a switched-off effect");
   assert.deepEqual(toggle.system.changes.map((c) => [c.key, c.value]).slice(0, 2), [["system.bonuses.abilities.str", 4], ["system.bonuses.abilities.dex", 4]]);
 });
+
+test("class feature mechanics: rank in formulas, damage reduction a magic weapon overcomes, Greater Weapon Focus", async () => {
+  const { deriveCharacter } = await import("../../module/rules/character.mjs");
+  const { reduceDamage } = await import("../../module/rules/resistance.mjs");
+  const { attack } = await import("../../module/rules/rolls.mjs");
+  const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+  const own = (name, rank = 1, system = {}) => { const f = features.find((x) => x.name === name); return { type: "feature", name, system: { ...f.system, rank, ...system }, effects: f.effects }; };
+  // Medical Specialist: +1, +2 at 5th, +3 at 8th.
+  for (const rank of [1, 2, 3]) {
+    const d = deriveCharacter({ abilities }, [own("Medical Specialist", rank)]);
+    assert.equal(d.skills.find((r) => r.key === "treatInjury").total, rank);
+  }
+  assert.equal(deriveCharacter({ abilities }, [own("Improved Reaction")]).initiative, 2);
+  // The Thrasher's 5/+1: stops a club, not a magic weapon (the card's Ignore DR).
+  const thrasher = deriveCharacter({ abilities }, [own("Damage Reduction")]).defenses;
+  assert.deepEqual(thrasher.dr, [{ amount: 5, overcome: "+1" }]);
+  assert.equal(reduceDamage([{ type: "Bludgeoning", amount: 8 }], thrasher).total, 3);
+  // A Gunslinger's Greater Weapon Focus: +1 more with the firearm chosen.
+  const beretta = PACKS.equipment().documents.find((d) => d.name === "Beretta 92F (9mm autoloader)");
+  const d = { baseAttackBonus: 2, modifiers: { str: 0, dex: 0 }, size: "medium", defense: {}, attackBonus: {} };
+  const focus = attack(d, beretta, [{ name: "Personal Firearms Proficiency" }, { name: "Weapon Focus", choice: "Beretta 92F" }, { name: "Greater Weapon Focus", choice: "Beretta 92F" }]);
+  assert.ok(focus.terms.some((t) => t.label === "Weapon Focus" && t.value === 2));
+});

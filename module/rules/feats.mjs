@@ -41,6 +41,7 @@ export const FEAT_RULES = {
   // Class features: +2 damage with a chosen weapon, and the Greater form's +2 more with the same one.
   "weapon-specialization": { choice: "weapon", weaponSpecialization: 2 },
   "greater-weapon-specialization": { choice: "weapon", weaponSpecialization: 2 },
+  "greater-weapon-focus": { choice: "weapon", weaponFocus: 1 },   // a Gunslinger's, with the firearm of its Weapon Focus
   "weapon-finesse": { choice: "weapon", finesse: true },
   "point-blank-shot": { pointBlank: 1 },
   "double-tap": { fireMode: "doubleTap" },
