@@ -9,7 +9,7 @@ import globals from "globals";
 const foundry = {
   foundry: "readonly", game: "readonly", Hooks: "readonly", CONFIG: "readonly", CONST: "readonly", ui: "readonly",
   canvas: "readonly", fromUuid: "readonly", fromUuidSync: "readonly", ChatMessage: "readonly", Actor: "readonly",
-  Item: "readonly", Roll: "readonly",
+  Item: "readonly", Roll: "readonly", Scene: "readonly",
 };
 
 export default [

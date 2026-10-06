@@ -90,7 +90,10 @@ export class Modern20CreatureSheet extends Editable(HandlebarsApplicationMixin(A
     const base = creature.system.example?.classed ? await fromUuid(creature.system.example.base.uuid) : null;
     const classPack = game.packs.get(`${SYSTEM_ID}.classes`);
     const classIndex = await classPack.getIndex();
-    const parts = creatureParts(creature, { base, classNames: classIndex.map((c) => c.name) });
+    // Each species' name and ability adjustments, from the compendium's index: no species is loaded until one is added.
+    const speciesPack = game.packs.get(`${SYSTEM_ID}.species`);
+    const species = (await speciesPack.getIndex({ fields: ["system.abilities"] })).map((e) => ({ name: e.name, uuid: e.uuid, system: { abilities: e.system?.abilities ?? {} } }));
+    const parts = creatureParts(creature, { base, classNames: classIndex.map((c) => c.name), species });
 
     const items = [];
     const missing = [];
@@ -103,6 +106,7 @@ export class Modern20CreatureSheet extends Editable(HandlebarsApplicationMixin(A
       items.push(data);
     };
     if (parts.type) await add(parts.type.uuid, { count: parts.type.count });
+    if (parts.species) await add(parts.species.uuid);
     for (const [name, level] of Object.entries(parts.classes)) {
       const entry = classIndex.find((c) => c.name === name);
       if (entry) await add(entry.uuid, { level }); else missing.push(name);

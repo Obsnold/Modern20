@@ -18,6 +18,39 @@ export async function PRELUDE() {
       if (!entry) throw new Error(`${name} is not in ${pack}`);
       return p.getDocument(entry._id);
     },
+    /** Wait until `test()` gives something truthy (polling), and return it; throw after `ms`. */
+    async wait(test, what = "it", ms = 8000) {
+      const until = Date.now() + ms;
+      while (Date.now() < until) {
+        const v = await test();
+        if (v) return v;
+        await new Promise((r) => setTimeout(r, 100));
+      }
+      throw new Error(`waited ${ms / 1000}s for ${what}`);
+    },
+    /** Click the element `selector` finds in `root` (a sheet's element), as a player would. */
+    click(root, selector) {
+      const el = root.querySelector(selector);
+      if (!el) throw new Error(`nothing matches ${selector}`);
+      el.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+      return el;
+    },
+    /**
+     * What a reader would see wrong in `root`'s text: "undefined", "NaN", "[object Object]", a "null",
+     * as visible text or in a box's value. Returns them, with a little of the text around each.
+     */
+    readable(root) {
+      const bad = /\b(undefined|NaN|null)\b|\[object Object\]/g;
+      const found = [];
+      const text = root.innerText ?? "";
+      for (const m of text.matchAll(bad)) found.push(`"${text.slice(Math.max(0, m.index - 30), m.index + 30).replace(/\s+/g, " ").trim()}"`);
+      for (const input of root.querySelectorAll("input, textarea")) if (bad.test(String(input.value))) found.push(`${input.name || input.dataset.itemField || "a box"} = ${input.value}`);
+      return [...new Set(found)];
+    },
+    /** The chat messages posted since `count` (game.messages.size before). */
+    since(count) {
+      return game.messages.contents.slice(count);
+    },
     async take(pack, name, system = {}) {
       const o = (await window.m20test.doc(pack, name)).toObject();
       delete o._id;
@@ -207,6 +240,215 @@ export const CHECKS = {
     if (actor.system.powerPoints.value !== 7) errors.push(`${actor.system.powerPoints.value} power points after Brain Lock (3), expected 7`);
     await manifest(actor, actor.items.find((i) => i.name === "Daze"));
     if (actor.system.powerPoints.freeUsed !== 1) errors.push(`${actor.system.powerPoints.freeUsed} free 0-level manifestations used, expected 1`);
+    await actor.delete();
+    return errors;
+  },
+
+  async "the book's heroes, built with the creature sheet's button, match their stat blocks"() {
+    const errors = [];
+    const { doc, wait, click } = window.m20test;
+    // Where the book's own numbers do not add up (tools/test/character.test.mjs): Dr. Kolgrim's Reflex
+    // (+5 class, Dex +0, Lightning Reflexes +2 is +7, printed +8) and Anastasia's Will (+15, printed +17).
+    for (const [name, off] of [["Dr. Astrid Kolgrim", { ref: -1 }], ["Anastasia Markova", { will: -2 }], ["Black Feather", null]]) {
+      const c = await doc("creatures", name);
+      await c.sheet.render({ force: true });
+      await wait(() => c.sheet.element?.querySelector("[data-action=buildCharacter]"), `${name}'s Build button`);
+      const before = new Set(game.actors.map((a) => a.id));
+      click(c.sheet.element, "[data-action=buildCharacter]");
+      const actor = await wait(() => game.actors.find((a) => !before.has(a.id) && a.type === "character"), `${name} to be built`, 30000);
+      await c.sheet.close();
+      await wait(() => actor.sheet.rendered, `${name}'s new sheet`, 30000);
+      const d = actor.system.derived, p = c.system;
+      const expect = (what, got, want) => { if (got !== want) errors.push(`${name}: ${what} ${got}, the book ${want}`); };
+      expect("base attack", d.baseAttackBonus, p.baseAttackBonus.bonus);
+      expect("grapple", d.grapple, p.grapple);
+      expect("initiative", d.initiative, p.initiative);
+      // Black Feather's printed saves do not add up at all (the book's own error), so only her attacks are held to it.
+      if (off) for (const k of ["fort", "ref", "will"]) expect(`${k} save`, d.saves[k], p.saves[k] + (off[k] ?? 0));
+      for (const [a, v] of Object.entries(p.abilities)) if (v !== null) expect(a, d.scores[a], v);
+      await actor.sheet.close();
+      await actor.delete();
+    }
+    return errors;
+  },
+
+  async "advanced characters' sheets read cleanly on every tab, and say their requirements are met"() {
+    const errors = [];
+    const { take, wait, readable } = window.m20test;
+    const characters = [
+      ["Gunslinger", { str: 12, dex: 16, con: 12, int: 10, wis: 10, cha: 10 }, { sleightOfHand: { ranks: 6 }, tumble: { ranks: 6 } }, [], [
+        await take("classes", "Fast Hero", { level: 4 }), await take("classes", "Gunslinger", { level: 2 }), await take("species", "Half-Elf"),
+        await take("occupations", "Military"), await take("feats", "Personal Firearms Proficiency"), await take("feats", "Point Blank Shot"),
+        await take("equipment", "Beretta 92F (9mm autoloader)"), await take("equipment", "9mm"), await take("equipment", "Leather jacket", { equipped: true }),
+      ]],
+      ["Mage", { str: 8, dex: 12, con: 10, int: 17, wis: 12, cha: 10 }, { decipherScript: { ranks: 6 }, research: { ranks: 6 } },
+        [{ skill: "craft", specialty: "chemical", ranks: 6 }, { skill: "knowledge", specialty: "arcane lore", ranks: 6 }], [
+        await take("classes", "Smart Hero", { level: 4 }), await take("classes", "Mage", { level: 2 }), await take("occupations", "Academic"),
+        await take("spells", "Daze"), await take("spells", "Burning Hands", { prepared: 1 }), await take("incantations", "Bibliolalia"),
+      ]],
+    ];
+    for (const [name, scores, skills, specialtySkills, items] of characters) {
+      const abilities = Object.fromEntries(Object.entries(scores).map(([a, v]) => [a, { value: v }]));
+      const actor = await Actor.implementation.create({ name: `${name} (test)`, type: "character", system: { abilities, skills, specialtySkills } });
+      await actor.createEmbeddedDocuments("Item", items);
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, `${name}'s sheet`);
+      for (const tab of ["main", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
+        actor.sheet.changeTab(tab, "primary");
+        await new Promise((r) => setTimeout(r, 150));
+        const section = actor.sheet.element.querySelector(`section.tab[data-tab="${tab}"]`);
+        if (!section) { errors.push(`${name}: no ${tab} tab`); continue; }
+        for (const bad of readable(section)) errors.push(`${name}, ${tab} tab: ${bad}`);
+      }
+      for (const bad of readable(actor.sheet.element.querySelector(".m20-top") ?? actor.sheet.element)) errors.push(`${name}, header: ${bad}`);
+      const requirements = [...actor.sheet.element.querySelectorAll(".m20-requirements")].map((e) => e.innerText.trim());
+      if (!requirements.length || requirements.some((r) => !/Requirements met/.test(r))) errors.push(`${name}: requirements ${JSON.stringify(requirements)}`);
+      await actor.sheet.close();
+      await actor.delete();
+    }
+    return errors;
+  },
+
+  async "a character's buttons roll to chat: checks, saves, skills, unarmed, grapple, reloading, attack and damage"() {
+    const errors = [];
+    const { take, wait, click } = window.m20test;
+    const abilities = Object.fromEntries(Object.entries({ str: 14, dex: 14, con: 12, int: 10, wis: 10, cha: 10 }).map(([a, v]) => [a, { value: v }]));
+    const actor = await Actor.implementation.create({ name: "Button presser (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("classes", "Fast Hero", { level: 3 }), await take("feats", "Personal Firearms Proficiency"), await take("feats", "Brawl"),
+      await take("equipment", "Beretta 92F (9mm autoloader)"), await take("equipment", "9mm"),
+    ]);
+    const beretta = actor.items.find((i) => i.type === "weapon");
+    await actor.sheet.render({ force: true });
+    await wait(() => actor.sheet.rendered, "the sheet");
+    const press = async (tab, selector, what) => {
+      actor.sheet.changeTab(tab, "primary");
+      const n = game.messages.size;
+      try {
+        click(actor.sheet.element, selector);
+        await wait(() => game.messages.size > n, `a chat message from ${what}`);
+        const m = game.messages.contents.at(-1);
+        if (m.rolls.length && !Number.isFinite(m.rolls[0].total)) errors.push(`${what}: the roll has no total`);
+        return m;
+      } catch (e) {
+        errors.push(`${what}: ${e.message}`);
+        return null;
+      }
+    };
+    await press("main", "[data-action=rollAbility][data-ability=str]", "a Strength check");
+    await press("main", "[data-action=rollSave][data-save=ref]", "a Reflex save");
+    await press("skills", "[data-action=rollSkill][data-skill=spot]", "a Spot check");
+    await press("main", "[data-action=rollUnarmed]", "an unarmed strike");
+    await press("main", "[data-action=rollGrab]", "a grab");
+    await press("main", "[data-action=rollGrapple]", "a grapple check");
+    // Reloading fills the magazine from the 9mm carried; firing spends a round.
+    await press("gear", `[data-item-id="${beretta.id}"] [data-action=reload]`, "reloading");
+    if (actor.items.get(beretta.id).system.loaded !== 15) errors.push(`the Beretta holds ${actor.items.get(beretta.id).system.loaded} after reloading, not 15`);
+    const attack = await press("gear", `[data-item-id="${beretta.id}"] [data-action=rollAttack]`, "an attack");
+    if (actor.items.get(beretta.id).system.loaded !== 14) errors.push(`the Beretta holds ${actor.items.get(beretta.id).system.loaded} after a shot, not 14`);
+    if (attack && !/Beretta/.test(attack.flavor)) errors.push(`the attack's card does not name the weapon`);
+    const damage = await press("gear", `[data-item-id="${beretta.id}"] [data-action=rollDamage]`, "damage");
+    if (damage && !(damage.rolls[0]?.total >= 2 && damage.rolls[0]?.total <= 12)) errors.push(`2d6 damage came to ${damage.rolls[0]?.total}`);
+    await actor.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "an attack's chat card leads, button by button, to damage applied to a targeted token"() {
+    const errors = [];
+    const { take, doc, wait } = window.m20test;
+    // Creating a world's first scene activates it, and Foundry then switches to it; it warns if the canvas is still
+    // loading (as it may be soon after the game starts), so wait for that first.
+    await wait(() => !canvas.loading, "the canvas to finish loading", 15000);
+    const scene = await Scene.implementation.create({ name: "Test scene", width: 2000, height: 2000, grid: { size: 100 } });
+    // Foundry shows it itself; switch only if it does not.
+    const shown = () => canvas.ready && !canvas.loading && canvas.scene?.id === scene.id;
+    try {
+      await wait(shown, "Foundry to show the scene", 6000);
+    } catch {
+      await wait(() => !canvas.loading, "the canvas to finish loading", 15000);
+      await scene.view();
+      await wait(shown, "the scene", 15000);
+    }
+    const bodak = await Actor.implementation.create((await doc("creatures", "Bodak")).toObject());
+    const [token] = await scene.createEmbeddedDocuments("Token", [(await bodak.getTokenDocument({ x: 500, y: 500 })).toObject()]);
+    const target = await wait(() => canvas.tokens.get(token.id), "the Bodak's token");
+    const abilities = Object.fromEntries(Object.entries({ str: 16, dex: 10, con: 10, int: 10, wis: 10, cha: 10 }).map(([a, v]) => [a, { value: v }]));
+    const hero = await Actor.implementation.create({ name: "Attacker (test)", type: "character", system: { abilities } });
+    await hero.createEmbeddedDocuments("Item", [await take("classes", "Strong Hero", { level: 3 }), await take("feats", "Simple Weapons Proficiency"), await take("equipment", "Club")]);
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    // A card's buttons, as the chat log draws them.
+    const card = (m) => wait(() => ui.chat.element?.querySelector(`li[data-message-id="${m.id}"] .m20-card-buttons`), "the card's buttons");
+    const button = async (m, label) => {
+      const b = [...(await card(m)).querySelectorAll("button")].find((x) => label.test(x.textContent));
+      if (!b) throw new Error(`no ${label} button on "${m.flavor?.replace(/<[^>]+>/g, " ").trim().slice(0, 60)}"`);
+      const n = game.messages.size;
+      b.click();
+      await wait(() => game.messages.size > n, `a message after ${label}`);
+      return game.messages.contents.at(-1);
+    };
+    try {
+      // A club (lethal: an unarmed strike's nonlethal damage never lowers hit points), untargeted, so the
+      // card offers damage whatever the roll; then its damage from the card.
+      const attack = await characterRolls(hero).attack(hero.items.find((i) => i.name === "Club"));
+      const attackMessage = game.messages.contents.at(-1);
+      let damage;
+      if (attackMessage.getFlag("modern20", "threat")) {
+        const confirm = await button(attackMessage, /Confirm critical/);
+        damage = await button(confirm, /damage/i);
+      } else damage = await button(attackMessage, /^Damage$/);
+      if (!damage.getFlag("modern20", "damage")) errors.push("the damage card carries no damage");
+      if (!attack) errors.push("the attack rolled nothing");
+      // Apply to the targeted Bodak: its DR 15/silver stops a club's damage.
+      target.setTarget(true, { releaseOthers: true });
+      // A placed creature's token is its own copy (unlinked): the damage goes to the token's actor.
+      const hit = target.actor;
+      const hp = hit.system.hp.value ?? hit.system.hp.max;
+      const applied = await button(damage, /^Apply/);
+      if (!/Stopped/.test(applied.content)) errors.push(`applying to the Bodak did not report its damage reduction: ${applied.content.replace(/<[^>]+>/g, " ").trim()}`);
+      // Ignore DR: the whole roll gets through (from where the first Apply left it: a critical may have got past DR).
+      const before = hit.system.hp.value ?? hp;
+      await button(damage, /Ignore DR/);
+      const after = hit.system.hp.value;
+      if (after !== before - damage.rolls[0].total) errors.push(`after Ignore DR the Bodak has ${after} hit points, expected ${before - damage.rolls[0].total}`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    target.setTarget(false);
+    await hero.delete();
+    await bodak.delete();
+    // The scene stays: deleting the scene being viewed makes Foundry switch scenes, and the test world is made afresh each run.
+    return errors;
+  },
+
+  async "the Magic tab: preparing, casting, a new day, and the cast card's level check"() {
+    const errors = [];
+    const { take, wait, click } = window.m20test;
+    const abilities = Object.fromEntries(Object.entries({ str: 10, dex: 10, con: 10, int: 16, wis: 10, cha: 10 }).map(([a, v]) => [a, { value: v }]));
+    const actor = await Actor.implementation.create({ name: "Caster (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Mage", { level: 2 }), await take("spells", "Burning Hands")]);
+    const spell = actor.items.find((i) => i.name === "Burning Hands");
+    await actor.sheet.render({ force: true });
+    await wait(() => actor.sheet.rendered, "the sheet");
+    actor.sheet.changeTab("magic", "primary");
+    try {
+      // Prepare it once, in the box on its row.
+      const box = await wait(() => actor.sheet.element.querySelector(`[data-item-id="${spell.id}"] input[data-item-field=prepared]`), "the Prepared box");
+      box.value = "1";
+      box.dispatchEvent(new Event("change", { bubbles: true }));
+      await wait(() => actor.items.get(spell.id).system.prepared === 1, "the spell to be prepared");
+      const n = game.messages.size;
+      click(actor.sheet.element, `[data-item-id="${spell.id}"] [data-action=castSpell]`);
+      await wait(() => game.messages.size > n, "the cast card");
+      if (actor.items.get(spell.id).system.cast !== 1) errors.push("casting did not use the prepared spell");
+      const cardText = game.messages.contents.at(-1).content.replace(/<[^>]+>/g, " ");
+      if (!/DC 14/.test(cardText)) errors.push(`the card does not give DC 14 (10 + 1 + Int +3): ${cardText.replace(/\s+/g, " ").slice(0, 120)}`);
+      click(actor.sheet.element, "[data-action=newDay]");
+      await wait(() => actor.items.get(spell.id).system.cast === 0, "a new day to restore it");
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.sheet.close();
     await actor.delete();
     return errors;
   },

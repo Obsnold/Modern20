@@ -124,3 +124,26 @@ test("a character built from a creature owes no action points or Wealth checks f
   const drow = creatureParts(named["Drow Fast Hero 2"], { base: named.Drow, classNames: Object.keys(classes) });
   assert.equal(drow.system.wealth.regainedLevel, 2);   // its 1 Hit Die replaced by its class levels
 });
+
+test("a printed hero built as a character: its classes and species, no creature Hit Dice", () => {
+  const species = PACKS.species().documents.filter((d) => d.system).map((d) => ({ name: d.name, uuid: `Compendium.modern20.species.Item.${d._id}`, system: d.system }));
+  const byName = Object.fromEntries(PACKS.species().documents.filter((d) => d.system).map((d) => [d.name, d]));
+  for (const [name, levels, sp] of [
+    ["Dr. Astrid Kolgrim", { "Smart Hero": 4, "Field Scientist": 7 }, null],
+    ["Anastasia Markova", { "Fast Hero": 4, "Dedicated Hero": 5, "Charismatic Hero": 9 }, "Drow (Dark Elf)"],
+    ["Black Feather", { "Tough Hero": 2, "Fast Hero": 3, "Charismatic Hero": 3, "Wildlord": 6 }, "Elf"],
+  ]) {
+    const c = named[name];
+    const parts = creatureParts(c, { classNames: Object.keys(classes), species });
+    assert.deepEqual(parts.classes, levels, name);
+    assert.equal(parts.type, null, name);
+    assert.equal(parts.species?.name ?? null, sp, name);
+    const d = deriveCharacter(parts.system, [
+      ...Object.entries(parts.classes).map(([n, l]) => ({ type: "class", name: n, system: { ...classes[n].system, level: l } })),
+      ...(sp ? [{ type: "species", name: sp, system: byName[sp].system }] : []),
+    ]);
+    assert.equal(d.baseAttackBonus, c.system.baseAttackBonus.bonus, `${name} base attack`);
+    // The species' adjustments taken out and put back: the printed scores again.
+    for (const [a, v] of Object.entries(c.system.abilities)) if (v !== null) assert.equal(d.scores[a], v, `${name} ${a}`);
+  }
+});

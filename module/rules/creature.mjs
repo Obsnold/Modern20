@@ -69,20 +69,29 @@ export function classLevels(name, classNames) {
 /**
  * What a character built from a printed creature starts with: its scores, size and natural
  * armor, its type at its Hit Dice, its feats and talents (with what each was taken for), and,
- * for a worked example, the class levels its name gives on top of its base creature's Hit Dice.
+ * for a worked example, the class levels its name gives on top of its base creature's Hit Dice;
+ * for a printed hero (a `class` line), its classes and species, with no creature Hit Dice.
  *
  * The scores are the printed ones, which already hold any template's changes, so templates
  * are not added again. Skill ranks are not worked back from the printed totals.
  */
-export function creatureParts(creature, { base = null, classNames = [] } = {}) {
+export function creatureParts(creature, { base = null, classNames = [], species = [] } = {}) {
   const s = creature.system;
-  const own = s.example?.classed && base ? base.system : s;
   const natural = Number((s.defense?.breakdown ?? "").match(/([+-]\d+) natural/)?.[1] ?? 0);
-  const classes = s.example?.classed ? classLevels(creature.name, classNames) : {};
+  // A printed hero (Dr. Astrid Kolgrim: "Smart 4/Field Scientist 7") is its classes and its species, with no
+  // creature Hit Dice of its own: its printed Hit Dice are its class levels'.
+  const hero = !!s.class;
+  const own = !hero && s.example?.classed && base ? base.system : s;
+  const classes = hero ? classLevels(s.class, classNames) : s.example?.classed ? classLevels(creature.name, classNames) : {};
   const heroic = Object.values(classes).reduce((n, l) => n + l, 0);
+  // Its species, named in its class line ("Female Drow, Fast Hero 4/..."), longest name first ("Half-Elf" before "Elf").
+  const named = (sp) => sp.name.replace(/\s*\(.*\)$/, "");
+  const sp = hero ? [...species].sort((a, b) => named(b).length - named(a).length).find((x) => new RegExp(`(^|[\\s,])${named(x)}\\b`, "i").test(s.class)) ?? null : null;
   // Its character level: its own Hit Dice (which class levels replace at 1 or less) and its class levels.
-  const hd = hitDiceCount(own.hitDice) ?? 0;
-  const level = heroic + (heroic && hd <= 1 ? 0 : atLeastOne(hd));
+  const hd = hero ? 0 : hitDiceCount(own.hitDice) ?? 0;
+  const level = heroic + (hero || (heroic && hd <= 1) ? 0 : atLeastOne(hd));
+  // The printed scores already hold the species' adjustments: the character's own are without them.
+  const scores = Object.fromEntries(Object.entries(s.abilities ?? {}).map(([a, v]) => [a, { value: v === null ? null : v - (sp?.system.abilities?.[a] ?? 0) }]));
   return {
     name: creature.name,
     img: creature.img,
@@ -90,14 +99,15 @@ export function creatureParts(creature, { base = null, classNames = [] } = {}) {
       size: s.size ?? "",
       naturalArmor: natural,
       baseSpeed: s.speed?.ft ?? null,
-      abilities: Object.fromEntries(Object.entries(s.abilities ?? {}).map(([a, v]) => [a, { value: v }])),
+      abilities: scores,
       hp: { value: s.hp?.max ?? 0 },
       // The printed creature is already at its level: its action points are as printed, not owed for its
       // class levels, and its Wealth owes no check for a level it has. Levels gained later are.
       actionPoints: { value: s.actionPoints ?? 0, granted: heroic },
       wealth: { value: 0, regainedLevel: level },
     },
-    type: own.type?.uuid ? { uuid: own.type.uuid, count: hitDiceCount(own.hitDice) ?? 1 } : null,
+    type: !hero && own.type?.uuid ? { uuid: own.type.uuid, count: hitDiceCount(own.hitDice) ?? 1 } : null,
+    species: sp ? { uuid: sp.uuid, name: sp.name } : null,
     classes,
     items: [...(s.feats ?? []), ...(s.talents ?? [])].filter((f) => f.uuid).map((f) => ({ uuid: f.uuid, choice: f.specialty ?? "" })),
   };

@@ -100,7 +100,7 @@ async function main() {
   console.log(`[${elapsed()}] joining the test world as the Gamemaster...`);
   const browser = await chromium.launch({ executablePath: BROWSER, headless: true });
   const problems = [];
-  let failed = 0;
+  let failed = 0, ran = 0;
   try {
     const page = await browser.newPage({ viewport: { width: 1600, height: 1000 } });
     page.on("console", (m) => {
@@ -115,11 +115,13 @@ async function main() {
     // Rolls go straight to chat, without asking for a modifier.
     await page.evaluate(() => game.settings.set("modern20", "askBeforeRolling", false));
     await page.evaluate(`(${PRELUDE.toString()})()`);
-    console.log(`[${elapsed()}] in the game; running ${Object.keys(CHECKS).length} checks\n`);
+    console.log(`[${elapsed()}] in the game\n`);
 
     // FOUNDRY_CHECK="sheet" runs only the checks whose names contain it.
     const only = process.env.FOUNDRY_CHECK?.toLowerCase();
-    for (const [name, check] of Object.entries(CHECKS).filter(([n]) => !only || n.toLowerCase().includes(only))) {
+    const chosen = Object.entries(CHECKS).filter(([n]) => !only || n.toLowerCase().includes(only));
+    ran = chosen.length;
+    for (const [name, check] of chosen) {
       const before = problems.length;
       let errors;
       try {
@@ -144,7 +146,7 @@ async function main() {
     await browser.close();
     server.kill();
   }
-  console.log(failed ? `\n${failed} of ${Object.keys(CHECKS).length} checks failed` : `\nall ${Object.keys(CHECKS).length} checks passed`);
+  console.log(failed ? `\n${failed} of ${ran} checks failed` : `\nall ${ran} checks passed`);
   process.exit(failed ? 1 : 0);
 }
 
