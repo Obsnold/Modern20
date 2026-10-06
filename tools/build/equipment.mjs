@@ -73,7 +73,7 @@ export const DESCRIPTIONS = {
     "Paint ball gun (simple)": "Paintball Gun",
   },
   "Future/Equipment/EnergyAgeArmor.md": { "Unisoldier combat armor": "Unisoldier Heavy Combat Armor" },
-  "Future/Equipment/FusionAgeWeapons.md": { "Mini-rocket launcher": "Mini-Grenade Launcher", "Power pack (50)": null },
+  "Future/Equipment/FusionAgeWeapons.md": { "Power pack (50)": null },
   "Future/Equipment/GravityAgeArmor.md": { "Space combat suit": "Space Combat Armor" },
   "Future/Equipment/GravityAgeWeapons.md": { "Rail gun shards (20)": "Rail Gun" },
   "Future/Equipment/InformationAgeWeapons.md": { "TacMil sniper rifle": "Tactical Military (TACMIL) Sniper Rifle" },
