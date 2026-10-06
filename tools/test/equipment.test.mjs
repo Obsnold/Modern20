@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { buildEquipment } from "../build/equipment.mjs";
+import { buildEquipment, damageFormula } from "../build/equipment.mjs";
 import { buildFeats } from "../build/feats.mjs";
 
 const { documents, problems, skipped } = buildEquipment();
@@ -67,4 +67,16 @@ test("variants share their parent's description; ammunition keeps its quantity",
   const nine = find("9mm");
   assert.equal(nine.type, "ammunition");
   assert.equal(nine.system.quantity, 50);
+});
+
+test("damage the book prints oddly still rolls: a double weapon's first end, dice with more besides, a ranged weapon's flat 1", () => {
+  assert.equal(damageFormula("1d8/1d6", true), "1d8");
+  assert.equal(damageFormula("2d10 + special", false), "2d10");
+  assert.equal(damageFormula("4d6 nonlethal", false), "4d6");
+  assert.equal(damageFormula("3d6 nonlethal plus special", false), "3d6");
+  assert.equal(damageFormula("1", false), "1");
+  // Brass knuckles' "1" adds to an unarmed strike; "Special" and "Varies" are not rolls.
+  assert.equal(damageFormula("1", true), "");
+  assert.equal(damageFormula("Special", false), "");
+  assert.equal(find("Quarterstaff").system.damage.formula, "1d6");
 });

@@ -52,14 +52,17 @@ export function racialHitDice(type, hd, conMod, rolls = [], size = "medium") {
 /**
  * The class levels a worked example's name gives ("Tooth Fairy Fast Hero 3/Smart Hero 1"):
  * `{ "Fast Hero": 3, "Smart Hero": 1 }`, matched against `classNames`, longest first, with
- * " Hero" optional.
+ * " Hero" optional. An ordinary's levels are in the same basic classes: "Strong Ordinary 1" is
+ * a level of Strong Hero.
  */
 export function classLevels(name, classNames) {
   const sorted = [...classNames].sort((a, b) => b.length - a.length);
   const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   return Object.fromEntries((name ?? "").split("/").flatMap((part) => {
     for (const c of sorted) {
-      const m = part.match(new RegExp(`\\b${escape(c)}\\s+(\\d+)\\b`)) ?? part.match(new RegExp(`\\b${escape(c.replace(/ Hero$/, ""))}\\s+(\\d+)\\b`));
+      const bare = escape(c.replace(/ Hero$/, ""));
+      const m = part.match(new RegExp(`\\b${escape(c)}\\s+(\\d+)\\b`)) ?? part.match(new RegExp(`\\b${bare}\\s+(\\d+)\\b`))
+        ?? (c.endsWith(" Hero") ? part.match(new RegExp(`\\b${bare} Ordinary\\s+(\\d+)\\b`)) : null);
       if (m) return [[c, Number(m[1])]];
     }
     return [];
@@ -70,7 +73,8 @@ export function classLevels(name, classNames) {
  * What a character built from a printed creature starts with: its scores, size and natural
  * armor, its type at its Hit Dice, its feats and talents (with what each was taken for), and,
  * for a worked example, the class levels its name gives on top of its base creature's Hit Dice;
- * for a printed hero (a `class` line), its classes and species, with no creature Hit Dice.
+ * for a printed hero (a `class` line), its classes and species, with no creature Hit Dice. A
+ * printed ordinary is built as one (`system.ordinary`).
  *
  * The scores are the printed ones, which already hold any template's changes, so templates
  * are not added again. Skill ranks are not worked back from the printed totals.
@@ -80,13 +84,20 @@ export function creatureParts(creature, { base = null, classNames = [], species 
   const natural = Number((s.defense?.breakdown ?? "").match(/([+-]\d+) natural/)?.[1] ?? 0);
   // A printed hero (Dr. Astrid Kolgrim: "Smart 4/Field Scientist 7") is its classes and its species, with no
   // creature Hit Dice of its own: its printed Hit Dice are its class levels'.
-  const hero = !!s.class;
+  // So is a worked example with no base creature that is a person (a humanoid, or one a template made: "Human
+  // Strong Ordinary 1", a vampire): its Hit Dice are its class levels'. One that is not (Baal, an outsider) has
+  // Hit Dice of its own besides.
+  const person = !!s.example?.classed && !s.example?.base?.uuid && (s.type?.base === "humanoid" || !!s.template);
+  const hero = !!s.class || person;
+  const classText = s.class || creature.name;
   const own = !hero && s.example?.classed && base ? base.system : s;
-  const classes = hero ? classLevels(s.class, classNames) : s.example?.classed ? classLevels(creature.name, classNames) : {};
+  const classes = hero ? classLevels(classText, classNames) : s.example?.classed ? classLevels(creature.name, classNames) : {};
   const heroic = Object.values(classes).reduce((n, l) => n + l, 0);
+  // An ordinary's levels ("Human Strong Ordinary 1/Tough Ordinary 1"): no action points, no class features.
+  const ordinary = /\bOrdinary\s+\d/.test(classText);
   // Its species, named in its class line ("Female Drow, Fast Hero 4/..."), longest name first ("Half-Elf" before "Elf").
   const named = (sp) => sp.name.replace(/\s*\(.*\)$/, "");
-  const sp = hero ? [...species].sort((a, b) => named(b).length - named(a).length).find((x) => new RegExp(`(^|[\\s,])${named(x)}\\b`, "i").test(s.class)) ?? null : null;
+  const sp = hero ? [...species].sort((a, b) => named(b).length - named(a).length).find((x) => new RegExp(`(^|[\\s,(])${named(x)}\\b`, "i").test(classText)) ?? null : null;
   // Its character level: its own Hit Dice (which class levels replace at 1 or less) and its class levels.
   const hd = hero ? 0 : hitDiceCount(own.hitDice) ?? 0;
   const level = heroic + (hero || (heroic && hd <= 1) ? 0 : atLeastOne(hd));
@@ -105,6 +116,7 @@ export function creatureParts(creature, { base = null, classNames = [], species 
       // class levels, and its Wealth owes no check for a level it has. Levels gained later are.
       actionPoints: { value: s.actionPoints ?? 0, granted: heroic },
       wealth: { value: 0, regainedLevel: level },
+      ordinary,
     },
     type: !hero && own.type?.uuid ? { uuid: own.type.uuid, count: hitDiceCount(own.hitDice) ?? 1 } : null,
     species: sp ? { uuid: sp.uuid, name: sp.name } : null,

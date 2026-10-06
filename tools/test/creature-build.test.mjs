@@ -147,3 +147,19 @@ test("a printed hero built as a character: its classes and species, no creature 
     for (const [a, v] of Object.entries(c.system.abilities)) if (v !== null) assert.equal(d.scores[a], v, `${name} ${a}`);
   }
 });
+
+test("the book's ordinaries and the people of its worked examples build with their class levels, not creature Hit Dice", () => {
+  const classNames = Object.keys(classes);
+  const ghoul = creatureParts(named["Ghoul (Human Strong Ordinary 1/Tough Ordinary 1)"], { classNames });
+  assert.deepEqual(ghoul.classes, { "Strong Hero": 1, "Tough Hero": 1 });
+  assert.equal(ghoul.system.ordinary, true);
+  assert.equal(ghoul.type, null);
+  const vampire = creatureParts(named["Vampire (Human Fast Hero 2/Charismatic Hero 3)"], { classNames });
+  assert.deepEqual(vampire.classes, { "Fast Hero": 2, "Charismatic Hero": 3 });
+  assert.equal(vampire.system.ordinary, false);
+  assert.equal(vampire.type, null);
+  // Baal is an outsider of 8 Hit Dice besides his 18 class levels.
+  const baal = creatureParts(named["Baal, Charismatic Hero 10/Negotiator 8"], { classNames });
+  assert.equal(baal.type.count, 8);
+  assert.deepEqual(classLevels("Sand Slave Terrorist (Human Tough Ordinary 3/Smart Ordinary 3)", classNames), { "Tough Hero": 3, "Smart Hero": 3 });
+});

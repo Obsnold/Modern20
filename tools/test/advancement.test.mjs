@@ -134,3 +134,19 @@ test("the 1st level's class: the one chosen, or else a basic class, for its hit 
   assert.equal(t.hitPoints.max - f.hitPoints.max, 10 - 8 - (Math.ceil(11 / 2) - Math.ceil(9 / 2)));
   assert.notEqual(t.advancement.skillPoints.allowed, f.advancement.skillPoints.allowed);
 });
+
+test("an ordinary: rolled 1st-level hit points, no action points, talents or bonus feats, and only the basic classes", () => {
+  const items = [cls("Strong Hero", 3), cls("Soldier", 1)];
+  const hero = deriveCharacter({ abilities: abilities() }, items);
+  const ordinary = deriveCharacter({ abilities: abilities(), ordinary: true }, items);
+  // Strong d8: a hero's 1st level is 8; an ordinary's, not rolled, the average 5.
+  assert.equal(hero.hitPoints.max - ordinary.hitPoints.max, 3);
+  assert.equal(ordinary.hitPoints.estimated, true);
+  assert.equal(ordinary.advancement.actionPoints.points, 0);
+  assert.equal(ordinary.advancement.talents.allowed, 0);
+  assert.equal(ordinary.advancement.featParts.bonus, 0);
+  assert.equal(ordinary.advancement.featParts.general, hero.advancement.featParts.general);
+  assert.equal(ordinary.advancement.skillPoints.allowed, hero.advancement.skillPoints.allowed);
+  assert.deepEqual(ordinary.advancement.notBasic, ["Soldier"]);
+  assert.deepEqual(hero.advancement.notBasic, []);
+});

@@ -32,8 +32,14 @@ let seq = 0;
 /** Add entries to an actor's log in a write of its own, which is not itself logged. */
 export async function record(actor, entries) {
   if (!logged(actor) || !entries.length || !actor.isOwner) return;
-  const { update } = L.append(actor.getFlag(SYSTEM_ID, "log"), entries, { limit: limit() });
-  await actor.update(update, { [NO_LOG]: true });
+  await actor.update(appended(actor, entries), { [NO_LOG]: true });
+}
+
+/** The update that adds `entries` to an actor's log: its new chunks, and the session chunks pruned deleted. */
+function appended(actor, entries) {
+  const { update, removed } = L.append(actor.getFlag(SYSTEM_ID, "log"), entries, { limit: limit() });
+  for (const path of removed) update[path] = new foundry.data.operators.ForcedDeletion();
+  return update;
 }
 
 /** Register the hooks; called once, at init. */
@@ -44,7 +50,7 @@ export function registerLogHooks() {
     const flat = foundry.utils.flattenObject(changes);
     const entries = L.actorEntries(actor.toObject(), flat, meta(userId));
     if (!entries.length) return;
-    for (const [path, value] of Object.entries(L.append(actor.getFlag(SYSTEM_ID, "log"), entries, { limit: limit() }).update)) {
+    for (const [path, value] of Object.entries(appended(actor, entries))) {
       foundry.utils.setProperty(changes, path, value);
     }
   });

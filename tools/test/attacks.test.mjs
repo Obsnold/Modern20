@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { PACKS } from "../build/packs.mjs";
-import { readAttacks, attackRoll, damageRoll } from "../../module/rules/attacks.mjs";
+import { readAttacks, attackRoll, damageRoll, attackRows } from "../../module/rules/attacks.mjs";
 import { cardButtons } from "../../module/rules/rolls.mjs";
 
 const brief = (line) => readAttacks(line).map((c) => c.map((a) => [a.name, a.count, a.bonuses.join("/"), a.kind, a.damage]));
@@ -41,7 +41,8 @@ test("nearly every printed attack line reads as attacks", () => {
     for (const line of [c.system.attack, c.system.fullAttack]) {
       if (!line || line === "—") continue;
       lines++;
-      const pieces = line.replace(/\([^)]*\)/g, "").split(/[,;]|\bor\b|\band\b/).filter((p) => /[+–-]\d/.test(p)).length;
+      // Attacks with a bonus, and a swarm's, which has none (automatic damage).
+      const pieces = line.replace(/\([^)]*\)/g, "").split(/[,;]|\bor\b|\band\b/).filter((p) => /[+–-]\d|^\s*swarm\s*$/i.test(p)).length;
       if (readAttacks(line).flat().length === pieces) read++;
     }
   }
@@ -51,4 +52,14 @@ test("nearly every printed attack line reads as attacks", () => {
 test("a missed attack offers no damage", () => {
   assert.deepEqual(cardButtons({ hit: { hit: false } }), []);
   assert.deepEqual(cardButtons({ hit: { hit: true } }).map((b) => b.kind), ["damage"]);
+});
+
+test("a swarm's attack is automatic damage: no attack roll, no critical", () => {
+  const [[a]] = readAttacks("swarm (1d6 plus poison, swarm)");
+  assert.equal(a.kind, "swarm");
+  assert.deepEqual(a.bonuses, []);
+  assert.equal(a.critical, null);
+  assert.equal(damageRoll(a).formula, "1d6");
+  assert.equal(a.note, "poison");
+  assert.equal(attackRows("attack", [[a]])[0][0].kind, "automatic, no attack roll");
 });

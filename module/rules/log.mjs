@@ -133,12 +133,13 @@ const chunkKeys = (chunks) => Object.keys(chunks ?? {}).filter((k) => /^\d+$/.te
 
 /**
  * Add `entries` to a chunked log. Returns the update that does it, as
- * flattened paths under `path` (only the chunks that change, and `-=` keys
- * for the session chunks pruned), and the log as it will be.
+ * flattened paths under `path` (only the chunks that change), the paths of the
+ * session chunks pruned (`removed`: the update deletes them, module/log.mjs), and
+ * the log as it will be.
  */
 export function append(log, newEntries, { limit = PLAY_LIMIT, path = "flags.modern20.log" } = {}) {
   const next = { build: { ...(log?.build ?? {}) }, play: { ...(log?.play ?? {}) } };
-  const update = {};
+  const update = {}, removed = [];
   for (const kind of ["build", "play"]) {
     const add = newEntries.filter((e) => e.kind === kind);
     if (!add.length) continue;
@@ -159,9 +160,9 @@ export function append(log, newEntries, { limit = PLAY_LIMIT, path = "flags.mode
     const old = keys.shift();
     delete next.play[old];
     delete update[`${path}.play.${old}`];
-    update[`${path}.play.-=${old}`] = null;
+    removed.push(`${path}.play.${old}`);
   }
-  return { update, log: next };
+  return { update, removed, log: next };
 }
 
 const TYPE_LABELS = {

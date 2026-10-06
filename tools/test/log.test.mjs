@@ -65,8 +65,9 @@ test("the session log is pruned a chunk at a time and build entries are never pr
   assert.ok(play.length >= L.PLAY_LIMIT && play.length < L.PLAY_LIMIT + L.CHUNK, `${play.length} kept`);
   assert.equal(play.at(-1).n, 699);
   assert.equal(L.entries(log).filter((x) => x.kind === "build").length, 7);
-  // Pruning shows in the update as Foundry's deletion key, not as a rewritten chunk.
+  // A pruned chunk is named for deleting (module/log.mjs: Foundry's deletion operator), not rewritten.
   const full = Object.fromEntries(Array.from({ length: 11 }, (_, k) => [k, Array.from({ length: L.CHUNK }, (_, i) => ({ kind: "play", time: k * 100 + i }))]));
-  const { update } = L.append({ play: full }, [{ kind: "play", time: 99999 }]);
-  assert.ok("flags.modern20.log.play.-=0" in update);
+  const { update, removed } = L.append({ play: full }, [{ kind: "play", time: 99999 }]);
+  assert.deepEqual(removed, ["flags.modern20.log.play.0"]);
+  assert.ok(!Object.keys(update).some((k) => k.endsWith(".play.0") || k.includes("-=")));
 });

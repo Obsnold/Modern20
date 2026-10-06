@@ -849,4 +849,137 @@ export const CHECKS = {
     await item.delete();
     return errors;
   },
+
+  async "the book's odd weapons and swarms: a quarterstaff's and a concussion grenade's damage, a swarm's automatic damage"() {
+    const errors = [];
+    const { take, doc, wait, click } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 12 }]));
+    const actor = await Actor.implementation.create({ name: "Odd weapons (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("equipment", "Quarterstaff"), await take("equipment", "Grenade, concussion")]);
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    try {
+      // A double weapon rolls its first end's dice; a nonlethal grenade's card applies nonlethal damage.
+      await characterRolls(actor).damage(actor.items.find((i) => i.name === "Quarterstaff"));
+      const staff = game.messages.contents.at(-1);
+      if (!/1d6/.test(staff.rolls[0]?.formula ?? "")) errors.push(`the quarterstaff rolled "${staff.rolls[0]?.formula}", not 1d6`);
+      await characterRolls(actor).damage(actor.items.find((i) => i.name === "Grenade, concussion"));
+      const grenade = game.messages.contents.at(-1);
+      if (!/4d6/.test(grenade.rolls[0]?.formula ?? "")) errors.push(`the concussion grenade rolled "${grenade.rolls[0]?.formula}", not 4d6`);
+      if (!grenade.getFlag("modern20", "damage")?.nonlethal) errors.push("the concussion grenade's damage is not nonlethal");
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    // A swarm: no attack roll, a damage button.
+    const swarm = await Actor.implementation.create((await doc("creatures", "Piranha Swarm")).toObject());
+    try {
+      await swarm.sheet.render({ force: true });
+      await wait(() => swarm.sheet.element?.querySelector("[data-action=rollCreatureDamage]"), "the swarm's damage button");
+      if (swarm.sheet.element.querySelector("[data-action=rollCreatureAttack]")) errors.push("the swarm has an attack roll button");
+      const n = game.messages.size;
+      click(swarm.sheet.element, "[data-action=rollCreatureDamage]");
+      await wait(() => game.messages.size > n, "the swarm's damage");
+      if (!/2d6/.test(game.messages.contents.at(-1).rolls[0]?.formula ?? "")) errors.push("the swarm's damage is not its 2d6");
+      await swarm.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await swarm.delete();
+    return errors;
+  },
+
+  async "stabilised with Treat Injury: stable, unconscious, and healing by rest while below 0"() {
+    const errors = [];
+    const { take, wait, click, dialog } = window.m20test;
+    const { applyToActor } = await import("/systems/modern20/module/damage.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Tended (test)", type: "character", system: { abilities, hp: { value: 4 } } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Tough Hero", { level: 3 })]);
+    try {
+      await actor.update({ "system.hp.value": 4 });
+      await applyToActor(actor, 8);
+      await wait(() => actor.statuses.has("dying"), "dying at -4");
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.element?.querySelector("[data-action=stabilisedByHelp]"), "the Treat Injury button");
+      click(actor.sheet.element, "[data-action=stabilisedByHelp]");
+      await wait(() => actor.statuses.has("stable") && !actor.statuses.has("dying"), "stable");
+      if (!actor.statuses.has("unconscious")) errors.push("stabilised, but not unconscious");
+      if (!actor.system.hp.recovering) errors.push("a tended character is not healing naturally");
+      // Tended: a night's rest heals 3 (level 3), still below 0.
+      click(actor.sheet.element, "[data-action=rest]");
+      await dialog({}, "night");
+      await wait(() => actor.system.hp.value === -1, `a night's rest to heal 3 from -4 (now ${actor.system.hp.value})`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
+
+  async "the log at its limit: 600 session entries keep the last 500 or so, pruned without a warning"() {
+    const errors = [];
+    const { record } = await import("/systems/modern20/module/log.mjs");
+    const { rollEntry, entries, PLAY_LIMIT, CHUNK } = await import("/systems/modern20/module/rules/log.mjs");
+    const actor = await Actor.implementation.create({ name: "Long log (test)", type: "character" });
+    try {
+      let n = 0;
+      for (let batch = 0; batch < 12; batch++) {
+        await record(actor, Array.from({ length: 50 }, () => rollEntry("a test roll", n, { id: foundry.utils.randomID(), time: Date.now(), seq: n++, user: game.user.id, userName: game.user.name })));
+      }
+      const play = entries(actor.getFlag("modern20", "log")).filter((e) => e.kind === "play");
+      if (play.length < PLAY_LIMIT || play.length >= PLAY_LIMIT + CHUNK) errors.push(`${play.length} session entries kept of 600, expected ${PLAY_LIMIT} to ${PLAY_LIMIT + CHUNK - 1}`);
+      if (play.at(-1)?.text !== "Rolled a test roll: 599") errors.push(`the newest entry is "${play.at(-1)?.text}"`);
+      const chunks = Object.keys(actor.getFlag("modern20", "log").play);
+      if (chunks.includes("0")) errors.push(`the oldest chunk was not deleted (chunks ${chunks.join(", ")})`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
+
+  async "an ordinary: the book's Puppeteer Host built as one, with no talents, action points or advanced classes"() {
+    const errors = [];
+    const { doc, wait, click, take } = window.m20test;
+    const name = "Puppeteer Host (Human Charismatic Ordinary 5)";
+    const c = await doc("creatures", name);
+    await c.sheet.render({ force: true });
+    await wait(() => c.sheet.element?.querySelector("[data-action=buildCharacter]"), "the Build button");
+    const before = new Set(game.actors.map((a) => a.id));
+    click(c.sheet.element, "[data-action=buildCharacter]");
+    const actor = await wait(() => game.actors.find((a) => !before.has(a.id) && a.type === "character"), "the host to be built", 30000);
+    await c.sheet.close();
+    try {
+      await wait(() => actor.sheet.rendered, "its sheet", 30000);
+      const d = actor.system.derived, p = c.system;
+      if (!actor.system.ordinary) errors.push("built as a hero, not an ordinary");
+      if (d.level !== 5 || d.classes[0]?.name !== "Charismatic Hero") errors.push(`level ${d.level} (${d.classes.map((x) => `${x.name} ${x.level}`).join(", ")}), not Charismatic 5`);
+      const expect = (what, got, want) => { if (got !== want) errors.push(`${what} ${got}, the book ${want}`); };
+      expect("base attack", d.baseAttackBonus, p.baseAttackBonus.bonus);
+      for (const k of ["fort", "ref", "will"]) expect(`${k} save`, d.saves[k], p.saves[k]);
+      for (const [a, v] of Object.entries(p.abilities)) if (v !== null) expect(a, d.scores[a], v);
+      if (d.advancement.actionPoints.points) errors.push(`${d.advancement.actionPoints.points} action points owed to an ordinary`);
+      if (!actor.sheet.element.querySelector(".m20-tag")?.parentElement.innerText.includes("Ordinary")) errors.push("the header has no Ordinary tag");
+      // No talent trees or bonus feat lists on the Feats tab.
+      actor.sheet.changeTab("feats", "primary");
+      if (actor.sheet.element.querySelector("[data-action=toggleTalent], [data-action=toggleBonusFeat]")) errors.push("the Feats tab offers talents or bonus feats");
+      // An advanced class is flagged.
+      actor.sheet.changeTab("main", "primary");
+      await actor.createEmbeddedDocuments("Item", [await take("classes", "Personality", { level: 1 })]);
+      await wait(() => /only the six basic classes/.test(actor.sheet.element?.innerText ?? ""), "the advanced class to be flagged");
+      // Unticked, it is a hero again: talents offered.
+      const box = actor.sheet.element.querySelector("input[name=\"system.ordinary\"]");
+      box.checked = false;
+      box.dispatchEvent(new Event("change", { bubbles: true }));
+      await wait(() => actor.system.ordinary === false, "the Ordinary box to save");
+      actor.sheet.changeTab("feats", "primary");
+      await wait(() => actor.sheet.element?.querySelector("[data-action=toggleTalent]"), "talents offered to a hero", 30000);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
 };

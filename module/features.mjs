@@ -6,9 +6,9 @@
  */
 import { featuresDue, featureChanges } from "./rules/features.mjs";
 import { SYSTEM_ID } from "./config.mjs";
+import { exists } from "./presence.mjs";
 
 const pending = new Map();
-const exists = (actor) => (actor.isToken ? !!actor.token?.parent?.tokens.has(actor.token.id) : game.actors.has(actor.id));
 
 /** Bring a character's class features into line with its classes, now. */
 export async function syncFeatures(actor) {

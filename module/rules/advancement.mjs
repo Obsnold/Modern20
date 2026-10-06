@@ -17,6 +17,10 @@
  *                    an occupation or species gives (Modern/BasicClasses/MulticlassCharacters)
  *   talents          one for each Talent in the class levels taken
  *   ability increase +1 to one score every four character levels
+ *
+ * An ordinary (Modern/ordinaries) has no action points, and none of the basic classes' class
+ * features: no talents and no bonus feats. Its skill points, feats and ability increases are a
+ * hero's. It can take only the basic classes.
  */
 
 export const actionPointsFor = (level) => 5 + Math.floor(level / 2);
@@ -99,12 +103,14 @@ export function pointsAfter(row, before, after, className) {
 
 /**
  * The whole picture, for the sheet: `{ have, allowed, over }` for each of skill points,
- * feats and talents, the action points due, and the ability increases owed and chosen.
+ * feats and talents, the action points due, and the ability increases owed and chosen; for an
+ * ordinary, `notBasic` names any class it has that is not a basic class.
  * `level` is the character level (a creature's Hit Dice included), `heroicLevel` its class
  * levels alone; `skills` the derived skill rows; `counts` the feats and talents it has.
  */
-export function advancement({ level, heroicLevel, classes, intMod, nonhuman, skills, counts, granted, increases, grants = [] }) {
+export function advancement({ level, heroicLevel, classes, intMod, nonhuman, skills, counts, granted, increases, grants = [], ordinary = false }) {
   const g = classGrants(classes, { intMod, nonhuman });
+  if (ordinary) Object.assign(g, { bonusFeats: 0, talents: 0 });
   // Feats an occupation or species gives, on top of the levels' (the starting feats are counted with the class).
   const given = (kind) => grants.filter((x) => x.kind === kind).reduce((n, x) => n + x.choose, 0);
   // A creature with no class levels counts its feats and skills by its type's own rules (printed on the type): not checked.
@@ -116,8 +122,9 @@ export function advancement({ level, heroicLevel, classes, intMod, nonhuman, ski
     feats: pick(counts.feats, heroicLevel ? featsAllowed(level) + g.bonusFeats + g.startingFeats + given("occupation") + given("species") : null),
     featParts: { general: featsAllowed(level), bonus: g.bonusFeats, starting: g.startingFeats, occupation: given("occupation"), species: given("species") },
     talents: pick(counts.talents, g.talents),
-    actionPoints: actionPointsDue(heroicLevel, granted),
+    actionPoints: ordinary ? { levels: [], points: 0 } : actionPointsDue(heroicLevel, granted),
     abilityIncreases: { allowed: abilityIncreases(level), chosen: increases.length },
+    notBasic: ordinary ? classes.filter((c) => c.system.classType !== "basic").map((c) => c.name) : [],
   };
 }
 

@@ -17,7 +17,7 @@ import { logContext } from "../log.mjs";
 import { identify } from "../rules/identify.mjs";
 import { restHealing } from "../rules/damage.mjs";
 import { financialCondition } from "../rules/wealth.mjs";
-import { applyToActor, rollSave } from "../damage.mjs";
+import { applyToActor, rollSave, stabiliseWithHelp } from "../damage.mjs";
 import { buy, sell, rollStartingWealth, regainWealth } from "../wealth.mjs";
 import { speciesLanguages, languageRanks, SOURCES } from "../rules/languages.mjs";
 import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
@@ -87,6 +87,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       addSpeciesLanguages: Modern20CharacterSheet.#onAddSpeciesLanguages,
       removeLanguage: Modern20CharacterSheet.#onRemoveLanguage,
       belowZeroSave: Modern20CharacterSheet.#onBelowZeroSave,
+      stabilisedByHelp: Modern20CharacterSheet.#onStabilisedByHelp,
       rollUnarmed: Modern20CharacterSheet.#onRollUnarmed,
       rollGrab: Modern20CharacterSheet.#onRollGrab,
       rollGrapple: Modern20CharacterSheet.#onRollGrapple,
@@ -179,8 +180,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       const check = rows.filter((r) => r.met === null);
       return { met: !unmet.length, unmet: unmet.flatMap((r) => r.missing).join("; "), check: check.map((r) => r.label).join(", ") };
     };
+    // An ordinary takes only the basic classes (Modern/ordinaries).
+    const notBasic = new Set(d.advancement?.notBasic ?? []);
     const classes = ofType("class").map((c) => ({
-      requirements: requirementsOf(c),
+      requirements: notBasic.has(c.name) ? { met: false, unmet: "an ordinary can take only the six basic classes", check: "" } : requirementsOf(c),
       id: c.id, name: c.name, img: c.img, level: c.system.level, hitDie: c.system.hitDie, max: c.system.maxLevel,
       rolls: Array.from({ length: c.system.level }, (_, i) => ({ index: i, value: c.system.hitPoints[i] ?? "" })),
     }));
@@ -433,6 +436,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
   static #onRollGrab(event) { return characterRolls(this.document).grab(event); }
   static #onRollGrapple(event) { return characterRolls(this.document).grapple(event); }
   static async #onBelowZeroSave(event, target) { await rollSave(this.document, target.dataset.kind, event); }
+  /** Stabilised by someone's Treat Injury check: stable and unconscious, and (tended) healing naturally from now on. */
+  static async #onStabilisedByHelp() { await stabiliseWithHelp(this.document); }
   /** Take or give back a feat an occupation, species or first class offers. */
   static async #onToggleGrant(event, target) {
     const actor = this.document;
@@ -665,6 +670,8 @@ function bonusFeatItem(actor, classId, option) {
  * and which are taken as bonus feats), and its talent trees (with each talent's prerequisites).
  */
 async function classChoicesContext(actor) {
+  // An ordinary has no talents or bonus feats: none of the basic classes' class features.
+  if (actor.system.ordinary) return [];
   const classes = actor.items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0).sort((a, b) => a.sort - b.sort);
   const talents = actor.items.filter((i) => i.type === "talent");
   const owned = talents.map((t) => ({ name: t.name, tree: t.system.tree }));
@@ -737,7 +744,7 @@ function unarmedSummary(items) {
 function belowZero(actor) {
   const hp = actor.system.hp.value, st = actor.statuses;
   if (hp >= 0 || st.has("dead")) return null;
-  if (st.has("dying")) return { kind: "dying", label: "Dying: Fortitude DC 20", tip: "Each round: stable on a success, 1 hit point lost on a failure. Treat Injury (DC 15) also stabilises; mark Stable by hand." };
+  if (st.has("dying")) return { kind: "dying", label: "Dying: Fortitude DC 20", tip: "Each round: stable on a success, 1 hit point lost on a failure", tendable: true };
   if (st.has("stable") && st.has("unconscious")) return { kind: "waking", label: "Unconscious: Fortitude DC 20", tip: "Each hour (once tended, or unaided): regain consciousness, disabled" };
   if (!actor.system.hp.recovering) return { kind: "recovery", label: "Below 0: Fortitude DC 20", tip: "Each day: start healing naturally, or lose 1 hit point" };
   return null;

@@ -159,6 +159,18 @@ export async function rollSave(actor, kind, event) {
   return passed;
 }
 
+/**
+ * Stabilised by another's Treat Injury check (DC 15): stable and unconscious, and, being tended,
+ * recovering hit points naturally from now on, even while unconscious (Modern/deathdyinghealing,
+ * Recovering with Help). Only the hourly save to wake is left.
+ */
+export async function stabiliseWithHelp(actor) {
+  const value = actor.system.hp.value;
+  if (value >= 0) return;
+  await setHitPoints(actor, { value }, { stable: true, awake: false, recovering: true });
+  await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: `<div class="m20-roll"><p>${escape(actor.name)} is stabilised with Treat Injury: unconscious, with a Fortitude save (DC ${D.DYING_DC}) each hour to wake, and healing naturally from now on.</p></div>` });
+}
+
 /** The save a card asks for: a button for the actor's owner. */
 export function bindSaveButtons(message, html, flags) {
   const { actor: uuid, dc, kind } = flags.save;

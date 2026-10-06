@@ -63,6 +63,7 @@
 
   <div class="m20-panel">
     <h3>Classes{{#if creatureType}} <span class="m20-hint">({{creatureType}})</span>{{/if}}</h3>
+    <p class="m20-levelling"><label data-tooltip="A nonheroic character: the basic classes only, no action points, no talents or bonus feats, and 1st-level hit points rolled rather than the maximum"><input type="checkbox" name="system.ordinary" {{#if system.ordinary}}checked{{/if}}> Ordinary</label></p>
     {{#if startingClass}}
       <p class="m20-levelling">First level as
         <select name="system.startingClass" data-tooltip="The class of your 1st level: its maximum hit points, ×4 skill points and starting feats">

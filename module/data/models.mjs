@@ -370,6 +370,11 @@ export const ACTOR_MODELS = {
     /** The class the 1st level was in (its name), for its maximum hit points, ×4 skill points and starting feats; empty for a basic class. */
     startingClass: str(),
     /**
+     * An ordinary (Modern/ordinaries): a nonheroic character of the basic classes, with no action
+     * points, no talents or bonus feats, and 1st-level hit points rolled rather than the maximum.
+     */
+    ordinary: bool(),
+    /**
      * Bonuses from active effects, on the character or carried by its items
      * (a feat, a piece of gear, a condition). Never typed in: an effect adds to
      * these (`system.bonuses.saves.will`, mode Add), and the totals include them.

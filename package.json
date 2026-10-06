@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "test": "eslint . && node --test tools/test/*.test.mjs",
     "build": "node tools/build.mjs",
-    "test:foundry": "node tools/foundry/run.mjs"
+    "test:foundry": "node tools/foundry/run.mjs",
+    "test:foundry:upgrade": "node tools/foundry/upgrade.mjs"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.4",

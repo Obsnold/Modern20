@@ -8,12 +8,10 @@
  * effects), the client that made the change brings current hit points along.
  */
 import { followMaximum } from "./rules/damage.mjs";
+import { exists } from "./presence.mjs";
 
 /** Characters waiting to be brought up to date, by uuid: several changes at once make one update. */
 const pending = new Map();
-
-/** Whether a document still exists: a character deleted since the change needs nothing. */
-const exists = (actor) => (actor.isToken ? !!actor.token?.parent?.tokens.has(actor.token.id) : game.actors.has(actor.id));
 
 /**
  * Bring a character's current hit points along with its maximum, if they should follow it. Adding

@@ -104,6 +104,19 @@ const ROW_PROFICIENCY = {
 };
 
 const strip = (s) => s.replace(MARKER, "").trim();
+
+/**
+ * The dice a weapon's printed damage rolls: "2d6"; a double weapon's first end ("1d8/1d8"; the other
+ * end's shows beside it on the sheet); the dice of "2d10 + special" and "4d6 nonlethal" (the
+ * rest is the weapon's text); a ranged weapon's flat "1" (a blowgun, a shuriken). Brass knuckles'
+ * "1" is not a roll: it adds to an unarmed strike. "" for none ("Special", "Varies", "—").
+ */
+export function damageFormula(text, melee) {
+  const t = text.trim();
+  const dice = t.match(/^(\d+d\d+)(?:\/\d+d\d+|\s*\+\s*special|\s+nonlethal(?:\s+plus\s+special)?)?$/i);
+  if (dice) return dice[1];
+  return !melee && /^\d+$/.test(t) ? t : "";
+}
 const markersIn = (s) => s.match(MARKER) ?? [];
 const key = (s) => strip(s).normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 const num = (s) => Number(s.replace("–", "-").replace("+", ""));
@@ -260,8 +273,9 @@ export function readEquipmentPage(path, { feats }) {
         const feat = prof.text ? feats(prof.text, page.book) : null;
         if (prof.text && !feat) fail(row.line, `proficiency "${prof.text}" is not a feat in the feats pack`);
         const damage = col(row, "Damage") || col(row, "Direct Hit Damage");
+        const melee = /Melee/.test(category) || !["Rate of Fire", "Burst Radius", "Reflex DC"].some((h) => block.header.map(strip).includes(h));
         Object.assign(system, {
-          damage: { value: damage, formula: /^\d+d\d+$/.test(strip(damage)) ? strip(damage) : "" },
+          damage: { value: damage, formula: damageFormula(strip(damage), melee) },
           splashDamage: col(row, "Splash Damage"),
           critical: col(row, "Critical"),
           damageType: strip(col(row, "Damage Type")),
@@ -272,7 +286,7 @@ export function readEquipmentPage(path, { feats }) {
           reflexDC: col(row, "Reflex DC"),
           proficiency: { value: prof.text ?? "", uuid: feat?.uuid ?? "" },
           // Melee tables have no rate of fire or blast columns; thrown melee weapons still have a range increment.
-          melee: /Melee/.test(category) || !["Rate of Fire", "Burst Radius", "Reflex DC"].some((h) => block.header.map(strip).includes(h)),
+          melee,
         });
       } else if (kind === "armor") {
         const isShield = block.header[0] === "Shield";

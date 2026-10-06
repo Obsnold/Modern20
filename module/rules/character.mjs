@@ -204,9 +204,10 @@ export function deriveCharacter(system, items) {
   }
 
   // Hit points: each level's roll on its class's Hit Die, plus the Con modifier (at least 1 a level).
-  // The character's first level is the die's maximum; a level with no roll counts the average, rounded up.
-  // A creature's Hit Dice come first, and then its first class level is rolled like any other.
-  let hp = racial?.hitPoints ?? 0, estimated = racial?.estimated ?? false, first = !racial;
+  // A hero's first level is the die's maximum; a level with no roll counts the average, rounded up.
+  // A creature's Hit Dice come first, and then its first class level is rolled like any other, as an
+  // ordinary's is.
+  let hp = racial?.hitPoints ?? 0, estimated = racial?.estimated ?? false, first = !racial && !system.ordinary;
   for (const c of classes) {
     const die = c.system.hitDie ?? 0;
     for (let l = 0; l < Math.min(c.system.level, c.system.levels?.length ?? 0); l++) {
@@ -248,7 +249,7 @@ export function deriveCharacter(system, items) {
     casters: casters(classes, scores, level),
     // Points to spend and spent, and what the levels are owed (rules/advancement.mjs).
     advancement: advancement({
-      level, heroicLevel: classes.reduce((n, c) => n + c.system.level, 0), classes, intMod: mod("int"),
+      level, heroicLevel: classes.reduce((n, c) => n + c.system.level, 0), classes, intMod: mod("int"), ordinary: !!system.ordinary,
       // d20 Future's classes give a nonhuman a point fewer; a character with no species is human.
       nonhuman: !!species && !/human$/i.test(species.name ?? ""), skills,
       counts: { feats: items.filter((i) => i.type === "feat").length, talents: items.filter((i) => i.type === "talent").length },

@@ -6,6 +6,7 @@
     <div class="m20-tags">
       <span class="m20-tag">Level {{d.level}}</span>
       <span class="m20-tag">{{summary}}</span>
+      {{#if system.ordinary}}<span class="m20-tag">Ordinary</span>{{/if}}
       <span class="m20-tag">{{size}}</span>
     </div>
   </div>
@@ -15,6 +16,7 @@
     <span class="m20-vital-label">Current HP</span>
     <input type="number" name="system.hp.value" value="{{system.hp.value}}">
     {{#if belowZero}}<a class="m20-roll-button m20-warning" data-action="belowZeroSave" data-kind="{{belowZero.kind}}" data-tooltip="{{belowZero.tip}}">{{belowZero.label}}</a>{{/if}}
+    {{#if belowZero.tendable}}<a class="m20-roll-button" data-action="stabilisedByHelp" data-tooltip="Someone made the Treat Injury check (DC 15): stable, and healing naturally from now on, even while unconscious">Stabilised with Treat Injury</a>{{/if}}
   </label>
   <div class="m20-vital" data-tooltip="From your class levels' hit point rolls, Constitution and feats">
     <span class="m20-vital-label">Max HP{{#if combat.hpEstimated}} <i class="fa-solid fa-circle-question" data-tooltip="Some levels have no hit point roll yet and count the average"></i>{{/if}}</span>

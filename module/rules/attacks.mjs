@@ -8,7 +8,8 @@
  *   " or " / ", or " / ";"   between choices
  *   ", " / " and "     between attacks made together (a full attack's claws and bite)
  *
- * An attack is `{ name, count, bonuses, kind, touch, damage, critical, extra, nonlethal, text }`:
+ * An attack is `{ name, count, bonuses, kind, touch, damage, critical, extra, nonlethal, text }`: `kind`
+ * "melee", "ranged", or "swarm" (automatic damage, no bonuses to roll);
  * `bonuses` its iterative attack bonuses (+25/+20/+15), `damage` its dice as a formula (null for
  * "special", or when none is printed), `extra` the dice it adds of another kind ("plus 1d6
  * fire") and `note` what it adds that is not dice ("plus poison").
@@ -43,6 +44,9 @@ function split(text) {
 /** One attack: "+21/+16/+11 melee (2d6+7/19–20, +3 greatsword)". Null if it is not one. */
 export function readAttack(text) {
   const t = text.replace(DASHES, "-");
+  // A swarm's attack: "swarm (2d6 plus poison, swarm)", automatic damage with no attack roll (Arcana/Creatures/Swarm).
+  const swarm = t.match(/^swarm\s*\((.*)\)\s*$/i);
+  if (swarm) return { ...readAttack(`+0 melee (${swarm[1]})`), bonuses: [], kind: "swarm", critical: null, text: text.trim() };
   const m = t.match(/^(.*?)\s*([+-]\d+(?:\/[+-]\d+)*)\s+(melee|ranged)(\s+touch)?\s*(?:\((.*)\))?\s*$/i);
   if (!m) return null;
   const [, before, bonusText, kind, touch, inside = ""] = m;
@@ -118,7 +122,8 @@ export function damageRoll(attack, multiplier = 1) {
 /** An attack line's choices, laid out for a sheet: each attack's buttons, with where to find it again. */
 export function attackRows(line, choices) {
   return choices.map((group, choice) => group.map((a, index) => ({
-    line, choice, index, name: a.count > 1 ? `${a.count} ${a.name}s` : a.name, kind: `${a.kind}${a.touch ? " touch" : ""}`,
+    line, choice, index, name: a.count > 1 ? `${a.count} ${a.name}s` : a.name,
+    kind: a.kind === "swarm" ? "automatic, no attack roll" : `${a.kind}${a.touch ? " touch" : ""}`,
     bonuses: a.bonuses.map((b, bonus) => ({ bonus, label: signed(b) })),
     damage: a.damage ? `${a.damage}${a.extra.map((e) => ` + ${e.formula} ${e.type}`).join("")}${a.nonlethal ? " nonlethal" : ""}` : "",
     note: a.note, first: index === 0 && choice > 0,

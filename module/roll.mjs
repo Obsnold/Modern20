@@ -193,7 +193,8 @@ export function characterRolls(actor) {
       if (u) item = unarmedWeapon(u, { lethal });
       const spec = R.damage(d, item, { pointBlank, mode, feats });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
-      const nonlethal = /nonlethal/i.test(item.system.damageType ?? "");
+      // Nonlethal by its type (an unarmed strike's), or by its printed damage ("4d6 nonlethal", a concussion grenade).
+      const nonlethal = /nonlethal/i.test(item.system.damageType ?? "") || /nonlethal/i.test(item.system.damage?.value ?? "");
       if (mode === "autofire") spec.title += ` — everyone in the square: Reflex DC ${AUTOFIRE_REFLEX_DC} or take it`;
       let rolled = multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec;
       // Streetfighting's extra die, once a round, is not multiplied on a critical.

@@ -64,7 +64,7 @@ test("every weapon in the pack can be turned into an attack, and damage where it
     const a = R.attack(d, w, []);
     assert.match(a.formula, /^1d20( [+-] \d+)*$/, w.name);
     const dmg = R.damage(d, w);
-    if (dmg) assert.match(dmg.formula, /^\d+d\d+( [+-] \d+)?$/, w.name);
+    if (dmg) assert.match(dmg.formula, /^\d+(d\d+)?( [+-] \d+)?$/, w.name);
   }
 });
 
