@@ -47,6 +47,32 @@ export async function PRELUDE() {
       for (const input of root.querySelectorAll("input, textarea")) if (bad.test(String(input.value))) found.push(`${input.name || input.dataset.itemField || "a box"} = ${input.value}`);
       return [...new Set(found)];
     },
+    /**
+     * Answer the dialog that opens (a roll's question): set its fields (`{ name: value }`, a tick box
+     * by true or false), then press `button` ("ok", Roll). Returns the fields' labels, as shown.
+     */
+    async dialog(fields = {}, button = "ok") {
+      const app = await window.m20test.wait(() => [...foundry.applications.instances.values()].find((a) => a instanceof foundry.applications.api.DialogV2 && a.rendered), "a dialog");
+      const form = app.element.querySelector("form") ?? app.element;
+      const labels = [...app.element.querySelectorAll("label")].map((l) => l.innerText.trim());
+      const notes = [...app.element.querySelectorAll(".m20-roll-notes li")].map((l) => l.innerText.trim());
+      for (const [name, value] of Object.entries(fields)) {
+        const input = form.querySelector(`[name="${name}"]`);
+        if (!input) throw new Error(`the dialog has no "${name}" (it has: ${labels.join("; ")})`);
+        if (input.type === "checkbox") input.checked = !!value;
+        else input.value = String(value);
+      }
+      app.element.querySelector(`button[data-action="${button}"]`).click();
+      return { labels, notes };
+    },
+    /** Set a box on a sheet and let it save, as typing and leaving it would. */
+    type(root, selector, value) {
+      const input = root.querySelector(selector);
+      if (!input) throw new Error(`nothing matches ${selector}`);
+      input.value = String(value);
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+      return input;
+    },
     /** The chat messages posted since `count` (game.messages.size before). */
     since(count) {
       return game.messages.contents.slice(count);
@@ -449,6 +475,182 @@ export const CHECKS = {
       errors.push(e.message);
     }
     await actor.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "levelling up on the sheet: levels, hit points, action points, ability increases, ranks, feats and talents"() {
+    const errors = [];
+    const { take, wait, click, type, readable } = window.m20test;
+    const abilities = Object.fromEntries(Object.entries({ str: 10, dex: 14, con: 12, int: 12, wis: 10, cha: 10 }).map(([a, v]) => [a, { value: v }]));
+    const actor = await Actor.implementation.create({ name: "Leveller (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Fast Hero", { level: 1 }), await take("occupations", "Criminal"), await take("species", "Dwarf")]);
+    const cls = actor.items.find((i) => i.type === "class");
+    const occupation = actor.items.find((i) => i.type === "occupation");
+    const dwarf = actor.items.find((i) => i.type === "species");
+    await actor.sheet.render({ force: true });
+    await wait(() => actor.sheet.rendered, "the sheet");
+    const el = () => actor.sheet.element;
+    const step = async (what, act, done) => {
+      try {
+        await act();
+        await wait(done, what);
+      } catch (e) {
+        errors.push(`${what}: ${e.message}`);
+      }
+    };
+    await step("raising Fast Hero to 3rd level", () => type(el(), `[data-item-id="${cls.id}"] input[data-item-field=level]`, 3), () => actor.items.get(cls.id).system.level === 3);
+    const rolls = el().querySelectorAll(`[data-item-id="${cls.id}"] input[data-item-field=hitPoints]`).length;
+    if (rolls !== 3) errors.push(`${rolls} hit point boxes at 3rd level`);
+    await step("rolling 5 for 2nd level's hit points", () => type(el(), `[data-item-id="${cls.id}"] input[data-item-field=hitPoints][data-index="1"]`, 5), () => actor.items.get(cls.id).system.hitPoints[1] === 5);
+    await step("the action points for levels 1-3 (5 + 6 + 6)", () => click(el(), "[data-action=grantActionPoints]"), () => actor.system.actionPoints.value === 17 && actor.system.actionPoints.granted === 3);
+    if (el().querySelector("[data-action=grantActionPoints]")) errors.push("the action points button is still there after granting");
+    await step("raising Fast Hero to 4th level", () => type(el(), `[data-item-id="${cls.id}"] input[data-item-field=level]`, 4), () => actor.items.get(cls.id).system.level === 4);
+    const dex = actor.system.derived.scores.dex;
+    await step("4th level's ability increase to Dexterity", () => type(el(), "[data-increase=\"0\"]", "dex"), () => actor.system.abilityIncreases[0] === "dex");
+    if (actor.system.derived.scores.dex !== dex + 1) errors.push(`Dexterity ${actor.system.derived.scores.dex} after its +1, expected ${dex + 1}`);
+    // Skill ranks, bought as a Fast hero: Hide is a class skill (1 point a rank), Diplomacy not (2).
+    actor.sheet.changeTab("skills", "primary");
+    await step("4 ranks of Hide", () => type(el(), "input[name=\"system.skills.hide.ranks\"]", 4), () => actor.system.skills.hide.ranks === 4);
+    if (actor.system.skills.hide.points !== 4) errors.push(`Hide's 4 ranks cost ${actor.system.skills.hide.points} points, expected 4`);
+    await step("2 ranks of Diplomacy", () => type(el(), "input[name=\"system.skills.diplomacy.ranks\"]", 2), () => actor.system.skills.diplomacy.ranks === 2);
+    if (actor.system.skills.diplomacy.points !== 4) errors.push(`Diplomacy's 2 cross-class ranks cost ${actor.system.skills.diplomacy.points} points, expected 4`);
+    // A specialty skill keeps its name when its ranks are set (the bug fixed in 0.4.2).
+    await step("adding Knowledge (history)", () => {
+      type(el(), "tr[data-skill=knowledge] .m20-new-specialty", "history");
+      click(el(), "tr[data-skill=knowledge] [data-action=addSpecialty]");
+    }, () => actor.system.specialtySkills.some((x) => x.skill === "knowledge" && x.specialty === "history"));
+    const index = actor.system.specialtySkills.findIndex((x) => x.specialty === "history");
+    await step("2 ranks of Knowledge (history)", () => type(el(), `input[name="system.specialtySkills.${index}.ranks"]`, 2), () => actor.system.specialtySkills[index]?.ranks === 2);
+    if (actor.system.specialtySkills[index]?.specialty !== "history") errors.push(`Knowledge (history) lost its name when its ranks were set: ${JSON.stringify(actor.system.specialtySkills[index])}`);
+    // Feats: the occupation's and species' given feats, a talent, and a bonus feat.
+    actor.sheet.changeTab("feats", "primary");
+    await step("taking Brawl from the Criminal occupation", () => click(el(), `input[data-action=toggleGrant][data-source="${occupation.id}"][data-index="0"]`), () => actor.items.some((i) => i.name === "Brawl"));
+    await step("taking the Dwarf's Archaic Weapons Proficiency", () => click(el(), `input[data-action=toggleGrant][data-source="${dwarf.id}"][data-index="0"]`), () => actor.items.some((i) => i.name === "Archaic Weapons Proficiency"));
+    await step("taking the Evasion talent", () => click(el(), "input[data-action=toggleTalent][data-name=\"Evasion\"]"), () => actor.items.some((i) => i.type === "talent" && i.name === "Evasion"));
+    const unmet = el().querySelector("input[data-action=toggleTalent][data-name=\"Uncanny Dodge 2\"]")?.closest("label");
+    if (!unmet?.classList.contains("m20-unmet")) errors.push("Uncanny Dodge 2 is not marked unmet (it needs Uncanny Dodge 1)");
+    await step("taking a Fast Hero bonus feat", () => click(el(), `input[data-action=toggleBonusFeat][data-class="${cls.id}"][data-index="0"]`), () => actor.items.some((i) => i.getFlag("modern20", "bonusFor") === cls.id));
+    for (const tab of ["main", "skills", "feats"]) {
+      actor.sheet.changeTab(tab, "primary");
+      await new Promise((r) => setTimeout(r, 150));
+      for (const bad of readable(el().querySelector(`section.tab[data-tab="${tab}"]`))) errors.push(`${tab} tab: ${bad}`);
+    }
+    await actor.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "the roll dialog: a modifier, an action point, firing modes, Point Blank Shot and a talent's note"() {
+    const errors = [];
+    const { take, wait, click, dialog } = window.m20test;
+    await game.settings.set("modern20", "askBeforeRolling", true);
+    const abilities = Object.fromEntries(Object.entries({ str: 10, dex: 14, con: 10, int: 10, wis: 10, cha: 14 }).map(([a, v]) => [a, { value: v }]));
+    const actor = await Actor.implementation.create({ name: "Dialog (test)", type: "character", system: { abilities, actionPoints: { value: 3, granted: 7 }, skills: { bluff: { ranks: 4 } } } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("classes", "Fast Hero", { level: 4 }), await take("classes", "Charismatic Hero", { level: 3 }),
+      ...await Promise.all(["Personal Firearms Proficiency", "Advanced Firearms Proficiency", "Burst Fire", "Point Blank Shot"].map((n) => take("feats", n))),
+      await take("talents", "Fast-Talk"), await take("equipment", "AKM/AK-47 (7.62mmR assault rifle)", { loaded: 30 }), await take("equipment", "7.62mmR"),
+    ]);
+    const ak = actor.items.find((i) => i.type === "weapon");
+    await actor.sheet.render({ force: true });
+    await wait(() => actor.sheet.rendered, "the sheet");
+    const roll = async (tab, selector, fields, what) => {
+      actor.sheet.changeTab(tab, "primary");
+      const n = game.messages.size;
+      click(actor.sheet.element, selector);
+      const shown = await dialog(fields);
+      await wait(() => game.messages.size > n, `the ${what} to post`);
+      return { message: game.messages.contents.at(-1), ...shown };
+    };
+    const termsOf = (m) => [...new DOMParser().parseFromString(m.flavor, "text/html").querySelectorAll("li")].map((l) => l.innerText.replace(/\s+/g, " ").trim());
+    try {
+      // A burst at a target within 30 feet, +2 for cover lost, spending an action point.
+      const burst = await roll("gear", `[data-item-id="${ak.id}"] [data-action=rollAttack]`, { mode: "burst", pointBlank: true, modifier: 2, actionPoint: true }, "burst");
+      const terms = termsOf(burst.message);
+      for (const want of [/^Burst fire -4$/, /^Point Blank Shot \+1$/, /^Situational \+2$/, /^Action point/]) if (!terms.some((t) => want.test(t))) errors.push(`the burst's card has no term like ${want}: ${terms.join("; ")}`);
+      if (actor.items.get(ak.id).system.loaded !== 25) errors.push(`${actor.items.get(ak.id).system.loaded} rounds after a burst, expected 25`);
+      if (actor.system.actionPoints.value !== 2) errors.push(`${actor.system.actionPoints.value} action points after spending one, expected 2`);
+      if (!/\d+d6/.test(burst.message.rolls[0].formula)) errors.push(`the action point's die is not in the roll: ${burst.message.rolls[0].formula}`);
+      // Autofire: 10 rounds, against the square's Defense 10.
+      const auto = await roll("gear", `[data-item-id="${ak.id}"] [data-action=rollAttack]`, { mode: "autofire" }, "autofire");
+      if (actor.items.get(ak.id).system.loaded !== 15) errors.push(`${actor.items.get(ak.id).system.loaded} rounds after autofire, expected 15`);
+      if (!/autofire/i.test(auto.message.flavor)) errors.push("the autofire card does not say so");
+      // Bluff offers Fast-Talk (his Charismatic level, +3); ticked, it is on the card.
+      const bluff = await roll("skills", "[data-action=rollSkill][data-skill=bluff]", {}, "Bluff check (unticked)");
+      const fastTalk = bluff.labels.find((l) => /Fast-Talk/.test(l));
+      if (!fastTalk || !/\+3/.test(fastTalk)) errors.push(`the Bluff dialog offers no Fast-Talk +3: ${bluff.labels.join("; ")}`);
+      const name = await (async () => {
+        actor.sheet.changeTab("skills", "primary");
+        click(actor.sheet.element, "[data-action=rollSkill][data-skill=bluff]");
+        const app = await wait(() => [...foundry.applications.instances.values()].find((a) => a instanceof foundry.applications.api.DialogV2 && a.rendered), "the Bluff dialog");
+        const box = [...app.element.querySelectorAll("label")].find((l) => /Fast-Talk/.test(l.innerText))?.closest(".form-group")?.querySelector("input[type=checkbox]");
+        return box?.name;
+      })();
+      const n = game.messages.size;
+      await dialog({ [name]: true });
+      await wait(() => game.messages.size > n, "the Bluff with Fast-Talk");
+      if (!termsOf(game.messages.contents.at(-1)).some((t) => /^Fast-Talk \+3$/.test(t))) errors.push(`Fast-Talk ticked is not on the card: ${termsOf(game.messages.contents.at(-1)).join("; ")}`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await game.settings.set("modern20", "askBeforeRolling", false);
+    await actor.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "dying and conditions: disabled, dying, the save card on its turn, stable, massive damage, Shaken, initiative"() {
+    const errors = [];
+    const { take, wait, click } = window.m20test;
+    const { applyToActor } = await import("/systems/modern20/module/damage.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Dying (test)", type: "character", system: { abilities, hp: { value: 5 } } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Strong Hero", { level: 2 })]);
+    try {
+      await applyToActor(actor, 5);
+      if (actor.system.hp.value !== 0 || !actor.statuses.has("disabled")) errors.push(`at ${actor.system.hp.value} hit points: ${[...actor.statuses].join(", ")}, expected disabled`);
+      await applyToActor(actor, 3);
+      if (!actor.statuses.has("dying") || !actor.statuses.has("unconscious")) errors.push(`at ${actor.system.hp.value}: ${[...actor.statuses].join(", ")}, expected dying and unconscious`);
+      // In combat, the dying character's turn posts its save; the save stabilises or costs a hit point.
+      await wait(() => !canvas.loading, "the canvas", 15000);
+      const scene = game.scenes.find((x) => x.name === "Test scene") ?? await Scene.implementation.create({ name: "Test scene", width: 2000, height: 2000, grid: { size: 100 } });
+      if (canvas.scene?.id !== scene.id) { await scene.view(); await wait(() => canvas.ready && !canvas.loading && canvas.scene?.id === scene.id, "the scene", 15000); }
+      const [token] = await scene.createEmbeddedDocuments("Token", [(await actor.getTokenDocument({ x: 800, y: 800 })).toObject()]);
+      const combat = await Combat.implementation.create({ scene: scene.id });
+      await combat.createEmbeddedDocuments("Combatant", [{ tokenId: token.id, sceneId: scene.id, actorId: actor.id }]);
+      await combat.rollAll();
+      const init = combat.combatants.contents[0].initiative;
+      if (!Number.isFinite(init)) errors.push(`initiative rolled ${init}`);
+      const n = game.messages.size;
+      await combat.startCombat();
+      await combat.nextRound();
+      const card = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "save")?.kind === "dying"), "the dying save card");
+      const buttons = await wait(() => ui.chat.element?.querySelector(`li[data-message-id="${card.id}"] .m20-card-buttons button`), "its save button");
+      const before = actor.system.hp.value;
+      const m = game.messages.size;
+      buttons.click();
+      await wait(() => game.messages.size > m + 1, "the save and its result");
+      const stable = actor.statuses.has("stable") && !actor.statuses.has("dying");
+      if (!stable && actor.system.hp.value !== before - 1) errors.push(`after the dying save: ${actor.system.hp.value} hit points, ${[...actor.statuses].join(", ")}; expected stable, or ${before - 1}`);
+      await combat.delete();
+      // Massive damage: one hit over the threshold (Con 10) that leaves the character standing asks for a save.
+      await actor.update({ "system.hp.value": 30 });
+      for (const s of ["dying", "unconscious", "stable", "disabled"]) if (actor.statuses.has(s)) await actor.toggleStatusEffect(s, { active: false });
+      const k = game.messages.size;
+      await applyToActor(actor, 12);
+      if (!game.messages.contents.slice(k).some((x) => x.getFlag("modern20", "save")?.kind === "massive")) errors.push("12 damage over a threshold of 10 asked for no massive damage save");
+      // Shaken from the condition row: −2 on saves.
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      const will = actor.system.derived.saves.will;
+      click(actor.sheet.element, "[data-action=toggleCondition][data-condition=shaken]");
+      await wait(() => actor.statuses.has("shaken"), "Shaken");
+      if (actor.system.derived.saves.will !== will - 2) errors.push(`Will ${actor.system.derived.saves.will} while shaken, expected ${will - 2}`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
     await actor.delete();
     return errors;
   },
