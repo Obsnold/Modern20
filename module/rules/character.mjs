@@ -139,7 +139,7 @@ export function deriveCharacter(system, items) {
   // skills chosen from the occupation, or a skill marked by hand. A specialty skill ("Knowledge (history)")
   // is a class skill when its source names it, or names the skill with no specialty.
   const named = (s) => `${skillKey(s.name)}${s.specialty ? `:${s.specialty}` : ""}`;
-  const parse = (text) => { const m = text.match(/^(.+?)(?: [\(\[](.+)[\)\]])?$/); return { name: m[1], specialty: m[2] ?? "" }; };
+  const parse = (text) => { const m = text.match(/^(.+?)(?: [([](.+)[)\]])?$/); return { name: m[1], specialty: m[2] ?? "" }; };
   const sources = { class: new Set(), feat: new Set(), occupation: new Set() };
   for (const c of classes) for (const s of c.system.classSkills ?? []) sources.class.add(named(s));
   for (const f of feats) for (const s of f.rules.classSkills ?? []) sources.feat.add(named(parse(s)));

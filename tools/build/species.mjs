@@ -68,7 +68,8 @@ export function readSpecies(path, { feats }) {
   for (const b of page.root.blocks) fail(b.line, "content before the # heading");
   for (const s of top.children) fail(s.line, `unexpected section "${s.title}"; species traits are bold labels under the # heading`);
 
-  const { lead, traits: list } = traits(top.blocks);
+  // The text before the first trait is kept with the whole page, as the description.
+  const { traits: list } = traits(top.blocks);
   const by = {};
   for (const t of list) {
     if (by[t.name]) fail(t.line, `"**${t.name}:**" appears twice`);

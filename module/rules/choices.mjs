@@ -25,7 +25,7 @@ export function chooses(choice, target) {
 /** The skills a choice names: "Knowledge (history) and Knowledge (civics)", "Climb". */
 export function chosenSkills(choice) {
   return (choice ?? "").split(/\s*(?:,|\band\b)\s*/).map((s) => s.trim()).filter(Boolean).map((s) => {
-    const m = s.match(/^(.+?)(?: [\(\[](.+)[\)\]])?$/);
+    const m = s.match(/^(.+?)(?: [([](.+)[)\]])?$/);
     return { name: m[1], specialty: m[2] ?? "" };
   });
 }

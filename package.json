@@ -7,11 +7,14 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node --test tools/test/*.test.mjs",
+    "lint": "eslint .",
+    "test": "eslint . && node --test tools/test/*.test.mjs",
     "build": "node tools/build.mjs"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.4",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
     "mdast-util-to-string": "^4.0.0",
     "rehype-stringify": "^10.0.1",
     "remark-gfm": "^4.0.1",

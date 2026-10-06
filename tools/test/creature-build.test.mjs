@@ -87,6 +87,7 @@ test("most classed examples rebuild to their printed attack bonus from their bas
     if (d.baseAttackBonus === c.system.baseAttackBonus.bonus) ok++; else off.push(c.name);
   }
   assert.equal(n, 33);
+  assert.equal(ok, n - 4);
   // The four the book prints otherwise: the Skunk Ape keeps the 1 Hit Die its class levels should replace, and
   // three are one off.
   assert.deepEqual(off.sort(), ["Jumping Jack Fast Hero 9", "Minotaur Strong Hero 3", "Skunk Ape Dedicated Hero 3/Acolyte 2", "Tooth Fairy Fast Hero 3/Smart Hero 1"]);
