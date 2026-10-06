@@ -2,7 +2,7 @@
 import { conform, obj } from "../../module/data/schema.mjs";
 import { once } from "./once.mjs";
 import { slug } from "../../module/rules/identify.mjs";
-import { MODES } from "../../module/rules/effects.mjs";
+import { SYSTEM_TYPE } from "../../module/rules/effects.mjs";
 import { stableId } from "./ids.mjs";
 import { EFFECTS, NOTES } from "./mechanics.mjs";
 import { ITEM_MODELS, ACTOR_MODELS } from "../../module/data/models.mjs";
@@ -40,15 +40,16 @@ export function modelFor(doc) {
 }
 
 /**
- * An item's always-on bonuses as one effect, transferred to whoever owns it. Its changes are in
- * the system's own (Custom) mode, under `system.bonuses`: Foundry leaves them alone, and the
- * character's numbers apply them, with any formula worked out (rules/effects.mjs).
+ * An item's always-on bonuses as one effect, transferred to whoever owns it. Its changes are of
+ * the system's own type, under `system.bonuses`: Foundry skips them, and the character's numbers
+ * apply them, with any formula worked out (rules/effects.mjs).
  */
 function mechanicsEffect(d, changes) {
   const id = stableId(`mechanics:${d._id}`);
   return {
-    _id: id, _key: `!items.effects!${d._id}.${id}`, name: d.name, img: d.img,
-    changes: changes.map(([key, value]) => ({ key: `system.bonuses.${key}`, mode: MODES.CUSTOM, value: String(value), priority: null })),
+    _id: id, _key: `!items.effects!${d._id}.${id}`, name: d.name, img: d.img, type: "base",
+    // Foundry v14's form: changes in `system`, each with a named type and the phase it applies in.
+    system: { changes: changes.map(([key, value]) => ({ key: `system.bonuses.${key}`, type: SYSTEM_TYPE, value, phase: "initial", priority: null })) },
     transfer: true, disabled: false, duration: {}, description: "", origin: null, statuses: [], flags: { modern20: { mechanics: true } },
   };
 }

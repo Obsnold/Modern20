@@ -16,9 +16,13 @@ import { statusEffects } from "./rules/conditions.mjs";
 import { registerLogSettings, registerLogHooks } from "./log.mjs";
 import { registerDyingHooks } from "./damage.mjs";
 import { registerSyncSettings, syncWorldItems } from "./sync.mjs";
+import { SYSTEM_TYPE } from "./rules/effects.mjs";
 
 
 Hooks.once("init", () => {
+  // The system's own change type (rules/effects.mjs): Foundry calls this in place of applying the change, and
+  // it does nothing; the character's numbers apply it, formulas and all.
+  CONFIG.ActiveEffect.changeTypes[SYSTEM_TYPE] = { label: "Modern20 (worked out by the system)", defaultPriority: 0, handler: () => {} };
   registerModels();
   registerRollSettings();
   registerLogSettings();

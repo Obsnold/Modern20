@@ -80,7 +80,7 @@ test("hit points: the first level's maximum, then rolls or the average", () => {
   assert.deepEqual(two([]).hitPoints, { max: 8 + 2 + 5 + 2 + 3, estimated: true });   // d8: 8, then 5
 });
 
-test("every feat, talent and species with mechanics carries them as one effect, in the system's own mode", () => {
+test("every feat, talent and species with mechanics carries them as one effect, of the system's own type, in v14's form", () => {
   const docs = [...PACKS.feats().documents, ...PACKS.talents().documents, ...PACKS.species().documents].filter((d) => d.system);
   for (const [key, changes] of Object.entries(EFFECTS)) {
     const d = docs.find((x) => `${x.type}:${x.system.identifier}` === key);
@@ -88,7 +88,8 @@ test("every feat, talent and species with mechanics carries them as one effect, 
     assert.equal(d.effects.length, 1, key);
     const [e] = d.effects;
     assert.equal(e.transfer, true);
-    assert.deepEqual(e.changes.map((c) => [c.key, c.value, c.mode]), changes.map(([k, v]) => [`system.bonuses.${k}`, String(v), 0]));
+    assert.equal(e.changes, undefined);   // v14 keeps them in system.changes
+    assert.deepEqual(e.system.changes.map((c) => [c.key, c.value, c.type, c.phase]), changes.map(([k, v]) => [`system.bonuses.${k}`, v, "modern20", "initial"]));
     assert.ok(e._key.startsWith(`!items.effects!${d._id}.`));
   }
   assert.deepEqual(featDocs["Archaic Weapons Proficiency"].effects, []);

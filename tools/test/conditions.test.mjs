@@ -14,7 +14,7 @@ test("every condition page has a condition, and every condition a page", () => {
 
 test("every condition's changes add to a bonus the character has", () => {
   const bonuses = initial(obj(ACTOR_MODELS.character)).bonuses;
-  for (const e of statusEffects()) for (const c of e.changes) {
+  for (const e of statusEffects()) for (const c of e.system.changes) {
     const path = c.key.replace(/^system\.bonuses\./, "").split(".");
     assert.equal(typeof path.reduce((o, k) => o?.[k], bonuses), "number", `${e.name}: ${c.key}`);
   }

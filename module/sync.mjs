@@ -7,6 +7,7 @@
  * a level, ranks, what was prepared) is the character's and is left alone.
  */
 import { SYSTEM_ID } from "./config.mjs";
+import { changesOf } from "./rules/effects.mjs";
 
 const NO_LOG = "modern20NoLog";
 
@@ -29,7 +30,9 @@ async function refresh(item, source) {
     delete data._id;
     return data;
   });
-  const same = JSON.stringify(item.effects.map((e) => [e.name, e.changes])) === JSON.stringify(fresh.map((e) => [e.name, e.changes]))
+  // Compared as stored (v14 keeps an effect's changes in `system.changes`).
+  const stored = (e) => [e.name, changesOf(e).map(({ key, type, value }) => [key, type, value])];
+  const same = JSON.stringify(item.effects.map((e) => stored(e.toObject()))) === JSON.stringify(fresh.map(stored))
     && JSON.stringify(item.system.notes ?? null) === JSON.stringify(source.system.notes ?? null);
   if (same) return false;
   const opts = { [NO_LOG]: true };

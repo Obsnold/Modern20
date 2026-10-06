@@ -7,9 +7,8 @@
  *
  * tools/test/conditions.test.mjs holds this list to the condition pages.
  */
-import { MODES } from "./effects.mjs";
 
-const add = (key, value) => ({ key: `system.bonuses.${key}`, mode: MODES.ADD, value: String(value) });
+const add = (key, value) => ({ key: `system.bonuses.${key}`, type: "add", value, phase: "initial" });
 const allAttacks = (v) => [add("attack.melee", v), add("attack.ranged", v)];
 const allSaves = (v) => [add("saves.fort", v), add("saves.ref", v), add("saves.will", v)];
 const loseDex = add("loseDexBonus", 1);
@@ -45,6 +44,6 @@ export const CONDITIONS = {
 /** The conditions as Foundry's CONFIG.statusEffects entries. */
 export function statusEffects() {
   return Object.entries(CONDITIONS).map(([id, c]) => ({
-    id, name: c.name, img: c.img, description: `<p>${c.text}</p>`, changes: c.changes ?? [],
+    id, name: c.name, img: c.img, description: `<p>${c.text}</p>`, system: { changes: c.changes ?? [] },
   }));
 }
