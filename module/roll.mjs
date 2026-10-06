@@ -20,6 +20,7 @@ import { bindLevelCheck } from "./casting.mjs";
 import { spendAmmo } from "./ammo.mjs";
 import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
+import { resolveValue, mechanicsContext } from "./rules/effects.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -36,7 +37,7 @@ export function registerRollSettings() {
  * Ask for a modifier and an action point, and tick any `options` that apply
  * (`[{ name, label }]`, e.g. Point Blank Shot); null if the player cancels.
  */
-async function ask(actor, spec, event, options = []) {
+async function ask(actor, spec, event, options = [], texts = []) {
   const wanted = game.settings.get(SYSTEM_ID, "askBeforeRolling") !== !!event?.shiftKey;
   if (!wanted) return {};
   const ap = actor.type === "character" ? actor.system.actionPoints.value : 0;
@@ -46,6 +47,7 @@ async function ask(actor, spec, event, options = []) {
     ${options.map((o) => (o.choices
       ? `<div class="form-group"><label>${escape(o.label)}</label><select name="${o.name}">${o.choices.map(([v, l]) => `<option value="${escape(v)}">${escape(l)}</option>`).join("")}</select></div>`
       : `<div class="form-group"><label>${escape(o.label)}</label><input type="checkbox" name="${o.name}"></div>`)).join("")}
+    ${texts.length ? `<ul class="m20-roll-notes">${texts.map((t) => `<li>${escape(t)}</li>`).join("")}</ul>` : ""}
     ${ap > 0 ? `<div class="form-group"><label>Spend an action point (${escape(die.label.replace(/^Action point /, ""))}; ${ap} left)</label><input type="checkbox" name="actionPoint"></div>` : ""}`;
   const result = await foundry.applications.api.DialogV2.prompt({
     window: { title: spec.title },
@@ -89,11 +91,16 @@ export async function post(actor, spec, { flags = {}, judge } = {}) {
 
 /**
  * Ask, spend the action point if one was chosen, and post. `rebuild` makes the
- * roll again from what was ticked (an attack with Point Blank Shot).
+ * roll again from what was ticked (an attack with Point Blank Shot); `notes` are the
+ * situational notes that apply (rules/rolls.mjs notesFor).
  */
-async function rollD20(actor, spec, event, flags, { options = [], rebuild, before } = {}) {
+async function rollD20(actor, spec, event, flags, { options = [], rebuild, before, notes = { ticks: [], texts: [] } } = {}) {
   if (!spec || spec.unusable) return post(actor, spec);
-  const added = await ask(actor, spec, event, options);
+  // The notes that apply (Fast-Talk, a species' save bonus): those with a value as tick boxes, the rest as text.
+  options = [...options, ...notes.ticks];
+  const build = rebuild;
+  rebuild = (ticked) => R.withNotes(build ? build(ticked) : spec, notes.ticks, ticked);
+  const added = await ask(actor, spec, event, options, notes.texts);
   if (!added) return null;
   // What was chosen: a tick box's yes or no, a choice's value (or, not asked, its first).
   const ticked = Object.fromEntries(options.map((o) => [o.name, o.choices ? added[o.name] ?? o.choices[0][0] : !!added[o.name]]));
@@ -104,7 +111,7 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild, befor
   if (added.actionPoint) await actor.update({ "system.actionPoints.value": actor.system.actionPoints.value - 1 });
   // A critical is confirmed with the attack's own modifiers, the situational one included, but not an
   // action point's die: a point spent on a roll applies to that roll alone.
-  if (rebuild) spec = rebuild(ticked);
+  spec = rebuild(ticked);
   const confirm = flags?.attack ? R.withAdditions(spec, { modifier: added.modifier }).formula : undefined;
   return post(actor, R.withAdditions(spec, added), {
     flags: flags ? { ...flags, confirm, attack: { ...flags.attack, ...ticked } } : {},
@@ -136,16 +143,13 @@ function judgeAgainstTarget(roll, { touch = false } = {}) {
 export function characterRolls(actor) {
   const d = actor.system.derived;
   const feats = actor.items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ name: i.name, identifier: identify(i), choice: i.system.choice ?? "" }));
+  const notes = (targets) => R.notesFor(notesOf(actor), targets, resolverFor(actor));
   return {
-    ability: (key, event) => rollD20(actor, R.abilityCheck(d, key), event),
-    save: (key, event) => rollD20(actor, R.savingThrow(d, key), event),
+    ability: (key, event) => rollD20(actor, R.abilityCheck(d, key), event, undefined, { notes: notes(R.rollTargets.ability(key)) }),
+    save: (key, event) => rollD20(actor, R.savingThrow(d, key), event, undefined, { notes: notes(R.rollTargets.save(key)) }),
     skill: (key, specialty, event) => {
       const row = d.skills.find((s) => s.key === key && s.specialty === (specialty ?? ""));
-      const spec = R.skillCheck(d, row);
-      // Talents that add to a skill in a situation (Fast-Talk while lying): a tick box each.
-      const levels = Object.fromEntries(actor.items.filter((i) => i.type === "class").map((c) => [c.name, c.system.level]));
-      const bonuses = row ? R.situationalBonuses(row, feats.map((f) => rulesFor(f.identifier)), levels) : [];
-      return rollD20(actor, spec, event, undefined, { options: bonuses, rebuild: (ticked) => R.withSituational(spec, bonuses, ticked) });
+      return rollD20(actor, R.skillCheck(d, row), event, undefined, { notes: row ? notes(R.rollTargets.skill(row)) : undefined });
     },
     attack: (item, event) => {
       // Point Blank Shot is the player's call: the SRD's "within 30 feet" is not something the sheet can see.
@@ -153,7 +157,7 @@ export function characterRolls(actor) {
       const modes = firingModes(item, feats);
       if (modes.length > 1) options.unshift({ name: "mode", label: "Firing mode", choices: modes });
       return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0] }), event, { attack: { actor: actor.uuid, item: item.id } }, {
-        options,
+        options, notes: notes(R.rollTargets.attack(!!item.system.melee)),
         rebuild: (ticked) => R.attack(d, item, feats, ticked),
         // A firearm spends its rounds as it fires: none left, no attack.
         before: (ticked) => (item.system.melee ? true : spendAmmo(actor, item, ticked.mode ?? modes[0]?.[0] ?? "single")),
@@ -168,7 +172,7 @@ export function characterRolls(actor) {
       const options = [{ name: "lethal", label: u.lethalAllowed ? "Lethal damage (Combat Martial Arts)" : "Lethal damage (−4 on the attack)" }];
       if (u.streetfighting) options.push({ name: "streetfighting", label: `Streetfighting: +${u.streetfighting} damage (once a round)` });
       const build = (ticked = {}) => withTerms(R.attack(d, unarmedWeapon(u, ticked), feats), unarmedTerms(u, ticked));
-      return rollD20(actor, build(), event, { attack: { actor: actor.uuid, item: "unarmed" } }, { options, rebuild: build });
+      return rollD20(actor, build(), event, { attack: { actor: actor.uuid, item: "unarmed" } }, { options, rebuild: build, notes: notes(R.rollTargets.attack(true, true)) });
     },
     /** Starting a grapple: a melee touch attack to grab, judged against the target's touch Defense. */
     grab: (event) => {
@@ -176,13 +180,13 @@ export function characterRolls(actor) {
         { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
         { label: "Size", value: R.SIZE_ATTACK[d.size] ?? 0 }, { label: "Effects", value: d.attackBonus?.melee ?? 0 },
       ]);
-      return rollD20(actor, spec, event, { attack: { actor: actor.uuid, item: "grab", touch: true } });
+      return rollD20(actor, spec, event, { attack: { actor: actor.uuid, item: "grab", touch: true } }, { notes: notes([...R.rollTargets.attack(true), ...R.rollTargets.grapple()]) });
     },
     /** A grapple check: base attack + Str + the size's grapple modifier, opposed by the target's. */
     grapple: (event) => rollD20(actor, R.d20("Grapple check (opposed)", [
       { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
-      { label: "Size (grapple)", value: d.grapple - d.baseAttackBonus - (d.modifiers.str ?? 0) },
-    ]), event),
+      { label: "Size and effects", value: d.grapple - d.baseAttackBonus - (d.modifiers.str ?? 0) },
+    ]), event, undefined, { notes: notes(R.rollTargets.grapple()) }),
     damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false } = {}) => {
       // The unarmed strike is not an item: rebuilt from the feats, as it was attacked with.
       const u = item === "unarmed" ? unarmedRules(feats.map((f) => rulesFor(f.identifier))) : null;
@@ -197,6 +201,20 @@ export function characterRolls(actor) {
       return post(actor, rolled, { flags: { damage: { nonlethal } } });
     },
   };
+}
+
+/** Every note the actor's feats, talents and species carry (tools/build/mechanics.mjs), each with its source. */
+export function notesOf(actor) {
+  return actor.items.filter((i) => ["feat", "talent", "species"].includes(i.type))
+    .flatMap((i) => (i.system.notes ?? []).map((n) => ({ ...n, source: i.name })));
+}
+
+/** A note's value worked out for the actor: a number, or a formula of its class levels, level and ability modifiers. */
+export function resolverFor(actor) {
+  const d = actor.system.derived ?? {};
+  const classes = actor.items.filter((i) => i.type === "class");
+  const context = mechanicsContext(classes, d.level ?? 0, d.modifiers ?? {});
+  return (value) => resolveValue(value, context);
 }
 
 /** A roll with more named terms, its formula rebuilt (an unarmed strike's Brawl bonus). */

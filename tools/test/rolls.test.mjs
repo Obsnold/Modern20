@@ -5,13 +5,13 @@ import { buildEquipment } from "../build/equipment.mjs";
 import { deriveCharacter } from "../../module/rules/character.mjs";
 import * as R from "../../module/rules/rolls.mjs";
 import { applyEffects } from "../../module/rules/effects.mjs";
-import { buildFeats } from "../build/feats.mjs";
+import { PACKS } from "../build/packs.mjs";
 
 const classes = Object.fromEntries(buildClasses().documents.filter((d) => d.type === "class").map((d) => [d.name, d]));
 const gear = Object.fromEntries(buildEquipment().documents.filter((d) => d.system).map((d) => [d.name, d]));
 
 // A Strong Hero 3 with Str 16, Dex 13, and Iron Will (its effect applied, as Foundry would).
-const ironWill = buildFeats().documents.find((x) => x.name === "Iron Will");
+const ironWill = PACKS.feats().documents.find((x) => x.name === "Iron Will");
 const d = deriveCharacter(
   applyEffects({ system: { abilities: { str: { value: 16 }, dex: { value: 13 }, con: { value: 12 }, wis: { value: 10 } }, skills: { climb: { ranks: 6, misc: 0 }, decipherScript: { ranks: 0, misc: 0 } } } }, ironWill.effects).system,
   [{ type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level: 3 } }],

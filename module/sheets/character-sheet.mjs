@@ -11,7 +11,7 @@ import { ABILITIES, ACTOR_MODELS, SIZES } from "../data/models.mjs";
 import { initial, obj } from "../data/schema.mjs";
 import { mergeIndexed, castNumbers } from "./edit-form.mjs";
 import { SKILLS } from "../data/skills.mjs";
-import { characterRolls } from "../roll.mjs";
+import { characterRolls, notesOf } from "../roll.mjs";
 import { CHOICES } from "../rules/choices.mjs";
 import { logContext } from "../log.mjs";
 import { identify } from "../rules/identify.mjs";
@@ -236,6 +236,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         bab: signed(d.baseAttackBonus), initiative: signed(d.initiative), grapple: signed(d.grapple),
         defense: d.defense ?? {}, reputation: signed(d.reputation), massiveDamage: d.massiveDamage ?? "—",
         hpMax: d.hitPoints?.max ?? 0, hpEstimated: d.hitPoints?.estimated,
+        // Defense in a situation (Dodge, a dwarf against giants): shown, for the table to apply.
+        defenseNotes: notesOf(actor).filter((n) => n.rolls.includes("defense")).map((n) => n.text).join("\n"),
         speed: d.speed ? { ...d.speed, double: d.speed.value * 2, default: ofType("species")[0]?.system.speed || 30 } : {},
         unarmed: unarmedSummary(items),
       },

@@ -15,12 +15,14 @@ import { registerRollSettings, bindAttackButtons } from "./roll.mjs";
 import { statusEffects } from "./rules/conditions.mjs";
 import { registerLogSettings, registerLogHooks } from "./log.mjs";
 import { registerDyingHooks } from "./damage.mjs";
+import { registerSyncSettings, syncWorldItems } from "./sync.mjs";
 
 
 Hooks.once("init", () => {
   registerModels();
   registerRollSettings();
   registerLogSettings();
+  registerSyncSettings();
   registerLogHooks();
   registerDyingHooks();
   // The SRD's conditions replace Foundry's default status effects, keeping Foundry's Invisible, which hides
@@ -54,3 +56,6 @@ Hooks.once("init", () => {
 
 // An attack's chat card: Damage, and on a threat Confirm critical and Critical damage.
 Hooks.on("renderChatMessageHTML", (message, html) => bindAttackButtons(message, html));
+
+// The world's items refreshed from the compendiums after a system update (module/sync.mjs).
+Hooks.once("ready", () => syncWorldItems());

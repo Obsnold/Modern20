@@ -19,7 +19,7 @@ const { TextEditor } = foundry.applications.ux;
 /** Fields shown as rules text rather than in the table, in this order. */
 const PROSE = ["benefit", "normal", "special", "description"];
 /** Fields not in the table: the source is the header link; a class's levels, features and talent trees get sections of their own. */
-const HIDDEN = new Set(["source", ...PROSE, "features", "talentTrees", "requirements"]);
+const HIDDEN = new Set(["source", ...PROSE, "features", "talentTrees", "requirements", "notes"]);
 
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -105,6 +105,10 @@ export async function describe(doc) {
   for (const key of PROSE) if (system[key]) prose.push({ title: key === "description" ? "" : label(key), html: await enrich(system[key]) });
   // Species, creature types and templates keep each trait's text with its name.
   for (const q of [...(system.specialQualities ?? []), ...(system.traits ?? [])]) if (q?.description) prose.push({ title: q.name, html: await enrich(q.description) });
+  // Notes: what it gives in a situation, shown on the rolls it is for.
+  if (system.notes?.length) {
+    prose.push({ title: "When Rolling", html: `<ul>${system.notes.map((n) => `<li>${escape(n.text)}${n.value ? ` <strong>(${escape(/^[-@]/.test(n.value) ? n.value : `+${n.value}`)})</strong>` : ""} <span class="modern20-meta">${escape(n.rolls.join(", "))}</span></li>`).join("")}</ul>` });
+  }
   // A creature type's ability scores, minimum Hit Dice and natural weapons by size.
   if (system.sizes?.length) prose.push({ title: "By Size", html: sizeTable(system.sizes) });
   // Classes: requirements, the level table, then each feature and talent tree.

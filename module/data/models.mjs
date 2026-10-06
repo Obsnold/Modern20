@@ -35,6 +35,11 @@ const target = obj({ label: str(), value: str() });
 const trait = obj({ name: str(), description: html() });
 /** A casting table: its spell levels, and per class level (or range of ability scores) a number for each. */
 const castingTable = obj({ columns: list(int()), rows: list(obj({ from: int(), to: int(), values: list(int({ nullable: true })) })) });
+/**
+ * Notes: what an item gives in a situation, shown on the rolls it is for (tools/build/mechanics.mjs):
+ * the rolls ("skill.bluff", "save", "attack.melee", ...), the text, and the bonus as a tick box, if any.
+ */
+const notes = list(obj({ rolls: list(str()), text: str(), value: str() }));
 /** A value as printed, and the number in it. */
 const printed = (number) => obj({ value: str(), ...number });
 
@@ -122,6 +127,7 @@ const ITEM_FIELDS = {
     tree: str(),
     prerequisites: obj({ value: str(), talents: list(namedLink) }),
     description: html(),
+    notes,
     source,
   },
 
@@ -134,6 +140,7 @@ const ITEM_FIELDS = {
     benefit: html(),
     normal: html(),
     special: html(),
+    notes,
     source,
   },
 
@@ -208,6 +215,7 @@ const ITEM_FIELDS = {
     languages: obj({ free: list(str()), other: list(str()) }),
     specialQualities: list(trait),
     description: html(),
+    notes,
     source,
   },
 

@@ -16,6 +16,7 @@ import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { advancement, featGrants } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
+import { withSystemBonuses, mechanicsContext } from "./effects.mjs";
 
 /**
  * Speed in armor: the armor's printed speed for a base of 30 feet ("20"), or for 20 feet where
@@ -62,8 +63,16 @@ export function deriveCharacter(system, items) {
   const feats = items.filter((i) => i.type === "feat" || i.type === "talent").map((i) => ({ ...i, rules: rulesFor(identify(i)) }));
   const armorProficiencies = new Set(feats.map((f) => f.rules.armorProficiency).filter(Boolean));
 
-  // Bonuses from active effects (applied by Foundry before this runs; zero without any).
-  const fx = system.bonuses ?? {};
+  // Bonuses from active effects: those Foundry applied before this runs (conditions, effects made on the
+  // sheet), and the system's own from what the character owns (feats', talents' and species' effects,
+  // tools/build/mechanics.mjs), whose formulas need its class levels and base ability modifiers.
+  const baseMods = Object.fromEntries(ABILITIES.map((a) => {
+    const v = system.abilities?.[a]?.value;
+    return [a, v === null || v === undefined ? 0 : abilityModifier(v + (species?.system.abilities?.[a] ?? 0))];
+  }));
+  const heroic = classes.reduce((n, c) => n + c.system.level, 0);
+  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => e.transfer !== false && !e.disabled));
+  const fx = withSystemBonuses(system.bonuses, itemEffects, mechanicsContext(classes, heroic + Math.floor(creatureType?.system.count ?? 0), baseMods));
   const fxv = (path, fallback = 0) => path.split(".").reduce((o, k) => o?.[k], fx) ?? fallback;
 
   // Abilities: the base score, plus the species' adjustment, the +1s chosen every four levels, and any effect.
@@ -130,7 +139,7 @@ export function deriveCharacter(system, items) {
   const armorPenalty = armor.reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
 
   // Speed: the species' (or a built creature's own, or 30 feet), plus talents and effects; armor slows it.
-  const baseSpeed = (system.baseSpeed ?? species?.system.speed ?? 30) + feats.reduce((n, f) => n + (f.rules.speed ?? 0), 0) + fxv("speed");
+  const baseSpeed = (system.baseSpeed ?? species?.system.speed ?? 30) + fxv("speed");
   const worn = armor.filter((a) => a.system.weightClass !== "shield");
   const speedValue = worn.reduce((v, a) => Math.min(v, armoredSpeed(baseSpeed, a)), baseSpeed);
   const speed = { base: baseSpeed, value: speedValue, run: speedValue * 4, armored: speedValue < baseSpeed };
@@ -159,9 +168,6 @@ export function deriveCharacter(system, items) {
     if (!per) return n;
     return n + (chosenSkills(f.system.choice).some((c) => skillKey(c.name) === key && (!c.specialty || c.specialty === (specialty ?? ""))) ? amount(per) : 0);
   }, 0);
-  // Bonuses on named skills (Alertness: Listen and Spot +2); a skill named without a specialty covers them all.
-  const featSkillBonus = (key, specialty) => feats.reduce((n, f) => n + Object.entries(f.rules.skillBonuses ?? {})
-    .reduce((m, [name, v]) => { const p = parse(name); return m + (skillKey(p.name) === key && (!p.specialty || p.specialty.toLowerCase() === (specialty ?? "").toLowerCase()) ? v : 0); }, 0), 0);
   const skillRow = (key, specialty, stored) => {
     const def = SKILLS[key];
     const ranks = stored?.ranks ?? 0;
@@ -169,7 +175,9 @@ export function deriveCharacter(system, items) {
     const isClass = !!source;
     // An occupation skill that is already a class skill (from a class or a feat) gives +1 instead.
     const occupationBonus = from(sources.occupation, key, specialty) && (from(sources.class, key, specialty) || from(sources.feat, key, specialty)) ? 1 : 0;
-    const effects = fxv(`skills.${key}`) + fxv("allSkills") + choiceBonus(key, specialty) + featSkillBonus(key, specialty) + occupationBonus;
+    // A specialty's own bonus is keyed "craft:pharmaceutical" (Medical Expert).
+    const specialtyBonus = specialty ? fx.skills?.[`${key}:${specialty.toLowerCase()}`] ?? 0 : 0;
+    const effects = fxv(`skills.${key}`) + specialtyBonus + fxv("allSkills") + choiceBonus(key, specialty) + occupationBonus;
     // Cross-class ranks are bought in halves; only whole ranks add to a check.
     const total = Math.floor(ranks) + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
     return {
@@ -225,7 +233,7 @@ export function deriveCharacter(system, items) {
     initiative: mod("dex") + bonus.initiative,
     attackBonus: { melee: fxv("attack.melee"), ranged: fxv("attack.ranged") },
     damageBonus: { melee: fxv("damage.melee"), ranged: fxv("damage.ranged") },
-    grapple: bab + mod("str") + sizeMods.grapple + fxv("grapple") + feats.reduce((n, f) => n + (f.rules.grapple ?? 0), 0),
+    grapple: bab + mod("str") + sizeMods.grapple + fxv("grapple"),
     speed,
     massiveDamage: scores.con === null ? null : scores.con + bonus.massiveDamage,
     bonusHitPoints: bonus.hp,

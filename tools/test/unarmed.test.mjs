@@ -41,7 +41,8 @@ test("a hold on a target no more than two sizes larger", () => {
 
 test("speed: the species', talents', and armor's", () => {
   assert.equal(deriveCharacter({ abilities }, []).speed.value, 30);
-  const fast = deriveCharacter({ abilities }, [{ type: "talent", name: "Increased Speed", system: {} }, { type: "talent", name: "Improved Increased Speed", system: {} }]);
+  const talent = (n) => { const t = PACKS.talents().documents.find((x) => x.name === n); return { type: "talent", name: n, system: t.system, effects: t.effects }; };
+  const fast = deriveCharacter({ abilities }, [talent("Increased Speed"), talent("Improved Increased Speed")]);
   assert.equal(fast.speed.base, 40);
   const armor = PACKS.equipment().documents.find((x) => x.name === "Breastplate");
   const slowed = deriveCharacter({ abilities }, [{ type: "armor", name: armor.name, system: { ...armor.system, equipped: true } }]);

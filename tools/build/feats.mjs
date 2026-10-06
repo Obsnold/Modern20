@@ -19,9 +19,6 @@ import { listPages, readPage, toHtml, text } from "../srd/reader.mjs";
 import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
 import { resolveDuplicates } from "./duplicates.mjs";
-import { MODES } from "../../module/rules/effects.mjs";
-import { FEAT_RULES } from "../../module/rules/feats.mjs";
-import { slug } from "../../module/rules/identify.mjs";
 
 const SECTIONS = ["Prerequisites", "Benefit", "Normal", "Special"];
 const TYPES = { METAMAGIC: "metamagic", METAPSIONIC: "metapsionic", INITIAL: "initial" };
@@ -87,18 +84,6 @@ export function readFeat(path) {
   return { feat, problems };
 }
 
-/** A feat's active effect, when its benefit is a fixed bonus (rules/feats.mjs): transferred to whoever owns it. */
-function featEffects(itemId, feat) {
-  const changes = FEAT_RULES[slug(feat.name)]?.effects;
-  if (!changes) return [];
-  const id = stableId(`feat-effect:${feat.path}`);
-  return [{
-    _id: id, _key: `!items.effects!${itemId}.${id}`, name: feat.name, img: ICON,
-    changes: changes.map(([key, value]) => ({ key, mode: MODES.ADD, value: String(value), priority: null })),
-    transfer: true, disabled: false, duration: {}, description: "", origin: null, statuses: [], flags: {},
-  }];
-}
-
 /** Build the feats pack: `{ documents, problems, skipped }`. */
 export const buildFeats = once(function buildFeats() {
   const problems = [];
@@ -124,7 +109,7 @@ export const buildFeats = once(function buildFeats() {
         description: feat.description, benefit: feat.benefit, normal: feat.normal, special: feat.special,
         source: { book: BOOKS[feat.book] ?? feat.book, page: pageUuid(feat.path) },
       },
-      effects: featEffects(id, feat), ownership: { default: 0 }, flags: { modern20: { srd: feat.path } },
+      effects: [], ownership: { default: 0 }, flags: { modern20: { srd: feat.path } },
     });
   }
   for (const [book, id] of Object.entries(folders)) {

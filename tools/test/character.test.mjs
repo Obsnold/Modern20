@@ -4,11 +4,10 @@ import { buildClasses } from "../build/classes.mjs";
 import { buildCreatures } from "../build/creatures.mjs";
 import { deriveCharacter } from "../../module/rules/character.mjs";
 import { applyEffects } from "../../module/rules/effects.mjs";
-import { FEAT_RULES } from "../../module/rules/feats.mjs";
-import { slug } from "../../module/rules/identify.mjs";
-import { buildFeats } from "../build/feats.mjs";
+import { PACKS } from "../build/packs.mjs";
+import { EFFECTS } from "../build/mechanics.mjs";
 
-const featDocs = Object.fromEntries(buildFeats().documents.filter((d) => d.type === "feat").map((d) => [d.name, d]));
+const featDocs = Object.fromEntries(PACKS.feats().documents.filter((d) => d.type === "feat").map((d) => [d.name, d]));
 /** A character's system data with its feats' effects applied, as Foundry applies them. */
 const withFeats = (system, featNames) => applyEffects({ system }, featNames.flatMap((n) => featDocs[n]?.effects ?? [])).system;
 
@@ -81,19 +80,18 @@ test("hit points: the first level's maximum, then rolls or the average", () => {
   assert.deepEqual(two([]).hitPoints, { max: 8 + 2 + 5 + 2 + 3, estimated: true });   // d8: 8, then 5
 });
 
-test("every fixed-bonus feat in the pack carries its effect, transferred to its owner", () => {
-  // The builder's own output, before the packs add identifiers: identified by the same slug.
-  const byId = Object.fromEntries(Object.values(featDocs).map((d) => [slug(d.name), d.name]));
-  for (const [id, rules] of Object.entries(FEAT_RULES).filter(([, r]) => r.effects)) {
-    const name = byId[id];
-    const changes = rules.effects;
-    const e = featDocs[name]?.effects;
-    assert.equal(e?.length, 1, id);
-    assert.equal(e[0].transfer, true);
-    assert.deepEqual(e[0].changes.map((c) => [c.key, Number(c.value), c.mode]), changes.map(([k, v]) => [k, v, 2]));
-    assert.ok(e[0]._key.startsWith(`!items.effects!${featDocs[name]._id}.`));
+test("every feat, talent and species with mechanics carries them as one effect, in the system's own mode", () => {
+  const docs = [...PACKS.feats().documents, ...PACKS.talents().documents, ...PACKS.species().documents].filter((d) => d.system);
+  for (const [key, changes] of Object.entries(EFFECTS)) {
+    const d = docs.find((x) => `${x.type}:${x.system.identifier}` === key);
+    assert.ok(d, key);
+    assert.equal(d.effects.length, 1, key);
+    const [e] = d.effects;
+    assert.equal(e.transfer, true);
+    assert.deepEqual(e.changes.map((c) => [c.key, c.value, c.mode]), changes.map(([k, v]) => [`system.bonuses.${k}`, String(v), 0]));
+    assert.ok(e._key.startsWith(`!items.effects!${d._id}.`));
   }
-  assert.deepEqual(featDocs.Alertness.effects, []);
+  assert.deepEqual(featDocs["Archaic Weapons Proficiency"].effects, []);
 });
 
 test("skills: class skills by class and occupation, specialties, totals and the rank cap", () => {

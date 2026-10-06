@@ -199,23 +199,37 @@ export function cardButtons(flags) {
 }
 
 /**
- * The situational bonuses a skill check can take (rules/feats.mjs `situational`: Fast-Talk,
- * Charm, Empathy), as `{ name, label, value }` for the roll's tick boxes. `rules` are the
- * character's feats' and talents' rules, `levels` its class levels by class name.
+ * What a roll is, for the notes that apply to it (tools/build/mechanics.mjs): a skill check is
+ * "check", "skill", "skill.<key>" and "skill.<ability>"; a save "save" and "save.<save>"; and so on.
  */
-export function situationalBonuses(row, rules, levels) {
-  const out = [];
-  rules.forEach((r, i) => (r.situational ?? []).forEach((s, j) => {
-    const applies = s.skills === "cha" ? row.ability === "cha" : s.skills.includes(row.name);
-    const value = typeof s.bonus === "number" ? s.bonus : levels[s.bonus?.classLevel] ?? 0;
-    if (applies && value) out.push({ name: `situational${i}_${j}`, label: `${s.label} (+${value})`, value, term: s.label.split(":")[0] });
-  }));
-  return out;
+export const rollTargets = {
+  ability: (a) => ["check", "ability", `ability.${a}`],
+  skill: (row) => ["check", "skill", `skill.${row.key}`, ...(row.ability ? [`skill.${row.ability}`] : [])],
+  save: (k) => ["save", `save.${k}`],
+  attack: (melee, unarmed = false) => ["attack", melee ? "attack.melee" : "attack.ranged", ...(unarmed ? ["attack.unarmed"] : [])],
+  grapple: () => ["grapple"],
+  casterLevel: () => ["casterLevel"],
+};
+
+/**
+ * The notes of `notes` (each `{ rolls, text, value, source }`) that apply to a roll of `targets`:
+ * those with a value as tick boxes (`{ name, label, value, term }`), the rest as text. A value is
+ * worked out with `resolve` (a formula of class levels and the like).
+ */
+export function notesFor(notes, targets, resolve = Number) {
+  const ticks = [], texts = [];
+  notes.forEach((n, i) => {
+    if (!(n.rolls ?? []).some((r) => targets.includes(r))) return;
+    const value = n.value === "" || n.value === undefined ? null : resolve(n.value);
+    if (value) ticks.push({ name: `note${i}`, label: `${n.text} (${value > 0 ? "+" : ""}${value})`, value, term: n.text.split(":")[0] });
+    else texts.push(n.text);
+  });
+  return { ticks, texts };
 }
 
-/** A roll with the situational bonuses ticked added as terms. */
-export function withSituational(spec, bonuses, ticked) {
-  const on = bonuses.filter((b) => ticked[b.name]);
-  if (!on.length) return spec;
-  return d20(spec.title, [...spec.terms, ...on.map((b) => ({ label: b.term, value: b.value }))], { critical: spec.critical });
+/** A roll with the notes ticked added as terms. */
+export function withNotes(spec, ticks, ticked) {
+  const on = ticks.filter((t) => ticked[t.name]);
+  if (!on.length || !spec || spec.unusable) return spec;
+  return d20(spec.title, [...spec.terms, ...on.map((t) => ({ label: t.term, value: t.value }))], { critical: spec.critical, ...(spec.againstDefense ? { againstDefense: spec.againstDefense } : {}) });
 }

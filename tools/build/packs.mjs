@@ -2,6 +2,9 @@
 import { conform, obj } from "../../module/data/schema.mjs";
 import { once } from "./once.mjs";
 import { slug } from "../../module/rules/identify.mjs";
+import { MODES } from "../../module/rules/effects.mjs";
+import { stableId } from "./ids.mjs";
+import { EFFECTS, NOTES } from "./mechanics.mjs";
 import { ITEM_MODELS, ACTOR_MODELS } from "../../module/data/models.mjs";
 import { buildJournal } from "./journal.mjs";
 import { buildFeats } from "./feats.mjs";
@@ -37,6 +40,20 @@ export function modelFor(doc) {
 }
 
 /**
+ * An item's always-on bonuses as one effect, transferred to whoever owns it. Its changes are in
+ * the system's own (Custom) mode, under `system.bonuses`: Foundry leaves them alone, and the
+ * character's numbers apply them, with any formula worked out (rules/effects.mjs).
+ */
+function mechanicsEffect(d, changes) {
+  const id = stableId(`mechanics:${d._id}`);
+  return {
+    _id: id, _key: `!items.effects!${d._id}.${id}`, name: d.name, img: d.img,
+    changes: changes.map(([key, value]) => ({ key: `system.bonuses.${key}`, mode: MODES.CUSTOM, value: String(value), priority: null })),
+    transfer: true, disabled: false, duration: {}, description: "", origin: null, statuses: [], flags: { modern20: { mechanics: true } },
+  };
+}
+
+/**
  * Each pack's builder, with every document's system data conformed to its
  * model: what is missing filled in with defaults, as Foundry would on load.
  */
@@ -46,7 +63,12 @@ export const PACKS = Object.fromEntries(Object.entries(BUILDERS).map(([name, bui
     const m = modelFor(d);
     if (!m) return d;
     // An item's identifier: the slug of its name, without the book a split duplicate is named for.
-    const system = d._key.startsWith("!items!") ? { identifier: slug(d.name), ...d.system } : d.system;
-    return { ...d, system: conform(m, system) };
+    const isItem = d._key.startsWith("!items!");
+    const system = isItem ? { identifier: slug(d.name), ...d.system } : d.system;
+    // Its mechanics (mechanics.mjs): notes in its data, and the always-on bonuses as an effect.
+    const key = `${d.type}:${slug(d.name)}`;
+    if (isItem && NOTES[key]) system.notes = NOTES[key];
+    const effects = isItem && EFFECTS[key] ? [mechanicsEffect(d, EFFECTS[key])] : d.effects;
+    return { ...d, system: conform(m, system), ...(effects ? { effects } : {}) };
   }) };
 })]));

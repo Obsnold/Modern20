@@ -6,7 +6,8 @@
  * for spell or power resistance.
  */
 import * as C from "./rules/casting.mjs";
-import { characterRolls, post } from "./roll.mjs";
+import { characterRolls, post, notesOf, resolverFor } from "./roll.mjs";
+import { notesFor, rollTargets } from "./rules/rolls.mjs";
 import { SYSTEM_ID } from "./config.mjs";
 import { skillKey } from "./data/skills.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s ?? ""));
@@ -140,7 +141,12 @@ export function bindLevelCheck(message, html, flags) {
   const b = document.createElement("button");
   b.type = "button";
   b.textContent = `${label} (+${bonus})`;
-  b.addEventListener("click", () => post(actor, { title: label, terms: [{ label: "Level", value: bonus }], formula: `1d20 + ${bonus}` }));
+  // A level check is made to beat spell or power resistance, so what adds to that (Spell Penetration) is added.
+  b.addEventListener("click", () => {
+    const { ticks } = actor.type === "character" ? notesFor(notesOf(actor), rollTargets.casterLevel(), resolverFor(actor)) : { ticks: [] };
+    const terms = [{ label: "Level", value: bonus }, ...ticks.map((t) => ({ label: t.term, value: t.value }))];
+    post(actor, { title: label, terms, formula: ["1d20", ...terms.map((t) => (t.value < 0 ? `- ${-t.value}` : `+ ${t.value}`))].join(" ") });
+  });
   const div = document.createElement("div");
   div.className = "m20-card-buttons";
   div.append(b);
