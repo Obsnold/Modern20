@@ -13,7 +13,9 @@
  *   FOUNDRY_TEST_DATA  the test data folder, made if missing: ../foundry-test-data
  *   FOUNDRY_LICENSE    an activated license.json: ~/.local/share/FoundryVTT/Config/license.json
  *   CHROMIUM           the browser: /usr/bin/chromium
- *   FOUNDRY_CHECK      run only the checks whose names contain this
+ *   FOUNDRY_CHECK      run only the checks whose names contain this (and take no screenshots)
+ *   FOUNDRY_SCREENSHOTS  0 to take no screenshots of the sheets (screenshots.mjs); 1 to take them
+ *                      even with FOUNDRY_CHECK (FOUNDRY_CHECK=none FOUNDRY_SCREENSHOTS=1: only them)
  *
  * The server runs on the desktop app's own Node (ELECTRON_RUN_AS_NODE), which meets Foundry's
  * Node version; headless.mjs stops Foundry taking it for the desktop app.
@@ -25,6 +27,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
 import { CHECKS, PRELUDE } from "./checks.mjs";
+import { SETUP, SHOW } from "./screenshots.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, "../..");
@@ -90,6 +93,8 @@ const started = Date.now();
 const elapsed = () => `${((Date.now() - started) / 1000).toFixed(0)}s`;
 
 async function main() {
+  // FOUNDRY_CHECK="sheet" runs only the checks whose names contain it.
+  const only = process.env.FOUNDRY_CHECK?.toLowerCase();
   prepare();
   console.log(`starting Foundry (${FOUNDRY}) on port ${PORT}...`);
   const server = await startServer();
@@ -117,8 +122,6 @@ async function main() {
     await page.evaluate(`(${PRELUDE.toString()})()`);
     console.log(`[${elapsed()}] in the game\n`);
 
-    // FOUNDRY_CHECK="sheet" runs only the checks whose names contain it.
-    const only = process.env.FOUNDRY_CHECK?.toLowerCase();
     const chosen = Object.entries(CHECKS).filter(([n]) => !only || n.toLowerCase().includes(only));
     ran = chosen.length;
     for (const [name, check] of chosen) {
@@ -141,6 +144,22 @@ async function main() {
         console.log(`✖ ${name}`);
         for (const e of [...errors, ...logged]) console.log(`    ${e}`);
       } else console.log(`✔ ${name} [${elapsed()}]`);
+    }
+    // Pictures of the sheets, for a person to look over (screenshots.mjs).
+    if (process.env.FOUNDRY_SCREENSHOTS === "1" || (process.env.FOUNDRY_SCREENSHOTS !== "0" && !only)) {
+      const dir = path.join(DATA, "screenshots");
+      fs.rmSync(dir, { recursive: true, force: true });
+      fs.mkdirSync(dir, { recursive: true });
+      const sheets = await page.evaluate(`(${SETUP.toString()})()`);
+      for (const { name, uuid, tabs } of sheets) {
+        for (const tab of tabs.length ? tabs : [null]) {
+          const id = await page.evaluate(`(${SHOW.toString()})(${JSON.stringify([uuid, tab])})`);
+          await page.waitForTimeout(400);
+          await page.locator(`[id="${id}"]`).screenshot({ path: path.join(dir, `${name}${tab ? `-${tab}` : ""}.png`), animations: "disabled", timeout: 30000 });
+        }
+      }
+      await page.locator("#chat").screenshot({ path: path.join(dir, "chat.png") }).catch(() => {});
+      console.log(`\nscreenshots: ${dir}`);
     }
   } finally {
     await browser.close();

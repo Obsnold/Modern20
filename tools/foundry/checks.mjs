@@ -627,12 +627,14 @@ export const CHECKS = {
       await combat.nextRound();
       const card = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "save")?.kind === "dying"), "the dying save card");
       const buttons = await wait(() => ui.chat.element?.querySelector(`li[data-message-id="${card.id}"] .m20-card-buttons button`), "its save button");
+      // Starting combat and the next round both begin its turn: a card each. The first card's save decides it.
       const before = actor.system.hp.value;
-      const m = game.messages.size;
       buttons.click();
-      await wait(() => game.messages.size > m + 1, "the save and its result");
-      const stable = actor.statuses.has("stable") && !actor.statuses.has("dying");
-      if (!stable && actor.system.hp.value !== before - 1) errors.push(`after the dying save: ${actor.system.hp.value} hit points, ${[...actor.statuses].join(", ")}; expected stable, or ${before - 1}`);
+      try {
+        await wait(() => (actor.statuses.has("stable") && !actor.statuses.has("dying")) || actor.system.hp.value === before - 1, "the save to stabilise or cost a hit point");
+      } catch {
+        errors.push(`after the dying save: ${actor.system.hp.value} hit points, ${[...actor.statuses].join(", ")}; expected stable, or ${before - 1}`);
+      }
       await combat.delete();
       // Massive damage: one hit over the threshold (Con 10) that leaves the character standing asks for a save.
       await actor.update({ "system.hp.value": 30 });
