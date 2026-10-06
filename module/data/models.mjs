@@ -330,12 +330,18 @@ export const ACTOR_MODELS = {
     languages: list(obj({ name: str(), speak: bool(), readWrite: bool(), source: str({ choices: ["native", "species", "occupation", "ranks"] }) })),
     defense: obj({ misc: int() }),
     /**
+     * `points` are the skill points its ranks cost, as bought (null until tracked: then ranks at today's cost).
      * Ranks in each skill (half ranks for cross-class skills), any other bonus, and `classSkill` for a
      * skill made a class skill by hand: a Personality's Bonus Class Skill, a GM's ruling.
      */
-    skills: obj(Object.fromEntries(Object.entries(SKILLS).filter(([, s]) => !s.specialties).map(([k]) => [k, obj({ ranks: num(), misc: int(), classSkill: bool() })]))),
+    skills: obj(Object.fromEntries(Object.entries(SKILLS).filter(([, s]) => !s.specialties).map(([k]) => [k, obj({ ranks: num(), misc: int(), classSkill: bool(), points: num({ nullable: true }) })]))),
     /** Skills taken with a specialty: Craft (chemical), Knowledge (history), Perform (sing). */
-    specialtySkills: list(obj({ skill: str({ choices: Object.keys(SKILLS).filter((k) => SKILLS[k].specialties) }), specialty: str(), ranks: num(), misc: int(), classSkill: bool() })),
+    specialtySkills: list(obj({ skill: str({ choices: Object.keys(SKILLS).filter((k) => SKILLS[k].specialties) }), specialty: str(), ranks: num(), misc: int(), classSkill: bool(), points: num({ nullable: true }) })),
+    /**
+     * The class a level's skill points are being spent as (its name): a rank costs 1 point in one of
+     * its class skills, 2 in any other. Empty for the last class on the sheet.
+     */
+    levellingAs: str(),
     /**
      * Bonuses from active effects, on the character or carried by its items
      * (a feat, a piece of gear, a condition). Never typed in: an effect adds to

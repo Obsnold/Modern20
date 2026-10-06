@@ -145,6 +145,8 @@ export function deriveCharacter(system, items) {
   for (const f of feats) for (const s of f.rules.classSkills ?? []) sources.feat.add(named(parse(s)));
   for (const s of occupation?.system.chosenSkills ?? []) sources.occupation.add(named(parse(s)));
   const from = (set, key, specialty) => set.has(key) || (!!specialty && set.has(`${key}:${specialty}`));
+  // Which classes list each skill: a rank bought at a level costs 1 point only in that level's class's skills.
+  const perClass = classes.map((c) => ({ name: c.name, set: new Set((c.system.classSkills ?? []).map(named)) }));
   const classSource = (key, specialty, stored) =>
     from(sources.class, key, specialty) ? "class" : from(sources.feat, key, specialty) ? "feat"
       : from(sources.occupation, key, specialty) ? "occupation" : stored?.classSkill ? "chosen" : "";
@@ -168,6 +170,11 @@ export function deriveCharacter(system, items) {
     return {
       key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects,
       classSkill: isClass, classSource: source, occupationBonus,
+      // For buying ranks: the classes whose list has it, and whether it is a class skill whatever the class
+      // (a feat's, the occupation's, or marked by hand).
+      classFor: perClass.filter((c) => from(c.set, key, specialty)).map((c) => c.name),
+      alwaysClass: from(sources.feat, key, specialty) || from(sources.occupation, key, specialty) || !!stored?.classSkill,
+      points: stored?.points ?? null,
       // FX skills: "Other classes may not buy ranks in these skills without this feat" (Arcane Skills).
       restricted: !!def.fx && !isClass && ranks > 0,
       maxRanks: isClass ? level + 3 : (level + 3) / 2, overMax: ranks > (isClass ? level + 3 : (level + 3) / 2),

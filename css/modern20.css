@@ -152,3 +152,6 @@
 .modern20 .m20-tree strong { margin-right: 0.5rem; }
 .modern20 .m20-unmet { opacity: 0.55; }
 .modern20 .m20-bonus-feats summary { cursor: pointer; }
+.modern20 .m20-levelling { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.modern20 .m20-levelling select { width: auto; }
+.modern20 .m20-skills input[name$=".points"] { width: 3.5rem; }

@@ -8,8 +8,9 @@
  *                    level after (Modern/BasicClasses; a creature's own Hit Dice do not count)
  *   skill points     each class level: its class's points + Int modifier; the character's
  *                    first level ×4 (Modern/BasicClasses). A d20 Future class gives one
- *                    fewer to a nonhuman. A class skill costs 1 point a rank, a cross-class
- *                    skill 2 (Modern/Skills/skillsoverview)
+ *                    fewer to a nonhuman. A rank costs 1 point in a class skill of the class
+ *                    the level is taken in, 2 in any other (Modern/Skills/skillsoverview,
+ *                    BasicClasses/MulticlassCharacters): tracked as ranks are bought
  *   maximum ranks    character level + 3 in a class skill, half that cross-class
  *   feats            two at 1st level, then one every three character levels, plus the
  *                    bonus feats of class levels, the first class's starting feats, and any
@@ -60,8 +61,31 @@ export function classGrants(classes, { intMod = 0, nonhuman = false } = {}) {
   return { skillPoints, bonusFeats, talents, startingFeats };
 }
 
-/** Skill points spent on ranks: 1 a rank in a class skill, 2 cross-class. */
-export const skillPointsSpent = (rows) => rows.reduce((n, r) => n + (r.ranks ?? 0) * (r.classSkill ? 1 : 2), 0);
+/**
+ * Skill points spent on ranks: what each skill's ranks cost as they were bought (`points`), or, for
+ * a skill not yet tracked, its ranks at today's cost: 1 a rank in a class skill, 2 cross-class.
+ */
+export const skillPointsSpent = (rows) => rows.reduce((n, r) => n + (r.points ?? (r.ranks ?? 0) * (r.classSkill ? 1 : 2)), 0);
+
+/**
+ * What a rank costs bought as `className`: 1 in one of that class's skills, or a skill that is a
+ * class skill whatever the class (a feat's, the occupation's, marked by hand); 2 in any other. A
+ * character with no class pays by whether the skill is a class skill at all.
+ */
+export function rankCost(row, className) {
+  if (row.alwaysClass) return 1;
+  if (!className) return row.classSkill ? 1 : 2;
+  return (row.classFor ?? []).includes(className) ? 1 : 2;
+}
+
+/**
+ * A skill's points after its ranks change from `before` to `after`, bought (or sold back) as
+ * `className`: what they cost before (tracked, or at today's cost), plus the change at this cost.
+ */
+export function pointsAfter(row, before, after, className) {
+  const was = row.points ?? before * (row.classSkill ? 1 : 2);
+  return Math.max(0, was + (after - before) * rankCost(row, className));
+}
 
 /**
  * The whole picture, for the sheet: `{ have, allowed, over }` for each of skill points,

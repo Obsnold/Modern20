@@ -24,7 +24,7 @@ import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../ca
 import { ammoFor, reloadWeapon } from "../ammo.mjs";
 import { magazineOf, fits } from "../rules/ammo.mjs";
 import { unarmedRules } from "../rules/unarmed.mjs";
-import { featGrants } from "../rules/advancement.mjs";
+import { featGrants, pointsAfter, rankCost } from "../rules/advancement.mjs";
 import { bonusFeatSlots, talentPrerequisites } from "../rules/talents.mjs";
 import { slug } from "../rules/identify.mjs";
 import { SYSTEM_ID } from "../config.mjs";
@@ -182,6 +182,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}`,
         // A class skill from a class, feat or occupation shows a tick; any other can be marked by hand.
         fromItems: row.classSource && row.classSource !== "chosen", sourceLabel: CLASS_SOURCES[row.classSource] ?? "",
+        // Points: as tracked, or (not yet) shown as the estimate at today's cost; and what a rank costs now.
+        pointsEstimate: row.ranks * (row.classSkill ? 1 : 2),
+        cost: rankCost(row, levellingClass(actor)),
       });
       last = row.key;
     }
@@ -253,6 +256,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       // One Profession check to regain Wealth for each level gained since it was last made.
       wealthDue: (d.level ?? 0) > Math.max(1, system.wealth.regainedLevel || 1) ? (system.wealth.regainedLevel || 1) + 1 : null,
       languages: languagesContext(actor),
+      levelling: {
+        current: levellingClass(actor),
+        classes: ofType("class").map((c) => ({ name: c.name, selected: c.name === levellingClass(actor) })),
+      },
       belowZero: belowZero(actor),
       magic: magicContext(actor, ofType),
       featGrants: grantsContext(actor),
@@ -275,7 +282,29 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     // rather than the whole save being refused.
     if (data.system) data.system = castNumbers(obj(ACTOR_MODELS.character), data.system);
     if (data.system?.specialtySkills) data.system.specialtySkills = mergeIndexed(this.document.system.toObject().specialtySkills, data.system.specialtySkills);
+    if (data.system) this.#trackSkillPoints(data.system);
     return data;
+  }
+
+  /**
+   * Skill points as ranks are bought: a skill whose ranks changed (and whose points were not edited
+   * by hand in the same change) has its points moved by the change at the cost of the class the
+   * level is being spent as (rules/advancement.mjs).
+   */
+  #trackSkillPoints(sent) {
+    const system = this.document.system;
+    const className = sent.levellingAs ?? levellingClass(this.document);
+    const rows = system.derived?.skills ?? [];
+    const track = (stored, entry, row) => {
+      if (!row || !entry || entry.ranks === undefined || entry.ranks === (stored?.ranks ?? 0)) return;
+      if (entry.points !== undefined && entry.points !== (stored?.points ?? null)) return;
+      entry.points = pointsAfter(row, stored?.ranks ?? 0, entry.ranks, className);
+    };
+    for (const [key, entry] of Object.entries(sent.skills ?? {})) track(system.skills[key], entry, rows.find((r) => r.key === key && !r.specialty));
+    (sent.specialtySkills ?? []).forEach((entry, i) => {
+      const stored = system.specialtySkills[i];
+      if (stored) track(stored, entry, rows.find((r) => r.key === stored.skill && r.specialty === stored.specialty));
+    });
   }
 
   /** Fields on an owned item (a class's level, a hit point roll) save to that item. */
@@ -553,6 +582,13 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+/** The class skill points are being spent as: the one chosen, or the last class on the sheet. */
+function levellingClass(actor) {
+  const classes = actor.items.filter((i) => i.type === "class").sort((a, b) => a.sort - b.sort);
+  const chosen = actor.system.levellingAs;
+  return classes.find((c) => c.name === chosen)?.name ?? classes.at(-1)?.name ?? "";
 }
 
 /** The Details tab's languages: each one's fields, and those bought against the language skills' ranks. */

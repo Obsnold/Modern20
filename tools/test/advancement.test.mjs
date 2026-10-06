@@ -88,3 +88,30 @@ test("feats an occupation, species and first class give, and the feat count that
   // 5 by level, 3 class bonus feats, a starting feat, and one each from the occupation and species.
   assert.equal(d.advancement.feats.allowed, 11);
 });
+
+test("skill points as ranks are bought: the cost by the class the level is in", async () => {
+  const { rankCost, pointsAfter, skillPointsSpent } = await import("../../module/rules/advancement.mjs");
+  const items = [
+    { type: "class", name: "Charismatic Hero", system: { ...classes["Charismatic Hero"].system, level: 3 } },
+    { type: "class", name: "Telepath", system: { ...classes.Telepath.system, level: 6 } },
+  ];
+  const d = deriveCharacter({ abilities: abilities() }, items);
+  const row = (key) => d.skills.find((r) => r.key === key && !r.specialty);
+  // Disguise is a Charismatic hero's class skill, not a Telepath's; Autohypnosis a Telepath's alone; Bluff both.
+  assert.deepEqual(row("disguise").classFor, ["Charismatic Hero"]);
+  assert.deepEqual(row("bluff").classFor, ["Charismatic Hero", "Telepath"]);
+  assert.equal(rankCost(row("disguise"), "Charismatic Hero"), 1);
+  assert.equal(rankCost(row("disguise"), "Telepath"), 2);
+  assert.equal(rankCost(row("autohypnosis"), "Charismatic Hero"), 2);
+  assert.equal(rankCost(row("bluff"), "Telepath"), 1);
+  // Four ranks of Disguise bought as a Telepath cost 8; two more as a Charismatic hero, 2 more.
+  assert.equal(pointsAfter(row("disguise"), 0, 4, "Telepath"), 8);
+  assert.equal(pointsAfter({ ...row("disguise"), points: 8 }, 4, 6, "Charismatic Hero"), 10);
+  // Selling back a rank returns what it costs now; a skill not yet tracked starts from today's cost.
+  assert.equal(pointsAfter({ ...row("disguise"), points: 10 }, 6, 5, "Telepath"), 8);
+  assert.equal(pointsAfter(row("disguise"), 3, 4, "Telepath"), 5);
+  // The total counts tracked points as they are, the rest at today's cost.
+  assert.equal(skillPointsSpent([{ ranks: 4, classSkill: true, points: 8 }, { ranks: 2, classSkill: true, points: null }]), 10);
+  // A skill a feat or the occupation makes a class skill costs 1 whatever the class.
+  assert.equal(rankCost({ alwaysClass: true, classFor: [] }, "Telepath"), 1);
+});
