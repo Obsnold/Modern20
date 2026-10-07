@@ -59,6 +59,7 @@ export function skillCheck(d, row) {
     { label: "Misc", value: row.misc },
     ...named(row.effectParts, row.effects, "Effects"),
     { label: "Armor penalty", value: armor },
+    { label: `Load (${d.load?.level ?? ""})`, value: row.loadPenalty ?? 0 },
   ]);
 }
 
@@ -126,6 +127,8 @@ export function attack(d, weapon, feats, options = {}) {
     { label: mode?.label ?? "Firing mode", value: mode?.attack ?? 0 },
     { label: "Autofire (no Advanced Firearms Proficiency)", value: autofirePenalty },
     { label: "Armor (not proficient)", value: d.defense?.armorAttackPenalty ?? 0 },
+    // Carrying a medium or heavy load: −3 or −6 on attack rolls (rules/load.mjs).
+    { label: `Load (${d.load?.level ?? ""})`, value: d.load?.penalty ?? 0 },
     ...named(d.parts?.attack?.[melee ? "melee" : "ranged"], d.attackBonus?.[melee ? "melee" : "ranged"], "Effects"),
     ...ammoAttack(options.ammo, options),
     { label: range ? `Range (${range.increments} increment${range.increments === 1 ? "" : "s"} of ${range.increment} ft.)` : "Range", value: range?.penalty ?? 0 },

@@ -204,6 +204,7 @@ export function characterRolls(actor) {
       const spec = R.d20("Grab: melee touch attack (to start a grapple)", [
         { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
         { label: "Size", value: R.SIZE_ATTACK[d.size] ?? 0 }, { label: "Effects", value: d.attackBonus?.melee ?? 0 },
+        { label: `Load (${d.load?.level ?? ""})`, value: d.load?.penalty ?? 0 },
       ]);
       return rollD20(actor, spec, event, { attack: { actor: actor.uuid, item: "grab", touch: true } }, { notes: notes([...R.rollTargets.attack(true), ...R.rollTargets.grapple()]) });
     },
@@ -232,9 +233,9 @@ export function characterRolls(actor) {
   };
 }
 
-/** The weight of everything a character has that has one, in pounds. */
+/** The weight of what a character carries, in pounds: everything but what is kept elsewhere (rules/load.mjs). */
 export function gearWeight(actor) {
-  return Math.round(actor.items.reduce((n, i) => n + (Number(i.system.weight?.lb) || 0), 0) * 10) / 10;
+  return actor.system.derived?.load?.weight ?? 0;
 }
 
 /**

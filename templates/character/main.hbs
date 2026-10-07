@@ -28,7 +28,8 @@
         <dt>Base Attack Bonus</dt><dd>{{combat.bab}}</dd>
         <dt>Initiative</dt><dd data-tooltip="{{combat.tips.initiative}}">{{combat.initiative}}</dd>
         <dt><a data-action="rollGrapple" data-tooltip="Grapple check: base attack + Str + size, opposed">Grapple</a></dt><dd data-tooltip="{{combat.tips.grapple}}">{{combat.grapple}}</dd>
-        <dt>Speed</dt><dd data-tooltip="Base {{combat.speed.base}} ft.{{#if combat.speed.armored}}, slowed by armor{{/if}}; double move {{combat.speed.double}} ft., run {{combat.speed.run}} ft.">{{combat.speed.value}} ft.</dd>
+        <dt>Speed</dt><dd data-tooltip="Base {{combat.speed.base}} ft.{{#if combat.speed.armored}}, slowed by armor{{/if}}{{#if combat.speed.loaded}}, slowed by your load{{/if}}; double move {{combat.speed.double}} ft., run {{combat.speed.run}} ft.">{{combat.speed.value}} ft.</dd>
+        {{#if combat.load}}<dt>Load</dt><dd class="{{#if combat.load.warn}}m20-warning{{/if}}" data-tooltip="{{combat.load.tip}}">{{combat.load.short}}</dd>{{/if}}
         <dt>Base speed</dt><dd><input type="number" name="system.baseSpeed" value="{{system.baseSpeed}}" placeholder="{{combat.speed.default}}" step="5" data-tooltip="Empty: your species' speed, or 30 ft."></dd>
         <dt>Unarmed</dt><dd class="m20-unarmed">
           <a class="m20-roll-button" data-action="rollUnarmed" data-tooltip="Unarmed strike: {{combat.unarmed}}"><i class="fa-solid fa-hand-fist"></i></a>

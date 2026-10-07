@@ -63,7 +63,7 @@
           <p>
             <input type="text" name="feats.{{index}}.name" value="{{name}}" list="m20-levelup-feats" placeholder="A feat">
             {{#if choiceKind}}<input type="text" name="feats.{{index}}.choice" value="{{choice}}" placeholder="Choose a {{choiceKind}}">{{/if}}
-            {{#if prerequisites}}<br><span class="m20-hint">Prerequisites: {{prerequisites}}</span>{{/if}}
+            {{#if prerequisites.text}}<br><span class="{{#if (eq prerequisites.met false)}}m20-warning{{else}}m20-hint{{/if}}">Prerequisites: {{prerequisites.text}}{{#if (eq prerequisites.met false)}} (not met: {{prerequisites.missing}}){{else if prerequisites.check}} (check by hand: {{prerequisites.check}}){{else}} <i class="fa-solid fa-check"></i>{{/if}}</span>{{/if}}
           </p>
         {{/each}}
         <datalist id="m20-levelup-feats">{{#each featList}}<option value="{{name}}"></option>{{/each}}</datalist>

@@ -18,6 +18,7 @@ import { advancement, featGrants, inOrder } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
 import { withSystemBonuses, mechanicsContext, partsOf } from "./effects.mjs";
 import { characterDefenses } from "./resistance.mjs";
+import { carrying, carriedWeight, LOAD_SKILLS } from "./load.mjs";
 
 /**
  * Speed in armor: the armor's printed speed for a base of 30 feet ("20"), or for 20 feet where
@@ -133,8 +134,11 @@ export function deriveCharacter(system, items) {
   const size = creatureSize;
   const sizeMods = SIZE_MODIFIERS[size] ?? SIZE_MODIFIERS.medium;
 
-  // Defense: 10 + class + Dex (up to the armor's limit) + size + armor + natural armor.
-  const maxDex = armor.map((a) => a.system.maxDex).filter((m) => m !== null && m !== undefined);
+  // The load: what it weighs against the Strength score (rules/load.mjs). Encumbered, the Dexterity bonus is
+  // capped as armor caps it, speed is slowed, and attacks and some skills take a penalty.
+  const load = carrying(scores.str, size, carriedWeight(items.filter((i) => i.system?.weight)));
+  // Defense: 10 + class + Dex (up to the armor's limit, and the load's) + size + armor + natural armor.
+  const maxDex = [...armor.map((a) => a.system.maxDex), load?.maxDex].filter((m) => m !== null && m !== undefined);
   // A character that loses its Dexterity bonus keeps a Dexterity penalty.
   const dexCapped = maxDex.length ? Math.min(mod("dex"), ...maxDex) : mod("dex");
   const dexToDefense = fxv("loseDexBonus") > 0 ? Math.min(dexCapped, 0) : dexCapped;
@@ -151,8 +155,10 @@ export function deriveCharacter(system, items) {
   // Speed: the species' (or a built creature's own, or 30 feet), plus talents and effects; armor slows it.
   const baseSpeed = (system.baseSpeed ?? species?.system.speed ?? 30) + fxv("speed");
   const worn = armor.filter((a) => a.system.weightClass !== "shield");
-  const speedValue = worn.reduce((v, a) => Math.min(v, armoredSpeed(baseSpeed, a)), baseSpeed);
-  const speed = { base: baseSpeed, value: speedValue, run: speedValue * 4, armored: speedValue < baseSpeed };
+  const armoredValue = worn.reduce((v, a) => Math.min(v, armoredSpeed(baseSpeed, a)), baseSpeed);
+  // A load slows it too, "if not already slowed to that speed for some other reason".
+  const speedValue = load ? Math.min(armoredValue, load.speed(baseSpeed)) : armoredValue;
+  const speed = { base: baseSpeed, value: speedValue, run: speedValue * (load?.run ?? 4), armored: armoredValue < baseSpeed, loaded: speedValue < armoredValue };
 
   // Class skills, and where each comes from: a class's list, a feat that grants them (Arcane Skills), the
   // skills chosen from the occupation, or a skill marked by hand. A specialty skill ("Knowledge (history)")
@@ -193,14 +199,17 @@ export function deriveCharacter(system, items) {
     ];
     const effects = effectParts.reduce((n, p) => n + p.value, 0);
     // Cross-class ranks are bought in halves; only whole ranks add to a check.
-    const total = Math.floor(ranks) + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
+    const total = Math.floor(ranks) + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0)
+      + (LOAD_SKILLS.includes(key) ? load?.penalty ?? 0 : 0);
     // The total's parts, for a tooltip and a roll's card.
     const parts = [
       { label: "Ranks", value: Math.floor(ranks) }, ...(def.ability ? [{ label: ABILITY_LABELS[def.ability], value: mod(def.ability) }] : []),
       { label: "Misc", value: stored?.misc ?? 0 }, ...effectParts, { label: "Armor penalty", value: def.armorPenalty ? armorPenalty : 0 },
+      { label: `Load (${load?.level})`, value: LOAD_SKILLS.includes(key) ? load?.penalty ?? 0 : 0 },
     ].filter((p) => p.value);
     return {
       key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects, effectParts, parts,
+      loadPenalty: LOAD_SKILLS.includes(key) ? load?.penalty ?? 0 : 0,
       classSkill: isClass, classSource: source, occupationBonus,
       // For buying ranks: the classes whose list has it, and whether it is a class skill whatever the class
       // (a feat's, the occupation's, or marked by hand).
@@ -256,6 +265,8 @@ export function deriveCharacter(system, items) {
 
   return {
     parts,
+    // What the character carries, and what it does to it (rules/load.mjs).
+    load: load ? { weight: load.weight, light: load.light, medium: load.medium, heavy: load.heavy, level: load.level, penalty: load.penalty } : null,
     level,
     // What the creature is: its type, or the type a template makes it (a zombie is undead).
     creatureType: templates.map((t) => t.system.type).filter(Boolean).at(-1) || creatureType?.name || "",

@@ -35,6 +35,7 @@
       {{/if}}
     </div>
   {{/each}}{{/if}}
+  {{#if (and (eq tab.id "gear") @root.combat.load)}}<p class="{{#if @root.combat.load.warn}}m20-warning{{else}}m20-hint{{/if}}" data-tooltip="{{@root.combat.load.tip}}">{{@root.combat.load.text}}</p>{{/if}}
   {{#each lists}}
     <div class="m20-panel">
       <h3>{{label}}{{#if count}} <span class="{{#if count.over}}m20-warning{{else}}m20-hint{{/if}}" data-tooltip="{{count.parts}}">{{count.text}}</span>{{/if}}</h3>
@@ -43,6 +44,7 @@
           <img src="{{img}}" alt="" width="28" height="28">
           <a class="m20-item-name" data-action="editItem" {{#if origin}}data-tooltip="{{origin}}"{{/if}}>{{name}}</a>
           {{#if twice}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="{{twice}}"></i>{{/if}}
+          {{#if unmet}}<i class="fa-solid fa-circle-exclamation m20-warning" data-tooltip="{{unmet}}"></i>{{/if}}
           {{#if choiceKind}}<input class="m20-choice" type="text" value="{{choice}}" placeholder="Choose a {{choiceKind}}" data-item-field="choice" data-tooltip="The {{choiceKind}} this was taken for">{{/if}}
           <span class="m20-item-detail">{{detail}}</span>
           {{#if ammo}}
@@ -56,7 +58,8 @@
           {{#if counted}}<input class="m20-quantity" type="number" min="0" value="{{quantity}}" data-item-field="quantity" data-tooltip="Rounds carried">{{/if}}
           {{#if weapon}}<a data-action="rollAttack" data-tooltip="Attack"><i class="fa-solid fa-dice-d20"></i></a><a data-action="rollDamage" data-tooltip="Damage"><i class="fa-solid fa-burst"></i></a>{{/if}}
           {{#if dc}}<a data-action="buyItem" data-tooltip="Buy: a Wealth check against purchase DC {{dc}}"><i class="fa-solid fa-cart-shopping"></i></a><a data-action="sellItem" data-tooltip="Sell for Wealth, and remove it"><i class="fa-solid fa-money-bill"></i></a>{{/if}}
-          {{#if physical}}<a data-action="toggleEquipped" class="{{#if equipped}}m20-on{{/if}}" data-tooltip="{{#if equipped}}Equipped{{else}}Not equipped{{/if}}"><i class="fa-solid fa-shirt"></i></a>{{/if}}
+          {{#if physical}}<a data-action="toggleEquipped" class="{{#if equipped}}m20-on{{/if}}" data-tooltip="{{#if equipped}}Equipped{{else}}Not equipped{{/if}}"><i class="fa-solid fa-shirt"></i></a>
+            <a data-action="toggleStored" class="{{#if stored}}m20-on{{/if}}" data-tooltip="{{#if stored}}Kept elsewhere: not carried, so not in your load{{else}}Carried: in your load{{/if}}"><i class="fa-solid fa-box-archive"></i></a>{{/if}}
           <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
         </div>
         {{#if (and occupation @root.freeEdit)}}

@@ -18,7 +18,7 @@ import { chromium } from "playwright-core";
 import { CHECKS, PRELUDE } from "./checks.mjs";
 import { SETUP, SHOW } from "./screenshots.mjs";
 import * as PLAYERS from "./players.mjs";
-import { FOUNDRY, DATA, BROWSER, PORT, prepare, freshWorld, startServer, join, elapsed, fail } from "./harness.mjs";
+import { FOUNDRY, DATA, BROWSER, PORT, prepare, freshWorld, startServer, stopServer, join, elapsed, fail } from "./harness.mjs";
 
 const WORLD = "modern20-test";
 
@@ -110,7 +110,8 @@ async function main() {
     }
   } finally {
     await browser.close();
-    server.kill();
+    // Stopped, and waited for: a run straight after (the upgrade test) must not find it still shutting down.
+    await stopServer(server);
   }
   console.log(failed ? `\n${failed} of ${ran} checks failed` : `\nall ${ran} checks passed`);
   process.exit(failed ? 1 : 0);

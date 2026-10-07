@@ -27,6 +27,7 @@ import { unarmedRules } from "../rules/unarmed.mjs";
 import { featGrants, pointsAfter, rankCost } from "../rules/advancement.mjs";
 import { bonusFeatSlots, talentPrerequisites } from "../rules/talents.mjs";
 import { classRequirements } from "../rules/requirements.mjs";
+import { featPrerequisites } from "../rules/prerequisites.mjs";
 import { slug } from "../rules/identify.mjs";
 import { SYSTEM_ID } from "../config.mjs";
 import { rulesFor } from "../rules/feats.mjs";
@@ -60,6 +61,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       editItem: Modern20CharacterSheet.#onEditItem,
       deleteItem: Modern20CharacterSheet.#onDeleteItem,
       toggleEquipped: Modern20CharacterSheet.#onToggleEquipped,
+      toggleStored: Modern20CharacterSheet.#onToggleStored,
       addSpecialty: Modern20CharacterSheet.#onAddSpecialty,
       removeSpecialty: Modern20CharacterSheet.#onRemoveSpecialty,
       rollAbility: Modern20CharacterSheet.#onRollAbility,
@@ -230,13 +232,22 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       feat: tally(adv.feats, adv.featParts && `2 at 1st level and 1 every 3 levels (${adv.featParts.general}), class bonus feats (${adv.featParts.bonus}), starting feats (${adv.featParts.starting}), occupation (${adv.featParts.occupation}), species (${adv.featParts.species})`),
       talent: tally(adv.talents, "One for each Talent in your class levels"),
     };
+    // Feats' prerequisites against the character as it is (rules/prerequisites.mjs): every feat's name, to tell a
+    // feat in them from other wording, from the compendium's index (kept by Foundry once loaded).
+    const featIndex = await game.packs.get(`${SYSTEM_ID}.feats`)?.getIndex() ?? [];
+    const pre = { d, feats: [...ofType("feat"), ...ofType("feature")].map((f) => f.name), known: new Set(featIndex.map((e) => slug(e.name))) };
+    const unmetOf = (i) => {
+      if (i.type !== "feat" || !i.system.prerequisites || !d.skills) return "";
+      const r = featPrerequisites(i.system.prerequisites, pre);
+      return r.met === false ? `Prerequisites not met: ${r.missing.join(", ")}` : "";
+    };
     const itemLists = Object.fromEntries(Object.entries(LISTS).map(([tab, groups]) => [tab, groups.map(([type, label]) => ({
       type, label,
       items: ofType(type).map((i) => ({
-        id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon",
+        id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, stored: i.system.stored, physical: "equipped" in i.system, weapon: i.type === "weapon",
         detail: detail(i), choiceKind: CHOICES[identify(i)] ?? "", choice: i.system.choice ?? "",
         // Where it came from, on hover; and a feat given twice for the same choice, flagged.
-        origin: originOf(actor, i), twice: givenTwice(actor, i),
+        origin: originOf(actor, i), twice: givenTwice(actor, i), unmet: unmetOf(i),
         occupation: i.type === "occupation" ? occupationChoices(i) : null,
         dc: "purchaseDC" in i.system ? i.system.purchaseDC?.dc ?? null : null,
         ammo: i.type === "weapon" && !i.system.melee ? ammoContext(actor, i) : null,
@@ -263,6 +274,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         defenseNotes: notesOf(actor).filter((n) => n.rolls.includes("defense")).map((n) => n.text).join("; "),
         speed: d.speed ? { ...d.speed, double: d.speed.value * 2, default: ofType("species")[0]?.system.speed || 30 } : {},
         unarmed: unarmedSummary(items),
+        load: loadContext(d.load),
       },
       summary: (d.classes ?? []).map((c) => `${c.name} ${c.level}`).join(" / ") || "No class",
       size: d.size ? d.size[0].toUpperCase() + d.size.slice(1) : "Medium",
@@ -639,6 +651,12 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     if (item) await item.update({ "system.equipped": !item.system.equipped });
   }
 
+  /** Kept elsewhere, or carried: what counts in the load. */
+  static async #onToggleStored(event, target) {
+    const item = this.#item(target);
+    if (item) await item.update({ "system.stored": !item.system.stored });
+  }
+
   static async #onAddSpecialty(event, target) {
     const row = target.closest("[data-skill]");
     const specialty = row.querySelector(".m20-new-specialty")?.value.trim();
@@ -683,6 +701,19 @@ function buildContext(actor, d) {
     undo: last?.kind === "grant" ? `“${last.note.length > 30 ? `${last.note.slice(0, 30)}…` : last.note}”` : `level ${last?.level}`,
     occupation: occupation ? { id: occupation.id, name: occupation.name, choices: occupationChoices(occupation) } : null,
     grants: grantsContext(actor),
+  };
+}
+
+/** The load, as the sheet shows it: the weight, the load it is, and the thresholds (rules/load.mjs). */
+function loadContext(load) {
+  if (!load) return null;
+  const name = { light: "light", medium: "medium (encumbered)", heavy: "heavy (heavily encumbered)", over: "more than you can carry" }[load.level];
+  const effects = { light: "", medium: ": speed slowed, Dex bonus at most +3, −3 on attacks and some skills", heavy: ": speed slowed, Dex bonus at most +1, −6 on attacks and some skills, run ×3", over: ": you cannot move" }[load.level];
+  return {
+    short: `${load.weight} lb., ${load.level}`,
+    text: `Carrying ${load.weight} lb.: ${name}${effects}.`,
+    tip: `Light up to ${load.light} lb., medium up to ${load.medium} lb., heavy up to ${load.heavy} lb. What is kept elsewhere is not counted.`,
+    warn: load.level !== "light",
   };
 }
 

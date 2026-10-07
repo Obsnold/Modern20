@@ -1525,4 +1525,52 @@ export const CHECKS = {
     await actor.delete();
     return errors;
   },
+
+  async "feat prerequisites and carrying capacity: an unmet feat flagged, the level window's warning, a load's speed, penalties and the kept-elsewhere toggle"() {
+    const errors = [];
+    const { take, wait, click } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Loaded (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("classes", "Fast Hero", { level: 2 }), await take("feats", "Personal Firearms Proficiency"), await take("feats", "Mobility"),
+      await take("equipment", "Beretta 92F (9mm autoloader)", { loaded: 15 }),
+    ]);
+    try {
+      // Mobility needs Dexterity 13 and Dodge: flagged on the Feats tab.
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("feats", "primary");
+      const mobility = actor.items.find((i) => i.name === "Mobility");
+      const flag = await wait(() => actor.sheet.element.querySelector(`[data-item-id="${mobility.id}"] .fa-circle-exclamation`), "Mobility's unmet prerequisites flagged");
+      if (!/Dexterity 13/.test(flag.dataset.tooltip) || !/Dodge/.test(flag.dataset.tooltip)) errors.push(`Mobility's flag says "${flag.dataset.tooltip}"`);
+      // The level window warns of a feat whose prerequisites are not met.
+      const { LevelUp } = await import("/systems/modern20/module/levelup.mjs");
+      const app = new LevelUp(actor);
+      app.choices.hitPoints = 4;
+      app.choices.feats = ["Spring Attack"];
+      await app.render(true);
+      await wait(() => app.rendered && app.plan, "the level window");
+      if (!/Spring Attack: prerequisites not met/.test(app.element.innerText)) errors.push("the level window does not warn of Spring Attack's prerequisites");
+      await app.close();
+      // A load: 50 lb. at Strength 10 is medium. Speed 20, Hide −3, −3 on the attack.
+      const [crate] = await actor.createEmbeddedDocuments("Item", [{ name: "Crate (test)", type: "equipment", system: { weight: { value: "48 lb.", lb: 48 } } }]);
+      await wait(() => actor.system.derived.load?.level === "medium", `a medium load (now ${actor.system.derived.load?.weight} lb., ${actor.system.derived.load?.level})`);
+      if (actor.system.derived.speed.value !== 20) errors.push(`speed ${actor.system.derived.speed.value} encumbered, not 20`);
+      const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+      await characterRolls(actor).attack(actor.items.find((i) => i.type === "weapon"));
+      if (!/Load \(medium\)/.test(game.messages.contents.at(-1).flavor)) errors.push("the attack has no load penalty");
+      // Kept elsewhere: light again.
+      actor.sheet.changeTab("gear", "primary");
+      await wait(() => actor.sheet.element.querySelector(`[data-item-id="${crate.id}"] [data-action=toggleStored]`), "the kept-elsewhere toggle");
+      click(actor.sheet.element, `[data-item-id="${crate.id}"] [data-action=toggleStored]`);
+      await wait(() => actor.system.derived.load?.level === "light", "a light load with the crate kept elsewhere");
+      if (actor.system.derived.speed.value !== 30) errors.push(`speed ${actor.system.derived.speed.value} unencumbered, not 30`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of foundry.applications.instances.values()) if (a.constructor.name === "LevelUp") await a.close();
+    await actor.delete();
+    return errors;
+  },
 };

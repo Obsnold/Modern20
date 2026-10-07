@@ -9,6 +9,7 @@ import * as L from "./rules/levelling.mjs";
 import { deriveCharacter } from "./rules/character.mjs";
 import { classRequirements } from "./rules/requirements.mjs";
 import { talentPrerequisites } from "./rules/talents.mjs";
+import { featPrerequisites } from "./rules/prerequisites.mjs";
 import { featGrants } from "./rules/advancement.mjs";
 import { CHOICES } from "./rules/choices.mjs";
 import { identify, slug } from "./rules/identify.mjs";
@@ -130,14 +131,25 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       change("Hit points", d.hitPoints.max, after.hitPoints.max, String),
     ];
 
-    // Feats: the compendium's, by name, with any choice they need.
-    const feats = plan.feats ? (await index("feats", ["system.prerequisites"])).map((e) => ({ name: e.name, prerequisites: e.system?.prerequisites ?? "" })) : [];
+    // Feats: the compendium's, by name, with any choice they need and whether the character meets their
+    // prerequisites (rules/prerequisites.mjs), as it is now.
+    const feats = (await index("feats", ["system.prerequisites"])).map((e) => ({ name: e.name, prerequisites: e.system?.prerequisites ?? "" }));
+    const pre = { d, feats: have.feats.map((f) => f.name), known: new Set(feats.map((f) => slug(f.name))) };
+    const status = (name) => {
+      const text = feats.find((f) => f.name === name)?.prerequisites ?? "";
+      if (!text) return { text: "", met: true };
+      const r = featPrerequisites(text, pre);
+      return { text, met: r.met, missing: r.missing.join(", "), check: r.check.join(", ") };
+    };
     const featSlots = Array.from({ length: plan.feats }, (_, i) => {
       const name = this.choices.feats[i] ?? "";
-      return { index: i, name, choice: this.choices.featChoices[i] ?? "", choiceKind: CHOICES[slug(name)] ?? "", prerequisites: feats.find((f) => f.name === name)?.prerequisites ?? "" };
+      return { index: i, name, choice: this.choices.featChoices[i] ?? "", choiceKind: CHOICES[slug(name)] ?? "", prerequisites: status(name) };
     });
     // The class's bonus feat list and talent trees, each talent with its prerequisites.
-    const bonusOptions = plan.bonusFeat ? (cls.system.bonusFeats ?? []).map((o, i) => ({ value: String(i), label: o.specialty ? `${o.name} (${o.specialty})` : o.name, selected: this.choices.bonusFeat === String(i) })) : [];
+    const bonusOptions = plan.bonusFeat ? (cls.system.bonusFeats ?? []).map((o, i) => {
+      const unmet = status(o.name).met === false;
+      return { value: String(i), label: `${o.specialty ? `${o.name} (${o.specialty})` : o.name}${unmet ? " (prerequisites not met)" : ""}`, selected: this.choices.bonusFeat === String(i) };
+    }) : [];
     const bonusChosen = (cls.system.bonusFeats ?? [])[Number(this.choices.bonusFeat)];
     const ownedTalents = have.talents.map((t) => ({ name: t.name, tree: t.system.tree }));
     const talentIndex = plan.talent ? new Map((await index("talents", ["system.prerequisites", "system.tree"])).map((e) => [e.uuid, e])) : new Map();
@@ -163,8 +175,11 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     // What is left undone (a warning: the level can still be taken), and a feat that is not one (it would be lost).
     const unknown = featSlots.filter((f) => f.name && !feats.some((x) => x.name === f.name)).map((f) => f.name);
+    const bonusPick = (cls.system.bonusFeats ?? [])[Number(this.choices.bonusFeat)];
     const warnings = [
       ...featSlots.filter((f) => !f.name).map(() => "A feat is not chosen."),
+      ...featSlots.filter((f) => f.name && f.prerequisites.met === false).map((f) => `${f.name}: prerequisites not met (${f.prerequisites.missing}).`),
+      plan.bonusFeat && bonusPick && status(bonusPick.name).met === false && `${bonusPick.name}: prerequisites not met (${status(bonusPick.name).missing}).`,
       plan.bonusFeat && !this.choices.bonusFeat && "The bonus feat is not chosen.",
       plan.talent && !this.choices.talent && "The talent is not chosen.",
       plan.increase && !this.choices.increase && "The ability increase is not chosen.",

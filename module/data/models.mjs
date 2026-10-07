@@ -53,6 +53,8 @@ const physical = {
   restriction: obj({ value: str(), level: str({ choices: ["lic", "res", "mil", "illegal"] }), modifier: int() }),
   /** Worn or wielded, on a character: equipped armor counts toward Defense. */
   equipped: bool(),
+  /** On a character's copy: kept elsewhere (at home, in the car), so not carried: its weight is not in the load. */
+  stored: bool(),
 };
 
 const spellLike = {
