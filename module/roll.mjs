@@ -17,7 +17,7 @@ import { rulesFor } from "./rules/feats.mjs";
 import { readAttacks, attackRoll, damageRoll } from "./rules/attacks.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 import { bindLevelCheck } from "./casting.mjs";
-import { spendAmmo } from "./ammo.mjs";
+import { spendAmmo, specialLoad } from "./ammo.mjs";
 import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
 import { resolveValue, mechanicsContext } from "./rules/effects.mjs";
@@ -85,7 +85,8 @@ export async function post(actor, spec, { flags = {}, judge } = {}) {
   } else if (spec.critical) {
     note = `<p class="m20-hint">On a confirmed critical: ×${spec.critical.multiplier}.</p>`;
   }
-  const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}</div>`;
+  const hints = (spec.hints ?? []).map((h) => `<p class="m20-hint">${escape(h)}</p>`).join("");
+  const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}${hints}</div>`;
   await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor, flags: { [SYSTEM_ID]: { ...flags, ...judged, threat, critical: spec.critical ?? flags.critical, formula: spec.formula } } });
   await recordRoll(actor, spec.title, roll.total);
   return roll;
@@ -163,9 +164,12 @@ export function characterRolls(actor) {
       const options = !item.system.melee && feats.some((f) => rulesFor(f.identifier).pointBlank) ? [{ name: "pointBlank", label: "Within 30 feet (Point Blank Shot: +1 attack and damage)" }] : [];
       const modes = firingModes(item, feats);
       if (modes.length > 1) options.unshift({ name: "mode", label: "Firing mode", choices: modes });
-      return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0] }), event, { attack: { actor: actor.uuid, item: item.id } }, {
+      // The special load it fires (Beanbag, Armor Piercing), and its question about the target, asked here for the damage too.
+      const ammo = item.system.melee ? null : specialLoad(actor, item);
+      if (ammo?.ask) options.push({ name: "ammoAsk", label: ammo.ask.label });
+      return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0], ammo }), event, { attack: { actor: actor.uuid, item: item.id } }, {
         options, notes: notes(R.rollTargets.attack(!!item.system.melee)),
-        rebuild: (ticked) => R.attack(d, item, feats, ticked),
+        rebuild: (ticked) => R.attack(d, item, feats, { ...ticked, ammo }),
         // A firearm spends its rounds as it fires: none left, no attack.
         before: (ticked) => (item.system.melee ? true : spendAmmo(actor, item, ticked.mode ?? modes[0]?.[0] ?? "single")),
       });
@@ -194,20 +198,22 @@ export function characterRolls(actor) {
       { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
       { label: "Size and effects", value: d.grapple - d.baseAttackBonus - (d.modifiers.str ?? 0) },
     ]), event, undefined, { notes: notes(R.rollTargets.grapple()) }),
-    damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false } = {}) => {
+    damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false, ammoAsk = false } = {}) => {
       // The unarmed strike is not an item: rebuilt from the feats, as it was attacked with.
       const u = item === "unarmed" ? unarmedRules(feats.map((f) => rulesFor(f.identifier))) : null;
       if (u) item = unarmedWeapon(u, { lethal });
-      const spec = R.damage(d, item, { pointBlank, mode, feats });
+      const ammo = u || item.system.melee ? null : specialLoad(actor, item);
+      const spec = R.damage(d, item, { pointBlank, mode, feats, ammo, ammoAsk });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
       // Nonlethal by its type (an unarmed strike's), or by its printed damage ("4d6 nonlethal", a concussion grenade).
-      const nonlethal = /nonlethal/i.test(item.system.damageType ?? "") || /nonlethal/i.test(item.system.damage?.value ?? "");
+      const nonlethal = /nonlethal/i.test(item.system.damageType ?? "") || /nonlethal/i.test(item.system.damage?.value ?? "") || spec.nonlethal;
       if (mode === "autofire") spec.title += ` — everyone in the square: Reflex DC ${AUTOFIRE_REFLEX_DC} or take it`;
       let rolled = multiplier > 1 ? R.criticalDamage(spec, multiplier) : spec;
       // Streetfighting's extra die, once a round, is not multiplied on a critical.
       if (u?.streetfighting && streetfighting) rolled = { ...rolled, formula: `${rolled.formula} + ${u.streetfighting}`, terms: [...rolled.terms, { label: "Streetfighting", value: u.streetfighting }] };
       // The weapon's damage type, for damage reduction and resistance when it is applied (an unarmed strike's is bludgeoning).
-      return post(actor, rolled, { flags: { damage: { nonlethal, type: u ? "bludgeoning" : item.system.damageType ?? "" } } });
+      // The load's: the damage reduction it gets past (silver) in the type, and half of it another kind (plasma: fire).
+      return post(actor, rolled, { flags: { damage: { nonlethal, type: u ? "bludgeoning" : spec.type ?? item.system.damageType ?? "", half: spec.half ?? null } } });
     },
   };
 }
@@ -357,11 +363,11 @@ export function bindAttackButtons(message, html) {
     // A character's weapon.
     const item = actor.items?.get(flags.attack.item);
     if (!item) return;
-    const pointBlank = !!flags.attack.pointBlank;
+    const pointBlank = !!flags.attack.pointBlank, ammoAsk = !!flags.attack.ammoAsk;
     const mode = flags.attack.mode;
     name = item.name;
-    normal = () => characterRolls(actor).damage(item, { pointBlank, mode });
-    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank, mode });
+    normal = () => characterRolls(actor).damage(item, { pointBlank, mode, ammoAsk });
+    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank, mode, ammoAsk });
   } else {
     // A creature's printed attack.
     const { line, choice, index } = flags.attack;

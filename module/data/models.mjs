@@ -251,6 +251,10 @@ const ITEM_FIELDS = {
     ammunition: str(),
     /** The book sells no ammunition for it (a taser, a flamethrower): reloading refills it, with nothing drawn from what is carried. */
     noAmmunition: bool(),
+    /** On a character's copy: the special load in its magazine (rules/ammo.mjs SPECIAL_AMMO: "beanbag"), "" for an ordinary one; set by reloading. */
+    loadedWith: str(),
+    /** On a character's copy: the id of the ammunition item its magazine was filled from, for the rounds taken out on a change of load. */
+    loadedFrom: str(),
     description: html(),
     source,
   },
@@ -278,6 +282,8 @@ const ITEM_FIELDS = {
   ammunition: {
     ...physical,
     quantity: int({ nullable: true }),
+    /** On a character's copy of a special load (Beanbag, Silver): the caliber it was bought in ("12-gauge"), so it fits that weapon. */
+    caliber: str(),
     damageType: str(),
     purchaseDCModifier: str(),
     description: html(),

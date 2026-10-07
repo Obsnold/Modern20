@@ -21,8 +21,8 @@ import { applyToActor, rollSave, stabiliseWithHelp } from "../damage.mjs";
 import { buy, sell, rollStartingWealth, regainWealth } from "../wealth.mjs";
 import { speciesLanguages, rankedLanguages, SOURCES } from "../rules/languages.mjs";
 import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
-import { ammoFor, reloadWeapon } from "../ammo.mjs";
-import { magazineOf, fits } from "../rules/ammo.mjs";
+import { ammoFor, reloadWeapon, specialLoad } from "../ammo.mjs";
+import { magazineOf, fits, specialAmmo, caliberIn } from "../rules/ammo.mjs";
 import { unarmedRules } from "../rules/unarmed.mjs";
 import { featGrants, pointsAfter, rankCost } from "../rules/advancement.mjs";
 import { bonusFeatSlots, talentPrerequisites } from "../rules/talents.mjs";
@@ -229,6 +229,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         dc: "purchaseDC" in i.system ? i.system.purchaseDC?.dc ?? null : null,
         ammo: i.type === "weapon" && !i.system.melee ? ammoContext(actor, i) : null,
         quantity: i.type === "ammunition" ? i.system.quantity : null,
+        // A special load (Beanbag, Silver): the caliber it was bought in, so it fits that gun.
+        special: i.type === "ammunition" && !!specialAmmo(identify(i)), caliber: i.system.caliber ?? "",
         counted: i.type === "ammunition",
       })),
       count: counts[type] ?? null,
@@ -258,7 +260,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       skills,
       specialtyChoices: Object.entries(SKILLS).filter(([, s]) => s.specialties).map(([key, s]) => ({ key, name: s.name, specialties: s.specialties })),
       itemLists,
-      // Every effect acting on the character: its own, and those its items carry to it.
+      // The calibers of the character's guns, offered for a special load's caliber.
+    calibers: [...new Set(ofType("weapon").map((w) => caliberIn(w)).filter(Boolean))],
+    // Every effect acting on the character: its own, and those its items carry to it.
       effects: [...actor.allApplicableEffects()].map((e) => ({
         id: e.id, uuid: e.uuid, name: e.name, img: e.img, disabled: e.disabled,
         source: e.parent === actor ? "" : e.parent?.name ?? "", own: e.parent === actor,
@@ -353,7 +357,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     if (!item) return;
     const field = input.dataset.itemField;
     // Numbers are whole, except a creature type's Hit Dice ("1/2 d8" is half a die); a bad entry is no entry.
-    let value = ["choice", "chosenSkill", "ammunition"].includes(field) || input.value === "" ? null : Number(input.value);
+    let value = ["choice", "chosenSkill", "ammunition", "caliber"].includes(field) || input.value === "" ? null : Number(input.value);
     if (value !== null && (Number.isNaN(value) || field !== "count")) value = Number.isNaN(value) ? null : Math.round(value);
     if (field === "hitPoints") {
       // One roll per level, in order; a level not yet rolled is empty and counts the average.
@@ -369,6 +373,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       await item.update({ "system.chosenSkills": [...chosen] });
     } else if (field === "choice") {
       await item.update({ "system.choice": input.value.trim() });
+    } else if (field === "caliber") {
+      await item.update({ "system.caliber": input.value.trim() });
     } else if (field === "ammunition") {
       await item.update({ "system.ammunition": input.value });
     } else if (field === "loaded") {
@@ -768,7 +774,10 @@ function ammoContext(actor, weapon) {
   const all = actor.items.filter((i) => i.type === "ammunition");
   const options = [...all.filter((a) => fits(weapon, a)), ...all.filter((a) => !fits(weapon, a))]
     .map((a) => ({ id: a.id, label: `${a.name}${a.system.quantity !== null ? ` (${a.system.quantity})` : ""}${fits(weapon, a) ? "" : " — not its caliber"}`, selected: a.id === current?.id }));
+  // The special load in its magazine (rules/ammo.mjs), named on the row: switching it is a reload.
+  const loadedWith = mag && mag.capacity !== Infinity && weapon.system.loadedWith && (weapon.system.loaded ?? 0) > 0 ? specialLoad(actor, weapon)?.name ?? "" : "";
   return {
+    loadedWith,
     magazine: !!mag && mag.capacity !== Infinity, capacity: mag?.capacity, loaded: weapon.system.loaded ?? 0,
     linked: mag?.capacity === Infinity, options, none: !options.length,
   };

@@ -55,7 +55,8 @@ export function fits(weapon, ammo) {
   // d20 Future: the energy weapons run on power packs, the rail gun on shards.
   if (/^power pack/i.test(ammo.name)) return ENERGY.test(n);
   if (/^rail gun shards/i.test(ammo.name)) return /^rail gun/i.test(n);
-  const c = caliberOf(ammo.name);
+  // A special load (Beanbag, Silver) fits the caliber chosen for it ("12-gauge").
+  const c = caliberOf(ammo.name) ?? caliberOf(ammo.system?.caliber ?? "");
   if (!c) return false;
   return calibersMatch(c, caliberIn(weapon) ?? "");
 }
@@ -103,8 +104,8 @@ export function reload(weapon, loaded, supply) {
   return { added, loaded: loaded + added, supply: supply - added, action: reloadAction(mag.type) };
 }
 
-/** Damage with more dice of the weapon's die: a burst's two ("2d6" → "4d6"), a double tap's one. */
-export const extraDice = (formula, n) => formula.replace(/^(\d+)d(\d+)/, (_, count, die) => `${Number(count) + n}d${die}`);
+/** Damage with more (or fewer) dice of the weapon's die: a burst's two ("2d6" → "4d6"), birdshot's one fewer; never under one. */
+export const extraDice = (formula, n) => formula.replace(/^(\d+)d(\d+)/, (_, count, die) => `${Math.max(1, Number(count) + n)}d${die}`);
 
 /** What each firing mode adds to the attack and the damage dice. */
 export const MODES = {
@@ -112,3 +113,49 @@ export const MODES = {
   burst: { label: "Burst fire", attack: -4, dice: 2 },
   autofire: { label: "Autofire", attack: 0, dice: 0 },
 };
+
+/**
+ * Special ammunition (Arcana/Equipment/RangedWeapons, Ammunition; Future/Equipment): a load of a caliber
+ * that changes what a shot does. By identifier:
+ *
+ *   attack       added to the attack roll (Flechette −1, Seeker +1)
+ *   autofire     added to the attack on autofire only (Tracer)
+ *   threat       widens the critical threat range (Flechette's one)
+ *   dice         damage dice added or taken away (High Explosive +1, Birdshot −1)
+ *   damage       added to the damage (Subsonic −2)
+ *   extra        damage of another kind besides ("1d6", `extraType` fire: White Phosphorous)
+ *   nonlethal    the damage is nonlethal (Beanbag, Rubber Round)
+ *   overcomes    the damage reduction it gets past ("silver")
+ *   half         half of the damage is this kind (Plasma-coated: fire)
+ *   ask          asked when attacking or rolling damage, a bonus the table judges: `{ roll, label, value }`
+ *   note         what else it does, for the table
+ *   only         the weapons it is made for, matched on the weapon's name and category; `onlyText` says so
+ */
+export const SPECIAL_AMMO = {
+  "armor-piercing": { ask: { roll: "attack", label: "The target is wearing armor (Armor Piercing: +2)", value: 2 } },
+  "beanbag": { nonlethal: true, only: /shotgun|grenade launcher/i, onlyText: "shotguns and grenade launchers" },
+  "birdshot": { dice: -1, only: /shotgun/i, onlyText: "shotguns" },
+  "flechette": { attack: -1, threat: 1 },
+  "frangible": { ask: { roll: "damage", label: "The target is unarmored, natural armor under +2 (Frangible: +1)", value: 1 } },
+  "high-explosive": { dice: 1 },
+  "rubber-round": { nonlethal: true, only: /Handguns|Longarms/, onlyText: "handguns and longarms" },
+  "silver": { overcomes: "silver" },
+  "subsonic": { damage: -2, note: "Range increment 20 ft. shorter; +10 to the DC of Listen checks to hear the shot.", only: /^(?!.*shotgun)(?=.*(Handguns|Longarms))/i, onlyText: "handguns and longarms, not shotguns" },
+  "tracer": { autofire: 1, note: "Opponents get +5 on Spot checks to find the shooter." },
+  "tranquilizer": { note: "A dart delivering a tranquilizer or poison (Craft (chemical)).", only: /air (rifle|pistol)/i, onlyText: "air rifles and pistols" },
+  "white-phosphorous-wp": { extra: "1d6", extraType: "fire", note: "Goes off on anything between shooter and target; a target damaged risks catching on fire." },
+  "seeker": { attack: 1 },
+  "plasma-coated": { half: "fire", note: "Reduces the Defense bonus of the target's armor by 2, to a minimum of +1." },
+  "deflecting": { note: "Bounces off walls and around corners: the benefit of the Skip Shot feat." },
+  "phasing": { note: "Teleports past obstacles: the target gets no benefit from cover." },
+  "bio-agent": { note: "Carries a biological agent: see its description." },
+};
+
+/** A special round's rules with its name, or null for ordinary ammunition. */
+export function specialAmmo(identifier, name = "") {
+  const r = SPECIAL_AMMO[identifier];
+  return r ? { ...r, name: name || identifier } : null;
+}
+
+/** Whether a special round is made for a weapon (Beanbag: shotguns and grenade launchers); true when it says nothing. */
+export const madeFor = (rules, weapon) => !rules?.only || rules.only.test(`${weapon.name} ${weapon.system?.category ?? ""}`);

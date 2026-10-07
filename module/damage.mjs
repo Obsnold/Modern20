@@ -99,6 +99,11 @@ export function bindDamageButtons(message, html, flags) {
   // The roll's parts by the labels on its dice ("plus 1d6 fire"), the rest of the weapon's type.
   const terms = roll.terms.map((t) => (t.operator ? { operator: t.operator } : { flavor: t.flavor, total: t.total }));
   const parts = damageParts(terms, roll.total, flags.damage.type ?? "");
+  // A load that makes half of the damage another kind (plasma-coated: fire): the weapon's part split.
+  if (flags.damage.half && parts[0]?.type === (flags.damage.type ?? "")) {
+    const half = Math.floor(parts[0].amount / 2);
+    parts.splice(0, 1, { type: flags.damage.type ?? "", amount: parts[0].amount - half }, { type: flags.damage.half, amount: half });
+  }
   const apply = (factor, { healing = false, ignoreDR = false } = {}) => async () => {
     const tokens = chosenTokens();
     if (!tokens.length) return ui.notifications.warn("Target or select the tokens to apply it to.");

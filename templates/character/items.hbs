@@ -46,11 +46,12 @@
           <span class="m20-item-detail">{{detail}}</span>
           {{#if ammo}}
             <span class="m20-ammo">
-              {{#if ammo.magazine}}<input type="number" min="0" max="{{ammo.capacity}}" value="{{ammo.loaded}}" data-item-field="loaded" data-tooltip="Rounds loaded">/{{ammo.capacity}}
+              {{#if ammo.magazine}}<input type="number" min="0" max="{{ammo.capacity}}" value="{{ammo.loaded}}" data-item-field="loaded" data-tooltip="Rounds loaded">/{{ammo.capacity}}{{#if ammo.loadedWith}} <span class="m20-tag" data-tooltip="Loaded with: its effect is on every shot. Reload from other ammunition to change it">{{ammo.loadedWith}}</span>{{/if}}
                 <a data-action="reload" data-tooltip="Reload from its ammunition"><i class="fa-solid fa-rotate"></i></a>{{/if}}
               {{#unless ammo.none}}<select data-item-field="ammunition" data-tooltip="The ammunition it uses">{{#each ammo.options}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>{{/unless}}
             </span>
           {{/if}}
+          {{#if special}}<input class="m20-choice" type="text" value="{{caliber}}" placeholder="Caliber" list="m20-calibers" data-item-field="caliber" data-tooltip="The caliber this load was bought in (12-gauge, 9mm): it fits that gun">{{/if}}
           {{#if counted}}<input class="m20-quantity" type="number" min="0" value="{{quantity}}" data-item-field="quantity" data-tooltip="Rounds carried">{{/if}}
           {{#if weapon}}<a data-action="rollAttack" data-tooltip="Attack"><i class="fa-solid fa-dice-d20"></i></a><a data-action="rollDamage" data-tooltip="Damage"><i class="fa-solid fa-burst"></i></a>{{/if}}
           {{#if dc}}<a data-action="buyItem" data-tooltip="Buy: a Wealth check against purchase DC {{dc}}"><i class="fa-solid fa-cart-shopping"></i></a><a data-action="sellItem" data-tooltip="Sell for Wealth, and remove it"><i class="fa-solid fa-money-bill"></i></a>{{/if}}
@@ -70,4 +71,5 @@
       {{/each}}
     </div>
   {{/each}}
+  {{#if (eq tab.id "gear")}}<datalist id="m20-calibers">{{#each calibers}}<option value="{{this}}"></option>{{/each}}</datalist>{{/if}}
 </section>

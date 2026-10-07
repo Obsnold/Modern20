@@ -75,7 +75,8 @@ export const SIZE_ATTACK = { fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 
  * Weapon Focus's +1, nonproficient armor's penalty, and effects. `feats` are
  * the character's feats and talents as `{ name, choice }`; `options` what was
  * ticked when asked (`pointBlank`, and `mode` a firing mode: "doubleTap", "burst",
- * "autofire"; rules/ammo.mjs).
+ * "autofire"; rules/ammo.mjs), and `ammo` the special load it fires (rules/ammo.mjs
+ * SPECIAL_AMMO, with its name), whose question, if it asks one, is `ammoAsk`.
  */
 export function attack(d, weapon, feats, options = {}) {
   const s = weapon.system;
@@ -108,8 +109,10 @@ export function attack(d, weapon, feats, options = {}) {
     { label: "Autofire (no Advanced Firearms Proficiency)", value: autofirePenalty },
     { label: "Armor (not proficient)", value: d.defense?.armorAttackPenalty ?? 0 },
     { label: "Effects", value: d.attackBonus?.[melee ? "melee" : "ranged"] ?? 0 },
+    ...ammoAttack(options.ammo, options),
   ], {
-    critical: critical(s.critical),
+    critical: ammoThreat(critical(s.critical), options.ammo),
+    ...(ammoHints(options.ammo, weapon).length ? { hints: ammoHints(options.ammo, weapon) } : {}),
     // Autofire is against a 10-foot square, Defense 10, not a target's Defense.
     // and an area attack scores no critical.
     ...(options.mode === "autofire" ? { againstDefense: AUTOFIRE_DEFENSE, title: `${weapon.name}: autofire`, critical: null } : {}),
@@ -123,17 +126,35 @@ export function attack(d, weapon, feats, options = {}) {
  */
 export function damage(d, weapon, options = {}) {
   const s = weapon.system;
-  const dice = s.damage?.formula && MODES[options.mode]?.dice ? extraDice(s.damage.formula, MODES[options.mode].dice) : s.damage?.formula;
+  const ammo = options.ammo;
+  // More dice from a firing mode, and from the load (High Explosive one more, Birdshot one fewer).
+  const moreDice = (MODES[options.mode]?.dice ?? 0) + (ammo?.dice ?? 0);
+  const dice = s.damage?.formula && moreDice ? extraDice(s.damage.formula, moreDice) : s.damage?.formula;
   if (!dice) return null;
   const str = s.melee ? d.modifiers.str ?? 0 : 0;
   const fx = d.damageBonus?.[s.melee ? "melee" : "ranged"] ?? 0;
   // Weapon Specialization (a class feature) with the weapon chosen, and its Greater form: +2 each.
   const owned = (options.feats ?? []).map((f) => ({ ...f, rules: rulesFor(f.identifier || slug(f.name)) }));
   const special = owned.filter((f) => f.rules.weaponSpecialization && chooses(f.choice, weapon.name)).reduce((n, f) => n + f.rules.weaponSpecialization, 0);
-  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ["Weapon Specialization", special], ["Effects", fx]].filter(([, v]) => v);
-  const terms = [{ label: MODES[options.mode]?.dice ? `Weapon (${MODES[options.mode].label}, +${MODES[options.mode].dice} di${MODES[options.mode].dice === 1 ? "e" : "ce"})` : "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
-  const formula = [dice, ...extra.map(([, v]) => (v < 0 ? `- ${-v}` : `+ ${v}`))].join(" ");
-  return { title: `${weapon.name}: damage (${s.damageType || "untyped"})`, terms, formula, critical: critical(s.critical) };
+  const ammoDamage = (ammo?.damage ?? 0) + (ammo?.ask?.roll === "damage" && options.ammoAsk ? ammo.ask.value : 0);
+  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ["Weapon Specialization", special], ["Effects", fx], [ammo?.name ?? "Ammunition", ammoDamage]].filter(([, v]) => v);
+  const diceLabel = [MODES[options.mode]?.dice && `${MODES[options.mode].label}, +${MODES[options.mode].dice} di${MODES[options.mode].dice === 1 ? "e" : "ce"}`,
+    ammo?.dice && `${ammo.name}, ${ammo.dice > 0 ? "+" : "−"}${Math.abs(ammo.dice)} die`].filter(Boolean).join("; ");
+  const terms = [{ label: diceLabel ? `Weapon (${diceLabel})` : "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
+  // Damage of another kind besides (White Phosphorous: 1d6 fire), labelled so resistance meets it alone.
+  const besides = ammo?.extra ? [`${ammo.extra}[${ammo.extraType}]`] : [];
+  if (ammo?.extra) terms.push({ label: `${ammo.name} (${ammo.extraType})`, value: ammo.extra });
+  // The extra kind is rolled once on a critical: kept apart from what is multiplied (criticalDamage).
+  const multiplied = [dice, ...extra.map(([, v]) => (v < 0 ? `- ${-v}` : `+ ${v}`))].join(" ");
+  const formula = [multiplied, ...besides.map((b) => `+ ${b}`)].join(" ");
+  // What the load makes of the damage when it is applied: nonlethal, the damage reduction it gets past, half another kind.
+  const type = [s.damageType || "", ammo?.overcomes ?? ""].filter(Boolean).join(", ");
+  return {
+    title: `${weapon.name}: damage (${type || "untyped"}${ammo?.nonlethal ? ", nonlethal" : ""})`, terms, formula, critical: critical(s.critical),
+    ...(besides.length ? { multiplied, besides } : {}),
+    type, nonlethal: !!ammo?.nonlethal, half: ammo?.half ?? null,
+    ...(ammoHints(ammo, weapon).length ? { hints: ammoHints(ammo, weapon) } : {}),
+  };
 }
 
 /**
@@ -177,7 +198,8 @@ export function withAdditions(spec, { modifier = 0, actionPoint = null } = {}) {
  */
 export function criticalDamage(spec, multiplier) {
   if (!spec) return null;
-  const formula = Array.from({ length: multiplier }, () => `(${spec.formula})`).join(" + ");
+  // Damage of another kind besides (a load's 1d6 fire) is rolled once, as extra dice are.
+  const formula = [Array.from({ length: multiplier }, () => `(${spec.multiplied ?? spec.formula})`).join(" + "), ...(spec.besides ?? [])].join(" + ");
   return { ...spec, title: `${spec.title}: critical (×${multiplier})`, formula, critical: null };
 }
 
@@ -236,5 +258,28 @@ export function notesFor(notes, targets, resolve = Number) {
 export function withNotes(spec, ticks, ticked) {
   const on = ticks.filter((t) => ticked[t.name]);
   if (!on.length || !spec || spec.unusable) return spec;
-  return d20(spec.title, [...spec.terms, ...on.map((t) => ({ label: t.term, value: t.value }))], { critical: spec.critical, ...(spec.againstDefense ? { againstDefense: spec.againstDefense } : {}) });
+  return d20(spec.title, [...spec.terms, ...on.map((t) => ({ label: t.term, value: t.value }))], { critical: spec.critical, ...(spec.againstDefense ? { againstDefense: spec.againstDefense } : {}), ...(spec.hints ? { hints: spec.hints } : {}) });
+}
+
+/** What a special load adds to an attack: its own bonus or penalty, on autofire Tracer's, and its question if ticked. */
+function ammoAttack(ammo, options) {
+  if (!ammo) return [];
+  return [
+    { label: ammo.name, value: (ammo.attack ?? 0) + (options.mode === "autofire" ? ammo.autofire ?? 0 : 0) },
+    { label: `${ammo.name} (target in armor)`, value: ammo.ask?.roll === "attack" && options.ammoAsk ? ammo.ask.value : 0 },
+  ];
+}
+
+/** A weapon's critical with a load's wider threat range (Flechette: one more). */
+function ammoThreat(crit, ammo) {
+  return crit && ammo?.threat ? { ...crit, threat: crit.threat - ammo.threat } : crit;
+}
+
+/** What a card says of a special load: what else it does, and a weapon it was not made for. */
+function ammoHints(ammo, weapon) {
+  if (!ammo) return [];
+  return [
+    ammo.note && `${ammo.name}: ${ammo.note}`,
+    ammo.only && !ammo.only.test(`${weapon.name} ${weapon.system?.category ?? ""}`) && `${ammo.name} is made for ${ammo.onlyText}, not this weapon.`,
+  ].filter(Boolean);
 }

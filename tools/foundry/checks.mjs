@@ -1123,4 +1123,50 @@ export const CHECKS = {
     await actor.delete();
     return errors;
   },
+
+  async "special ammunition: a box of beanbags given its caliber, loaded in place of buckshot, and its shots nonlethal"() {
+    const errors = [];
+    const { take, wait, type } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 12 }]));
+    const actor = await Actor.implementation.create({ name: "Riot cop (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("feats", "Personal Firearms Proficiency"), await take("equipment", "Benelli 121 M1 (12-gauge shotgun)"),
+      await take("equipment", "12-gauge buckshot"), await take("equipment", "Beanbag", { quantity: 10 }),
+    ]);
+    const gun = actor.items.find((i) => i.type === "weapon");
+    const buckshot = actor.items.find((i) => i.name === "12-gauge buckshot");
+    const beanbag = actor.items.find((i) => i.name === "Beanbag");
+    const { reloadWeapon } = await import("/systems/modern20/module/ammo.mjs");
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    try {
+      await reloadWeapon(actor, gun);
+      // The Benelli holds 7.
+      if (gun.system.loaded !== 7 || gun.system.loadedWith !== "") errors.push(`loaded ${gun.system.loaded} with "${gun.system.loadedWith}", not 7 buckshot`);
+      // The beanbags' caliber, typed on the Gear tab: they now fit the shotgun.
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("gear", "primary");
+      type(actor.sheet.element, `[data-item-id="${beanbag.id}"] input[data-item-field=caliber]`, "12-gauge");
+      await wait(() => beanbag.system.caliber === "12-gauge", "the caliber to save");
+      // Chosen for the shotgun and reloaded: the buckshot comes out, back to its box, and beanbags go in.
+      await gun.update({ "system.ammunition": beanbag.id });
+      await reloadWeapon(actor, gun);
+      if (gun.system.loadedWith !== "beanbag" || gun.system.loaded !== 7) errors.push(`after the swap: ${gun.system.loaded} loaded with "${gun.system.loadedWith}"`);
+      if (buckshot.system.quantity !== 10) errors.push(`the buckshot box holds ${buckshot.system.quantity}, not its 10 again`);
+      if (beanbag.system.quantity !== 3) errors.push(`the beanbag box holds ${beanbag.system.quantity}, not 3`);
+      await wait(() => /Beanbag/.test(actor.sheet.element.querySelector(`[data-item-id="${gun.id}"] .m20-ammo`)?.innerText ?? ""), "the gun's row to say it is loaded with beanbags");
+      // Its damage card is nonlethal.
+      await characterRolls(actor).attack(gun);
+      await characterRolls(actor).damage(gun);
+      const card = game.messages.contents.at(-1);
+      if (!card.getFlag("modern20", "damage")?.nonlethal) errors.push("a beanbag's damage is not nonlethal");
+      if (!/nonlethal/.test(card.flavor)) errors.push("the damage card does not say nonlethal");
+      if (gun.system.loaded !== 6) errors.push(`${gun.system.loaded} beanbags left after a shot, not 6`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
 };

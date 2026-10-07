@@ -1,7 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { PACKS } from "../build/packs.mjs";
-import { magazineOf, fits, fire, reload, extraDice, automatic, semiautomatic } from "../../module/rules/ammo.mjs";
+import { magazineOf, fits, fire, reload, extraDice, automatic, semiautomatic, specialAmmo, SPECIAL_AMMO } from "../../module/rules/ammo.mjs";
+import { criticalDamage } from "../../module/rules/rolls.mjs";
+import { reduceDamage, damageParts } from "../../module/rules/resistance.mjs";
+import { slug } from "../../module/rules/identify.mjs";
 import { attack, damage } from "../../module/rules/rolls.mjs";
 
 const gear = PACKS.equipment().documents.filter((d) => d.system);
@@ -65,4 +68,59 @@ test("burst fire and double tap: the attack penalty and the extra dice", () => {
   const auto = attack(d, ak, [{ name: "Personal Firearms Proficiency" }], { mode: "autofire" });
   assert.ok(auto.terms.some((t) => /Advanced Firearms/.test(t.label) && t.value === -4));
   assert.equal(auto.againstDefense, 10);
+});
+
+const d = { modifiers: { str: 1, dex: 2 }, baseAttackBonus: 3, size: "medium", defense: {}, attackBonus: {}, damageBonus: {} };
+const shotgun = () => weapon("Benelli 121 M1");
+const load = (name) => specialAmmo(slug(name), name);
+const term = (spec, label) => spec.terms.find((t) => t.label === label)?.value;
+
+test("every special load in the book has its rules, and every rule a load in the book", () => {
+  const special = gear.filter((g) => g.type === "ammunition" && !/^(\.|\d|Arrow|Crossbow bolt|Power pack|Rail gun)/.test(g.name)).map((g) => slug(g.name)).sort();
+  assert.deepEqual(special, Object.keys(SPECIAL_AMMO).sort());
+});
+
+test("a special load bought in a caliber fits that gun", () => {
+  const beanbag = { ...ammo("Beanbag"), system: { ...ammo("Beanbag").system, caliber: "12-gauge" } };
+  assert.equal(fits(shotgun(), ammo("Beanbag")), false);
+  assert.equal(fits(shotgun(), beanbag), true);
+  assert.equal(fits(weapon("Beretta 92F"), beanbag), false);
+});
+
+test("special loads on the attack: Flechette −1 and a wider threat, Seeker +1, Tracer on autofire, Armor Piercing when asked", () => {
+  const flechette = attack(d, shotgun(), [], { ammo: load("Flechette") });
+  assert.equal(term(flechette, "Flechette"), -1);
+  assert.equal(flechette.critical.threat, 19);
+  assert.equal(term(attack(d, weapon("Beretta 92F"), [], { ammo: load("Seeker") }), "Seeker"), 1);
+  const ak = weapon("AKM");
+  assert.equal(term(attack(d, ak, [], { ammo: load("Tracer"), mode: "autofire" }), "Tracer"), 1);
+  assert.equal(term(attack(d, ak, [], { ammo: load("Tracer") }), "Tracer"), undefined);
+  assert.equal(term(attack(d, ak, [], { ammo: load("Armor Piercing"), ammoAsk: true }), "Armor Piercing (target in armor)"), 2);
+  assert.equal(term(attack(d, ak, [], { ammo: load("Armor Piercing") }), "Armor Piercing (target in armor)"), undefined);
+});
+
+test("special loads on the damage: dice more or fewer, Subsonic −2, Frangible when asked, nonlethal, silver, half fire", () => {
+  // The Benelli's 2d8: high explosive 3d8, birdshot 1d8.
+  assert.match(damage(d, shotgun(), { ammo: load("High Explosive") }).formula, /^3d8/);
+  assert.match(damage(d, shotgun(), { ammo: load("Birdshot") }).formula, /^1d8/);
+  assert.match(damage(d, weapon("Beretta 92F"), { ammo: load("Subsonic") }).formula, /- 2$/);
+  assert.match(damage(d, weapon("Beretta 92F"), { ammo: load("Frangible"), ammoAsk: true }).formula, /\+ 1$/);
+  assert.equal(damage(d, shotgun(), { ammo: load("Beanbag") }).nonlethal, true);
+  assert.equal(damage(d, shotgun(), {}).nonlethal, false);
+  // Silver: the damage reduction it gets past, in the type the card applies.
+  const silver = damage(d, weapon("Beretta 92F"), { ammo: load("Silver") });
+  assert.equal(silver.type, "Ballistic, silver");
+  assert.equal(reduceDamage([{ type: silver.type, amount: 10 }], { dr: [{ amount: 5, overcome: "silver" }], resist: {}, immune: [] }).total, 10);
+  assert.equal(damage(d, weapon("Beretta 92F"), { ammo: load("Plasma-coated") }).half, "fire");
+  // A load made for other weapons says so; a note says what else it does.
+  assert.match(damage(d, weapon("Beretta 92F"), { ammo: load("Beanbag") }).hints.join(" "), /made for shotguns and grenade launchers/);
+  assert.match(attack(d, weapon("AKM"), [], { ammo: load("Subsonic") }).hints.join(" "), /Range increment 20 ft\. shorter/);
+});
+
+test("White Phosphorous: 1d6 fire besides, its own part for resistance, and once on a critical", () => {
+  const wp = damage(d, weapon("Beretta 92F"), { ammo: load("White Phosphorous (WP)") });
+  assert.equal(wp.formula, "2d6 + 1d6[fire]");
+  assert.equal(criticalDamage(wp, 2).formula, "(2d6) + (2d6) + 1d6[fire]");
+  // Rolled 7 + 4 fire: the fire part on its own.
+  assert.deepEqual(damageParts([{ total: 7 }, { operator: "+" }, { flavor: "fire", total: 4 }], 11, "Ballistic"), [{ type: "Ballistic", amount: 7 }, { type: "fire", amount: 4 }]);
 });
