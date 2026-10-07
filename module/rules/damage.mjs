@@ -132,10 +132,12 @@ export function belowZeroSave(kind, value, passed) {
 /**
  * Current hit points as the maximum changes (a level gained, Constitution, Toughness): a character
  * at full health stays at full, and a new one (never yet given its maximum) starts there; a hurt
- * or dying one is left as it is. Returns the new current hit points, or null to leave them.
+ * or dying one is left as it is (`hurt`: in a hit point condition, so a 0 is damage, not a new character's
+ * blank). Returns the new current hit points, or null to leave them.
  */
-export function followMaximum(value, lastMax, max) {
+export function followMaximum(value, lastMax, max, { hurt = false } = {}) {
   if (max === lastMax) return null;
-  const atFull = value === lastMax || (lastMax === 0 && value === 0);
+  // A new character (never given its maximum, at 0) starts at full, unless 0 is damage: it is already disabled.
+  const atFull = lastMax === 0 ? value === 0 && !hurt : value === lastMax;
   return atFull ? max : null;
 }

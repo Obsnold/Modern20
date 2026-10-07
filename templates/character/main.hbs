@@ -8,7 +8,7 @@
           {{#each abilities}}
             <tr>
               <th><a data-action="rollAbility" data-ability="{{key}}" data-tooltip="Roll a {{label}} check">{{label}}</a></th>
-              <td><input type="number" name="system.abilities.{{key}}.value" value="{{value}}" placeholder="—" {{@root.lock}} data-tooltip="Set on the Build tab"></td>
+              <td data-tooltip="Set on the Build tab">{{#if value}}{{value}}{{else}}—{{/if}}</td>
               <td>{{adjustment}}</td>
               <td>{{score}}</td>
               <td class="m20-strong">{{modifier}}</td>

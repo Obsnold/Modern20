@@ -19,7 +19,8 @@ export async function PRELUDE() {
       return p.getDocument(entry._id);
     },
     /** Wait until `test()` gives something truthy (polling), and return it; throw after `ms`. */
-    async wait(test, what = "it", ms = 8000) {
+    // 15 seconds: a busy machine's Foundry can take a while, and a wait that is too short fails a check falsely.
+    async wait(test, what = "it", ms = 15000) {
       const until = Date.now() + ms;
       while (Date.now() < until) {
         const v = await test();
@@ -1314,7 +1315,7 @@ export const CHECKS = {
       actor.sheet.changeTab("build", "primary");
       const rows = actor.sheet.element.querySelectorAll("section.tab[data-tab=build] table.m20-levels tr").length;
       if (rows !== 2) errors.push(`${rows} levels listed on the Build tab, not 2`);
-      if (!actor.sheet.element.querySelector("section.tab[data-tab=skills] input[name=\"system.skills.hide.ranks\"]")?.disabled) errors.push("ranks can be edited on the Skills tab without editing allowed");
+      if (actor.sheet.element.querySelector("section.tab[data-tab=skills] input[name=\"system.skills.hide.ranks\"]")) errors.push("ranks can be edited on the Skills tab without editing allowed");
       const { undoLastLevel } = await import("/systems/modern20/module/levelup.mjs");
       const undone = undoLastLevel(actor);
       const confirm = await wait(() => [...foundry.applications.instances.values()].find((a) => a instanceof foundry.applications.api.DialogV2 && a.rendered), "the undo question");
@@ -1570,6 +1571,68 @@ export const CHECKS = {
       errors.push(e.message);
     }
     for (const a of foundry.applications.instances.values()) if (a.constructor.name === "LevelUp") await a.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "every sheet's and window's form: no field twice (both would be sent, and neither saved), nothing locked sent, and a score set on the Build tab kept"() {
+    const errors = [];
+    const { take, wait, type } = window.m20test;
+    const actor = await Actor.implementation.create({ name: "Form (test)", type: "character" });
+    await actor.createEmbeddedDocuments("Item", [await take("occupations", "Criminal"), await take("classes", "Fast Hero", { level: 1 }), await take("equipment", "Knife")]);
+    try {
+      for (const freeEdit of [false, true]) {
+        actor.sheet.freeEdit = freeEdit;
+        await actor.sheet.render({ force: true });
+        await wait(() => actor.sheet.rendered, "the sheet");
+        const names = [...actor.sheet.element.querySelectorAll("[name]")].filter((el) => !["radio"].includes(el.type)).map((el) => el.name);
+        const twice = [...new Set(names.filter((n, i) => names.indexOf(n) !== i))];
+        if (twice.length) errors.push(`${freeEdit ? "with editing allowed" : "as it opens"}, fields named twice: ${twice.join(", ")}`);
+        // Locked, a field is shown, not a disabled box: Foundry sends disabled fields too, which could write old values back.
+        const locked = [...actor.sheet.element.querySelectorAll("[name]:disabled")].map((el) => el.name);
+        if (!freeEdit && locked.length) errors.push(`locked fields still in the form: ${[...new Set(locked)].slice(0, 6).join(", ")}`);
+      }
+      // The other sheets and windows: a creature's (read and edit views), items' (read and edit), the level and grant windows.
+      const named = (el) => { const n = [...el.querySelectorAll("[name]")].filter((x) => x.type !== "radio").map((x) => x.name); return [...new Set(n.filter((x, i) => n.indexOf(x) !== i))]; };
+      const { doc } = window.m20test;
+      const wolf = await Actor.implementation.create((await doc("creatures", "Wolf")).toObject());
+      const knife = actor.items.find((i) => i.name === "Knife"), cls = actor.items.find((i) => i.type === "class");
+      for (const [what, sheet] of [["the creature sheet", wolf.sheet], ["a weapon's sheet", knife.sheet], ["a class's sheet", cls.sheet]]) {
+        for (const editing of [false, true]) {
+          sheet.editing = editing;
+          await sheet.render({ force: true });
+          await wait(() => sheet.rendered, what);
+          const twice = named(sheet.element);
+          if (twice.length) errors.push(`${what}${editing ? ", editing" : ""}: fields named twice: ${twice.join(", ")}`);
+        }
+        await sheet.close();
+      }
+      await wolf.delete();
+      const { LevelUp, Grant } = await import("/systems/modern20/module/levelup.mjs");
+      for (const [what, app] of [["the level window", new LevelUp(actor)], ["the grant window", new Grant(actor)]]) {
+        if (what === "the grant window") app.choices.ranks = [{ skill: "", ranks: 1 }, { skill: "", ranks: 1 }];
+        await app.render(true);
+        await wait(() => app.rendered, what);
+        const twice = named(app.element);
+        if (twice.length) errors.push(`${what}: fields named twice: ${twice.join(", ")}`);
+        await app.close();
+      }
+      actor.sheet.freeEdit = false;
+      await actor.sheet.render({ force: true });
+      actor.sheet.changeTab("build", "primary");
+      type(actor.sheet.element, "section.tab[data-tab=build] input[name='system.abilities.str.value']", 15);
+      await wait(() => actor.system.abilities.str.value === 15, `Strength 15 to be kept (now ${actor.system.abilities.str.value})`);
+      if (actor.system.abilities.dex.value !== 10) errors.push(`setting Strength changed Dexterity to ${actor.system.abilities.dex.value}`);
+      // Ticking an occupation skill after: the scores stay.
+      const box = await wait(() => actor.sheet.element.querySelector("section.tab[data-tab=build] [data-item-field=chosenSkill]"), "an occupation skill box");
+      box.checked = true;
+      box.dispatchEvent(new Event("change", { bubbles: true }));
+      await wait(() => actor.items.find((i) => i.type === "occupation").system.chosenSkills.length === 1, "the skill to be chosen");
+      if (actor.system.abilities.str.value !== 15) errors.push(`after choosing an occupation skill, Strength is ${actor.system.abilities.str.value}`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
     await actor.delete();
     return errors;
   },

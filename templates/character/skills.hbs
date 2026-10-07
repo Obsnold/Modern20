@@ -2,9 +2,9 @@
   {{#if advancement.skillPoints}}<p class="{{#if advancement.skillPoints.over}}m20-warning{{else}}m20-hint{{/if}}" data-tooltip="{{advancement.skillPoints.parts}}">Skill points spent: {{advancement.skillPoints.text}}. Maximum ranks: your level + 3 in a class skill, half that cross-class.</p>{{/if}}
   {{#if levelling.classes.length}}
     <p class="m20-levelling">Buying ranks as
-      <select name="system.levellingAs" {{lock}} data-tooltip="Each level's skill points are spent as the class that level is in: a rank costs 1 point in that class's skills, 2 in any other">
+      {{#if @root.freeEdit}}<select name="system.levellingAs" data-tooltip="Each level's skill points are spent as the class that level is in: a rank costs 1 point in that class's skills, 2 in any other">
         {{#each levelling.classes}}<option value="{{name}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}
-      </select>
+      </select>{{else}}<strong data-tooltip="The class the next ranks would be bought as; levels are taken on the Build tab">{{levelling.current}}</strong>{{/if}}
       <span class="m20-hint">Points are worked out as you change ranks; correct any by hand.</span>
     </p>
   {{/if}}
@@ -16,8 +16,8 @@
           <tr class="m20-skill-group" data-skill="{{key}}">
             <th>{{name}}</th>
             <td colspan="5">
-              <input type="text" class="m20-new-specialty" {{@root.lock}} list="m20-specialties-{{key}}" placeholder="{{#if languages}}Add a language{{else}}Add a specialty{{/if}}">
-              <a data-action="addSpecialty" data-tooltip="Add"><i class="fa-solid fa-plus"></i></a>
+              {{#if @root.freeEdit}}<input type="text" class="m20-new-specialty" list="m20-specialties-{{key}}" placeholder="{{#if languages}}Add a language{{else}}Add a specialty{{/if}}">
+              <a data-action="addSpecialty" data-tooltip="Add"><i class="fa-solid fa-plus"></i></a>{{else}}<span class="m20-hint">{{#if languages}}Languages{{else}}Specialties{{/if}} are added on the Build tab's level window</span>{{/if}}
             </td>
           </tr>
         {{else}}
@@ -25,19 +25,19 @@
             <td class="{{#if specialty}}m20-indent{{/if}}">{{#if noCheck}}<span data-tooltip="Never rolled: a rank in it is the language, known">{{specialty}}</span>{{else}}<a data-action="rollSkill" data-skill="{{key}}" data-specialty="{{specialty}}" data-tooltip="Roll a {{label}} check">{{label}}</a>{{/if}}{{#if trainedOnly}}<sup data-tooltip="Trained only">T</sup>{{/if}}{{#if armorPenalty}}<sup data-tooltip="Armor penalty applies">A</sup>{{/if}}</td>
             <td>
               {{#if fromItems}}<i class="fa-solid fa-check" data-tooltip="{{sourceLabel}}{{#if occupationBonus}}; chosen from your occupation as well, for +1{{/if}}"></i>
-              {{else if path}}<input type="checkbox" name="{{path}}.classSkill" {{@root.lock}} {{#if classSkill}}checked{{/if}} data-tooltip="{{otherClasses}}Mark it a class skill whatever the class (a Personality's Bonus Class Skill, a GM's ruling)">
-              {{else}}<input type="checkbox" name="system.specialtySkills.{{index}}.classSkill" {{@root.lock}} {{#if classSkill}}checked{{/if}} data-tooltip="{{otherClasses}}Mark it a class skill whatever the class (a Personality's Bonus Class Skill, a GM's ruling)">{{/if}}
+              {{else if path}}{{#if @root.freeEdit}}<input type="checkbox" name="{{path}}.classSkill" {{#if classSkill}}checked{{/if}} data-tooltip="{{otherClasses}}Mark it a class skill whatever the class (a Personality's Bonus Class Skill, a GM's ruling)">{{else}}{{#if classSkill}}<i class="fa-solid fa-check" data-tooltip="Marked a class skill by hand"></i>{{else if otherClasses}}<span class="m20-hint" data-tooltip="{{otherClasses}}">—</span>{{/if}}{{/if}}
+              {{else}}{{#if @root.freeEdit}}<input type="checkbox" name="system.specialtySkills.{{index}}.classSkill" {{#if classSkill}}checked{{/if}} data-tooltip="{{otherClasses}}Mark it a class skill whatever the class (a Personality's Bonus Class Skill, a GM's ruling)">{{else}}{{#if classSkill}}<i class="fa-solid fa-check" data-tooltip="Marked a class skill by hand"></i>{{else if otherClasses}}<span class="m20-hint" data-tooltip="{{otherClasses}}">—</span>{{/if}}{{/if}}{{/if}}
             </td>
             {{#if path}}
-              <td><input type="number" step="0.5" min="0" name="{{path}}.ranks" {{@root.lock}} value="{{ranks}}" data-tooltip="Max {{maxRanks}}"></td>
-              <td><input type="number" min="0" name="{{path}}.points" {{@root.lock}} value="{{points}}" placeholder="{{pointsEstimate}}" data-tooltip="A rank costs {{cost}} now; empty: ranks at today's cost"></td>
+              <td>{{#if @root.freeEdit}}<input type="number" step="0.5" min="0" name="{{path}}.ranks" value="{{ranks}}" data-tooltip="Max {{maxRanks}}">{{else}}<span data-tooltip="Max {{maxRanks}}">{{ranks}}</span>{{/if}}</td>
+              <td>{{#if @root.freeEdit}}<input type="number" min="0" name="{{path}}.points" value="{{points}}" placeholder="{{pointsEstimate}}" data-tooltip="A rank costs {{cost}} now; empty: ranks at today's cost">{{else}}<span class="{{#unless points}}m20-hint{{/unless}}" data-tooltip="{{#if points}}As bought{{else}}Not tracked: ranks at today's cost{{/if}}">{{#if points}}{{points}}{{else}}{{pointsEstimate}}{{/if}}</span>{{/if}}</td>
               <td><input type="number" name="{{path}}.misc" data-tooltip="Any other bonus: a GM's ruling, gear the system does not know" value="{{misc}}"></td>
             {{else}}
-              <td><input type="number" step="0.5" min="0" name="system.specialtySkills.{{index}}.ranks" {{@root.lock}} value="{{ranks}}" data-tooltip="Max {{maxRanks}}"></td>
-              <td><input type="number" min="0" name="system.specialtySkills.{{index}}.points" {{@root.lock}} value="{{points}}" placeholder="{{pointsEstimate}}" data-tooltip="A rank costs {{cost}} now; empty: ranks at today's cost"></td>
+              <td>{{#if @root.freeEdit}}<input type="number" step="0.5" min="0" name="system.specialtySkills.{{index}}.ranks" value="{{ranks}}" data-tooltip="Max {{maxRanks}}">{{else}}<span data-tooltip="Max {{maxRanks}}">{{ranks}}</span>{{/if}}</td>
+              <td>{{#if @root.freeEdit}}<input type="number" min="0" name="system.specialtySkills.{{index}}.points" value="{{points}}" placeholder="{{pointsEstimate}}" data-tooltip="A rank costs {{cost}} now; empty: ranks at today's cost">{{else}}<span class="{{#unless points}}m20-hint{{/unless}}" data-tooltip="{{#if points}}As bought{{else}}Not tracked: ranks at today's cost{{/if}}">{{#if points}}{{points}}{{else}}{{pointsEstimate}}{{/if}}</span>{{/if}}</td>
               <td><input type="number" name="system.specialtySkills.{{index}}.misc" value="{{misc}}"></td>
             {{/if}}
-            <td class="m20-strong" {{#if tip}}data-tooltip="{{tip}}"{{/if}}>{{total}}{{#if specialty}} <a data-action="removeSpecialty" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            <td class="m20-strong" {{#if tip}}data-tooltip="{{tip}}"{{/if}}>{{total}}{{#if specialty}}{{#if @root.freeEdit}} <a data-action="removeSpecialty" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-xmark"></i></a>{{/if}}{{/if}}</td>
           </tr>
         {{/if}}
       {{/each}}

@@ -26,7 +26,8 @@ function follow(actor, userId) {
     if (!exists(actor)) return;
     const { value, lastMax = 0, max } = actor.system.hp;
     if (max === undefined || max === lastMax) return;
-    const next = followMaximum(value, lastMax, max);
+    const hurt = ["disabled", "dying", "stable", "dead"].some((s) => actor.statuses.has(s));
+    const next = followMaximum(value, lastMax, max, { hurt });
     await actor.update({ "system.hp.lastMax": max, ...(next === null ? {} : { "system.hp.value": next }) });
   }, 100));
 }

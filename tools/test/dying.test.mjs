@@ -32,6 +32,7 @@ test("current hit points follow the maximum while at full, and start there", asy
   const { followMaximum } = await import("../../module/rules/damage.mjs");
   assert.equal(followMaximum(0, 0, 12), 12);      // a new character
   assert.equal(followMaximum(12, 12, 18), 18);    // at full, and a level gained
+  assert.equal(followMaximum(0, 0, 12, { hurt: true }), null);   // damaged to 0 before its maximum was first seen: left at 0
   assert.equal(followMaximum(18, 18, 16), 16);    // at full, and Constitution lost
   assert.equal(followMaximum(7, 12, 18), null);   // hurt: left alone
   assert.equal(followMaximum(-3, 12, 18), null);  // dying: left alone
