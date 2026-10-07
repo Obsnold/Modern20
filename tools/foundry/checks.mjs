@@ -1058,4 +1058,35 @@ export const CHECKS = {
   async "everything in the compendiums, part 2: every incantation, occupation, species, piece of equipment, creature type and template"() {
     return window.m20test.everything(["incantations", "occupations", "species", "equipment", "creature-types", "templates"]);
   },
+
+  async "the Skills tab ticks the class skills of the class ranks are being bought as, and follows the choice"() {
+    const errors = [];
+    const { take, wait } = window.m20test;
+    const actor = await Actor.implementation.create({ name: "Two classes (test)", type: "character" });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Fast Hero", { level: 2 }), await take("classes", "Smart Hero", { level: 1 })]);
+    try {
+      await actor.update({ "system.levellingAs": "Fast Hero" });
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("skills", "primary");
+      // The Class cell of a skill's row: a tick, or the box to mark it by hand.
+      const ticked = (key) => !!actor.sheet.element.querySelector(`[data-action=rollSkill][data-skill=${key}]`)?.closest("tr").querySelector("td:nth-child(2) .fa-check");
+      const expect = (as, yes, no) => {
+        for (const k of yes) if (!ticked(k)) errors.push(`buying as ${as}: ${k} is not ticked`);
+        for (const k of no) if (ticked(k)) errors.push(`buying as ${as}: ${k} is ticked`);
+      };
+      expect("Fast Hero", ["hide", "tumble"], ["research", "computerUse"]);
+      // Chosen in the drop-down, the ticks follow.
+      const select = actor.sheet.element.querySelector("select[name=\"system.levellingAs\"]");
+      select.value = "Smart Hero";
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      await wait(() => actor.system.levellingAs === "Smart Hero" && ticked("research"), "the ticks to follow Smart Hero");
+      expect("Smart Hero", ["research", "computerUse"], ["hide", "tumble"]);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
 };

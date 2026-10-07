@@ -191,13 +191,16 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     // Skills: the derived rows, grouped so a specialty skill sits under its skill's name.
     const skills = [];
     let last = "";
+    // The class ranks are being bought as: the Class column ticks that class's skills (a rank costs 1).
+    const buyingAs = levellingClass(actor);
     for (const row of d.skills ?? []) {
       const def = SKILLS[row.key];
       if (def.specialties && last !== row.key) skills.push({ header: true, key: row.key, name: def.name });
       skills.push({
         ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}`,
-        // A class skill from a class, feat or occupation shows a tick; any other can be marked by hand.
-        fromItems: row.classSource && row.classSource !== "chosen", sourceLabel: CLASS_SOURCES[row.classSource] ?? "",
+        // A class skill of the class ranks are bought as, or from a feat or the occupation (whatever the class),
+        // shows a tick; any other can be marked by hand, its tooltip naming the classes it is a skill of.
+        ...classColumn(row, buyingAs),
         // Points: as tracked, or (not yet) shown as the estimate at today's cost; and what a rank costs now.
         pointsEstimate: row.ranks * (row.classSkill ? 1 : 2),
         cost: rankCost(row, levellingClass(actor)),
@@ -849,6 +852,22 @@ function occupationChoices(item) {
     return { label, checked: chosen.has(label) };
   });
   return { choose: s.skills.choose, count: chosen.size, over: chosen.size > s.skills.choose, options, languages: s.skills.languages };
+}
+
+/**
+ * The Class column for a skill: a tick (`fromItems`, with `sourceLabel`) when a rank costs 1 point bought
+ * as `buyingAs` (one of that class's skills, a feat's, the occupation's); otherwise the box to mark it by
+ * hand, its tooltip (`otherClasses`) naming any other class it is a skill of. With no class, any class's.
+ */
+function classColumn(row, buyingAs) {
+  const always = row.classSource === "feat" || row.classSource === "occupation";
+  const ofClass = buyingAs ? (row.classFor ?? []).includes(buyingAs) : row.classSource === "class";
+  const others = (row.classFor ?? []).filter((c) => c !== buyingAs);
+  return {
+    fromItems: always || ofClass,
+    sourceLabel: always ? CLASS_SOURCES[row.classSource] : buyingAs ? `A class skill of ${buyingAs}` : CLASS_SOURCES.class,
+    otherClasses: !always && !ofClass && others.length ? `A class skill of ${others.join(", ")}, not of ${buyingAs}: a rank bought as ${buyingAs} costs 2. ` : "",
+  };
 }
 
 /** Where a class skill comes from, for its tooltip. */
