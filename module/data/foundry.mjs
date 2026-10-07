@@ -5,6 +5,7 @@
 import { toSchema } from "./schema.mjs";
 import { ITEM_MODELS, ACTOR_MODELS, ABILITIES, abilityModifier } from "./models.mjs";
 import { deriveCharacter } from "../rules/character.mjs";
+import { migrateLanguages } from "../rules/languages.mjs";
 
 /** A TypeDataModel class whose schema is `fields`. */
 function model(name, fields) {
@@ -31,6 +32,11 @@ class CreatureData extends model("CreatureData", ACTOR_MODELS.creature) {
  * each time it is prepared.
  */
 class CharacterData extends model("CharacterData", ACTOR_MODELS.character) {
+  /** A character saved before the language skills had a language each: its languages bought with ranks, as those skills' specialties. */
+  static migrateData(source) {
+    return super.migrateData(migrateLanguages(source));
+  }
+
   prepareDerivedData() {
     // Each item with its active effects, for the system's own (Custom) changes they carry; the character's
     // own effects come along too, for a Custom change made on the sheet. Foundry has applied the rest.

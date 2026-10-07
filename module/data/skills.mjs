@@ -3,9 +3,24 @@
  * needs ranks to use the skill at all, and whether armor hinders it. Skills
  * with specialties list the ones the SRD names; a character can take others.
  *
+ * The language skills are specialties too, a language each (Speak Language (French)): any
+ * language, the book's Language Groups only suggestions (`anySpecialty`), and never rolled
+ * (`noCheck`): a character knows a language or does not.
+ *
  * tools/test/skills.test.mjs holds this list to the skill pages, so it cannot
  * drift from the book.
  */
+
+/** The languages Modern/Skills/LanguageGroups names, as suggestions: any other can be taken. */
+export const LANGUAGES = [
+  "Afrikaans", "Akkadian", "Algonkin", "Ancient Greek", "Ancient Hebrew", "Apache", "Arabic", "Arapaho", "Aramaic", "Armenian",
+  "Azerbaijani", "Belorussian", "Blackfoot", "Bulgarian", "Burmese", "Cantonese", "Cheyenne", "Chipewyan", "Coptic", "Czech",
+  "Danish", "Dutch", "English", "Estonian", "Farsi", "Finnish", "Flemish", "French", "Gaelic (Irish)", "Gaelic (Scots)", "German",
+  "Greek", "Hebrew", "Hindi", "Hungarian", "Icelandic", "Italian", "Japanese", "Korean", "Lapp", "Latin", "Latvian", "Lithuanian",
+  "Mandarin", "Middle Egyptian", "Navaho", "Norwegian", "Pashto", "Polish", "Portuguese", "Punjabi", "Romanian", "Russian",
+  "Sanskrit", "Serbo-Croatian", "Shawnee", "Sherpa", "Slovak", "Spanish", "Swedish", "Tibetan", "Turkish", "Ukrainian", "Urdu",
+  "Uzbek", "Welsh", "Yiddish",
+];
 export const SKILLS = {
   balance: { name: "Balance", ability: "dex", trainedOnly: false, armorPenalty: true },
   bluff: { name: "Bluff", ability: "cha", trainedOnly: false, armorPenalty: false },
@@ -47,14 +62,14 @@ export const SKILLS = {
   },
   pilot: { name: "Pilot", ability: "dex", trainedOnly: true, armorPenalty: false },
   profession: { name: "Profession", ability: "wis", trainedOnly: false, armorPenalty: false },
-  readWriteLanguage: { name: "Read/Write Language", ability: "", trainedOnly: true, armorPenalty: false },
+  readWriteLanguage: { name: "Read/Write Language", ability: "", trainedOnly: true, armorPenalty: false, specialties: LANGUAGES, anySpecialty: true, noCheck: true },
   repair: { name: "Repair", ability: "int", trainedOnly: true, armorPenalty: false },
   research: { name: "Research", ability: "int", trainedOnly: false, armorPenalty: false },
   ride: { name: "Ride", ability: "dex", trainedOnly: false, armorPenalty: false },
   search: { name: "Search", ability: "int", trainedOnly: false, armorPenalty: false },
   senseMotive: { name: "Sense Motive", ability: "wis", trainedOnly: false, armorPenalty: false },
   sleightOfHand: { name: "Sleight of Hand", ability: "dex", trainedOnly: true, armorPenalty: true },
-  speakLanguage: { name: "Speak Language", ability: "", trainedOnly: true, armorPenalty: false },
+  speakLanguage: { name: "Speak Language", ability: "", trainedOnly: true, armorPenalty: false, specialties: LANGUAGES, anySpecialty: true, noCheck: true },
   spot: { name: "Spot", ability: "wis", trainedOnly: false, armorPenalty: false },
   survival: { name: "Survival", ability: "wis", trainedOnly: false, armorPenalty: false },
   swim: { name: "Swim", ability: "str", trainedOnly: false, armorPenalty: true },

@@ -13,8 +13,8 @@
       <a data-action="addLanguage" data-tooltip="Add a language"><i class="fa-solid fa-plus"></i></a>
       {{#if languages.species}}<a class="m20-roll-button" data-action="addSpeciesLanguages" data-tooltip="{{languages.species.free}}">Add {{languages.species.name}} languages</a>{{/if}}
     </h3>
-    <p class="m20-hint">Your native language is known without ranks. Each other language costs a rank: Speak Language to speak it, Read/Write Language to read and write it.</p>
-    <p class="{{#if languages.ranks.speak.over}}m20-warning{{else}}m20-hint{{/if}}">Bought with ranks: speak {{languages.ranks.speak.have}} of {{languages.ranks.speak.ranks}}, read/write {{languages.ranks.readWrite.have}} of {{languages.ranks.readWrite.ranks}}{{#if languages.ranks.readWrite.over}} <span class="m20-warning">(more read/write than ranks)</span>{{/if}}.</p>
+    <p class="m20-hint">Your native language, and your species', are known without ranks. Each other language is a rank in it on the Skills tab: Speak Language to speak it, Read/Write Language to read and write it.</p>
+    {{#if languages.ranked.any}}<p>Bought with ranks: {{#if languages.ranked.speak}}speaks {{languages.ranked.speak}}{{/if}}{{#if languages.ranked.speak}}{{#if languages.ranked.readWrite}}; {{/if}}{{/if}}{{#if languages.ranked.readWrite}}reads and writes {{languages.ranked.readWrite}}{{/if}}.</p>{{/if}}
     {{#if languages.species.other}}<p class="m20-hint">{{languages.species.name}} may also learn: {{languages.species.other}}.</p>{{/if}}
     {{#if languages.occupation}}<p class="m20-hint">{{languages.occupation}}</p>{{/if}}
     <table class="m20-table m20-languages">

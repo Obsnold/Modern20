@@ -1089,4 +1089,38 @@ export const CHECKS = {
     await actor.delete();
     return errors;
   },
+
+  async "languages bought on the Skills tab: a language a specialty of Speak Language, never rolled, and known on the Details tab"() {
+    const errors = [];
+    const { take, wait, click, type } = window.m20test;
+    const actor = await Actor.implementation.create({ name: "Linguist (test)", type: "character" });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Smart Hero", { level: 2 })]);
+    try {
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("skills", "primary");
+      // Any language: one the book suggests, and one it does not.
+      for (const language of ["French", "Klingon"]) {
+        const group = actor.sheet.element.querySelector("tr.m20-skill-group[data-skill=speakLanguage]");
+        group.querySelector(".m20-new-specialty").value = language;
+        click(group, "[data-action=addSpecialty]");
+        await wait(() => actor.system.specialtySkills.some((s) => s.skill === "speakLanguage" && s.specialty === language), `Speak Language (${language}) to be added`);
+      }
+      const index = actor.system.specialtySkills.findIndex((s) => s.specialty === "French");
+      type(actor.sheet.element, `input[name="system.specialtySkills.${index}.ranks"]`, 1);
+      await wait(() => actor.system.specialtySkills[index].ranks === 1, "a rank in French");
+      const row = actor.sheet.element.querySelector(`input[name="system.specialtySkills.${index}.ranks"]`).closest("tr");
+      if (row.querySelector("[data-action=rollSkill]")) errors.push("a language has a roll button");
+      if (!row.innerText.includes("French")) errors.push("the language's row does not name it");
+      if (!actor.sheet.element.querySelector("datalist#m20-specialties-speakLanguage option[value=Russian]")) errors.push("the book's languages are not suggested");
+      actor.sheet.changeTab("details", "primary");
+      await wait(() => /speaks French/.test(actor.sheet.element.querySelector("section.tab[data-tab=details]")?.innerText ?? ""), "the Details tab to say French is spoken");
+      if (/Klingon/.test(actor.sheet.element.querySelector("section.tab[data-tab=details]").innerText)) errors.push("Klingon, with no rank, is listed as known");
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
 };

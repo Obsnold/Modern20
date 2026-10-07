@@ -353,8 +353,11 @@ export const ACTOR_MODELS = {
     abilityIncreases: list(str({ choices: ABILITIES })),
     /** The Wealth bonus, and the character level Wealth was last regained for (a Profession check each new level). */
     wealth: obj({ value: int(), regainedLevel: int() }),
-    /** Languages known: spoken, read and written, and where each came from (rules/languages.mjs). */
-    languages: list(obj({ name: str(), speak: bool(), readWrite: bool(), source: str({ choices: ["native", "species", "occupation", "ranks"] }) })),
+    /**
+     * Languages known without ranks: spoken, read and written, and where each came from (rules/languages.mjs).
+     * Those bought with ranks are the language skills' specialties.
+     */
+    languages: list(obj({ name: str(), speak: bool(), readWrite: bool(), source: str({ choices: ["native", "species", "occupation"] }) })),
     defense: obj({ misc: int() }),
     /**
      * `points` are the skill points its ranks cost, as bought (null until tracked: then ranks at today's cost).

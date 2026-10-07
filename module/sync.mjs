@@ -66,10 +66,16 @@ export async function syncWorldItems() {
   const version = game.system.version;
   if (game.settings.get(SYSTEM_ID, "syncedVersion") === version) return;
   const items = [...game.items, ...game.actors.contents.flatMap((a) => a.items.contents)];
+  // Their sources, loaded together (one at a time, a world of many characters takes minutes); each the once.
+  const loading = new Map();
+  const sources = await Promise.all(items.map((item) => {
+    const uuid = item._stats?.compendiumSource ?? "";
+    if (!loading.has(uuid)) loading.set(uuid, sourceOf(item));
+    return loading.get(uuid);
+  }));
   let changed = 0;
-  for (const item of items) {
-    const source = await sourceOf(item);
-    if (source && (await refresh(item, source))) changed++;
+  for (const [i, item] of items.entries()) {
+    if (sources[i] && (await refresh(item, sources[i]))) changed++;
   }
   // Characters made before class features were items, or whose features changed, are given them.
   for (const actor of game.actors.filter((a) => a.type === "character")) await syncFeatures(actor);

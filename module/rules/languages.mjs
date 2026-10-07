@@ -1,14 +1,15 @@
 /**
  * Languages (Modern/Skills/SpeakLanguage, ReadWriteLanguage). A character speaks, reads and
  * writes its native language without ranks, and knows those its species gives; each other
- * language it speaks costs a rank of Speak Language, and each it reads and writes a rank of
- * Read/Write Language. Some occupations let a character take a language in place of a skill.
+ * language it speaks is a rank of Speak Language in it, and each it reads and writes a rank of
+ * Read/Write Language in it: the skills' specialties, one a language, bought on the Skills tab.
+ * Some occupations let a character take a language in place of a skill.
  *
- * A character's languages are `{ name, speak, readWrite, source }`, `source` one of native,
- * species, occupation or ranks: only those bought with ranks are held to the ranks.
+ * A character's languages known without ranks are `{ name, speak, readWrite, source }`, `source`
+ * one of native, species or occupation.
  */
 
-export const SOURCES = ["native", "species", "occupation", "ranks"];
+export const SOURCES = ["native", "species", "occupation"];
 
 /**
  * The languages a species gives, from its printed list ("Speak Elven", "Read/Write Elven",
@@ -28,12 +29,31 @@ export function speciesLanguages(free) {
   return out;
 }
 
-/** Languages bought against the ranks in each skill: `{ speak: { have, ranks, over }, readWrite: ... }`. */
-export function languageRanks(languages, { speakRanks = 0, readWriteRanks = 0 } = {}) {
-  const bought = (languages ?? []).filter((l) => l.source === "ranks");
-  const tally = (have, ranks) => ({ have, ranks: Math.floor(ranks), over: have > Math.floor(ranks), under: have < Math.floor(ranks) });
-  return {
-    speak: tally(bought.filter((l) => l.speak).length, speakRanks),
-    readWrite: tally(bought.filter((l) => l.readWrite).length, readWriteRanks),
+/** The languages bought with ranks: each specialty of the language skills with a whole rank, `{ speak, readWrite }` names. */
+export function rankedLanguages(specialtySkills) {
+  const of = (skill) => (specialtySkills ?? []).filter((s) => s.skill === skill && s.specialty && Math.floor(s.ranks ?? 0) >= 1).map((s) => s.specialty);
+  return { speak: of("speakLanguage"), readWrite: of("readWriteLanguage") };
+}
+
+/**
+ * A character's data from before the language skills had a language each (a stored `skills` entry for
+ * each, and languages marked bought with "ranks"): each such language a rank in its skill, as a
+ * specialty, and gone from the languages known without ranks. Returns the data changed, or as it was.
+ */
+export function migrateLanguages(source) {
+  const old = (source?.languages ?? []).filter((l) => l?.source === "ranks");
+  const stored = ["speakLanguage", "readWriteLanguage"].filter((k) => source?.skills && k in source.skills);
+  if (!old.length && !stored.length) return source;
+  const specialtySkills = [...(source.specialtySkills ?? [])];
+  const add = (skill, name) => {
+    if (!name || specialtySkills.some((s) => s.skill === skill && s.specialty === name)) return;
+    specialtySkills.push({ skill, specialty: name, ranks: 1, misc: 0, classSkill: !!source.skills?.[skill]?.classSkill, points: null });
   };
+  for (const l of old) {
+    if (l.speak) add("speakLanguage", l.name);
+    if (l.readWrite) add("readWriteLanguage", l.name);
+  }
+  const skills = { ...source.skills };
+  for (const k of stored) delete skills[k];
+  return { ...source, skills, specialtySkills, languages: (source.languages ?? []).filter((l) => l?.source !== "ranks") };
 }

@@ -1,7 +1,8 @@
 import { test } from "node:test";
+import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 import { listPages, readPage } from "../srd/reader.mjs";
-import { SKILLS, skillKey } from "../../module/data/skills.mjs";
+import { SKILLS, skillKey, LANGUAGES } from "../../module/data/skills.mjs";
 import { classSkillSections } from "../build/classes.mjs";
 import { buildClasses } from "../build/classes.mjs";
 import { buildOccupations } from "../build/occupations.mjs";
@@ -43,9 +44,19 @@ test("every specialty a class, occupation or creature names is one the skill lis
     for (const s of [...(d.system.classSkills ?? []), ...(d.system.skills?.options ?? []), ...(d._key.startsWith("!actors!") ? d.system.skills : [])]) {
       const def = SKILLS[skillKey(s.name)];
       // "(any one)", "(select one)" and the like leave the choice to the player.
-      if (!s.specialty || !def?.specialties || /\b(any|select|choose|one|see)\b/i.test(s.specialty)) continue;
+      // A language skill takes any language: the book's list is only suggestions.
+      if (!s.specialty || !def?.specialties || def.anySpecialty || /\b(any|select|choose|one|see)\b/i.test(s.specialty)) continue;
       if (!def.specialties.includes(s.specialty)) unknown.add(`${d.name}: ${s.name} (${s.specialty})`);
     }
   }
   assert.deepEqual([...unknown], []);
+});
+
+test("the language skills suggest the languages Language Groups names", () => {
+  const text = readFileSync(new URL("../../srd/Modern/Skills/LanguageGroups.md", import.meta.url), "utf8");
+  const named = [...text.matchAll(/\*\*[^*]+:\*\*\s*([^\n]+(?:\n(?!\*\*)[^\n]+)*)/g)]
+    .flatMap((m) => m[1].replace(/\s+/g, " ").replace(/\.\s*$/, "").split(/,\s*(?![^()]*\))/))
+    .map((l) => l.replace(/[¹²³]/g, "").replace(/\s*\(aka [^)]*\)/, "").trim()).filter(Boolean);
+  assert.deepEqual([...LANGUAGES].sort(), [...new Set(named)].sort());
+  assert.ok(SKILLS.speakLanguage.noCheck && SKILLS.readWriteLanguage.anySpecialty);
 });

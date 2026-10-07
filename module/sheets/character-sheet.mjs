@@ -19,7 +19,7 @@ import { restHealing } from "../rules/damage.mjs";
 import { financialCondition } from "../rules/wealth.mjs";
 import { applyToActor, rollSave, stabiliseWithHelp } from "../damage.mjs";
 import { buy, sell, rollStartingWealth, regainWealth } from "../wealth.mjs";
-import { speciesLanguages, languageRanks, SOURCES } from "../rules/languages.mjs";
+import { speciesLanguages, rankedLanguages, SOURCES } from "../rules/languages.mjs";
 import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
 import { ammoFor, reloadWeapon } from "../ammo.mjs";
 import { magazineOf, fits } from "../rules/ammo.mjs";
@@ -195,9 +195,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const buyingAs = levellingClass(actor);
     for (const row of d.skills ?? []) {
       const def = SKILLS[row.key];
-      if (def.specialties && last !== row.key) skills.push({ header: true, key: row.key, name: def.name });
+      if (def.specialties && last !== row.key) skills.push({ header: true, key: row.key, name: def.name, languages: !!def.anySpecialty });
       skills.push({
-        ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}`,
+        ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, noCheck: !!def.noCheck, total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}`,
         // A class skill of the class ranks are bought as, or from a feat or the occupation (whatever the class),
         // shows a tick; any other can be marked by hand, its tooltip naming the classes it is a skill of.
         ...classColumn(row, buyingAs),
@@ -208,7 +208,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       last = row.key;
     }
     for (const [key, def] of Object.entries(SKILLS)) {
-      if (def.specialties && !skills.some((s) => s.header && s.key === key)) skills.push({ header: true, key, name: def.name });
+      if (def.specialties && !skills.some((s) => s.header && s.key === key)) skills.push({ header: true, key, name: def.name, languages: !!def.anySpecialty });
     }
     const specialtyIndex = new Map(system.specialtySkills.map((s, i) => [`${s.skill}:${s.specialty}`, i]));
     for (const s of skills) if (s.specialty) s.index = specialtyIndex.get(`${s.key}:${s.specialty}`);
@@ -400,8 +400,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
 
   static async #onAddLanguage() {
     const list = this.document.system.toObject().languages;
-    // A character's first language is its native one, known without ranks.
-    list.push({ name: "", speak: true, readWrite: true, source: list.length ? "ranks" : "native" });
+    // A character's first language is its native one; another known without ranks is most often its species'.
+    list.push({ name: "", speak: true, readWrite: true, source: list.length ? "species" : "native" });
     await this.document.update({ "system.languages": list });
   }
 
@@ -632,13 +632,13 @@ function levellingClass(actor) {
 /** The Details tab's languages: each one's fields, and those bought against the language skills' ranks. */
 function languagesContext(actor) {
   const s = actor.system;
-  const rank = (key) => s.skills[key]?.ranks ?? 0;
-  const ranks = languageRanks(s.languages, { speakRanks: rank("speakLanguage"), readWriteRanks: rank("readWriteLanguage") });
+  const ranked = rankedLanguages(s.specialtySkills);
   const species = actor.items.find((i) => i.type === "species");
   const occupation = actor.items.find((i) => i.type === "occupation");
   return {
     list: s.languages.map((l, index) => ({ ...l, index, sources: SOURCES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1), selected: v === l.source })) })),
-    ranks,
+    // Those bought with ranks, on the Skills tab.
+    ranked: { speak: ranked.speak.join(", "), readWrite: ranked.readWrite.join(", "), any: ranked.speak.length + ranked.readWrite.length > 0 },
     species: species ? { name: species.name, free: species.system.languages.free.join(", "), other: species.system.languages.other.join(", ") } : null,
     occupation: occupation?.system.skills.languages ? `${occupation.name}: ${occupation.system.skills.languages}` : "",
   };

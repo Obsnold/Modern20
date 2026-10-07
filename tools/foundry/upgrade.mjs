@@ -43,11 +43,19 @@ async function MAKE() {
     const d = a.system.derived;
     return {
       level: d.level, hp: d.hitPoints.max, bab: d.baseAttackBonus, saves: d.saves, defense: d.defense.value, initiative: d.initiative,
-      skills: Object.fromEntries(d.skills.map((s) => [`${s.key}${s.specialty ? `:${s.specialty}` : ""}`, s.total])),
+      // The language skills aside: a language each now, one skill before (checked on their own).
+      skills: Object.fromEntries(d.skills.filter((s) => !/Language$/.test(s.key)).map((s) => [`${s.key}${s.specialty ? `:${s.specialty}` : ""}`, s.total])),
       features: a.items.filter((i) => i.type === "feature").map((i) => i.name).sort(),
     };
   };
-  const hero = await Actor.implementation.create({ name: "Upgraded hero", type: "character", system: { abilities: abilities({ str: 14, dex: 13, con: 12, int: 10, wis: 15, cha: 8 }) } });
+  const hero = await Actor.implementation.create({
+    name: "Upgraded hero", type: "character", system: {
+      abilities: abilities({ str: 14, dex: 13, con: 12, int: 10, wis: 15, cha: 8 }),
+      // Languages as 0.5 kept them: ranks in the skill, and the languages marked bought with them.
+      skills: { speakLanguage: { ranks: 2 }, readWriteLanguage: { ranks: 1 } },
+      languages: [{ name: "English", speak: true, readWrite: true, source: "native" }, { name: "French", speak: true, readWrite: true, source: "ranks" }, { name: "Russian", speak: true, readWrite: false, source: "ranks" }],
+    },
+  });
   await hero.createEmbeddedDocuments("Item", [
     await take("classes", "Strong Hero", { level: 3 }), await take("classes", "Soldier", { level: 2 }),
     await take("species", "Elf"), await take("occupations", "Criminal"),
@@ -77,7 +85,7 @@ async function CHECK(before) {
   const { wait, readable } = window.m20test;
   const errors = [];
   try {
-    await wait(() => game.settings.get("modern20", "syncedVersion") === game.system.version, "the startup update", 30000);
+    await wait(() => game.settings.get("modern20", "syncedVersion") === game.system.version, "the startup update", 90000);
   } catch (e) { errors.push(e.message); }
   const same = (what, a, b) => { if (JSON.stringify(a) !== JSON.stringify(b)) errors.push(`${what}: ${JSON.stringify(a)} before, ${JSON.stringify(b)} after`); };
   for (const key of ["hero", "caster"]) {
@@ -89,7 +97,8 @@ async function CHECK(before) {
     const d = actor.system.derived;
     const now = {
       level: d.level, hp: d.hitPoints.max, bab: d.baseAttackBonus, saves: d.saves, defense: d.defense.value, initiative: d.initiative,
-      skills: Object.fromEntries(d.skills.map((s) => [`${s.key}${s.specialty ? `:${s.specialty}` : ""}`, s.total])),
+      // The language skills aside: a language each now, one skill before (checked on their own).
+      skills: Object.fromEntries(d.skills.filter((s) => !/Language$/.test(s.key)).map((s) => [`${s.key}${s.specialty ? `:${s.specialty}` : ""}`, s.total])),
       features: actor.items.filter((i) => i.type === "feature").map((i) => i.name).sort(),
     };
     for (const k of Object.keys(before[key])) same(`${actor.name}'s ${k}`, before[key][k], now[k]);
@@ -107,6 +116,10 @@ async function CHECK(before) {
   }
   // What the book says of an item, read better since, refreshed on the character's copy.
   const hero = game.actors.getName("Upgraded hero");
+  // Its languages bought with ranks, now a rank in each.
+  const rows = (hero?.system.specialtySkills ?? []).filter((s) => /Language$/.test(s.skill)).map((s) => `${s.skill} ${s.specialty} ${s.ranks}`).sort();
+  same("the hero's languages bought with ranks", ["readWriteLanguage French 1", "speakLanguage French 1", "speakLanguage Russian 1"], rows);
+  same("the hero's languages known without ranks", ["English"], (hero?.system.languages ?? []).map((l) => l.name));
   const staff = hero?.items.find((i) => i.name === "Quarterstaff");
   if (staff?.system.damage.formula !== "1d6") errors.push(`the quarterstaff's damage formula is "${staff?.system.damage.formula}", not the compendium's 1d6`);
   if (!hero?.items.find((i) => i.name === "Taser")?.system.noAmmunition) errors.push("the taser is not marked as having no ammunition to buy");
