@@ -159,3 +159,30 @@ export function specialAmmo(identifier, name = "") {
 
 /** Whether a special round is made for a weapon (Beanbag: shotguns and grenade launchers); true when it says nothing. */
 export const madeFor = (rules, weapon) => !rules?.only || rules.only.test(`${weapon.name} ${weapon.system?.category ?? ""}`);
+
+/**
+ * Whether a ranged weapon is thrown (a grenade, a javelin, a shuriken) rather than fired: it has no magazine,
+ * and is not a bow, a crossbow or a gun. A thrown weapon reaches five range increments, a fired one ten
+ * (Modern/Combat/CombatStatistics, Range Penalty).
+ */
+export function isThrown(weapon) {
+  if (magazineOf(weapon.system?.magazine)) return false;
+  return !/\b(bow|crossbow|launcher|gun|rifle|pistol|spray|cannon|taser|thrower|blowgun|watergun)\b/i.test(weapon.name ?? "");
+}
+
+/**
+ * The range penalty at `distance` feet: −2 for each full range increment (Far Shot: a fired weapon's increment
+ * half again, a thrown one's doubled). `{ increments, penalty, increment, beyond }`, `beyond` past the weapon's
+ * reach (ten increments, five thrown); null for a weapon with no range increment, or no distance.
+ */
+export function rangePenalty(weapon, distance, { farShot = false } = {}) {
+  const base = weapon.system?.rangeIncrement?.ft;
+  if (!base || !(distance > 0)) return null;
+  const thrown = isThrown(weapon);
+  const increment = farShot ? base * (thrown ? 2 : 1.5) : base;
+  const increments = Math.floor(distance / increment);
+  return { increments, penalty: increments ? -2 * increments : 0, increment, beyond: distance > increment * (thrown ? 5 : 10) };
+}
+
+/** Shooting or throwing into a melee: −4, none with Precise Shot (Modern/Combat/ActionsInCombat). */
+export const INTO_MELEE = -4;

@@ -105,8 +105,9 @@
     <section class="m20-panel">
       {{#if plan.actionPoints}}<p>+{{plan.actionPoints}} action points (5 + half your new level).</p>{{/if}}
       {{#if wealth}}<p><label><input type="checkbox" name="wealth" {{#if wealth.checked}}checked{{/if}}> Then make the Profession check for this level's Wealth</label></p>{{/if}}
-      <button type="button" data-action="finish" {{#unless ready}}disabled{{/unless}}><i class="fa-solid fa-angles-up"></i> Take level {{plan.level}}</button>
-      {{#unless ready}}<span class="m20-hint">{{#if points.over}}More points spent than the level gives.{{else}}Roll or enter the hit points first.{{/if}}</span>{{/unless}}
+      {{#each errors}}<p class="m20-warning"><i class="fa-solid fa-circle-xmark"></i> {{this}}</p>{{/each}}
+      {{#each warnings}}<p class="m20-hint"><i class="fa-solid fa-triangle-exclamation"></i> {{this}}</p>{{/each}}
+      <button type="button" data-action="finish" {{#unless ready}}disabled{{/unless}}><i class="fa-solid fa-angles-up"></i> Take level {{plan.level}}{{#if warnings.length}} anyway{{/if}}</button>
     </section>
   {{/if}}
 </div>

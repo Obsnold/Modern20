@@ -48,7 +48,8 @@ async function ask(actor, spec, event, options = [], texts = []) {
     <div class="form-group"><label>Situational modifier</label><input type="number" name="modifier" value="0" autofocus></div>
     ${options.map((o) => (o.choices
       ? `<div class="form-group"><label>${escape(o.label)}</label><select name="${o.name}">${o.choices.map(([v, l]) => `<option value="${escape(v)}">${escape(l)}</option>`).join("")}</select></div>`
-      : `<div class="form-group"><label>${escape(o.label)}</label><input type="checkbox" name="${o.name}"></div>`)).join("")}
+      : o.number ? `<div class="form-group"><label>${escape(o.label)}</label><input type="number" name="${o.name}" min="0" step="5" placeholder="${escape(o.placeholder ?? "")}"></div>`
+        : `<div class="form-group"><label>${escape(o.label)}</label><input type="checkbox" name="${o.name}"></div>`)).join("")}
     ${texts.length ? `<ul class="m20-roll-notes">${texts.map((t) => `<li>${escape(t)}</li>`).join("")}</ul>` : ""}
     ${ap > 0 ? `<div class="form-group"><label>Spend an action point (${escape(die.label.replace(/^Action point /, ""))}; ${ap} left)</label><input type="checkbox" name="actionPoint"></div>` : ""}`;
   const result = await foundry.applications.api.DialogV2.prompt({
@@ -57,7 +58,7 @@ async function ask(actor, spec, event, options = [], texts = []) {
     ok: { label: "Roll", callback: (ev, button) => ({
       modifier: button.form.elements.modifier.valueAsNumber || 0,
       actionPoint: !!button.form.elements.actionPoint?.checked,
-      ...Object.fromEntries(options.map((o) => [o.name, o.choices ? button.form.elements[o.name]?.value : !!button.form.elements[o.name]?.checked])),
+      ...Object.fromEntries(options.map((o) => [o.name, o.choices ? button.form.elements[o.name]?.value : o.number ? button.form.elements[o.name]?.valueAsNumber || 0 : !!button.form.elements[o.name]?.checked])),
     }) },
     rejectClose: false,
   });
@@ -105,8 +106,8 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild, befor
   rebuild = (ticked) => R.withNotes(build ? build(ticked) : spec, notes.ticks, ticked);
   const added = await ask(actor, spec, event, options, notes.texts);
   if (!added) return null;
-  // What was chosen: a tick box's yes or no, a choice's value (or, not asked, its first).
-  const ticked = Object.fromEntries(options.map((o) => [o.name, o.choices ? added[o.name] ?? o.choices[0][0] : !!added[o.name]]));
+  // What was chosen: a tick box's yes or no, a number, a choice's value (or, not asked, its first).
+  const ticked = Object.fromEntries(options.map((o) => [o.name, o.choices ? added[o.name] ?? o.choices[0][0] : o.number ? added[o.name] ?? 0 : !!added[o.name]]));
   // An action point is checked first, so a roll it stops has not spent anything else.
   if (added.actionPoint && actor.system.actionPoints.value < 1) { ui.notifications.warn(`${actor.name} has no action points left.`); return null; }
   // Anything the roll costs besides an action point (a weapon's rounds); it can stop the roll.
@@ -167,11 +168,23 @@ export function characterRolls(actor) {
       // The special load it fires (Beanbag, Armor Piercing), and its question about the target, asked here for the damage too.
       const ammo = item.system.melee ? null : specialLoad(actor, item);
       if (ammo?.ask) options.push({ name: "ammoAsk", label: ammo.ask.label });
+      // A ranged attack's distance (its range penalty, and Point Blank Shot within 30 feet) and a target in a melee.
+      if (!item.system.melee && item.system.rangeIncrement?.ft) options.unshift({ name: "distance", number: true, label: `Distance to the target, in feet (range increment ${item.system.rangeIncrement.ft} ft.)`, placeholder: "within the first increment" });
+      if (!item.system.melee) options.push({ name: "intoMelee", label: "The target is in a melee with an ally (−4)" });
+      options.push(...defensiveOption(actor));
+      const hasPointBlank = feats.some((f) => rulesFor(f.identifier).pointBlank);
       return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0], ammo }), event, { attack: { actor: actor.uuid, item: item.id } }, {
         options, notes: notes(R.rollTargets.attack(!!item.system.melee)),
-        rebuild: (ticked) => R.attack(d, item, feats, { ...ticked, ammo }),
-        // A firearm spends its rounds as it fires: none left, no attack.
-        before: (ticked) => (item.system.melee ? true : spendAmmo(actor, item, ticked.mode ?? modes[0]?.[0] ?? "single")),
+        rebuild: (ticked) => {
+          // Point Blank Shot by the distance, when one is given (its damage is rolled from what is kept here).
+          if (ticked.distance > 0) ticked.pointBlank = hasPointBlank && ticked.distance <= 30;
+          return R.attack(d, item, feats, { ...ticked, ammo });
+        },
+        // A firearm spends its rounds as it fires: none left, no attack. Fighting defensively starts with the attack.
+        before: async (ticked) => {
+          if (!item.system.melee && !(await spendAmmo(actor, item, ticked.mode ?? modes[0]?.[0] ?? "single"))) return false;
+          await startDefensively(actor, ticked);
+        },
       });
     },
     /**
@@ -182,8 +195,9 @@ export function characterRolls(actor) {
       const u = unarmedRules(feats.map((f) => rulesFor(f.identifier)));
       const options = [{ name: "lethal", label: u.lethalAllowed ? "Lethal damage (Combat Martial Arts)" : "Lethal damage (−4 on the attack)" }];
       if (u.streetfighting) options.push({ name: "streetfighting", label: `Streetfighting: +${u.streetfighting} damage (once a round)` });
-      const build = (ticked = {}) => withTerms(R.attack(d, unarmedWeapon(u, ticked), feats), unarmedTerms(u, ticked));
-      return rollD20(actor, build(), event, { attack: { actor: actor.uuid, item: "unarmed" } }, { options, rebuild: build, notes: notes(R.rollTargets.attack(true, true)) });
+      options.push(...defensiveOption(actor));
+      const build = (ticked = {}) => withTerms(R.attack(d, unarmedWeapon(u, ticked), feats, { defensively: ticked.defensively }), unarmedTerms(u, ticked));
+      return rollD20(actor, build(), event, { attack: { actor: actor.uuid, item: "unarmed" } }, { options, rebuild: build, notes: notes(R.rollTargets.attack(true, true)), before: (ticked) => startDefensively(actor, ticked) });
     },
     /** Starting a grapple: a melee touch attack to grab, judged against the target's touch Defense. */
     grab: (event) => {
@@ -221,6 +235,19 @@ export function characterRolls(actor) {
 /** The weight of everything a character has that has one, in pounds. */
 export function gearWeight(actor) {
   return Math.round(actor.items.reduce((n, i) => n + (Number(i.system.weight?.lb) || 0), 0) * 10) / 10;
+}
+
+/**
+ * Fighting defensively, offered on an attack unless the actor already is (rules/conditions.mjs ACTIONS): −4 on
+ * this attack, then the condition carries the −4 and its +2 Defense to the start of its next turn.
+ */
+function defensiveOption(actor) {
+  return actor.statuses.has("fightingDefensively") ? [] : [{ name: "defensively", label: "Fight defensively (−4 on attacks, +2 Defense until your next turn)" }];
+}
+
+/** Put the actor in the fighting-defensively condition, if it chose to fight defensively. */
+async function startDefensively(actor, ticked) {
+  if (ticked.defensively && !actor.statuses.has("fightingDefensively")) await actor.toggleStatusEffect("fightingDefensively", { active: true });
 }
 
 /** Every note the actor's feats, talents and species carry (tools/build/mechanics.mjs), each with its source. */
@@ -286,7 +313,8 @@ export function creatureRolls(actor) {
     attack: (line, choice, index, bonus, event) => {
       const a = readAttacks(s[line])[choice]?.[index];
       if (!a) return null;
-      return rollD20(actor, withTerms(attackRoll(a, bonus), [{ label: "Conditions", value: c.attack(a.kind) }]), event, { attack: { actor: actor.uuid, line, choice, index, touch: a.touch } });
+      const build = (ticked = {}) => withTerms(attackRoll(a, bonus), [{ label: "Conditions", value: c.attack(a.kind) }, { label: "Fighting defensively", value: ticked.defensively ? -4 : 0 }]);
+      return rollD20(actor, build(), event, { attack: { actor: actor.uuid, line, choice, index, touch: a.touch } }, { options: defensiveOption(actor), rebuild: build, before: (ticked) => startDefensively(actor, ticked) });
     },
     damage: (line, choice, index, multiplier = 1) => {
       const printedAttack = readAttacks(s[line])[choice]?.[index];

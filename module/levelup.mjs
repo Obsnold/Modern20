@@ -152,7 +152,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (plan.isNew) grantItems.push({ id: cls.uuid, type: "class", name: cls.name, system: { ...(cls.system.toObject?.() ?? cls.system), level: 1 } });
     // Each option a numbered box (its id holds a uuid's dots, which a form's names cannot).
     this.grantIds = [];
-    const grants = plan.first ? featGrants(grantItems, actor.system.startingClass).map((g) => ({
+    const grants = plan.firstClass ? featGrants(grantItems, actor.system.startingClass).map((g) => ({
       text: `${g.name} (${g.label}): ${g.choose >= g.options.length ? "gives" : `choose ${g.choose} of`}`,
       options: g.options.map((o, i) => {
         const n = this.grantIds.push(`${g.source}|${i}`) - 1;
@@ -161,7 +161,24 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       }),
     })) : [];
 
+    // What is left undone (a warning: the level can still be taken), and a feat that is not one (it would be lost).
+    const unknown = featSlots.filter((f) => f.name && !feats.some((x) => x.name === f.name)).map((f) => f.name);
+    const warnings = [
+      ...featSlots.filter((f) => !f.name).map(() => "A feat is not chosen."),
+      plan.bonusFeat && !this.choices.bonusFeat && "The bonus feat is not chosen.",
+      plan.talent && !this.choices.talent && "The talent is not chosen.",
+      plan.increase && !this.choices.increase && "The ability increase is not chosen.",
+      left > 0 && `${left} skill point${left === 1 ? "" : "s"} not spent.`,
+    ].filter(Boolean);
+    const errors = [
+      ...unknown.map((n) => `“${n}” is not a feat in the compendium.`),
+      plan.beyondMax && `${cls.name} has no level ${plan.classLevel}.`,
+      !plan.maxHitPoints && !this.choices.hitPoints && "Roll or enter the hit points.",
+      left < 0 && "More skill points spent than the level gives.",
+    ].filter(Boolean);
+
     return Object.assign(context, {
+      warnings, errors,
       cls: { name: cls.name, hitDie: plan.hitDie }, plan, summary,
       hitPoints: this.choices.hitPoints, maxHitPoints: plan.maxHitPoints,
       skills, specialtySkills: Object.entries(SKILLS).filter(([, s]) => s.specialties).map(([key, s]) => ({ key, name: s.name, selected: key === this.choices.newSpecialtySkill })),
@@ -172,8 +189,8 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       talents: plan.talent ? talentOptions : null,
       increase: plan.increase ? ABILITIES.map((a) => ({ value: a, label: ABILITY_NAMES[a], selected: this.choices.increase === a })) : null,
       grants,
-      wealth: !plan.first ? { checked: this.choices.wealth } : null,
-      ready: !plan.beyondMax && (plan.maxHitPoints || this.choices.hitPoints) && left >= 0,
+      wealth: !plan.firstClass ? { checked: this.choices.wealth } : null,
+      ready: !errors.length,
     });
   }
 
@@ -225,10 +242,13 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
 
   /** Take the level: write it all, record it, and close. */
   static async #onFinish() {
+    // Once: a second click while the first is writing would take another level.
+    if (this.finishing) return;
+    this.finishing = true;
     const actor = this.actor;
     const plan = this.plan;
     const cls = await this.#chosenClass();
-    if (!cls || !plan) return;
+    if (!cls || !plan) { this.finishing = false; return; }
     const s = this.choices;
     const created = [];
     const history = { id: foundry.utils.randomID(), kind: "level", note: "", effects: [], level: plan.level, className: cls.name, classId: "", isNew: plan.isNew, hitPoints: plan.maxHitPoints ? null : s.hitPoints, ranks: [], items: [], increase: "", actionPoints: 0, time: Date.now() };
@@ -278,7 +298,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const bonus = plan.bonusFeat ? (cls.system.bonusFeats ?? [])[Number(s.bonusFeat)] : null;
     if (bonus) await add(bonus.uuid, { choice: bonus.specialty || s.bonusChoice || "" }, { bonusFor: classItem.id, bonusAdded: true });
     if (plan.talent && s.talent) await add(s.talent);
-    if (plan.first) {
+    if (plan.firstClass) {
       const grantItems = plainItems(actor).filter((i) => i.type !== "actor");
       for (const g of featGrants(grantItems, actor.system.startingClass)) {
         g.options.forEach((o, i) => {
@@ -302,7 +322,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: `<div class="m20-roll"><h3>${foundry.utils.escapeHTML(actor.name)} reaches level ${plan.level}</h3><p>${foundry.utils.escapeHTML(cls.name)} ${plan.classLevel}${history.hitPoints ? `, ${history.hitPoints} on the Hit Die` : ""}.</p></div>` });
     this.close();
     // A new level's Wealth: the Profession check (rules/wealth.mjs).
-    if (!plan.first && s.wealth) await regainWealth(actor);
+    if (!plan.firstClass && s.wealth) await regainWealth(actor);
   }
 }
 
@@ -338,14 +358,17 @@ export class Grant extends HandlebarsApplicationMixin(ApplicationV2) {
     const lists = {};
     for (const { pack } of c.items) lists[pack] ??= (await index(pack)).map((e) => e.name).sort();
     const skills = this.actor.system.derived.skills.map((r) => ({ value: `${r.key}|${r.specialty ?? ""}`, label: r.specialty ? `${r.name} (${r.specialty})` : r.name }));
+    const unknown = [];
+    for (const it of c.items) if (it.name && !(await index(it.pack)).some((e) => e.name === it.name)) unknown.push(`“${it.name}” is not in the ${GRANT_PACKS.find(([p]) => p === it.pack)?.[1] ?? it.pack} compendium.`);
     return Object.assign(context, {
+      errors: [...unknown, ...(c.note.trim() ? [] : ["Say what happened first."])],
       note: c.note,
       items: c.items.map((it, i) => ({ ...it, index: i, packs: GRANT_PACKS.map(([v, l]) => ({ value: v, label: l, selected: v === it.pack })), list: `m20-grant-${it.pack}`, choiceKind: it.pack === "feats" || it.pack === "talents" ? CHOICES[slug(it.name)] ?? "" : "" })),
       lists: Object.entries(lists).map(([pack, names]) => ({ id: `m20-grant-${pack}`, names })),
       newFeat: c.newFeat,
       ranks: c.ranks.map((r, i) => ({ ...r, index: i, skills: skills.map((s) => ({ ...s, selected: s.value === r.skill })) })),
       abilities: ABILITIES.map((a) => ({ value: a, label: ABILITY_NAMES[a], selected: a === c.ability })), bonus: c.bonus,
-      ready: !!c.note.trim(),
+      ready: !!c.note.trim() && !unknown.length,
     });
   }
 
@@ -373,10 +396,12 @@ export class Grant extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static async #onFinish() {
+    if (this.finishing) return;
     const actor = this.actor;
     const c = this.choices;
     const note = c.note.trim();
     if (!note) return;
+    this.finishing = true;
     const flags = { [SYSTEM_ID]: { grantNote: note } };
     // The items: from the compendiums, and a new feat of the table's own.
     const data = [];

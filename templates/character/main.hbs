@@ -33,6 +33,7 @@
         <dt>Unarmed</dt><dd class="m20-unarmed">
           <a class="m20-roll-button" data-action="rollUnarmed" data-tooltip="Unarmed strike: {{combat.unarmed}}"><i class="fa-solid fa-hand-fist"></i></a>
           <a class="m20-roll-button" data-action="rollGrab" data-tooltip="Grab: a melee touch attack to start a grapple"><i class="fa-solid fa-hand"></i></a>
+          <a class="m20-roll-button {{#if totalDefense}}m20-on{{/if}}" data-action="toggleCondition" data-condition="totalDefense" data-tooltip="Total defense: no attack this round, +4 Defense until your next turn"><i class="fa-solid fa-shield-halved"></i></a>
         </dd>
         <dt>Reputation</dt><dd data-tooltip="{{combat.tips.reputation}}">{{combat.reputation}}</dd>
         <dt>Massive Damage</dt><dd>{{combat.massiveDamage}}</dd>

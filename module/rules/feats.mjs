@@ -11,6 +11,8 @@
  *   weaponSpecialization  a bonus to damage with the weapon chosen (a class feature)
  *   finesse            Dexterity for attacks with the melee weapon chosen
  *   pointBlank         +1 to ranged attacks and damage within 30 feet (asked when attacking)
+ *   preciseShot        no −4 for shooting or throwing into a melee
+ *   farShot            a firearm's or archaic ranged weapon's range increment half again; a thrown one's doubled
  *   proficiency        weapons it makes a character proficient with: "chosen" for the
  *                      exotic proficiencies, which name a weapon or group when taken
  *   armorProficiency   the weight of armor it lets a character wear without penalty
@@ -44,6 +46,8 @@ export const FEAT_RULES = {
   "greater-weapon-focus": { choice: "weapon", weaponFocus: 1 },   // a Gunslinger's, with the firearm of its Weapon Focus
   "weapon-finesse": { choice: "weapon", finesse: true },
   "point-blank-shot": { pointBlank: 1 },
+  "precise-shot": { preciseShot: true },
+  "far-shot": { farShot: true },
   "double-tap": { fireMode: "doubleTap" },
   "burst-fire": { fireMode: "burst" },
   "advanced-firearms-proficiency": { autofire: true },

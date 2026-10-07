@@ -13,7 +13,7 @@
 import { chooses } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { slug } from "./identify.mjs";
-import { MODES, extraDice, AUTOFIRE_DEFENSE } from "./ammo.mjs";
+import { MODES, extraDice, AUTOFIRE_DEFENSE, rangePenalty, isThrown, INTO_MELEE } from "./ammo.mjs";
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const ABILITY_LABELS = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
@@ -107,7 +107,12 @@ export function attack(d, weapon, feats, options = {}) {
   // Weapon Focus once for a weapon, however many give it (the feat, a Soldier's or Gunslinger's feature: "the
   // benefit of the feat"); Greater Weapon Focus, a feat of its own, besides.
   const focus = onceEach(owned.filter((f) => f.rules.weaponFocus && forThisWeapon(f)), "weaponFocus");
-  const pointBlank = !melee && options.pointBlank ? Math.max(0, ...owned.map((f) => f.rules.pointBlank ?? 0)) : 0;
+  // Range: −2 a full increment at the distance given (rules/ammo.mjs), and −4 into a melee without Precise Shot.
+  const range = melee ? null : rangePenalty(weapon, options.distance, { farShot: owned.some((f) => f.rules.farShot) });
+  const intoMelee = !melee && options.intoMelee && !owned.some((f) => f.rules.preciseShot) ? INTO_MELEE : 0;
+  // Point Blank Shot within 30 feet: by the distance, when one is given, or as ticked.
+  const close = range ? options.distance <= 30 : !!options.pointBlank;
+  const pointBlank = !melee && close ? Math.max(0, ...owned.map((f) => f.rules.pointBlank ?? 0)) : 0;
   const mode = MODES[options.mode];
   // Autofire without Advanced Firearms Proficiency: −4.
   const autofirePenalty = options.mode === "autofire" && !owned.some((f) => f.rules.autofire) ? -4 : 0;
@@ -123,9 +128,17 @@ export function attack(d, weapon, feats, options = {}) {
     { label: "Armor (not proficient)", value: d.defense?.armorAttackPenalty ?? 0 },
     ...named(d.parts?.attack?.[melee ? "melee" : "ranged"], d.attackBonus?.[melee ? "melee" : "ranged"], "Effects"),
     ...ammoAttack(options.ammo, options),
+    { label: range ? `Range (${range.increments} increment${range.increments === 1 ? "" : "s"} of ${range.increment} ft.)` : "Range", value: range?.penalty ?? 0 },
+    { label: "Into a melee", value: intoMelee },
+    // Fighting defensively: −4, until the condition it puts the character in carries it (module/roll.mjs).
+    { label: "Fighting defensively", value: options.defensively ? -4 : 0 },
   ], {
     critical: ammoThreat(critical(s.critical), options.ammo),
-    ...(ammoHints(options.ammo, weapon).length ? { hints: ammoHints(options.ammo, weapon) } : {}),
+    // What the card says besides: the load's notes, and a target out of the weapon's reach.
+    ...(() => {
+      const hints = [...ammoHints(options.ammo, weapon), ...(range?.beyond ? [`Out of range: ${options.distance} ft. is past its ${isThrown(weapon) ? "five" : "ten"} range increments of ${range.increment} ft.`] : [])];
+      return hints.length ? { hints } : {};
+    })(),
     // Autofire is against a 10-foot square, Defense 10, not a target's Defense.
     // and an area attack scores no critical.
     ...(options.mode === "autofire" ? { againstDefense: AUTOFIRE_DEFENSE, title: `${weapon.name}: autofire`, critical: null } : {}),

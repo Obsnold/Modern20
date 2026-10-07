@@ -124,3 +124,31 @@ test("White Phosphorous: 1d6 fire besides, its own part for resistance, and once
   // Rolled 7 + 4 fire: the fire part on its own.
   assert.deepEqual(damageParts([{ total: 7 }, { operator: "+" }, { flavor: "fire", total: 4 }], 11, "Ballistic"), [{ type: "Ballistic", amount: 7 }, { type: "fire", amount: 4 }]);
 });
+
+test("range: −2 a full range increment, ten for a fired weapon and five thrown, Far Shot's longer increments", async () => {
+  const { rangePenalty, isThrown } = await import("../../module/rules/ammo.mjs");
+  const beretta = weapon("Beretta 92F");   // 40 ft.
+  assert.deepEqual(rangePenalty(beretta, 39), { increments: 0, penalty: 0, increment: 40, beyond: false });
+  assert.deepEqual(rangePenalty(beretta, 90), { increments: 2, penalty: -4, increment: 40, beyond: false });
+  assert.equal(rangePenalty(beretta, 410).beyond, true);
+  assert.equal(rangePenalty(beretta, 90, { farShot: true }).increments, 1);   // 60-ft. increments
+  const grenade = weapon("Fragmentation grenade");
+  assert.equal(isThrown(grenade), true);
+  assert.equal(isThrown(beretta), false);
+  assert.equal(rangePenalty(grenade, grenade.system.rangeIncrement.ft * 5 + 1).beyond, true);
+  assert.equal(rangePenalty(grenade, 20, { farShot: true }).increment, grenade.system.rangeIncrement.ft * 2);
+  assert.equal(rangePenalty(beretta, 0), null);
+});
+
+test("an attack at a distance: its range penalty, Point Blank Shot within 30 ft., into a melee unless Precise Shot, fighting defensively", () => {
+  const beretta = weapon("Beretta 92F");
+  const pfp = { name: "Personal Firearms Proficiency" };
+  const term = (spec, re) => spec.terms.find((t) => re.test(t.label))?.value;
+  assert.equal(term(attack(d, beretta, [pfp], { distance: 90 }), /^Range/), -4);
+  assert.equal(term(attack(d, beretta, [pfp, { name: "Point Blank Shot" }], { distance: 25 }), /Point Blank/), 1);
+  assert.equal(term(attack(d, beretta, [pfp, { name: "Point Blank Shot" }], { distance: 35 }), /Point Blank/), undefined);
+  assert.equal(term(attack(d, beretta, [pfp], { intoMelee: true }), /melee/), -4);
+  assert.equal(term(attack(d, beretta, [pfp, { name: "Precise Shot" }], { intoMelee: true }), /melee/), undefined);
+  assert.equal(term(attack(d, beretta, [pfp], { defensively: true }), /defensively/), -4);
+  assert.match(attack(d, beretta, [pfp], { distance: 500 }).hints.join(" "), /Out of range/);
+});

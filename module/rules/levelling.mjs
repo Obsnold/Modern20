@@ -29,14 +29,17 @@ export function levelPlan({ d, classes, system, cls, nonhuman = false }) {
   const row = (cls.system.levels ?? [])[classLevel - 1] ?? null;
   const features = (row?.features ?? []).map((f) => f.name);
   const ordinary = !!system.ordinary;
-  const first = heroic === 0;
+  // The character's 1st level: no class levels, and no creature Hit Dice before it (a creature's first class
+  // level is not ×4, nor its maximum hit points).
+  const first = heroic === 0 && !(d.racialHitDice > 0);
   const points = perLevel(cls, d.modifiers?.int ?? 0, nonhuman) * (first ? 4 : 1);
   return {
-    className: cls.name, isNew: !own, classLevel, level, first,
+    // `firstClass`: the first class level of any kind, for the starting feats it brings (a creature's included).
+    className: cls.name, isNew: !own, classLevel, level, first, firstClass: heroic === 0,
     beyondMax: classLevel > (cls.system.maxLevel || 10),
     hitDie: cls.system.hitDie ?? 0,
     // A hero's first character level is the die's maximum (none of a creature's Hit Dice before it); an ordinary rolls.
-    maxHitPoints: first && !(d.racialHitDice > 0) && !ordinary,
+    maxHitPoints: first && !ordinary,
     skillPoints: points,
     feats: featsAllowed(level) - featsAllowed(level - 1),
     bonusFeat: !ordinary && features.some((f) => /^bonus feat/i.test(f)),

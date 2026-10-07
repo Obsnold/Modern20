@@ -13,8 +13,12 @@ import { syncFeatures } from "./features.mjs";
 
 const NO_LOG = "modern20NoLog";
 
-/** The book's data on an item that the rules read, kept in step with the compendium: never a character's own choice. */
-const BOOK_FIELDS = ["system.damage.formula", "system.noAmmunition"];
+/**
+ * The book's data on an item that the rules read, kept in step with the compendium: never a character's own
+ * choice. A field marked `fill` is only filled in where it is empty (a weapon's damage the book's printing hid),
+ * so one changed by hand (a homebrew modification) is left as it is.
+ */
+const BOOK_FIELDS = [{ path: "system.damage.formula", fill: true }, { path: "system.noAmmunition" }];
 
 /** The setting that records which version last refreshed the world. */
 export function registerSyncSettings() {
@@ -41,9 +45,11 @@ async function refresh(item, source) {
   // The roll notes and book fields that differ from the source's.
   const { getProperty, hasProperty } = foundry.utils;
   const changes = {};
-  for (const path of ["system.rollNotes", ...BOOK_FIELDS]) {
+  for (const { path, fill } of [{ path: "system.rollNotes" }, ...BOOK_FIELDS]) {
     if (!hasProperty(source, path)) continue;
-    if (JSON.stringify(getProperty(item, path) ?? null) !== JSON.stringify(getProperty(source, path) ?? null)) changes[path] = getProperty(source, path);
+    const mine = getProperty(item, path);
+    if (fill && mine) continue;
+    if (JSON.stringify(mine ?? null) !== JSON.stringify(getProperty(source, path) ?? null)) changes[path] = getProperty(source, path);
   }
   if (sameEffects && !Object.keys(changes).length) return false;
   // A fresh options object each call: Foundry writes the parent into the one it is given.

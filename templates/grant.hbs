@@ -43,7 +43,7 @@
   </section>
 
   <section class="m20-panel">
+    {{#each errors}}<p class="m20-warning"><i class="fa-solid fa-circle-xmark"></i> {{this}}</p>{{/each}}
     <button type="button" data-action="finish" {{#unless ready}}disabled{{/unless}}><i class="fa-solid fa-gift"></i> Add it</button>
-    {{#unless ready}}<span class="m20-hint">Say what happened first.</span>{{/unless}}
   </section>
 </div>

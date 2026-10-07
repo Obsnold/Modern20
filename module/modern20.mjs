@@ -14,7 +14,7 @@ import { Modern20Actor } from "./actor.mjs";
 import { registerRollSettings, bindAttackButtons } from "./roll.mjs";
 import { statusEffects } from "./rules/conditions.mjs";
 import { registerLogSettings, registerLogHooks } from "./log.mjs";
-import { registerDyingHooks } from "./damage.mjs";
+import { registerDyingHooks, registerTurnHooks } from "./damage.mjs";
 import { registerSyncSettings, syncWorldItems } from "./sync.mjs";
 import { registerHitPointHooks } from "./hitpoints.mjs";
 import { registerFeatureHooks } from "./features.mjs";
@@ -32,6 +32,7 @@ Hooks.once("init", () => {
   registerSyncSettings();
   registerLogHooks();
   registerDyingHooks();
+  registerTurnHooks();
   registerHitPointHooks();
   registerFeatureHooks();
   registerPresenceHooks();

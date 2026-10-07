@@ -195,6 +195,18 @@ export function bindSaveButtons(message, html, flags) {
  * At the start of a dying combatant's turn, a card asks for its save. Posted by the active GM
  * alone, so once.
  */
+/**
+ * At the start of a combatant's turn, the round-long actions it took end: fighting defensively and total
+ * defense (rules/conditions.mjs ACTIONS). Done by the active GM alone.
+ */
+export function registerTurnHooks() {
+  Hooks.on("updateCombat", async (combat, changes) => {
+    if (!game.user.isActiveGM || !("turn" in changes || "round" in changes)) return;
+    const actor = combat.combatant?.actor;
+    for (const id of ["fightingDefensively", "totalDefense"]) if (actor?.statuses.has(id)) await actor.toggleStatusEffect(id, { active: false });
+  });
+}
+
 export function registerDyingHooks() {
   Hooks.on("updateCombat", (combat, changes) => {
     if (!game.user.isActiveGM || !("turn" in changes || "round" in changes)) return;

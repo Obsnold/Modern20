@@ -101,7 +101,7 @@ export async function PRELUDE() {
           if (![d.level, d.baseAttackBonus, d.defense.value, d.hitPoints.max, ...Object.values(d.saves)].every(Number.isFinite)) errors.push(`${pack.metadata.label}: the character's numbers are not numbers`);
           await actor.sheet.render({ force: true });
           await wait(() => actor.sheet.rendered, `${pack.metadata.label}'s sheet`, 60000);
-          for (const tab of ["main", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
+          for (const tab of ["main", "build", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
             actor.sheet.changeTab(tab, "primary");
             await new Promise((r) => setTimeout(r, 100));
             for (const bad of readable(actor.sheet.element.querySelector(`section.tab[data-tab="${tab}"]`)).slice(0, 5)) errors.push(`${pack.metadata.label}, ${tab} tab: ${bad}`);
@@ -262,7 +262,7 @@ export const CHECKS = {
       await take("equipment", "Beretta 92F (9mm autoloader)"), await take("equipment", "9mm"),
       await take("powers", "Daze"), await take("incantations", "Bibliolalia"),
     ]);
-    for (const tab of ["main", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
+    for (const tab of ["main", "build", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
       try {
         await actor.sheet.render({ force: true, tab });
         await new Promise((r) => setTimeout(r, 200));
@@ -366,7 +366,7 @@ export const CHECKS = {
       await actor.createEmbeddedDocuments("Item", items);
       await actor.sheet.render({ force: true });
       await wait(() => actor.sheet.rendered, `${name}'s sheet`);
-      for (const tab of ["main", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
+      for (const tab of ["main", "build", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
         actor.sheet.changeTab(tab, "primary");
         await new Promise((r) => setTimeout(r, 150));
         const section = actor.sheet.element.querySelector(`section.tab[data-tab="${tab}"]`);
@@ -901,6 +901,14 @@ export const CHECKS = {
     const values = item.effects.contents.flatMap((e) => e.changes.map((c) => Number(c.value)));
     if (values.some((v) => v !== 2)) errors.push(`after the update its effect gives ${values.join(", ")}, not the compendium's 2`);
     if (game.settings.get("modern20", "syncedVersion") !== game.system.version) errors.push("the update did not record the version");
+    // A weapon's damage: filled in where it is empty, but one changed by hand is left as it is.
+    const [staff, club] = await Item.implementation.create([await take("equipment", "Quarterstaff", { damage: { formula: "" } }), await take("equipment", "Club", { damage: { formula: "1d8" } })]);
+    await game.settings.set("modern20", "syncedVersion", "");
+    await syncWorldItems();
+    if (staff.system.damage.formula !== "1d6") errors.push(`an empty damage formula was not filled in: "${staff.system.damage.formula}"`);
+    if (club.system.damage.formula !== "1d8") errors.push(`a damage formula changed by hand was overwritten: "${club.system.damage.formula}"`);
+    await staff.delete();
+    await club.delete();
     // Run again for the same version: nothing to do.
     await item.effects.contents[0].update({ "system.changes": item.effects.contents[0].changes.map((c) => ({ ...c, value: 9 })) });
     await syncWorldItems();
@@ -1392,6 +1400,128 @@ export const CHECKS = {
       errors.push(e.message);
     }
     for (const app of foundry.applications.instances.values()) if (app.constructor.name === "Grant") await app.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "the level window's other cases: a creature's first class level, an ordinary's, 3rd and 4th levels, a new advanced class, a class's last level, a double click, the Wealth check"() {
+    const errors = [];
+    const { take, wait, doc } = window.m20test;
+    const { LevelUp } = await import("/systems/modern20/module/levelup.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const made = [];
+    const character = async (name, system, items) => {
+      const a = await Actor.implementation.create({ name, type: "character", system: { abilities, ...system } });
+      made.push(a);
+      if (items.length) await a.createEmbeddedDocuments("Item", await Promise.all(items));
+      await new Promise((r) => setTimeout(r, 300));
+      return a;
+    };
+    const open = async (actor, cls) => {
+      const app = new LevelUp(actor);
+      if (cls) app.choices.cls = cls;
+      await app.render(true);
+      await wait(() => app.rendered && app.plan, "the level window");
+      return app;
+    };
+    try {
+      // A gnoll-like creature of 2 Hit Dice: its first class level is neither ×4 nor the die's maximum, but brings the class's starting feats.
+      const strong = await doc("classes", "Strong Hero");
+      const beast = await character("Creature levelling (test)", {}, [take("creature-types", "Humanoid", { count: 2 })]);
+      let app = await open(beast, strong.uuid);
+      if (app.plan.skillPoints !== 3 || app.plan.maxHitPoints) errors.push(`a creature's first class level: ${app.plan.skillPoints} points, maximum hit points ${app.plan.maxHitPoints}`);
+      if (!app.element.innerText.includes("Simple Weapons Proficiency")) errors.push("a creature's first class level does not bring the class's starting feats");
+      await app.close();
+      // An ordinary's 1st level: hit points rolled, so the level waits for them; no talent.
+      const ordinary = await character("Ordinary levelling (test)", { ordinary: true }, []);
+      app = await open(ordinary, strong.uuid);
+      if (app.plan.maxHitPoints || app.plan.talent) errors.push(`an ordinary's 1st level: maximum hit points ${app.plan.maxHitPoints}, talent ${app.plan.talent}`);
+      if (!app.element.querySelector("[data-action=finish]").disabled) errors.push("an ordinary's 1st level can be taken without hit points");
+      await app.close();
+      // 3rd level: a feat; 4th: an ability increase.
+      const fast2 = await character("Third level (test)", {}, [take("classes", "Fast Hero", { level: 2 })]);
+      app = await open(fast2);
+      if (app.plan.feats !== 1 || app.plan.increase) errors.push(`3rd level: ${app.plan.feats} feats, increase ${app.plan.increase}`);
+      await app.close();
+      const fast3 = await character("Fourth level (test)", {}, [take("classes", "Fast Hero", { level: 3 })]);
+      app = await open(fast3);
+      if (!app.plan.increase || !app.element.querySelector("[name=increase]")) errors.push("4th level offers no ability increase");
+      // An advanced class it does not meet the requirements of: offered, and marked.
+      const soldier = [...app.element.querySelectorAll("[name=cls] option")].find((o) => /^Soldier/.test(o.textContent));
+      if (!/requirements not met/.test(soldier?.textContent ?? "")) errors.push(`Soldier is offered as "${soldier?.textContent}"`);
+      // Taken twice by a double click: one level.
+      app.choices.hitPoints = 4;
+      await app.render();
+      await wait(() => app.element.querySelector("[data-action=finish]") && !app.element.querySelector("[data-action=finish]").disabled, "the level to be ready");
+      const button = app.element.querySelector("[data-action=finish]");
+      button.click();
+      button.click();
+      await wait(() => fast3.system.history.length >= 1, "the level", 20000);
+      await new Promise((r) => setTimeout(r, 1500));
+      if (fast3.system.history.length !== 1 || fast3.items.find((i) => i.type === "class").system.level !== 4) errors.push(`a double click took ${fast3.system.history.length} levels (Fast Hero ${fast3.items.find((i) => i.type === "class").system.level})`);
+      // And made the Wealth check for the level.
+      await wait(() => game.messages.contents.slice(-5).some((m) => /Wealth for level/.test(m.content)), "the Wealth check after the level", 15000);
+      // A class at its last level: refused.
+      const top = await character("Last level (test)", {}, [take("classes", "Fast Hero", { level: 10 })]);
+      app = await open(top);
+      if (!app.plan.beyondMax || !app.element.querySelector("[data-action=finish]").disabled) errors.push("Fast Hero 11 can be taken");
+      await app.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of foundry.applications.instances.values()) if (a.constructor.name === "LevelUp") await a.close();
+    for (const a of made) await a.delete();
+    return errors;
+  },
+
+  async "range and fighting defensively: the distance's penalty, into a melee, fighting defensively until the next turn, and total defense"() {
+    const errors = [];
+    const { take, wait, dialog } = window.m20test;
+    await game.settings.set("modern20", "askBeforeRolling", true);
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Shooter (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("classes", "Fast Hero", { level: 2 }), await take("feats", "Personal Firearms Proficiency"),
+      await take("equipment", "Beretta 92F (9mm autoloader)", { loaded: 15 }),
+    ]);
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    const termsOf = (m) => [...new DOMParser().parseFromString(m.flavor, "text/html").querySelectorAll("li")].map((l) => l.innerText.replace(/\s+/g, " ").trim());
+    try {
+      const gun = actor.items.find((i) => i.type === "weapon");
+      const defenseBefore = actor.system.derived.defense.value;
+      const n = game.messages.size;
+      const rolled = characterRolls(actor).attack(gun);
+      const shown = await dialog({ distance: 90, intoMelee: true, defensively: true });
+      await rolled;
+      await wait(() => game.messages.size > n, "the attack");
+      const terms = termsOf(game.messages.contents.at(-1));
+      for (const want of [/^Range \(2 increments of 40 ft\.\) -4$/, /^Into a melee -4$/, /^Fighting defensively -4$/]) if (!terms.some((t) => want.test(t))) errors.push(`no term like ${want}: ${terms.join("; ")}`);
+      if (!shown.labels.some((l) => /Distance to the target/.test(l))) errors.push("the dialog asks no distance");
+      // Fighting defensively: the condition, +2 Defense, and no second −4 offered on the next attack.
+      await wait(() => actor.statuses.has("fightingDefensively"), "the fighting-defensively condition");
+      if (actor.system.derived.defense.value !== defenseBefore + 2) errors.push(`Defense ${actor.system.derived.defense.value} fighting defensively, not ${defenseBefore + 2}`);
+      const again = characterRolls(actor).attack(gun);
+      const second = await dialog({});
+      await again;
+      if (second.labels.some((l) => /Fight defensively/.test(l))) errors.push("fighting defensively is offered again while already fighting defensively");
+      const terms2 = termsOf(game.messages.contents.at(-1));
+      if (!terms2.some((t) => /^Fighting Defensively -4$/.test(t))) errors.push(`the second attack's −4 is not the condition's: ${terms2.join("; ")}`);
+      // It ends at the start of its next turn.
+      const combat = await Combat.implementation.create({ scene: null });
+      await combat.createEmbeddedDocuments("Combatant", [{ actorId: actor.id }]);
+      await combat.startCombat();
+      await combat.nextRound();
+      await wait(() => !actor.statuses.has("fightingDefensively"), "fighting defensively to end at its next turn");
+      // Total defense: +4.
+      await actor.toggleStatusEffect("totalDefense", { active: true });
+      if (actor.system.derived.defense.value !== defenseBefore + 4) errors.push(`Defense ${actor.system.derived.defense.value} in total defense, not ${defenseBefore + 4}`);
+      await combat.nextRound();
+      await wait(() => !actor.statuses.has("totalDefense"), "total defense to end at its next turn");
+      await combat.delete();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await game.settings.set("modern20", "askBeforeRolling", false);
     await actor.delete();
     return errors;
   },

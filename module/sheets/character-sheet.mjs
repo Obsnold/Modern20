@@ -283,6 +283,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       })),
       bonusKeys: bonusKeys(),
       status: conditionStatus(actor, system.hp.value, system.hp.max),
+      totalDefense: actor.statuses.has("totalDefense"),
       advancement: {
         skillPoints: tally(adv.skillPoints, "Each class level: its skill points + Int modifier; your first level ×4. A cross-class rank costs 2."),
         actionPoints: adv.actionPoints?.points ? { points: adv.actionPoints.points, levels: adv.actionPoints.levels.join(", ") } : null,

@@ -41,9 +41,19 @@ export const CONDITIONS = {
   unconscious: { name: "Unconscious", img: "icons/svg/unconscious.svg", text: "Can't defend itself: helpless, and typically falls prone." },
 };
 
-/** The conditions as Foundry's CONFIG.statusEffects entries. */
+/**
+ * Combat actions that last a round, as markers too (Modern/Combat/ActionsInCombat): fighting defensively
+ * (−4 on attacks for a +2 dodge bonus to Defense) and total defense (+4 dodge bonus to Defense, no attack).
+ * Each ends at the start of the character's next turn (module/damage.mjs registerTurnHooks).
+ */
+export const ACTIONS = {
+  fightingDefensively: { name: "Fighting Defensively", img: "icons/svg/shield.svg", changes: [...allAttacks(-4), add("defense", 2)], text: "−4 on attacks, +2 dodge bonus to Defense, until the start of its next turn." },
+  totalDefense: { name: "Total Defense", img: "icons/svg/castle.svg", changes: [add("defense", 4)], text: "No attacks; +4 dodge bonus to Defense, until the start of its next turn." },
+};
+
+/** The conditions, and the round-long combat actions, as Foundry's CONFIG.statusEffects entries. */
 export function statusEffects() {
-  return Object.entries(CONDITIONS).map(([id, c]) => ({
+  return Object.entries({ ...CONDITIONS, ...ACTIONS }).map(([id, c]) => ({
     id, name: c.name, img: c.img, description: `<p>${c.text}</p>`, system: { changes: c.changes ?? [] },
   }));
 }

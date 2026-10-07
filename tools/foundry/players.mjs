@@ -18,7 +18,7 @@ export async function SETUP() {
   return { heroId: hero.id, npcId: npc.id, creatureId: creature.id, gmCard: game.messages.contents.at(-1).id };
 }
 
-/** As the player: their own character works; the GM's does not, nor damage to a creature they do not own. */
+/** As the player: their own character works (its sheet, rolls, a level taken, something granted); the GM's does not, nor damage to a creature they do not own. */
 export async function AS_PLAYER({ heroId, npcId, creatureId, gmCard }) {
   const errors = [];
   const wait = async (test, what, ms = 10000) => {
@@ -58,6 +58,23 @@ export async function AS_PLAYER({ heroId, npcId, creatureId, gmCard }) {
     if (creature.sheet.element.querySelector("[data-action=toggleEdit]")) errors.push("the player is offered Edit on a creature they only observe");
     if (creature.sheet.element.querySelector("input[name=\"system.hp.value\"]:not([disabled])")) errors.push("the player can change an observed creature's hit points");
     await creature.sheet.close();
+    // Their own level, taken in the level window, and something gained outside a level.
+    const { LevelUp, Grant } = await import("/systems/modern20/module/levelup.mjs");
+    const levelUp = new LevelUp(hero);
+    levelUp.choices.hitPoints = 5;
+    await levelUp.render(true);
+    await wait(() => levelUp.rendered && levelUp.element.querySelector("[data-action=finish]:not([disabled])"), "the level window, ready");
+    levelUp.element.querySelector("[data-action=finish]").click();
+    await wait(() => hero.system.history.length === 1, "the player's level to be taken", 20000);
+    if (hero.items.find((i) => i.type === "class")?.system.level !== 3) errors.push("the player's level did not raise their class to 3");
+    const grant = new Grant(hero);
+    grant.choices.note = "A gift (player)";
+    grant.choices.ranks = [{ skill: "climb|", ranks: 1 }];
+    await grant.render(true);
+    await wait(() => grant.rendered && grant.element.querySelector("[data-action=finish]:not([disabled])"), "the grant window, ready");
+    grant.element.querySelector("[data-action=finish]").click();
+    await wait(() => hero.system.history.length === 2, "the player's grant", 20000);
+    if (hero.system.skills.climb.ranks < 1) errors.push("the player's granted rank is not there");
     // Their own hit points, changed on their sheet.
     const box = hero.sheet.element.querySelector("input[name=\"system.hp.value\"]");
     box.value = "3";

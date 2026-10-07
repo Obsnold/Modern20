@@ -105,7 +105,7 @@ async function CHECK(before) {
     // Every tab of its sheet draws, with nothing a reader would see as broken.
     await actor.sheet.render({ force: true });
     await wait(() => actor.sheet.rendered, `${actor.name}'s sheet`);
-    for (const tab of ["main", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
+    for (const tab of ["main", "build", "skills", "feats", "gear", "magic", "effects", "details", "log"]) {
       actor.sheet.changeTab(tab, "primary");
       await new Promise((r) => setTimeout(r, 200));
       const shown = actor.sheet.element.querySelector(`section.tab[data-tab="${tab}"]`);

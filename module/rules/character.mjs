@@ -77,7 +77,8 @@ export function deriveCharacter(system, items) {
   }));
   const heroic = classes.reduce((n, c) => n + c.system.level, 0);
   // Each effect named for the item that carries it (Alertness), or (the character's own) its own name.
-  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => e.transfer !== false && !e.disabled).map((e) => ({ ...e, rank: i.system?.rank || 1, source: i.type === "actor" ? e.name : i.name })));
+  // An item's effects that pass to the character; all of the character's own (a condition, one made on the sheet).
+  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => (i.type === "actor" || e.transfer !== false) && !e.disabled).map((e) => ({ ...e, rank: i.system?.rank || 1, source: i.type === "actor" ? e.name : i.name })));
   const bonusSources = {};
   const fx = withSystemBonuses(system.bonuses, itemEffects, mechanicsContext(classes, heroic + Math.floor(creatureType?.system.count ?? 0), baseMods), bonusSources);
   const fxv = (path, fallback = 0) => path.split(".").reduce((o, k) => o?.[k], fx) ?? fallback;
