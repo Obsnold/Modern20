@@ -1,0 +1,112 @@
+<div class="m20-levelup-body">
+  <section class="m20-panel">
+    <h3>Class</h3>
+    <select name="cls">
+      <option value="">— choose a class —</option>
+      {{#each classOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if unmet}}class="m20-unmet"{{/if}}>{{label}}</option>{{/each}}
+    </select>
+    {{#if plan}}
+      <p class="m20-hint">Level {{plan.level}}: {{cls.name}} {{plan.classLevel}}{{#if plan.features.length}}, with {{#each plan.features}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}.</p>
+      {{#if plan.beyondMax}}<p class="m20-warning">{{cls.name}} has no level {{plan.classLevel}}.</p>{{/if}}
+    {{/if}}
+  </section>
+
+  {{#if plan}}
+    <section class="m20-panel">
+      <h3>What it changes</h3>
+      <table class="m20-table m20-levelup-summary">
+        {{#each summary}}<tr class="{{#if changed}}m20-strong{{/if}}"><th>{{label}}</th><td>{{before}}</td><td>→</td><td>{{after}}</td></tr>{{/each}}
+      </table>
+    </section>
+
+    <section class="m20-panel">
+      <h3>Hit points (d{{cls.hitDie}})</h3>
+      {{#if maxHitPoints}}
+        <p>Your first level: the die's maximum, {{cls.hitDie}}.</p>
+      {{else}}
+        <p><input type="number" name="hitPoints" min="1" max="{{cls.hitDie}}" value="{{hitPoints}}" placeholder="—">
+          <a class="m20-roll-button" data-action="rollHitPoints"><i class="fa-solid fa-dice"></i> Roll d{{cls.hitDie}}</a></p>
+      {{/if}}
+    </section>
+
+    <section class="m20-panel">
+      <h3>Skill points <span class="{{#if points.over}}m20-warning{{else}}m20-hint{{/if}}">{{points.left}} of {{points.total}} left</span></h3>
+      <p class="m20-hint">A point buys a rank in a {{cls.name}} skill (ticked), half a rank in any other.</p>
+      <table class="m20-table m20-levelup-skills">
+        <thead><tr><th>Skill</th><th></th><th>Ranks</th><th>Max</th><th></th></tr></thead>
+        <tbody>
+          {{#each skills}}
+            <tr class="{{#if spent}}m20-strong{{/if}}">
+              <td>{{name}}</td>
+              <td>{{#if classSkill}}<i class="fa-solid fa-check" data-tooltip="A class skill bought as this class: 1 point a rank"></i>{{/if}}</td>
+              <td>{{ranks}}{{#if spent}} → {{after}}{{/if}}</td>
+              <td>{{max}}</td>
+              <td>
+                {{#if canSell}}<a data-action="buy" data-skill="{{id}}" data-delta="-1" data-tooltip="Take a point back"><i class="fa-solid fa-minus"></i></a>{{/if}}
+                {{#if canBuy}}<a data-action="buy" data-skill="{{id}}" data-delta="1" data-tooltip="Spend a point ({{#if classSkill}}a rank{{else}}half a rank{{/if}})"><i class="fa-solid fa-plus"></i></a>{{/if}}
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <p>
+        <select name="newSpecialtySkill">{{#each specialtySkills}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}</select>
+        <input type="text" name="newSpecialty" value="{{newSpecialty}}" placeholder="A specialty or language">
+        <a data-action="addSpecialty" data-tooltip="Add it, to buy ranks in"><i class="fa-solid fa-plus"></i></a>
+      </p>
+    </section>
+
+    {{#if featSlots.length}}
+      <section class="m20-panel">
+        <h3>{{#if plan.first}}Feats{{else}}A feat{{/if}} <span class="m20-hint">(every character's, at this level)</span></h3>
+        {{#each featSlots}}
+          <p>
+            <input type="text" name="feats.{{index}}.name" value="{{name}}" list="m20-levelup-feats" placeholder="A feat">
+            {{#if choiceKind}}<input type="text" name="feats.{{index}}.choice" value="{{choice}}" placeholder="Choose a {{choiceKind}}">{{/if}}
+            {{#if prerequisites}}<br><span class="m20-hint">Prerequisites: {{prerequisites}}</span>{{/if}}
+          </p>
+        {{/each}}
+        <datalist id="m20-levelup-feats">{{#each featList}}<option value="{{name}}"></option>{{/each}}</datalist>
+      </section>
+    {{/if}}
+
+    {{#if bonus}}
+      <section class="m20-panel">
+        <h3>A bonus feat <span class="m20-hint">({{cls.name}}'s list)</span></h3>
+        <select name="bonusFeat"><option value="">—</option>{{#each bonus.options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+        {{#if bonus.choiceKind}}<input type="text" name="bonusChoice" value="{{bonus.choice}}" placeholder="Choose a {{bonus.choiceKind}}">{{/if}}
+      </section>
+    {{/if}}
+
+    {{#if talents}}
+      <section class="m20-panel">
+        <h3>A talent</h3>
+        <select name="talent"><option value="">—</option>{{#each talents}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if disabled}}disabled{{/if}}>{{label}}</option>{{/each}}</select>
+      </section>
+    {{/if}}
+
+    {{#if increase}}
+      <section class="m20-panel">
+        <h3>+1 to an ability score</h3>
+        <select name="increase"><option value="">—</option>{{#each increase}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+      </section>
+    {{/if}}
+
+    {{#if grants.length}}
+      <section class="m20-panel">
+        <h3>Feats you are given</h3>
+        {{#each grants}}
+          <p class="m20-hint">{{text}}</p>
+          {{#each options}}<label><input type="checkbox" name="{{name}}" {{#if checked}}checked{{/if}} {{#if fixed}}disabled{{/if}}> {{label}}</label>{{/each}}
+        {{/each}}
+      </section>
+    {{/if}}
+
+    <section class="m20-panel">
+      {{#if plan.actionPoints}}<p>+{{plan.actionPoints}} action points (5 + half your new level).</p>{{/if}}
+      {{#if wealth}}<p><label><input type="checkbox" name="wealth" {{#if wealth.checked}}checked{{/if}}> Then make the Profession check for this level's Wealth</label></p>{{/if}}
+      <button type="button" data-action="finish" {{#unless ready}}disabled{{/unless}}><i class="fa-solid fa-angles-up"></i> Take level {{plan.level}}</button>
+      {{#unless ready}}<span class="m20-hint">{{#if points.over}}More points spent than the level gives.{{else}}Roll or enter the hit points first.{{/if}}</span>{{/unless}}
+    </section>
+  {{/if}}
+</div>

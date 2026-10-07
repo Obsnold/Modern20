@@ -51,7 +51,7 @@ export function fieldLabel(path) {
   const named = {
     name: "Name", img: "Portrait", "hp.value": "Current HP", "hp.temp": "Temp HP", "hp.max": "Max HP",
     "actionPoints.value": "Action points", "powerPoints.value": "Power points", "powerPoints.freeUsed": "Free 0-level powers used", slotsUsed: "Spell slots used", "wealth.value": "Wealth", "wealth.regainedLevel": "Wealth regained for level", languages: "Languages", "defense.misc": "Defense (misc)",
-    specialtySkills: "Specialty skills", level: "level", hitPoints: "hit point rolls", equipped: "equipped",
+    specialtySkills: "Specialty skills", history: "Levels taken", ordinary: "Ordinary", level: "level", hitPoints: "hit point rolls", equipped: "equipped",
     quantity: "quantity", count: "Hit Dice", prepared: "prepared", cast: "cast", "progress.successes": "successes", "progress.failures": "failures in a row", choice: "choice", chosenSkills: "occupation skills", "prototypeToken.name": "Token name",
   };
   return named[p] ?? p.split(".").map((w) => w.replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase()).join(" ");

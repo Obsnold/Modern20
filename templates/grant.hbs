@@ -1,0 +1,49 @@
+<div class="m20-levelup-body">
+  <section class="m20-panel">
+    <h3>What happened</h3>
+    <textarea name="note" rows="2" placeholder="Touched by the artifact in the Old Mill (session 12)">{{note}}</textarea>
+    <p class="m20-hint">Kept with everything below, so the sheet can say where it came from.</p>
+  </section>
+
+  <section class="m20-panel">
+    <h3>Items <a data-action="addRow" data-list="items" data-tooltip="Another"><i class="fa-solid fa-plus"></i></a></h3>
+    {{#each items}}
+      <p>
+        <select name="items.{{index}}.pack">{{#each packs}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+        <input type="text" name="items.{{index}}.name" value="{{name}}" list="{{list}}" placeholder="Its name">
+        {{#if choiceKind}}<input type="text" name="items.{{index}}.choice" value="{{choice}}" placeholder="Choose a {{choiceKind}}">{{/if}}
+        <a data-action="removeRow" data-list="items" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+      </p>
+    {{/each}}
+    {{#each lists}}<datalist id="{{id}}">{{#each names}}<option value="{{this}}"></option>{{/each}}</datalist>{{/each}}
+    <p><strong>Or a new ability of your own</strong> (made as a feat):</p>
+    <p><input type="text" name="newFeat.name" value="{{newFeat.name}}" placeholder="Its name: Light at Will"></p>
+    <textarea name="newFeat.description" rows="2" placeholder="What it does">{{newFeat.description}}</textarea>
+  </section>
+
+  <section class="m20-panel">
+    <h3>Free ranks <a data-action="addRow" data-list="ranks" data-tooltip="Another"><i class="fa-solid fa-plus"></i></a></h3>
+    <p class="m20-hint">Ranks that cost no skill points.</p>
+    {{#each ranks}}
+      <p>
+        <select name="ranks.{{index}}.skill"><option value="">—</option>{{#each skills}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+        <input type="number" name="ranks.{{index}}.ranks" value="{{ranks}}" min="0" step="0.5">
+        <a data-action="removeRow" data-list="ranks" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+      </p>
+    {{/each}}
+  </section>
+
+  <section class="m20-panel">
+    <h3>An ability bonus</h3>
+    <p>
+      <select name="ability"><option value="">—</option>{{#each abilities}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+      <input type="number" name="bonus" value="{{bonus}}" step="1">
+      <span class="m20-hint">A permanent effect, named for what happened.</span>
+    </p>
+  </section>
+
+  <section class="m20-panel">
+    <button type="button" data-action="finish" {{#unless ready}}disabled{{/unless}}><i class="fa-solid fa-gift"></i> Add it</button>
+    {{#unless ready}}<span class="m20-hint">Say what happened first.</span>{{/unless}}
+  </section>
+</div>

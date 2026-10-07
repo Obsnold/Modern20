@@ -288,7 +288,8 @@ export function deriveCharacter(system, items) {
       level, heroicLevel: classes.reduce((n, c) => n + c.system.level, 0), classes, intMod: mod("int"), ordinary: !!system.ordinary,
       // d20 Future's classes give a nonhuman a point fewer; a character with no species is human.
       nonhuman: !!species && !/human$/i.test(species.name ?? ""), skills,
-      counts: { feats: items.filter((i) => i.type === "feat").length, talents: items.filter((i) => i.type === "talent").length },
+      // Feats and talents granted outside a level (by an event in play) are extra: not counted against the levels'.
+      counts: { feats: items.filter((i) => i.type === "feat" && !i.granted).length, talents: items.filter((i) => i.type === "talent" && !i.granted).length },
       granted: system.actionPoints?.granted ?? 0, increases: system.abilityIncreases ?? [],
       grants: featGrants(items, system.startingClass),
     }),

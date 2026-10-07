@@ -1,0 +1,86 @@
+<section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
+  <div class="m20-panel">
+    <h3>Levels</h3>
+    <p class="m20-build-actions">
+      <a class="m20-roll-button" data-action="levelUp" data-tooltip="Take a level: its class, hit points, skill points, and the feat, talent or increase it brings"><i class="fa-solid fa-angles-up"></i> Add a level</a>
+      <a class="m20-roll-button" data-action="grant" data-tooltip="Something gained by an event in play, not a level: items, a new ability, free ranks, an ability bonus, with a note of what happened"><i class="fa-solid fa-gift"></i> Add outside a level</a>
+      {{#if build.last}}<a class="m20-roll-button" data-action="undoLevel" data-tooltip="Take back {{build.undo}} exactly"><i class="fa-solid fa-rotate-left"></i> Undo {{build.undo}}</a>{{/if}}
+    </p>
+    {{#if build.before}}<p class="m20-hint">Levels from before this record was kept: {{build.before}}.</p>{{/if}}
+    <table class="m20-table m20-levels">
+      <tbody>
+        {{#each build.levels}}
+          <tr class="{{#if grant}}m20-grant-row{{/if}}"><th>{{#if grant}}<i class="fa-solid fa-gift" data-tooltip="Gained outside a level"></i>{{else}}{{level}}{{/if}}</th><td>{{className}}</td><td>{{hp}}</td><td>{{ranks}}</td><td>{{items}}</td><td>{{extra}}</td></tr>
+        {{else}}
+          {{#unless build.before}}<tr><td class="m20-hint">No levels yet: add the first.</td></tr>{{/unless}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="m20-columns">
+    <div class="m20-panel">
+      <h3>Abilities</h3>
+      <table class="m20-table">
+        <thead><tr><th></th><th>Base</th><th data-tooltip="From species and templates">Adj.</th><th>Score</th></tr></thead>
+        <tbody>
+          {{#each abilities}}<tr><th>{{label}}</th><td><input type="number" name="system.abilities.{{key}}.value" value="{{value}}" placeholder="—"></td><td>{{adjustment}}</td><td>{{score}}</td></tr>{{/each}}
+        </tbody>
+      </table>
+      <p class="m20-levelling"><label data-tooltip="A nonheroic character: the basic classes only, no action points, no talents or bonus feats, and 1st-level hit points rolled rather than the maximum"><input type="checkbox" name="system.ordinary" {{#if system.ordinary}}checked{{/if}}> Ordinary</label></p>
+    </div>
+    <div class="m20-panel">
+      <h3>Starting out</h3>
+      {{#if build.occupation}}
+        <p><strong>{{build.occupation.name}}</strong> <span class="{{#if build.occupation.choices.over}}m20-warning{{else}}m20-hint{{/if}}">skills: {{build.occupation.choices.count}} of {{build.occupation.choices.choose}} chosen</span></p>
+        <div class="m20-choices" data-item-id="{{build.occupation.id}}">
+          {{#each build.occupation.choices.options}}<label><input type="checkbox" data-item-field="chosenSkill" data-value="{{label}}" {{#if checked}}checked{{/if}}> {{label}}</label>{{/each}}
+        </div>
+      {{else}}<p class="m20-hint">Drag an occupation and a species onto the sheet.</p>{{/if}}
+      {{#each build.grants}}
+        <div class="m20-grant">
+          <p class="{{#if over}}m20-warning{{else}}m20-hint{{/if}}">{{text}} ({{taken}} of {{choose}} taken).</p>
+          {{#each options}}<label><input type="checkbox" data-action="toggleGrant" data-source="{{../source}}" data-index="{{index}}" {{#if checked}}checked{{/if}}> {{label}}</label>{{/each}}
+        </div>
+      {{/each}}
+      <p><a class="m20-roll-button" data-action="startingWealth" data-tooltip="2d4 + occupation + Windfall + 1 for Profession ranks"><i class="fa-solid fa-dice"></i> Roll starting Wealth</a></p>
+    </div>
+  </div>
+
+  <details class="m20-panel m20-by-hand" {{#if freeEdit}}open{{/if}}>
+    <summary>By hand: levels from before the record, corrections, and a GM's rulings</summary>
+    <p><label><input type="checkbox" data-action="toggleFreeEdit" {{#if freeEdit}}checked{{/if}}> Allow editing on every tab (ranks, levels, picks)</label></p>
+    {{#if startingClass}}
+      <p class="m20-levelling">First level as
+        <select name="system.startingClass" data-tooltip="The class of your 1st level: its maximum hit points, ×4 skill points and starting feats">
+          {{#each startingClass}}<option value="{{name}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}
+        </select>
+      </p>
+    {{/if}}
+    {{#each classes}}
+      <div class="m20-class" data-item-id="{{id}}">
+        <img src="{{img}}" alt="" width="32" height="32">
+        <a class="m20-item-name" data-action="editItem">{{name}}</a>
+        <label>Level <input type="number" min="1" max="{{max}}" value="{{level}}" data-item-field="level"></label>
+        <span class="m20-rolls">HP (d{{hitDie}}):
+          {{#each rolls}}<input type="number" min="1" value="{{value}}" placeholder="—" data-item-field="hitPoints" data-index="{{index}}">{{/each}}
+        </span>
+        <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+      </div>
+    {{/each}}
+    {{#if advancement.increases.length}}
+      <div class="m20-increases">
+        <span class="m20-hint">+1 every 4 levels:</span>
+        {{#each advancement.increases}}
+          <label class="{{#if extra}}m20-warning{{/if}}" {{#if extra}}data-tooltip="More than your level gives"{{/if}}>{{level}}th
+            <select data-increase="{{index}}"><option value="">—</option>{{#each options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+          </label>
+        {{/each}}
+      </div>
+    {{/if}}
+    {{#if advancement.actionPoints}}<p><a class="m20-roll-button" data-action="grantActionPoints">+{{advancement.actionPoints.points}} action points for level {{advancement.actionPoints.levels}}</a>
+      <a data-action="actionPointsDone" data-tooltip="Already given"><i class="fa-solid fa-check"></i></a></p>{{/if}}
+    {{#if wealthDue}}<p><a class="m20-roll-button" data-action="regainWealth">Wealth for level {{wealthDue}}</a> <a data-action="wealthDone" data-tooltip="Already done"><i class="fa-solid fa-check"></i></a></p>{{/if}}
+    <p class="m20-hint">Talents and bonus feats for levels from before the record are picked on the Feats tab, with editing allowed.</p>
+  </details>
+</section>

@@ -27,7 +27,7 @@ export async function SETUP() {
   const bodak = await window.m20test.doc("creatures", "Bodak");
   const cls = await window.m20test.doc("classes", "Telepath");
   return [
-    { name: "gunslinger", uuid: gunslinger.uuid, tabs: ["main", "skills", "feats", "gear", "effects", "details"] },
+    { name: "gunslinger", uuid: gunslinger.uuid, tabs: ["main", "build", "skills", "feats", "gear", "effects", "details"] },
     { name: "mage", uuid: mage.uuid, tabs: ["main", "magic"] },
     { name: "creature", uuid: bodak.uuid, tabs: [] },
     { name: "class", uuid: cls.uuid, tabs: [] },

@@ -378,6 +378,19 @@ export const ACTOR_MODELS = {
      * its class skills, 2 in any other. Empty for the last class on the sheet.
      */
     levellingAs: str(),
+    /**
+     * The levels taken one at a time (module/levelup.mjs), in order: the class, the hit points rolled, the
+     * ranks bought and their points, the items taken (feats, talents), the ability increased and the action
+     * points given; what the last is undone by (rules/levelling.mjs). Levels from before it was kept are not in it.
+     * A grant (`kind` "grant") is something gained outside a level, by an event in play, with a `note` of
+     * what: items, free ranks, and an ability bonus as an effect (`effects`, the effects made).
+     */
+    history: list(obj({
+      id: str(), kind: str({ choices: ["level", "grant"] }), note: str(),
+      level: int(), className: str(), classId: str(), isNew: bool(), hitPoints: int({ nullable: true }),
+      ranks: list(obj({ skill: str(), specialty: str(), ranks: num(), points: num() })),
+      items: list(str()), effects: list(str()), increase: str({ choices: ABILITIES }), actionPoints: int(), time: num(),
+    })),
     /** The class the 1st level was in (its name), for its maximum hit points, ×4 skill points and starting feats; empty for a basic class. */
     startingClass: str(),
     /**

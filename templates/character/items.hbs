@@ -1,5 +1,5 @@
 <section class="tab {{tab.cssClass}}" data-tab="{{tab.id}}" data-group="{{tab.group}}">
-  {{#if grants.length}}
+  {{#if (and grants.length @root.freeEdit)}}
     <div class="m20-panel">
       <h3>Feats you are given</h3>
       {{#each grants}}
@@ -10,7 +10,7 @@
       {{/each}}
     </div>
   {{/if}}
-  {{#each classChoices}}
+  {{#if @root.freeEdit}}{{#each classChoices}}
     <div class="m20-panel m20-class-choices">
       <h3>{{name}}</h3>
       {{#if talents}}
@@ -34,7 +34,7 @@
         </details>
       {{/if}}
     </div>
-  {{/each}}
+  {{/each}}{{/if}}
   {{#each lists}}
     <div class="m20-panel">
       <h3>{{label}}{{#if count}} <span class="{{#if count.over}}m20-warning{{else}}m20-hint{{/if}}" data-tooltip="{{count.parts}}">{{count.text}}</span>{{/if}}</h3>
@@ -59,7 +59,7 @@
           {{#if physical}}<a data-action="toggleEquipped" class="{{#if equipped}}m20-on{{/if}}" data-tooltip="{{#if equipped}}Equipped{{else}}Not equipped{{/if}}"><i class="fa-solid fa-shirt"></i></a>{{/if}}
           <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
         </div>
-        {{#if occupation}}
+        {{#if (and occupation @root.freeEdit)}}
           <div class="m20-occupation-skills" data-item-id="{{id}}">
             <p class="{{#if occupation.over}}m20-warning{{else}}m20-hint{{/if}}">Choose {{occupation.choose}} as permanent class skills ({{occupation.count}} chosen). One that is already a class skill gives +1 instead.{{#if occupation.languages}} {{occupation.languages}}{{/if}}</p>
             {{#each occupation.options}}

@@ -8,7 +8,7 @@
           {{#each abilities}}
             <tr>
               <th><a data-action="rollAbility" data-ability="{{key}}" data-tooltip="Roll a {{label}} check">{{label}}</a></th>
-              <td><input type="number" name="system.abilities.{{key}}.value" value="{{value}}" placeholder="—"></td>
+              <td><input type="number" name="system.abilities.{{key}}.value" value="{{value}}" placeholder="—" {{@root.lock}} data-tooltip="Set on the Build tab"></td>
               <td>{{adjustment}}</td>
               <td>{{score}}</td>
               <td class="m20-strong">{{modifier}}</td>
@@ -16,16 +16,7 @@
           {{/each}}
         </tbody>
       </table>
-      {{#if advancement.increases.length}}
-        <div class="m20-increases">
-          <span class="m20-hint">+1 every 4 levels:</span>
-          {{#each advancement.increases}}
-            <label class="{{#if extra}}m20-warning{{/if}}" {{#if extra}}data-tooltip="More than your level gives"{{/if}}>{{level}}th
-              <select data-increase="{{index}}"><option value="">—</option>{{#each options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
-            </label>
-          {{/each}}
-        </div>
-      {{/if}}
+      {{#if system.abilityIncreases.length}}<p class="m20-hint">+1 every 4 levels: {{#each system.abilityIncreases}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>{{/if}}
     </div>
 
     <div class="m20-panel">
@@ -49,9 +40,7 @@
         <dt>Natural armor</dt><dd><input type="number" name="system.naturalArmor" value="{{system.naturalArmor}}" data-tooltip="Added to any the species gives"></dd>
         <dt>Defense (misc)</dt><dd><input type="number" name="system.defense.misc" value="{{system.defense.misc}}"></dd>
         <dt><a data-action="wealthCheck" data-tooltip="Buy something: a Wealth check against its purchase DC">Wealth</a></dt><dd class="m20-wealth"><input type="number" name="system.wealth.value" value="{{system.wealth.value}}" data-tooltip="{{wealthCondition}}">
-          <a data-action="startingWealth" data-tooltip="Roll starting Wealth: 2d4 + occupation + Windfall + 1 for Profession ranks"><i class="fa-solid fa-dice"></i></a>
-          {{#if wealthDue}}<a class="m20-roll-button" data-action="regainWealth" data-tooltip="A Profession check (Wisdom without ranks) against your Wealth bonus: +1, and +1 per 5 over">Wealth for level {{wealthDue}}</a>
-            <a data-action="wealthDone" data-tooltip="Already done for every level you have: a character made before this was tracked"><i class="fa-solid fa-check"></i></a>{{/if}}
+          {{#if wealthDue}}<span class="m20-hint" data-tooltip="On the Build tab">Wealth for level {{wealthDue}} due</span>{{/if}}
         </dd>
       </dl>
       <h3>Saves</h3>
@@ -63,14 +52,7 @@
 
   <div class="m20-panel">
     <h3>Classes{{#if creatureType}} <span class="m20-hint">({{creatureType}})</span>{{/if}}</h3>
-    <p class="m20-levelling"><label data-tooltip="A nonheroic character: the basic classes only, no action points, no talents or bonus feats, and 1st-level hit points rolled rather than the maximum"><input type="checkbox" name="system.ordinary" {{#if system.ordinary}}checked{{/if}}> Ordinary</label></p>
-    {{#if startingClass}}
-      <p class="m20-levelling">First level as
-        <select name="system.startingClass" data-tooltip="The class of your 1st level: its maximum hit points, ×4 skill points and starting feats">
-          {{#each startingClass}}<option value="{{name}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}
-        </select>
-      </p>
-    {{/if}}
+    <p class="m20-hint">Levels are taken on the Build tab.{{#if system.ordinary}} An ordinary.{{/if}}</p>
     {{#each creatureTypes}}
       <div class="m20-class" data-item-id="{{id}}">
         <img src="{{img}}" alt="" width="32" height="32">
@@ -90,11 +72,8 @@
       <div class="m20-class" data-item-id="{{id}}">
         <img src="{{img}}" alt="" width="32" height="32">
         <a class="m20-item-name" data-action="editItem">{{name}}</a>
-        <label>Level <input type="number" min="1" max="{{max}}" value="{{level}}" data-item-field="level"></label>
-        <span class="m20-rolls">HP (d{{hitDie}}):
-          {{#each rolls}}<input type="number" min="1" value="{{value}}" placeholder="—" data-item-field="hitPoints" data-index="{{index}}">{{/each}}
-        </span>
-        <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
+        <span>Level {{level}}</span>
+        <span class="m20-rolls">HP (d{{hitDie}}): {{#each rolls}}{{#if value}}{{value}}{{else}}—{{/if}}{{#unless @last}}, {{/unless}}{{/each}}</span>
       </div>
       {{#if requirements}}
         <p class="m20-requirements {{#if requirements.met}}m20-hint{{else}}m20-warning{{/if}}">
@@ -102,7 +81,7 @@
         </p>
       {{/if}}
     {{else}}
-      {{#unless creatureTypes.length}}<p class="m20-hint">Drag a class from the Classes compendium onto this sheet, or a creature type to build a creature.</p>{{/unless}}
+      {{#unless creatureTypes.length}}<p class="m20-hint">Take your first level on the Build tab, or drag a creature type onto the sheet to build a creature.</p>{{/unless}}
     {{/each}}
   </div>
 </section>

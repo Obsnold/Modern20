@@ -92,6 +92,10 @@
 .modern20 .m20-occupation-skills { display: flex; flex-wrap: wrap; gap: 0.15rem 0.75rem; padding: 0 0 0.4rem 2.2rem; }
 .modern20 .m20-occupation-skills p { flex: 1 0 100%; margin: 0 0 0.2rem; }
 .modern20 .m20-occupation-skills label { display: flex; align-items: center; gap: 0.2rem; white-space: nowrap; }
+.modern20 .m20-choices { display: flex; flex-wrap: wrap; gap: 0.15rem 0.75rem; margin-bottom: 0.4rem; }
+.modern20 .m20-choices label, .modern20 .m20-grant label { display: inline-flex; align-items: center; gap: 0.2rem; white-space: nowrap; margin-right: 0.75rem; }
+.modern20 .m20-build-actions { display: flex; gap: 0.5rem; }
+.modern20 .m20-by-hand summary { cursor: pointer; font-weight: bold; }
 .modern20 .m20-warning { color: var(--color-level-error, #c33); }
 .modern20 .m20-restricted { color: var(--color-level-error, #c33); }
 
@@ -157,3 +161,19 @@
 .modern20 .m20-skills input[name$=".points"] { width: 3.5rem; }
 .modern20 .m20-requirements { margin: 0 0 0.3rem 2.6rem; font-size: 0.9em; }
 .m20-roll-notes { margin: 0.2rem 0 0.4rem; padding-left: 1.2rem; font-size: 0.9em; }
+
+/* The level and grant windows (module/levelup.mjs): a column of short sections, their fields in a row. */
+.modern20 .m20-levelup-body { padding: 0.5rem 0.75rem; overflow-y: auto; }
+.modern20.m20-levelup h3 { font-size: 1.1em; margin: 0 0 0.3rem; }
+.modern20.m20-levelup .m20-panel { margin-bottom: 0.6rem; }
+.modern20.m20-levelup p { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0.2rem 0; }
+.modern20.m20-levelup p.m20-hint { display: block; }
+.modern20.m20-levelup select { width: auto; max-width: 100%; }
+.modern20.m20-levelup input[type="number"] { width: 4.5rem; flex: 0 0 auto; }
+.modern20.m20-levelup input[type="text"] { flex: 1 1 12rem; width: auto; }
+.modern20.m20-levelup textarea { width: 100%; }
+.modern20.m20-levelup table { font-size: 0.9em; }
+.modern20.m20-levelup .m20-levelup-summary td { text-align: center; }
+.modern20.m20-levelup .m20-levelup-skills td:last-child { text-align: right; white-space: nowrap; }
+.modern20.m20-levelup .m20-levelup-skills a { padding: 0 0.3rem; }
+.modern20.m20-levelup label { display: inline-flex; align-items: center; gap: 0.2rem; margin-right: 0.75rem; }

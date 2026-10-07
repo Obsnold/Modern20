@@ -32,6 +32,7 @@ import { SYSTEM_ID } from "../config.mjs";
 import { rulesFor } from "../rules/feats.mjs";
 import { casterFor, castingOf } from "../rules/casting.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
+import { LevelUp, Grant, undoLastLevel } from "../levelup.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -99,6 +100,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       adjustSlot: Modern20CharacterSheet.#onAdjustSlot,
       incantationCheck: Modern20CharacterSheet.#onIncantationCheck,
       resetIncantation: Modern20CharacterSheet.#onResetIncantation,
+      levelUp: Modern20CharacterSheet.#onLevelUp,
+      grant: Modern20CharacterSheet.#onGrant,
+      undoLevel: Modern20CharacterSheet.#onUndoLevel,
+      toggleFreeEdit: Modern20CharacterSheet.#onToggleFreeEdit,
     },
   };
 
@@ -106,6 +111,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     header: { template: "systems/modern20/templates/character/header.hbs" },
     tabs: { template: "templates/generic/tab-navigation.hbs" },
     main: { template: "systems/modern20/templates/character/main.hbs", scrollable: [""] },
+    build: { template: "systems/modern20/templates/character/build.hbs", scrollable: [""] },
     skills: { template: "systems/modern20/templates/character/skills.hbs", scrollable: [""] },
     feats: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
     gear: { template: "systems/modern20/templates/character/items.hbs", scrollable: [""] },
@@ -119,6 +125,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     primary: {
       tabs: [
         { id: "main", label: "Main", icon: "fa-solid fa-user" },
+        { id: "build", label: "Build", icon: "fa-solid fa-angles-up" },
         { id: "skills", label: "Skills", icon: "fa-solid fa-list-check" },
         { id: "feats", label: "Feats & Talents", icon: "fa-solid fa-star" },
         { id: "gear", label: "Gear", icon: "fa-solid fa-box-open" },
@@ -296,6 +303,11 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         classes: ofType("class").map((c) => ({ name: c.name, selected: c.name === levellingClass(actor) })),
       },
       belowZero: belowZero(actor),
+      // The Build tab: the levels taken, one at a time, and what the character started with. Elsewhere what
+      // they decide is shown, not edited, unless editing is allowed (a correction, a GM's ruling).
+      build: buildContext(actor, d),
+      freeEdit: this.freeEdit,
+      lock: this.freeEdit ? "" : "disabled",
       magic: magicContext(actor, ofType),
       featGrants: grantsContext(actor),
       classChoiceList: await classChoicesContext(actor),
@@ -579,6 +591,16 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const [effect] = await this.document.createEmbeddedDocuments("ActiveEffect", [{ name: "New effect", img: "icons/svg/aura.svg" }]);
     effect?.sheet.render(true);
   }
+  /** Whether every tab's build choices (ranks, levels, picks) may be edited where they are shown, not only on the Build tab. */
+  freeEdit = false;
+  static #onToggleFreeEdit() {
+    this.freeEdit = !this.freeEdit;
+    this.render();
+  }
+  static #onLevelUp() { new LevelUp(this.document).render(true); }
+  static #onGrant() { new Grant(this.document).render(true); }
+  static async #onUndoLevel() { await undoLastLevel(this.document); }
+
   /** Which of the log's entries the Log tab shows: all, build or session. */
   logFilter = "all";
   static #onFilterLog(event, target) {
@@ -632,6 +654,35 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const list = this.document.system.toObject().specialtySkills.filter((_, i) => i !== index);
     await this.document.update({ "system.specialtySkills": list });
   }
+}
+
+/**
+ * The Build tab: each level in the history (rules/levelling.mjs) as a line, the levels from before it was
+ * kept, the occupation's skill choices and the feats the occupation, species and first class give.
+ */
+function buildContext(actor, d) {
+  const history = actor.system.history ?? [];
+  const ABBR3 = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
+  const levels = history.map((h) => ({
+    grant: h.kind === "grant",
+    level: h.level, className: h.kind === "grant" ? h.note : h.className,
+    hp: h.kind === "grant" ? "" : h.hitPoints ? `${h.hitPoints} hp` : h.level === 1 ? "max hp" : "",
+    ranks: h.ranks.map((r) => `${SKILLS[r.skill]?.name ?? r.skill}${r.specialty ? ` (${r.specialty})` : ""} +${r.ranks}`).join(", "),
+    items: h.items.map((id) => actor.items.get(id)?.name).filter(Boolean).join(", "),
+    extra: [h.increase && `+1 ${ABBR3[h.increase]}`, h.actionPoints && `+${h.actionPoints} AP`, ...(h.effects ?? []).map((id) => actor.effects.get(id)?.changes.map((c) => `${ABBR3[c.key.split(".").at(-1)] ?? c.key} ${Number(c.value) >= 0 ? "+" : ""}${c.value}`).join(", ")).filter(Boolean)].filter(Boolean).join(", "),
+  }));
+  const last = history.at(-1);
+  // Class levels the history does not account for: taken before it was kept, or set by hand.
+  const counted = {};
+  for (const h of history.filter((x) => x.kind !== "grant")) counted[h.className] = (counted[h.className] ?? 0) + 1;
+  const before = actor.items.filter((i) => i.type === "class").map((c) => [c.name, c.system.level - (counted[c.name] ?? 0)]).filter(([, n]) => n > 0).map(([n, l]) => `${n} ${l}`).join(", ");
+  const occupation = actor.items.find((i) => i.type === "occupation");
+  return {
+    levels, before, last: last ?? null,
+    undo: last?.kind === "grant" ? `“${last.note.length > 30 ? `${last.note.slice(0, 30)}…` : last.note}”` : `level ${last?.level}`,
+    occupation: occupation ? { id: occupation.id, name: occupation.name, choices: occupationChoices(occupation) } : null,
+    grants: grantsContext(actor),
+  };
 }
 
 /** The class skill points are being spent as: the one chosen, or the last class on the sheet. */
@@ -896,6 +947,7 @@ function originOf(actor, item) {
   const flags = item.flags?.[SYSTEM_ID] ?? {};
   const from = (id) => actor.items.get(id) ?? actor.items.find((i) => i.name === id);
   const taken = flags.takenAt ? `, taken at level ${flags.takenAt}` : "";
+  if (flags.grantNote) return `Granted outside a level: ${flags.grantNote}`;
   if (item.type === "feature") {
     const cls = from(flags.grantedBy);
     const levels = (item.system.levels ?? []).slice(0, Math.max(1, item.system.rank || 1)).map(ORDINAL).join(", ");

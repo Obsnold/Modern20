@@ -535,6 +535,8 @@ export const CHECKS = {
     const cls = actor.items.find((i) => i.type === "class");
     const occupation = actor.items.find((i) => i.type === "occupation");
     const dwarf = actor.items.find((i) => i.type === "species");
+    // Editing by hand, as for a correction or a GM's ruling (the Build tab's "Allow editing on every tab").
+    actor.sheet.freeEdit = true;
     await actor.sheet.render({ force: true });
     await wait(() => actor.sheet.rendered, "the sheet");
     const el = () => actor.sheet.element;
@@ -1020,6 +1022,9 @@ export const CHECKS = {
     await c.sheet.close();
     try {
       await wait(() => actor.sheet.rendered, "its sheet", 30000);
+      // Editing by hand (the Build tab's "Allow editing on every tab"), so the Feats tab shows its pickers.
+      actor.sheet.freeEdit = true;
+      await actor.sheet.render({ force: true });
       const d = actor.system.derived, p = c.system;
       if (!actor.system.ordinary) errors.push("built as a hero, not an ordinary");
       if (d.level !== 5 || d.classes[0]?.name !== "Charismatic Hero") errors.push(`level ${d.level} (${d.classes.map((x) => `${x.name} ${x.level}`).join(", ")}), not Charismatic 5`);
@@ -1066,6 +1071,8 @@ export const CHECKS = {
     await actor.createEmbeddedDocuments("Item", [await take("classes", "Fast Hero", { level: 2 }), await take("classes", "Smart Hero", { level: 1 })]);
     try {
       await actor.update({ "system.levellingAs": "Fast Hero" });
+      // Editing by hand, as for a correction or a GM's ruling (the Build tab's "Allow editing on every tab").
+      actor.sheet.freeEdit = true;
       await actor.sheet.render({ force: true });
       await wait(() => actor.sheet.rendered, "the sheet");
       actor.sheet.changeTab("skills", "primary");
@@ -1096,6 +1103,8 @@ export const CHECKS = {
     const actor = await Actor.implementation.create({ name: "Linguist (test)", type: "character" });
     await actor.createEmbeddedDocuments("Item", [await take("classes", "Smart Hero", { level: 2 })]);
     try {
+      // Editing by hand, as for a correction or a GM's ruling (the Build tab's "Allow editing on every tab").
+      actor.sheet.freeEdit = true;
       await actor.sheet.render({ force: true });
       await wait(() => actor.sheet.rendered, "the sheet");
       actor.sheet.changeTab("skills", "primary");
@@ -1215,6 +1224,174 @@ export const CHECKS = {
     } catch (e) {
       errors.push(e.message);
     }
+    await actor.delete();
+    return errors;
+  },
+
+  async "levelling up on the Build tab: a new character's 1st level and 2nd, through the level window, and the 2nd undone"() {
+    const errors = [];
+    const { take, wait, click, doc } = window.m20test;
+    const abilities = Object.fromEntries(Object.entries({ str: 10, dex: 16, con: 12, int: 12, wis: 10, cha: 10 }).map(([a, v]) => [a, { value: v }]));
+    const actor = await Actor.implementation.create({ name: "New hero (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("occupations", "Criminal")]);
+    const fast = await doc("classes", "Fast Hero");
+    // Drive the window as a player would: choose, click, and take the level.
+    const { LevelUp } = await import("/systems/modern20/module/levelup.mjs");
+    const open = async () => {
+      const app = new LevelUp(actor);
+      await app.render(true);
+      await wait(() => app.rendered, "the level window");
+      return app;
+    };
+    const choose = async (app, name, value) => {
+      const el = app.element.querySelector(`[name="${name}"]`);
+      el.value = value;
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+      await new Promise((r) => setTimeout(r, 400));
+    };
+    const buy = async (app, skill, times) => {
+      for (let i = 0; i < times; i++) {
+        click(app.element, `[data-action=buy][data-skill="${skill}|"][data-delta="1"]`);
+        await new Promise((r) => setTimeout(r, 150));
+      }
+    };
+    try {
+      // Level 1: Fast Hero, maximum hit points, (5 + Int 1) x 4 = 24 points, two feats, the class's and occupation's feats.
+      let app = await open();
+      await choose(app, "cls", fast.uuid);
+      await wait(() => app.element.querySelector("[name='feats.0.name']"), "the feat boxes");
+      const left = () => app.element.querySelector(".m20-panel h3 span.m20-hint, .m20-panel h3 span.m20-warning")?.innerText ?? "";
+      if (!/24 of 24/.test(app.element.innerText)) errors.push(`level 1's skill points: ${left()}`);
+      await buy(app, "hide", 4);
+      await buy(app, "computerUse", 2);   // cross-class for a Fast hero: 2 points, 1 rank
+      await choose(app, "feats.0.name", "Alertness");
+      await choose(app, "feats.1.name", "Dodge");
+      // A Fast hero's 1st level brings a talent.
+      const talent = [...app.element.querySelectorAll("[name=talent] option")].find((o) => /Evasion/.test(o.textContent));
+      if (!talent) errors.push("Fast Hero 1 offers no Evasion talent");
+      else await choose(app, "talent", talent.value);
+      await wait(() => !app.element.querySelector("[data-action=finish]").disabled, "Take level 1 to be ready");
+      click(app.element, "[data-action=finish]");
+      await wait(() => actor.items.some((i) => i.type === "class" && i.name === "Fast Hero"), "Fast Hero 1", 20000);
+      await wait(() => actor.system.history.length === 1, "level 1 in the history", 20000);
+      const h1 = actor.system.history[0];
+      if (h1.level !== 1 || h1.hitPoints !== null || !h1.isNew) errors.push(`level 1's record: ${JSON.stringify(h1)}`);
+      if (actor.system.skills.hide.ranks !== 4 || actor.system.skills.computerUse.ranks !== 1) errors.push(`ranks after level 1: Hide ${actor.system.skills.hide.ranks}, Computer Use ${actor.system.skills.computerUse.ranks}`);
+      if (actor.system.skills.computerUse.points !== 2) errors.push(`Computer Use's points: ${actor.system.skills.computerUse.points}, not 2`);
+      for (const n of ["Alertness", "Dodge", "Simple Weapons Proficiency"]) if (!actor.items.some((i) => i.type === "feat" && i.name === n)) errors.push(`no ${n} after level 1`);
+      if (actor.system.actionPoints.value !== 5) errors.push(`${actor.system.actionPoints.value} action points after level 1, not 5`);
+      if (actor.system.hp.max !== 8 + 1) errors.push(`max hit points ${actor.system.hp.max} at level 1, not 9 (d8 max + Con 1)`);
+      // Level 2: a Fast Hero level, 6 on the die, 6 points, a bonus feat from the class's list.
+      app = await open();
+      await wait(() => app.element.querySelector("[name=hitPoints]"), "the hit points box");
+      await choose(app, "hitPoints", 6);
+      await buy(app, "hide", 1);
+      const bonus = [...app.element.querySelectorAll("[name=bonusFeat] option")].find((o) => /Acrobatic/.test(o.textContent));
+      if (!bonus) errors.push("Fast Hero 2 offers no Acrobatic bonus feat");
+      else await choose(app, "bonusFeat", bonus.value);
+      app.element.querySelector("[name=wealth]").checked = false;
+      app.element.querySelector("[name=wealth]").dispatchEvent(new Event("change", { bubbles: true }));
+      await new Promise((r) => setTimeout(r, 400));
+      click(app.element, "[data-action=finish]");
+      await wait(() => actor.system.history.length === 2, "level 2 in the history", 20000);
+      const cls = actor.items.find((i) => i.type === "class");
+      if (cls.system.level !== 2 || cls.system.hitPoints[1] !== 6) errors.push(`after level 2: Fast Hero ${cls.system.level}, rolls ${JSON.stringify(cls.system.hitPoints)}`);
+      if (!actor.items.some((i) => i.type === "talent" && i.name === "Evasion")) errors.push("no Evasion from level 1");
+      const acrobatic = actor.items.find((i) => i.type === "feat" && i.name === "Acrobatic");
+      if (!acrobatic?.getFlag("modern20", "bonusFor")) errors.push("no Acrobatic as Fast Hero's bonus feat after level 2");
+      if (actor.system.skills.hide.ranks !== 5) errors.push(`Hide ${actor.system.skills.hide.ranks} after level 2, not 5`);
+      // The Build tab lists both levels; level 2 undone takes back exactly what it gave.
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("build", "primary");
+      const rows = actor.sheet.element.querySelectorAll("section.tab[data-tab=build] table.m20-levels tr").length;
+      if (rows !== 2) errors.push(`${rows} levels listed on the Build tab, not 2`);
+      if (!actor.sheet.element.querySelector("section.tab[data-tab=skills] input[name=\"system.skills.hide.ranks\"]")?.disabled) errors.push("ranks can be edited on the Skills tab without editing allowed");
+      const { undoLastLevel } = await import("/systems/modern20/module/levelup.mjs");
+      const undone = undoLastLevel(actor);
+      const confirm = await wait(() => [...foundry.applications.instances.values()].find((a) => a instanceof foundry.applications.api.DialogV2 && a.rendered), "the undo question");
+      confirm.element.querySelector("button[data-action=yes]").click();
+      await undone;
+      await wait(() => actor.system.history.length === 1, "level 2 taken back", 20000);
+      if (actor.items.find((i) => i.type === "class").system.level !== 1) errors.push("the class is still level 2");
+      if (actor.items.some((i) => i.name === "Acrobatic")) errors.push("Acrobatic, level 2's bonus feat, is still there");
+      if (!actor.items.some((i) => i.name === "Evasion")) errors.push("Evasion, level 1's, was taken back too");
+      if (actor.system.skills.hide.ranks !== 4) errors.push(`Hide ${actor.system.skills.hide.ranks} after the undo, not 4`);
+      if (actor.system.actionPoints.value !== 5) errors.push(`${actor.system.actionPoints.value} action points after the undo, not 5`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const app of foundry.applications.instances.values()) if (app.constructor.name === "LevelUp") await app.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "something gained outside a level: a feat, a new ability, free ranks and +1 Wis, with a note, and undone"() {
+    const errors = [];
+    const { take, wait, click } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Touched (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Smart Hero", { level: 2 })]);
+    const { Grant, undoLastLevel } = await import("/systems/modern20/module/levelup.mjs");
+    const set = async (app, name, value) => {
+      const el = app.element.querySelector(`[name="${name}"]`);
+      if (!el) throw new Error(`the window has no ${name}`);
+      el.value = value;
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+      await new Promise((r) => setTimeout(r, 400));
+    };
+    try {
+      const featsBefore = actor.system.derived.advancement.feats.have;
+      const app = new Grant(actor);
+      await app.render(true);
+      await wait(() => app.rendered, "the window");
+      const note = "Touched by the artifact (session 12)";
+      await set(app, "note", note);
+      await set(app, "items.0.name", "Arcane Skills");
+      await set(app, "newFeat.name", "Light at Will");
+      await set(app, "newFeat.description", "Casts light at will.");
+      click(app.element, "[data-action=addRow][data-list=ranks]");
+      await wait(() => app.element.querySelector("[name='ranks.0.skill']"), "a rank row");
+      await set(app, "ranks.0.skill", "research|");
+      await set(app, "ranks.0.ranks", 2);
+      await set(app, "ability", "wis");
+      await set(app, "bonus", 1);
+      click(app.element, "[data-action=finish]");
+      await wait(() => actor.system.history.length === 1, "the grant in the history", 20000);
+      const h = actor.system.history[0];
+      if (h.kind !== "grant" || h.note !== note) errors.push(`the record: ${JSON.stringify({ kind: h.kind, note: h.note })}`);
+      for (const n of ["Arcane Skills", "Light at Will"]) {
+        const it = actor.items.find((i) => i.name === n);
+        if (!it) errors.push(`no ${n}`);
+        else if (it.getFlag("modern20", "grantNote") !== note) errors.push(`${n} does not carry the note`);
+      }
+      if (actor.system.derived.advancement.feats.have !== featsBefore) errors.push(`granted feats count against the levels': ${featsBefore} → ${actor.system.derived.advancement.feats.have}`);
+      if (actor.system.skills.research.ranks !== 2) errors.push(`Research ${actor.system.skills.research.ranks} ranks, not 2`);
+      if (actor.system.derived.skills.find((r) => r.key === "research").points !== 0) errors.push("the free ranks cost skill points");
+      if (actor.system.derived.scores.wis !== 11) errors.push(`Wis ${actor.system.derived.scores.wis}, not 11`);
+      // The sheet says where it came from.
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("feats", "primary");
+      const tip = actor.sheet.element.querySelector(`[data-item-id="${actor.items.find((i) => i.name === "Light at Will").id}"] .m20-item-name`)?.dataset.tooltip ?? "";
+      if (!tip.includes(note)) errors.push(`the new ability's tooltip: "${tip}"`);
+      actor.sheet.changeTab("build", "primary");
+      if (!actor.sheet.element.querySelector("section.tab[data-tab=build]").innerText.includes(note)) errors.push("the Build tab does not list the grant with its note");
+      // Undone: all of it.
+      const undone = undoLastLevel(actor);
+      const confirm = await wait(() => [...foundry.applications.instances.values()].find((a) => a instanceof foundry.applications.api.DialogV2 && a.rendered), "the undo question");
+      confirm.element.querySelector("button[data-action=yes]").click();
+      await undone;
+      await wait(() => actor.system.history.length === 0, "the grant taken back", 20000);
+      if (actor.items.some((i) => ["Arcane Skills", "Light at Will"].includes(i.name))) errors.push("the granted items are still there");
+      if (actor.system.skills.research.ranks !== 0) errors.push(`Research ${actor.system.skills.research.ranks} after the undo`);
+      if (actor.system.derived.scores.wis !== 10) errors.push(`Wis ${actor.system.derived.scores.wis} after the undo`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const app of foundry.applications.instances.values()) if (app.constructor.name === "Grant") await app.close();
     await actor.delete();
     return errors;
   },

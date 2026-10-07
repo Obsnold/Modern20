@@ -51,7 +51,7 @@ export const featsAllowed = (level) => (level >= 1 ? 2 + Math.floor(level / 3) :
 export const abilityIncreases = (level) => Math.floor(Math.max(level, 0) / 4);
 
 /** A class's skill points a level for this character: its number + Int, one fewer for a nonhuman where the class says so. */
-function perLevel(cls, intMod, nonhuman) {
+export function perLevel(cls, intMod, nonhuman) {
   const sp = cls.system.skillPoints ?? {};
   const base = (sp.perLevel ?? 0) - (nonhuman && /nonhumans/i.test(sp.value ?? "") ? 1 : 0);
   // The SRD's skill pages give no minimum; at least 1 a level, as in the d20 System, so a low Intelligence never takes points away.

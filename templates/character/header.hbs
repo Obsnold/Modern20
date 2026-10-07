@@ -29,8 +29,7 @@
   <label class="m20-vital">
     <span class="m20-vital-label">Action Points</span>
     <input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}">
-    {{#if advancement.actionPoints}}<a class="m20-roll-button" data-action="grantActionPoints" data-tooltip="5 + half your level, for level {{advancement.actionPoints.levels}}">+{{advancement.actionPoints.points}} for level {{advancement.actionPoints.levels}}</a>
-      <a data-action="actionPointsDone" data-tooltip="Already given: a character made before these were tracked"><i class="fa-solid fa-check"></i></a>{{/if}}
+    {{#if advancement.actionPoints}}<span class="m20-hint" data-tooltip="Given on the Build tab">+{{advancement.actionPoints.points}} due</span>{{/if}}
   </label>
   <div class="m20-vital">
     <span class="m20-vital-label">Rest</span>
