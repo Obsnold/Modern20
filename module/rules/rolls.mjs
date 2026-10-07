@@ -16,6 +16,7 @@ import { slug } from "./identify.mjs";
 import { MODES, extraDice, AUTOFIRE_DEFENSE } from "./ammo.mjs";
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
+const ABILITY_LABELS = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
 
 /** A d20 roll with these named modifiers; zero terms are left out of the formula but kept in the breakdown. */
@@ -27,13 +28,23 @@ export function d20(title, terms, extra = {}) {
 
 export const abilityCheck = (d, ability) => d20(`${ABILITY_NAMES[ability]} check`, [{ label: ABILITY_NAMES[ability], value: d.modifiers[ability] ?? 0 }]);
 
+/**
+ * A bonus's named parts (rules/character.mjs `parts`), or, without them, its total under one label; any
+ * of the total the parts do not account for is kept, under that label.
+ */
+function named(parts, total, label) {
+  if (!parts) return [{ label, value: total ?? 0 }];
+  const rest = (total ?? 0) - parts.reduce((n, p) => n + p.value, 0);
+  return [...parts.map((p) => ({ label: p.label, value: p.value })), ...(rest ? [{ label, value: rest }] : [])];
+}
+
 export const savingThrow = (d, save) => {
   const ability = { fort: "con", ref: "dex", will: "wis" }[save];
   const misc = d.saves[save] - d.baseSaves[save] - (d.modifiers[ability] ?? 0);
   return d20(`${SAVE_NAMES[save]} save`, [
     { label: "Base", value: d.baseSaves[save] },
     { label: ABILITY_NAMES[ability], value: d.modifiers[ability] ?? 0 },
-    { label: "Feats and effects", value: misc },
+    ...named(d.parts?.saves?.[save]?.filter((p) => !["Base", ABILITY_LABELS[ability]].includes(p.label)), misc, "Feats and effects"),
   ]);
 };
 
@@ -46,12 +57,12 @@ export function skillCheck(d, row) {
     { label: "Ranks", value: Math.floor(row.ranks) },
     { label: ABILITY_NAMES[row.ability] ?? "Ability", value: ability },
     { label: "Misc", value: row.misc },
-    { label: "Effects", value: row.effects ?? 0 },
+    ...named(row.effectParts, row.effects, "Effects"),
     { label: "Armor penalty", value: armor },
   ]);
 }
 
-export const initiative = (d) => d20("Initiative", [{ label: "Dexterity", value: d.modifiers.dex ?? 0 }, { label: "Feats", value: d.initiative - (d.modifiers.dex ?? 0) }]);
+export const initiative = (d) => d20("Initiative", [{ label: "Dexterity", value: d.modifiers.dex ?? 0 }, ...named(d.parts?.initiative?.filter((p) => p.label !== "Dex"), d.initiative - (d.modifiers.dex ?? 0), "Feats")]);
 
 /**
  * A weapon's critical as printed: "20" (threat on 20, ×2), "19–20", "20/x3",
@@ -93,7 +104,9 @@ export function attack(d, weapon, feats, options = {}) {
   const group = needs.match(/\((.+)\)$/)?.[1];
   const proficient = !needs || owned.some((f) => f.id === slug(needs)
     || (f.id === base && (f.rules.proficiency !== "chosen" || chooses(f.choice, group ?? weapon.name) || forThisWeapon(f))));
-  const focus = owned.filter((f) => f.rules.weaponFocus && forThisWeapon(f)).reduce((n, f) => n + f.rules.weaponFocus, 0);
+  // Weapon Focus once for a weapon, however many give it (the feat, a Soldier's or Gunslinger's feature: "the
+  // benefit of the feat"); Greater Weapon Focus, a feat of its own, besides.
+  const focus = onceEach(owned.filter((f) => f.rules.weaponFocus && forThisWeapon(f)), "weaponFocus");
   const pointBlank = !melee && options.pointBlank ? Math.max(0, ...owned.map((f) => f.rules.pointBlank ?? 0)) : 0;
   const mode = MODES[options.mode];
   // Autofire without Advanced Firearms Proficiency: −4.
@@ -103,12 +116,12 @@ export function attack(d, weapon, feats, options = {}) {
     { label: `${ABILITY_NAMES[ability]}${finesse ? " (Weapon Finesse)" : ""}`, value: d.modifiers[ability] ?? 0 },
     { label: "Size", value: SIZE_ATTACK[d.size] ?? 0 },
     { label: proficient ? "Proficient" : `Not proficient (${needs})`, value: proficient ? 0 : -4 },
-    { label: "Weapon Focus", value: focus },
+    ...focus,
     { label: "Point Blank Shot", value: pointBlank },
     { label: mode?.label ?? "Firing mode", value: mode?.attack ?? 0 },
     { label: "Autofire (no Advanced Firearms Proficiency)", value: autofirePenalty },
     { label: "Armor (not proficient)", value: d.defense?.armorAttackPenalty ?? 0 },
-    { label: "Effects", value: d.attackBonus?.[melee ? "melee" : "ranged"] ?? 0 },
+    ...named(d.parts?.attack?.[melee ? "melee" : "ranged"], d.attackBonus?.[melee ? "melee" : "ranged"], "Effects"),
     ...ammoAttack(options.ammo, options),
   ], {
     critical: ammoThreat(critical(s.critical), options.ammo),
@@ -133,11 +146,13 @@ export function damage(d, weapon, options = {}) {
   if (!dice) return null;
   const str = s.melee ? d.modifiers.str ?? 0 : 0;
   const fx = d.damageBonus?.[s.melee ? "melee" : "ranged"] ?? 0;
+  // The damage effects add, each by name (Melee Smash +1), or as one.
+  const fxParts = named(d.parts?.damage?.[s.melee ? "melee" : "ranged"], fx, "Effects").map((p) => [p.label, p.value]);
   // Weapon Specialization (a class feature) with the weapon chosen, and its Greater form: +2 each.
-  const owned = (options.feats ?? []).map((f) => ({ ...f, rules: rulesFor(f.identifier || slug(f.name)) }));
-  const special = owned.filter((f) => f.rules.weaponSpecialization && chooses(f.choice, weapon.name)).reduce((n, f) => n + f.rules.weaponSpecialization, 0);
+  const owned = (options.feats ?? []).map((f) => ({ ...f, id: f.identifier || slug(f.name), rules: rulesFor(f.identifier || slug(f.name)) }));
+  const special = onceEach(owned.filter((f) => f.rules.weaponSpecialization && chooses(f.choice, weapon.name)), "weaponSpecialization").map((p) => [p.label, p.value]);
   const ammoDamage = (ammo?.damage ?? 0) + (ammo?.ask?.roll === "damage" && options.ammoAsk ? ammo.ask.value : 0);
-  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ["Weapon Specialization", special], ["Effects", fx], [ammo?.name ?? "Ammunition", ammoDamage]].filter(([, v]) => v);
+  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ...special, ...fxParts, [ammo?.name ?? "Ammunition", ammoDamage]].filter(([, v]) => v);
   const diceLabel = [MODES[options.mode]?.dice && `${MODES[options.mode].label}, +${MODES[options.mode].dice} di${MODES[options.mode].dice === 1 ? "e" : "ce"}`,
     ammo?.dice && `${ammo.name}, ${ammo.dice > 0 ? "+" : "−"}${Math.abs(ammo.dice)} die`].filter(Boolean).join("; ");
   const terms = [{ label: diceLabel ? `Weapon (${diceLabel})` : "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
@@ -282,4 +297,15 @@ function ammoHints(ammo, weapon) {
     ammo.note && `${ammo.name}: ${ammo.note}`,
     ammo.only && !ammo.only.test(`${weapon.name} ${weapon.system?.category ?? ""}`) && `${ammo.name} is made for ${ammo.onlyText}, not this weapon.`,
   ].filter(Boolean);
+}
+
+/**
+ * A bonus that the same feat gives once, however many items give it (`rule` the bonus in each one's
+ * rules): the feat, and a class feature giving "the benefit of the feat", are one. `[{ label, value }]`,
+ * one for each feat, by its name.
+ */
+function onceEach(owned, rule) {
+  const byFeat = new Map();
+  for (const f of owned) if (!byFeat.has(f.id) || byFeat.get(f.id).value < f.rules[rule]) byFeat.set(f.id, { label: f.name, value: f.rules[rule] });
+  return [...byFeat.values()];
 }

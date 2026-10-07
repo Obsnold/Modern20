@@ -46,7 +46,10 @@ test("Weapon Specialization: +2 damage with the weapon chosen, +4 with the Great
   const greater = { name: "Greater Weapon Specialization", identifier: "greater-weapon-specialization", choice: "club" };
   assert.equal(damage(d, club, { feats: [spec("club")] }).formula, "1d6 + 1 + 2");
   assert.equal(damage(d, club, { feats: [spec("knife")] }).formula, "1d6 + 1");
-  assert.equal(damage(d, club, { feats: [spec("club"), greater] }).formula, "1d6 + 1 + 4");
+  // Each by name on the card: +2 and +2.
+  const both = damage(d, club, { feats: [spec("club"), greater] });
+  assert.equal(both.formula, "1d6 + 1 + 2 + 2");
+  assert.deepEqual(both.terms.slice(-2), [{ label: "Weapon Specialization", value: 2 }, { label: "Greater Weapon Specialization", value: 2 }]);
 });
 
 test("Ability Surge is built switched off, for the player to switch on while surging", () => {
@@ -76,5 +79,12 @@ test("class feature mechanics: rank in formulas, damage reduction a magic weapon
   const beretta = PACKS.equipment().documents.find((d) => d.name === "Beretta 92F (9mm autoloader)");
   const d = { baseAttackBonus: 2, modifiers: { str: 0, dex: 0 }, size: "medium", defense: {}, attackBonus: {} };
   const focus = attack(d, beretta, [{ name: "Personal Firearms Proficiency" }, { name: "Weapon Focus", choice: "Beretta 92F" }, { name: "Greater Weapon Focus", choice: "Beretta 92F" }]);
-  assert.ok(focus.terms.some((t) => t.label === "Weapon Focus" && t.value === 2));
+  assert.ok(focus.terms.some((t) => t.label === "Weapon Focus" && t.value === 1));
+  assert.ok(focus.terms.some((t) => t.label === "Greater Weapon Focus" && t.value === 1));
+  // The feat and a Soldier's Weapon Focus feature for the same weapon: "the benefit of the feat", once.
+  const twice = attack(d, beretta, [{ name: "Personal Firearms Proficiency" }, { name: "Weapon Focus", choice: "Beretta 92F" }, { name: "Weapon Focus", identifier: "weapon-focus", choice: "beretta 92f" }]);
+  assert.deepEqual(twice.terms.filter((t) => /Focus/.test(t.label)), [{ label: "Weapon Focus", value: 1 }]);
+  // For two weapons, one each.
+  const glock = PACKS.equipment().documents.find((x) => x.name === "Glock 17 (9mm autoloader)");
+  assert.ok(attack(d, glock, [{ name: "Personal Firearms Proficiency" }, { name: "Weapon Focus", choice: "Beretta 92F" }, { name: "Weapon Focus", choice: "Glock 17" }]).terms.some((t) => t.label === "Weapon Focus" && t.value === 1));
 });

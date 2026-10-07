@@ -85,18 +85,45 @@ export function applyEffects(actor, effects, { custom = true, context = {} } = {
  * The system's own (Custom) changes of `effects` added to a copy of `bonuses` (a character's
  * `system.bonuses`): only changes under `system.bonuses.` apply, formulas worked out against
  * `context`.
+ *
+ * With `sources`, where each bonus came from is noted in it, by key ("skills.listen"): `[{ label,
+ * value }]`, the label the effect's `source` (the item that carries it: "Alertness") or its name. The
+ * Add changes Foundry has already applied (a condition's, an effect made on the sheet) are noted too,
+ * though not added again.
  */
-export function withSystemBonuses(bonuses, effects, context = {}) {
+export function withSystemBonuses(bonuses, effects, context = {}, sources = null) {
   const out = structuredClone(bonuses ?? {});
+  const note = (key, e, value) => { if (sources && value) (sources[key] ??= []).push({ label: e.source ?? e.name ?? "Effect", value }); };
   for (const e of effects) {
     if (e.disabled) continue;
     for (const c of changesOf(e)) {
-      if (!isSystemChange(c) || !c.key.startsWith("system.bonuses.")) continue;
+      if (!c.key?.startsWith("system.bonuses.")) continue;
+      const key = c.key.slice("system.bonuses.".length);
+      if (!isSystemChange(c)) {
+        if (changeType(c) === "add") note(key, e, Number(c.value) || 0);
+        continue;
+      }
       // `@rank`: how many of a class feature's levels its class has reached (Medical Specialist +1, +2, +3).
-      addAt(out, c.key.slice("system.bonuses.".length), resolveValue(c.value, { ...context, rank: e.rank ?? 1 }));
+      const value = resolveValue(c.value, { ...context, rank: e.rank ?? 1 });
+      addAt(out, key, value);
+      note(key, e, value);
     }
   }
   return out;
+}
+
+/**
+ * The named parts of a bonus (`total`, at `key`), from what `sources` noted: and, if they do not add up
+ * to it (an Override, an effect not noted), the rest as "Other effects".
+ */
+export function partsOf(sources, key, total) {
+  const named = [];
+  for (const p of sources?.[key] ?? []) {
+    const same = named.find((n) => n.label === p.label);
+    if (same) same.value += p.value; else named.push({ ...p });
+  }
+  const rest = (total ?? 0) - named.reduce((n, p) => n + p.value, 0);
+  return [...named.filter((p) => p.value), ...(Math.abs(rest) > 1e-9 ? [{ label: "Other effects", value: rest }] : [])];
 }
 
 /**

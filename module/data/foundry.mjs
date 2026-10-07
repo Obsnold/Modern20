@@ -40,7 +40,7 @@ class CharacterData extends model("CharacterData", ACTOR_MODELS.character) {
   prepareDerivedData() {
     // Each item with its active effects, for the system's own (Custom) changes they carry; the character's
     // own effects come along too, for a Custom change made on the sheet. Foundry has applied the rest.
-    const active = (effects) => [...(effects ?? [])].filter((e) => e.active ?? !e.disabled).map((e) => ({ changes: e.changes ?? [], disabled: false, transfer: e.transfer }));
+    const active = (effects) => [...(effects ?? [])].filter((e) => e.active ?? !e.disabled).map((e) => ({ name: e.name, changes: e.changes ?? [], disabled: false, transfer: e.transfer }));
     const items = this.parent?.items?.map((i) => ({ type: i.type, name: i.name, system: i.system, effects: active(i.effects).filter((e) => e.transfer) })) ?? [];
     items.push({ type: "actor", name: this.parent?.name ?? "", system: {}, effects: active(this.parent?.effects) });
     this.derived = deriveCharacter(this, items);

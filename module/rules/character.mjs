@@ -16,7 +16,7 @@ import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { advancement, featGrants, inOrder } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
-import { withSystemBonuses, mechanicsContext } from "./effects.mjs";
+import { withSystemBonuses, mechanicsContext, partsOf } from "./effects.mjs";
 import { characterDefenses } from "./resistance.mjs";
 
 /**
@@ -32,6 +32,8 @@ export function armoredSpeed(base, armor) {
 }
 import { identify } from "./identify.mjs";
 import { racialHitDice } from "./creature.mjs";
+
+const ABILITY_LABELS = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
 
 /** Size modifiers to attack rolls and Defense, and to grapple checks. */
 export const SIZE_MODIFIERS = {
@@ -74,9 +76,13 @@ export function deriveCharacter(system, items) {
     return [a, v === null || v === undefined ? 0 : abilityModifier(v + (species?.system.abilities?.[a] ?? 0))];
   }));
   const heroic = classes.reduce((n, c) => n + c.system.level, 0);
-  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => e.transfer !== false && !e.disabled).map((e) => ({ ...e, rank: i.system?.rank || 1 })));
-  const fx = withSystemBonuses(system.bonuses, itemEffects, mechanicsContext(classes, heroic + Math.floor(creatureType?.system.count ?? 0), baseMods));
+  // Each effect named for the item that carries it (Alertness), or (the character's own) its own name.
+  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => e.transfer !== false && !e.disabled).map((e) => ({ ...e, rank: i.system?.rank || 1, source: i.type === "actor" ? e.name : i.name })));
+  const bonusSources = {};
+  const fx = withSystemBonuses(system.bonuses, itemEffects, mechanicsContext(classes, heroic + Math.floor(creatureType?.system.count ?? 0), baseMods), bonusSources);
   const fxv = (path, fallback = 0) => path.split(".").reduce((o, k) => o?.[k], fx) ?? fallback;
+  // A bonus's parts, each named for where it came from (rules/effects.mjs partsOf).
+  const bonusParts = (path) => partsOf(bonusSources, path, fxv(path));
 
   // Abilities: the base score, plus the species' adjustment, the +1s chosen every four levels, and any effect.
   const scores = {}, modifiers = {};
@@ -165,12 +171,10 @@ export function deriveCharacter(system, items) {
 
   // A bonus that is a number, or a class's level (Savant: the Smart level).
   const amount = (v) => (typeof v === "number" ? v : classes.filter((c) => c.name === v?.classLevel).reduce((n, c) => n + c.system.level, 0));
-  // A bonus to chosen skills: Skill Emphasis (a Dedicated hero talent) +3, Educated +2 to each of two.
-  const choiceBonus = (key, specialty) => feats.reduce((n, f) => {
-    const per = f.rules.skillBonus;
-    if (!per) return n;
-    return n + (chosenSkills(f.system.choice).some((c) => skillKey(c.name) === key && (!c.specialty || c.specialty === (specialty ?? ""))) ? amount(per) : 0);
-  }, 0);
+  // A bonus to chosen skills: Skill Emphasis (a Dedicated hero talent) +3, Educated +2 to each of two; each by its feat's name.
+  const choiceBonuses = (key, specialty) => feats.filter((f) => f.rules.skillBonus
+    && chosenSkills(f.system.choice).some((c) => skillKey(c.name) === key && (!c.specialty || c.specialty === (specialty ?? ""))))
+    .map((f) => ({ label: f.name, value: amount(f.rules.skillBonus) })).filter((p) => p.value);
   const skillRow = (key, specialty, stored) => {
     const def = SKILLS[key];
     const ranks = stored?.ranks ?? 0;
@@ -179,12 +183,23 @@ export function deriveCharacter(system, items) {
     // An occupation skill that is already a class skill (from a class or a feat) gives +1 instead.
     const occupationBonus = from(sources.occupation, key, specialty) && (from(sources.class, key, specialty) || from(sources.feat, key, specialty)) ? 1 : 0;
     // A specialty's own bonus is keyed "craft:pharmaceutical" (Medical Expert).
-    const specialtyBonus = specialty ? fx.skills?.[`${key}:${specialty.toLowerCase()}`] ?? 0 : 0;
-    const effects = fxv(`skills.${key}`) + specialtyBonus + fxv("allSkills") + choiceBonus(key, specialty) + occupationBonus;
+    const specialtyKey = specialty ? `skills.${key}:${specialty.toLowerCase()}` : null;
+    // What effects, feats and the occupation add, each named for where it came from.
+    const effectParts = [
+      ...bonusParts(`skills.${key}`), ...(specialtyKey ? partsOf(bonusSources, specialtyKey, fx.skills?.[`${key}:${specialty.toLowerCase()}`] ?? 0) : []),
+      ...bonusParts("allSkills"), ...choiceBonuses(key, specialty),
+      ...(occupationBonus ? [{ label: `${occupation.name} (occupation)`, value: occupationBonus }] : []),
+    ];
+    const effects = effectParts.reduce((n, p) => n + p.value, 0);
     // Cross-class ranks are bought in halves; only whole ranks add to a check.
     const total = Math.floor(ranks) + (def.ability ? mod(def.ability) : 0) + (stored?.misc ?? 0) + effects + (def.armorPenalty ? armorPenalty : 0);
+    // The total's parts, for a tooltip and a roll's card.
+    const parts = [
+      { label: "Ranks", value: Math.floor(ranks) }, ...(def.ability ? [{ label: ABILITY_LABELS[def.ability], value: mod(def.ability) }] : []),
+      { label: "Misc", value: stored?.misc ?? 0 }, ...effectParts, { label: "Armor penalty", value: def.armorPenalty ? armorPenalty : 0 },
+    ].filter((p) => p.value);
     return {
-      key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects,
+      key, name: def.name, specialty: specialty ?? "", ability: def.ability, ranks, misc: stored?.misc ?? 0, effects, effectParts, parts,
       classSkill: isClass, classSource: source, occupationBonus,
       // For buying ranks: the classes whose list has it, and whether it is a class skill whatever the class
       // (a feat's, the occupation's, or marked by hand).
@@ -218,7 +233,28 @@ export function deriveCharacter(system, items) {
     }
   }
 
+  // Each total's parts, named for where each came from: for its tooltip on the sheet and its roll's card.
+  const signedPart = (label, value) => ({ label, value });
+  const keep = (parts) => parts.filter((p) => p.value);
+  const save = (s, a) => keep([signedPart("Base", base[s]), signedPart(ABILITY_LABELS[a], mod(a)), ...bonusParts(`saves.${s}`)]);
+  const parts = {
+    saves: { fort: save("fort", "con"), ref: save("ref", "dex"), will: save("will", "wis") },
+    defense: keep([
+      signedPart("Base", 10), signedPart("Class", defenseClass), signedPart(fxv("loseDexBonus") > 0 ? "Dex (lost)" : "Dex", dexToDefense), signedPart("Size", sizeMods.defense),
+      ...armor.map((a) => signedPart(proficientIn(a) ? a.name : `${a.name} (not proficient)`, (proficientIn(a) ? a.system.equipmentBonus : a.system.nonproficientBonus) ?? 0)),
+      signedPart("Natural armor", natural), signedPart("Misc", system.defense?.misc ?? 0), ...bonusParts("defense"),
+    ]),
+    initiative: keep([signedPart("Dex", mod("dex")), ...bonusParts("initiative")]),
+    grapple: keep([signedPart("Base attack", bab), signedPart("Str", mod("str")), signedPart("Size", sizeMods.grapple), ...bonusParts("grapple")]),
+    attack: { melee: bonusParts("attack.melee"), ranged: bonusParts("attack.ranged") },
+    damage: { melee: bonusParts("damage.melee"), ranged: bonusParts("damage.ranged") },
+    hitPoints: bonusParts("hitPoints"),
+    reputation: keep([...breakdown.map((c) => c.name).length ? [signedPart("Classes", reputation - (occupation?.system.reputationBonus ?? 0) - fxv("reputation"))] : [],
+      signedPart(occupation ? `${occupation.name} (occupation)` : "Occupation", occupation?.system.reputationBonus ?? 0), ...bonusParts("reputation")]),
+  };
+
   return {
+    parts,
     level,
     // What the creature is: its type, or the type a template makes it (a zombie is undead).
     creatureType: templates.map((t) => t.system.type).filter(Boolean).at(-1) || creatureType?.name || "",

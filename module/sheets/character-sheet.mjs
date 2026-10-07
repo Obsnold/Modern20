@@ -12,7 +12,7 @@ import { initial, obj } from "../data/schema.mjs";
 import { mergeIndexed, castNumbers } from "./edit-form.mjs";
 import { SKILLS } from "../data/skills.mjs";
 import { characterRolls, notesOf } from "../roll.mjs";
-import { CHOICES } from "../rules/choices.mjs";
+import { CHOICES, chooses } from "../rules/choices.mjs";
 import { logContext } from "../log.mjs";
 import { identify } from "../rules/identify.mjs";
 import { restHealing } from "../rules/damage.mjs";
@@ -40,6 +40,8 @@ const { TextEditor } = foundry.applications.ux;
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
 const signed = (n) => (n === null || n === undefined ? "—" : n >= 0 ? `+${n}` : `${n}`);
+/** A total's parts as its tooltip: "Ranks +4, Wis +2, Elf +2, Alertness +2" (rules/character.mjs `parts`). */
+const partsTip = (parts) => (parts ?? []).map((p) => `${p.label} ${signed(p.value)}`).join(", ");
 
 /** The lists on the Feats and Gear tabs: which item types go in each, in order. */
 const LISTS = {
@@ -172,7 +174,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     }));
 
     // An advanced or prestige class's requirements, checked against the character as it is now.
-    const have = { d, feats: ofType("feat"), talents: ofType("talent"), occupation: ofType("occupation")[0] };
+    // A class feature that gives a feat (a Soldier's Weapon Focus: "the benefit of the feat") counts as it.
+    const have = { d, feats: [...ofType("feat"), ...ofType("feature")], talents: ofType("talent"), occupation: ofType("occupation")[0] };
     const requirementsOf = (c) => {
       if (!c.system.requirements?.length || !d.skills) return null;
       const rows = classRequirements(c, have);
@@ -197,7 +200,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       const def = SKILLS[row.key];
       if (def.specialties && last !== row.key) skills.push({ header: true, key: row.key, name: def.name, languages: !!def.anySpecialty });
       skills.push({
-        ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, noCheck: !!def.noCheck, total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}`,
+        ...row, label: row.specialty ? `${row.name} (${row.specialty})` : row.name, noCheck: !!def.noCheck, tip: partsTip(row.parts), total: signed(row.total), path: row.specialty ? null : `system.skills.${row.key}`,
         // A class skill of the class ranks are bought as, or from a feat or the occupation (whatever the class),
         // shows a tick; any other can be marked by hand, its tooltip naming the classes it is a skill of.
         ...classColumn(row, buyingAs),
@@ -225,6 +228,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       items: ofType(type).map((i) => ({
         id: i.id, name: i.name, img: i.img, equipped: i.system.equipped, physical: "equipped" in i.system, weapon: i.type === "weapon",
         detail: detail(i), choiceKind: CHOICES[identify(i)] ?? "", choice: i.system.choice ?? "",
+        // Where it came from, on hover; and a feat given twice for the same choice, flagged.
+        origin: originOf(actor, i), twice: givenTwice(actor, i),
         occupation: i.type === "occupation" ? occupationChoices(i) : null,
         dc: "purchaseDC" in i.system ? i.system.purchaseDC?.dc ?? null : null,
         ammo: i.type === "weapon" && !i.system.melee ? ammoContext(actor, i) : null,
@@ -239,9 +244,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     Object.assign(context, {
       actor, system, d,
       abilities,
-      saves: Object.entries(SAVE_NAMES).map(([k, label]) => ({ key: k, label, total: signed(d.saves?.[k]), base: signed(d.baseSaves?.[k]) })),
+      saves: Object.entries(SAVE_NAMES).map(([k, label]) => ({ key: k, label, total: signed(d.saves?.[k]), base: signed(d.baseSaves?.[k]), tip: partsTip(d.parts?.saves?.[k]) })),
       combat: {
         bab: signed(d.baseAttackBonus), initiative: signed(d.initiative), grapple: signed(d.grapple),
+        tips: { defense: partsTip(d.parts?.defense), initiative: partsTip(d.parts?.initiative), grapple: partsTip(d.parts?.grapple), reputation: partsTip(d.parts?.reputation) },
         defense: d.defense ?? {}, reputation: signed(d.reputation), massiveDamage: d.massiveDamage ?? "—",
         hpMax: d.hitPoints?.max ?? 0, hpEstimated: d.hitPoints?.estimated,
         // Defense in a situation (Dodge, a dwarf against giants): shown, for the table to apply.
@@ -877,6 +883,45 @@ function classColumn(row, buyingAs) {
     sourceLabel: always ? CLASS_SOURCES[row.classSource] : buyingAs ? `A class skill of ${buyingAs}` : CLASS_SOURCES.class,
     otherClasses: !always && !ofClass && others.length ? `A class skill of ${others.join(", ")}, not of ${buyingAs}: a rank bought as ${buyingAs} costs 2. ` : "",
   };
+}
+
+const ORDINAL = (n) => `${n}${["th", "st", "nd", "rd"][(n % 100 - 20) % 10] ?? ["th", "st", "nd", "rd"][n % 100] ?? "th"}`;
+
+/**
+ * Where a feat, talent or class feature came from, for its tooltip: the class that gave a feature and at
+ * what levels, the occupation, species or first class a feat was given by, a class's bonus feat, a
+ * talent's class and tree; and the character level it was taken at, where that is known.
+ */
+function originOf(actor, item) {
+  const flags = item.flags?.[SYSTEM_ID] ?? {};
+  const from = (id) => actor.items.get(id) ?? actor.items.find((i) => i.name === id);
+  const taken = flags.takenAt ? `, taken at level ${flags.takenAt}` : "";
+  if (item.type === "feature") {
+    const cls = from(flags.grantedBy);
+    const levels = (item.system.levels ?? []).slice(0, Math.max(1, item.system.rank || 1)).map(ORDINAL).join(", ");
+    return `Class feature of ${cls?.name ?? item.system.className}${levels ? ` (${levels} level)` : ""}${flags.grantedBy ? "" : ", added by hand"}`;
+  }
+  if (item.type === "talent") return `A ${item.system.className || "class"} talent${item.system.tree ? ` (${item.system.tree})` : ""}${taken}`;
+  if (item.type !== "feat") return "";
+  if (flags.bonusFor) return `A bonus feat of ${from(flags.bonusFor)?.name ?? "a class"}${taken}`;
+  if (flags.grantedBy) {
+    const source = from(flags.grantedBy);
+    const name = source?.name ?? flags.grantedBy;
+    if (source?.type === "class") return `A starting feat of ${name}${taken}`;
+    return `From the ${name}${source?.type === "occupation" || source?.type === "species" ? ` ${source.type}` : ""}${taken}`;
+  }
+  return taken ? `Taken at level ${flags.takenAt}` : "Added by hand";
+}
+
+/**
+ * A feat the character has twice for the same choice (the feat, and a class feature giving its benefit,
+ * for the same weapon): its benefit counts once, so the warning says to choose another.
+ */
+function givenTwice(actor, item) {
+  if (!["feat", "feature"].includes(item.type) || !CHOICES[identify(item)] || !item.system.choice) return "";
+  const other = actor.items.find((i) => i !== item && ["feat", "feature"].includes(i.type) && identify(i) === identify(item)
+    && i.system.choice && (chooses(i.system.choice, item.system.choice) || chooses(item.system.choice, i.system.choice)));
+  return other ? `${other.name} for ${item.system.choice} is also ${other.type === "feature" ? `a class feature of ${other.system.className}` : "a feat you have"}: its benefit counts once. Choose another ${CHOICES[identify(item)]}.` : "";
 }
 
 /** Where a class skill comes from, for its tooltip. */

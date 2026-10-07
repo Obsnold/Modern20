@@ -4,17 +4,16 @@ import { buildClasses } from "../build/classes.mjs";
 import { buildEquipment } from "../build/equipment.mjs";
 import { deriveCharacter } from "../../module/rules/character.mjs";
 import * as R from "../../module/rules/rolls.mjs";
-import { applyEffects } from "../../module/rules/effects.mjs";
 import { PACKS } from "../build/packs.mjs";
 
 const classes = Object.fromEntries(buildClasses().documents.filter((d) => d.type === "class").map((d) => [d.name, d]));
 const gear = Object.fromEntries(buildEquipment().documents.filter((d) => d.system).map((d) => [d.name, d]));
 
-// A Strong Hero 3 with Str 16, Dex 13, and Iron Will (its effect applied, as Foundry would).
+// A Strong Hero 3 with Str 16, Dex 13, and Iron Will, its effect carried by the feat as on a character.
 const ironWill = PACKS.feats().documents.find((x) => x.name === "Iron Will");
 const d = deriveCharacter(
-  applyEffects({ system: { abilities: { str: { value: 16 }, dex: { value: 13 }, con: { value: 12 }, wis: { value: 10 } }, skills: { climb: { ranks: 6, misc: 0 }, decipherScript: { ranks: 0, misc: 0 } } } }, ironWill.effects).system,
-  [{ type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level: 3 } }],
+  { abilities: { str: { value: 16 }, dex: { value: 13 }, con: { value: 12 }, wis: { value: 10 } }, skills: { climb: { ranks: 6, misc: 0 }, decipherScript: { ranks: 0, misc: 0 } } },
+  [{ type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level: 3 } }, { type: "feat", name: "Iron Will", system: ironWill.system, effects: ironWill.effects }],
 );
 
 test("formulas show each modifier as rolled, and leave out zeros", () => {
@@ -22,9 +21,9 @@ test("formulas show each modifier as rolled, and leave out zeros", () => {
   assert.equal(R.abilityCheck(d, "str").formula, "1d20 + 3");
 });
 
-test("a save: base, ability and feats", () => {
+test("a save: base, ability and feats, each feat by name", () => {
   const will = R.savingThrow(d, "will");
-  assert.deepEqual(will.terms, [{ label: "Base", value: 1 }, { label: "Feats and effects", value: 2 }]);   // Strong Hero 3 Will +1, Wis +0, Iron Will
+  assert.deepEqual(will.terms, [{ label: "Base", value: 1 }, { label: "Iron Will", value: 2 }]);   // Strong Hero 3 Will +1, Wis +0, Iron Will
   assert.equal(will.formula, "1d20 + 1 + 2");
 });
 

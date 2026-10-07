@@ -41,7 +41,8 @@
       {{#each items}}
         <div class="m20-item" data-item-id="{{id}}">
           <img src="{{img}}" alt="" width="28" height="28">
-          <a class="m20-item-name" data-action="editItem">{{name}}</a>
+          <a class="m20-item-name" data-action="editItem" {{#if origin}}data-tooltip="{{origin}}"{{/if}}>{{name}}</a>
+          {{#if twice}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="{{twice}}"></i>{{/if}}
           {{#if choiceKind}}<input class="m20-choice" type="text" value="{{choice}}" placeholder="Choose a {{choiceKind}}" data-item-field="choice" data-tooltip="The {{choiceKind}} this was taken for">{{/if}}
           <span class="m20-item-detail">{{detail}}</span>
           {{#if ammo}}

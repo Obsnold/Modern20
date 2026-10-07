@@ -45,6 +45,13 @@ function soon(actor, userId) {
 
 /** Register the hooks; called once, at init. */
 export function registerFeatureHooks() {
+  // A feat or talent added to a character records the character level it was taken at, for its tooltip.
+  Hooks.on("preCreateItem", (item, data, options, userId) => {
+    const actor = item.parent;
+    if (userId !== game.user.id || !["feat", "talent"].includes(item.type) || actor?.type !== "character" || item.getFlag(SYSTEM_ID, "takenAt")) return;
+    const level = actor.system.derived?.level ?? 0;
+    if (level > 0) item.updateSource({ [`flags.${SYSTEM_ID}.takenAt`]: level });
+  });
   // A character made with its classes already in it (Build as a character) has had no item hooks.
   Hooks.on("createActor", (actor, options, userId) => soon(actor, userId));
   for (const hook of ["createItem", "updateItem", "deleteItem"]) {

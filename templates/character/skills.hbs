@@ -37,7 +37,7 @@
               <td><input type="number" min="0" name="system.specialtySkills.{{index}}.points" value="{{points}}" placeholder="{{pointsEstimate}}" data-tooltip="A rank costs {{cost}} now; empty: ranks at today's cost"></td>
               <td><input type="number" name="system.specialtySkills.{{index}}.misc" value="{{misc}}"></td>
             {{/if}}
-            <td class="m20-strong">{{total}}{{#if specialty}} <a data-action="removeSpecialty" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
+            <td class="m20-strong" {{#if tip}}data-tooltip="{{tip}}"{{/if}}>{{total}}{{#if specialty}} <a data-action="removeSpecialty" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-xmark"></i></a>{{/if}}</td>
           </tr>
         {{/if}}
       {{/each}}

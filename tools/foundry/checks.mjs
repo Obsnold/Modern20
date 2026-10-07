@@ -1169,4 +1169,53 @@ export const CHECKS = {
     await actor.delete();
     return errors;
   },
+
+  async "where things came from: a feature's and a feat's origins on hover, a skill's and a save's parts, and Weapon Focus counted once"() {
+    const errors = [];
+    const { take, wait } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 12 }]));
+    const actor = await Actor.implementation.create({ name: "Soldier twice (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("classes", "Strong Hero", { level: 3 }), await take("classes", "Soldier", { level: 1 }),
+      await take("feats", "Simple Weapons Proficiency"), await take("equipment", "Club"),
+    ]);
+    try {
+      const feature = await wait(() => actor.items.find((i) => i.type === "feature" && i.name === "Weapon Focus"), "the Soldier's Weapon Focus", 20000);
+      await feature.update({ "system.choice": "club" });
+      // Taken now, at level 4: the feat for the same weapon, and Alertness and Iron Will for the breakdowns.
+      await actor.createEmbeddedDocuments("Item", [await take("feats", "Weapon Focus", { choice: "Club" }), await take("feats", "Alertness"), await take("feats", "Iron Will")]);
+      const feat = actor.items.find((i) => i.type === "feat" && i.name === "Weapon Focus");
+      if (feat.getFlag("modern20", "takenAt") !== 4) errors.push(`the feat records level ${feat.getFlag("modern20", "takenAt")}, not 4`);
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("feats", "primary");
+      const tip = (item) => actor.sheet.element.querySelector(`[data-item-id="${item.id}"] .m20-item-name`)?.dataset.tooltip ?? "";
+      if (!/Class feature of Soldier \(1st level\)/.test(tip(feature))) errors.push(`the feature's tooltip: "${tip(feature)}"`);
+      if (!/Taken at level 4/.test(tip(feat))) errors.push(`the feat's tooltip: "${tip(feat)}"`);
+      if (!actor.sheet.element.querySelector(`[data-item-id="${feat.id}"] .fa-triangle-exclamation`)) errors.push("the feat taken twice for the club is not flagged");
+      // Counted once on the attack.
+      const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+      await characterRolls(actor).attack(actor.items.find((i) => i.name === "Club"));
+      const focus = [...new DOMParser().parseFromString(game.messages.contents.at(-1).flavor, "text/html").querySelectorAll("li")].map((l) => l.innerText.trim()).filter((t) => /Focus/.test(t));
+      if (focus.join("; ") !== "Weapon Focus +1") errors.push(`the club's attack: ${focus.join("; ") || "no Weapon Focus"}, not Weapon Focus +1 once`);
+      // A skill's and a save's parts, by name.
+      actor.sheet.changeTab("skills", "primary");
+      const listen = actor.sheet.element.querySelector("[data-action=rollSkill][data-skill=listen]").closest("tr").querySelector("td.m20-strong")?.dataset.tooltip ?? "";
+      if (!/Alertness \+2/.test(listen)) errors.push(`Listen's tooltip: "${listen}"`);
+      actor.sheet.changeTab("main", "primary");
+      const will = [...actor.sheet.element.querySelectorAll("[data-action=rollSave][data-save=will]")].map((a) => a.closest("dt").nextElementSibling?.dataset.tooltip)[0] ?? "";
+      if (!/Iron Will \+2/.test(will)) errors.push(`Will's tooltip: "${will}"`);
+      // A class feature giving a feat meets a requirement for it: Holy/Unholy Knight's "Weapon Focus in a melee weapon".
+      await actor.createEmbeddedDocuments("Item", [await take("classes", "Holy/Unholy Knight", { level: 1 })]);
+      await feat.delete();
+      await wait(() => actor.sheet.rendered && /Holy\/Unholy Knight/.test(actor.sheet.element.innerText), "the advanced class on the sheet");
+      const reqs = [...actor.sheet.element.querySelectorAll(".m20-requirements")].map((p) => p.innerText).join(" ");
+      if (/Weapon Focus/.test(reqs)) errors.push(`the Soldier's Weapon Focus does not meet the knight's requirement: ${reqs}`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await actor.delete();
+    return errors;
+  },
 };
