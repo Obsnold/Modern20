@@ -8,6 +8,17 @@ import * as F from "./rules/fx-items.mjs";
 import { SYSTEM_ID } from "./config.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s ?? ""));
 
+/** A spell, power or incantation by its name, as typed ("Web", "fireball"): from the compendiums, a split duplicate's bare name too. */
+async function byName(name) {
+  const want = String(name).trim().toLowerCase();
+  for (const pack of ["spells", "powers", "incantations"]) {
+    const p = game.packs.get(`${SYSTEM_ID}.${pack}`);
+    const entry = (await p?.getIndex())?.find((e) => e.name.toLowerCase() === want || e.name.replace(/ \((Modern|Arcana|Future|Menaces)\)$/, "").toLowerCase() === want);
+    if (entry) return fromUuid(entry.uuid);
+  }
+  return null;
+}
+
 /** Choose which of a staff's uses: null if cancelled. */
 async function chooseUse(item) {
   const uses = item.system.spells;
@@ -32,7 +43,8 @@ export async function useItem(actor, item) {
   const r = F.useCharges(s, index);
   if (!r.ok) return ui.notifications.warn(`${item.name}: ${r.reason}.`);
   const use = s.spells[index] ?? null;
-  const spell = use?.uuid ? await fromUuid(use.uuid) : null;
+  // Its spell: by its link, or (one named by hand in the edit view) by its name in the compendiums.
+  const spell = use?.uuid ? await fromUuid(use.uuid) : use?.name ? await byName(use.name) : null;
   const cl = s.fx?.casterLevel?.level ?? null;
   // Its save: the DC the book gives with the use, or 10 + 1.5 × the spell's level as the item casts it.
   const level = spell?.system.levels?.length ? F.spellLevelFor(spell.system.levels, s.fx?.casterLevel?.value) : null;

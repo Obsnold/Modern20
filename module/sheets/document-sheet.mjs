@@ -10,7 +10,7 @@
  */
 import { ITEM_MODELS, ACTOR_MODELS } from "../data/models.mjs";
 import { obj, initial } from "../data/schema.mjs";
-import { editForm, fromForm, specAt } from "./edit-form.mjs";
+import { editForm, fromForm, specAt, followPrinted } from "./edit-form.mjs";
 import { SKILLS } from "../data/skills.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -20,7 +20,8 @@ const { TextEditor } = foundry.applications.ux;
 /** Fields shown as rules text rather than in the table, in this order. */
 const PROSE = ["benefit", "normal", "special", "description"];
 /** Fields not in the table: the source is the header link; a class's levels, features and talent trees get sections of their own. */
-const HIDDEN = new Set(["source", ...PROSE, "features", "talentTrees", "requirements", "rollNotes"]);
+// Ids the Gear tab keeps (the ammunition a weapon is loaded from) are not for reading either.
+const HIDDEN = new Set(["source", ...PROSE, "features", "talentTrees", "requirements", "rollNotes", "ammunition", "loadedFrom", "loadedWith"]);
 
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -191,7 +192,8 @@ export function Editable(Base) {
     /** What the form sent, as the document's data: lists rebuilt from their entries' inputs. */
     _processFormData(event, form, formData) {
       const data = super._processFormData(event, form, formData);
-      if (data.system) data.system = fromForm(this.fieldSpec, data.system, this.document.system.toObject());
+      // Each value as printed followed by its number, where only the text was changed (edit-form.mjs followPrinted).
+      if (data.system) data.system = followPrinted(this.fieldSpec, this.document.system.toObject(), fromForm(this.fieldSpec, data.system, this.document.system.toObject()));
       return data;
     }
 

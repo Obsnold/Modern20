@@ -1835,6 +1835,9 @@ export const CHECKS = {
       const shown = [...glock.sheet.element.querySelectorAll("[name]")].map((e) => e.name).filter((n) => /\.uuid$|^system\.(ammunition|loadedFrom|loadedWith|source\.page)$/.test(n));
       if (shown.length) errors.push(`the weapon's edit view shows ${shown.join(", ")}`);
       if (!/Feat needed/.test(glock.sheet.element.innerText)) errors.push("the weapon's edit view does not label its proficiency \"Feat needed\"");
+      // The weight typed as printed: its pounds follow, for the load.
+      type(glock.sheet.element, "input[name='system.weight.value']", "5 lb.");
+      await wait(() => glock.system.weight.lb === 5, `the pounds to follow "5 lb." (${glock.system.weight.lb})`);
       type(glock.sheet.element, "input[name='system.enhancement']", 2);
       await wait(() => glock.system.enhancement === 2, "the enhancement to save");
       await glock.sheet.close();

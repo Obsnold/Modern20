@@ -16,8 +16,54 @@
  */
 const escape = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
-/** "spellResistance" -> "Spell Resistance", "damageReduction5" -> "Damage Reduction 5" */
-export const label = (key) => String(key).replace(/([a-z])([A-Z0-9])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
+/** "spellResistance" -> "Spell Resistance", "damageReduction5" -> "Damage Reduction 5", "purchaseDCModifier" -> "Purchase DC Modifier" */
+export const label = (key) => String(key).replace(/([a-z])([A-Z0-9])/g, "$1 $2").replace(/([A-Z])([A-Z][a-z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
+
+/**
+ * Fields a person knows by another name than the key's, with what to put in them: the number a printed value is
+ * worked out to (`lb` beside "3 lb."), and groups whose key says little ("fx").
+ */
+const NAMES = {
+  lb: ["Pounds", "Worked out from the weight as printed, when that changes"],
+  dc: ["DC", "Worked out from the purchase DC as printed, when that changes"],
+  ft: ["Feet", "Worked out from the range increment as printed, when that changes"],
+  formula: ["Dice to roll", "Worked out from the damage as printed (2d6, 1d8+1), when that changes"],
+  byBonus: ["DC for each bonus", "An FX item's, printed for +1, +2 and +3: one a line"],
+  fx: ["FX item (magic or psionic)"],
+  rollNotes: ["Roll notes (bonuses in a situation)"],
+};
+
+/** A value as printed beside the number worked from it ("3 lb." and 3): its group has a `value` and a NUMBERS field. */
+const isPrinted = (fields) => fields?.value?.kind === "string" && Object.keys(fields).some((k) => k in NUMBERS);
+
+/** The numbers a value as printed is worked out to: "3 lb." -> 3 pounds, "18" -> DC 18, "30 ft." -> 30 feet, "2d6+1" -> 2d6+1. */
+const NUMBERS = {
+  lb: (t) => (/^\s*([\d.]+)\s*lb/i.test(t) ? Number(t.match(/([\d.]+)/)[1]) : /^\s*(—|-|)\s*\.?\s*$/.test(t) ? null : undefined),
+  dc: (t) => (/^\s*(\d+)/.test(t) ? Number(t.match(/(\d+)/)[1]) : /^\s*(—|-|)\s*$/.test(t) ? null : undefined),
+  ft: (t) => (/^\s*(\d+)\s*ft/i.test(t) ? Number(t.match(/(\d+)/)[1]) : /^\s*(—|-|)\s*$/.test(t) ? null : undefined),
+  formula: (t) => {
+    const m = String(t).match(/^\s*(\d*d\d+(?:\s*[+−–-]\s*\d+)?)\b/i);
+    return m ? m[1].replace(/[−–]/g, "-").replace(/\s+/g, "") : undefined;
+  },
+};
+
+/**
+ * The document's data with each value as printed followed by its number: where the printed value changed and its
+ * number did not (typed "3 lb." in the weight, and left the pounds), the number worked out from the text.
+ */
+export function followPrinted(spec, before, after) {
+  if (spec?.kind !== "object" || !after || typeof after !== "object") return after;
+  const out = { ...after };
+  if (isPrinted(spec.fields) && out.value !== before?.value) {
+    for (const k of Object.keys(spec.fields).filter((x) => x in NUMBERS)) {
+      if (JSON.stringify(out[k]) !== JSON.stringify(before?.[k])) continue;
+      const n = NUMBERS[k](out.value ?? "");
+      if (n !== undefined) out[k] = n;
+    }
+  }
+  for (const [k, s] of Object.entries(spec.fields)) if (s.kind === "object" && k in out) out[k] = followPrinted(s, before?.[k], out[k]);
+  return out;
+}
 
 const isScalar = (spec) => ["string", "number", "boolean"].includes(spec.kind);
 const textarea = (name, value) => `<textarea name="${escape(name)}" rows="6">${escape(value)}</textarea>`;
@@ -46,19 +92,21 @@ export function editForm(fields, value, { prefix = "system", html = textarea } =
 
 function group(fields, value, prefix, html) {
   const scalars = [], blocks = [];
+  const printed = isPrinted(fields);
   for (const [key, spec] of Object.entries(fields)) {
     // A link or an id the sheet keeps (data/models.mjs `ref`): not shown, and kept as it is (fromForm).
     if (spec.hidden) continue;
     const name = `${prefix}.${key}`;
     const v = value?.[key];
-    // A field's own label where the model gives one ("The proficiency feat it needs"), else its name's.
-    if (isScalar(spec)) scalars.push(`<label${spec.hint ? ` data-tooltip="${escape(spec.hint)}"` : ""}>${escape(spec.label ?? label(key))}</label>${input(spec, name, v)}`);
+    // A field's own label where the model gives one ("Feat needed"), or a name a person knows it by, else its key's.
+    const [title, hint] = spec.label ? [spec.label, spec.hint] : printed && key === "value" ? ["As printed", "As the book prints it: \"3 lb.\", \"18\", \"30 ft.\", \"2d6\""] : NAMES[key] ?? [label(key)];
+    if (isScalar(spec)) scalars.push(`<label${hint ? ` data-tooltip="${escape(hint)}"` : ""}>${escape(title)}</label>${input(spec, name, v)}`);
     else if (spec.kind === "array" && isScalar(spec.of)) {
       const lines = (v ?? []).map((x) => x ?? "").join("\n");
-      scalars.push(`<label>${escape(label(key))}</label><textarea name="${escape(name)}" rows="${Math.min(Math.max((v ?? []).length, 1), 8)}" placeholder="One a line">${escape(lines)}</textarea>`);
-    } else if (spec.kind === "html") blocks.push(`<div class="m20-edit-html"><h4>${escape(label(key))}</h4>${html(name, v ?? "")}</div>`);
-    else if (spec.kind === "object") blocks.push(`<fieldset><legend>${escape(label(key))}</legend>${group(spec.fields, v ?? {}, name, html)}</fieldset>`);
-    else if (spec.kind === "array") blocks.push(entries(spec.of, v ?? [], name, label(key), html));
+      scalars.push(`<label${hint ? ` data-tooltip="${escape(hint)}"` : ""}>${escape(title)}</label><textarea name="${escape(name)}" rows="${Math.min(Math.max((v ?? []).length, 1), 8)}" placeholder="One a line">${escape(lines)}</textarea>`);
+    } else if (spec.kind === "html") blocks.push(`<div class="m20-edit-html"><h4>${escape(title)}</h4>${html(name, v ?? "")}</div>`);
+    else if (spec.kind === "object") blocks.push(`<fieldset><legend>${escape(title)}</legend>${group(spec.fields, v ?? {}, name, html)}</fieldset>`);
+    else if (spec.kind === "array") blocks.push(entries(spec.of, v ?? [], name, title, html));
   }
   return `${scalars.length ? `<div class="m20-edit-grid">${scalars.join("")}</div>` : ""}${blocks.join("")}`;
 }

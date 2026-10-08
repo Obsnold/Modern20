@@ -103,3 +103,22 @@ test("links and ids the sheet keeps are not shown, and are kept as they were; a 
   const back = fromForm(spec, { proficiency: { value: "Exotic Firearms Proficiency (cannons)" } }, value);
   assert.deepEqual([back.proficiency.uuid, back.ammunition, back.source.page], [value.proficiency.uuid, "item1", value.source.page]);
 });
+
+test("a value as printed is followed by its number: typed text works it out, unless the number was changed too", async () => {
+  const { ITEM_MODELS } = await import("../../module/data/models.mjs");
+  const { obj: object } = await import("../../module/data/schema.mjs");
+  const { followPrinted, label: name } = await import("../../module/sheets/edit-form.mjs");
+  const spec = object(ITEM_MODELS.weapon);
+  const before = { weight: { value: "", lb: null }, purchaseDC: { value: "", dc: null, byBonus: [] }, rangeIncrement: { value: "", ft: null }, damage: { value: "", formula: "" } };
+  const after = { weight: { value: "3 lb.", lb: null }, purchaseDC: { value: "18", dc: null, byBonus: [] }, rangeIncrement: { value: "30 ft.", ft: null }, damage: { value: "2d6+1", formula: "" } };
+  const out = followPrinted(spec, before, after);
+  assert.deepEqual([out.weight.lb, out.purchaseDC.dc, out.rangeIncrement.ft, out.damage.formula], [3, 18, 30, "2d6+1"]);
+  // The number typed as well: left as typed. Text with no number in it ("See text"): the number left alone.
+  assert.equal(followPrinted(spec, before, { ...after, weight: { value: "3 lb.", lb: 4 } }).weight.lb, 4);
+  assert.equal(followPrinted(spec, { ...before, damage: { value: "2d6", formula: "2d6" } }, { ...before, damage: { value: "See text", formula: "2d6" } }).damage.formula, "2d6");
+  assert.equal(followPrinted(spec, { ...before, weight: { value: "3 lb.", lb: 3 } }, { ...before, weight: { value: "—", lb: 3 } }).weight.lb, null);
+  // The form names them as a person would.
+  const html = editForm(spec.fields, after);
+  for (const l of ["As printed", "Pounds", "Dice to roll", "FX item (magic or psionic)"]) assert.match(html, new RegExp(`>${l.replace(/[()]/g, "\\$&")}<`), l);
+  assert.equal(name("purchaseDCModifier"), "Purchase DC Modifier");
+});
