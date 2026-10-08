@@ -152,3 +152,12 @@ test("an attack at a distance: its range penalty, Point Blank Shot within 30 ft.
   assert.equal(term(attack(d, beretta, [pfp], { defensively: true }), /defensively/), -4);
   assert.match(attack(d, beretta, [pfp], { distance: 500 }).hints.join(" "), /Out of range/);
 });
+
+test("a card's recorded load (its key and name) is the load as the weapon gave it, rules and all; none for ordinary rounds", async () => {
+  const { specialAmmo } = await import("../../module/rules/ammo.mjs");
+  const { recordedLoad } = await import("../../module/ammo.mjs");
+  const load = recordedLoad({ key: "beanbag", name: "Beanbag (12-gauge)" });
+  assert.deepEqual(load, { ...specialAmmo("beanbag", "Beanbag (12-gauge)"), key: "beanbag" });
+  assert.equal(load.nonlethal, true);
+  assert.equal(recordedLoad(null), null);
+});

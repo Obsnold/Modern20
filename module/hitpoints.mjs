@@ -1,7 +1,8 @@
 /**
  * Current hit points that follow the maximum while a character is at full health (rules/damage.mjs
  * followMaximum): a new character starts at full, and one at full stays there as levels,
- * Constitution or Toughness change the maximum; one hurt or dying is left as it is.
+ * Constitution or Toughness change the maximum; one hurt gains or loses what the maximum does, and a
+ * dead one is left as it is.
  *
  * The maximum is worked out, not stored, so the last one seen is kept beside current hit points
  * (`system.hp.lastMax`). After any change that can move it (to the character, its items or its
@@ -27,8 +28,9 @@ function follow(actor, userId) {
     const { value, lastMax = 0, max } = actor.system.hp;
     if (max === undefined || max === lastMax) return;
     const hurt = ["disabled", "dying", "stable", "dead"].some((s) => actor.statuses.has(s));
-    const next = followMaximum(value, lastMax, max, { hurt });
-    await actor.update({ "system.hp.lastMax": max, ...(next === null ? {} : { "system.hp.value": next }) });
+    const next = actor.statuses.has("dead") ? null : followMaximum(value, lastMax, max, { hurt });
+    // Its conditions follow (module/damage.mjs), as for any change; hit points the maximum takes away are not damage.
+    await actor.update({ "system.hp.lastMax": max, ...(next === null ? {} : { "system.hp.value": next }) }, { modern20Following: true });
   }, 100));
 }
 

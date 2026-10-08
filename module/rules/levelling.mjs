@@ -116,3 +116,23 @@ export function unbuyRanks(system, record) {
   }
   return { skills, specialtySkills };
 }
+
+/**
+ * The character's own data as it will be once the level is taken: the ranks bought (`bought`, against `rows` and
+ * `offers`, as buyRanks takes them), the specialties added for them, and the ability increase chosen. Read through
+ * to `system` for everything else (its bonuses, as effects have left them), for deriveCharacter to work out the
+ * character after the level: what a feat's prerequisites are judged against.
+ */
+export function afterLevel(system, source, { bought = {}, rows = [], offers = {}, specialties = [], increase = "" } = {}) {
+  const own = structuredClone({ specialtySkills: source.specialtySkills ?? [], skills: source.skills ?? {} });
+  for (const sp of specialties) {
+    if (!own.specialtySkills.some((x) => x.skill === sp.skill && x.specialty === sp.specialty)) own.specialtySkills.push({ skill: sp.skill, specialty: sp.specialty, ranks: 0, misc: 0, classSkill: false, points: null });
+  }
+  const b = buyRanks(own, rows, offers, bought);
+  const skills = { ...own.skills };
+  for (const [k, v] of Object.entries(b.skills)) skills[k] = { ...skills[k], ...v };
+  return Object.assign(Object.create(system), {
+    skills, specialtySkills: b.specialtySkills,
+    abilityIncreases: increase ? [...(system.abilityIncreases ?? []), increase] : [...(system.abilityIncreases ?? [])],
+  });
+}

@@ -83,14 +83,15 @@ export async function rollStartingWealth(actor) {
 
 /**
  * Regaining Wealth for a new level: a Profession check (a Wisdom check without ranks) against
- * the current Wealth bonus: +1, and +1 for every 5 over. One check for each level gained.
+ * the current Wealth bonus: +1, and +1 for every 5 over. One check for each level gained. Returns what it
+ * gained, or null if the roll was cancelled.
  */
 export async function regainWealth(actor, event) {
   const wealth = actor.system.wealth.value ?? 0;
   const ranks = actor.system.skills.profession?.ranks ?? 0;
   const rolls = characterRolls(actor);
   const roll = ranks > 0 ? await rolls.skill("profession", "", event) : await rolls.ability("wis", event);
-  if (!roll) return;
+  if (!roll) return null;
   const gain = W.regained(roll.total, wealth);
   const level = (actor.system.wealth.regainedLevel || 1) + 1;
   await actor.update({ "system.wealth.value": wealth + gain, "system.wealth.regainedLevel": level });
@@ -98,4 +99,5 @@ export async function regainWealth(actor, event) {
     speaker: ChatMessage.getSpeaker({ actor }),
     content: `<div class="m20-roll"><h3>Wealth for level ${level}</h3><p>${roll.total} against DC ${wealth}: ${gain ? `Wealth +${wealth} → +${wealth + gain}` : "no gain"}.</p></div>`,
   });
+  return gain;
 }

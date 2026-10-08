@@ -26,6 +26,22 @@ export class Modern20Actor extends foundry.documents.Actor {
     });
   }
 
+  /**
+   * A token bar's hit points, as the token HUD changes them: down past 0, which Foundry's bar stops at,
+   * since a character at −1 to −9 is dying (Modern/deathdyinghealing); never above the maximum. Its
+   * conditions follow (module/damage.mjs).
+   */
+  async modifyTokenAttribute(attribute, value, isDelta = false, isBar = true) {
+    if (attribute !== "hp" || !isBar) return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
+    const hp = this.system.hp;
+    const current = hp.value ?? hp.max ?? 0;
+    const next = Math.min(isDelta ? current + value : value, hp.max ?? Infinity);
+    if (next === current) return this;
+    const updates = { "system.hp.value": next };
+    const allowed = Hooks.call("modifyTokenAttribute", { attribute, value, isDelta, isBar }, updates, this);
+    return allowed !== false ? this.update(updates) : this;
+  }
+
   /** `@init` is the initiative bonus for the combat tracker's `1d20 + @init`; the rest is the actor's data. */
   getRollData() {
     const data = super.getRollData();

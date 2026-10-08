@@ -693,8 +693,9 @@ export const CHECKS = {
       }
       await combat.delete();
       // Massive damage: one hit over the threshold (Con 10) that leaves the character standing asks for a save.
+      // Hit points set back up, however they are set: the conditions they put on come off.
       await actor.update({ "system.hp.value": 30 });
-      for (const s of ["dying", "unconscious", "stable", "disabled"]) if (actor.statuses.has(s)) await actor.toggleStatusEffect(s, { active: false });
+      await wait(() => !["dying", "unconscious", "stable", "disabled"].some((s) => actor.statuses.has(s)), `the hit point conditions to come off at 30 (still ${[...actor.statuses].join(", ")})`);
       const k = game.messages.size;
       await applyToActor(actor, 12);
       if (!game.messages.contents.slice(k).some((x) => x.getFlag("modern20", "save")?.kind === "massive")) errors.push("12 damage over a threshold of 10 asked for no massive damage save");
@@ -713,7 +714,7 @@ export const CHECKS = {
     return errors;
   },
 
-  async "current hit points follow the maximum while at full: a new character, a level gained, but not when hurt"() {
+  async "current hit points follow the maximum: a new character, a level gained at full, and hurt, a level gained and Constitution lost"() {
     const errors = [];
     const { take, wait } = window.m20test;
     const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: a === "con" ? 14 : 10 }]));
@@ -725,16 +726,64 @@ export const CHECKS = {
       await wait(() => actor.system.hp.value === 12, `a new character at full (12), not ${actor.system.hp.value}`);
       await cls.update({ "system.level": 2 });
       await wait(() => actor.system.hp.value === actor.system.hp.max && actor.system.hp.max > 12, `full health to follow a level gained (now ${actor.system.hp.value} of ${actor.system.hp.max})`);
+      // Hurt: a level's hit points are gained too, and Constitution lost takes its hit points away.
       await actor.update({ "system.hp.value": 5 });
       const max = actor.system.hp.max;
       await cls.update({ "system.level": 3 });
       await wait(() => actor.system.hp.max > max, "the maximum to rise");
-      await new Promise((r) => setTimeout(r, 500));
-      if (actor.system.hp.value !== 5) errors.push(`a hurt character's hit points moved with the maximum: ${actor.system.hp.value}, expected 5`);
+      const gained = actor.system.hp.max - max;
+      await wait(() => actor.system.hp.value === 5 + gained, `a hurt character to gain the level's ${gained} hit points (now ${actor.system.hp.value})`);
+      const before = actor.system.hp.value, max3 = actor.system.hp.max;
+      await actor.update({ "system.abilities.con.value": 10 });
+      await wait(() => actor.system.hp.max === max3 - 6, `Con 10 to take 2 hit points a level off the maximum (${actor.system.hp.max})`);
+      await wait(() => actor.system.hp.value === before - 6, `a hurt character to lose them too (now ${actor.system.hp.value}, expected ${before - 6})`);
     } catch (e) {
       errors.push(e.message);
     }
     await actor.delete();
+    return errors;
+  },
+
+  async "hit points typed on the sheet, or on a creature's token bar, set the conditions they put it in"() {
+    const errors = [];
+    const { take, wait, type } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Typed hit points (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Strong Hero", { level: 2 })]);
+    let creature = null;
+    try {
+      await wait(() => actor.system.hp.value === actor.system.hp.max && actor.system.hp.max > 0, "the character at full");
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      const hp = () => actor.sheet.element.querySelector("input[name='system.hp.value']");
+      const statuses = () => [...actor.statuses].sort().join(", ");
+      type(actor.sheet.element, "input[name='system.hp.value']", -3);
+      await wait(() => actor.statuses.has("dying") && actor.statuses.has("unconscious"), "-3 typed to make it dying and unconscious");
+      await wait(() => hp()?.value === "-3", "the sheet to draw again");
+      type(actor.sheet.element, "input[name='system.hp.value']", 0);
+      await wait(() => actor.statuses.has("disabled") && !actor.statuses.has("dying") && !actor.statuses.has("unconscious"), "0 typed to leave it disabled alone");
+      await wait(() => hp()?.value === "0", "the sheet to draw again");
+      type(actor.sheet.element, "input[name='system.hp.value']", 6);
+      await wait(() => !statuses(), "6 typed to clear them");
+      await actor.sheet.close();
+      // A creature's unlinked token, its bar changed as the token HUD does: dying, its own actor alone.
+      await wait(() => !canvas.loading, "the canvas", 15000);
+      const scene = game.scenes.find((x) => x.name === "Test scene") ?? await Scene.implementation.create({ name: "Test scene", width: 2000, height: 2000, grid: { size: 100 } });
+      if (canvas.scene?.id !== scene.id) { await scene.view(); await wait(() => canvas.ready && !canvas.loading && canvas.scene?.id === scene.id, "the scene", 15000); }
+      creature = await Actor.implementation.create({ name: "Thug (test)", type: "creature", system: { hp: { value: 10, max: 10 } }, prototypeToken: { actorLink: false } });
+      const [token] = await scene.createEmbeddedDocuments("Token", [(await creature.getTokenDocument({ x: 600, y: 600 })).toObject()]);
+      // Past 0, which Foundry's own bar stops at.
+      await token.actor.modifyTokenAttribute("hp", -12, true, true);
+      if (token.actor.system.hp.value !== -2) errors.push(`10 hit points less 12 on the token bar left ${token.actor.system.hp.value}, not -2`);
+      await wait(() => token.actor.statuses.has("dying"), "the token's actor to be dying");
+      if (creature.statuses.has("dying")) errors.push("the creature in the sidebar is dying too, not only its token");
+      await token.delete();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    if (actor.sheet.rendered) await actor.sheet.close();
+    await actor.delete();
+    await creature?.delete();
     return errors;
   },
 
@@ -1180,6 +1229,25 @@ export const CHECKS = {
       if (!card.getFlag("modern20", "damage")?.nonlethal) errors.push("a beanbag's damage is not nonlethal");
       if (!/nonlethal/.test(card.flavor)) errors.push("the damage card does not say nonlethal");
       if (gun.system.loaded !== 6) errors.push(`${gun.system.loaded} beanbags left after a shot, not 6`);
+      // An attack's card keeps the load it fired: reloaded with buckshot before its damage is rolled, the damage is still the beanbag's.
+      const n = game.messages.size;
+      await characterRolls(actor).attack(gun);
+      const attack = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "attack")), "the attack card");
+      if (attack.getFlag("modern20", "attack").load?.key !== "beanbag") errors.push(`the attack card records the load ${JSON.stringify(attack.getFlag("modern20", "attack").load)}`);
+      await gun.update({ "system.ammunition": buckshot.id });
+      await reloadWeapon(actor, gun);
+      if (gun.system.loadedWith !== "") errors.push(`reloaded with buckshot, the gun is loaded with "${gun.system.loadedWith}"`);
+      const k = game.messages.size;
+      // The attack card's Damage button (or, on a threat, the confirmation's "not confirmed" damage).
+      let next = attack;
+      for (let tries = 0; tries < 3 && !game.messages.contents.slice(k).some((m) => m.getFlag("modern20", "damage")); tries++) {
+        const button = await wait(() => [...(ui.chat.element?.querySelectorAll(`li[data-message-id="${next.id}"] .m20-card-buttons button`) ?? [])].find((b) => /^(Damage|Not confirmed: damage|Confirm critical)$/.test(b.textContent)), "a damage button on the card");
+        const before = game.messages.size;
+        button.click();
+        next = await wait(() => game.messages.contents.slice(before).at(-1), "the next card");
+      }
+      const damage = await wait(() => game.messages.contents.slice(k).find((m) => m.getFlag("modern20", "damage")), "the damage card");
+      if (!damage.getFlag("modern20", "damage").nonlethal) errors.push("the beanbag's damage, rolled after reloading with buckshot, is not nonlethal");
       await actor.sheet.close();
     } catch (e) {
       errors.push(e.message);
@@ -1634,6 +1702,96 @@ export const CHECKS = {
       errors.push(e.message);
     }
     await actor.delete();
+    return errors;
+  },
+
+  async "the level window judges feats as at the new level, says a failed write and frees the window, undoes the level's Wealth check, adds no bonus feat left unchosen; free ranks show 0 points"() {
+    const errors = [];
+    const { take, wait, dialog, doc } = window.m20test;
+    const { LevelUp, undoLastLevel } = await import("/systems/modern20/module/levelup.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const made = [];
+    const character = async (name, system = {}, items = []) => {
+      const a = await Actor.implementation.create({ name, type: "character", system: { abilities, ...system } });
+      made.push(a);
+      if (items.length) await a.createEmbeddedDocuments("Item", await Promise.all(items));
+      await new Promise((r) => setTimeout(r, 300));
+      return a;
+    };
+    const open = async (actor, cls) => {
+      const app = new LevelUp(actor);
+      if (cls) app.choices.cls = cls;
+      await app.render(true);
+      await wait(() => app.rendered && app.plan, "the level window");
+      return app;
+    };
+    try {
+      // A Strong hero's 1st level: base attack +1 at it, so Combat Martial Arts (base attack bonus +1) is met.
+      const strong = await doc("classes", "Strong Hero");
+      const hero = await character("New Strong hero (test)");
+      let app = await open(hero, strong.uuid);
+      app.choices.feats = ["Combat Martial Arts", "Weapon Focus"];
+      await app.render();
+      await wait(() => app.element.querySelector("[name='feats.0.name']")?.value === "Combat Martial Arts", "the feats to show");
+      const unmet = [...app.element.querySelectorAll(".m20-warning")].map((e) => e.innerText).filter((t) => /Combat Martial Arts|base attack/i.test(t));
+      if (unmet.length) errors.push(`at a Strong hero's 1st level: ${unmet.join("; ")}`);
+      // A write refused part way: said, and the button works again.
+      // Only the level's own write of its skills is refused, so nothing else (the hit points following) fails.
+      const update = hero.update.bind(hero), notify = ui.notifications.error.bind(ui.notifications), said = [];
+      hero.update = (data, ...rest) => (data && "system.specialtySkills" in data ? Promise.reject(new Error("refused (test)")) : update(data, ...rest));
+      ui.notifications.error = (message, ...rest) => { said.push(String(message)); return notify(message, ...rest); };
+      try {
+        await wait(() => !app.element.querySelector("[data-action=finish]")?.disabled, "the level to be ready");
+        app.element.querySelector("[data-action=finish]").click();
+        await wait(() => said.some((m) => /not finished: refused \(test\)/.test(m)), "the error to be said");
+        // Free again (what it then asks for follows what was written: the class, added before the refusal).
+        await wait(() => app.finishing === false && app.rendered && app.element.querySelector("[data-action=finish]"), "the window to be free again");
+      } finally {
+        delete hero.update;
+        ui.notifications.error = notify;
+      }
+      await app.close();
+
+      // A level whose Wealth check is made, then undone: the Wealth it gained and the level it was for, taken back.
+      const fast = await character("Wealth undone (test)", { wealth: { value: 5, regainedLevel: 1 } }, [take("classes", "Fast Hero", { level: 1 })]);
+      app = await open(fast);
+      app.choices.hitPoints = 4;
+      await app.render();
+      await wait(() => !app.element.querySelector("[data-action=finish]")?.disabled, "the level to be ready");
+      app.element.querySelector("[data-action=finish]").click();
+      await wait(() => fast.system.history.at(-1)?.wealth !== null && fast.system.history.at(-1)?.wealth !== undefined, "the Wealth check recorded with the level", 20000);
+      if (fast.system.wealth.regainedLevel !== 2) errors.push(`Wealth regained for level ${fast.system.wealth.regainedLevel}, not 2`);
+      const undone = undoLastLevel(fast);
+      await dialog({}, "yes");
+      await undone;
+      if (fast.system.wealth.value !== 5 || fast.system.wealth.regainedLevel !== 1) errors.push(`after undoing: Wealth +${fast.system.wealth.value} regained for level ${fast.system.wealth.regainedLevel}, not +5 for level 1`);
+
+      // A 2nd level's bonus feat left unchosen: none added (not the list's first).
+      const strong1 = await character("Bonus feat unchosen (test)", {}, [take("classes", "Strong Hero", { level: 1 })]);
+      app = await open(strong1);
+      if (!app.plan.bonusFeat) errors.push("Strong Hero 2 brings no bonus feat");
+      app.choices.hitPoints = 5;
+      await app.render();
+      await wait(() => !app.element.querySelector("[data-action=finish]")?.disabled, "the level to be ready");
+      app.element.querySelector("[data-action=finish]").click();
+      await wait(() => strong1.system.history.length === 1, "the level", 20000);
+      await new Promise((r) => setTimeout(r, 1000));
+      const bonus = strong1.items.filter((i) => i.getFlag("modern20", "bonusFor"));
+      if (bonus.length) errors.push(`a bonus feat left unchosen added ${bonus.map((i) => i.name).join(", ")}`);
+
+      // Ranks that cost no points (given outside a level): 0 shown, not the cost at today's prices.
+      await fast.update({ "system.skills.hide.ranks": 2, "system.skills.hide.points": 0 });
+      await fast.sheet.render({ force: true });
+      await wait(() => fast.sheet.rendered, "the sheet");
+      const row = fast.sheet.element.querySelector("section.tab[data-tab=skills] [data-action=rollSkill][data-skill=hide]")?.closest("tr");
+      const points = row?.querySelectorAll("td")[3]?.innerText.trim();
+      if (points !== "0") errors.push(`Hide's 2 free ranks show ${points} points, not 0`);
+      await fast.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of foundry.applications.instances.values()) if (a.constructor.name === "LevelUp") await a.close();
+    for (const a of made) await a.delete();
     return errors;
   },
 };

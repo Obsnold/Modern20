@@ -11,6 +11,7 @@ import * as D from "./rules/damage.mjs";
 import { readDefenses, damageParts, reduceDamage } from "./rules/resistance.mjs";
 import { characterRolls, creatureRolls } from "./roll.mjs";
 import { SYSTEM_ID } from "./config.mjs";
+import { exists } from "./presence.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
 /** The conditions hit points set (rules/damage.mjs hpConditions). */
@@ -27,30 +28,71 @@ function targetOf(actor) {
   return { hp: { value: s.hp.value ?? s.hp.max ?? 0, temp: 0, max: s.hp.max ?? s.hp.value ?? 0 }, threshold: s.massiveDamage ?? s.abilities?.con ?? null, type: s.type?.base };
 }
 
+/** The option marking a change of hit points this module made, with the conditions it sets itself. */
+const OWN_CHANGE = "modern20HitPoints";
+
 const destroyedAtZero = (actor) => ["construct", "undead"].includes(String(targetOf(actor).type ?? "").toLowerCase());
 
 /**
  * Write hit points, and the conditions they put the actor in. `lost` (damage taken) makes a
  * stable character dying again; `stable`, `awake` and `recovering` set a character's progress
  * below 0 (rules/damage.mjs belowZeroSave).
- * Unconscious is only switched off when hit points put it on (not one a sleep spell set).
  */
-export async function setHitPoints(actor, hp, { lost = false, stable: nowStable, awake, recovering } = {}) {
-  const was = new Set(actor.statuses);
-  const stable = nowStable ?? (!lost && was.has("stable"));
-  const c = D.hpConditions(hp.value, { stable, awake: awake ?? (stable && !was.has("unconscious")), destroyedAtZero: destroyedAtZero(actor) });
+export async function setHitPoints(actor, hp, { lost = false, stable, awake, recovering } = {}) {
   const update = { "system.hp.value": hp.value };
   if (actor.type === "character") {
     if (hp.temp !== undefined) update["system.hp.temp"] = hp.temp;
     update["system.hp.recovering"] = hp.value >= 0 ? false : (recovering ?? actor.system.hp.recovering) && !lost;
   }
-  await actor.update(update);
+  // Marked, so the hook that sets conditions for hit points changed anywhere else leaves these to this.
+  await actor.update(update, { [OWN_CHANGE]: true });
+  return setConditions(actor, hp.value, { lost, stable, awake });
+}
+
+/**
+ * The conditions hit points put the actor in, switched on and off to match (rules/damage.mjs hpConditions).
+ * Unconscious is only switched off when hit points put it on (not one a sleep spell set).
+ */
+async function setConditions(actor, value, { lost = false, stable: nowStable, awake } = {}) {
+  const was = new Set(actor.statuses);
+  const stable = nowStable ?? (!lost && was.has("stable"));
+  const c = D.hpConditions(value, { stable, awake: awake ?? (stable && !was.has("unconscious")), destroyedAtZero: destroyedAtZero(actor) });
   const fromHitPoints = was.has("dying") || was.has("stable");
   for (const id of HP_CONDITIONS) {
     if (id === "unconscious" && !c.unconscious && !fromHitPoints) continue;
     if (was.has(id) !== c[id]) await actor.toggleStatusEffect(id, { active: c[id], overlay: id === "dead" });
   }
   return c;
+}
+
+/** Hit points before a change made elsewhere (typed on the sheet, a token's bar), by actor, for the change after it. */
+const before = new Map();
+
+/**
+ * Hit points changed anywhere but a damage card or a save (typed on the sheet, a token's bar, the maximum
+ * followed): the conditions follow them, by the client that made the change. Called once, at init.
+ */
+export function registerHitPointConditionHooks() {
+  const changesHp = (changes) => foundry.utils.hasProperty(changes, "system.hp.value");
+  Hooks.on("preUpdateActor", (actor, changes, options, userId) => {
+    if (userId !== game.user.id || options[OWN_CHANGE] || !changesHp(changes)) return;
+    before.set(actor.uuid, actor.system.hp.value ?? actor.system.hp.max ?? 0);
+  });
+  Hooks.on("updateActor", async (actor, changes, options, userId) => {
+    if (userId !== game.user.id || options[OWN_CHANGE] || !changesHp(changes)) return;
+    // What they were, where the pre-update hook saw it (an unlinked token's may not come through it).
+    const was = before.get(actor.uuid);
+    before.delete(actor.uuid);
+    const value = actor.system.hp.value;
+    if (value === null || value === undefined || value === was || !exists(actor)) return;
+    // Hit points the maximum took away (Constitution lost) are not damage: a stable character stays stable.
+    const lost = was !== undefined && value < was && !options.modern20Following;
+    if (actor.type === "character") {
+      const recovering = value >= 0 ? false : actor.system.hp.recovering && !lost;
+      if (recovering !== actor.system.hp.recovering) await actor.update({ "system.hp.recovering": recovering }, { [OWN_CHANGE]: true });
+    }
+    await setConditions(actor, value, { lost });
+  });
 }
 
 /** Apply `amount` to an actor (`{ healing, nonlethal }`), and post what it did. */

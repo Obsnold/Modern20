@@ -2,7 +2,7 @@
  * Whether an actor is still there to write to. A change made a moment after another (current hit
  * points following the maximum, class features following levels) can find its character being
  * deleted: still in the world on this client, but gone by the time the write reaches the server.
- * So a deletion under way counts as gone.
+ * So a deletion under way (of an actor, or an unlinked token, whose actor is its own) counts as gone.
  */
 const deleting = new Set();
 
@@ -16,4 +16,7 @@ export function exists(actor) {
 export function registerPresenceHooks() {
   Hooks.on("preDeleteActor", (actor) => { deleting.add(actor.uuid); });
   Hooks.on("deleteActor", (actor) => { deleting.delete(actor.uuid); });
+  // An unlinked token's own actor goes with its token.
+  Hooks.on("preDeleteToken", (token) => { if (token.actor && !token.actorLink) deleting.add(token.actor.uuid); });
+  Hooks.on("deleteToken", (token) => { if (token.actor) deleting.delete(token.actor.uuid); });
 }

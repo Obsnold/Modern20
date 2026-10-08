@@ -122,7 +122,11 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const rolls = [...(cls.own?.system.hitPoints ?? [])];
     rolls[level - 1] = plan.maxHitPoints ? null : this.choices.hitPoints;
     items.push({ type: "class", name: cls.name, system: { ...(cls.system.toObject?.() ?? cls.system), level, hitPoints: rolls } });
-    const after = deriveCharacter(actor.system, items);
+    // With the ranks bought and the ability increase chosen, so a feat's prerequisites are judged as at the new level.
+    const systemAfter = L.afterLevel(actor.system, actor.system.toObject(), {
+      bought: this.choices.bought, rows, offers, specialties: this.choices.specialties, increase: plan.increase ? this.choices.increase : "",
+    });
+    const after = deriveCharacter(systemAfter, items);
     const change = (label, a, b, fmt = signed) => ({ label, before: fmt(a), after: fmt(b), changed: a !== b });
     const summary = [
       change("Level", d.level, after.level, String), change("Base attack", d.baseAttackBonus, after.baseAttackBonus),
@@ -131,10 +135,21 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       change("Hit points", d.hitPoints.max, after.hitPoints.max, String),
     ];
 
+    // At 1st level: the feats the occupation, species and class give (rules/advancement.mjs featGrants), those
+    // taken from a choice ticked.
+    const grantItems = plainItems(actor).filter((i) => i.type !== "actor");
+    if (plan.isNew) grantItems.push({ id: cls.uuid, type: "class", name: cls.name, system: { ...(cls.system.toObject?.() ?? cls.system), level: 1 } });
+    const grantList = plan.firstClass ? featGrants(grantItems, actor.system.startingClass) : [];
+    const granted = (g, i) => g.choose >= g.options.length || this.choices.grants.includes(`${g.source}|${i}`);
+    const bonusPick = plan.bonusFeat && this.choices.bonusFeat !== "" ? (cls.system.bonusFeats ?? [])[Number(this.choices.bonusFeat)] : null;
+
     // Feats: the compendium's, by name, with any choice they need and whether the character meets their
-    // prerequisites (rules/prerequisites.mjs), as it is now.
+    // prerequisites (rules/prerequisites.mjs) as it will be at the new level: its base attack bonus and saves,
+    // the ranks and increase chosen here, and the other feats this level brings (two at 1st level, a bonus feat,
+    // those given).
     const feats = (await index("feats", ["system.prerequisites"])).map((e) => ({ name: e.name, prerequisites: e.system?.prerequisites ?? "" }));
-    const pre = { d, feats: have.feats.map((f) => f.name), known: new Set(feats.map((f) => slug(f.name))) };
+    const chosen = [...this.choices.feats.filter(Boolean), bonusPick?.name, ...grantList.flatMap((g) => g.options.filter((o, i) => granted(g, i)).map((o) => o.name))].filter(Boolean);
+    const pre = { d: after, feats: [...have.feats.map((f) => f.name), ...chosen], known: new Set(feats.map((f) => slug(f.name))) };
     const status = (name) => {
       const text = feats.find((f) => f.name === name)?.prerequisites ?? "";
       if (!text) return { text: "", met: true };
@@ -150,8 +165,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       const unmet = status(o.name).met === false;
       return { value: String(i), label: `${o.specialty ? `${o.name} (${o.specialty})` : o.name}${unmet ? " (prerequisites not met)" : ""}`, selected: this.choices.bonusFeat === String(i) };
     }) : [];
-    const bonusChosen = (cls.system.bonusFeats ?? [])[Number(this.choices.bonusFeat)];
-    const ownedTalents = have.talents.map((t) => ({ name: t.name, tree: t.system.tree }));
+        const ownedTalents = have.talents.map((t) => ({ name: t.name, tree: t.system.tree }));
     const talentIndex = plan.talent ? new Map((await index("talents", ["system.prerequisites", "system.tree"])).map((e) => [e.uuid, e])) : new Map();
     const talentOptions = plan.talent ? (cls.system.talentTrees ?? []).flatMap((tree) => tree.talents.map((t) => {
       const doc = talentIndex.get(t.uuid);
@@ -159,23 +173,19 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       const pre = doc ? talentPrerequisites(doc, ownedTalents) : { met: true, missing: [] };
       return { value: t.uuid, label: `${tree.name}: ${t.name}${taken ? " (taken)" : pre.met === false ? ` (needs ${pre.missing.join(", ")})` : ""}`, disabled: taken, selected: this.choices.talent === t.uuid };
     })) : [];
-    // At 1st level: the feats the occupation, species and class give (rules/advancement.mjs featGrants).
-    const grantItems = plainItems(actor).filter((i) => i.type !== "actor");
-    if (plan.isNew) grantItems.push({ id: cls.uuid, type: "class", name: cls.name, system: { ...(cls.system.toObject?.() ?? cls.system), level: 1 } });
-    // Each option a numbered box (its id holds a uuid's dots, which a form's names cannot).
+    // The feats given, each option a numbered box (its id holds a uuid's dots, which a form's names cannot).
     this.grantIds = [];
-    const grants = plan.firstClass ? featGrants(grantItems, actor.system.startingClass).map((g) => ({
+    const grants = grantList.map((g) => ({
       text: `${g.name} (${g.label}): ${g.choose >= g.options.length ? "gives" : `choose ${g.choose} of`}`,
       options: g.options.map((o, i) => {
         const n = this.grantIds.push(`${g.source}|${i}`) - 1;
         const all = g.choose >= g.options.length;
-        return { name: `grant~${n}`, label: o.specialty ? `${o.name} (${o.specialty})` : o.name, checked: all || this.choices.grants.includes(`${g.source}|${i}`), fixed: all };
+        return { name: `grant~${n}`, label: o.specialty ? `${o.name} (${o.specialty})` : o.name, checked: granted(g, i), fixed: all };
       }),
-    })) : [];
+    }));
 
     // What is left undone (a warning: the level can still be taken), and a feat that is not one (it would be lost).
     const unknown = featSlots.filter((f) => f.name && !feats.some((x) => x.name === f.name)).map((f) => f.name);
-    const bonusPick = (cls.system.bonusFeats ?? [])[Number(this.choices.bonusFeat)];
     const warnings = [
       ...featSlots.filter((f) => !f.name).map(() => "A feat is not chosen."),
       ...featSlots.filter((f) => f.name && f.prerequisites.met === false).map((f) => `${f.name}: prerequisites not met (${f.prerequisites.missing}).`),
@@ -200,7 +210,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       newSpecialty: this.choices.newSpecialty ?? "",
       points: { total: plan.skillPoints, left, over: left < 0 },
       featList: feats, featSlots,
-      bonus: plan.bonusFeat ? { options: bonusOptions, choiceKind: bonusChosen && !bonusChosen.specialty ? CHOICES[slug(bonusChosen.name)] ?? "" : "", choice: this.choices.bonusChoice } : null,
+      bonus: plan.bonusFeat ? { options: bonusOptions, choiceKind: bonusPick && !bonusPick.specialty ? CHOICES[slug(bonusPick.name)] ?? "" : "", choice: this.choices.bonusChoice } : null,
       talents: plan.talent ? talentOptions : null,
       increase: plan.increase ? ABILITIES.map((a) => ({ value: a, label: ABILITY_NAMES[a], selected: this.choices.increase === a })) : null,
       grants,
@@ -255,18 +265,21 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     this.render();
   }
 
-  /** Take the level: write it all, record it, and close. */
+  /** Take the level: write it all, record it, and close. Once: a second click while the first is writing would take another level. */
   static async #onFinish() {
-    // Once: a second click while the first is writing would take another level.
     if (this.finishing) return;
     this.finishing = true;
+    await finishing(this, `${this.actor.name}'s level`, () => this.#take());
+  }
+
+  async #take() {
     const actor = this.actor;
     const plan = this.plan;
     const cls = await this.#chosenClass();
     if (!cls || !plan) { this.finishing = false; return; }
     const s = this.choices;
     const created = [];
-    const history = { id: foundry.utils.randomID(), kind: "level", note: "", effects: [], level: plan.level, className: cls.name, classId: "", isNew: plan.isNew, hitPoints: plan.maxHitPoints ? null : s.hitPoints, ranks: [], items: [], increase: "", actionPoints: 0, time: Date.now() };
+    const history = { id: foundry.utils.randomID(), kind: "level", note: "", effects: [], level: plan.level, className: cls.name, classId: "", isNew: plan.isNew, hitPoints: plan.maxHitPoints ? null : s.hitPoints, ranks: [], items: [], increase: "", actionPoints: 0, wealth: null, time: Date.now() };
     // The class: a level more, or a new class at 1st, with its hit point roll.
     let classItem = cls.own;
     if (classItem) {
@@ -310,7 +323,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       const entry = featIndex.find((e) => e.name === name);
       if (entry) await add(entry.uuid, s.featChoices[i] ? { choice: s.featChoices[i] } : {});
     }
-    const bonus = plan.bonusFeat ? (cls.system.bonusFeats ?? [])[Number(s.bonusFeat)] : null;
+    const bonus = plan.bonusFeat && s.bonusFeat !== "" ? (cls.system.bonusFeats ?? [])[Number(s.bonusFeat)] : null;
     if (bonus) await add(bonus.uuid, { choice: bonus.specialty || s.bonusChoice || "" }, { bonusFor: classItem.id, bonusAdded: true });
     if (plan.talent && s.talent) await add(s.talent);
     if (plan.firstClass) {
@@ -336,8 +349,13 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     await actor.update({ "system.history": [...actor.system.toObject().history, history] });
     await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: `<div class="m20-roll"><h3>${foundry.utils.escapeHTML(actor.name)} reaches level ${plan.level}</h3><p>${foundry.utils.escapeHTML(cls.name)} ${plan.classLevel}${history.hitPoints ? `, ${history.hitPoints} on the Hit Die` : ""}.</p></div>` });
     this.close();
-    // A new level's Wealth: the Profession check (rules/wealth.mjs).
-    if (!plan.firstClass && s.wealth) await regainWealth(actor);
+    // A new level's Wealth: the Profession check (rules/wealth.mjs), what it gained recorded with the level for undoing.
+    if (!plan.firstClass && s.wealth) {
+      const gain = await regainWealth(actor);
+      if (gain !== null && gain !== undefined) {
+        await actor.update({ "system.history": actor.system.toObject().history.map((h) => (h.id === history.id ? { ...h, wealth: gain } : h)) });
+      }
+    }
   }
 }
 
@@ -411,12 +429,15 @@ export class Grant extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static async #onFinish() {
-    if (this.finishing) return;
+    if (this.finishing || !this.choices.note.trim()) return;
+    this.finishing = true;
+    await finishing(this, `What ${this.actor.name} gained`, () => this.#take());
+  }
+
+  async #take() {
     const actor = this.actor;
     const c = this.choices;
     const note = c.note.trim();
-    if (!note) return;
-    this.finishing = true;
     const flags = { [SYSTEM_ID]: { grantNote: note } };
     // The items: from the compendiums, and a new feat of the table's own.
     const data = [];
@@ -466,6 +487,21 @@ export class Grant extends HandlebarsApplicationMixin(ApplicationV2) {
 }
 
 /**
+ * Run a window's finish, `take`: an error part way (a write refused) is said, with what was already written
+ * left on the sheet to check, and the window's button works again.
+ */
+async function finishing(app, what, take) {
+  try {
+    await take();
+  } catch (err) {
+    console.error(`${SYSTEM_ID} | ${what} was not finished:`, err);
+    ui.notifications.error(`${what} was not finished: ${err.message}. Anything written before this is on the sheet; check it before trying again.`);
+    app.finishing = false;
+    if (app.rendered) app.render();
+  }
+}
+
+/**
  * Take back the last level in the character's history: its class level (or the class, if it was new),
  * hit point roll, ranks and points, feats and talent, ability increase and action points.
  */
@@ -492,6 +528,11 @@ export async function undoLastLevel(actor) {
     const at = increases.lastIndexOf(last.increase);
     if (at >= 0) increases.splice(at, 1);
     update["system.abilityIncreases"] = increases;
+  }
+  // The level's Wealth check: what it gained, and the level it was made for.
+  if (last.wealth !== null && last.wealth !== undefined) {
+    update["system.wealth.value"] = Math.max(0, (actor.system.wealth.value ?? 0) - last.wealth);
+    update["system.wealth.regainedLevel"] = Math.max(1, (actor.system.wealth.regainedLevel || 1) - 1);
   }
   if (last.actionPoints) {
     update["system.actionPoints.value"] = Math.max(0, (actor.system.actionPoints.value ?? 0) - last.actionPoints);

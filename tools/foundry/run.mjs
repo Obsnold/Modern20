@@ -35,7 +35,8 @@ async function main() {
   const problems = [];
   let failed = 0, ran = 0;
   try {
-    const page = await join(browser, "Gamemaster", problems);
+    // The write a check refuses on purpose ("refused (test)"), and the error the system then reports, are expected.
+    const page = await join(browser, "Gamemaster", problems, { expected: /refused \(test\)/ });
     // Rolls go straight to chat, without asking for a modifier.
     await page.evaluate(() => game.settings.set("modern20", "askBeforeRolling", false));
     await page.evaluate(`(${PRELUDE.toString()})()`);

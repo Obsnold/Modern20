@@ -214,7 +214,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         // shows a tick; any other can be marked by hand, its tooltip naming the classes it is a skill of.
         ...classColumn(row, buyingAs),
         // Points: as tracked, or (not yet) shown as the estimate at today's cost; and what a rank costs now.
-        pointsEstimate: row.ranks * (row.classSkill ? 1 : 2),
+        pointsEstimate: row.ranks * (row.classSkill ? 1 : 2), tracked: row.points !== null && row.points !== undefined,
         cost: rankCost(row, levellingClass(actor)),
       });
       last = row.key;

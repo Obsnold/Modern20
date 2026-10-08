@@ -391,7 +391,9 @@ export const ACTOR_MODELS = {
       id: str(), kind: str({ choices: ["level", "grant"] }), note: str(),
       level: int(), className: str(), classId: str(), isNew: bool(), hitPoints: int({ nullable: true }),
       ranks: list(obj({ skill: str(), specialty: str(), ranks: num(), points: num() })),
-      items: list(str()), effects: list(str()), increase: str({ choices: ABILITIES }), actionPoints: int(), time: num(),
+      items: list(str()), effects: list(str()), increase: str({ choices: ABILITIES }), actionPoints: int(),
+      /** What the level's Wealth check gained (null: none made with it), taken back with the level. */
+      wealth: int({ nullable: true }), time: num(),
     })),
     /** The class the 1st level was in (its name), for its maximum hit points, ×4 skill points and starting feats; empty for a basic class. */
     startingClass: str(),

@@ -39,3 +39,28 @@ test("nearly every feat's prerequisites are read, the rest left for the table", 
   // Turning undead, a mecha's hands, natural weapons, an allegiance, flying, proficiency with the weapon, Spell Mastery.
   assert.ok(left.length <= 13, left.join("; "));
 });
+
+test("in the level window, judged as at the new level: its base attack bonus, the ranks bought and the increase chosen", async () => {
+  const { afterLevel, levelPlan, skillOffer } = await import("../../module/rules/levelling.mjs");
+  const strong = (level) => ({ type: "class", name: "Strong Hero", system: { ...classes["Strong Hero"].system, level } });
+  // A new Strong hero: base attack +0 before its 1st level, +1 at it, so Combat Martial Arts can be its 1st-level feat.
+  const system = { abilities: abilities({ dex: 12 }), skills: {}, specialtySkills: [], abilityIncreases: [] };
+  const before = deriveCharacter(system, []);
+  const cma = feats.find((f) => f.name === "Combat Martial Arts").system.prerequisites;
+  assert.equal(check(cma, before).met, false);
+  assert.equal(check(cma, deriveCharacter(afterLevel(system, system), [strong(1)])).met, true);
+  // A 4th level's +1 Dexterity (12 to 13) for Dodge, and Drive ranks bought with its points.
+  const three = deriveCharacter({ ...system, skills: { drive: { ranks: 5 } } }, [strong(3)]);
+  const rows = three.skills;
+  const plan = levelPlan({ d: three, classes: [strong(3)], system, cls: strong(3) });
+  const offers = Object.fromEntries(rows.map((r) => [`${r.key}|${r.specialty ?? ""}`, skillOffer(r, strong(3), plan.level)]));
+  const cost = offers["drive|"].cost;
+  const after = deriveCharacter(afterLevel(system, { ...system, skills: { drive: { ranks: 5 } } }, { bought: { "drive|": cost }, rows, offers, increase: "dex" }), [strong(4)]);
+  assert.equal(after.scores.dex, 13);
+  assert.equal(after.skills.find((r) => r.key === "drive").ranks, 6);
+  assert.equal(check("Dexterity 13, Dodge.", after, ["Dodge"]).met, true);
+  assert.equal(check("Drive 6 ranks", after).met, true);
+  assert.equal(check("Drive 6 ranks", three).met, false);
+  // What it reads through to is left as it was.
+  assert.deepEqual(system.abilityIncreases, []);
+});

@@ -78,8 +78,14 @@ export function specialLoad(actor, weapon) {
     const id = weapon.system.loadedWith;
     if (!id) return null;
     const item = actor.items.find((i) => i.type === "ammunition" && identify(i) === id);
-    return A.specialAmmo(id, item?.name ?? id);
+    return withKey(A.specialAmmo(id, item?.name ?? id), id);
   }
   const ammo = ammoFor(actor, weapon);
-  return ammo ? A.specialAmmo(identify(ammo), ammo.name) : null;
+  return ammo ? withKey(A.specialAmmo(identify(ammo), ammo.name), identify(ammo)) : null;
 }
+
+/** A special load with its identifier (`key`), which an attack's card keeps for its damage. */
+const withKey = (load, key) => (load ? { ...load, key } : null);
+
+/** The load an attack's card recorded (`{ key, name }`), as specialLoad gives it; null for ordinary rounds. */
+export const recordedLoad = (load) => (load ? withKey(A.specialAmmo(load.key, load.name), load.key) : null);

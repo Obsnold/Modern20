@@ -17,7 +17,7 @@ import { rulesFor } from "./rules/feats.mjs";
 import { readAttacks, attackRoll, damageRoll } from "./rules/attacks.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 import { bindLevelCheck } from "./casting.mjs";
-import { spendAmmo, specialLoad } from "./ammo.mjs";
+import { spendAmmo, specialLoad, recordedLoad } from "./ammo.mjs";
 import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
 import { resolveValue, mechanicsContext } from "./rules/effects.mjs";
@@ -173,7 +173,9 @@ export function characterRolls(actor) {
       if (!item.system.melee) options.push({ name: "intoMelee", label: "The target is in a melee with an ally (−4)" });
       options.push(...defensiveOption(actor));
       const hasPointBlank = feats.some((f) => rulesFor(f.identifier).pointBlank);
-      return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0], ammo }), event, { attack: { actor: actor.uuid, item: item.id } }, {
+      // The load fired is kept on the card, so its damage is the load's even if the weapon is reloaded before it is rolled.
+      const load = ammo ? { key: ammo.key, name: ammo.name } : null;
+      return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0], ammo }), event, { attack: { actor: actor.uuid, item: item.id, load } }, {
         options, notes: notes(R.rollTargets.attack(!!item.system.melee)),
         rebuild: (ticked) => {
           // Point Blank Shot by the distance, when one is given (its damage is rolled from what is kept here).
@@ -213,11 +215,12 @@ export function characterRolls(actor) {
       { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
       { label: "Size and effects", value: d.grapple - d.baseAttackBonus - (d.modifiers.str ?? 0) },
     ]), event, undefined, { notes: notes(R.rollTargets.grapple()) }),
-    damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false, ammoAsk = false } = {}) => {
+    damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false, ammoAsk = false, load } = {}) => {
       // The unarmed strike is not an item: rebuilt from the feats, as it was attacked with.
       const u = item === "unarmed" ? unarmedRules(feats.map((f) => rulesFor(f.identifier))) : null;
       if (u) item = unarmedWeapon(u, { lethal });
-      const ammo = u || item.system.melee ? null : specialLoad(actor, item);
+      // The load the attack fired (`load`, from its card), or without one the weapon's now.
+      const ammo = u || item.system.melee ? null : load !== undefined ? recordedLoad(load) : specialLoad(actor, item);
       const spec = R.damage(d, item, { pointBlank, mode, feats, ammo, ammoAsk });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
       // Nonlethal by its type (an unarmed strike's), or by its printed damage ("4d6 nonlethal", a concussion grenade).
@@ -393,10 +396,10 @@ export function bindAttackButtons(message, html) {
     const item = actor.items?.get(flags.attack.item);
     if (!item) return;
     const pointBlank = !!flags.attack.pointBlank, ammoAsk = !!flags.attack.ammoAsk;
-    const mode = flags.attack.mode;
+    const mode = flags.attack.mode, load = flags.attack.load;
     name = item.name;
-    normal = () => characterRolls(actor).damage(item, { pointBlank, mode, ammoAsk });
-    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank, mode, ammoAsk });
+    normal = () => characterRolls(actor).damage(item, { pointBlank, mode, ammoAsk, load });
+    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank, mode, ammoAsk, load });
   } else {
     // A creature's printed attack.
     const { line, choice, index } = flags.attack;
