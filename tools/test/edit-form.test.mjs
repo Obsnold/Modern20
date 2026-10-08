@@ -89,3 +89,17 @@ test("numbers from the character sheet: an emptied box, a fraction in a whole nu
   assert.deepEqual(out.specialtySkills, { 0: { ranks: 1.5, misc: 0 } });
   assert.equal(out.details.age, "30");
 });
+
+test("links and ids the sheet keeps are not shown, and are kept as they were; a field's own label is used", async () => {
+  const { ITEM_MODELS } = await import("../../module/data/models.mjs");
+  const { obj: object } = await import("../../module/data/schema.mjs");
+  const spec = object(ITEM_MODELS.weapon);
+  const value = { proficiency: { value: "Personal Firearms Proficiency", uuid: "Compendium.modern20.feats.Item.abc" }, ammunition: "item1", loadedFrom: "item1", loadedWith: "beanbag", source: { book: "d20 Modern", page: "JournalEntry.x.JournalEntryPage.y" } };
+  const html = editForm(spec.fields, value);
+  for (const name of ["system.proficiency.uuid", "system.ammunition", "system.loadedFrom", "system.loadedWith", "system.source.page"]) assert.doesNotMatch(html, new RegExp(`name="${name.replace(/\./g, "\\.")}"`), name);
+  assert.match(html, /name="system\.proficiency\.value"/);
+  assert.match(html, />Feat needed</);
+  // What the form sends leaves them as they were.
+  const back = fromForm(spec, { proficiency: { value: "Exotic Firearms Proficiency (cannons)" } }, value);
+  assert.deepEqual([back.proficiency.uuid, back.ammunition, back.source.page], [value.proficiency.uuid, "item1", value.source.page]);
+});

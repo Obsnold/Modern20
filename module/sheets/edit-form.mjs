@@ -9,6 +9,7 @@
  *   a group of fields       a fieldset
  *   a list of values        a text box, one value a line (values may hold commas)
  *   a list of entries       a fieldset per entry, with buttons to add and remove one
+ *   a link or an id         not shown (data/models.mjs `ref`: a uuid, a source page, the ammunition loaded)
  *
  * Plain functions over plain data, so `npm test` checks the round trip: the
  * form's values, read back with `fromForm`, are the document's data.
@@ -46,9 +47,12 @@ export function editForm(fields, value, { prefix = "system", html = textarea } =
 function group(fields, value, prefix, html) {
   const scalars = [], blocks = [];
   for (const [key, spec] of Object.entries(fields)) {
+    // A link or an id the sheet keeps (data/models.mjs `ref`): not shown, and kept as it is (fromForm).
+    if (spec.hidden) continue;
     const name = `${prefix}.${key}`;
     const v = value?.[key];
-    if (isScalar(spec)) scalars.push(`<label>${escape(label(key))}</label>${input(spec, name, v)}`);
+    // A field's own label where the model gives one ("The proficiency feat it needs"), else its name's.
+    if (isScalar(spec)) scalars.push(`<label${spec.hint ? ` data-tooltip="${escape(spec.hint)}"` : ""}>${escape(spec.label ?? label(key))}</label>${input(spec, name, v)}`);
     else if (spec.kind === "array" && isScalar(spec.of)) {
       const lines = (v ?? []).map((x) => x ?? "").join("\n");
       scalars.push(`<label>${escape(label(key))}</label><textarea name="${escape(name)}" rows="${Math.min(Math.max((v ?? []).length, 1), 8)}" placeholder="One a line">${escape(lines)}</textarea>`);

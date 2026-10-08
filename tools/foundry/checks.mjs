@@ -1831,6 +1831,10 @@ export const CHECKS = {
       glock.sheet.editing = true;
       await glock.sheet.render({ force: true });
       await wait(() => glock.sheet.element?.querySelector("input[name='system.enhancement']"), "the Glock's edit view");
+      // Links and ids are not boxes to type in; the proficiency is, by its feat's name.
+      const shown = [...glock.sheet.element.querySelectorAll("[name]")].map((e) => e.name).filter((n) => /\.uuid$|^system\.(ammunition|loadedFrom|loadedWith|source\.page)$/.test(n));
+      if (shown.length) errors.push(`the weapon's edit view shows ${shown.join(", ")}`);
+      if (!/Feat needed/.test(glock.sheet.element.innerText)) errors.push("the weapon's edit view does not label its proficiency \"Feat needed\"");
       type(glock.sheet.element, "input[name='system.enhancement']", 2);
       await wait(() => glock.system.enhancement === 2, "the enhancement to save");
       await glock.sheet.close();

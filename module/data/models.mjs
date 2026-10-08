@@ -18,12 +18,17 @@ export const SAVES = ["fort", "ref", "will"];
 // ---------------------------------------------------------------------------
 // Shared parts
 
+/**
+ * A link to another document (its uuid), or an id the sheet keeps: stored, but not a thing to type, so the edit view
+ * (sheets/edit-form.mjs) does not show it.
+ */
+const ref = () => str({ hidden: true });
 /** Where an entry is printed: the book, and its page in the rules journal. */
-const source = obj({ book: str(), page: str() });
+const source = obj({ book: str(), page: ref() });
 /** A link to another document by name, as printed ("Weapon Finesse (bite)"). */
-const link = obj({ name: str(), specialty: str(), uuid: str() });
+const link = obj({ name: str(), specialty: str(), uuid: ref() });
 /** A link with no specialty. */
-const namedLink = obj({ name: str(), uuid: str() });
+const namedLink = obj({ name: str(), uuid: ref() });
 /** A skill offered by a class or occupation: "Craft (writing) (Int)". */
 const skillOption = obj({ name: str(), specialty: str(), ability: str({ choices: ABILITIES }) });
 /** A choice among options: "Select one of the following". */
@@ -111,7 +116,7 @@ const ITEM_FIELDS = {
     maxLevel: int(),
     bonusFeats: list(link),
     /** Its features: each with the class levels it comes at, and (`uuid`) its item in the class features pack. */
-    features: list(obj({ name: str(), levels: list(int()), description: html(), uuid: str() })),
+    features: list(obj({ name: str(), levels: list(int()), description: html(), uuid: ref() })),
     talentTrees: list(obj({ name: str(), description: html(), talents: list(namedLink) })),
     /** A caster's spells or powers, as its class page prints them (tools/build/classes.mjs readCasting); `kind` "" if it does not cast. */
     casting: obj({
@@ -262,17 +267,17 @@ const ITEM_FIELDS = {
     magazine: str(),
     burstRadius: str(),
     reflexDC: str(),
-    proficiency: obj({ value: str(), uuid: str() }),
+    proficiency: obj({ value: str({ label: "Feat needed", hint: "The proficiency feat it needs, by name: Personal Firearms Proficiency, Exotic Melee Weapon Proficiency (chain saw). Empty: none" }), uuid: ref() }),
     melee: bool(),
     /** On a character's copy: rounds in its magazine, and the id of the ammunition item it is loaded from. */
     loaded: int(),
-    ammunition: str(),
+    ammunition: ref(),
     /** The book sells no ammunition for it (a taser, a flamethrower): reloading refills it, with nothing drawn from what is carried. */
     noAmmunition: bool(),
     /** On a character's copy: the special load in its magazine (rules/ammo.mjs SPECIAL_AMMO: "beanbag"), "" for an ordinary one; set by reloading. */
-    loadedWith: str(),
+    loadedWith: ref(),
     /** On a character's copy: the id of the ammunition item its magazine was filled from, for the rounds taken out on a change of load. */
-    loadedFrom: str(),
+    loadedFrom: ref(),
     /**
      * Its quality (rules/quality.mjs): a mastercraft bonus (+1 to +3), on attack rolls, or on damage for one made
      * with Mastercrafter; and a magic or psionic enhancement bonus (+1 to +5) on both.
@@ -321,7 +326,7 @@ const ITEM_FIELDS = {
     ...physical,
     kind: str({ choices: ["potion", "scroll", "wand", "staff", "tattoo"] }),
     charges: obj({ value: int({ nullable: true }), max: int({ nullable: true }) }),
-    spells: list(obj({ name: str(), uuid: str(), charges: int(), note: str() })),
+    spells: list(obj({ name: str(), uuid: ref(), charges: int(), note: str() })),
     /** How long a used one's effect lasts (a Tattoo of Natural Armor's 7 minutes): its effects go to its user for that long. */
     lasts: obj({ value: int({ nullable: true }), units: str() }),
     description: html(),
@@ -492,7 +497,7 @@ export const ACTOR_MODELS = {
     class: str(),
     cr: printed({ number: num({ nullable: true }) }),
     size: str({ choices: SIZES }),
-    type: obj({ value: str(), base: str(), subtypes: list(str()), uuid: str() }),
+    type: obj({ value: str(), base: str(), subtypes: list(str()), uuid: ref() }),
     template: str(),
     /** One of the book's worked examples: a creature with class levels, built on `base`. */
     example: obj({ classed: bool(), base: namedLink }),
@@ -518,7 +523,7 @@ export const ACTOR_MODELS = {
     skills: list(obj({ name: str(), specialty: str(), bonus: int(), note: str() })),
     languages: list(str()),
     feats: list(link),
-    talents: list(obj({ className: str(), name: str(), detail: str(), uuid: str() })),
+    talents: list(obj({ className: str(), name: str(), detail: str(), uuid: ref() })),
     occupation: str(),
     advancement: str(),
     possessions: str(),
