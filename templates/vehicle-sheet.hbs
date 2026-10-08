@@ -26,7 +26,7 @@
           <dd><select name="system.speed" {{#unless canEdit}}disabled{{/unless}} data-tooltip="One category faster or slower a round: {{v.speedTip}}">{{#each v.speeds}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if far}}disabled{{/if}}>{{label}}</option>{{/each}}</select></dd>
           <dt>Defense</dt><dd class="m20-strong" data-tooltip="{{v.defenseTip}}">{{v.defense}}</dd>
           <dt>Aboard</dt><dd data-tooltip="On the checks and attack rolls of everyone aboard, at this speed">{{v.check}}</dd>
-          <dt>Hardness</dt><dd data-tooltip="Taken off every hit; electricity and fire do half, cold a quarter">{{v.hardness}}</dd>
+          <dt>Hardness</dt><dd data-tooltip="Taken off every hit; electricity and fire do half, cold a quarter{{#if v.hardnessFrom}}; {{v.hardnessFrom}}{{/if}}">{{v.hardness}}</dd>
           <dt>Initiative</dt><dd data-tooltip="Added to its driver's">{{v.initiative}}</dd>
           <dt>Maneuver</dt><dd data-tooltip="Added to Drive and Pilot checks with it">{{v.maneuver}}</dd>
           <dt>Top speed</dt><dd data-tooltip="Squares a round: character scale (5 ft.), and chase scale (50 ft.)">{{v.topSpeed}}</dd>
@@ -59,6 +59,29 @@
         <dt>Crew</dt><dd><select name="system.crewQuality" {{#unless canEdit}}disabled{{/unless}} data-tooltip="A GM's crew, when no one is at the wheel: its check modifier and attack bonus">{{#each v.crews}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></dd>
         {{#if v.operation}}<dt>Needs</dt><dd data-tooltip="Without it: −4 on {{v.skillName}} checks with it and attacks with its weapons">{{v.operation}}</dd>{{/if}}
       </dl>
+    </div>
+
+    <div class="m20-panel">
+      <h3>Trouble</h3>
+      <p>
+        <a class="m20-roll-button" data-action="collide" data-tooltip="It hit something: another vehicle, a creature (target it), or an object. Damage to both, those aboard by its cover, both slower, and the drivers' checks to keep control"><i class="fa-solid fa-car-burst"></i> Collision</a>
+        <a class="m20-roll-button" data-action="repair" data-tooltip="An hour's work: a Repair check (DC 20), 2d6 hit points back"><i class="fa-solid fa-wrench"></i> Repair</a>
+      </p>
+    </div>
+
+    <div class="m20-panel">
+      <h3>FX items <span class="m20-hint">(vehicular: drag one onto this sheet)</span></h3>
+      {{#each v.fxItems}}
+        <div class="m20-item" data-item-id="{{id}}">
+          <img src="{{img}}" alt="" width="28" height="28">
+          <a class="m20-item-name" data-action="editItem">{{name}}</a>
+          {{#if over}}<i class="fa-solid fa-ban m20-warning" data-tooltip="{{over}}"></i>{{/if}}
+          <span class="m20-item-detail">{{detail}}</span>
+          {{#if @root.canEdit}}<a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>{{/if}}
+        </div>
+      {{else}}
+        <p class="m20-hint">None.</p>
+      {{/each}}
     </div>
 
     <div class="m20-panel">

@@ -26,6 +26,7 @@ import { BOOKS, pageUuid } from "./journal.mjs";
 import { buildEquipment } from "./equipment.mjs";
 import { buildSpells, buildPowers, buildIncantations } from "./fx.mjs";
 import { wornSlot } from "../../module/rules/fx-items.mjs";
+import { vehicleSlot } from "../../module/rules/vehicles.mjs";
 
 export const FX_ITEM_PAGES = /^(Modern\/FX\/Items|Arcana\/FXItems)\//;
 
@@ -270,7 +271,8 @@ export const buildFxItems = once(function buildFxItems() {
       img = ICONS[kind];
     }
     // The kind of FX item worn it is, of which only so many count at once.
-    system.fx.slot = item.kind === "vehicular" ? "" : wornSlot(type, item.category, item.name, system.weightClass);
+    system.fx.slot = item.kind === "vehicular" ? vehicleSlot(item.name) : wornSlot(type, item.category, item.name, system.weightClass);
+    if (item.kind === "vehicular" && !system.fx.slot) problems.push({ path: item.path, line: item.line, message: `${item.name}: a vehicular item of no kind in VEHICLE_SLOTS (module/rules/vehicles.mjs)` });
     const id = stableId(`fx-item:${item.path}:${item.name}`);
     documents.push({
       _id: id, _key: `!items!${id}`, name: item.name, type, img,

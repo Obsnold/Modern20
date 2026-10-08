@@ -6,8 +6,8 @@
 import { describe, Editable } from "./document-sheet.mjs";
 import { logContext } from "../log.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
-import { SPEEDS, DRIVING, CREW, reachable, atSpeed, vehicleState } from "../rules/vehicles.mjs";
-import { driveCheck, fireWeapon, driverOf } from "../vehicles.mjs";
+import { SPEEDS, DRIVING, CREW, VEHICLE_SLOTS, reachable, atSpeed, vehicleState, vehicleOverLimit } from "../rules/vehicles.mjs";
+import { driveCheck, fireWeapon, driverOf, collide, repair } from "../vehicles.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -31,6 +31,8 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
       deleteItem: Modern20VehicleSheet.#onDeleteItem,
       filterLog: Modern20VehicleSheet.#onFilterLog,
       driveCheck: Modern20VehicleSheet.#onDriveCheck,
+      collide: Modern20VehicleSheet.#onCollide,
+      repair: Modern20VehicleSheet.#onRepair,
       fireWeapon: Modern20VehicleSheet.#onFireWeapon,
     },
   };
@@ -43,7 +45,10 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
     const s = actor.system;
     const max = s.hp.max ?? 0, hp = s.hp.value ?? max;
     const state = vehicleState(hp, max);
-    const speed = atSpeed(s.defense, s.speed, s.driving);
+    const fx = s.derived?.fx ?? {};
+    const speed = atSpeed(s.defense + (fx.defense ?? 0), s.speed, s.driving);
+    const fxItems = actor.items.filter((i) => i.system?.fx?.power === "vehicular");
+    const over = new Set(vehicleOverLimit(fxItems));
     const driver = driverOf(actor);
     const skillName = s.operation.skill === "pilot" ? "Pilot" : "Drive";
     const can = reachable(s.topSpeed.character);
@@ -52,8 +57,13 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
       hp, max, state: state === "destroyed" ? "Destroyed" : state === "disabled" ? "Disabled" : "",
       speeds: Object.entries(SPEEDS).map(([value, x]) => ({ value, label: `${x.label} (${x.character[1] === Infinity ? `${x.character[0]}+` : x.character[0] === x.character[1] ? x.character[0] : `${x.character[0]}–${x.character[1]}`} squares)`, selected: value === s.speed, far: !can.includes(value) })),
       speedTip: "street +1 Defense, −1 on rolls aboard; highway +2, −2; all-out +4, −4",
-      defense: speed.defense, defenseTip: `${s.defense} as printed${speed.defense !== s.defense ? `, ${signed(speed.defense - s.defense)} at ${speed.label.toLowerCase()}${s.driving !== "normal" ? ` driven ${DRIVING[s.driving].label.toLowerCase()}` : ""}` : ""}`,
-      check: signed(speed.check), hardness: s.hardness, initiative: signed(s.initiative), maneuver: signed(s.maneuver),
+      defense: speed.defense, defenseTip: `${s.defense} as printed${fx.defense ? `, +${fx.defense} from its ${fx.names.defense}` : ""}${speed.defense !== s.defense + (fx.defense ?? 0) ? `, ${signed(speed.defense - s.defense - (fx.defense ?? 0))} at ${speed.label.toLowerCase()}${s.driving !== "normal" ? ` driven ${DRIVING[s.driving].label.toLowerCase()}` : ""}` : ""}`,
+      check: signed(speed.check), hardness: s.derived?.hardness ?? s.hardness, hardnessFrom: fx.hardness ? `+${fx.hardness} from its ${fx.names.hardness}` : "",
+      initiative: signed(s.initiative), maneuver: signed(s.maneuver),
+      fxItems: fxItems.map((i) => ({
+        id: i.id, name: i.name, img: i.img, detail: [i.system.fx.choice, VEHICLE_SLOTS[i.system.fx.slot]?.label].filter(Boolean).join(", "),
+        over: over.has(i.id) ? `Only ${VEHICLE_SLOTS[i.system.fx.slot].limit} ${VEHICLE_SLOTS[i.system.fx.slot].label} works on a vehicle at once: this one does not` : "",
+      })),
       topSpeed: s.topSpeed.value || `${s.topSpeed.character} (${s.topSpeed.chase})`, cover: COVER[s.cover] ?? "—",
       crew: s.crew, passengers: s.passengers, cargo: s.cargo.value || "no",
       occupants: s.occupants.map((o, index) => {
@@ -105,10 +115,10 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
     return actor;
   }
 
-  /** A weapon dropped on it: mounted. Nothing else goes on a vehicle (yet: its FX items do in a later version). */
+  /** A weapon dropped on it: mounted; a vehicular FX item (Arcana): fitted. Nothing else goes on a vehicle. */
   async _onDropItem(event, item) {
-    if (item.type !== "weapon") {
-      ui.notifications.warn(`Only weapons can be mounted on ${this.document.name}.`);
+    if (item.type !== "weapon" && item.system?.fx?.power !== "vehicular") {
+      ui.notifications.warn(`Only weapons and vehicular FX items go on ${this.document.name}.`);
       return null;
     }
     return super._onDropItem(event, item);
@@ -141,6 +151,8 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
   }
 
   static #onDriveCheck(event) { return driveCheck(this.document, { event }); }
+  static #onCollide() { return collide(this.document); }
+  static #onRepair(event) { return repair(this.document, event); }
   static #onFireWeapon(event, target) {
     const weapon = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     if (weapon) return fireWeapon(this.document, weapon, event);

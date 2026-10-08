@@ -5,6 +5,7 @@
 import * as V from "./rules/vehicles.mjs";
 import * as R from "./rules/rolls.mjs";
 import { rollCheck, characterRolls, post } from "./roll.mjs";
+import { SYSTEM_ID } from "./config.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s ?? ""));
 
 /** Every vehicle in the world and on the scene: world actors, and unlinked tokens' own. */
@@ -24,12 +25,33 @@ export function aboardOf(actor) {
   return null;
 }
 
-/** The terms aboard adds: its speed's on a skill check, and on an attack its speed's and how it is driven. */
+/**
+ * The terms aboard adds: its speed's on a skill check, and on an attack its speed's and how it is driven, and a monstrous
+ * Dashboard Figurine's +1; on a save, a humorous one's +1 for its driver.
+ */
 export function aboardTerms(actor, kind = "check") {
   const a = aboardOf(actor);
   if (!a) return [];
+  const fx = a.vehicle.system.derived?.fx ?? {};
+  if (kind === "save") return a.role === "driver" && fx.driverSaves ? [{ label: fx.names.driverSaves, value: fx.driverSaves }] : [];
   const value = kind === "attack" ? a.attack : a.check;
-  return value ? [{ label: `Aboard ${a.vehicle.name} (${a.speedLabel.toLowerCase()}${kind === "attack" && a.vehicle.system.driving !== "normal" ? `, driving ${a.drivingLabel.toLowerCase()}` : ""})`, value }] : [];
+  return [
+    ...(value ? [{ label: `Aboard ${a.vehicle.name} (${a.speedLabel.toLowerCase()}${kind === "attack" && a.vehicle.system.driving !== "normal" ? `, driving ${a.drivingLabel.toLowerCase()}` : ""})`, value }] : []),
+    ...(kind === "attack" && fx.attack ? [{ label: fx.names.attack, value: fx.attack }] : []),
+  ];
+}
+
+/**
+ * What an occupant has from its vehicle against attacks: the vehicle's speed bonus to Defense and its cover's (Seats of
+ * Safety: three-quarters at least), `{ defense, reflex, full }`; `full` when its cover is total, and it cannot be attacked.
+ */
+export function occupantCover(actor) {
+  const a = aboardOf(actor);
+  if (!a) return null;
+  const s = a.vehicle.system;
+  const seats = s.derived?.fx?.seatsOfSafety;
+  const cover = V.COVER[seats && ["none", "one-quarter", "one-half"].includes(s.cover) ? "three-quarters" : s.cover] ?? V.COVER.none;
+  return { vehicle: a.vehicle, full: cover.defense === null, defense: (V.SPEEDS[s.speed]?.defense ?? 0) + (cover.defense ?? 0), reflex: Math.max(cover.reflex ?? 0, s.derived?.fx?.reflex ?? 0), label: cover.label.toLowerCase() };
 }
 
 /** Its driver, as an actor: the occupant whose role is driver. */
@@ -180,3 +202,118 @@ export function crewDamage(vehicle, weapon, multiplier = 1) {
   return post(vehicle, rolled, { flags: { damage: { nonlethal: !!spec.nonlethal, type: spec.type ?? weapon.system.damageType ?? "", half: null } } });
 }
 
+
+/** A damage card, as post() makes one: `formula` of fire or another type, for the Apply, Half and Heal buttons. */
+const damageCard = (actor, title, formula, type, hints = []) => post(actor, { title, terms: [{ label: "Damage", value: formula }], formula, hints }, { flags: { damage: { nonlethal: false, type, half: null } } });
+
+/** A vehicle about to explode: a button to explode it, 10d6 fire inside and half that within 30 feet, each as a damage card. */
+export function bindExplosion(message, html, { vehicle: uuid }) {
+  const vehicle = fromUuidSync(uuid);
+  if (!vehicle?.isOwner) return;
+  const box = document.createElement("div");
+  box.className = "m20-card-buttons";
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = "Explode";
+  b.addEventListener("click", async () => {
+    b.disabled = true;
+    const inside = await damageCard(vehicle, `${vehicle.name} explodes: everyone inside`, "10d6", "fire", ["Reflex DC 20 for half: target those inside, then Apply or Half."]);
+    const half = Math.floor((inside?.total ?? 0) / 2);
+    await damageCard(vehicle, `${vehicle.name} explodes: everyone within 30 feet`, String(half), "fire", ["Reflex DC 15 for half: target those within 30 feet, then Apply or Half."]);
+    if (!vehicle.statuses.has("destroyed")) await vehicle.toggleStatusEffect("destroyed", { active: true, overlay: true });
+  });
+  box.append(b);
+  (html.querySelector(".message-content") ?? html).append(box);
+}
+
+/** The size of what a vehicle hits: another vehicle's or a creature's own, or an object's as chosen. */
+const sizeOf = (actor) => (actor?.type === "character" ? actor.system.derived?.size : actor?.system?.size) || "medium";
+
+/**
+ * A collision (Modern/VehicleCombat/CollisionsAndRamming): what it hit (another vehicle, a creature targeted, or an object),
+ * how it struck, and its damage to both, each a damage card (a moving vehicle or creature struck may save, Reflex DC 15,
+ * for half); those aboard each a share by their cover; both vehicles two speed categories slower; and the drivers' checks
+ * to keep control (DC 15). A Bumper of the Ram makes it one speed and size worse for what it strikes, one better for itself;
+ * Bumpers of Blasting add 5d6 fire to what it strikes at street speed or faster.
+ */
+export async function collide(vehicle) {
+  const s = vehicle.system;
+  const targets = [...(game.user.targets ?? [])].map((t) => t.actor).filter((a) => a && a.uuid !== vehicle.uuid);
+  const others = [...new Map([...targets, ...vehicles()].filter((a) => a.uuid !== vehicle.uuid).map((a) => [a.uuid, a])).values()];
+  const items = vehicle.items.filter((i) => i.system?.fx?.power === "vehicular");
+  const over = new Set(V.vehicleOverLimit(items));
+  const has = (name) => items.some((i) => i.name === name && !over.has(i.id));
+  const sizes = ["tiny", "small", "medium", "large", "huge", "gargantuan", "colossal"];
+  const chosen = await foundry.applications.api.DialogV2.prompt({
+    window: { title: `${vehicle.name}: a collision` },
+    content: `<div class="form-group"><label>What it hit</label><select name="other"><option value="">An object (its size below)</option>${others.map((a) => `<option value="${a.uuid}" ${targets.includes(a) ? "selected" : ""}>${escape(a.name)}${a.type === "vehicle" ? ` (${escape(V.SPEEDS[a.system.speed]?.label.toLowerCase() ?? "")})` : ""}</option>`).join("")}</select></div>
+      <div class="form-group"><label>An object's size</label><select name="size">${sizes.map((z) => `<option value="${z}" ${z === "large" ? "selected" : ""}>${z[0].toUpperCase()}${z.slice(1)}</option>`).join("")}</select></div>
+      <div class="form-group"><label>How it struck</label><select name="strike">${Object.entries(V.STRIKES).map(([k, x]) => `<option value="${k}">${escape(x.label)} (×${x.multiplier})</option>`).join("")}</select></div>
+      ${has("Bumper of the Ram") ? '<div class="form-group"><label>It rammed, with its Bumper of the Ram</label><input type="checkbox" name="ram" checked></div>' : ""}
+      ${has("Bumpers of Blasting") && V.SPEEDS[s.speed]?.check <= -1 ? '<div class="form-group"><label>The Bumpers of Blasting blast (+5d6 fire)</label><input type="checkbox" name="blast"></div>' : ""}`,
+    ok: { label: "Collide", callback: (ev, button) => ({ other: button.form.elements.other.value, size: button.form.elements.size.value, strike: button.form.elements.strike.value, ram: !!button.form.elements.ram?.checked, blast: !!button.form.elements.blast?.checked }) },
+    rejectClose: false,
+  });
+  if (!chosen) return null;
+  const other = chosen.other ? fromUuidSync(chosen.other) : null;
+  const speeds = [s.speed, other?.type === "vehicle" ? other.system.speed : "stationary"];
+  const sizesHit = [s.size, other ? sizeOf(other) : chosen.size];
+  const ram = chosen.ram && chosen.strike !== "sideswipe";
+  const roll = async (steps) => {
+    const c = V.collisionDamage({ speeds, sizes: sizesHit, strike: chosen.strike, steps });
+    const Roll = foundry.dice?.Roll ?? globalThis.Roll;
+    const r = await new Roll(c.formula).evaluate();
+    return { ...c, total: Math.floor(r.total * c.multiplier), rolled: r.total };
+  };
+  const own = await roll(ram ? -1 : 0);
+  const theirs = ram ? await roll(1) : own;
+  const name = other?.name ?? `a ${chosen.size} object`;
+  const moving = other?.type === "vehicle" ? other.system.speed !== "stationary" : !!other;
+  const how = (c) => `${c.formula}${c.multiplier !== 1 ? ` × ${c.multiplier}` : ""} (${c.speed === "allOut" ? "all-out" : `${c.speed} speed`}, ${c.size}): rolled ${c.rolled}`;
+  await damageCard(vehicle, `Collision: ${vehicle.name}`, String(own.total), "", [how(own)]);
+  if (other) {
+    await damageCard(vehicle, `Collision: ${name}`, String(theirs.total), "", [how(theirs), ...(moving ? ["A moving vehicle or creature struck: Reflex DC 15 for half (Half)."] : [])]);
+    if (chosen.blast) await damageCard(vehicle, `Bumpers of Blasting: ${name}`, "5d6", "fire", ["The blast's fire, to what it struck: the vehicle takes none of it."]);
+  }
+  // Those aboard each vehicle: their share by its cover (none behind three-quarters or more, or Seats of Safety).
+  for (const [v, c] of [[vehicle, own], ...(other?.type === "vehicle" ? [[other, theirs]] : [])]) {
+    const share = V.occupantShare(v.system.cover, { seatsOfSafety: v.system.derived?.fx?.seatsOfSafety });
+    if (share && v.system.occupants.length) await damageCard(v, `Collision: those aboard ${v.name}`, String(Math.floor(c.total * share)), "", [`Its ${v.system.cover} cover: ${share === 1 ? "all" : share === 0.5 ? "half" : "a quarter"} of what it took. Each Reflex DC 15 for half.`]);
+  }
+  // Both two speed categories slower; the driver who caused it checks to keep control now, the other at their next action.
+  for (const v of [vehicle, ...(other?.type === "vehicle" ? [other] : [])]) if (v.isOwner) await v.update({ "system.speed": V.slowerBy(v.system.speed, 2) });
+  for (const [v, when] of [[vehicle, "now"], ...(other?.type === "vehicle" ? [[other, "at the start of their next action"]] : [])]) {
+    await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor: v }), content: `<div class="m20-roll"><p>${escape(v.name)}'s driver: a Drive check (DC 15) ${when}, or lose control.</p></div>`, flags: { [SYSTEM_ID]: { vehicleCheck: { vehicle: v.uuid, keep: 15 } } } });
+  }
+  return { own, theirs };
+}
+
+/**
+ * Repairing a vehicle (Modern/VehicleCombat/DamagingVehicles): an hour's work and a Repair check (DC 20; −4 without a
+ * mechanical tool kit) by a character, or the GM's crew; made, 2d6 hit points back. Not once destroyed.
+ */
+export async function repair(vehicle, event) {
+  if (vehicle.statuses.has("destroyed") || vehicle.system.derived?.state === "destroyed") return ui.notifications.warn(`${vehicle.name} is destroyed: it cannot be repaired.`);
+  const mine = game.actors.filter((a) => a.type === "character" && a.isOwner);
+  const chosen = await foundry.applications.api.DialogV2.prompt({
+    window: { title: `${vehicle.name}: an hour's repairs` },
+    content: `<div class="form-group"><label>Who repairs it</label><select name="who">${mine.map((a) => `<option value="${a.uuid}">${escape(a.name)}</option>`).join("")}<option value="">The crew (${escape(V.CREW[vehicle.system.crewQuality]?.label.toLowerCase() ?? "normal")})</option></select></div>
+      <div class="form-group"><label>With a mechanical tool kit (without: −4)</label><input type="checkbox" name="kit" checked></div>`,
+    ok: { label: "Repair", callback: (ev, button) => ({ who: button.form.elements.who.value, kit: button.form.elements.kit.checked }) },
+    rejectClose: false,
+  });
+  if (!chosen) return null;
+  const who = chosen.who ? fromUuidSync(chosen.who) : null;
+  const terms = who
+    ? R.skillCheck(who.system.derived, who.system.derived.skills.find((r) => r.key === "repair" && !r.specialty)).terms
+    : [{ label: `Crew (${V.CREW[vehicle.system.crewQuality]?.label.toLowerCase() ?? "normal"})`, value: V.CREW[vehicle.system.crewQuality]?.check ?? 2 }];
+  const spec = R.d20(`${vehicle.name}: an hour's repairs, Repair (DC 20)`, [...terms, { label: "Without a mechanical tool kit", value: chosen.kit ? 0 : -4 }]);
+  const roll = await rollCheck(who ?? vehicle, spec, event, { judge: (r) => ({ verdict: r.total >= 20 ? { good: true, text: "Succeeds: 2d6 hit points back." } : { good: false, text: "Fails: no progress this hour." } }) });
+  if (!roll || roll.total < 20) return roll;
+  const Roll = foundry.dice?.Roll ?? globalThis.Roll;
+  const back = await new Roll("2d6").evaluate();
+  await back.toMessage({ speaker: ChatMessage.getSpeaker({ actor: vehicle }), flavor: `<div class="m20-roll"><h3>${escape(vehicle.name)} repaired</h3></div>` });
+  const { applyToActor } = await import("./damage.mjs");
+  await applyToActor(vehicle, back.total, { healing: true });
+  return roll;
+}

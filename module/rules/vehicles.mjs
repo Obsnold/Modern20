@@ -10,7 +10,13 @@
  *                modifier; its DC by the stunt; −4 for a class of vehicle without its operation feat; a GM's crew
  *                by its quality. Driving defensively: +2 Defense, −4 on attacks aboard; total defense +4, −8
  *   condition    disabled at 0 hit points (it stops functioning, losing a speed category a round); destroyed when it
- *                has lost twice its full normal hit points (at minus its total): it cannot be repaired
+ *                has lost twice its full normal hit points (at minus its total): it cannot be repaired. Disabled by a hit
+ *                of half its hit points or more, it explodes in 1d6 rounds: 10d6 fire inside, half that within 30 feet
+ *   collisions   the higher speed's die, the smaller size's number of dice, × how it struck; both take it, and both slow
+ *                two categories; those aboard a share by its cover
+ *   aboard       an occupant has the vehicle's speed bonus to Defense and its cover (three-quarters: +7, +3 on Reflex)
+ *   repair       an hour, a mechanical tool kit (−4 without), Repair DC 20: 2d6 hit points back; not once destroyed
+ *   FX items     its vehicular FX items, so many of each kind at once (VEHICLE_SLOTS)
  */
 
 /** The speed categories, in order: squares a round at each scale, the turn number, and the Defense and check/roll modifiers. */
@@ -137,4 +143,110 @@ export function aboard(system, role = "passenger") {
   const speed = SPEEDS[system?.speed] ?? SPEEDS.stationary;
   const driving = DRIVING[system?.driving] ?? DRIVING.normal;
   return { check: speed.check, attack: speed.check + driving.attack, speedLabel: speed.label, drivingLabel: driving.label, cannotAttack: role === "driver" && system?.driving === "total" };
+}
+
+/** Cover (Modern/Combat/CombatModifiers, Table: Cover): its bonus to Defense and on Reflex saves; total cover none can be attacked through. */
+export const COVER = {
+  none: { label: "None", defense: 0, reflex: 0 },
+  "one-quarter": { label: "One-quarter", defense: 2, reflex: 1 },
+  "one-half": { label: "One-half", defense: 4, reflex: 2 },
+  "three-quarters": { label: "Three-quarters", defense: 7, reflex: 3 },
+  "nine-tenths": { label: "Nine-tenths", defense: 10, reflex: 4 },
+  full: { label: "Full", defense: null, reflex: null },
+};
+
+/**
+ * Collisions (Modern/VehicleCombat/CollisionsAndRamming): the damage die by the higher speed, the number of dice by the
+ * smaller size, times the multiplier for how it struck; both take it. Those aboard take a share by their cover.
+ */
+const COLLISION_DIE = { alley: 2, street: 4, highway: 8, allOut: 12 };
+const COLLISION_DICE = { fine: 0, diminutive: 0, tiny: 1, small: 2, medium: 4, large: 8, huge: 12, gargantuan: 16, colossal: 20 };
+const SIZE_ORDER = Object.keys(COLLISION_DICE);
+const MOVING = ["alley", "street", "highway", "allOut"];
+export const STRIKES = {
+  object: { label: "A stationary object", multiplier: 1 },
+  headOn: { label: "A moving vehicle, head-on or 45 degrees from it", multiplier: 2 },
+  perpendicular: { label: "A moving vehicle, perpendicular", multiplier: 1 },
+  rear: { label: "A moving vehicle, from the rear or 45 degrees from it", multiplier: 0.5 },
+  sideswipe: { label: "Sideswiped", multiplier: 0.25 },
+};
+const OCCUPANT_SHARE = { none: 1, "one-quarter": 0.5, "one-half": 0.25, "three-quarters": 0, "nine-tenths": 0, full: 0 };
+
+/**
+ * A collision's damage: `{ formula, multiplier }`, its dice by the higher of the two speeds and the smaller of the two
+ * sizes, `steps` speed and size categories more (a Bumper of the Ram's +1 to the one it strikes, −1 to its own).
+ */
+export function collisionDamage({ speeds, sizes, strike = "object", steps = 0 }) {
+  const fastest = Math.max(...speeds.map((s) => MOVING.indexOf(s)), 0);
+  const smallest = Math.min(...sizes.map((s) => SIZE_ORDER.indexOf(s)).filter((i) => i >= 0));
+  const speed = MOVING[Math.max(0, Math.min(MOVING.length - 1, fastest + steps))];
+  const size = SIZE_ORDER[Math.max(0, Math.min(SIZE_ORDER.length - 1, smallest + steps))];
+  const dice = COLLISION_DICE[size] ?? 0;
+  return { formula: dice ? `${dice}d${COLLISION_DIE[speed]}` : "0", multiplier: STRIKES[strike]?.multiplier ?? 1, speed, size };
+}
+
+/** What those aboard take of a collision's damage to their vehicle, by its cover: all with none, half with one-quarter, ... none with three-quarters or more. */
+export const occupantShare = (cover, { seatsOfSafety = false } = {}) => (seatsOfSafety ? 0 : OCCUPANT_SHARE[cover] ?? 0);
+
+/** A speed two categories slower, as a collision leaves both vehicles. */
+export const slowerBy = (speed, n = 2) => { const order = Object.keys(SPEEDS); return order[Math.max(0, order.indexOf(speed in SPEEDS ? speed : "stationary") - n)]; };
+
+/** Whether the hit that disabled it explodes it: one that dealt half its full normal hit points or more (Exploding Vehicles). */
+export const explodes = (before, after, damage, max) => before > 0 && after <= 0 && damage >= (max ?? 0) / 2;
+
+/**
+ * A vehicle's FX items (Arcana/FXItems/VehicularMagicItems), each kind as many as work at once: one coat of paint, one set
+ * of tires, two electronic accessories, and so on. A vehicular item's kind, by its name.
+ */
+export const VEHICLE_SLOTS = {
+  bumpers: { label: "ramplate or set of bumpers", limit: 1, words: /\bbumpers?\b|ramplate/i },
+  steering: { label: "steering wheel", limit: 1, words: /steering wheel/i },
+  paint: { label: "coat of paint", limit: 1, words: /paint job|flame job/i },
+  tires: { label: "set of tires", limit: 1, words: /\btires?\b/i },
+  headlights: { label: "pair of headlights", limit: 1, words: /headlights?/i },
+  horn: { label: "horn or siren", limit: 1, words: /\bhorn\b|siren/i },
+  containment: { label: "containment area (ashtray, glove compartment, trunk)", limit: 1, words: /\btrunk\b|glove compartment|ashtray/i },
+  accessory: { label: "non-electronic accessory (on the dashboard, from the mirror)", limit: 1, words: /figurine|fuzzy dice/i },
+  seats: { label: "seat or set of seats", limit: 1, words: /\bseats?\b/i },
+  engine: { label: "engine or engine accessory", limit: 1, words: /\bengine\b/i },
+  windows: { label: "set of windows", limit: 1, words: /\bwindows?\b/i },
+  electronics: { label: "electronic accessories (stereo, CB radio, alarm)", limit: 2, words: /\balarm\b|stereo|radio/i },
+};
+
+/** A vehicular FX item's kind, by its name: "Ablative Paint Job" is a coat of paint. */
+export function vehicleSlot(name) {
+  for (const [slot, s] of Object.entries(VEHICLE_SLOTS)) if (s.words.test(String(name ?? ""))) return slot;
+  return "";
+}
+
+/** The vehicular FX items past their kind's limit (`items`, its FX items, in order): their ids. */
+export function vehicleOverLimit(items) {
+  const by = {};
+  for (const i of [...items].sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0) || String(a.name).localeCompare(String(b.name)))) {
+    const slot = i.system?.fx?.slot;
+    if (VEHICLE_SLOTS[slot]) (by[slot] ??= []).push(i);
+  }
+  return Object.entries(by).flatMap(([slot, list]) => list.slice(VEHICLE_SLOTS[slot].limit).map((i) => i.id));
+}
+
+/**
+ * What a vehicle's working FX items do that is a number: an Ablative Paint Job's +5 hardness (none at hardness 10 or
+ * more), a Dashboard Figurine's by its kind (humorous: +1 on the driver's saves; monstrous: +1 on attacks aboard;
+ * religious: +2 to the vehicle's Defense), Seats of Safety's three-quarters cover, no collision damage, and +3 on Reflex.
+ */
+export function vehicleFx(items, hardness = 0) {
+  const out = { hardness: 0, defense: 0, attack: 0, driverSaves: 0, reflex: 0, seatsOfSafety: false, names: {} };
+  const over = new Set(vehicleOverLimit(items));
+  for (const i of items.filter((x) => !over.has(x.id))) {
+    const id = String(i.system?.identifier || i.name).toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const choice = String(i.system?.fx?.choice ?? "").toLowerCase();
+    if (id === "ablative-paint-job" && hardness < 10) { out.hardness += 5; out.names.hardness = i.name; }
+    if (id === "dashboard-figurine") {
+      if (choice.includes("humorous")) { out.driverSaves += 1; out.names.driverSaves = i.name; }
+      if (choice.includes("monstrous")) { out.attack += 1; out.names.attack = i.name; }
+      if (choice.includes("religious")) { out.defense += 2; out.names.defense = i.name; }
+    }
+    if (id === "seats-of-safety") { out.seatsOfSafety = true; out.reflex = Math.max(out.reflex, 3); out.names.seats = i.name; }
+  }
+  return out;
 }

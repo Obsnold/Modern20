@@ -128,10 +128,21 @@ async function applyToVehicle(actor, amount, options = {}) {
   } else if (options.nonlethal) {
     text = "Nonlethal damage: no effect on a vehicle";
   } else {
-    const r = V.vehicleDamage(options.parts?.length ? options.parts : [{ type: "", amount }], actor.system.hardness);
+    // Its hardness with its FX items' (an Ablative Paint Job's +5).
+    const r = V.vehicleDamage(options.parts?.length ? options.parts : [{ type: "", amount }], actor.system.derived?.hardness ?? actor.system.hardness);
     after = before - r.total;
     text = `${r.total} damage`;
     if (r.stopped.length) stopped = `<p class="m20-hint">Stopped: ${r.stopped.map((x) => `${x.amount} by ${escape(x.by)}`).join("; ")}.</p>`;
+    // Disabled by a hit of half its hit points or more: it explodes in 1d6 rounds (Exploding Vehicles).
+    if (V.explodes(before, after, r.total, max)) {
+      const Roll = foundry.dice?.Roll ?? globalThis.Roll;
+      const rounds = await new Roll("1d6").evaluate();
+      await rounds.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor }),
+        flavor: `<div class="m20-roll"><h3>${escape(actor.name)} will explode in ${rounds.total} round${rounds.total === 1 ? "" : "s"}</h3><p class="m20-crit">Disabled by a hit of half its hit points or more. Then: 10d6 fire to everyone inside (Reflex DC 20 for half), half that to everyone within 30 feet (Reflex DC 15 for half).</p></div>`,
+        flags: { [SYSTEM_ID]: { explosion: { vehicle: actor.uuid } } },
+      });
+    }
   }
   await actor.update({ "system.hp.value": after }, { [OWN_CHANGE]: true });
   await setVehicleConditions(actor, after);

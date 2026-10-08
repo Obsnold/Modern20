@@ -94,3 +94,38 @@ test("aboard: the speed's penalty on checks and attacks, driving defensively's o
   assert.deepEqual(find("Bell Jet Ranger (helicopter)").system.operation, { skill: "pilot", class: "helicopters" });
   assert.deepEqual(find("Acura 3.2 TL (mid-size sedan)").system.operation, { skill: "drive", class: "" });
 });
+
+test("collisions: the higher speed's die, the smaller size's dice, × how it struck; a Bumper of the Ram a step either way", async () => {
+  const { collisionDamage, occupantShare, slowerBy, explodes } = await import("../../module/rules/vehicles.mjs");
+  // A Huge car at highway speed into a stationary Large object: 8d8, ×1.
+  assert.deepEqual(collisionDamage({ speeds: ["highway", "stationary"], sizes: ["huge", "large"], strike: "object" }), { formula: "8d8", multiplier: 1, speed: "highway", size: "large" });
+  // Head-on with another moving vehicle: ×2; a sideswipe ×¼.
+  assert.equal(collisionDamage({ speeds: ["street", "allOut"], sizes: ["huge", "gargantuan"], strike: "headOn" }).formula, "12d12");
+  assert.equal(collisionDamage({ speeds: ["street"], sizes: ["huge"], strike: "sideswipe" }).multiplier, 0.25);
+  // A Bumper of the Ram: one speed and size worse for what it strikes, one better for itself.
+  assert.equal(collisionDamage({ speeds: ["street"], sizes: ["large"], steps: 1 }).formula, "12d8");
+  assert.equal(collisionDamage({ speeds: ["street"], sizes: ["large"], steps: -1 }).formula, "4d2");
+  assert.deepEqual([occupantShare("none"), occupantShare("one-quarter"), occupantShare("one-half"), occupantShare("three-quarters"), occupantShare("none", { seatsOfSafety: true })], [1, 0.5, 0.25, 0, 0]);
+  assert.deepEqual([slowerBy("allOut"), slowerBy("street"), slowerBy("alley")], ["street", "stationary", "stationary"]);
+  // Disabled by a hit of half its hit points or more: it explodes.
+  assert.deepEqual([explodes(10, -8, 18, 34), explodes(30, -1, 31, 34), explodes(0, -5, 20, 34)], [true, true, false]);
+  assert.equal(explodes(20, 0, 20, 64), false);
+});
+
+test("vehicular FX items: each a kind, so many at once; the paint job's hardness, the figurine's by its kind, the seats", async () => {
+  const { vehicleSlot, vehicleOverLimit, vehicleFx, VEHICLE_SLOTS } = await import("../../module/rules/vehicles.mjs");
+  const fx = PACKS["fx-items"]().documents.filter((d) => d.system?.fx?.power === "vehicular");
+  assert.equal(fx.length, 22);
+  for (const d of fx) assert.ok(VEHICLE_SLOTS[d.system.fx.slot], d.name);
+  assert.deepEqual([vehicleSlot("Ablative Paint Job"), vehicleSlot("Fuzzy Dice of Luck"), vehicleSlot("Paralytic Alarm"), vehicleSlot("Seat of Hold Monster")], ["paint", "accessory", "electronics", "seats"]);
+  const item = (name, extra = {}) => ({ id: name, name, system: { identifier: name.toLowerCase().replace(/ /g, "-"), fx: { slot: vehicleSlot(name), power: "vehicular", choice: "", ...extra } } });
+  // Two coats of paint: the second does not work; two alarms both do.
+  assert.deepEqual(vehicleOverLimit([item("Ablative Paint Job"), item("Flame Job")]), ["Flame Job"]);
+  assert.deepEqual(vehicleOverLimit([item("Paralytic Alarm"), item("Silent Warning Alarm")]), []);
+  assert.equal(vehicleFx([item("Ablative Paint Job")], 5).hardness, 5);
+  assert.equal(vehicleFx([item("Ablative Paint Job")], 10).hardness, 0);
+  assert.equal(vehicleFx([item("Dashboard Figurine", { choice: "religious" })]).defense, 2);
+  assert.equal(vehicleFx([item("Dashboard Figurine", { choice: "monstrous" })]).attack, 1);
+  assert.equal(vehicleFx([item("Dashboard Figurine", { choice: "humorous" })]).driverSaves, 1);
+  assert.deepEqual([vehicleFx([item("Seats of Safety")]).seatsOfSafety, vehicleFx([item("Seats of Safety")]).reflex], [true, 3]);
+});

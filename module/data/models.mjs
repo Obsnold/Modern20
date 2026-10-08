@@ -70,7 +70,11 @@ const physical = {
     category: str(), power: str({ choices: ["magic", "psionic", "vehicular"] }), incantation: bool(),
     casterLevel: printed({ level: int({ nullable: true }), label: str() }),
     /** The kind of FX item worn it is, of which only so many count at once (rules/fx-items.mjs WORN): "ring", "feet". */
-    slot: str({ choices: ["head", "eyes", "neck", "armor", "coat", "cloak", "vest", "wrists", "hands", "ears", "ring", "belt", "feet", "tattoo"] }),
+    slot: str({ choices: ["head", "eyes", "neck", "armor", "coat", "cloak", "vest", "wrists", "hands", "ears", "ring", "belt", "feet", "tattoo",
+      // A vehicular item's, on its vehicle (rules/vehicles.mjs VEHICLE_SLOTS).
+      "bumpers", "steering", "paint", "tires", "headlights", "horn", "containment", "accessory", "seats", "engine", "windows", "electronics"] }),
+    /** What was chosen of it: a Dashboard Figurine's kind (humorous, monstrous, religious). */
+    choice: str(),
     /** The +1 to +3 of one made in several strengths (a Windbreaker of Resistance), not a weapon's or armor's: its price and effect. */
     bonus: int(),
   }),

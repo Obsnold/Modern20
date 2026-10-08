@@ -663,6 +663,8 @@ export const CHECKS = {
     const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
     const actor = await Actor.implementation.create({ name: "Dying (test)", type: "character", system: { abilities, hp: { value: 5 } } });
     await actor.createEmbeddedDocuments("Item", [await take("classes", "Strong Hero", { level: 2 })]);
+    // Its combat and token, removed however the check ends: one left behind upsets the checks after it.
+    let combat = null, token = null;
     try {
       await applyToActor(actor, 5);
       if (actor.system.hp.value !== 0 || !actor.statuses.has("disabled")) errors.push(`at ${actor.system.hp.value} hit points: ${[...actor.statuses].join(", ")}, expected disabled`);
@@ -672,8 +674,8 @@ export const CHECKS = {
       await wait(() => !canvas.loading, "the canvas", 15000);
       const scene = game.scenes.find((x) => x.name === "Test scene") ?? await Scene.implementation.create({ name: "Test scene", width: 2000, height: 2000, grid: { size: 100 } });
       if (canvas.scene?.id !== scene.id) { await scene.view(); await wait(() => canvas.ready && !canvas.loading && canvas.scene?.id === scene.id, "the scene", 15000); }
-      const [token] = await scene.createEmbeddedDocuments("Token", [(await actor.getTokenDocument({ x: 800, y: 800 })).toObject()]);
-      const combat = await Combat.implementation.create({ scene: scene.id });
+      [token] = await scene.createEmbeddedDocuments("Token", [(await actor.getTokenDocument({ x: 800, y: 800 })).toObject()]);
+      combat = await Combat.implementation.create({ scene: scene.id });
       await combat.createEmbeddedDocuments("Combatant", [{ tokenId: token.id, sceneId: scene.id, actorId: actor.id }]);
       await combat.rollAll();
       const init = combat.combatants.contents[0].initiative;
@@ -681,7 +683,7 @@ export const CHECKS = {
       const n = game.messages.size;
       await combat.startCombat();
       await combat.nextRound();
-      const card = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "save")?.kind === "dying"), "the dying save card");
+      const card = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "save")?.kind === "dying"), "the dying save card", 30000);
       const buttons = await wait(() => ui.chat.element?.querySelector(`li[data-message-id="${card.id}"] .m20-card-buttons button`), "its save button");
       // Starting combat and the next round both begin its turn: a card each. The first card's save decides it.
       const before = actor.system.hp.value;
@@ -692,6 +694,7 @@ export const CHECKS = {
         errors.push(`after the dying save: ${actor.system.hp.value} hit points, ${[...actor.statuses].join(", ")}; expected stable, or ${before - 1}`);
       }
       await combat.delete();
+      combat = null;
       // Massive damage: one hit over the threshold (Con 10) that leaves the character standing asks for a save.
       // Hit points set back up, however they are set: the conditions they put on come off.
       await actor.update({ "system.hp.value": 30 });
@@ -710,6 +713,8 @@ export const CHECKS = {
     } catch (e) {
       errors.push(e.message);
     }
+    if (combat && game.combats.has(combat.id)) await combat.delete();
+    if (token?.parent?.tokens.has(token.id)) await token.delete();
     await actor.delete();
     return errors;
   },
@@ -2348,6 +2353,61 @@ export const CHECKS = {
       }
       const damage = await card(k, (m) => m.getFlag("modern20", "damage"), "the cannon's damage");
       if (!/10d12/.test(damage.rolls[0]?.formula ?? "")) errors.push(`the cannon's damage is "${damage.rolls[0]?.formula}", not 10d12`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of made) await a.delete();
+    return errors;
+  },
+
+  async "vehicles in trouble: a collision's damage cards and both slower, an explosion, a repair, its FX items' hardness and Defense, and an occupant's cover"() {
+    const errors = [];
+    const { doc, wait, dialog, take } = window.m20test;
+    const { collide, repair, occupantCover } = await import("/systems/modern20/module/vehicles.mjs");
+    const { applyToActor } = await import("/systems/modern20/module/damage.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const made = [];
+    const card = (n, test, what) => wait(() => game.messages.contents.slice(n).find(test), what);
+    try {
+      const car = await Actor.implementation.create((await doc("vehicles", "Acura 3.2 TL (mid-size sedan)")).toObject());
+      const tank = await Actor.implementation.create((await doc("vehicles", "M1A2 Abrams (tracked tank)")).toObject());
+      const bike = await Actor.implementation.create((await doc("vehicles", "Ducati 998R (racing bike)")).toObject());
+      const mechanic = await Actor.implementation.create({ name: "Mechanic (test)", type: "character", system: { abilities, skills: { repair: { ranks: 30 } } } });
+      const rider = await Actor.implementation.create({ name: "Rider (test)", type: "character", system: { abilities } });
+      made.push(car, tank, bike, mechanic, rider);
+      // Head-on into the Abrams at highway speed: Huge and Gargantuan, so 12d8 × 2 each; both two categories slower.
+      await car.update({ "system.speed": "highway" });
+      let n = game.messages.size;
+      const crash = collide(car);
+      await dialog({ other: tank.uuid, strike: "headOn" }, "ok");
+      await crash;
+      for (const who of [car.name, tank.name]) await card(n, (m) => m.getFlag("modern20", "damage") && (m.flavor ?? "").includes(`Collision: ${who}`), `the collision's damage card for ${who}`);
+      if (!game.messages.contents.slice(n).some((m) => /12d8 × 2/.test(m.flavor ?? ""))) errors.push("the collision's damage is not 12d8 × 2");
+      if (car.system.speed !== "alley") errors.push(`after the collision the car is at ${car.system.speed}, not two categories slower (alley)`);
+      if (game.messages.contents.slice(n).filter((m) => m.getFlag("modern20", "vehicleCheck")?.keep === 15).length !== 2) errors.push("the collision does not call for both drivers' checks to keep control");
+      // Disabled by a hit of half its hit points or more: it will explode; exploded, fire inside and around, destroyed.
+      n = game.messages.size;
+      await applyToActor(car, 45, { parts: [{ type: "Ballistic", amount: 45 }] });
+      const boom = await card(n, (m) => m.getFlag("modern20", "explosion"), "the car's explosion card");
+      const button = await wait(() => [...(ui.chat.element?.querySelectorAll(`li[data-message-id="${boom.id}"] .m20-card-buttons button`) ?? [])].find((b) => b.textContent === "Explode"), "its Explode button");
+      n = game.messages.size;
+      button.click();
+      await card(n, (m) => m.getFlag("modern20", "damage")?.type === "fire" && /within 30 feet/.test(m.flavor ?? ""), "the explosion's fire around it");
+      await wait(() => car.statuses.has("destroyed"), "the car destroyed");
+      // A repair on the Abrams, hurt: 2d6 back.
+      await tank.update({ "system.hp.value": 30 });
+      const fixed = repair(tank);
+      await dialog({ who: mechanic.uuid }, "ok");
+      await fixed;
+      await wait(() => tank.system.hp.value > 30, `the Abrams repaired (${tank.system.hp.value})`);
+      // FX items on the bike: an Ablative Paint Job (+5 hardness) and a religious Dashboard Figurine (+2 Defense).
+      await bike.createEmbeddedDocuments("Item", [await take("fx-items", "Ablative Paint Job"), await take("fx-items", "Dashboard Figurine", { fx: { choice: "religious" } })]);
+      if (bike.system.derived.hardness !== 10) errors.push(`the bike's hardness with an Ablative Paint Job is ${bike.system.derived.hardness}, not 5 + 5`);
+      if (bike.system.derived.defense !== bike.system.defense + 2) errors.push(`the bike's Defense with a religious figurine is ${bike.system.derived.defense}, not ${bike.system.defense + 2}`);
+      // A rider on the bike at street speed: +1 Defense for the speed, no cover.
+      await bike.update({ "system.speed": "street", "system.occupants": [{ uuid: rider.uuid, name: rider.name, role: "driver" }] });
+      const c = occupantCover(rider);
+      if (c?.defense !== 1 || c?.full) errors.push(`a rider at street speed on a bike (no cover) gets ${JSON.stringify(c)}`);
     } catch (e) {
       errors.push(e.message);
     }

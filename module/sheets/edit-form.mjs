@@ -31,6 +31,7 @@ const NAMES = {
   byBonus: ["DC for each bonus", "An FX item's, printed for +1, +2 and +3: one a line"],
   fx: ["FX item (magic or psionic)"],
   rollNotes: ["Roll notes (bonuses in a situation)"],
+  choice: ["Chosen", "What was chosen of it: a weapon for Weapon Focus, a Dashboard Figurine's kind (humorous, monstrous, religious)"],
 };
 
 /** A value as printed beside the number worked from it ("3 lb." and 3): its group has a `value` and a NUMBERS field. */

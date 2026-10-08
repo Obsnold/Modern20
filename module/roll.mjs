@@ -19,7 +19,7 @@ import { readDefenses } from "./rules/resistance.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 import { bindLevelCheck } from "./casting.mjs";
 import { bindTreatment } from "./treat.mjs";
-import { aboardOf, aboardTerms, bindVehicleCheck, crewDamage } from "./vehicles.mjs";
+import { aboardOf, aboardTerms, occupantCover, bindVehicleCheck, crewDamage, bindExplosion } from "./vehicles.mjs";
 import { spendAmmo, specialLoad, recordedLoad } from "./ammo.mjs";
 import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
@@ -161,7 +161,13 @@ export function characterRolls(actor) {
   const notes = (targets) => R.notesFor(notesOf(actor), targets, resolverFor(actor));
   return {
     ability: (key, event) => rollD20(actor, R.abilityCheck(d, key), event, undefined, { notes: notes(R.rollTargets.ability(key)) }),
-    save: (key, event) => rollD20(actor, R.savingThrow(d, key), event, undefined, { notes: notes(R.rollTargets.save(key)) }),
+    save: (key, event) => {
+      // Aboard: a humorous Dashboard Figurine's +1 for its driver; on Reflex, the vehicle's cover against an area from outside.
+      const n = notes(R.rollTargets.save(key));
+      const cover = key === "ref" ? occupantCover(actor) : null;
+      if (cover?.reflex) n.ticks.push({ name: "vehicleCover", label: `In ${cover.vehicle.name}: its ${cover.label} cover, against an area from outside (+${cover.reflex})`, value: cover.reflex, term: "Cover" });
+      return rollD20(actor, withTerms(R.savingThrow(d, key), aboardTerms(actor, "save")), event, undefined, { notes: n });
+    },
     skill: (key, specialty, event) => {
       const row = d.skills.find((s) => s.key === key && s.specialty === (specialty ?? ""));
       const n = row ? notes(R.rollTargets.skill(row)) : undefined;
@@ -396,11 +402,14 @@ export function spellResistanceOf(actor) {
 
 /** A token's Defense, or its touch Defense: a character's worked out, a creature's as printed. */
 function defenseOf(actor, { touch = false } = {}) {
-  if (actor?.type === "character") return touch ? actor.system.derived?.defense?.touch : actor.system.derived?.defense?.value;
+  // Aboard a vehicle: its speed's bonus and its cover's (module/vehicles.mjs); behind full cover, not to be judged.
+  const cover = actor ? occupantCover(actor) : null;
+  if (cover?.full) return null;
+  if (actor?.type === "character") return (touch ? actor.system.derived?.defense?.touch : actor.system.derived?.defense?.value) + (cover?.defense ?? 0);
   // A vehicle's Defense at its speed (rules/vehicles.mjs).
   if (actor?.type === "vehicle") return actor.system.derived?.defense ?? actor.system.defense;
   const printed = touch ? actor?.system.defense?.touch : actor?.system.defense?.value;
-  return printed === null || printed === undefined ? printed : printed + conditionsOf(actor).defense();
+  return printed === null || printed === undefined ? printed : printed + conditionsOf(actor).defense() + (cover?.defense ?? 0);
 }
 
 /**
@@ -434,6 +443,7 @@ export function bindAttackButtons(message, html) {
   if (flags?.reputation) return bindReputation(message, html, flags.reputation);
   if (flags?.treatment) return bindTreatment(message, html, flags.treatment);
   if (flags?.vehicleCheck) return bindVehicleCheck(message, html, flags.vehicleCheck);
+  if (flags?.explosion) return bindExplosion(message, html, flags.explosion);
   if (!flags?.attack) return;
   const actor = fromUuidSync(flags.attack.actor);
   // Only those who can roll for the actor get its buttons: a player cannot roll another's damage.

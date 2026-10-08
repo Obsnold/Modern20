@@ -6,7 +6,7 @@ import { toSchema } from "./schema.mjs";
 import { ITEM_MODELS, ACTOR_MODELS, ABILITIES, abilityModifier } from "./models.mjs";
 import { deriveCharacter } from "../rules/character.mjs";
 import { migrateLanguages } from "../rules/languages.mjs";
-import { atSpeed, vehicleState } from "../rules/vehicles.mjs";
+import { atSpeed, vehicleState, vehicleFx } from "../rules/vehicles.mjs";
 
 /** A TypeDataModel class whose schema is `fields`. */
 function model(name, fields) {
@@ -56,8 +56,10 @@ class VehicleData extends model("VehicleData", ACTOR_MODELS.vehicle) {
   prepareDerivedData() {
     // Not stored: current hit points (an empty value is its full total), its condition, and its Defense at its speed.
     const value = this.hp.value ?? this.hp.max;
-    const speed = atSpeed(this.defense, this.speed, this.driving);
-    this.derived = { hp: value, state: vehicleState(value, this.hp.max), defense: speed.defense, check: speed.check, speedLabel: speed.label };
+    // Its vehicular FX items: an Ablative Paint Job's hardness, a religious Dashboard Figurine's Defense (rules/vehicles.mjs).
+    const fx = vehicleFx(this.parent?.items?.filter((i) => i.system?.fx?.power === "vehicular") ?? [], this.hardness);
+    const speed = atSpeed(this.defense + fx.defense, this.speed, this.driving);
+    this.derived = { hp: value, state: vehicleState(value, this.hp.max), defense: speed.defense, check: speed.check, speedLabel: speed.label, hardness: this.hardness + fx.hardness, fx };
   }
 }
 
