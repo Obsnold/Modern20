@@ -13,6 +13,7 @@ import { buildOccupations } from "./occupations.mjs";
 import { buildSpecies } from "./species.mjs";
 import { buildEquipment } from "./equipment.mjs";
 import { buildFxItems } from "./fx-items.mjs";
+import { buildVehicles } from "./vehicles.mjs";
 import { buildClasses, buildTalents, buildFeatures } from "./classes.mjs";
 import { buildCreatures } from "./creatures.mjs";
 import { buildCreatureTypes, buildTemplates } from "./creature-rules.mjs";
@@ -30,6 +31,7 @@ const BUILDERS = {
   species: buildSpecies,
   equipment: buildEquipment,
   "fx-items": buildFxItems,
+  vehicles: buildVehicles,
   creatures: buildCreatures,
   "creature-types": buildCreatureTypes,
   templates: buildTemplates,

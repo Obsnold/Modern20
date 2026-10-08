@@ -1,0 +1,89 @@
+<section class="modern20-item m20-vehicle">
+  <header class="modern20-header">
+    <img src="{{doc.img}}" alt="" width="64" height="64" {{#if canEdit}}data-action="editImage" data-edit="img" data-tooltip="Change picture"{{/if}}>
+    <div>
+      <h1>{{doc.name}}</h1>
+      <p class="modern20-meta">{{v.category}} · {{v.size}} · {{v.footprint}}{{#if source}} · {{{source}}}{{/if}}</p>
+    </div>
+    {{#if canEdit}}<a class="m20-edit-toggle {{#if editing}}m20-on{{/if}}" data-action="toggleEdit" data-tooltip="{{#if editing}}Back to the vehicle{{else}}Edit every field{{/if}}"><i class="fa-solid {{#if editing}}fa-eye{{else}}fa-pen-to-square{{/if}}"></i> {{#if editing}}View{{else}}Edit{{/if}}</a>{{/if}}
+  </header>
+  {{#if editing}}
+    {{{editFormHtml}}}
+  {{else}}
+    <div class="m20-status">
+      <label>HP <input type="number" name="system.hp.value" value="{{v.hp}}" {{#unless canEdit}}disabled{{/unless}} data-tooltip="Disabled at 0; destroyed at −{{v.max}} (twice its hit points lost)"> / {{v.max}}</label>
+      {{#if v.state}}<span class="m20-tag m20-warning">{{v.state}}</span>{{/if}}
+      <span class="m20-conditions">
+        {{#each status.conditions}}<a class="m20-condition {{#if active}}m20-on{{/if}}" data-action="toggleCondition" data-condition="{{id}}" data-tooltip="{{name}}"><img src="{{img}}" alt="{{name}}" width="20" height="20"></a>{{/each}}
+      </span>
+    </div>
+
+    <div class="m20-columns">
+      <div class="m20-panel">
+        <h3>Vehicle</h3>
+        <dl class="m20-stats">
+          <dt>Speed</dt>
+          <dd><select name="system.speed" {{#unless canEdit}}disabled{{/unless}} data-tooltip="One category faster or slower a round: {{v.speedTip}}">{{#each v.speeds}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if far}}disabled{{/if}}>{{label}}</option>{{/each}}</select></dd>
+          <dt>Defense</dt><dd class="m20-strong" data-tooltip="{{v.defenseTip}}">{{v.defense}}</dd>
+          <dt>Aboard</dt><dd data-tooltip="On the checks and attack rolls of everyone aboard, at this speed">{{v.check}}</dd>
+          <dt>Hardness</dt><dd data-tooltip="Taken off every hit; electricity and fire do half, cold a quarter">{{v.hardness}}</dd>
+          <dt>Initiative</dt><dd data-tooltip="Added to its driver's">{{v.initiative}}</dd>
+          <dt>Maneuver</dt><dd data-tooltip="Added to Drive and Pilot checks with it">{{v.maneuver}}</dd>
+          <dt>Top speed</dt><dd data-tooltip="Squares a round: character scale (5 ft.), and chase scale (50 ft.)">{{v.topSpeed}}</dd>
+          <dt>Cover</dt><dd data-tooltip="What it gives its occupants">{{v.cover}}</dd>
+        </dl>
+      </div>
+      <div class="m20-panel">
+        <h3>Aboard <span class="m20-hint">({{v.crew}} crew, {{v.passengers}} passengers, {{v.cargo}} cargo)</span></h3>
+        {{#each v.occupants}}
+          <div class="m20-item" data-occupant="{{index}}">
+            {{#if img}}<img src="{{img}}" alt="" width="28" height="28">{{/if}}
+            <a class="m20-item-name" data-action="openOccupant" data-tooltip="Open their sheet">{{name}}</a>
+            <select data-occupant-role="{{index}}" {{#unless @root.canEdit}}disabled{{/unless}}>{{#each roles}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+            {{#if @root.canEdit}}<a data-action="removeOccupant" data-tooltip="Off the vehicle"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+          </div>
+        {{else}}
+          <p class="m20-hint">No one. Drag a character or creature onto this sheet to put them aboard.</p>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="m20-panel">
+      <h3>Weapons</h3>
+      {{#each v.weapons}}
+        <div class="m20-item" data-item-id="{{id}}">
+          <img src="{{img}}" alt="" width="28" height="28">
+          <a class="m20-item-name" data-action="editItem">{{name}}</a>
+          <span class="m20-item-detail">{{detail}}</span>
+          {{#if @root.canEdit}}<a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>{{/if}}
+        </div>
+      {{else}}
+        <p class="m20-hint">None mounted. Drag a weapon onto this sheet to mount it.</p>
+      {{/each}}
+    </div>
+
+    <div class="m20-panel">
+      <dl class="m20-stats">
+        {{#if v.purchase}}<dt>Purchase DC</dt><dd>{{v.purchase}}</dd>{{/if}}
+        {{#if v.restriction}}<dt>Restriction</dt><dd>{{v.restriction}}</dd>{{/if}}
+      </dl>
+    </div>
+    {{#if description}}<div class="modern20-prose">{{{description}}}</div>{{/if}}
+  {{/if}}
+  {{#if log}}
+    <details class="m20-log">
+      <summary><h2>Log ({{log.entries.length}})</h2></summary>
+      <div class="m20-log-filters">
+        {{#each log.filters}}<a class="m20-roll-button {{#if active}}m20-on{{/if}}" data-action="filterLog" data-filter="{{id}}">{{label}}</a>{{/each}}
+      </div>
+      {{#each log.entries}}
+        <div class="m20-log-entry {{#if build}}m20-log-build{{/if}}">
+          <div class="m20-log-head"><span class="m20-tag">{{#if build}}Build{{else}}Session{{/if}}</span> <strong>{{userName}}</strong> <span class="m20-hint">{{when}}</span></div>
+          {{#if changes.length}}<ul>{{#each changes}}<li>{{label}}: {{from}} → <strong>{{to}}</strong></li>{{/each}}</ul>{{else}}<p>{{text}}</p>{{/if}}
+        </div>
+      {{else}}
+        <p class="m20-hint">Nothing yet. Changes made from now on are recorded here, with who made them.</p>
+      {{/each}}
+    </details>
+  {{/if}}
+</section>

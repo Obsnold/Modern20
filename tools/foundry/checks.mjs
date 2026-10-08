@@ -138,7 +138,7 @@ export const CHECKS = {
   async "the compendiums load, and every document in them is valid"() {
     const errors = [];
     const packs = game.packs.filter((p) => p.metadata.packageName === "modern20");
-    if (packs.length !== 15) errors.push(`${packs.length} compendiums, not 15`);
+    if (packs.length !== 16) errors.push(`${packs.length} compendiums, not 16`);
     for (const pack of packs) {
       const docs = await pack.getDocuments();
       if (!docs.length) errors.push(`${pack.collection} is empty`);
@@ -2222,6 +2222,60 @@ export const CHECKS = {
     for (const a of opened) await a.close();
     for (const a of foundry.applications.instances.values()) if (["LevelUp", "Grant"].includes(a.constructor.name)) await a.close();
     await actor.delete();
+    return errors;
+  },
+
+  async "vehicles: one from the compendium with its weapons, its sheet, someone aboard as the driver, its speed's Defense, and damage through hardness to disabled and destroyed"() {
+    const errors = [];
+    const { doc, wait, readable } = window.m20test;
+    const { applyToActor } = await import("/systems/modern20/module/damage.mjs");
+    const { initiativeBonus } = await import("/systems/modern20/module/roll.mjs");
+    const made = [];
+    try {
+      const abrams = await Actor.implementation.create((await doc("vehicles", "M1A2 Abrams (tracked tank)")).toObject());
+      const car = await Actor.implementation.create((await doc("vehicles", "Acura 3.2 TL (mid-size sedan)")).toObject());
+      made.push(abrams, car);
+      if (abrams.items.filter((i) => i.type === "weapon").length !== 2) errors.push(`the Abrams has ${abrams.items.size} weapons, not its cannon and M2HB`);
+      if (abrams.prototypeToken.width !== 3 || abrams.prototypeToken.height !== 6) errors.push(`the Abrams's token is ${abrams.prototypeToken.width} × ${abrams.prototypeToken.height}, not 3 × 6`);
+      // Its sheet, read cleanly.
+      await car.sheet.render({ force: true });
+      await wait(() => car.sheet.rendered, "the car's sheet");
+      for (const bad of readable(car.sheet.element).slice(0, 5)) errors.push(`the car's sheet: ${bad}`);
+      // Its edit view, every field.
+      car.sheet.editing = true;
+      await car.sheet.render({ force: true });
+      await wait(() => car.sheet.element?.querySelector("input[name='system.hardness']"), "the car's edit view");
+      car.sheet.editing = false;
+      await car.sheet.render({ force: true });
+      await wait(() => car.sheet.element?.querySelector("select[name='system.speed']"), "the car's sheet again");
+      // A driver aboard: dropped on the sheet; the vehicle's initiative is theirs and its own.
+      const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: a === "dex" ? 16 : 10 }]));
+      const driver = await Actor.implementation.create({ name: "Driver (test)", type: "character", system: { abilities } });
+      made.push(driver);
+      await car.sheet._onDropActor(new DragEvent("drop"), driver);
+      if (car.system.occupants[0]?.role !== "driver") errors.push(`the first aboard is a ${car.system.occupants[0]?.role}, not the driver`);
+      if (initiativeBonus(car) !== -2 + 3) errors.push(`the car's initiative is ${initiativeBonus(car)}, not its −2 and the driver's +3`);
+      await wait(() => /Driver \(test\)/.test(car.sheet.element.innerText), "the driver on the sheet");
+      // Its speed: all-out, +4 Defense.
+      await car.update({ "system.speed": "allOut" });
+      if (car.system.derived.defense !== 12) errors.push(`the car's Defense all-out is ${car.system.derived.defense}, not 8 + 4`);
+      // Damage: 12 ballistic less hardness 5; 10 fire halved, then less 5: none; disabled at 0; destroyed at −34.
+      await applyToActor(car, 12, { parts: [{ type: "Ballistic", amount: 12 }] });
+      if (car.system.hp.value !== 27) errors.push(`12 damage left the car at ${car.system.hp.value}, not 34 − 7 = 27`);
+      await applyToActor(car, 10, { parts: [{ type: "fire", amount: 10 }] });
+      if (car.system.hp.value !== 27) errors.push(`10 fire left the car at ${car.system.hp.value}: half, less hardness 5, is none`);
+      await applyToActor(car, 32, { parts: [{ type: "", amount: 32 }] });
+      await wait(() => car.statuses.has("disabled"), `the car disabled at ${car.system.hp.value}`);
+      await applyToActor(car, 40, { parts: [{ type: "", amount: 40 }] });
+      await wait(() => car.statuses.has("destroyed"), `the car destroyed at ${car.system.hp.value}`);
+      // The Abrams shrugs off what its hardness 20 stops.
+      await applyToActor(abrams, 18, { parts: [{ type: "Ballistic", amount: 18 }] });
+      if ((abrams.system.hp.value ?? abrams.system.hp.max) !== 64) errors.push(`18 damage got through the Abrams's hardness 20 (${abrams.system.hp.value})`);
+      await car.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of made) { if (a.sheet?.rendered) await a.sheet.close(); await a.delete(); }
     return errors;
   },
 };

@@ -530,6 +530,39 @@ export const ACTOR_MODELS = {
     description: html(),
     source,
   },
+
+  /**
+   * A vehicle (Modern/Equipment/Vehicles; Modern/VehicleCombat): its statistics as the book prints them, its hit points
+   * (an empty current value is its full normal total), the cover it gives those aboard, its size on the grid, and who
+   * is aboard. Its mounted weapons are its items.
+   */
+  vehicle: {
+    category: str(),
+    crew: int(),
+    passengers: int(),
+    cargo: printed({ lb: num({ nullable: true }) }),
+    /** Added to its driver's initiative, and to Drive and Pilot checks with it; its size's modifier is in both. */
+    initiative: int(),
+    maneuver: int(),
+    /** Squares a round at top speed, at character scale (5 feet a square) and chase scale (50 feet). */
+    topSpeed: printed({ character: int(), chase: int() }),
+    defense: int(),
+    hardness: int(),
+    hp: obj({ value: int({ nullable: true }), max: int() }),
+    size: str({ choices: SIZES }),
+    /** Its footprint at character scale: squares wide and long. */
+    squares: obj({ wide: int({ initial: 1 }), long: int({ initial: 1 }) }),
+    /** The cover it gives its occupants. */
+    cover: str({ choices: ["none", "one-quarter", "one-half", "three-quarters", "nine-tenths", "full"] }),
+    purchaseDC: printed({ dc: int({ nullable: true }) }),
+    restriction: obj({ value: str(), level: str({ choices: ["lic", "res", "mil", "illegal"] }), modifier: int() }),
+    /** The speed category it moves at (Modern/VehicleCombat/VehicleSpeed). */
+    speed: str({ choices: ["stationary", "alley", "street", "highway", "allOut"], initial: "stationary" }),
+    /** Who is aboard: each a character or creature, as the driver, a gunner or a passenger. */
+    occupants: list(obj({ uuid: ref(), name: str(), role: str({ choices: ["driver", "gunner", "passenger"] }) })),
+    description: html(),
+    source,
+  },
 };
 
 /** An ability score's modifier: (score − 10) / 2, rounded down; none for a nonability (—). */

@@ -8,6 +8,7 @@
  * the GM to everything else.
  */
 import * as D from "./rules/damage.mjs";
+import * as V from "./rules/vehicles.mjs";
 import { readDefenses, damageParts, reduceDamage } from "./rules/resistance.mjs";
 import { characterRolls, creatureRolls } from "./roll.mjs";
 import { SYSTEM_ID } from "./config.mjs";
@@ -95,6 +96,7 @@ export function registerHitPointConditionHooks() {
     before.delete(actor.uuid);
     const value = actor.system.hp.value;
     if (value === null || value === undefined || value === was || !exists(actor)) return;
+    if (actor.type === "vehicle") return setVehicleConditions(actor, value);
     // Hit points the maximum took away (Constitution lost) are not damage: a stable character stays stable.
     const lost = was !== undefined && value < was && !options.modern20Following;
     if (actor.type === "character") {
@@ -105,9 +107,45 @@ export function registerHitPointConditionHooks() {
   });
 }
 
+/** A vehicle's conditions, as its hit points put it in them (rules/vehicles.mjs): disabled at 0, destroyed at minus its total. */
+async function setVehicleConditions(actor, value) {
+  const state = V.vehicleState(value, actor.system.hp.max);
+  const want = { disabled: state !== null, destroyed: state === "destroyed" };
+  for (const [id, on] of Object.entries(want)) if (actor.statuses.has(id) !== on) await actor.toggleStatusEffect(id, { active: on, overlay: id === "destroyed" });
+}
+
+/**
+ * Damage to a vehicle, or its repair (`healing`): energy as to an object, then its hardness off (rules/vehicles.mjs);
+ * nonlethal damage does nothing to it. Never more than its full normal hit points back.
+ */
+async function applyToVehicle(actor, amount, options = {}) {
+  const max = actor.system.hp.max ?? 0;
+  const before = actor.system.hp.value ?? max;
+  let after = before, text, stopped = "";
+  if (options.healing) {
+    after = Math.min(max, before + Math.max(0, Math.floor(amount)));
+    text = `Repaired ${after - before}`;
+  } else if (options.nonlethal) {
+    text = "Nonlethal damage: no effect on a vehicle";
+  } else {
+    const r = V.vehicleDamage(options.parts?.length ? options.parts : [{ type: "", amount }], actor.system.hardness);
+    after = before - r.total;
+    text = `${r.total} damage`;
+    if (r.stopped.length) stopped = `<p class="m20-hint">Stopped: ${r.stopped.map((x) => `${x.amount} by ${escape(x.by)}`).join("; ")}.</p>`;
+  }
+  await actor.update({ "system.hp.value": after }, { [OWN_CHANGE]: true });
+  await setVehicleConditions(actor, after);
+  const state = V.vehicleState(after, max);
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content: `<div class="m20-roll"><h3>${escape(actor.name)}: ${escape(text)}</h3><p>Hit points ${before} → ${after}${state ? ` — ${state === "destroyed" ? "Destroyed" : "Disabled"}` : ""}</p>${stopped}</div>`,
+  });
+}
+
 /** Apply `amount` to an actor (`{ healing, nonlethal }`), and post what it did. */
 export async function applyToActor(actor, amount, options = {}) {
   if (!actor.isOwner) return ui.notifications.warn(`Only the GM or ${actor.name}'s owner can change its hit points.`);
+  if (actor.type === "vehicle") return applyToVehicle(actor, amount, options);
   const target = targetOf(actor);
   // Damage reduction, resistance and immunity, part by part (rules/resistance.mjs).
   let reduced = null;

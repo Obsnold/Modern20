@@ -61,9 +61,14 @@ export const RECOGNIZED = {
   infamous: { name: "Recognized: Infamous", img: "icons/svg/hazard.svg", changes: REPUTATION_SKILLS.map((k) => add(`skills.${k}`, -4)), text: "Recognized, and thought ill of: −4 on Bluff, Diplomacy, Gather Information, Intimidate and Perform checks involving the one who recognized you, for the encounter." },
 };
 
-/** The conditions, the round-long combat actions and recognition, as Foundry's CONFIG.statusEffects entries. */
+/** A vehicle's (Modern/VehicleCombat/DamagingVehicles): destroyed when it has lost twice its hit points. Disabled is the condition's. */
+export const VEHICLE = {
+  destroyed: { name: "Destroyed", img: "icons/svg/explosion.svg", text: "A vehicle that has lost twice its full normal hit points: it cannot be repaired." },
+};
+
+/** The conditions, the round-long combat actions, recognition and a vehicle's, as Foundry's CONFIG.statusEffects entries. */
 export function statusEffects() {
-  return Object.entries({ ...CONDITIONS, ...ACTIONS, ...RECOGNIZED }).map(([id, c]) => ({
+  return Object.entries({ ...CONDITIONS, ...ACTIONS, ...RECOGNIZED, ...VEHICLE }).map(([id, c]) => ({
     id, name: c.name, img: c.img, description: `<p>${c.text}</p>`, system: { changes: c.changes ?? [] },
   }));
 }

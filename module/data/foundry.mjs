@@ -6,6 +6,7 @@ import { toSchema } from "./schema.mjs";
 import { ITEM_MODELS, ACTOR_MODELS, ABILITIES, abilityModifier } from "./models.mjs";
 import { deriveCharacter } from "../rules/character.mjs";
 import { migrateLanguages } from "../rules/languages.mjs";
+import { atSpeed, vehicleState } from "../rules/vehicles.mjs";
 
 /** A TypeDataModel class whose schema is `fields`. */
 function model(name, fields) {
@@ -50,6 +51,16 @@ class CharacterData extends model("CharacterData", ACTOR_MODELS.character) {
   }
 }
 
+/** A vehicle: its statistics as printed, and what its hit points and speed make of them now (rules/vehicles.mjs). */
+class VehicleData extends model("VehicleData", ACTOR_MODELS.vehicle) {
+  prepareDerivedData() {
+    // Not stored: current hit points (an empty value is its full total), its condition, and its Defense at its speed.
+    const value = this.hp.value ?? this.hp.max;
+    const speed = atSpeed(this.defense, this.speed);
+    this.derived = { hp: value, state: vehicleState(value, this.hp.max), defense: speed.defense, check: speed.check, speedLabel: speed.label };
+  }
+}
+
 /** Register every model with Foundry; called from the init hook. */
 export function registerModels() {
   for (const [type, fields] of Object.entries(ITEM_MODELS)) {
@@ -57,4 +68,5 @@ export function registerModels() {
   }
   CONFIG.Actor.dataModels.creature = CreatureData;
   CONFIG.Actor.dataModels.character = CharacterData;
+  CONFIG.Actor.dataModels.vehicle = VehicleData;
 }

@@ -36,6 +36,11 @@
         "htmlFields": [
           "description"
         ]
+      },
+      "vehicle": {
+        "htmlFields": [
+          "description"
+        ]
       }
     },
     "Item": {
@@ -258,6 +263,17 @@
       }
     },
     {
+      "name": "vehicles",
+      "label": "Vehicles",
+      "path": "packs/vehicles",
+      "type": "Actor",
+      "system": "modern20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
       "name": "creatures",
       "label": "Creatures",
       "path": "packs/creatures",
@@ -325,7 +341,8 @@
           "sorting": "m",
           "packs": [
             "equipment",
-            "fx-items"
+            "fx-items",
+            "vehicles"
           ]
         },
         {

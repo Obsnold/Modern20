@@ -26,8 +26,8 @@ export function registerLogSettings() {
 
 const limit = () => game.settings.get(SYSTEM_ID, "logPlayLimit") ?? L.PLAY_LIMIT;
 const meta = (userId = game.user.id) => ({ id: foundry.utils.randomID(), time: Date.now(), seq: seq++, user: userId, userName: game.users.get(userId)?.name ?? "Unknown" });
-/** An actor the log records: a character or creature in the world (a compendium's cannot be changed). */
-const logged = (actor) => actor && !actor.pack && ["character", "creature"].includes(actor.type);
+/** An actor the log records: a character, creature or vehicle in the world (a compendium's cannot be changed). */
+const logged = (actor) => actor && !actor.pack && ["character", "creature", "vehicle"].includes(actor.type);
 let seq = 0;
 
 /**

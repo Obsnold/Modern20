@@ -370,6 +370,11 @@ export function creatureRolls(actor) {
 /** The initiative bonus Foundry's combat tracker rolls with: `1d20 + @init`. */
 export function initiativeBonus(actor) {
   if (actor.type === "character") return actor.system.derived?.initiative ?? 0;
+  // A vehicle: its driver's initiative and its own modifier (Modern/VehicleCombat/GettingStarted); without one, its own.
+  if (actor.type === "vehicle") {
+    const driver = fromUuidSync(actor.system.occupants.find((o) => o.role === "driver")?.uuid ?? "");
+    return (actor.system.initiative ?? 0) + (driver && driver.documentName === "Actor" ? initiativeBonus(driver) : 0);
+  }
   return (actor.system.initiative ?? 0) + conditionsOf(actor).initiative();
 }
 
@@ -383,6 +388,8 @@ export function spellResistanceOf(actor) {
 /** A token's Defense, or its touch Defense: a character's worked out, a creature's as printed. */
 function defenseOf(actor, { touch = false } = {}) {
   if (actor?.type === "character") return touch ? actor.system.derived?.defense?.touch : actor.system.derived?.defense?.value;
+  // A vehicle's Defense at its speed (rules/vehicles.mjs).
+  if (actor?.type === "vehicle") return actor.system.derived?.defense ?? actor.system.defense;
   const printed = touch ? actor?.system.defense?.touch : actor?.system.defense?.value;
   return printed === null || printed === undefined ? printed : printed + conditionsOf(actor).defense();
 }

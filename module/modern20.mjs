@@ -9,6 +9,7 @@ import { SYSTEM_ID } from "./config.mjs";
 import { Modern20ItemSheet } from "./sheets/document-sheet.mjs";
 import { Modern20CreatureSheet } from "./sheets/creature-sheet.mjs";
 import { Modern20CharacterSheet } from "./sheets/character-sheet.mjs";
+import { Modern20VehicleSheet } from "./sheets/vehicle-sheet.mjs";
 import { registerModels } from "./data/foundry.mjs";
 import { Modern20Actor } from "./actor.mjs";
 import { Modern20ActiveEffect } from "./effect.mjs";
@@ -44,7 +45,7 @@ Hooks.once("init", () => {
   CONFIG.statusEffects = [...statusEffects(), ...(invisible ? [invisible] : [])];
   CONFIG.specialStatusEffects.BLIND = "blinded";
   // Hit points are the bar a token can show, for both kinds of actor (a character's maximum is worked out).
-  CONFIG.Actor.trackableAttributes = { character: { bar: ["hp"], value: [] }, creature: { bar: ["hp"], value: [] } };
+  CONFIG.Actor.trackableAttributes = { character: { bar: ["hp"], value: [] }, creature: { bar: ["hp"], value: [] }, vehicle: { bar: ["hp"], value: [] } };
   CONFIG.Actor.documentClass = Modern20Actor;
   CONFIG.ActiveEffect.documentClass = Modern20ActiveEffect;
   // Initiative: 1d20 + Dex and feats for a character, the printed bonus for a creature. A tie goes to the
@@ -64,6 +65,11 @@ Hooks.once("init", () => {
     types: ["character"],
     makeDefault: true,
     label: "MODERN20.SheetLabel.Character",
+  });
+  DocumentSheetConfig.registerSheet(foundry.documents.Actor, SYSTEM_ID, Modern20VehicleSheet, {
+    types: ["vehicle"],
+    makeDefault: true,
+    label: "MODERN20.SheetLabel.Vehicle",
   });
   console.log(`${SYSTEM_ID} | Initialized`);
 });
