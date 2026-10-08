@@ -39,9 +39,12 @@ async function refresh(item, source) {
     delete data._id;
     return data;
   });
+  // Only the system's own effects (its mechanics, flagged so since they first were items' effects) are the
+  // compendium's to refresh: one a GM or player made on the item is theirs, and kept.
+  const own = item.effects.filter((e) => e.getFlag(SYSTEM_ID, "mechanics"));
   // Compared as stored (v14 keeps an effect's changes in `system.changes`).
   const stored = (e) => [e.name, changesOf(e).map(({ key, type, value }) => [key, type, value])];
-  const sameEffects = JSON.stringify(item.effects.map((e) => stored(e.toObject()))) === JSON.stringify(fresh.map(stored));
+  const sameEffects = JSON.stringify(own.map((e) => stored(e.toObject()))) === JSON.stringify(fresh.map(stored));
   // The roll notes and book fields that differ from the source's.
   const { getProperty, hasProperty } = foundry.utils;
   const changes = {};
@@ -55,8 +58,10 @@ async function refresh(item, source) {
   // A fresh options object each call: Foundry writes the parent into the one it is given.
   const opts = () => ({ [NO_LOG]: true });
   if (!sameEffects) {
-    if (item.effects.size) await item.deleteEmbeddedDocuments("ActiveEffect", item.effects.map((e) => e.id), opts());
-    if (fresh.length) await item.createEmbeddedDocuments("ActiveEffect", fresh, opts());
+    // One switched on by hand (a Tattoo of Natural Armor's, while active) stays as it was switched.
+    const switched = new Map(own.map((e) => [e.name, e.disabled]));
+    if (own.length) await item.deleteEmbeddedDocuments("ActiveEffect", own.map((e) => e.id), opts());
+    if (fresh.length) await item.createEmbeddedDocuments("ActiveEffect", fresh.map((e) => (switched.has(e.name) ? { ...e, disabled: switched.get(e.name) } : e)), opts());
   }
   if (Object.keys(changes).length) await item.update(changes, opts());
   return true;

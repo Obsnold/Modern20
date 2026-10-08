@@ -2,10 +2,10 @@
   <div class="m20-panel">
     <h3>Effects <a data-action="createEffect" data-tooltip="New effect"><i class="fa-solid fa-plus"></i></a></h3>
     {{#each effects}}
-      <div class="m20-item {{#if disabled}}m20-unusable{{/if}}" data-effect-uuid="{{uuid}}">
+      <div class="m20-item {{#if (or disabled suppressed)}}m20-unusable{{/if}}" data-effect-uuid="{{uuid}}" {{#if suppressed}}data-tooltip="Not working: {{source}} is not in use (unequipped, kept elsewhere, or worn beyond the limit of its kind)"{{/if}}>
         <img src="{{img}}" alt="" width="28" height="28">
         <a class="m20-item-name" data-action="editEffect">{{name}}</a>
-        <span class="m20-item-detail">{{changes}}{{#if source}} &middot; from {{source}}{{/if}}</span>
+        <span class="m20-item-detail">{{changes}}{{#if source}} &middot; from {{source}}{{/if}}{{#if suppressed}} &middot; not in use{{/if}}</span>
         <a data-action="toggleEffect" class="{{#unless disabled}}m20-on{{/unless}}" data-tooltip="{{#if disabled}}Off: click to turn on{{else}}On: click to turn off{{/if}}"><i class="fa-solid fa-power-off"></i></a>
         {{#if own}}<a data-action="deleteEffect" data-tooltip="Delete"><i class="fa-solid fa-trash"></i></a>{{/if}}
       </div>

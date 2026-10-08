@@ -11,6 +11,7 @@ import { Modern20CreatureSheet } from "./sheets/creature-sheet.mjs";
 import { Modern20CharacterSheet } from "./sheets/character-sheet.mjs";
 import { registerModels } from "./data/foundry.mjs";
 import { Modern20Actor } from "./actor.mjs";
+import { Modern20ActiveEffect } from "./effect.mjs";
 import { registerRollSettings, bindAttackButtons } from "./roll.mjs";
 import { statusEffects } from "./rules/conditions.mjs";
 import { registerLogSettings, registerLogHooks } from "./log.mjs";
@@ -45,6 +46,7 @@ Hooks.once("init", () => {
   // Hit points are the bar a token can show, for both kinds of actor (a character's maximum is worked out).
   CONFIG.Actor.trackableAttributes = { character: { bar: ["hp"], value: [] }, creature: { bar: ["hp"], value: [] } };
   CONFIG.Actor.documentClass = Modern20Actor;
+  CONFIG.ActiveEffect.documentClass = Modern20ActiveEffect;
   // Initiative: 1d20 + Dex and feats for a character, the printed bonus for a creature. A tie goes to the
   // higher bonus: @initTie is the bonus / 100, shown in the tracker's two decimal places.
   CONFIG.Combat.initiative = { formula: "1d20 + @init + @initTie", decimals: 2 };

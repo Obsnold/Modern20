@@ -938,21 +938,26 @@ export const CHECKS = {
     return errors;
   },
 
-  async "the startup update: an item with an out-of-date effect is refreshed from its compendium, once"() {
+  async "the startup update: an item with an out-of-date effect is refreshed from its compendium, once, and an effect made on it by hand kept"() {
     const errors = [];
     const { take } = window.m20test;
     const { syncWorldItems } = await import("/systems/modern20/module/sync.mjs");
     const item = await Item.implementation.create(await take("feats", "Alertness"));
     const effect = item.effects.contents[0];
+    // An effect made on the item by hand: the GM's, kept through the update.
+    await item.createEmbeddedDocuments("ActiveEffect", [{ name: "GM's ruling", system: { changes: [{ key: "system.bonuses.skills.search", type: "add", value: "1" }] } }]);
     // Out of date: a different bonus than the compendium's +2.
     await effect.update({ "system.changes": effect.changes.map((c) => ({ ...c, value: 9 })) });
     await game.settings.set("modern20", "syncedVersion", "");
     await syncWorldItems();
-    const values = item.effects.contents.flatMap((e) => e.changes.map((c) => Number(c.value)));
-    if (values.some((v) => v !== 2)) errors.push(`after the update its effect gives ${values.join(", ")}, not the compendium's 2`);
+    const mechanics = item.effects.contents.filter((e) => e.getFlag("modern20", "mechanics")).flatMap((e) => e.changes.map((c) => Number(c.value)));
+    if (mechanics.some((v) => v !== 2) || !mechanics.length) errors.push(`after the update its effect gives ${mechanics.join(", ")}, not the compendium's 2`);
+    if (!item.effects.contents.some((e) => e.name === "GM's ruling")) errors.push("the update deleted an effect made on the item by hand");
     if (game.settings.get("modern20", "syncedVersion") !== game.system.version) errors.push("the update did not record the version");
     // A weapon's damage: filled in where it is empty, but one changed by hand is left as it is.
-    const [staff, club] = await Item.implementation.create([await take("equipment", "Quarterstaff", { damage: { formula: "" } }), await take("equipment", "Club", { damage: { formula: "1d8" } })]);
+    // By name: Foundry does not promise the order of documents made together.
+    const made = await Item.implementation.create([await take("equipment", "Quarterstaff", { damage: { formula: "" } }), await take("equipment", "Club", { damage: { formula: "1d8" } })]);
+    const staff = made.find((i) => i.name === "Quarterstaff"), club = made.find((i) => i.name === "Club");
     await game.settings.set("modern20", "syncedVersion", "");
     await syncWorldItems();
     if (staff.system.damage.formula !== "1d6") errors.push(`an empty damage formula was not filled in: "${staff.system.damage.formula}"`);
@@ -966,9 +971,10 @@ export const CHECKS = {
     if (glock.system.mastercraft !== 1) errors.push(`a Glock 17 from before mastercraft was kept has mastercraft ${glock.system.mastercraft}, not the book's 1`);
     await glock.delete();
     // Run again for the same version: nothing to do.
-    await item.effects.contents[0].update({ "system.changes": item.effects.contents[0].changes.map((c) => ({ ...c, value: 9 })) });
+    const own = item.effects.contents.find((e) => e.getFlag("modern20", "mechanics"));
+    await own.update({ "system.changes": own.changes.map((c) => ({ ...c, value: 9 })) });
     await syncWorldItems();
-    if (Number(item.effects.contents[0].changes[0].value) !== 9) errors.push("the update ran again for the same version");
+    if (Number(own.changes[0].value) !== 9) errors.push("the update ran again for the same version");
     await item.delete();
     return errors;
   },
@@ -1895,6 +1901,129 @@ export const CHECKS = {
       errors.push(e.message);
     }
     if (actor.sheet.rendered) await actor.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "FX items in use: a wand's charge and its card's DC, a staff's use chosen, a potion drunk, a watch fob's bonus while worn, a third ring that does not work"() {
+    const errors = [];
+    const { take, wait, dialog } = window.m20test;
+    const { notesOf } = await import("/systems/modern20/module/roll.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "FX in use (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("fx-items", "Wand of Web"), await take("fx-items", "Staff of Fire"), await take("fx-items", "Potion of Cure Light Wounds"),
+      await take("fx-items", "Houdini’s Watch Fob", { equipped: true }),
+      await take("fx-items", "Decoder Ring", { equipped: true }), await take("fx-items", "Ring of Lockpicking", { equipped: true }), await take("fx-items", "Ring of Jumping", { equipped: true }),
+    ]);
+    const get = (name) => actor.items.find((i) => i.name === name);
+    try {
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("gear", "primary");
+      const use = async (name) => {
+        const n = game.messages.size;
+        actor.sheet.element.querySelector(`section.tab[data-tab=gear] [data-item-id="${get(name).id}"] [data-action=useItem]`).click();
+        return () => wait(() => game.messages.contents.slice(n).find((m) => /m20-cast/.test(m.content)), `${name}'s card`);
+      };
+      // The wand: a charge, and a card with Web's DC (10 + 1.5 × 2) and a caster level check at its level 3.
+      let card = await (await use("Wand of Web"))();
+      if (get("Wand of Web").system.charges.value !== 49) errors.push(`the wand has ${get("Wand of Web").system.charges.value} charges after a use, not 49`);
+      if (!/DC 13/.test(card.content)) errors.push("the wand's card gives no DC 13");
+      if (card.getFlag("modern20", "levelCheck")?.bonus !== 3) errors.push(`the wand's card's level check is ${JSON.stringify(card.getFlag("modern20", "levelCheck"))}`);
+      // The staff: Wall of Fire, 2 charges, its printed DC 17.
+      const pending = await use("Staff of Fire");
+      await dialog({}, "2");
+      card = await pending();
+      if (get("Staff of Fire").system.charges.value !== 48) errors.push(`the staff has ${get("Staff of Fire").system.charges.value} charges after wall of fire, not 48`);
+      if (!/Wall of Fire/.test(card.content) || !/DC 17/.test(card.content)) errors.push("the staff's card is not wall of fire's, DC 17");
+      // The potion: drunk, and gone.
+      await (await use("Potion of Cure Light Wounds"))();
+      await wait(() => !get("Potion of Cure Light Wounds"), "the potion to be used up");
+      // The watch fob while worn: +3 Reflex; taken off, none.
+      const ref = actor.system.derived.saves.ref;
+      await get("Houdini’s Watch Fob").update({ "system.equipped": false });
+      if (actor.system.derived.saves.ref !== ref - 3) errors.push(`Reflex ${actor.system.derived.saves.ref} with the watch fob taken off, not ${ref - 3}`);
+      // Three rings, in the Gear tab's order: the third does not work, and the Gear tab says so.
+      const jump = () => actor.system.derived.skills.find((r) => r.key === "jump").total;
+      await get("Ring of Jumping").update({ sort: 300 });
+      await get("Decoder Ring").update({ sort: 100 });
+      await get("Ring of Lockpicking").update({ sort: 200 });
+      if (jump() !== 0) errors.push(`Jump ${jump()} with the Ring of Jumping worn third, not 0`);
+      await wait(() => /only 2 rings work at once/.test(actor.sheet.element.querySelector("section.tab[data-tab=gear]").innerText), "the Gear tab's word on the rings");
+      await wait(() => actor.sheet.element.querySelector(`[data-item-id="${get("Ring of Jumping").id}"] .fa-ban`), "the third ring to be marked");
+      // Dragged above the others: the Ring of Jumping works, and the Ring of Lockpicking, now third, does not (nor its note).
+      await get("Ring of Jumping").update({ sort: 50 });
+      if (jump() !== 30) errors.push(`Jump ${jump()} with the Ring of Jumping first, not 30`);
+      if (notesOf(actor).some((x) => x.source === "Ring of Lockpicking")) errors.push("the third ring's note is offered");
+      await get("Decoder Ring").update({ "system.equipped": false });
+      if (!notesOf(actor).some((x) => x.source === "Ring of Lockpicking")) errors.push("the Ring of Lockpicking's note is not offered, one of two rings worn");
+    } catch (e) {
+      errors.push(e.message);
+    }
+    if (actor.sheet.rendered) await actor.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "special abilities: a Flaming Machete's fire on its damage card, a Holy Crossbow's +2d6 asked and carried to its damage, armor's Fire Resistance chosen in its edit view and applied"() {
+    const errors = [];
+    const { take, wait, dialog, click } = window.m20test;
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Special abilities (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("feats", "Archaic Weapons Proficiency"), await take("feats", "Simple Weapons Proficiency"), await take("feats", "Armor Proficiency (light)"),
+      await take("fx-items", "Flaming Machete"), await take("fx-items", "Holy Crossbow", { loaded: 1 }), await take("equipment", "Crossbow bolt"),
+      await take("equipment", "Light-duty vest", { equipped: true }),
+    ]);
+    const get = (name) => actor.items.find((i) => i.name === name);
+    // Each card's damage, from its own button (or, on a threat, the confirmation's "not confirmed" one).
+    const damageFrom = async (attackCard) => {
+      const k = game.messages.size;
+      let next = attackCard;
+      for (let tries = 0; tries < 3 && !game.messages.contents.slice(k).some((m) => m.getFlag("modern20", "damage")); tries++) {
+        const button = await wait(() => [...(ui.chat.element?.querySelectorAll(`li[data-message-id="${next.id}"] .m20-card-buttons button`) ?? [])].find((b) => /^(Damage|Not confirmed: damage|Confirm critical)$/.test(b.textContent)), "a damage button");
+        const before = game.messages.size;
+        button.click();
+        next = await wait(() => game.messages.contents.slice(before).at(-1), "the next card");
+      }
+      return wait(() => game.messages.contents.slice(k).find((m) => m.getFlag("modern20", "damage")), "the damage card");
+    };
+    try {
+      // The Flaming Machete: +1d6 fire on its damage, labelled for resistance.
+      let n = game.messages.size;
+      await characterRolls(actor).attack(get("Flaming Machete"));
+      let card = await damageFrom(await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "attack")), "the machete's attack"));
+      if (!/1d6\[fire\]/.test(card.rolls[0]?.formula ?? "")) errors.push(`the Flaming Machete's damage is "${card.rolls[0]?.formula}", with no 1d6[fire]`);
+      // The Holy Crossbow: asked whether the target is evil; ticked, its damage has +2d6.
+      await game.settings.set("modern20", "askBeforeRolling", true);
+      n = game.messages.size;
+      const asked = characterRolls(actor).attack(get("Holy Crossbow"));
+      const shown = await dialog({ against_holy: true });
+      await asked;
+      if (!shown.labels.some((l) => /allegiance to evil \(Holy: \+2d6\)/.test(l))) errors.push(`the Holy Crossbow's attack does not ask about evil (asks: ${shown.labels.join("; ")})`);
+      await game.settings.set("modern20", "askBeforeRolling", false);
+      card = await damageFrom(await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "attack")), "the crossbow's attack"));
+      if (!/\+ 2d6/.test(card.rolls[0]?.formula ?? "")) errors.push(`the Holy Crossbow's damage against an evil target is "${card.rolls[0]?.formula}", with no +2d6`);
+      // The vest: Fire Resistance chosen in its edit view, from its abilities' list.
+      const vest = get("Light-duty vest");
+      vest.sheet.editing = true;
+      await vest.sheet.render({ force: true });
+      await wait(() => vest.sheet.element?.querySelector("[data-action=addEntry][data-path='system.abilities']"), "the vest's abilities list");
+      click(vest.sheet.element, "[data-action=addEntry][data-path='system.abilities']");
+      const select = await wait(() => vest.sheet.element.querySelector("select[name='system.abilities.0.id']"), "the new ability's choice");
+      if (![...select.options].some((o) => o.textContent === "Fire Resistance")) errors.push("the armor's ability choice has no Fire Resistance");
+      select.value = "fireResistance";
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      await wait(() => vest.system.abilities[0]?.id === "fireResistance", "Fire Resistance to save");
+      await vest.sheet.close();
+      if (actor.system.derived.defenses.resist.fire !== 10) errors.push(`fire resistance ${actor.system.derived.defenses.resist.fire} with a Fire Resistance vest, not 10`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    await game.settings.set("modern20", "askBeforeRolling", false);
+    for (const i of actor.items) if (i.sheet?.rendered) await i.sheet.close();
     await actor.delete();
     return errors;
   },

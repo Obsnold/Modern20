@@ -35,6 +35,8 @@ import { casterFor, castingOf } from "../rules/casting.mjs";
 import { purchaseDC, qualityText } from "../rules/quality.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
 import { LevelUp, Grant, undoLastLevel } from "../levelup.mjs";
+import { useItem } from "../fx-items.mjs";
+import { wornOverLimit } from "../rules/fx-items.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -107,6 +109,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       grant: Modern20CharacterSheet.#onGrant,
       undoLevel: Modern20CharacterSheet.#onUndoLevel,
       toggleFreeEdit: Modern20CharacterSheet.#onToggleFreeEdit,
+      useItem: Modern20CharacterSheet.#onUseItem,
     },
   };
 
@@ -242,6 +245,9 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       const r = featPrerequisites(i.system.prerequisites, pre);
       return r.met === false ? `Prerequisites not met: ${r.missing.join(", ")}` : "";
     };
+    // FX items worn beyond the limit of their kind (rules/fx-items.mjs): flagged, and said on the Gear tab.
+    const worn = wornOverLimit(items);
+    const overWorn = new Map(worn.flatMap((w) => w.over.map((id) => [id, `Only ${w.limit} ${w.label} can work at once: ${w.items.join(", ")} are worn. Unequip one.`])));
     const itemLists = Object.fromEntries(Object.entries(LISTS).map(([tab, groups]) => [tab, groups.map(([type, label]) => ({
       type, label,
       items: ofType(type).map((i) => ({
@@ -254,6 +260,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         dc: "purchaseDC" in i.system ? purchaseDC(i).dc : null, unpriced: "purchaseDC" in i.system && purchaseDC(i).unpriced,
         ammo: i.type === "weapon" && !i.system.melee ? ammoContext(actor, i) : null,
         quantity: i.type === "ammunition" ? i.system.quantity : null,
+        // A potion, scroll, wand or staff: used from its row; a wand's or staff's charges set by hand too.
+        fx: !!i.system.fx?.category, usable: i.type === "consumable", charges: i.type === "consumable" && i.system.charges.max > 1 ? { value: i.system.charges.value ?? 0, max: i.system.charges.max } : null,
+        // An FX item worn beyond the limit of its kind (two pairs of magic gloves): it does not work.
+        overWorn: overWorn.get(i.id) ?? "",
         // A special load (Beanbag, Silver): the caliber it was bought in, so it fits that gun.
         special: i.type === "ammunition" && !!specialAmmo(identify(i)), caliber: i.system.caliber ?? "",
         counted: i.type === "ammunition",
@@ -277,6 +287,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         speed: d.speed ? { ...d.speed, double: d.speed.value * 2, default: ofType("species")[0]?.system.speed || 30 } : {},
         unarmed: unarmedSummary(items),
         load: loadContext(d.load),
+        worn: worn.map((w) => `${w.items.join(", ")}: only ${w.limit} ${w.label} work${w.limit === 1 ? "s" : ""} at once`),
       },
       summary: (d.classes ?? []).map((c) => `${c.name} ${c.level}`).join(" / ") || "No class",
       size: d.size ? d.size[0].toUpperCase() + d.size.slice(1) : "Medium",
@@ -291,7 +302,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     calibers: [...new Set(ofType("weapon").map((w) => caliberIn(w)).filter(Boolean))],
     // Every effect acting on the character: its own, and those its items carry to it.
       effects: [...actor.allApplicableEffects()].map((e) => ({
-        id: e.id, uuid: e.uuid, name: e.name, img: e.img, disabled: e.disabled,
+        id: e.id, uuid: e.uuid, name: e.name, img: e.img, disabled: e.disabled, suppressed: !e.disabled && e.isSuppressed,
         source: e.parent === actor ? "" : e.parent?.name ?? "", own: e.parent === actor,
         changes: e.changes.map((c) => `${c.key.replace(/^system\.bonuses\./, "")} ${Number(c.value) >= 0 ? "+" : ""}${c.value}`).join(", "),
       })),
@@ -413,6 +424,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     } else if (field === "loaded") {
       const mag = magazineOf(item.system.magazine);
       await item.update({ "system.loaded": Math.max(0, Math.min(value ?? 0, mag && mag.capacity !== Infinity ? mag.capacity : Infinity)) });
+    } else if (field === "charges") {
+      await item.update({ "system.charges.value": Math.max(0, Math.min(value ?? 0, item.system.charges.max ?? Infinity)) });
     } else if (field === "quantity") {
       await item.update({ "system.quantity": value === null ? null : Math.max(0, value) });
     } else if (field === "prepared") {
@@ -522,6 +535,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     await addFromCompendium(actor, option, {});
   }
 
+  static async #onUseItem(event, target) { const i = this.#item(target); if (i) await useItem(this.document, i); }
   static async #onReload(event, target) { const i = this.#item(target); if (i) await reloadWeapon(this.document, i); }
   static async #onCastSpell(event, target) { const i = this.#item(target); if (i) await castSpell(this.document, i); }
   static async #onManifestPower(event, target) { const i = this.#item(target); if (i) await manifest(this.document, i); }

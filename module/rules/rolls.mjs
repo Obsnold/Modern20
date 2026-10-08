@@ -14,6 +14,7 @@ import { chooses } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { slug } from "./identify.mjs";
 import { weaponQuality } from "./quality.mjs";
+import { weaponAbilities, keenThreat, blastDice } from "./abilities.mjs";
 import { MODES, extraDice, AUTOFIRE_DEFENSE, rangePenalty, isThrown, INTO_MELEE } from "./ammo.mjs";
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
@@ -109,8 +110,11 @@ export function attack(d, weapon, feats, options = {}) {
   // Weapon Focus once for a weapon, however many give it (the feat, a Soldier's or Gunslinger's feature: "the
   // benefit of the feat"); Greater Weapon Focus, a feat of its own, besides.
   const focus = onceEach(owned.filter((f) => f.rules.weaponFocus && forThisWeapon(f)), "weaponFocus");
+  // Its special abilities (rules/abilities.mjs): bane's +2 against its foe, as ticked; keen; distance.
+  const abilities = weaponAbilities(s, options);
   // Range: −2 a full increment at the distance given (rules/ammo.mjs), and −4 into a melee without Precise Shot.
-  const range = melee ? null : rangePenalty(weapon, options.distance, { farShot: owned.some((f) => f.rules.farShot) });
+  const ranged = abilities.distance && s.rangeIncrement?.ft ? { ...weapon, system: { ...s, rangeIncrement: { ...s.rangeIncrement, ft: s.rangeIncrement.ft * 2 } } } : weapon;
+  const range = melee ? null : rangePenalty(ranged, options.distance, { farShot: owned.some((f) => f.rules.farShot) });
   const intoMelee = !melee && options.intoMelee && !owned.some((f) => f.rules.preciseShot) ? INTO_MELEE : 0;
   // Point Blank Shot within 30 feet: by the distance, when one is given, or as ticked.
   const close = range ? options.distance <= 30 : !!options.pointBlank;
@@ -126,6 +130,7 @@ export function attack(d, weapon, feats, options = {}) {
     ...focus,
     // Mastercraft or an enhancement bonus, the higher (rules/quality.mjs).
     ...weaponQuality(s).attack,
+    ...abilities.attack,
     { label: "Point Blank Shot", value: pointBlank },
     { label: mode?.label ?? "Firing mode", value: mode?.attack ?? 0 },
     { label: "Autofire (no Advanced Firearms Proficiency)", value: autofirePenalty },
@@ -139,10 +144,10 @@ export function attack(d, weapon, feats, options = {}) {
     // Fighting defensively: −4, until the condition it puts the character in carries it (module/roll.mjs).
     { label: "Fighting defensively", value: options.defensively ? -4 : 0 },
   ], {
-    critical: ammoThreat(critical(s.critical), options.ammo),
-    // What the card says besides: the load's notes, and a target out of the weapon's reach.
+    critical: keenOf(ammoThreat(critical(s.critical), options.ammo), abilities.keen),
+    // What the card says besides: the load's notes, its abilities' that are the table's, and a target out of the weapon's reach.
     ...(() => {
-      const hints = [...ammoHints(options.ammo, weapon), ...(range?.beyond ? [`Out of range: ${options.distance} ft. is past its ${isThrown(weapon) ? "five" : "ten"} range increments of ${range.increment} ft.`] : [])];
+      const hints = [...ammoHints(options.ammo, weapon), ...abilities.hints, ...(range?.beyond ? [`Out of range: ${options.distance} ft. is past its ${isThrown(weapon) ? "five" : "ten"} range increments of ${range.increment} ft.`] : [])];
       return hints.length ? { hints } : {};
     })(),
     // Autofire is against a 10-foot square, Defense 10, not a target's Defense.
@@ -173,22 +178,33 @@ export function damage(d, weapon, options = {}) {
   const special = onceEach(owned.filter((f) => f.rules.weaponSpecialization && chooses(f.choice, weapon.name)), "weaponSpecialization").map((p) => [p.label, p.value]);
   const ammoDamage = (ammo?.damage ?? 0) + (ammo?.ask?.roll === "damage" && options.ammoAsk ? ammo.ask.value : 0);
   const quality = weaponQuality(s).damage.map((p) => [p.label, p.value]);
+  // Its special abilities' (rules/abilities.mjs): bane's +2 against its foe, as the attack ticked it; and their dice below.
+  const abilities = weaponAbilities(s, options.ticked ?? {});
+  quality.push(...abilities.damage.map((p) => [p.label, p.value]));
   const extra = [["Strength", str], ...quality, ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ...special, ...fxParts, [ammo?.name ?? "Ammunition", ammoDamage]].filter(([, v]) => v);
   const diceLabel = [MODES[options.mode]?.dice && `${MODES[options.mode].label}, +${MODES[options.mode].dice} di${MODES[options.mode].dice === 1 ? "e" : "ce"}`,
     ammo?.dice && `${ammo.name}, ${ammo.dice > 0 ? "+" : "−"}${Math.abs(ammo.dice)} die`].filter(Boolean).join("; ");
   const terms = [{ label: diceLabel ? `Weapon (${diceLabel})` : "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
-  // Damage of another kind besides (White Phosphorous: 1d6 fire), labelled so resistance meets it alone.
+  // Damage of another kind besides (White Phosphorous: 1d6 fire; Flaming: 1d6 fire), labelled so resistance meets it
+  // alone, and dice the weapon adds of its own (a Charged Nunchaku's 1d4): rolled once on a critical, not multiplied.
   const besides = ammo?.extra ? [`${ammo.extra}[${ammo.extraType}]`] : [];
   if (ammo?.extra) terms.push({ label: `${ammo.name} (${ammo.extraType})`, value: ammo.extra });
+  const own = s.extraDamage?.formula ? [{ label: s.extraDamage.type ? `Extra (${s.extraDamage.type})` : "Extra", formula: s.extraDamage.type ? `${s.extraDamage.formula}[${s.extraDamage.type}]` : s.extraDamage.formula }] : [];
+  for (const x of [...own, ...abilities.dice]) {
+    besides.push(x.formula);
+    terms.push({ label: x.label, value: x.formula.replace(/\[.*\]$/, "") });
+  }
   // The extra kind is rolled once on a critical: kept apart from what is multiplied (criticalDamage).
   const multiplied = [dice, ...extra.map(([, v]) => (v < 0 ? `- ${-v}` : `+ ${v}`))].join(" ");
   const formula = [multiplied, ...besides.map((b) => `+ ${b}`)].join(" ");
   // What the load makes of the damage when it is applied: nonlethal, the damage reduction it gets past, half another kind.
   const type = [s.damageType || "", ammo?.overcomes ?? ""].filter(Boolean).join(", ");
   return {
-    title: `${weapon.name}: damage (${type || "untyped"}${ammo?.nonlethal ? ", nonlethal" : ""})`, terms, formula, critical: critical(s.critical),
+    title: `${weapon.name}: damage (${type || "untyped"}${ammo?.nonlethal || abilities.nonlethal ? ", nonlethal" : ""})`, terms, formula, critical: keenOf(critical(s.critical), abilities.keen),
     ...(besides.length ? { multiplied, besides } : {}),
-    type, nonlethal: !!ammo?.nonlethal, half: ammo?.half ?? null,
+    type, nonlethal: !!ammo?.nonlethal || abilities.nonlethal, half: ammo?.half ?? null,
+    // An energy blast's dice, on a critical alone.
+    ...(abilities.blast ? { blast: abilities.blast } : {}),
     ...(ammoHints(ammo, weapon).length ? { hints: ammoHints(ammo, weapon) } : {}),
   };
 }
@@ -235,8 +251,11 @@ export function withAdditions(spec, { modifier = 0, actionPoint = null } = {}) {
 export function criticalDamage(spec, multiplier) {
   if (!spec) return null;
   // Damage of another kind besides (a load's 1d6 fire) is rolled once, as extra dice are.
-  const formula = [Array.from({ length: multiplier }, () => `(${spec.multiplied ?? spec.formula})`).join(" + "), ...(spec.besides ?? [])].join(" + ");
-  return { ...spec, title: `${spec.title}: critical (×${multiplier})`, formula, critical: null };
+  // An energy blast's dice: on a critical alone, more at a higher multiplier (rules/abilities.mjs).
+  const blast = spec.blast ? [blastDice(multiplier, spec.blast.type)] : [];
+  const formula = [Array.from({ length: multiplier }, () => `(${spec.multiplied ?? spec.formula})`).join(" + "), ...(spec.besides ?? []), ...blast].join(" + ");
+  const terms = spec.blast ? [...spec.terms, { label: spec.blast.label, value: blast[0].replace(/\[.*\]$/, "") }] : spec.terms;
+  return { ...spec, title: `${spec.title}: critical (×${multiplier})`, formula, terms, critical: null };
 }
 
 /**
@@ -305,6 +324,9 @@ function ammoAttack(ammo, options) {
     { label: `${ammo.name} (target in armor)`, value: ammo.ask?.roll === "attack" && options.ammoAsk ? ammo.ask.value : 0 },
   ];
 }
+
+/** A keen weapon's critical: its threat range doubled (rules/abilities.mjs). */
+const keenOf = (crit, keen) => (crit && keen ? { ...crit, threat: keenThreat(crit.threat) } : crit);
 
 /** A weapon's critical with a load's wider threat range (Flechette: one more). */
 function ammoThreat(crit, ammo) {

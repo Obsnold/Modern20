@@ -80,8 +80,8 @@ test("hit points: the first level's maximum, then rolls or the average", () => {
   assert.deepEqual(two([]).hitPoints, { max: 8 + 2 + 5 + 2 + 3, estimated: true });   // d8: 8, then 5
 });
 
-test("every feat, talent, species and class feature with mechanics carries them as one effect, of the system's own type, in v14's form", () => {
-  const docs = [...PACKS.feats().documents, ...PACKS.talents().documents, ...PACKS.species().documents, ...PACKS.features().documents].filter((d) => d.system);
+test("every feat, talent, species, class feature and FX item with mechanics carries them as one effect, of the system's own type, in v14's form", () => {
+  const docs = [...PACKS.feats().documents, ...PACKS.talents().documents, ...PACKS.species().documents, ...PACKS.features().documents, ...PACKS["fx-items"]().documents].filter((d) => d.system);
   for (const [key, changes] of Object.entries(EFFECTS)) {
     const d = docs.find((x) => `${x.type}:${x.system.identifier}` === key);
     assert.ok(d, key);

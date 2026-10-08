@@ -42,7 +42,7 @@ class CharacterData extends model("CharacterData", ACTOR_MODELS.character) {
     // own effects come along too, for a Custom change made on the sheet. Foundry has applied the rest.
     const active = (effects) => [...(effects ?? [])].filter((e) => e.active ?? !e.disabled).map((e) => ({ name: e.name, changes: e.changes ?? [], disabled: false, transfer: e.transfer }));
     // A feat or talent granted outside a level (module/levelup.mjs) does not count against what the levels allow.
-    const items = this.parent?.items?.map((i) => ({ type: i.type, name: i.name, system: i.system, effects: active(i.effects).filter((e) => e.transfer), granted: !!i.flags?.modern20?.grantNote })) ?? [];
+    const items = this.parent?.items?.map((i) => ({ id: i.id, sort: i.sort, type: i.type, name: i.name, system: i.system, effects: active(i.effects).filter((e) => e.transfer), granted: !!i.flags?.modern20?.grantNote })) ?? [];
     items.push({ type: "actor", name: this.parent?.name ?? "", system: {}, effects: active(this.parent?.effects) });
     this.derived = deriveCharacter(this, items);
     // Not stored: the maximum beside the current value, so a token bar on "hp" has both.

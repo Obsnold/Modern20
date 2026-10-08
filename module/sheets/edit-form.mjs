@@ -15,8 +15,8 @@
  */
 const escape = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
-/** "spellResistance" -> "Spell Resistance" */
-export const label = (key) => String(key).replace(/([a-z])([A-Z])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
+/** "spellResistance" -> "Spell Resistance", "damageReduction5" -> "Damage Reduction 5" */
+export const label = (key) => String(key).replace(/([a-z])([A-Z0-9])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
 
 const isScalar = (spec) => ["string", "number", "boolean"].includes(spec.kind);
 const textarea = (name, value) => `<textarea name="${escape(name)}" rows="6">${escape(value)}</textarea>`;

@@ -1,5 +1,5 @@
 /**
- * The mechanics the SRD's feats, talents and species give, as data the build puts on each
+ * The mechanics the SRD's feats, talents, species and FX items give, as data the build puts on each
  * item: its effects (numbers that always apply) and its notes (numbers or rules that apply in
  * a situation, shown when rolling). Keyed by `<type>:<identifier>`.
  *
@@ -104,6 +104,26 @@ export const EFFECTS = {
   "species:ogre": attacks(3),
   "species:shadowkind-human": saves(1),
   "species:tiefling": skills(2, "bluff", "hide"),
+
+  // FX items (Modern/FX/Items, Arcana/FXItems), while worn or (one that need only be had) carried: rules/character.mjs.
+  "equipment:houdinis-watch-fob": [["saves.ref", 3], ...skills(6, "balance", "bluff", "climb", "disguise", "escapeArtist", "moveSilently", "tumble")],
+  "equipment:decoder-ring": skills(10, "decipherScript"),
+  "equipment:ring-of-jumping": skills(30, "jump"),
+  "equipment:running-shoes-of-striding-and-springing": skills(10, "jump"),
+  "equipment:demonic-bikers-jacket": skills(4, "intimidate"),
+  // "+2 equipment bonus on Charisma checks and Charisma-based skill checks": the checks are a note.
+  "equipment:fabric-of-style": skills(2, "bluff", "diplomacy", "disguise", "gatherInformation", "handleAnimal", "intimidate", "perform", "useMagicDevice"),
+  "equipment:muse-statuette": [["skills.craft:visual art", 5], ["skills.craft:writing", 5]],
+  "equipment:haz-mat-gloves": [["energyResistance.acid", 10], ["energyResistance.cold", 10], ["energyResistance.fire", 10]],
+  "equipment:parka-of-warmth": [["energyResistance.cold", 10]],
+  "equipment:lucky-suit": [["saves.ref", 2]],
+  "equipment:medicine-bundle": [["saves.fort", 4]],
+  "equipment:six-demon-bag": saves(1),
+  // +1 to +3, as made: the item's bonus.
+  "equipment:windbreaker-of-resistance": saves("@rank"),
+  "equipment:watch-of-speed": [["initiative", 2]],
+  "armor:leather-jacket-of-damage-reduction": [["damageReduction", 1]],
+  "armor:caesars-shield": [["damageReductionMagic", 10]],
 };
 
 const note = (rolls, text, value = "") => ({ rolls, text, value: String(value) });
@@ -182,6 +202,22 @@ export const NOTES = {
     note(["save"], "Halfling: +2 morale against fear", 2),
   ],
   "species:orc": [note(["attack"], "Orc light sensitivity: −1 in bright sunlight", -1)],
+
+  // FX items: bonuses in a situation.
+  "equipment:ring-of-lockpicking": [note(["skill.disableDevice"], "Ring of Lockpicking: +5 to pick or disable a lock", 5)],
+  "equipment:ring-of-surveillance-detection": [note(["skill.search"], "Ring of Surveillance Detection: +5 to find concealed monitoring devices", 5)],
+  "equipment:eagle-eye-sunglasses": [note(["skill.spot"], "Eagle Eye Sunglasses: +5 in brightly lit places", 5)],
+  "equipment:glasses-of-minute-seeing": [note(["skill.search"], "Glasses of Minute Seeing: +5 to find or identify tiny seams, marks, cracks or imperfections", 5)],
+  "equipment:driving-ace-gloves": [note(["skill.drive"], "Driving Ace Gloves: +5 driving a land vehicle", 5)],
+  "equipment:hidden-holster": [note(["skill.sleightOfHand"], "Hidden Holster: +5 to conceal the handgun in it", 5)],
+  "equipment:lucky-deck": [note(["skill.gamble"], "Lucky Deck: +5 at card games", 5)],
+  "equipment:lucky-dice": [note(["skill.gamble"], "Lucky Dice: +5 at dice games", 5)],
+  "equipment:animated-tools": [note(["skill.repair"], "Animated Tools: +2, as a deluxe tool kit", 2)],
+  "equipment:fabric-of-style": [note(["ability.cha"], "Fabric of Style: +2 on Charisma checks", 2)],
+  "equipment:bullseye-tattoo": [note(["attack"], "Bullseye Tattoo: +20 on the next single attack (true strike), once", 20)],
+  "armor:bulletproof-shirt": [note(["defense"], "Bulletproof Shirt: damage reduction 5/+1 against arrows, bullets and crossbow bolts")],
+  "equipment:broken-arrow-tattoo": [note(["defense"], "Broken Arrow Tattoo: damage reduction 10/+2 against arrows, bolts and bullets")],
+  "equipment:ring-of-energy-resistance-15": [note(["defense"], "Ring of Energy Resistance 15: 15 less damage of the energy it absorbs (acid, cold, electricity, fire or sonic)")],
 };
 
 /**
@@ -196,4 +232,5 @@ export const TOGGLES = {
   "feature:defensive-position": { name: "Defensive Position (switch on with cover)", changes: [["defense", 2], ["saves.ref", 2]] },
   "feature:master-defender": { name: "Master Defender (switch on fighting defensively, in medium or heavier armor)", changes: [["defense", "2 * @rank"]] },
   "feature:ability-surge": { name: "Ability Surge (switch on while surging)", changes: [["abilities.str", 4], ["abilities.dex", 4], ["saves.fort", -2], ["saves.ref", -2], ["saves.will", -2]] },
+  "equipment:tattoo-of-natural-armor": { name: "Tattoo of Natural Armor (switch on while active: 7 minutes)", changes: [["naturalArmor", 4]] },
 };

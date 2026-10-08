@@ -11,6 +11,8 @@
  *                        already: the Glock 17's +1 is in its price); a weapon's enhancement +10, +15, +20,
  *                        armor's +8, +13, +18. The book prices neither past +3. An FX weapon or armor
  *                        has its own price (tools/build/fx-items.mjs), for each bonus where it prints one.
+ *                        Special abilities add their modifiers (rules/abilities.mjs), but to an FX item's own
+ *                        price, which counts those it is made with.
  */
 
 /** The mastercraft bonus a weapon's own entry gives it ("This mastercraft weapon grants a +1 bonus on attack rolls"), 0 for none. */
@@ -20,6 +22,8 @@ export function printedMastercraft(system) {
   const m = text.match(/(?:This|always considered a) mastercraft weapon(?:\. As such, it)? grants a \+(\d) bonus on attack rolls/i);
   return m ? Number(m[1]) : 0;
 }
+
+import { abilitiesOf, abilitiesDC, abilityLabel } from "./abilities.mjs";
 
 const n = (v) => Math.max(0, Math.round(Number(v) || 0));
 
@@ -56,6 +60,12 @@ const ENHANCEMENT_DC = { weapon: [0, 10, 15, 20], armor: [0, 8, 13, 18] };
 export function purchaseDC(item) {
   const s = item.system ?? {};
   const base = s.purchaseDC?.dc;
+  const strengths = s.purchaseDC?.byBonus ?? [];
+  // An FX item made in several strengths, not a weapon or armor (a Windbreaker of Resistance): the price of its own.
+  if (strengths.length && !["weapon", "armor"].includes(item.type)) {
+    const b = Math.max(n(s.fx?.bonus), 1);
+    return { dc: strengths[Math.min(b, strengths.length) - 1], unpriced: b > strengths.length };
+  }
   if (base === null || base === undefined || !["weapon", "armor"].includes(item.type)) return { dc: base ?? null, unpriced: false };
   const enhancement = n(s.enhancement);
   // An FX item's own price, printed for each bonus ("25 (+1), 30 (+2), 35 (+3)") or for the one it has.
@@ -66,12 +76,14 @@ export function purchaseDC(item) {
   const table = ENHANCEMENT_DC[item.type];
   const unpriced = enhancement > 3 || custom > 3;
   const fromMastercraft = item.type === "weapon" && enhancement > 0 ? 0 : MASTERCRAFT_DC * Math.min(custom, 3);
-  return { dc: base + fromMastercraft + table[Math.min(enhancement, 3)], unpriced };
+  // Its special abilities' modifiers (rules/abilities.mjs).
+  return { dc: base + fromMastercraft + table[Math.min(enhancement, 3)] + abilitiesDC(item.type, s), unpriced };
 }
 
 /** A weapon's or armor's quality in a few words, for its row: "+2", "mastercraft +1 (damage)". */
 export function qualityText(item) {
   const s = item.system ?? {};
   const enhancement = n(s.enhancement), mastercraft = n(s.mastercraft);
-  return [enhancement && `+${enhancement}`, mastercraft && `mastercraft +${mastercraft}${item.type === "weapon" && s.mastercraftOn === "damage" ? " (damage)" : ""}`].filter(Boolean).join(", ");
+  const abilities = ["weapon", "armor"].includes(item.type) ? abilitiesOf(item.type, s).map(abilityLabel) : [];
+  return [enhancement && `+${enhancement}`, ...abilities.map((a) => a.toLowerCase()), mastercraft && `mastercraft +${mastercraft}${item.type === "weapon" && s.mastercraftOn === "damage" ? " (damage)" : ""}`].filter(Boolean).join(", ");
 }

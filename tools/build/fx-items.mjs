@@ -6,7 +6,8 @@
  * that are not items themselves (an ARCANOBOTS action figure's statistics). Sections without one (a page's
  * rules, the magic weapon special abilities) are not items.
  *
- *   weapons and armor     the weapon or armor they are made from (BASES: the Flaming Machete is a machete),
+ *   weapons and armor     the weapon or armor they are made from (BASES: the Flaming Machete is a machete;
+ *                         a wondrous item or artifact that is one, Caesar's Shield a +3 large shield),
  *                         with its enhancement bonus; a purchase DC printed for each bonus ("25 (+1), 30 (+2)")
  *                         is kept for each
  *   potions, scrolls,     a charged item (`consumable`): one use, or a wand's and a staff's 50 charges, and the
@@ -14,7 +15,8 @@
  *                         (DC 15); uses 1 charge.")
  *   the rest              equipment: rings, tattoos, wondrous items, vehicular items and artifacts
  *
- * Every item keeps its caster (or manifester) level, its kind (magic, psionic, vehicular) and category.
+ * Every item keeps its caster (or manifester) level, its kind (magic, psionic, vehicular) and category, and the
+ * kind of FX item worn it is (rules/fx-items.mjs WORN: a ring, shoes, a tattoo).
  */
 import { once } from "./once.mjs";
 import { listPages, readPage, toHtml, text } from "../srd/reader.mjs";
@@ -22,6 +24,7 @@ import { stableId } from "./ids.mjs";
 import { BOOKS, pageUuid } from "./journal.mjs";
 import { buildEquipment } from "./equipment.mjs";
 import { buildSpells, buildPowers, buildIncantations } from "./fx.mjs";
+import { wornSlot } from "../../module/rules/fx-items.mjs";
 
 export const FX_ITEM_PAGES = /^(Modern\/FX\/Items|Arcana\/FXItems)\//;
 
@@ -36,15 +39,18 @@ const CATEGORIES = {
  * has when bought as the book first prices it; null for one made from a weapon of the buyer's choosing.
  */
 export const BASES = {
-  "Charged Nunchaku": { base: "Nunchaku", enhancement: 1 },
-  "Flaming Machete": { base: "Machete", enhancement: 1 },
-  "Fragmentation Grenade of Distance": { base: "Fragmentation grenade", enhancement: 1 },
-  "Holy Crossbow": { base: "Crossbow", enhancement: 1 },
-  "Keen Chain Saw": { base: "Chain saw", enhancement: 1 },
+  // "deals +1d4 points of damage with each successful strike"
+  "Charged Nunchaku": { base: "Nunchaku", enhancement: 1, stats: { extraDamage: { formula: "1d4", type: "" } } },
+  // Their special abilities (rules/abilities.mjs), as their names and texts give them.
+  "Flaming Machete": { base: "Machete", enhancement: 1, abilities: ["flaming"] },
+  "Fragmentation Grenade of Distance": { base: "Fragmentation grenade", enhancement: 1, abilities: ["distance"] },
+  "Holy Crossbow": { base: "Crossbow", enhancement: 1, abilities: ["holy"] },
+  "Keen Chain Saw": { base: "Chain saw", enhancement: 1, abilities: ["keen"] },
   // "Each bladegun is a specific make of handgun"; the Wounding Handgun is any handgun.
-  "Wounding Handgun": { base: null, enhancement: 1 },
+  "Wounding Handgun": { base: null, enhancement: 1, abilities: ["wounding"] },
   "Bladegun": { base: null, enhancement: 1 },
-  "Chain Saw of the Psycho": { base: "Chain saw", enhancement: 1 },
+  // "deals x 3 damage (instead of x 2 damage) on a successful critical hit"
+  "Chain Saw of the Psycho": { base: "Chain saw", enhancement: 1, stats: { critical: "20/x3" } },
   "Cloudkill Grenade": { base: "Smoke grenade", enhancement: 0 },
   "Deadeye Rifle": { base: "Barrett Light Fifty (.50 sniper rifle)", enhancement: 1 },
   // "use the warhammer statistics"
@@ -55,7 +61,15 @@ export const BASES = {
   // "the same protection as a +1 leather jacket"
   "Bulletproof Shirt": { base: "Leather jacket", enhancement: 1 },
   "Riot Shield of Fear": { base: "Shield, riot", enhancement: 1 },
-  "Scalemail of the Dragon": { base: "Scale mail", enhancement: 1 },
+  // "the armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor penalty"
+  "Scalemail of the Dragon": { base: "Scale mail", enhancement: 1, stats: { armorPenalty: 0, maxDex: 6, arcaneSpellFailure: "10%" } },
+  // Wondrous items and artifacts that are a weapon or armor: "the usual +1 equipment bonus to Defense" of a leather
+  // jacket; "This +3 large shield"; "This +3 scythe"; a +3 dagger (the SRD's knife).
+  "Leather Jacket of Damage Reduction": { base: "Leather jacket", enhancement: 0, type: "armor" },
+  "Caesar’s Shield": { base: "Shield, large", enhancement: 3, type: "armor" },
+  // "the quality of lycanthrope bane"
+  "Crescent of the Moon": { base: "Scythe", enhancement: 3, type: "weapon", abilities: [["bane", "lycanthropes"]] },
+  "Dagger of Eternal Unrest": { base: "Knife", enhancement: 3, type: "weapon" },
 };
 
 /** A staff whose use the book gives in its text, not a line: the Doppler Staff's control weather incantation. */
@@ -209,19 +223,25 @@ export const buildFxItems = once(function buildFxItems() {
 
   for (const item of all) {
     const fail = (message) => problems.push({ path: item.path, line: item.line, message: `${item.name}: ${message}` });
-    let system = { fx: item.fx, purchaseDC: item.purchaseDC, weight: item.weight, description: item.description, category: item.category };
+    // One made in several strengths priced for each (a Windbreaker of Resistance): its +1 to start.
+    const fx = { ...item.fx, bonus: item.purchaseDC.byBonus.length ? 1 : 0 };
+    let system = { fx, purchaseDC: item.purchaseDC, weight: item.weight, description: item.description, category: item.category };
     let img = ICONS[item.kind === "vehicular" ? "vehicular" : item.category];
-    if (item.type === "weapon" || item.type === "armor") {
+    const type = BASES[item.name]?.type ?? item.type;
+    if (type === "weapon" || type === "armor") {
       const b = BASES[item.name];
       if (!b) { fail(`a ${item.category.toLowerCase()} with no entry in BASES (tools/build/fx-items.mjs)`); continue; }
       const base = b.base ? equipment.find((d) => d.name === b.base) : null;
-      if (b.base && (!base || base.type !== item.type)) { fail(`its base "${b.base}" is not a ${item.type} in the equipment pack`); continue; }
+      if (b.base && (!base || base.type !== type)) { fail(`its base "${b.base}" is not a ${type} in the equipment pack`); continue; }
       // The base's statistics; the FX item's own price, weight, text and source.
       const stats = { ...(base?.system ?? {}) };
       for (const k of ["description", "source", "purchaseDC", "weight", "identifier", "fx"]) delete stats[k];
-      system = { ...stats, ...system, category: base?.system.category ?? item.category, enhancement: b.enhancement, mastercraft: 0, ...(item.type === "weapon" && !base ? { damage: { value: "See text", formula: "" } } : {}) };
+      const abilities = (b.abilities ?? []).map((a) => (Array.isArray(a) ? { id: a[0], choice: a[1] } : { id: a, choice: "" }));
+      system = { ...stats, ...system, ...(b.stats ?? {}), category: base?.system.category ?? item.category, enhancement: b.enhancement, mastercraft: 0, abilities, ...(type === "weapon" && !base ? { damage: { value: "See text", formula: "" } } : {}) };
+      // Its enhancement is the bonus its price follows.
+      system.fx.bonus = 0;
       if (base && base.system.weight?.lb !== null && system.weight.lb === null) system.weight = base.system.weight;
-      img = ICONS[item.type];
+      img = ICONS[type];
     } else if (item.type === "consumable") {
       const kind = item.category.toLowerCase();
       const find = (n) => (item.kind === "psionic" ? power : spell)(n, item.book) ?? (item.kind === "psionic" ? spell : power)(n, item.book) ?? incantation(n, item.book);
@@ -243,9 +263,11 @@ export const buildFxItems = once(function buildFxItems() {
       system = { ...system, kind, charges: { value: CHARGES[kind], max: CHARGES[kind] }, spells };
       img = ICONS[kind];
     }
+    // The kind of FX item worn it is, of which only so many count at once.
+    system.fx.slot = item.kind === "vehicular" ? "" : wornSlot(type, item.category, item.name, system.weightClass);
     const id = stableId(`fx-item:${item.path}:${item.name}`);
     documents.push({
-      _id: id, _key: `!items!${id}`, name: item.name, type: item.type, img,
+      _id: id, _key: `!items!${id}`, name: item.name, type, img,
       folder: folder(item.book, FOLDERS[item.kind === "vehicular" ? "vehicular" : item.category]), sort: 0,
       system: { ...system, source: { book: BOOKS[item.book] ?? item.book, page: pageUuid(item.path) } },
       effects: [], ownership: { default: 0 }, flags: { modern20: { srd: item.path } },

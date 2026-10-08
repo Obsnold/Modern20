@@ -26,7 +26,7 @@ const signed = (n) => (n >= 0 ? `+${n}` : `${n}`);
 function plainItems(actor) {
   const active = (effects) => [...(effects ?? [])].filter((e) => e.active ?? !e.disabled).map((e) => ({ name: e.name, changes: e.changes ?? [], disabled: false, transfer: e.transfer }));
   return [
-    ...actor.items.map((i) => ({ id: i.id, type: i.type, name: i.name, system: i.system.toObject?.() ?? i.system, effects: active(i.effects).filter((e) => e.transfer), granted: !!i.flags?.[SYSTEM_ID]?.grantNote })),
+    ...actor.items.map((i) => ({ id: i.id, sort: i.sort, type: i.type, name: i.name, system: i.system.toObject?.() ?? i.system, effects: active(i.effects).filter((e) => e.transfer), granted: !!i.flags?.[SYSTEM_ID]?.grantNote })),
     { type: "actor", name: actor.name, system: {}, effects: active(actor.effects) },
   ];
 }

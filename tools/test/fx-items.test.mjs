@@ -13,7 +13,8 @@ test("the FX items build with every check passing: each a weapon, armor, charged
   assert.deepEqual(built.problems, []);
   const by = {};
   for (const d of items) by[d.type] = (by[d.type] ?? 0) + 1;
-  assert.deepEqual(by, { weapon: 12, armor: 5, consumable: 30, equipment: 100 });
+  // Four wondrous items and artifacts are a weapon or armor: Caesar's Shield, a +3 large shield.
+  assert.deepEqual(by, { weapon: 14, armor: 7, consumable: 30, equipment: 96 });
   const names = items.map((d) => d.name);
   assert.deepEqual(names.filter((n, i) => names.indexOf(n) !== i), []);
 });
@@ -73,5 +74,5 @@ test("the rest are equipment, with their category, kind and caster level; an inc
   assert.deepEqual([ring.system.fx.category, ring.system.fx.casterLevel.level, ring.system.fx.incantation], ["Ring", 12, true]);
   assert.doesNotMatch(ring.system.description, /sidebar/);
   assert.equal(find("Zephyr Tires").system.fx.power, "vehicular");
-  assert.equal(find("Caesar’s Shield").system.fx.category, "Artifact");
+  assert.deepEqual([find("Caesar’s Shield").type, find("Caesar’s Shield").system.fx.category, find("Caesar’s Shield").system.enhancement], ["armor", "Artifact", 3]);
 });

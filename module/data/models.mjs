@@ -9,6 +9,7 @@
  */
 import { str, html, int, num, bool, list, obj } from "./schema.mjs";
 import { SKILLS } from "./skills.mjs";
+import { WEAPON_ABILITIES, ARMOR_ABILITIES } from "../rules/abilities.mjs";
 
 export const SIZES = ["fine", "diminutive", "tiny", "small", "medium", "large", "huge", "gargantuan", "colossal"];
 export const ABILITIES = ["str", "dex", "con", "int", "wis", "cha"];
@@ -63,7 +64,13 @@ const physical = {
   fx: obj({
     category: str(), power: str({ choices: ["magic", "psionic", "vehicular"] }), incantation: bool(),
     casterLevel: printed({ level: int({ nullable: true }), label: str() }),
+    /** The kind of FX item worn it is, of which only so many count at once (rules/fx-items.mjs WORN): "ring", "feet". */
+    slot: str({ choices: ["head", "eyes", "neck", "armor", "coat", "cloak", "vest", "wrists", "hands", "ears", "ring", "belt", "feet", "tattoo"] }),
+    /** The +1 to +3 of one made in several strengths (a Windbreaker of Resistance), not a weapon's or armor's: its price and effect. */
+    bonus: int(),
   }),
+  /** An FX item's bonuses in a situation (tools/build/mechanics.mjs), shown on the rolls they are for while it is in use. */
+  rollNotes,
 };
 
 const spellLike = {
@@ -273,6 +280,10 @@ const ITEM_FIELDS = {
     mastercraft: int(),
     mastercraftOn: str({ choices: ["attack", "damage"] }),
     enhancement: int(),
+    /** Its magic special abilities (rules/abilities.mjs), each with what was chosen for it (bane's foe, energy blast's energy). */
+    abilities: list(obj({ id: str({ choices: Object.keys(WEAPON_ABILITIES) }), choice: str() })),
+    /** Dice it adds to every hit, of its own (a Charged Nunchaku's +1d4), and their type ("fire"), if any. */
+    extraDamage: obj({ formula: str(), type: str() }),
     description: html(),
     source,
   },
@@ -290,6 +301,8 @@ const ITEM_FIELDS = {
     /** Its quality (rules/quality.mjs): a mastercraft bonus to its equipment bonus (+1 to +3), and a magic or psionic enhancement bonus to Defense (+1 to +5). */
     mastercraft: int(),
     enhancement: int(),
+    /** Its magic special abilities (rules/abilities.mjs). */
+    abilities: list(obj({ id: str({ choices: Object.keys(ARMOR_ABILITIES) }), choice: str() })),
     description: html(),
     source,
   },
@@ -459,6 +472,8 @@ export const ACTOR_MODELS = {
       /** Damage reduction a magic weapon overcomes (x/+1: the Thrasher's). */
       damageReductionMagic: int(),
       energyResistance: obj({ acid: int(), cold: int(), electricity: int(), fire: int(), sonic: int() }),
+      /** A natural armor bonus to Defense (a Tattoo of Natural Armor): not to touch Defense. */
+      naturalArmor: int(),
       /** Above 0, the character loses its Dexterity bonus to Defense (flat-footed, stunned, pinned). */
       loseDexBonus: int(),
     }),

@@ -23,6 +23,8 @@ import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
 import { resolveValue, mechanicsContext } from "./rules/effects.mjs";
 import { creatureConditions } from "./rules/conditions.mjs";
 import { skillKey, SKILLS } from "./data/skills.mjs";
+import { wornOverLimit } from "./rules/fx-items.mjs";
+import { abilityAsks, armorAbilities } from "./rules/abilities.mjs";
 const signed = (n) => (typeof n === "number" ? (n >= 0 ? `+${n}` : `${n}`) : n);
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
@@ -171,6 +173,8 @@ export function characterRolls(actor) {
       // A ranged attack's distance (its range penalty, and Point Blank Shot within 30 feet) and a target in a melee.
       if (!item.system.melee && item.system.rangeIncrement?.ft) options.unshift({ name: "distance", number: true, label: `Distance to the target, in feet (range increment ${item.system.rangeIncrement.ft} ft.)`, placeholder: "within the first increment" });
       if (!item.system.melee) options.push({ name: "intoMelee", label: "The target is in a melee with an ally (−4)" });
+      // A special ability that works against a kind of target (Holy, Bane): asked here, for the damage too (rules/abilities.mjs).
+      options.push(...abilityAsks(item.system));
       options.push(...defensiveOption(actor));
       const hasPointBlank = feats.some((f) => rulesFor(f.identifier).pointBlank);
       // The load fired is kept on the card, so its damage is the load's even if the weapon is reloaded before it is rolled.
@@ -215,13 +219,13 @@ export function characterRolls(actor) {
       { label: "Base attack", value: d.baseAttackBonus }, { label: "Strength", value: d.modifiers.str ?? 0 },
       { label: "Size and effects", value: d.grapple - d.baseAttackBonus - (d.modifiers.str ?? 0) },
     ]), event, undefined, { notes: notes(R.rollTargets.grapple()) }),
-    damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false, ammoAsk = false, load } = {}) => {
+    damage: (item, { multiplier = 1, pointBlank = false, mode, lethal = false, streetfighting = false, ammoAsk = false, load, ticked = {} } = {}) => {
       // The unarmed strike is not an item: rebuilt from the feats, as it was attacked with.
       const u = item === "unarmed" ? unarmedRules(feats.map((f) => rulesFor(f.identifier))) : null;
       if (u) item = unarmedWeapon(u, { lethal });
       // The load the attack fired (`load`, from its card), or without one the weapon's now.
       const ammo = u || item.system.melee ? null : load !== undefined ? recordedLoad(load) : specialLoad(actor, item);
-      const spec = R.damage(d, item, { pointBlank, mode, feats, ammo, ammoAsk });
+      const spec = R.damage(d, item, { pointBlank, mode, feats, ammo, ammoAsk, ticked });
       if (!spec) return ui.notifications.info(`${item.name}: its damage is not a roll (${item.system.damage.value || "see its description"}).`);
       // Nonlethal by its type (an unarmed strike's), or by its printed damage ("4d6 nonlethal", a concussion grenade).
       const nonlethal = /nonlethal/i.test(item.system.damageType ?? "") || /nonlethal/i.test(item.system.damage?.value ?? "") || spec.nonlethal;
@@ -254,10 +258,17 @@ async function startDefensively(actor, ticked) {
   if (ticked.defensively && !actor.statuses.has("fightingDefensively")) await actor.toggleStatusEffect("fightingDefensively", { active: true });
 }
 
-/** Every note the actor's feats, talents and species carry (tools/build/mechanics.mjs), each with its source. */
+/** Every note the actor's feats, talents, species and FX items carry (tools/build/mechanics.mjs), each with its source. */
 export function notesOf(actor) {
-  return actor.items.filter((i) => ["feat", "talent", "species", "feature"].includes(i.type))
-    .flatMap((i) => (i.system.rollNotes ?? []).map((n) => ({ ...n, source: i.name, rank: i.system.rank || 1 })));
+  // Gear's notes (an FX item's) while it is in use, as its effects: equipped and not kept elsewhere.
+  const over = new Set(wornOverLimit(actor.items.contents).flatMap((w) => w.over));
+  const inUse = (i) => (!("equipped" in i.system) || (i.system.equipped && !i.system.stored)) && !over.has(i.id);
+  return actor.items.filter((i) => ["feat", "talent", "species", "feature", "equipment", "armor", "weapon"].includes(i.type) && inUse(i))
+    .flatMap((i) => [
+      ...(i.system.rollNotes ?? []),
+      // Armor's special abilities that are the table's (Fortification, Spell Resistance): on Defense.
+      ...(i.type === "armor" ? armorAbilities(i.system).notes.map((text) => ({ rolls: ["defense"], text, value: "" })) : []),
+    ].map((n) => ({ ...n, source: i.name, rank: i.system.rank || 1 })));
 }
 
 /** A note's value worked out for the actor: a number, or a formula of its class levels, level and ability modifiers. */
@@ -398,8 +409,10 @@ export function bindAttackButtons(message, html) {
     const pointBlank = !!flags.attack.pointBlank, ammoAsk = !!flags.attack.ammoAsk;
     const mode = flags.attack.mode, load = flags.attack.load;
     name = item.name;
-    normal = () => characterRolls(actor).damage(item, { pointBlank, mode, ammoAsk, load });
-    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank, mode, ammoAsk, load });
+    // What the attack ticked (a Holy weapon's evil target) carries to its damage.
+    const ticked = flags.attack;
+    normal = () => characterRolls(actor).damage(item, { pointBlank, mode, ammoAsk, load, ticked });
+    critical = () => characterRolls(actor).damage(item, { multiplier, pointBlank, mode, ammoAsk, load, ticked });
   } else {
     // A creature's printed attack.
     const { line, choice, index } = flags.attack;

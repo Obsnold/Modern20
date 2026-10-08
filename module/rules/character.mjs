@@ -16,10 +16,12 @@ import { chosenSkills } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { advancement, featGrants, inOrder } from "./advancement.mjs";
 import { casters } from "./casting.mjs";
-import { withSystemBonuses, mechanicsContext, partsOf } from "./effects.mjs";
+import { withSystemBonuses, mechanicsContext, partsOf, SYSTEM_TYPE } from "./effects.mjs";
+import { armorAbilities } from "./abilities.mjs";
 import { characterDefenses } from "./resistance.mjs";
 import { carrying, carriedWeight, LOAD_SKILLS } from "./load.mjs";
 import { armorQuality } from "./quality.mjs";
+import { wornOverLimit } from "./fx-items.mjs";
 
 /**
  * Speed in armor: the armor's printed speed for a base of 30 feet ("20"), or for 20 feet where
@@ -61,7 +63,11 @@ export function deriveCharacter(system, items) {
   const classes = inOrder(items.filter((i) => i.type === "class" && (i.system.level ?? 0) > 0), system.startingClass);
   const species = items.find((i) => i.type === "species");
   const occupation = items.find((i) => i.type === "occupation");
-  const armor = items.filter((i) => i.type === "armor" && i.system.equipped);
+  // Gear in use: equipped (worn, wielded, or for one that need only be had, carried), not kept elsewhere, and not an FX
+  // item worn beyond the limit of its kind (a third ring, a second suit of magic armor: rules/fx-items.mjs).
+  const overWorn = new Set(wornOverLimit(items.filter((i) => i.id)).flatMap((w) => w.over));
+  const inUse = (i) => !(i.system && "equipped" in i.system && (!i.system.equipped || i.system.stored)) && !overWorn.has(i.id);
+  const armor = items.filter((i) => i.type === "armor" && inUse(i));
   // A creature built from parts: its type (with how many Hit Dice it has), and any templates.
   const creatureType = items.find((i) => i.type === "creatureType");
   const templates = items.filter((i) => i.type === "template");
@@ -80,7 +86,14 @@ export function deriveCharacter(system, items) {
   const heroic = classes.reduce((n, c) => n + c.system.level, 0);
   // Each effect named for the item that carries it (Alertness), or (the character's own) its own name.
   // An item's effects that pass to the character; all of the character's own (a condition, one made on the sheet).
-  const itemEffects = items.flatMap((i) => (i.effects ?? []).filter((e) => (i.type === "actor" || e.transfer !== false) && !e.disabled).map((e) => ({ ...e, rank: i.system?.rank || 1, source: i.type === "actor" ? e.name : i.name })));
+  // Gear's only while it is in use: a ring in a drawer does nothing.
+  // `rank`: a class feature's levels reached, or an FX item's +1 to +3 (a Windbreaker of Resistance's).
+  const itemEffects = items.filter(inUse).flatMap((i) => (i.effects ?? []).filter((e) => (i.type === "actor" || e.transfer !== false) && !e.disabled).map((e) => ({ ...e, rank: i.system?.rank || i.system?.fx?.bonus || 1, source: i.type === "actor" ? e.name : i.name })));
+  // Armor's special abilities (rules/abilities.mjs: Fire Resistance, Shadow), as its effects, while it is worn.
+  for (const a of armor) {
+    const changes = armorAbilities(a.system).changes;
+    if (changes.length) itemEffects.push({ name: a.name, source: a.name, rank: 1, changes: changes.map(([key, value]) => ({ key: `system.bonuses.${key}`, type: SYSTEM_TYPE, value })) });
+  }
   const bonusSources = {};
   const fx = withSystemBonuses(system.bonuses, itemEffects, mechanicsContext(classes, heroic + Math.floor(creatureType?.system.count ?? 0), baseMods), bonusSources);
   const fxv = (path, fallback = 0) => path.split(".").reduce((o, k) => o?.[k], fx) ?? fallback;
@@ -153,7 +166,7 @@ export function deriveCharacter(system, items) {
   const enhancement = armor.reduce((n, a) => n + armorQuality(a.system).enhancement, 0);
   const penaltyOf = (a) => armorQuality(a.system).penalty;
   const armorAttackPenalty = armor.filter((a) => !proficientIn(a)).reduce((n, a) => n + penaltyOf(a), 0);
-  const natural = (species?.system.naturalArmor ?? 0) + (system.naturalArmor ?? 0);
+  const natural = (species?.system.naturalArmor ?? 0) + (system.naturalArmor ?? 0) + fxv("naturalArmor");
   const misc = (system.defense?.misc ?? 0) + fxv("defense");
   const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + enhancement + natural + misc;
   const armorPenalty = armor.reduce((n, a) => n + penaltyOf(a), 0);
@@ -259,7 +272,7 @@ export function deriveCharacter(system, items) {
       signedPart("Base", 10), signedPart("Class", defenseClass), signedPart(fxv("loseDexBonus") > 0 ? "Dex (lost)" : "Dex", dexToDefense), signedPart("Size", sizeMods.defense),
       ...armor.map((a) => signedPart(`${a.name}${proficientIn(a) ? "" : " (not proficient)"}${armorQuality(a.system).equipment ? `, mastercraft +${armorQuality(a.system).equipment}` : ""}`, equipmentOf(a))),
       ...armor.filter((a) => armorQuality(a.system).enhancement).map((a) => signedPart(`${a.name} (enhancement)`, armorQuality(a.system).enhancement)),
-      signedPart("Natural armor", natural), signedPart("Misc", system.defense?.misc ?? 0), ...bonusParts("defense"),
+      signedPart("Natural armor", (species?.system.naturalArmor ?? 0) + (system.naturalArmor ?? 0)), ...bonusParts("naturalArmor"), signedPart("Misc", system.defense?.misc ?? 0), ...bonusParts("defense"),
     ]),
     initiative: keep([signedPart("Dex", mod("dex")), ...bonusParts("initiative")]),
     grapple: keep([signedPart("Base attack", bab), signedPart("Str", mod("str")), signedPart("Size", sizeMods.grapple), ...bonusParts("grapple")]),
