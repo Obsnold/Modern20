@@ -31,11 +31,30 @@ function plainItems(actor) {
   ];
 }
 
-/** The classes, feats and talents in the compendiums, by name, for the window's lists: one index request each, kept. */
-const INDEX = {};
+/**
+ * The classes, feats and talents in the compendiums, for the window's lists, with the fields asked for. Foundry keeps
+ * each pack's index, asking the server again only for fields it does not yet have.
+ */
 async function index(pack, fields = []) {
-  INDEX[pack] ??= game.packs.get(`${SYSTEM_ID}.${pack}`)?.getIndex({ fields }) ?? Promise.resolve([]);
-  return INDEX[pack];
+  return (await game.packs.get(`${SYSTEM_ID}.${pack}`)?.getIndex({ fields })) ?? [];
+}
+
+/** The start of an entry's text, for a line under its choice: what it does, in a sentence or two. */
+function textStart(html, length = 240) {
+  const text = String(html ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return text.length > length ? `${text.slice(0, length).replace(/\s+\S*$/, "")}…` : text;
+}
+
+/** Open a compendium (the Feats, the Classes) to browse and read before choosing. */
+function browse(event, target) {
+  game.packs.get(`${SYSTEM_ID}.${target.dataset.pack}`)?.render(true);
+}
+
+/** Open an entry's sheet (a feat, talent, class or class feature) to read it before choosing. */
+async function view(event, target) {
+  const doc = target.dataset.uuid ? await fromUuid(target.dataset.uuid) : null;
+  if (doc) doc.sheet.render(true);
+  else ui.notifications.warn("That entry is not in its compendium.");
 }
 
 export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -45,7 +64,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     position: { width: 640, height: 760 },
     window: { resizable: true, icon: "fa-solid fa-angles-up" },
     form: { submitOnChange: true, closeOnSubmit: false, handler: LevelUp.#onChange },
-    actions: { buy: LevelUp.#onBuy, rollHitPoints: LevelUp.#onRollHitPoints, addSpecialty: LevelUp.#onAddSpecialty, finish: LevelUp.#onFinish },
+    actions: { buy: LevelUp.#onBuy, rollHitPoints: LevelUp.#onRollHitPoints, addSpecialty: LevelUp.#onAddSpecialty, finish: LevelUp.#onFinish, view, browse },
   };
 
   static PARTS = { body: { template: "systems/modern20/templates/level-up.hbs", scrollable: [""] } };
@@ -147,7 +166,9 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     // prerequisites (rules/prerequisites.mjs) as it will be at the new level: its base attack bonus and saves,
     // the ranks and increase chosen here, and the other feats this level brings (two at 1st level, a bonus feat,
     // those given).
-    const feats = (await index("feats", ["system.prerequisites"])).map((e) => ({ name: e.name, prerequisites: e.system?.prerequisites ?? "" }));
+    // Each with its text's start and its entry, to read before choosing.
+    const feats = (await index("feats", ["system.prerequisites", "system.benefit"])).map((e) => ({ name: e.name, prerequisites: e.system?.prerequisites ?? "", uuid: e.uuid, summary: textStart(e.system?.benefit) }));
+    const featNamed = (name) => feats.find((f) => f.name === name);
     const chosen = [...this.choices.feats.filter(Boolean), bonusPick?.name, ...grantList.flatMap((g) => g.options.filter((o, i) => granted(g, i)).map((o) => o.name))].filter(Boolean);
     const pre = { d: after, feats: [...have.feats.map((f) => f.name), ...chosen], known: new Set(feats.map((f) => slug(f.name))) };
     const status = (name) => {
@@ -158,7 +179,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     };
     const featSlots = Array.from({ length: plan.feats }, (_, i) => {
       const name = this.choices.feats[i] ?? "";
-      return { index: i, name, choice: this.choices.featChoices[i] ?? "", choiceKind: CHOICES[slug(name)] ?? "", prerequisites: status(name) };
+      return { index: i, name, choice: this.choices.featChoices[i] ?? "", choiceKind: CHOICES[slug(name)] ?? "", prerequisites: status(name), uuid: featNamed(name)?.uuid ?? "", summary: featNamed(name)?.summary ?? "" };
     });
     // The class's bonus feat list and talent trees, each talent with its prerequisites.
     const bonusOptions = plan.bonusFeat ? (cls.system.bonusFeats ?? []).map((o, i) => {
@@ -166,7 +187,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       return { value: String(i), label: `${o.specialty ? `${o.name} (${o.specialty})` : o.name}${unmet ? " (prerequisites not met)" : ""}`, selected: this.choices.bonusFeat === String(i) };
     }) : [];
         const ownedTalents = have.talents.map((t) => ({ name: t.name, tree: t.system.tree }));
-    const talentIndex = plan.talent ? new Map((await index("talents", ["system.prerequisites", "system.tree"])).map((e) => [e.uuid, e])) : new Map();
+    const talentIndex = plan.talent ? new Map((await index("talents", ["system.prerequisites", "system.tree", "system.description"])).map((e) => [e.uuid, e])) : new Map();
     const talentOptions = plan.talent ? (cls.system.talentTrees ?? []).flatMap((tree) => tree.talents.map((t) => {
       const doc = talentIndex.get(t.uuid);
       const taken = have.talents.some((x) => identify(x) === slug(t.name));
@@ -180,7 +201,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       options: g.options.map((o, i) => {
         const n = this.grantIds.push(`${g.source}|${i}`) - 1;
         const all = g.choose >= g.options.length;
-        return { name: `grant~${n}`, label: o.specialty ? `${o.name} (${o.specialty})` : o.name, checked: granted(g, i), fixed: all };
+        return { name: `grant~${n}`, label: o.specialty ? `${o.name} (${o.specialty})` : o.name, checked: granted(g, i), fixed: all, uuid: o.uuid ?? "" };
       }),
     }));
 
@@ -210,8 +231,15 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       newSpecialty: this.choices.newSpecialty ?? "",
       points: { total: plan.skillPoints, left, over: left < 0 },
       featList: feats, featSlots,
-      bonus: plan.bonusFeat ? { options: bonusOptions, choiceKind: bonusPick && !bonusPick.specialty ? CHOICES[slug(bonusPick.name)] ?? "" : "", choice: this.choices.bonusChoice } : null,
+      bonus: plan.bonusFeat ? {
+        options: bonusOptions, choiceKind: bonusPick && !bonusPick.specialty ? CHOICES[slug(bonusPick.name)] ?? "" : "", choice: this.choices.bonusChoice,
+        uuid: bonusPick ? bonusPick.uuid || featNamed(bonusPick.name)?.uuid || "" : "", summary: bonusPick ? featNamed(bonusPick.name)?.summary ?? "" : "",
+      } : null,
       talents: plan.talent ? talentOptions : null,
+      talent: plan.talent && this.choices.talent ? { uuid: this.choices.talent, summary: textStart(talentIndex.get(this.choices.talent)?.system?.description) } : null,
+      // The class's own entry, and its features at this level, to read.
+      classUuid: cls.own?.uuid ?? cls.uuid ?? "",
+      features: plan.features.map((name) => ({ name, uuid: (cls.system.features ?? []).find((f) => f.name === name)?.uuid ?? "" })),
       increase: plan.increase ? ABILITIES.map((a) => ({ value: a, label: ABILITY_NAMES[a], selected: this.choices.increase === a })) : null,
       grants,
       wealth: !plan.firstClass ? { checked: this.choices.wealth } : null,
@@ -374,7 +402,7 @@ export class Grant extends HandlebarsApplicationMixin(ApplicationV2) {
     position: { width: 600, height: 640 },
     window: { resizable: true, icon: "fa-solid fa-gift" },
     form: { submitOnChange: true, closeOnSubmit: false, handler: Grant.#onChange },
-    actions: { addRow: Grant.#onAddRow, removeRow: Grant.#onRemoveRow, finish: Grant.#onFinish },
+    actions: { addRow: Grant.#onAddRow, removeRow: Grant.#onRemoveRow, finish: Grant.#onFinish, view, browse },
   };
 
   static PARTS = { body: { template: "systems/modern20/templates/grant.hbs", scrollable: [""] } };
@@ -396,7 +424,12 @@ export class Grant extends HandlebarsApplicationMixin(ApplicationV2) {
     return Object.assign(context, {
       errors: [...unknown, ...(c.note.trim() ? [] : ["Say what happened first."])],
       note: c.note,
-      items: c.items.map((it, i) => ({ ...it, index: i, packs: GRANT_PACKS.map(([v, l]) => ({ value: v, label: l, selected: v === it.pack })), list: `m20-grant-${it.pack}`, choiceKind: it.pack === "feats" || it.pack === "talents" ? CHOICES[slug(it.name)] ?? "" : "" })),
+      items: await Promise.all(c.items.map(async (it, i) => ({
+        ...it, index: i, packs: GRANT_PACKS.map(([v, l]) => ({ value: v, label: l, selected: v === it.pack })), list: `m20-grant-${it.pack}`,
+        choiceKind: it.pack === "feats" || it.pack === "talents" ? CHOICES[slug(it.name)] ?? "" : "",
+        // Its entry, to read before adding it.
+        uuid: it.name ? (await index(it.pack)).find((e) => e.name === it.name)?.uuid ?? "" : "",
+      }))),
       lists: Object.entries(lists).map(([pack, names]) => ({ id: `m20-grant-${pack}`, names })),
       newFeat: c.newFeat,
       ranks: c.ranks.map((r, i) => ({ ...r, index: i, skills: skills.map((s) => ({ ...s, selected: s.value === r.skill })) })),

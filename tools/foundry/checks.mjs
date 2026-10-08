@@ -2164,4 +2164,48 @@ export const CHECKS = {
     await actor.delete();
     return errors;
   },
+
+  async "the level window: each choice's text to read before taking it, and a feat's prerequisites whichever window opened first"() {
+    const errors = [];
+    const { take, wait, doc } = window.m20test;
+    const { LevelUp, Grant } = await import("/systems/modern20/module/levelup.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 12 }]));
+    const actor = await Actor.implementation.create({ name: "Reader (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [await take("occupations", "Criminal")]);
+    const opened = [];
+    try {
+      // The other window first: the level window's feats still come with their prerequisites.
+      const grant = new Grant(actor);
+      grant.choices.items = [{ pack: "feats", name: "Alertness", choice: "" }];
+      await grant.render(true);
+      await wait(() => grant.rendered && grant.element.querySelector("[data-action=view]"), "the grant window's read link for Alertness");
+      await grant.close();
+      const app = new LevelUp(actor);
+      app.choices.cls = (await doc("classes", "Fast Hero")).uuid;
+      app.choices.feats = ["Dodge", "Alertness"];
+      await app.render(true);
+      await wait(() => app.rendered && app.plan, "the level window");
+      const text = () => app.element.innerText;
+      await wait(() => /Prerequisites: Dexterity 13/.test(text()), "Dodge's prerequisites (Dexterity 13)");
+      // Each feat chosen: the start of its text, and a link to read it.
+      if (!/Alertness/.test([...app.element.querySelectorAll(".m20-summary")].map((e) => e.innerText).join(" ")) && !/Listen|Spot/.test([...app.element.querySelectorAll(".m20-summary")].map((e) => e.innerText).join(" "))) errors.push("the feats chosen show none of their text");
+      const links = [...app.element.querySelectorAll("[data-action=view]")];
+      if (links.length < 3) errors.push(`${links.length} read links (the class, two feats and the occupation's feats expected)`);
+      const before = new Set(foundry.applications.instances.keys());
+      const alertness = links.find((l) => l.closest("p")?.querySelector("input[name='feats.1.name']"));
+      alertness.click();
+      const sheet = await wait(() => [...foundry.applications.instances.values()].find((a) => !before.has(a.id) && a.document?.name === "Alertness" && a.rendered), "Alertness's sheet to open");
+      opened.push(sheet);
+      // The occupation's feats, each with its own link.
+      const given = [...app.element.querySelectorAll("label")].filter((l) => l.querySelector("input[name^='grant~']"));
+      if (!given.length || !given.every((l) => l.nextElementSibling?.dataset?.action === "view")) errors.push("the occupation's feats have no read links");
+      await app.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of opened) await a.close();
+    for (const a of foundry.applications.instances.values()) if (["LevelUp", "Grant"].includes(a.constructor.name)) await a.close();
+    await actor.delete();
+    return errors;
+  },
 };

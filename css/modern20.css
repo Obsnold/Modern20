@@ -181,3 +181,7 @@
 /* Ability damage and drain, side by side on the Main tab. */
 .modern20 .m20-loss { white-space: nowrap; }
 .modern20 .m20-loss input { width: 2.6rem; }
+
+/* The level window's "read it" links, and the start of a choice's text under it. */
+.modern20 .m20-read { margin-left: 0.25rem; }
+.modern20 .m20-summary { display: inline-block; max-width: 36rem; font-size: 0.9em; }

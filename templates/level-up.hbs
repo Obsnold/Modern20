@@ -1,12 +1,13 @@
 <div class="m20-levelup-body">
   <section class="m20-panel">
-    <h3>Class</h3>
+    <h3>Class <a class="m20-read" data-action="browse" data-pack="classes" data-tooltip="Browse the Classes compendium"><i class="fa-solid fa-book"></i></a></h3>
     <select name="cls">
       <option value="">— choose a class —</option>
       {{#each classOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if unmet}}class="m20-unmet"{{/if}}>{{label}}</option>{{/each}}
     </select>
+    {{#if classUuid}}<a class="m20-read" data-action="view" data-uuid="{{classUuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}
     {{#if plan}}
-      <p class="m20-hint">Level {{plan.level}}: {{cls.name}} {{plan.classLevel}}{{#if plan.features.length}}, with {{#each plan.features}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}.</p>
+      <p class="m20-hint">Level {{plan.level}}: {{cls.name}} {{plan.classLevel}}{{#if features.length}}, with {{#each features}}{{name}}{{#if uuid}} <a class="m20-read" data-action="view" data-uuid="{{uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}{{#unless @last}}, {{/unless}}{{/each}}{{/if}}.</p>
       {{#if plan.beyondMax}}<p class="m20-warning">{{cls.name}} has no level {{plan.classLevel}}.</p>{{/if}}
     {{/if}}
   </section>
@@ -58,11 +59,13 @@
 
     {{#if featSlots.length}}
       <section class="m20-panel">
-        <h3>{{#if plan.first}}Feats{{else}}A feat{{/if}} <span class="m20-hint">(every character's, at this level)</span></h3>
+        <h3>{{#if plan.first}}Feats{{else}}A feat{{/if}} <span class="m20-hint">(every character's, at this level)</span> <a class="m20-read" data-action="browse" data-pack="feats" data-tooltip="Browse the Feats compendium to read any feat"><i class="fa-solid fa-book"></i></a></h3>
         {{#each featSlots}}
           <p>
             <input type="text" name="feats.{{index}}.name" value="{{name}}" list="m20-levelup-feats" placeholder="A feat">
+            {{#if uuid}}<a class="m20-read" data-action="view" data-uuid="{{uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}
             {{#if choiceKind}}<input type="text" name="feats.{{index}}.choice" value="{{choice}}" placeholder="Choose a {{choiceKind}}">{{/if}}
+            {{#if summary}}<br><span class="m20-hint m20-summary">{{summary}}</span>{{/if}}
             {{#if prerequisites.text}}<br><span class="{{#if (eq prerequisites.met false)}}m20-warning{{else}}m20-hint{{/if}}">Prerequisites: {{prerequisites.text}}{{#if (eq prerequisites.met false)}} (not met: {{prerequisites.missing}}){{else if prerequisites.check}} (check by hand: {{prerequisites.check}}){{else}} <i class="fa-solid fa-check"></i>{{/if}}</span>{{/if}}
           </p>
         {{/each}}
@@ -75,6 +78,8 @@
         <h3>A bonus feat <span class="m20-hint">({{cls.name}}'s list)</span></h3>
         <select name="bonusFeat"><option value="">—</option>{{#each bonus.options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
         {{#if bonus.choiceKind}}<input type="text" name="bonusChoice" value="{{bonus.choice}}" placeholder="Choose a {{bonus.choiceKind}}">{{/if}}
+        {{#if bonus.uuid}}<a class="m20-read" data-action="view" data-uuid="{{bonus.uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}
+        {{#if bonus.summary}}<p class="m20-hint m20-summary">{{bonus.summary}}</p>{{/if}}
       </section>
     {{/if}}
 
@@ -82,6 +87,8 @@
       <section class="m20-panel">
         <h3>A talent</h3>
         <select name="talent"><option value="">—</option>{{#each talents}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if disabled}}disabled{{/if}}>{{label}}</option>{{/each}}</select>
+        {{#if talent.uuid}}<a class="m20-read" data-action="view" data-uuid="{{talent.uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}
+        {{#if talent.summary}}<p class="m20-hint m20-summary">{{talent.summary}}</p>{{/if}}
       </section>
     {{/if}}
 
@@ -97,7 +104,7 @@
         <h3>Feats you are given</h3>
         {{#each grants}}
           <p class="m20-hint">{{text}}</p>
-          {{#each options}}<label><input type="checkbox" name="{{name}}" {{#if checked}}checked{{/if}} {{#if fixed}}disabled{{/if}}> {{label}}</label>{{/each}}
+          {{#each options}}<label><input type="checkbox" name="{{name}}" {{#if checked}}checked{{/if}} {{#if fixed}}disabled{{/if}}> {{label}}</label>{{#if uuid}} <a class="m20-read" data-action="view" data-uuid="{{uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}{{/each}}
         {{/each}}
       </section>
     {{/if}}

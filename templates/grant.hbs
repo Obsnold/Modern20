@@ -12,6 +12,7 @@
         <select name="items.{{index}}.pack">{{#each packs}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
         <input type="text" name="items.{{index}}.name" value="{{name}}" list="{{list}}" placeholder="Its name">
         {{#if choiceKind}}<input type="text" name="items.{{index}}.choice" value="{{choice}}" placeholder="Choose a {{choiceKind}}">{{/if}}
+        {{#if uuid}}<a class="m20-read" data-action="view" data-uuid="{{uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}
         <a data-action="removeRow" data-list="items" data-index="{{index}}" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
       </p>
     {{/each}}
