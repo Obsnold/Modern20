@@ -49,12 +49,26 @@
     </div>
 
     <div class="m20-panel">
+      <h3>Driving</h3>
+      <p>
+        <a class="m20-roll-button" data-action="driveCheck" data-tooltip="A stunt (dash, hard brake, hard turn, bootleg turn, jump, sideswipe, avoid a hazard), keeping control, or a check of another DC"><i class="fa-solid fa-car"></i> {{v.skillName}} check</a>
+        <span class="m20-hint">{{v.driverText}}</span>
+      </p>
+      <dl class="m20-stats">
+        <dt>Driving</dt><dd><select name="system.driving" {{#unless canEdit}}disabled{{/unless}} data-tooltip="Defensively: +2 Defense, −4 on attacks aboard. Total defense: +4, −8, and the driver makes none. Until the driver's next turn">{{#each v.drivings}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></dd>
+        <dt>Crew</dt><dd><select name="system.crewQuality" {{#unless canEdit}}disabled{{/unless}} data-tooltip="A GM's crew, when no one is at the wheel: its check modifier and attack bonus">{{#each v.crews}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></dd>
+        {{#if v.operation}}<dt>Needs</dt><dd data-tooltip="Without it: −4 on {{v.skillName}} checks with it and attacks with its weapons">{{v.operation}}</dd>{{/if}}
+      </dl>
+    </div>
+
+    <div class="m20-panel">
       <h3>Weapons</h3>
       {{#each v.weapons}}
         <div class="m20-item" data-item-id="{{id}}">
           <img src="{{img}}" alt="" width="28" height="28">
           <a class="m20-item-name" data-action="editItem">{{name}}</a>
           <span class="m20-item-detail">{{detail}}</span>
+          <a data-action="fireWeapon" data-tooltip="Fire it: a gunner or the driver aboard, or the crew"><i class="fa-solid fa-crosshairs"></i></a>
           {{#if @root.canEdit}}<a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>{{/if}}
         </div>
       {{else}}

@@ -30,6 +30,14 @@ export const WEAPONS = {
   "M2A2 Bradley (tracked APC)": ["M2A2 Bradley 25mm cannon"],
 };
 
+/** What drives each and its class, where it needs an operation feat (Modern/Feats: Surface Vehicle Operation, Aircraft Operation). */
+function operationOf(name, path) {
+  const kind = `${name} ${path}`.toLowerCase();
+  const skill = /aircraft|helicopter|plane|jet\)/.test(kind) ? "pilot" : "drive";
+  const cls = /tracked/.test(kind) ? "tracked" : /helicopter/.test(kind) ? "helicopters" : /water/.test(kind) ? "powerboat" : "";
+  return { skill, class: cls };
+}
+
 const COVER = { "no": "none", "one-quarter": "one-quarter", "one-half": "one-half", "three-quarters": "three-quarters", "nine-tenths": "nine-tenths", full: "full" };
 const WORDS = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12 };
 
@@ -101,6 +109,22 @@ function vehicleWeapons(problems) {
   return out;
 }
 
+/** Table: Crewed Vehicles (Modern/VehicleCombat/FightingFromVehicles): each vehicle's typical crew quality, by its name. */
+function crewQualities(problems) {
+  const path = "Modern/VehicleCombat/FightingFromVehicles.md";
+  const out = {};
+  for (const s of readPage(path).root.walk()) {
+    for (const b of s.blocks.filter((x) => x.kind === "table" && strip(x.header[0]) === "Name" && strip(x.header[1]) === "Crew")) {
+      for (const row of b.rows) {
+        const m = strip(row.cells[1]).match(/\((Untrained|Normal|Skilled|Expert|Ace)\b/i);
+        if (m) out[strip(row.cells[0]).toLowerCase()] = m[1].toLowerCase();
+      }
+    }
+  }
+  if (!Object.keys(out).length) problems.push({ path, line: 1, message: "no Table: Crewed Vehicles" });
+  return out;
+}
+
 /** Read one page's vehicles: `{ vehicles, problems }`. */
 export function readVehiclePage(path) {
   const page = readPage(path);
@@ -153,6 +177,7 @@ export const buildVehicles = once(function buildVehicles() {
   const problems = [];
   const documents = [];
   const cannons = vehicleWeapons(problems);
+  const crews = crewQualities(problems);
   const equipment = buildEquipment().documents.filter((d) => d.system);
   const all = [];
   for (const path of listPages().filter((p) => VEHICLE_PAGES.test(p))) {
@@ -169,6 +194,11 @@ export const buildVehicles = once(function buildVehicles() {
   const weaponModel = obj(ITEM_MODELS.weapon);
   for (const v of all) {
     const id = stableId(`vehicle:${v.path}:${v.name}`);
+    // Its crew quality: by its name in Table: Crewed Vehicles ("Acura 3.2 TL", "Jaguar XJS").
+    const crew = crews[v.name.replace(/\s*\(.*\)$/, "").toLowerCase()];
+    if (!crew) problems.push({ path: v.path, line: v.line, message: `${v.name}: not in Table: Crewed Vehicles` });
+    v.system.crewQuality = crew ?? "normal";
+    v.system.operation = operationOf(v.name, v.path);
     const { img, token } = art(v.name, v.path);
     // Its mounted weapons, items of its own.
     const items = (WEAPONS[v.name] ?? []).map((w) => {
@@ -177,7 +207,8 @@ export const buildVehicles = once(function buildVehicles() {
       const itemId = stableId(`vehicle-weapon:${id}:${w}`);
       return {
         _id: itemId, _key: `!actors.items!${id}.${itemId}`, name: base.name, type: "weapon", img: base.img, sort: 0,
-        system: conform(weaponModel, { identifier: slug(base.name), ...base.system, equipped: true }), effects: [], ownership: { default: 0 }, flags: {},
+        // Loaded, as it comes: a full magazine (a linked belt has no count).
+        system: conform(weaponModel, { identifier: slug(base.name), ...base.system, equipped: true, loaded: Number(String(base.system.magazine).match(/^\d+/)?.[0]) || 0 }), effects: [], ownership: { default: 0 }, flags: {},
         ...(base._id ? { _stats: { compendiumSource: `Compendium.modern20.equipment.Item.${base._id}` } } : {}),
       };
     }).filter(Boolean);

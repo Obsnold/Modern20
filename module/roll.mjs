@@ -19,6 +19,7 @@ import { readDefenses } from "./rules/resistance.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 import { bindLevelCheck } from "./casting.mjs";
 import { bindTreatment } from "./treat.mjs";
+import { aboardOf, aboardTerms, bindVehicleCheck, crewDamage } from "./vehicles.mjs";
 import { spendAmmo, specialLoad, recordedLoad } from "./ammo.mjs";
 import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
@@ -131,7 +132,7 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild, befor
 }
 
 /** A d20 roll a module builds (a Treat Injury use), asked and posted as any is; `judge(roll)` adds the card's flags. */
-export const rollCheck = (actor, spec, event, { judge, options, rebuild } = {}) => rollD20(actor, spec, event, {}, { judge, options, rebuild });
+export const rollCheck = (actor, spec, event, { judge, options, rebuild, flags } = {}) => rollD20(actor, spec, event, flags ?? {}, { judge, options, rebuild });
 
 /** Autofire: against the square's Defense, not a token's. */
 function judgeAgainstArea(roll, defense) {
@@ -168,9 +169,17 @@ export function characterRolls(actor) {
       // character's gear, since the sheet cannot know what was left on the shore.
       const lb = key === "swim" ? gearWeight(actor) : 0;
       if (n && lb >= 5) n.ticks.push({ name: "swimGear", label: `Gear carried: ${lb} lb. of gear (−1 per 5 lb.)`, value: -Math.floor(lb / 5), term: "Gear carried" });
-      return rollD20(actor, R.skillCheck(d, row), event, undefined, { notes: n });
+      // Aboard a moving vehicle: its speed's penalty (module/vehicles.mjs).
+      const check = R.skillCheck(d, row);
+      const spec = check?.unusable ? check : withTerms(check, aboardTerms(actor, "check"));
+      return rollD20(actor, spec, event, undefined, { notes: n });
     },
-    attack: (item, event) => {
+    /** An attack with a weapon: one of the character's, or (`vehicle`) one mounted on the vehicle it fires from, with `extra` terms. */
+    attack: (item, event, { vehicle = null, extra = [] } = {}) => {
+      // Aboard a moving vehicle: its speed's penalty, and how it is driven; a driver on total defense makes none.
+      const aboard = aboardOf(actor);
+      if (aboard?.cannotAttack) return ui.notifications.warn(`${actor.name} is driving ${aboard.vehicle.name} on total defense: no attacks.`);
+      const extraTerms = [...aboardTerms(actor, "attack"), ...extra];
       // Point Blank Shot is the player's call: the SRD's "within 30 feet" is not something the sheet can see.
       const options = !item.system.melee && feats.some((f) => rulesFor(f.identifier).pointBlank) ? [{ name: "pointBlank", label: "Within 30 feet (Point Blank Shot: +1 attack and damage)" }] : [];
       const modes = firingModes(item, feats);
@@ -187,12 +196,12 @@ export function characterRolls(actor) {
       const hasPointBlank = feats.some((f) => rulesFor(f.identifier).pointBlank);
       // The load fired is kept on the card, so its damage is the load's even if the weapon is reloaded before it is rolled.
       const load = ammo ? { key: ammo.key, name: ammo.name } : null;
-      return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0], ammo }), event, { attack: { actor: actor.uuid, item: item.id, load } }, {
+      return rollD20(actor, R.attack(d, item, feats, { mode: modes[0]?.[0], ammo, extraTerms }), event, { attack: { actor: actor.uuid, item: item.id, load, ...(vehicle ? { vehicle: vehicle.uuid } : {}) } }, {
         options, notes: notes(R.rollTargets.attack(!!item.system.melee)),
         rebuild: (ticked) => {
           // Point Blank Shot by the distance, when one is given (its damage is rolled from what is kept here).
           if (ticked.distance > 0) ticked.pointBlank = hasPointBlank && ticked.distance <= 30;
-          return R.attack(d, item, feats, { ...ticked, ammo });
+          return R.attack(d, item, feats, { ...ticked, ammo, extraTerms });
         },
         // A firearm spends its rounds as it fires: none left, no attack. Fighting defensively starts with the attack.
         before: async (ticked) => {
@@ -424,6 +433,7 @@ export function bindAttackButtons(message, html) {
   if (flags?.levelCheck) return bindLevelCheck(message, html, flags);
   if (flags?.reputation) return bindReputation(message, html, flags.reputation);
   if (flags?.treatment) return bindTreatment(message, html, flags.treatment);
+  if (flags?.vehicleCheck) return bindVehicleCheck(message, html, flags.vehicleCheck);
   if (!flags?.attack) return;
   const actor = fromUuidSync(flags.attack.actor);
   // Only those who can roll for the actor get its buttons: a player cannot roll another's damage.
@@ -440,9 +450,17 @@ export function bindAttackButtons(message, html) {
     name = "Unarmed strike";
     normal = () => characterRolls(actor).damage("unarmed", { lethal, streetfighting });
     critical = () => characterRolls(actor).damage("unarmed", { lethal, streetfighting, multiplier });
+  } else if (actor.type === "vehicle" && flags.attack.crew) {
+    // A mounted weapon fired by the GM's crew (module/vehicles.mjs).
+    const item = actor.items.get(flags.attack.item);
+    if (!item) return;
+    name = item.name;
+    normal = () => crewDamage(actor, item);
+    critical = () => crewDamage(actor, item, multiplier);
   } else if (flags.attack.item) {
-    // A character's weapon.
-    const item = actor.items?.get(flags.attack.item);
+    // A character's weapon, or one mounted on the vehicle it was fired from.
+    const holder = flags.attack.vehicle ? fromUuidSync(flags.attack.vehicle) : actor;
+    const item = holder?.items?.get(flags.attack.item);
     if (!item) return;
     const pointBlank = !!flags.attack.pointBlank, ammoAsk = !!flags.attack.ammoAsk;
     const mode = flags.attack.mode, load = flags.attack.load;

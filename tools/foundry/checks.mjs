@@ -2278,4 +2278,80 @@ export const CHECKS = {
     for (const a of made) { if (a.sheet?.rendered) await a.sheet.close(); await a.delete(); }
     return errors;
   },
+
+  async "driving: a dash that speeds it up, a failed hard brake that calls for keeping control, losing it, a passenger's check at speed, and the Abrams fired by its gunner and by its crew"() {
+    const errors = [];
+    const { doc, wait, dialog, take } = window.m20test;
+    const { driveCheck, fireWeapon } = await import("/systems/modern20/module/vehicles.mjs");
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const made = [];
+    const card = (n, test, what) => wait(() => game.messages.contents.slice(n).find(test), what);
+    try {
+      const car = await Actor.implementation.create((await doc("vehicles", "Acura 3.2 TL (mid-size sedan)")).toObject());
+      const ace = await Actor.implementation.create({ name: "Ace driver (test)", type: "character", system: { abilities, skills: { drive: { ranks: 30 } } } });
+      const rider = await Actor.implementation.create({ name: "Rider (test)", type: "character", system: { abilities } });
+      made.push(car, ace, rider);
+      await car.update({ "system.speed": "street", "system.occupants": [{ uuid: ace.uuid, name: ace.name, role: "driver" }, { uuid: rider.uuid, name: rider.name, role: "passenger" }] });
+      // A dash: Drive with its maneuver and speed's −1, DC 15; made, one category faster.
+      let n = game.messages.size;
+      const dash = driveCheck(car);
+      await dialog({ stunt: "dash|0" }, "ok");
+      await dash;
+      const dashCard = await card(n, (m) => /Dash/.test(m.flavor ?? ""), "the dash card");
+      if (!/Maneuver/.test(dashCard.flavor) || !/Speed \(street speed\)/.test(dashCard.flavor)) errors.push("the dash's check has no maneuver or speed term");
+      if (car.system.speed !== "highway") errors.push(`after a dash the car is at ${car.system.speed}, not highway speed`);
+      // A passenger's check at highway speed: −2.
+      n = game.messages.size;
+      await characterRolls(rider).skill("spot");
+      const spot = await card(n, (m) => /Spot/.test(m.flavor ?? ""), "the passenger's Spot check");
+      if (!/Aboard Acura 3\.2 TL \(mid-size sedan\) \(highway speed\)/.test(spot.flavor)) errors.push("a passenger's check at highway speed has no Aboard −2");
+      // A hard brake failed (Drive −60 misc): no slower, and a button to keep control (DC 15).
+      await ace.update({ "system.skills.drive.misc": -60 });
+      n = game.messages.size;
+      const brake = driveCheck(car);
+      await dialog({ stunt: "brake|0" }, "ok");
+      await brake;
+      const failed = await card(n, (m) => m.getFlag("modern20", "vehicleCheck"), "the hard brake's card");
+      if (failed.getFlag("modern20", "vehicleCheck").keep !== 15) errors.push(`the failed hard brake calls for keeping control at ${failed.getFlag("modern20", "vehicleCheck").keep}`);
+      const keep = await wait(() => [...(ui.chat.element?.querySelectorAll(`li[data-message-id="${failed.id}"] .m20-card-buttons button`) ?? [])].find((b) => /Keep control/.test(b.textContent)), "its Keep control button");
+      if (car.system.speed !== "highway") errors.push(`a failed hard brake changed the speed to ${car.system.speed}`);
+      n = game.messages.size;
+      keep.click();
+      const lost = await card(n, (m) => /Keep control/.test(m.flavor ?? ""), "the check to keep control");
+      if (!/the vehicle rolls/.test(lost.flavor)) errors.push("failing to keep control by 10 or more does not say the vehicle rolls");
+      // The Abrams: its gunner's attack, −4 without Surface Vehicle Operation (tracked); and its crew's, at skilled +2.
+      const abrams = await Actor.implementation.create((await doc("vehicles", "M1A2 Abrams (tracked tank)")).toObject());
+      made.push(abrams);
+      const cannon = abrams.items.find((i) => i.name === "M1A2 Abrams tank cannon");
+      n = game.messages.size;
+      await fireWeapon(abrams, cannon);
+      const crewCard = await card(n, (m) => m.getFlag("modern20", "attack")?.crew, "the crew's attack");
+      if (!/Crew \(skilled\)/.test(crewCard.flavor)) errors.push("the crew's attack has no crew term");
+      const gunner = await Actor.implementation.create({ name: "Gunner (test)", type: "character", system: { abilities } });
+      made.push(gunner);
+      await gunner.createEmbeddedDocuments("Item", [await take("feats", "Exotic Firearms Proficiency", { choice: "cannons" })]);
+      await abrams.update({ "system.occupants": [{ uuid: gunner.uuid, name: gunner.name, role: "gunner" }] });
+      await cannon.update({ "system.loaded": 1 });
+      n = game.messages.size;
+      await fireWeapon(abrams, cannon);
+      const shot = await card(n, (m) => m.getFlag("modern20", "attack")?.vehicle === abrams.uuid, "the gunner's attack");
+      if (!/No Surface Vehicle Operation \(tracked\)/.test(shot.flavor)) errors.push("the gunner's attack with a tank's cannon has no −4 for Surface Vehicle Operation");
+      // Its damage, from the card's button: the cannon's 10d12.
+      const k = game.messages.size;
+      let next = shot;
+      for (let tries = 0; tries < 3 && !game.messages.contents.slice(k).some((m) => m.getFlag("modern20", "damage")); tries++) {
+        const button = await wait(() => [...(ui.chat.element?.querySelectorAll(`li[data-message-id="${next.id}"] .m20-card-buttons button`) ?? [])].find((b) => /^(Damage|Not confirmed: damage|Confirm critical)$/.test(b.textContent)), "a damage button");
+        const before = game.messages.size;
+        button.click();
+        next = await wait(() => game.messages.contents.slice(before).at(-1), "the next card");
+      }
+      const damage = await card(k, (m) => m.getFlag("modern20", "damage"), "the cannon's damage");
+      if (!/10d12/.test(damage.rolls[0]?.formula ?? "")) errors.push(`the cannon's damage is "${damage.rolls[0]?.formula}", not 10d12`);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of made) await a.delete();
+    return errors;
+  },
 };

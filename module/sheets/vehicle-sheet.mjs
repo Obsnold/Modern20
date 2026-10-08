@@ -6,7 +6,8 @@
 import { describe, Editable } from "./document-sheet.mjs";
 import { logContext } from "../log.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
-import { SPEEDS, reachable, atSpeed, vehicleState } from "../rules/vehicles.mjs";
+import { SPEEDS, DRIVING, CREW, reachable, atSpeed, vehicleState } from "../rules/vehicles.mjs";
+import { driveCheck, fireWeapon, driverOf } from "../vehicles.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -29,6 +30,8 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
       editItem: Modern20VehicleSheet.#onEditItem,
       deleteItem: Modern20VehicleSheet.#onDeleteItem,
       filterLog: Modern20VehicleSheet.#onFilterLog,
+      driveCheck: Modern20VehicleSheet.#onDriveCheck,
+      fireWeapon: Modern20VehicleSheet.#onFireWeapon,
     },
   };
 
@@ -40,14 +43,16 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
     const s = actor.system;
     const max = s.hp.max ?? 0, hp = s.hp.value ?? max;
     const state = vehicleState(hp, max);
-    const speed = atSpeed(s.defense, s.speed);
+    const speed = atSpeed(s.defense, s.speed, s.driving);
+    const driver = driverOf(actor);
+    const skillName = s.operation.skill === "pilot" ? "Pilot" : "Drive";
     const can = reachable(s.topSpeed.character);
     context.v = {
       category: s.category || "Vehicle", size: title(s.size), footprint: `${s.squares.wide} × ${s.squares.long} squares`,
       hp, max, state: state === "destroyed" ? "Destroyed" : state === "disabled" ? "Disabled" : "",
       speeds: Object.entries(SPEEDS).map(([value, x]) => ({ value, label: `${x.label} (${x.character[1] === Infinity ? `${x.character[0]}+` : x.character[0] === x.character[1] ? x.character[0] : `${x.character[0]}–${x.character[1]}`} squares)`, selected: value === s.speed, far: !can.includes(value) })),
       speedTip: "street +1 Defense, −1 on rolls aboard; highway +2, −2; all-out +4, −4",
-      defense: speed.defense, defenseTip: `${s.defense} as printed${speed.defense !== s.defense ? `, ${signed(speed.defense - s.defense)} at ${speed.label.toLowerCase()}` : ""}`,
+      defense: speed.defense, defenseTip: `${s.defense} as printed${speed.defense !== s.defense ? `, ${signed(speed.defense - s.defense)} at ${speed.label.toLowerCase()}${s.driving !== "normal" ? ` driven ${DRIVING[s.driving].label.toLowerCase()}` : ""}` : ""}`,
       check: signed(speed.check), hardness: s.hardness, initiative: signed(s.initiative), maneuver: signed(s.maneuver),
       topSpeed: s.topSpeed.value || `${s.topSpeed.character} (${s.topSpeed.chase})`, cover: COVER[s.cover] ?? "—",
       crew: s.crew, passengers: s.passengers, cargo: s.cargo.value || "no",
@@ -57,6 +62,11 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
       }),
       weapons: actor.items.filter((i) => i.type === "weapon").map((i) => ({ id: i.id, name: i.name, img: i.img, detail: [i.system.damage?.value, i.system.critical && `crit ${i.system.critical}`, i.system.damageType, i.system.rangeIncrement?.value].filter(Boolean).join(", ") })),
       purchase: s.purchaseDC.value || (s.purchaseDC.dc ?? ""), restriction: s.restriction.value,
+      skillName,
+      driverText: driver ? `${driver.name} at the wheel, with its maneuver ${signed(s.maneuver)}` : `No one at the wheel: the crew (${CREW[s.crewQuality]?.label.toLowerCase() ?? "normal"}, ${signed(CREW[s.crewQuality]?.check ?? 2)}), with its maneuver ${signed(s.maneuver)}`,
+      drivings: Object.entries(DRIVING).map(([value, x]) => ({ value, label: x.label, selected: value === s.driving })),
+      crews: Object.entries(CREW).map(([value, x]) => ({ value, label: `${x.label} (${signed(x.check)} checks, ${signed(x.attack)} attacks)`, selected: value === s.crewQuality })),
+      operation: s.operation.class ? `${s.operation.skill === "pilot" ? "Aircraft" : "Surface Vehicle"} Operation (${s.operation.class})` : "",
     };
     context.description = await TextEditor.implementation.enrichHTML(s.description, { relativeTo: actor, secrets: actor.isOwner });
     context.log = logContext(actor, this.logFilter);
@@ -128,6 +138,12 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
   static async #onRemoveOccupant(event, target) {
     const i = Number(target.closest("[data-occupant]")?.dataset.occupant);
     await this.document.update({ "system.occupants": this.document.system.toObject().occupants.filter((_, j) => j !== i) });
+  }
+
+  static #onDriveCheck(event) { return driveCheck(this.document, { event }); }
+  static #onFireWeapon(event, target) {
+    const weapon = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+    if (weapon) return fireWeapon(this.document, weapon, event);
   }
 
   static #onEditItem(event, target) { this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId)?.sheet.render(true); }

@@ -60,3 +60,37 @@ test("damage to a vehicle: hardness off each hit; electricity and fire half, col
   assert.deepEqual(vehicleDamage([{ type: "acid", amount: 8 }], 0).stopped, []);
   assert.deepEqual([vehicleState(1, 34), vehicleState(0, 34), vehicleState(-33, 34), vehicleState(-34, 34)], [null, "disabled", "disabled", "destroyed"]);
 });
+
+test("driving: each stunt's DC (a jump's by speed, a sideswipe's by size and speed), and losing control", async () => {
+  const { stuntDC, lostControl, STUNTS } = await import("../../module/rules/vehicles.mjs");
+  assert.equal(stuntDC("dash"), 15);
+  assert.equal(stuntDC("bootleg", { option: 3 }), 20);
+  assert.equal(stuntDC("avoid", { option: 2 }), 5);
+  // A 4–8 ft. culvert, DC 20: +10 at alley speed, −5 all-out.
+  assert.deepEqual([stuntDC("jump", { option: 1, speed: "alley" }), stuntDC("jump", { option: 1, speed: "allOut" })], [30, 15]);
+  // A sideswipe on a target one size larger, two speed categories apart: 15 − 5 − 4.
+  assert.equal(stuntDC("sideswipe", { larger: 1, speedsApart: 2 }), 6);
+  assert.equal(stuntDC("check", { dc: 22 }), 22);
+  assert.deepEqual([lostControl(16, 15), lostControl(12, 15), lostControl(5, 15)], [null, "spins", "rolls"]);
+  assert.equal(STUNTS.brake.keep, 15);
+});
+
+test("aboard: the speed's penalty on checks and attacks, driving defensively's on attacks; a driver on total defense makes none", async () => {
+  const { aboard, atSpeed, operationPenalty, CREW } = await import("../../module/rules/vehicles.mjs");
+  assert.deepEqual(aboard({ speed: "highway", driving: "normal" }, "passenger"), { check: -2, attack: -2, speedLabel: "Highway speed", drivingLabel: "Normally", cannotAttack: false });
+  assert.equal(aboard({ speed: "street", driving: "defensively" }, "gunner").attack, -5);
+  assert.equal(aboard({ speed: "alley", driving: "total" }, "driver").cannotAttack, true);
+  assert.equal(atSpeed(8, "street", "defensively").defense, 11);
+  // The Abrams is tracked: −4 without Surface Vehicle Operation (tracked).
+  assert.equal(operationPenalty({ skill: "drive", class: "tracked" }, []), -4);
+  assert.equal(operationPenalty({ skill: "drive", class: "tracked" }, [{ name: "Surface Vehicle Operation", choice: "tracked" }]), 0);
+  assert.equal(operationPenalty({ skill: "pilot", class: "helicopters" }, [{ name: "Aircraft Operation", choice: "helicopters" }]), 0);
+  assert.equal(operationPenalty({ skill: "drive", class: "" }, []), 0);
+  assert.deepEqual([CREW.skilled.check, CREW.ace.attack], [4, 8]);
+  // Each vehicle's crew, operation and loaded weapons from the book.
+  const abrams = find("M1A2 Abrams (tracked tank)");
+  assert.deepEqual([abrams.system.crewQuality, abrams.system.operation], ["skilled", { skill: "drive", class: "tracked" }]);
+  assert.equal(abrams.items[0].system.loaded, 1);
+  assert.deepEqual(find("Bell Jet Ranger (helicopter)").system.operation, { skill: "pilot", class: "helicopters" });
+  assert.deepEqual(find("Acura 3.2 TL (mid-size sedan)").system.operation, { skill: "drive", class: "" });
+});

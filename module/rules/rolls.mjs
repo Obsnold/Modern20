@@ -143,6 +143,8 @@ export function attack(d, weapon, feats, options = {}) {
     { label: "Into a melee", value: intoMelee },
     // Fighting defensively: −4, until the condition it puts the character in carries it (module/roll.mjs).
     { label: "Fighting defensively", value: options.defensively ? -4 : 0 },
+    // What else the situation adds, named (aboard a moving vehicle: module/vehicles.mjs).
+    ...(options.extraTerms ?? []),
   ], {
     critical: keenOf(ammoThreat(critical(s.critical), options.ammo), abilities.keen),
     // What the card says besides: the load's notes, its abilities' that are the table's, and a target out of the weapon's reach.

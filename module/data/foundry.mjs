@@ -56,7 +56,7 @@ class VehicleData extends model("VehicleData", ACTOR_MODELS.vehicle) {
   prepareDerivedData() {
     // Not stored: current hit points (an empty value is its full total), its condition, and its Defense at its speed.
     const value = this.hp.value ?? this.hp.max;
-    const speed = atSpeed(this.defense, this.speed);
+    const speed = atSpeed(this.defense, this.speed, this.driving);
     this.derived = { hp: value, state: vehicleState(value, this.hp.max), defense: speed.defense, check: speed.check, speedLabel: speed.label };
   }
 }

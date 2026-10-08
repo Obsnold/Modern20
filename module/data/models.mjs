@@ -556,8 +556,16 @@ export const ACTOR_MODELS = {
     cover: str({ choices: ["none", "one-quarter", "one-half", "three-quarters", "nine-tenths", "full"] }),
     purchaseDC: printed({ dc: int({ nullable: true }) }),
     restriction: obj({ value: str(), level: str({ choices: ["lic", "res", "mil", "illegal"] }), modifier: int() }),
-    /** The speed category it moves at (Modern/VehicleCombat/VehicleSpeed). */
+    /** The speed category it moves at (Modern/VehicleCombat/VehicleSpeed), and how its driver drives (defensively: +2 Defense). */
     speed: str({ choices: ["stationary", "alley", "street", "highway", "allOut"], initial: "stationary" }),
+    driving: str({ choices: ["normal", "defensively", "total"], initial: "normal" }),
+    /**
+     * What drives it: Drive or Pilot, and its class where it needs an operation feat (Surface Vehicle Operation:
+     * tracked, heavy wheeled, powerboat, sailboat, ship; Aircraft Operation: helicopters, ...); none for a general one.
+     */
+    operation: obj({ skill: str({ choices: ["drive", "pilot"], initial: "drive" }), class: str() }),
+    /** A GM's typical crew (Table: Crewed Vehicles), used when no one is at the wheel. */
+    crewQuality: str({ choices: ["untrained", "normal", "skilled", "expert", "ace"], initial: "normal" }),
     /** Who is aboard: each a character or creature, as the driver, a gunner or a passenger. */
     occupants: list(obj({ uuid: ref(), name: str(), role: str({ choices: ["driver", "gunner", "passenger"] }) })),
     description: html(),
