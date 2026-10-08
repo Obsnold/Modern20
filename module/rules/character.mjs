@@ -8,7 +8,7 @@
  *   classes   each class item's level table, at the level the character has in it
  *   abilities base scores, plus the species' adjustments
  *   size      the species' size (Medium without one)
- *   armor     the equipped armor and shield
+ *   armor     the equipped armor and shield, with its quality (rules/quality.mjs)
  */
 import { ABILITIES, abilityModifier } from "../data/models.mjs";
 import { SKILLS, skillKey } from "../data/skills.mjs";
@@ -19,6 +19,7 @@ import { casters } from "./casting.mjs";
 import { withSystemBonuses, mechanicsContext, partsOf } from "./effects.mjs";
 import { characterDefenses } from "./resistance.mjs";
 import { carrying, carriedWeight, LOAD_SKILLS } from "./load.mjs";
+import { armorQuality } from "./quality.mjs";
 
 /**
  * Speed in armor: the armor's printed speed for a base of 30 feet ("20"), or for 20 feet where
@@ -145,12 +146,17 @@ export function deriveCharacter(system, items) {
   // Armor worn without its proficiency feat gives only its nonproficient bonus, and its armor
   // penalty applies to attack rolls too (Armor Proficiency, "Normal").
   const proficientIn = (a) => a.system.weightClass === "shield" || !a.system.weightClass || armorProficiencies.has(a.system.weightClass);
-  const equipment = armor.reduce((n, a) => n + ((proficientIn(a) ? a.system.equipmentBonus : a.system.nonproficientBonus) ?? 0), 0);
-  const armorAttackPenalty = armor.filter((a) => !proficientIn(a)).reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
+  // Its quality (rules/quality.mjs): mastercraft adds to the equipment bonus; an enhancement bonus is its own,
+  // and makes the armor penalty 1 less.
+  const equipmentOf = (a) => ((proficientIn(a) ? a.system.equipmentBonus : a.system.nonproficientBonus) ?? 0) + armorQuality(a.system).equipment;
+  const equipment = armor.reduce((n, a) => n + equipmentOf(a), 0);
+  const enhancement = armor.reduce((n, a) => n + armorQuality(a.system).enhancement, 0);
+  const penaltyOf = (a) => armorQuality(a.system).penalty;
+  const armorAttackPenalty = armor.filter((a) => !proficientIn(a)).reduce((n, a) => n + penaltyOf(a), 0);
   const natural = (species?.system.naturalArmor ?? 0) + (system.naturalArmor ?? 0);
   const misc = (system.defense?.misc ?? 0) + fxv("defense");
-  const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + natural + misc;
-  const armorPenalty = armor.reduce((n, a) => n + (a.system.armorPenalty ?? 0), 0);
+  const defense = 10 + defenseClass + dexToDefense + sizeMods.defense + equipment + enhancement + natural + misc;
+  const armorPenalty = armor.reduce((n, a) => n + penaltyOf(a), 0);
 
   // Speed: the species' (or a built creature's own, or 30 feet), plus talents and effects; armor slows it.
   const baseSpeed = (system.baseSpeed ?? species?.system.speed ?? 30) + fxv("speed");
@@ -251,7 +257,8 @@ export function deriveCharacter(system, items) {
     saves: { fort: save("fort", "con"), ref: save("ref", "dex"), will: save("will", "wis") },
     defense: keep([
       signedPart("Base", 10), signedPart("Class", defenseClass), signedPart(fxv("loseDexBonus") > 0 ? "Dex (lost)" : "Dex", dexToDefense), signedPart("Size", sizeMods.defense),
-      ...armor.map((a) => signedPart(proficientIn(a) ? a.name : `${a.name} (not proficient)`, (proficientIn(a) ? a.system.equipmentBonus : a.system.nonproficientBonus) ?? 0)),
+      ...armor.map((a) => signedPart(`${a.name}${proficientIn(a) ? "" : " (not proficient)"}${armorQuality(a.system).equipment ? `, mastercraft +${armorQuality(a.system).equipment}` : ""}`, equipmentOf(a))),
+      ...armor.filter((a) => armorQuality(a.system).enhancement).map((a) => signedPart(`${a.name} (enhancement)`, armorQuality(a.system).enhancement)),
       signedPart("Natural armor", natural), signedPart("Misc", system.defense?.misc ?? 0), ...bonusParts("defense"),
     ]),
     initiative: keep([signedPart("Dex", mod("dex")), ...bonusParts("initiative")]),
@@ -281,7 +288,7 @@ export function deriveCharacter(system, items) {
     baseAttackBonus: bab,
     saves: { fort: base.fort + mod("con") + bonus.fort, ref: base.ref + mod("dex") + bonus.ref, will: base.will + mod("wis") + bonus.will },
     baseSaves: base,
-    defense: { value: defense, touch: defense - equipment - natural, flatFooted: defense - Math.max(dexToDefense, 0), class: defenseClass, armorPenalty, armorAttackPenalty },
+    defense: { value: defense, touch: defense - equipment - enhancement - natural, flatFooted: defense - Math.max(dexToDefense, 0), class: defenseClass, armorPenalty, armorAttackPenalty },
     reputation,
     initiative: mod("dex") + bonus.initiative,
     attackBonus: { melee: fxv("attack.melee"), ranged: fxv("attack.ranged") },

@@ -50,10 +50,11 @@ test("a melee attack and its damage add Str; without the proficiency feat it is 
   assert.equal(untrained.terms.at(-1).value, -4);
 });
 
-test("a firearm's attack uses Dex and its damage no Str", () => {
+test("a firearm's attack uses Dex and its damage no Str; the Glock 17's mastercraft +1 is on its attack alone", () => {
   const glock = gear["Glock 17 (9mm autoloader)"];
   const a = R.attack(d, glock, [{ name: "Personal Firearms Proficiency" }]);
-  assert.equal(a.formula, `1d20 + ${d.baseAttackBonus} + 1`);
+  assert.equal(a.formula, `1d20 + ${d.baseAttackBonus} + 1 + 1`);
+  assert.deepEqual(a.terms.slice(1, 2).concat(a.terms.filter((t) => t.label === "Mastercraft")).map((t) => t.label), ["Dexterity", "Mastercraft"]);
   assert.equal(R.damage(d, glock).formula, "2d6");
   assert.deepEqual(a.critical, { threat: 20, multiplier: 2 });
 });

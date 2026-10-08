@@ -257,6 +257,13 @@ const ITEM_FIELDS = {
     loadedWith: str(),
     /** On a character's copy: the id of the ammunition item its magazine was filled from, for the rounds taken out on a change of load. */
     loadedFrom: str(),
+    /**
+     * Its quality (rules/quality.mjs): a mastercraft bonus (+1 to +3), on attack rolls, or on damage for one made
+     * with Mastercrafter; and a magic or psionic enhancement bonus (+1 to +5) on both.
+     */
+    mastercraft: int(),
+    mastercraftOn: str({ choices: ["attack", "damage"] }),
+    enhancement: int(),
     description: html(),
     source,
   },
@@ -271,6 +278,9 @@ const ITEM_FIELDS = {
     armorPenalty: int(),
     arcaneSpellFailure: str(),
     speed: obj({ label: str(), value: str() }),
+    /** Its quality (rules/quality.mjs): a mastercraft bonus to its equipment bonus (+1 to +3), and a magic or psionic enhancement bonus to Defense (+1 to +5). */
+    mastercraft: int(),
+    enhancement: int(),
     description: html(),
     source,
   },

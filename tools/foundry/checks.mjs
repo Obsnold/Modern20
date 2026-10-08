@@ -959,6 +959,12 @@ export const CHECKS = {
     if (club.system.damage.formula !== "1d8") errors.push(`a damage formula changed by hand was overwritten: "${club.system.damage.formula}"`);
     await staff.delete();
     await club.delete();
+    // A Glock 17 from before mastercraft was kept: given the book's +1.
+    const glock = await Item.implementation.create(await take("equipment", "Glock 17 (9mm autoloader)", { mastercraft: 0 }));
+    await game.settings.set("modern20", "syncedVersion", "");
+    await syncWorldItems();
+    if (glock.system.mastercraft !== 1) errors.push(`a Glock 17 from before mastercraft was kept has mastercraft ${glock.system.mastercraft}, not the book's 1`);
+    await glock.delete();
     // Run again for the same version: nothing to do.
     await item.effects.contents[0].update({ "system.changes": item.effects.contents[0].changes.map((c) => ({ ...c, value: 9 })) });
     await syncWorldItems();
@@ -1792,6 +1798,62 @@ export const CHECKS = {
     }
     for (const a of foundry.applications.instances.values()) if (a.constructor.name === "LevelUp") await a.close();
     for (const a of made) await a.delete();
+    return errors;
+  },
+
+  async "mastercraft and enhancement: the Glock 17's +1 to attack, a +2 set in its edit view on attack and damage and its price, magic armor's Defense and penalty"() {
+    const errors = [];
+    const { take, wait, type } = window.m20test;
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "Mastercraft (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("feats", "Personal Firearms Proficiency"), await take("feats", "Armor Proficiency (light)"),
+      await take("equipment", "Glock 17 (9mm autoloader)", { loaded: 17 }), await take("equipment", "Light-duty vest", { equipped: true }),
+    ]);
+    const glock = actor.items.find((i) => i.type === "weapon"), vest = actor.items.find((i) => i.type === "armor");
+    const card = async (roll) => {
+      const n = game.messages.size;
+      await roll();
+      return wait(() => game.messages.contents.slice(n).find((m) => m.rolls?.length), "the card");
+    };
+    try {
+      if (glock.system.mastercraft !== 1) errors.push(`the Glock 17 from the compendium has mastercraft ${glock.system.mastercraft}, not 1`);
+      let attack = await card(() => characterRolls(actor).attack(glock));
+      if (!/Mastercraft <strong>\+1<\/strong>/.test(attack.flavor)) errors.push("the Glock 17's attack card shows no Mastercraft +1");
+      // +2, set in the weapon's edit view: on attack and damage, in place of its mastercraft +1, and in its price.
+      glock.sheet.editing = true;
+      await glock.sheet.render({ force: true });
+      await wait(() => glock.sheet.element?.querySelector("input[name='system.enhancement']"), "the Glock's edit view");
+      type(glock.sheet.element, "input[name='system.enhancement']", 2);
+      await wait(() => glock.system.enhancement === 2, "the enhancement to save");
+      await glock.sheet.close();
+      attack = await card(() => characterRolls(actor).attack(glock));
+      if (!/Enhancement <strong>\+2<\/strong>/.test(attack.flavor) || /Mastercraft/.test(attack.flavor)) errors.push(`the +2 Glock's attack card: ${attack.flavor.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")}`);
+      const damage = await card(() => characterRolls(actor).damage(glock));
+      if (!/Enhancement <strong>\+2<\/strong>/.test(damage.flavor)) errors.push("the +2 Glock's damage card shows no Enhancement +2");
+      // The Gear tab: its quality on its row, and the price with it (+15 for +2; its own mastercraft is in the book's price).
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("gear", "primary");
+      const row = actor.sheet.element.querySelector(`[data-item-id="${glock.id}"]`);
+      if (!/\+2, mastercraft \+1/.test(row?.querySelector(".m20-item-detail")?.innerText ?? "")) errors.push(`the Glock's row says "${row?.querySelector(".m20-item-detail")?.innerText}"`);
+      const dc = glock.system.purchaseDC.dc + 15;
+      if (!row?.querySelector("[data-action=buyItem]")?.dataset.tooltip.includes(`purchase DC ${dc}`)) errors.push(`the Glock's Buy says "${row?.querySelector("[data-action=buyItem]")?.dataset.tooltip}", not DC ${dc}`);
+      await actor.sheet.close();
+      // A +1 vest: +1 Defense besides its equipment bonus, none to touch, and its armor penalty 1 less.
+      const before = actor.system.derived.defense;
+      await vest.update({ "system.enhancement": 1, "system.armorPenalty": -2 });
+      const after = actor.system.derived.defense;
+      if (after.value !== before.value + 1) errors.push(`a +1 vest's Defense ${after.value}, not ${before.value + 1}`);
+      if (after.touch !== before.touch) errors.push(`a +1 vest changed touch Defense to ${after.touch}`);
+      if (after.armorPenalty !== -1) errors.push(`a +1 vest's armor penalty of -2 is ${after.armorPenalty}, not -1`);
+      if (!actor.system.derived.parts.defense.some((p) => p.label === "Light-duty vest (enhancement)" && p.value === 1)) errors.push("Defense's parts do not name the vest's enhancement");
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const sheet of [glock?.sheet, actor.sheet]) if (sheet?.rendered) await sheet.close();
+    await actor.delete();
     return errors;
   },
 };

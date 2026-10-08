@@ -2,7 +2,7 @@
  * Keeping the world's items in step with the compendiums: an item a character got from a
  * Modern20 compendium carries copies of its mechanics (its effects and roll notes,
  * tools/build/mechanics.mjs), and of what the book says it does that the rules read (BOOK_FIELDS: a
- * weapon's damage formula). When the system is updated, the GM's client refreshes those copies from
+ * weapon's damage formula, a Glock's mastercraft +1). When the system is updated, the GM's client refreshes those copies from
  * their source, once per version, so a feat whose effect changed (or that has one for the first
  * time) works on characters made before. Everything else on the item (a choice, a level, ranks,
  * what was prepared, rounds loaded) is the character's and is left alone.
@@ -18,7 +18,7 @@ const NO_LOG = "modern20NoLog";
  * choice. A field marked `fill` is only filled in where it is empty (a weapon's damage the book's printing hid),
  * so one changed by hand (a homebrew modification) is left as it is.
  */
-const BOOK_FIELDS = [{ path: "system.damage.formula", fill: true }, { path: "system.noAmmunition" }];
+const BOOK_FIELDS = [{ path: "system.damage.formula", fill: true }, { path: "system.noAmmunition" }, { path: "system.mastercraft", fill: true }];
 
 /** The setting that records which version last refreshed the world. */
 export function registerSyncSettings() {

@@ -57,7 +57,7 @@
           {{#if special}}<input class="m20-choice" type="text" value="{{caliber}}" placeholder="Caliber" list="m20-calibers" data-item-field="caliber" data-tooltip="The caliber this load was bought in (12-gauge, 9mm): it fits that gun">{{/if}}
           {{#if counted}}<input class="m20-quantity" type="number" min="0" value="{{quantity}}" data-item-field="quantity" data-tooltip="Rounds carried">{{/if}}
           {{#if weapon}}<a data-action="rollAttack" data-tooltip="Attack"><i class="fa-solid fa-dice-d20"></i></a><a data-action="rollDamage" data-tooltip="Damage"><i class="fa-solid fa-burst"></i></a>{{/if}}
-          {{#if dc}}<a data-action="buyItem" data-tooltip="Buy: a Wealth check against purchase DC {{dc}}"><i class="fa-solid fa-cart-shopping"></i></a><a data-action="sellItem" data-tooltip="Sell for Wealth, and remove it"><i class="fa-solid fa-money-bill"></i></a>{{/if}}
+          {{#if dc}}<a data-action="buyItem" data-tooltip="Buy: a Wealth check against purchase DC {{dc}}{{#if unpriced}} (that of +3: the book prices no higher bonus){{/if}}"><i class="fa-solid fa-cart-shopping"></i></a><a data-action="sellItem" data-tooltip="Sell for Wealth, and remove it"><i class="fa-solid fa-money-bill"></i></a>{{/if}}
           {{#if physical}}<a data-action="toggleEquipped" class="{{#if equipped}}m20-on{{/if}}" data-tooltip="{{#if equipped}}Equipped{{else}}Not equipped{{/if}}"><i class="fa-solid fa-shirt"></i></a>
             <a data-action="toggleStored" class="{{#if stored}}m20-on{{/if}}" data-tooltip="{{#if stored}}Kept elsewhere: not carried, so not in your load{{else}}Carried: in your load{{/if}}"><i class="fa-solid fa-box-archive"></i></a>{{/if}}
           <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>

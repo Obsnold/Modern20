@@ -6,6 +6,7 @@
 import * as W from "./rules/wealth.mjs";
 import { wealthCheck, characterRolls } from "./roll.mjs";
 import { identify } from "./rules/identify.mjs";
+import { purchaseDC } from "./rules/quality.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s));
 
 async function rollFormula(formula) {
@@ -43,7 +44,8 @@ export async function buy(actor, dc, name, event) {
 
 /** Sell an owned item: its sale value (purchase DC − 3), and the Wealth it brings. The item is removed. */
 export async function sell(actor, item) {
-  const dc = item.system.purchaseDC?.dc;
+  // With its quality (rules/quality.mjs): a mastercraft or magic weapon sells for more.
+  const dc = purchaseDC(item).dc;
   if (dc === null || dc === undefined) return ui.notifications.warn(`${item.name} has no purchase DC to sell it by.`);
   const wealth = actor.system.wealth.value ?? 0;
   const blackMarket = await foundry.applications.api.DialogV2.wait({

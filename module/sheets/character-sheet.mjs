@@ -32,6 +32,7 @@ import { slug } from "../rules/identify.mjs";
 import { SYSTEM_ID } from "../config.mjs";
 import { rulesFor } from "../rules/feats.mjs";
 import { casterFor, castingOf } from "../rules/casting.mjs";
+import { purchaseDC, qualityText } from "../rules/quality.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
 import { LevelUp, Grant, undoLastLevel } from "../levelup.mjs";
 
@@ -249,7 +250,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         // Where it came from, on hover; and a feat given twice for the same choice, flagged.
         origin: originOf(actor, i), twice: givenTwice(actor, i), unmet: unmetOf(i),
         occupation: i.type === "occupation" ? occupationChoices(i) : null,
-        dc: "purchaseDC" in i.system ? i.system.purchaseDC?.dc ?? null : null,
+        // With its quality (rules/quality.mjs): a +2 pistol costs more than the book's.
+        dc: "purchaseDC" in i.system ? purchaseDC(i).dc : null, unpriced: "purchaseDC" in i.system && purchaseDC(i).unpriced,
         ammo: i.type === "weapon" && !i.system.melee ? ammoContext(actor, i) : null,
         quantity: i.type === "ammunition" ? i.system.quantity : null,
         // A special load (Beanbag, Silver): the caliber it was bought in, so it fits that gun.
@@ -577,7 +579,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
 
   static async #onBuyItem(event, target) {
     const item = this.#item(target);
-    if (item) await buy(this.document, item.system.purchaseDC.dc, item.name, event);
+    if (!item) return;
+    const { dc, unpriced } = purchaseDC(item);
+    if (unpriced) ui.notifications.warn(`${item.name}: the book prices a bonus up to +3; the purchase DC is that of +3.`);
+    await buy(this.document, dc, item.name, event);
   }
 
   static async #onSellItem(event, target) {
@@ -1028,8 +1033,8 @@ function bonusKeys() {
 function detail(item) {
   const s = item.system;
   switch (item.type) {
-    case "weapon": return [s.damage?.value, s.critical && `crit ${s.critical}`, s.damageType, s.rangeIncrement?.value !== "—" && s.rangeIncrement?.value].filter(Boolean).join(", ");
-    case "armor": return [s.equipmentBonus && `+${s.equipmentBonus} Defense`, s.maxDex !== null && `max Dex +${s.maxDex}`, s.armorPenalty && `penalty ${s.armorPenalty}`].filter(Boolean).join(", ");
+    case "weapon": return [qualityText(item), s.damage?.value, s.critical && `crit ${s.critical}`, s.damageType, s.rangeIncrement?.value !== "—" && s.rangeIncrement?.value].filter(Boolean).join(", ");
+    case "armor": return [qualityText(item), s.equipmentBonus && `+${s.equipmentBonus} Defense`, s.maxDex !== null && `max Dex +${s.maxDex}`, s.armorPenalty && `penalty ${s.armorPenalty}`].filter(Boolean).join(", ");
     case "talent": return [s.className, s.tree].filter(Boolean).join(": ");
     case "feat": return s.prerequisites;
     case "spell": case "power": return (s.levels ?? []).map((l) => `${l.class} ${l.level}`).join(", ");

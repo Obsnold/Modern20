@@ -13,6 +13,7 @@
 import { chooses } from "./choices.mjs";
 import { rulesFor } from "./feats.mjs";
 import { slug } from "./identify.mjs";
+import { weaponQuality } from "./quality.mjs";
 import { MODES, extraDice, AUTOFIRE_DEFENSE, rangePenalty, isThrown, INTO_MELEE } from "./ammo.mjs";
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
@@ -84,7 +85,7 @@ export const SIZE_ATTACK = { fine: 8, diminutive: 4, tiny: 2, small: 1, medium: 
 /**
  * An attack with a weapon: BAB, Str (melee) or Dex (ranged, or a melee weapon
  * taken with Weapon Finesse), size, −4 without the weapon's proficiency feat,
- * Weapon Focus's +1, nonproficient armor's penalty, and effects. `feats` are
+ * Weapon Focus's +1, its mastercraft or enhancement bonus, nonproficient armor's penalty, and effects. `feats` are
  * the character's feats and talents as `{ name, choice }`; `options` what was
  * ticked when asked (`pointBlank`, and `mode` a firing mode: "doubleTap", "burst",
  * "autofire"; rules/ammo.mjs), and `ammo` the special load it fires (rules/ammo.mjs
@@ -123,6 +124,8 @@ export function attack(d, weapon, feats, options = {}) {
     { label: "Size", value: SIZE_ATTACK[d.size] ?? 0 },
     { label: proficient ? "Proficient" : `Not proficient (${needs})`, value: proficient ? 0 : -4 },
     ...focus,
+    // Mastercraft or an enhancement bonus, the higher (rules/quality.mjs).
+    ...weaponQuality(s).attack,
     { label: "Point Blank Shot", value: pointBlank },
     { label: mode?.label ?? "Firing mode", value: mode?.attack ?? 0 },
     { label: "Autofire (no Advanced Firearms Proficiency)", value: autofirePenalty },
@@ -149,7 +152,8 @@ export function attack(d, weapon, feats, options = {}) {
 }
 
 /**
- * A weapon's damage: its dice, plus Str for a melee weapon, and Weapon Specialization's bonus
+ * A weapon's damage: its dice, plus Str for a melee weapon, its enhancement bonus (or a mastercraft
+ * bonus on damage), and Weapon Specialization's bonus
  * with the weapon chosen (`options.feats`, the character's feats and features). Null when the
  * weapon's damage is not dice (special, see text).
  */
@@ -168,7 +172,8 @@ export function damage(d, weapon, options = {}) {
   const owned = (options.feats ?? []).map((f) => ({ ...f, id: f.identifier || slug(f.name), rules: rulesFor(f.identifier || slug(f.name)) }));
   const special = onceEach(owned.filter((f) => f.rules.weaponSpecialization && chooses(f.choice, weapon.name)), "weaponSpecialization").map((p) => [p.label, p.value]);
   const ammoDamage = (ammo?.damage ?? 0) + (ammo?.ask?.roll === "damage" && options.ammoAsk ? ammo.ask.value : 0);
-  const extra = [["Strength", str], ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ...special, ...fxParts, [ammo?.name ?? "Ammunition", ammoDamage]].filter(([, v]) => v);
+  const quality = weaponQuality(s).damage.map((p) => [p.label, p.value]);
+  const extra = [["Strength", str], ...quality, ["Point Blank Shot", !s.melee && options.pointBlank ? 1 : 0], ...special, ...fxParts, [ammo?.name ?? "Ammunition", ammoDamage]].filter(([, v]) => v);
   const diceLabel = [MODES[options.mode]?.dice && `${MODES[options.mode].label}, +${MODES[options.mode].dice} di${MODES[options.mode].dice === 1 ? "e" : "ce"}`,
     ammo?.dice && `${ammo.name}, ${ammo.dice > 0 ? "+" : "−"}${Math.abs(ammo.dice)} die`].filter(Boolean).join("; ");
   const terms = [{ label: diceLabel ? `Weapon (${diceLabel})` : "Weapon", value: dice }, ...extra.map(([label, value]) => ({ label, value }))];
