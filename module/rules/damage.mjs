@@ -69,12 +69,13 @@ export const failedMassive = (value) => Math.min(value, -1);
 
 /**
  * Natural healing: 1 hit point per character level for a night's rest, 2 for a day of
- * complete bed rest. A character below 0 does not heal naturally until a Fortitude save
+ * complete bed rest, 3 for one with long-term care (Treat Injury). A character below 0 does not heal naturally until a Fortitude save
  * (DC 20) starts the recovery (`recovering`): null until then.
  */
-export function restHealing(level, hp, { bedRest = false, recovering = false } = {}) {
+export function restHealing(level, hp, { bedRest = false, recovering = false, care = false } = {}) {
   if (hp < 0 && !recovering) return null;
-  return Math.max(1, level) * (bedRest ? 2 : 1);
+  // Long-term care (Treat Injury DC 15) heals a day of bed rest at 3 per level.
+  return Math.max(1, level) * (care ? 3 : bedRest ? 2 : 1);
 }
 
 /** The Fortitude save a dying character makes each round to stabilise, and later to wake and to start healing. */
@@ -144,4 +145,26 @@ export function followMaximum(value, lastMax, max, { hurt = false } = {}) {
   if (value === lastMax) return max;
   const next = Math.min(max, value + (max - lastMax));
   return next === value ? null : next;
+}
+
+/**
+ * Ability damage healed by rest (Modern/deathdyinghealing, Healing Ability Damage): `points` back to each damaged
+ * score, 1 for a night's rest, 2 for a day of complete bed rest (3 with long-term care). Drain does not return.
+ * `abilities` is `{ str: { damage }, ... }`; returns the new damage of each ability that had some, and what came back.
+ */
+export function restAbilities(abilities, points) {
+  const damage = {}, healed = {};
+  for (const [a, v] of Object.entries(abilities ?? {})) {
+    const d = Math.max(0, v?.damage ?? 0);
+    if (!d) continue;
+    damage[a] = Math.max(0, d - points);
+    healed[a] = d - damage[a];
+  }
+  return { damage, healed };
+}
+
+/** The conditions ability loss puts a character in: Ability Damaged, Ability Drained, and dead at Constitution 0. */
+export function abilityConditions(abilities, conScore) {
+  const any = (k) => Object.values(abilities ?? {}).some((v) => (v?.[k] ?? 0) > 0);
+  return { abilityDamaged: any("damage"), abilityDrained: any("drain"), dead: conScore === 0 };
 }

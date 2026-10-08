@@ -33,9 +33,12 @@ export const isEnergy = (kinds) => kinds.some((k) => ENERGY.includes(k));
  * resist: { fire: 10, ... }, immune: ["fire", "piercing", ...] }`.
  */
 export function readDefenses(qualities) {
-  const out = { dr: [], resist: {}, immune: [] };
+  const out = { dr: [], resist: {}, immune: [], spellResistance: 0 };
   for (const q of qualities ?? []) {
     const t = q.toLowerCase();
+    // Spell resistance: "SR 22", "spell resistance 10".
+    const sr = t.match(/^(?:sr|spell resistance) (\d+)\b/);
+    if (sr) out.spellResistance = Math.max(out.spellResistance, Number(sr[1]));
     const dr = t.match(/damage reduction (\d+)\/\s*([^\s(]+)/);
     if (dr) out.dr.push({ amount: Number(dr[1]), overcome: dr[2].replace(/^[–—-]$/, "—") });
     const res = t.match(/^((?:\w+(?:\/\w+)?)(?:,? (?:and )?\w+)*) resistance (\d+)$/);

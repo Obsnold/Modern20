@@ -7,7 +7,10 @@ import { deriveCharacter } from "../../module/rules/character.mjs";
 const creatures = Object.fromEntries(PACKS.creatures().documents.filter((d) => d.system).map((d) => [d.name, d]));
 
 test("a creature's defenses as its stat block prints them", () => {
-  assert.deepEqual(readDefenses(creatures.Bodak.system.specialQualities), { dr: [{ amount: 15, overcome: "silver" }], resist: { acid: 20, fire: 20 }, immune: ["electricity"] });
+  assert.deepEqual(readDefenses(creatures.Bodak.system.specialQualities), { dr: [{ amount: 15, overcome: "silver" }], resist: { acid: 20, fire: 20 }, immune: ["electricity"], spellResistance: 0 });
+  // Spell resistance as the stat blocks print it: "SR 22", "spell resistance 10".
+  assert.equal(readDefenses(["SR 22", "darkvision 60 ft."]).spellResistance, 22);
+  assert.equal(readDefenses(["spell resistance 10"]).spellResistance, 10);
   assert.deepEqual(readDefenses(["immune to ballistic damage and poison"]).immune, ["ballistic"]);
   assert.deepEqual(readDefenses(["piercing immunity"]).immune, ["piercing"]);
   assert.deepEqual(readDefenses(["damage reduction 5/–"]).dr, [{ amount: 5, overcome: "—" }]);

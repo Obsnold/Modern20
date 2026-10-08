@@ -3,14 +3,15 @@
     <div class="m20-panel">
       <h3>Abilities</h3>
       <table class="m20-table">
-        <thead><tr><th></th><th>Base</th><th data-tooltip="From species and templates">Adj.</th><th>Score</th><th>Mod</th></tr></thead>
+        <thead><tr><th></th><th>Base</th><th data-tooltip="From species and templates">Adj.</th><th data-tooltip="Ability damage (a point back each night's rest) and drain (permanent)">Dmg / Drain</th><th>Score</th><th>Mod</th></tr></thead>
         <tbody>
           {{#each abilities}}
             <tr>
               <th><a data-action="rollAbility" data-ability="{{key}}" data-tooltip="Roll a {{label}} check">{{label}}</a></th>
               <td data-tooltip="Set on the Build tab">{{#if value}}{{value}}{{else}}—{{/if}}</td>
               <td>{{adjustment}}</td>
-              <td>{{score}}</td>
+              <td class="m20-loss"><input type="number" min="0" name="system.abilities.{{key}}.damage" value="{{damage}}" data-tooltip="Ability damage: a point back each night's rest, two for bed rest"><input type="number" min="0" name="system.abilities.{{key}}.drain" value="{{drain}}" data-tooltip="Ability drain: permanent"></td>
+              <td class="{{#if lost}}m20-warning{{/if}}">{{score}}</td>
               <td class="m20-strong">{{modifier}}</td>
             </tr>
           {{/each}}
@@ -23,7 +24,7 @@
       <h3>Combat</h3>
       <dl class="m20-stats">
         <dt>Defense</dt><dd class="m20-strong" data-tooltip="{{combat.tips.defense}}">{{combat.defense.value}}{{#if combat.defenseNotes}} <i class="fa-solid fa-circle-info m20-hint" data-tooltip="{{combat.defenseNotes}}"></i>{{/if}}</dd>
-        {{#if combat.resistances}}<dt>Damage reduction</dt><dd data-tooltip="Applied by Apply on damage cards">{{combat.resistances}}</dd>{{/if}}
+        {{#if combat.resistances}}<dt>Resistances</dt><dd data-tooltip="Damage reduction and resistances are applied by Apply on damage cards; spell resistance (SR) is checked by a caster level check against you">{{combat.resistances}}</dd>{{/if}}
         <dt>Touch / Flat-footed</dt><dd>{{combat.defense.touch}} / {{combat.defense.flatFooted}}</dd>
         <dt>Base Attack Bonus</dt><dd>{{combat.bab}}</dd>
         <dt>Initiative</dt><dd data-tooltip="{{combat.tips.initiative}}">{{combat.initiative}}</dd>
@@ -36,7 +37,7 @@
           <a class="m20-roll-button" data-action="rollGrab" data-tooltip="Grab: a melee touch attack to start a grapple"><i class="fa-solid fa-hand"></i></a>
           <a class="m20-roll-button {{#if totalDefense}}m20-on{{/if}}" data-action="toggleCondition" data-condition="totalDefense" data-tooltip="Total defense: no attack this round, +4 Defense until your next turn"><i class="fa-solid fa-shield-halved"></i></a>
         </dd>
-        <dt>Reputation</dt><dd data-tooltip="{{combat.tips.reputation}}">{{combat.reputation}}</dd>
+        <dt><a data-action="rollReputation" data-tooltip="Reputation check (DC 25), made for a GM character who might recognize you: target them first">Reputation</a></dt><dd data-tooltip="{{combat.tips.reputation}}">{{combat.reputation}}</dd>
         <dt>Massive Damage</dt><dd>{{combat.massiveDamage}}</dd>
         <dt>Size</dt><dd><select name="system.size" data-tooltip="Empty: the species' size, or Medium"><option value="">—</option>{{#each sizes}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></dd>
         <dt>Natural armor</dt><dd><input type="number" name="system.naturalArmor" value="{{system.naturalArmor}}" data-tooltip="Added to any the species gives"></dd>

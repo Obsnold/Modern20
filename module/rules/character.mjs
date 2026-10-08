@@ -6,7 +6,7 @@
  * the characters the book prints.
  *
  *   classes   each class item's level table, at the level the character has in it
- *   abilities base scores, plus the species' adjustments
+ *   abilities base scores, plus the species' adjustments, less ability damage and drain
  *   size      the species' size (Medium without one)
  *   armor     the equipped armor and shield, with its quality (rules/quality.mjs)
  */
@@ -101,13 +101,16 @@ export function deriveCharacter(system, items) {
   const bonusParts = (path) => partsOf(bonusSources, path, fxv(path));
 
   // Abilities: the base score, plus the species' adjustment, the +1s chosen every four levels, and any effect.
-  const scores = {}, modifiers = {};
+  const scores = {}, modifiers = {}, lostPoints = {};
   const increases = (a) => (system.abilityIncreases ?? []).filter((x) => x === a).length;
   for (const a of ABILITIES) {
     const base = system.abilities?.[a]?.value;
     const lost = templates.some((t) => t.system.abilities?.lost?.includes(a));   // an undead has no Constitution
     const fromTemplates = templates.reduce((n, t) => n + (t.system.abilities?.changes?.[a] ?? 0), 0);
-    scores[a] = base === null || base === undefined || lost ? null : base + (species?.system.abilities?.[a] ?? 0) + fromTemplates + increases(a) + fxv(`abilities.${a}`);
+    // Less what it has lost to ability damage and drain, never below 0.
+    const loss = Math.max(0, system.abilities?.[a]?.damage ?? 0) + Math.max(0, system.abilities?.[a]?.drain ?? 0);
+    scores[a] = base === null || base === undefined || lost ? null : Math.max(0, base + (species?.system.abilities?.[a] ?? 0) + fromTemplates + increases(a) + fxv(`abilities.${a}`) - loss);
+    lostPoints[a] = loss;
     modifiers[a] = abilityModifier(scores[a]);
   }
   const mod = (a) => modifiers[a] ?? 0;
@@ -297,6 +300,11 @@ export function deriveCharacter(system, items) {
     startingClass: classes[0]?.name ?? "",
     scores,
     modifiers,
+    // What each score has lost to ability damage and drain; and dead at Constitution 0 (Modern/deathdyinghealing).
+    abilityLoss: lostPoints,
+    deadByConstitution: scores.con === 0,
+    // The highest spell resistance given (it does not stack): a drow's, an Occultist's, a staff's, armor's.
+    spellResistance: Math.max(0, ...(bonusSources.spellResistance ?? []).map((p) => p.value)),
     size,
     baseAttackBonus: bab,
     saves: { fort: base.fort + mod("con") + bonus.fort, ref: base.ref + mod("dex") + bonus.ref, will: base.will + mod("wis") + bonus.will },

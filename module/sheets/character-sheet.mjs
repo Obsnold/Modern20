@@ -15,7 +15,7 @@ import { characterRolls, notesOf } from "../roll.mjs";
 import { CHOICES, chooses } from "../rules/choices.mjs";
 import { logContext } from "../log.mjs";
 import { identify } from "../rules/identify.mjs";
-import { restHealing } from "../rules/damage.mjs";
+import { restHealing, restAbilities } from "../rules/damage.mjs";
 import { financialCondition } from "../rules/wealth.mjs";
 import { applyToActor, rollSave, stabiliseWithHelp } from "../damage.mjs";
 import { buy, sell, rollStartingWealth, regainWealth } from "../wealth.mjs";
@@ -36,6 +36,8 @@ import { purchaseDC, qualityText } from "../rules/quality.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
 import { LevelUp, Grant, undoLastLevel } from "../levelup.mjs";
 import { useItem } from "../fx-items.mjs";
+import { treatInjury } from "../treat.mjs";
+import { fxItemFromSpell, magicMastercraft } from "../creation.mjs";
 import { wornOverLimit } from "../rules/fx-items.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -51,7 +53,7 @@ const partsTip = (parts) => (parts ?? []).map((p) => `${p.label} ${signed(p.valu
 /** The lists on the Feats and Gear tabs: which item types go in each, in order. */
 const LISTS = {
   feats: [["feature", "Class Features"], ["talent", "Talents"], ["feat", "Feats"], ["occupation", "Occupation"], ["species", "Species"], ["template", "Templates"]],
-  gear: [["weapon", "Weapons"], ["armor", "Armor"], ["equipment", "Equipment"], ["consumable", "Potions, Scrolls, Wands and Staffs"], ["ammunition", "Ammunition"]],
+  gear: [["weapon", "Weapons"], ["armor", "Armor"], ["equipment", "Equipment"], ["consumable", "Potions, Scrolls, Wands, Staffs and Tattoos"], ["ammunition", "Ammunition"]],
 };
 
 export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
@@ -99,6 +101,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       rollUnarmed: Modern20CharacterSheet.#onRollUnarmed,
       rollGrab: Modern20CharacterSheet.#onRollGrab,
       rollGrapple: Modern20CharacterSheet.#onRollGrapple,
+      rollReputation: Modern20CharacterSheet.#onRollReputation,
+      treatInjury: Modern20CharacterSheet.#onTreatInjury,
+      fxItemFromSpell: Modern20CharacterSheet.#onFxItemFromSpell,
+      magicMastercraft: Modern20CharacterSheet.#onMagicMastercraft,
       castSpell: Modern20CharacterSheet.#onCastSpell,
       manifestPower: Modern20CharacterSheet.#onManifestPower,
       newDay: Modern20CharacterSheet.#onNewDay,
@@ -176,6 +182,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         key: a, label: ABILITY_NAMES[a], value: system.abilities[a].value,
         adjustment: lost ? "—" : change ? signed(change) : "",
         score: d.scores?.[a] ?? "—", modifier: signed(d.modifiers?.[a]),
+        // Lost to ability damage (back a point a night's rest) and drain (permanent).
+        damage: system.abilities[a].damage, drain: system.abilities[a].drain, lost: (d.abilityLoss?.[a] ?? 0) > 0,
       };
     });
 
@@ -217,6 +225,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         // A class skill of the class ranks are bought as, or from a feat or the occupation (whatever the class),
         // shows a tick; any other can be marked by hand, its tooltip naming the classes it is a skill of.
         ...classColumn(row, buyingAs),
+        // Treat Injury's uses (rules/treat.mjs), from its row.
+        treat: row.key === "treatInjury",
         // Points: as tracked, or (not yet) shown as the estimate at today's cost; and what a rank costs now.
         pointsEstimate: row.ranks * (row.classSkill ? 1 : 2), tracked: row.points !== null && row.points !== undefined,
         cost: rankCost(row, levellingClass(actor)),
@@ -245,6 +255,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       const r = featPrerequisites(i.system.prerequisites, pre);
       return r.met === false ? `Prerequisites not met: ${r.missing.join(", ")}` : "";
     };
+    const artifice = items.some((i) => i.type === "feature" && identify(i) === "craft-artifice");
     // FX items worn beyond the limit of their kind (rules/fx-items.mjs): flagged, and said on the Gear tab.
     const worn = wornOverLimit(items);
     const overWorn = new Map(worn.flatMap((w) => w.over.map((id) => [id, `Only ${w.limit} ${w.label} can work at once: ${w.items.join(", ")} are worn. Unequip one.`])));
@@ -267,6 +278,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         // A special load (Beanbag, Silver): the caliber it was bought in, so it fits that gun.
         special: i.type === "ammunition" && !!specialAmmo(identify(i)), caliber: i.system.caliber ?? "",
         counted: i.type === "ammunition",
+        // An Artificer's magic mastercraft (Craft Artifice), on a weapon or armor.
+        artifice: ["weapon", "armor"].includes(i.type) && artifice,
       })),
       count: counts[type] ?? null,
     }))]));
@@ -282,7 +295,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
         hpMax: d.hitPoints?.max ?? 0, hpEstimated: d.hitPoints?.estimated,
         // Defense in a situation (Dodge, a dwarf against giants): shown, for the table to apply.
         // Damage reduction and resistances, if any: "DR 2/—; fire 3".
-        resistances: [...(d.defenses?.dr ?? []).map((x) => `DR ${x.amount}/${x.overcome}`), ...Object.entries(d.defenses?.resist ?? {}).map(([k, v]) => `${k} ${v}`)].join("; "),
+        resistances: [...(d.defenses?.dr ?? []).map((x) => `DR ${x.amount}/${x.overcome}`), ...Object.entries(d.defenses?.resist ?? {}).map(([k, v]) => `${k} ${v}`), ...(d.spellResistance ? [`SR ${d.spellResistance}`] : [])].join("; "),
         defenseNotes: notesOf(actor).filter((n) => n.rolls.includes("defense")).map((n) => n.text).join("; "),
         speed: d.speed ? { ...d.speed, double: d.speed.value * 2, default: ofType("species")[0]?.system.speed || 30 } : {},
         unarmed: unarmedSummary(items),
@@ -490,6 +503,10 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
   static #onRollUnarmed(event) { return characterRolls(this.document).unarmed(event); }
   static #onRollGrab(event) { return characterRolls(this.document).grab(event); }
   static #onRollGrapple(event) { return characterRolls(this.document).grapple(event); }
+  static #onRollReputation(event) { return characterRolls(this.document).reputation(event); }
+  static #onTreatInjury(event) { return treatInjury(this.document, event); }
+  static async #onFxItemFromSpell(event, target) { const i = this.#item(target); if (i) await fxItemFromSpell(this.document, i); }
+  static async #onMagicMastercraft(event, target) { const i = this.#item(target); if (i) await magicMastercraft(this.document, i); }
   static async #onBelowZeroSave(event, target) { await rollSave(this.document, target.dataset.kind, event); }
   /** Stabilised by someone's Treat Injury check: stable and unconscious, and (tended) healing naturally from now on. */
   static async #onStabilisedByHelp() { await stabiliseWithHelp(this.document); }
@@ -581,12 +598,20 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     const level = actor.system.derived?.level ?? 1;
     const choice = await foundry.applications.api.DialogV2.wait({
       window: { title: `${actor.name}: rest` },
-      content: `<p>A night's rest (8 hours) heals ${Math.max(1, level)} hit points; a day of complete bed rest heals ${Math.max(1, level) * 2}.</p>`,
-      buttons: [{ action: "night", label: "Night's rest", default: true }, { action: "bed", label: "Bed rest" }],
+      content: `<p>A night's rest (8 hours) heals ${Math.max(1, level)} hit points and 1 point of each ability's damage; a day of complete bed rest heals ${Math.max(1, level) * 2}, and 2; with long-term care (someone's Treat Injury check, DC 15, made that day) ${Math.max(1, level) * 3}, and 3.</p>`,
+      buttons: [{ action: "night", label: "Night's rest", default: true }, { action: "bed", label: "Bed rest" }, { action: "care", label: "Bed rest with long-term care" }],
       rejectClose: false,
     });
     if (!choice) return;
-    const healed = restHealing(level, actor.system.hp.value, { bedRest: choice === "bed", recovering: actor.system.hp.recovering });
+    // Ability damage: a point back to each damaged score for a night's rest, two for bed rest.
+    // Long-term care (a Treat Injury check, DC 15, made that day): 3 of each.
+    const abilities = restAbilities(actor.system.abilities, { night: 1, bed: 2, care: 3 }[choice]);
+    if (Object.keys(abilities.damage).length) {
+      await actor.update(Object.fromEntries(Object.entries(abilities.damage).map(([a, v]) => [`system.abilities.${a}.damage`, v])));
+      const back = Object.entries(abilities.healed).filter(([, v]) => v).map(([a, v]) => `${ABILITY_NAMES[a]} +${v}`).join(", ");
+      if (back) await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: `<div class="m20-roll"><p>${foundry.utils.escapeHTML(actor.name)} rests: ability damage heals (${back}).</p></div>` });
+    }
+    const healed = restHealing(level, actor.system.hp.value, { bedRest: choice !== "night", care: choice === "care", recovering: actor.system.hp.recovering });
     if (healed === null) return ui.notifications.warn(`${actor.name} is below 0 hit points and does not heal naturally: a Fortitude save (DC 20) each day starts the recovery, and a failure loses 1 hit point.`);
     await applyToActor(actor, healed, { healing: true });
   }

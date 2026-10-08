@@ -5,7 +5,7 @@
  *
  *   build   permanent changes to the character: abilities, levels, skill ranks,
  *           feats and gear added or removed, choices, details. Never pruned.
- *   play    what changes in a session: hit points, action points, conditions and
+ *   play    what changes in a session: hit points, ability damage, action points, conditions and
  *           effects switched on and off, equipping, ammunition, dice rolls. The
  *           last PLAY_LIMIT are kept.
  *
@@ -27,9 +27,9 @@ import { SKILLS } from "../data/skills.mjs";
 export const PLAY_LIMIT = 500;
 
 /** Actor fields whose changes are play (temporary), not build. */
-const PLAY_ACTOR_FIELDS = new Set(["system.hp.value", "system.hp.temp", "system.hp.recovering", "system.actionPoints.value", "system.powerPoints.value", "system.powerPoints.freeUsed", "system.slotsUsed"]);
+const PLAY_ACTOR_FIELDS = new Set([...["str", "dex", "con", "int", "wis", "cha"].map((a) => `system.abilities.${a}.damage`), "system.hp.value", "system.hp.temp", "system.hp.recovering", "system.actionPoints.value", "system.powerPoints.value", "system.powerPoints.freeUsed", "system.slotsUsed"]);
 /** Item fields whose changes are play. */
-const PLAY_ITEM_FIELDS = new Set(["system.equipped", "system.quantity", "system.prepared", "system.cast", "system.progress.successes", "system.progress.failures"]);
+const PLAY_ITEM_FIELDS = new Set(["system.charges.value", "system.equipped", "system.quantity", "system.prepared", "system.cast", "system.progress.successes", "system.progress.failures"]);
 
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const SAVE_NAMES = { fort: "Fortitude", ref: "Reflex", will: "Will" };
@@ -45,6 +45,7 @@ export function fieldLabel(path) {
   const p = path.replace(/^system\./, "");
   let m;
   if ((m = p.match(/^abilities\.(\w+)(?:\.value)?$/))) return ABILITY_NAMES[m[1]] ?? m[1];
+  if ((m = p.match(/^abilities\.(\w+)\.(damage|drain)$/))) return `${ABILITY_NAMES[m[1]] ?? m[1]} ${m[2]}`;
   if ((m = p.match(/^skills\.(\w+)\.(ranks|misc|classSkill)$/))) return `${SKILLS[m[1]]?.name ?? m[1]} ${{ ranks: "ranks", misc: "misc bonus", classSkill: "as a class skill" }[m[2]]}`;
   if ((m = p.match(/^saves\.(\w+)$/))) return `${SAVE_NAMES[m[1]] ?? m[1]} save`;
   if ((m = p.match(/^details\.(\w+)$/))) return m[1][0].toUpperCase() + m[1].slice(1);

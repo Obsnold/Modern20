@@ -177,3 +177,7 @@
 .modern20.m20-levelup .m20-levelup-skills td:last-child { text-align: right; white-space: nowrap; }
 .modern20.m20-levelup .m20-levelup-skills a { padding: 0 0.3rem; }
 .modern20.m20-levelup label { display: inline-flex; align-items: center; gap: 0.2rem; margin-right: 0.75rem; }
+
+/* Ability damage and drain, side by side on the Main tab. */
+.modern20 .m20-loss { white-space: nowrap; }
+.modern20 .m20-loss input { width: 2.6rem; }

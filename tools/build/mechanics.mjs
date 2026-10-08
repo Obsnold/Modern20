@@ -93,7 +93,6 @@ export const EFFECTS = {
   "species:aasimar": skills(2, "listen", "spot"),
   "species:bugbear": [...attacks(2), ...skills(4, "moveSilently")],
   "species:dragonblooded-human": skills(2, "intimidate", "spot"),
-  "species:drow-dark-elf": skills(2, "listen", "search", "spot"),
   "species:elf": skills(2, "listen", "search", "spot"),
   "species:gnoll": attacks(1),
   "species:gnome": skills(2, "listen"),
@@ -104,6 +103,10 @@ export const EFFECTS = {
   "species:ogre": attacks(3),
   "species:shadowkind-human": saves(1),
   "species:tiefling": skills(2, "bluff", "hide"),
+  // Spell resistance: the highest given counts (rules/character.mjs).
+  "species:drow-dark-elf": [...skills(2, "listen", "search", "spot"), ["spellResistance", "11 + @level"]],
+  "feature:spell-resistance": [["spellResistance", "5 + @classes.occultist.level"]],
+  "equipment:staff-of-sorcerous-might": [["spellResistance", 23]],
 
   // FX items (Modern/FX/Items, Arcana/FXItems), while worn or (one that need only be had) carried: rules/character.mjs.
   "equipment:houdinis-watch-fob": [["saves.ref", 3], ...skills(6, "balance", "bluff", "climb", "disguise", "escapeArtist", "moveSilently", "tumble")],
@@ -214,9 +217,7 @@ export const NOTES = {
   "equipment:lucky-dice": [note(["skill.gamble"], "Lucky Dice: +5 at dice games", 5)],
   "equipment:animated-tools": [note(["skill.repair"], "Animated Tools: +2, as a deluxe tool kit", 2)],
   "equipment:fabric-of-style": [note(["ability.cha"], "Fabric of Style: +2 on Charisma checks", 2)],
-  "equipment:bullseye-tattoo": [note(["attack"], "Bullseye Tattoo: +20 on the next single attack (true strike), once", 20)],
   "armor:bulletproof-shirt": [note(["defense"], "Bulletproof Shirt: damage reduction 5/+1 against arrows, bullets and crossbow bolts")],
-  "equipment:broken-arrow-tattoo": [note(["defense"], "Broken Arrow Tattoo: damage reduction 10/+2 against arrows, bolts and bullets")],
   "equipment:ring-of-energy-resistance-15": [note(["defense"], "Ring of Energy Resistance 15: 15 less damage of the energy it absorbs (acid, cold, electricity, fire or sonic)")],
 };
 
@@ -232,5 +233,11 @@ export const TOGGLES = {
   "feature:defensive-position": { name: "Defensive Position (switch on with cover)", changes: [["defense", 2], ["saves.ref", 2]] },
   "feature:master-defender": { name: "Master Defender (switch on fighting defensively, in medium or heavier armor)", changes: [["defense", "2 * @rank"]] },
   "feature:ability-surge": { name: "Ability Surge (switch on while surging)", changes: [["abilities.str", 4], ["abilities.dex", 4], ["saves.fort", -2], ["saves.ref", -2], ["saves.will", -2]] },
-  "equipment:tattoo-of-natural-armor": { name: "Tattoo of Natural Armor (switch on while active: 7 minutes)", changes: [["naturalArmor", 4]] },
+  // A tattoo's effect, for when it is used: its user gets it for as long as it lasts (module/fx-items.mjs).
+  "consumable:tattoo-of-natural-armor": { name: "Tattoo of Natural Armor", changes: [["naturalArmor", 4]] },
+  "consumable:tattoo-of-spell-resistance": { name: "Tattoo of Spell Resistance", changes: [["spellResistance", 21]] },
+  // "+20 insight bonus on her next single attack": on attacks for the round it is used in.
+  "consumable:bullseye-tattoo": { name: "Bullseye Tattoo: +20 on the next single attack", changes: [["attack.melee", 20], ["attack.ranged", 20]] },
+  // Damage reduction against arrows, bolts and bullets alone, which damage cards cannot tell: said, for the table.
+  "consumable:broken-arrow-tattoo": { name: "Broken Arrow Tattoo: damage reduction 10/+2 against arrows, bolts and bullets", changes: [] },
 };

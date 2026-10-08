@@ -15,8 +15,10 @@ import { SYSTEM_ID } from "./config.mjs";
 import { identify } from "./rules/identify.mjs";
 import { rulesFor } from "./rules/feats.mjs";
 import { readAttacks, attackRoll, damageRoll } from "./rules/attacks.mjs";
+import { readDefenses } from "./rules/resistance.mjs";
 import { bindDamageButtons, bindSaveButtons } from "./damage.mjs";
 import { bindLevelCheck } from "./casting.mjs";
+import { bindTreatment } from "./treat.mjs";
 import { spendAmmo, specialLoad, recordedLoad } from "./ammo.mjs";
 import { unarmedRules, unarmedWeapon, unarmedTerms } from "./rules/unarmed.mjs";
 import { automatic, semiautomatic, AUTOFIRE_REFLEX_DC } from "./rules/ammo.mjs";
@@ -89,7 +91,9 @@ export async function post(actor, spec, { flags = {}, judge } = {}) {
     note = `<p class="m20-hint">On a confirmed critical: ×${spec.critical.multiplier}.</p>`;
   }
   const hints = (spec.hints ?? []).map((h) => `<p class="m20-hint">${escape(h)}</p>`).join("");
-  const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}${hints}</div>`;
+  // What a judge says of the roll for the card (a caster level check against a target's spell resistance).
+  const verdict = judged.verdict ? `<p class="${judged.verdict.good ? "m20-crit" : "m20-hint"}">${escape(judged.verdict.text)}</p>` : "";
+  const flavor = `<div class="m20-roll"><h3>${escape(spec.title)}</h3>${lines ? `<ul>${lines}</ul>` : ""}${note}${hints}${verdict}</div>`;
   await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }), flavor, flags: { [SYSTEM_ID]: { ...flags, ...judged, threat, critical: spec.critical ?? flags.critical, formula: spec.formula } } });
   await recordRoll(actor, spec.title, roll.total);
   return roll;
@@ -100,7 +104,7 @@ export async function post(actor, spec, { flags = {}, judge } = {}) {
  * roll again from what was ticked (an attack with Point Blank Shot); `notes` are the
  * situational notes that apply (rules/rolls.mjs notesFor).
  */
-async function rollD20(actor, spec, event, flags, { options = [], rebuild, before, notes = { ticks: [], texts: [] } } = {}) {
+async function rollD20(actor, spec, event, flags, { options = [], rebuild, before, notes = { ticks: [], texts: [] }, judge } = {}) {
   if (!spec || spec.unusable) return post(actor, spec);
   // The notes that apply (Fast-Talk, a species' save bonus): those with a value as tick boxes, the rest as text.
   options = [...options, ...notes.ticks];
@@ -120,10 +124,14 @@ async function rollD20(actor, spec, event, flags, { options = [], rebuild, befor
   spec = rebuild(ticked);
   const confirm = flags?.attack ? R.withAdditions(spec, { modifier: added.modifier }).formula : undefined;
   return post(actor, R.withAdditions(spec, added), {
-    flags: flags ? { ...flags, confirm, attack: { ...flags.attack, ...ticked } } : {},
-    judge: flags?.attack ? (roll) => (spec.againstDefense ? judgeAgainstArea(roll, spec.againstDefense) : judgeAgainstTarget(roll, { touch: flags.attack.touch })) : undefined,
+    flags: flags?.attack ? { ...flags, confirm, attack: { ...flags.attack, ...ticked } } : flags ?? {},
+    // An attack judged against its target's Defense; another roll by its own judge (a Reputation check's DC).
+    judge: flags?.attack ? (roll) => (spec.againstDefense ? judgeAgainstArea(roll, spec.againstDefense) : judgeAgainstTarget(roll, { touch: flags.attack.touch })) : judge,
   });
 }
+
+/** A d20 roll a module builds (a Treat Injury use), asked and posted as any is; `judge(roll)` adds the card's flags. */
+export const rollCheck = (actor, spec, event, { judge, options, rebuild } = {}) => rollD20(actor, spec, event, {}, { judge, options, rebuild });
 
 /** Autofire: against the square's Defense, not a token's. */
 function judgeAgainstArea(roll, defense) {
@@ -204,6 +212,20 @@ export function characterRolls(actor) {
       options.push(...defensiveOption(actor));
       const build = (ticked = {}) => withTerms(R.attack(d, unarmedWeapon(u, ticked), feats, { defensively: ticked.defensively }), unarmedTerms(u, ticked));
       return rollD20(actor, build(), event, { attack: { actor: actor.uuid, item: "unarmed" } }, { options, rebuild: build, notes: notes(R.rollTargets.attack(true, true)), before: (ticked) => startDefensively(actor, ticked) });
+    },
+    /**
+     * A Reputation check (Modern/reputation), made by the GM for a GM character who might recognize the hero: their
+     * Int modifier (the one token targeted's, as asked), and the situation. Recognized, the card offers famous or
+     * infamous, the hero's +4 or −4 with them (rules/conditions.mjs RECOGNIZED).
+     */
+    reputation: (event) => {
+      const targets = [...(game.user.targets ?? [])];
+      const them = targets.length === 1 ? targets[0].actor : null;
+      const int = them ? (them.type === "character" ? them.system.derived?.modifiers?.int : abilityModifier(them.system.abilities?.int)) ?? 0 : 0;
+      const options = [{ name: "int", number: true, label: `Their Int modifier${them ? ` (${them.name}: ${int >= 0 ? "+" : ""}${int})` : ""}, or a Knowledge skill's where the hero is known in its field`, placeholder: String(int) }, ...R.REPUTATION_SITUATIONS.map((x) => ({ name: x.name, label: x.label }))];
+      const build = (ticked = {}) => R.reputationCheck(d, { int: ticked.int || int, ticked });
+      const judge = (roll) => ({ reputation: { actor: actor.uuid, recognized: roll.total >= R.REPUTATION_DC, by: them?.name ?? "" } });
+      return rollD20(actor, build(), event, {}, { options, rebuild: build, judge });
     },
     /** Starting a grapple: a melee touch attack to grab, judged against the target's touch Defense. */
     grab: (event) => {
@@ -351,6 +373,13 @@ export function initiativeBonus(actor) {
   return (actor.system.initiative ?? 0) + conditionsOf(actor).initiative();
 }
 
+/** A token's spell resistance: a character's worked out (rules/character.mjs), a creature's as printed in its qualities. */
+export function spellResistanceOf(actor) {
+  if (!actor) return 0;
+  if (actor.type === "character") return actor.system.derived?.spellResistance ?? 0;
+  return readDefenses(actor.system.specialQualities).spellResistance ?? 0;
+}
+
 /** A token's Defense, or its touch Defense: a character's worked out, a creature's as printed. */
 function defenseOf(actor, { touch = false } = {}) {
   if (actor?.type === "character") return touch ? actor.system.derived?.defense?.touch : actor.system.derived?.defense?.value;
@@ -386,6 +415,8 @@ export function bindAttackButtons(message, html) {
   if (flags?.damage) return bindDamageButtons(message, html, flags);
   if (flags?.save) return bindSaveButtons(message, html, flags);
   if (flags?.levelCheck) return bindLevelCheck(message, html, flags);
+  if (flags?.reputation) return bindReputation(message, html, flags.reputation);
+  if (flags?.treatment) return bindTreatment(message, html, flags.treatment);
   if (!flags?.attack) return;
   const actor = fromUuidSync(flags.attack.actor);
   // Only those who can roll for the actor get its buttons: a player cannot roll another's damage.
@@ -457,4 +488,31 @@ export function bindAttackButtons(message, html) {
 export function wealthCheck(actor, dc, title, event) {
   const wealth = actor.system.wealth.value ?? 0;
   return rollD20(actor, R.d20(`${title} (purchase DC ${dc})`, [{ label: "Wealth bonus", value: wealth }]), event);
+}
+
+/**
+ * A Reputation check's card: recognized or not and, recognized, buttons to mark the hero famous or infamous to
+ * them for the encounter (rules/conditions.mjs RECOGNIZED), for whoever can change the hero.
+ */
+function bindReputation(message, html, { actor: uuid, recognized, by }) {
+  const actor = fromUuidSync(uuid);
+  const box = document.createElement("div");
+  box.className = "m20-card-buttons";
+  const verdict = document.createElement("p");
+  verdict.className = recognized ? "m20-crit" : "m20-hint";
+  verdict.textContent = recognized ? `${by || "They"} recognize${by ? "s" : ""} ${actor?.name ?? "the hero"}: +4 (famous to them) or −4 (infamous) on Bluff, Diplomacy, Gather Information, Intimidate and Perform with them, this encounter.` : `${by || "They"} do${by ? "es" : ""} not recognize ${actor?.name ?? "the hero"}.`;
+  box.append(verdict);
+  if (recognized && actor?.isOwner) {
+    for (const [id, label] of [["famous", "Famous to them (+4)"], ["infamous", "Infamous to them (−4)"]]) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = label;
+      b.addEventListener("click", async () => {
+        for (const other of ["famous", "infamous"]) if (other !== id && actor.statuses.has(other)) await actor.toggleStatusEffect(other, { active: false });
+        if (!actor.statuses.has(id)) await actor.toggleStatusEffect(id, { active: true });
+      });
+      box.append(b);
+    }
+  }
+  (html.querySelector(".message-content") ?? html).append(box);
 }

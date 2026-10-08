@@ -2,7 +2,7 @@
  * FX items in use (Modern/FX/Items/fxitems): what a charged item's use costs and its saving throw, and the
  * limit on FX items worn at once.
  *
- *   a use            a potion or scroll is used up; a wand's use takes a charge; a staff's takes the charges its
+ *   a use            a potion, scroll or tattoo is used up; a wand's use takes a charge; a staff's takes the charges its
  *                    line gives (some none); a wand or staff with too few left cannot
  *   saving throw     10 + 1.5 × the level of the spell, power or effect (rounded down), unless the item says
  *   worn at once     1 headband, headset, hat or helmet; 1 pair of eyeglasses, contact lenses, sunglasses or
@@ -82,12 +82,12 @@ export const printedDC = (note) => Number(String(note ?? "").match(/\bDC (\d+)/)
 
 /**
  * Using a charged item (`system`: its kind, charges and spells) for its `index`th spell: `{ ok, reason, charges,
- * used, consumed }`, `charges` left after, `used` what the use took, `consumed` when the item is used up (a potion
- * or scroll).
+ * used, consumed }`, `charges` left after, `used` what the use took, `consumed` when the item is used up (a potion,
+ * scroll or tattoo).
  */
 export function useCharges(system, index = 0) {
   const use = system.spells?.[index];
-  const single = ["potion", "scroll"].includes(system.kind);
+  const single = ["potion", "scroll", "tattoo"].includes(system.kind);
   const cost = single ? 1 : use ? use.charges : 1;
   const left = system.charges?.value ?? 0;
   if (left < cost) return { ok: false, reason: left ? `${left} charge${left === 1 ? "" : "s"} left, and this takes ${cost}` : "no charges left", charges: left, used: 0, consumed: false };

@@ -107,7 +107,7 @@ export async function join(browser, user, problems, { label = "", expected = nul
     if (!["error", "warning"].includes(m.type()) || HARMLESS.some((r) => r.test(m.text())) || expected?.test(m.text())) return;
     problems.push(`${label}${m.type()}: ${m.text()}`);
   });
-  page.on("pageerror", (e) => problems.push(`${label}uncaught: ${e.message}`));
+  page.on("pageerror", (e) => problems.push(`${label}uncaught: ${e.message}${process.env.FOUNDRY_STACKS ? `\n${e.stack}` : ""}`));
   await page.goto(`${URL}/join`, { waitUntil: "networkidle" });
   await page.fill("input[name=username]", user);
   await page.click("button[name=join]");

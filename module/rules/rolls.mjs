@@ -352,3 +352,25 @@ function onceEach(owned, rule) {
   for (const f of owned) if (!byFeat.has(f.id) || byFeat.get(f.id).value < f.rules[rule]) byFeat.set(f.id, { label: f.name, value: f.rules[rule] });
   return [...byFeat.values()];
 }
+
+/** A Reputation check's DC (Modern/reputation). */
+export const REPUTATION_DC = 25;
+
+/** The situations that add to a Reputation check, as the SRD's table gives them. */
+export const REPUTATION_SITUATIONS = [
+  { name: "famous", label: "The hero is famous, known far and wide (+10)", value: 10 },
+  { name: "circle", label: "They are of the hero's professional or social circle (+5)", value: 5 },
+  { name: "notorious", label: "The hero has some small amount of fame or notoriety (+2)", value: 2 },
+];
+
+/**
+ * A Reputation check (Modern/reputation): made for a GM character who might recognize the hero, 1d20 + the hero's
+ * Reputation bonus + the GM character's Int modifier (`int`), + the situations ticked (`ticked`), against DC 25.
+ */
+export function reputationCheck(d, { int = 0, ticked = {} } = {}) {
+  return d20("Reputation check (DC 25)", [
+    { label: "Reputation", value: d.reputation ?? 0 },
+    { label: "Their Int", value: int },
+    ...REPUTATION_SITUATIONS.filter((x) => ticked[x.name]).map((x) => ({ label: x.label.replace(/ \(\+\d+\)$/, ""), value: x.value })),
+  ]);
+}

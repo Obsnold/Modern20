@@ -46,6 +46,7 @@
           <span class="m20-item-detail">{{#if dc}}DC {{dc}}; {{/if}}{{detail}}</span>
           {{#unless meets}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="Needs {{needs}} to cast"></i>{{/unless}}
           {{#if found}}<a data-action="castSpell" data-tooltip="Cast{{#if preparedCaster}} ({{left}} left){{/if}}"><i class="fa-solid fa-wand-sparkles"></i></a>{{/if}}
+          <a data-action="fxItemFromSpell" data-tooltip="A potion, scroll, wand or tattoo of it: bought or found, or made with Brew Potion, Scribe Scroll or Craft Artifice"><i class="fa-solid fa-flask"></i></a>
           <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>
         </div>
       {{/each}}

@@ -10,10 +10,11 @@
  *                         a wondrous item or artifact that is one, Caesar's Shield a +3 large shield),
  *                         with its enhancement bonus; a purchase DC printed for each bonus ("25 (+1), 30 (+2)")
  *                         is kept for each
- *   potions, scrolls,     a charged item (`consumable`): one use, or a wand's and a staff's 50 charges, and the
- *   wands and staffs      spells it holds, by its name ("Wand of Web") or, for a staff, its lines ("Fireball
- *                         (DC 15); uses 1 charge.")
- *   the rest              equipment: rings, tattoos, wondrous items, vehicular items and artifacts
+ *   potions, scrolls,     a charged item (`consumable`): one use (a tattoo's, which lasts until it is touched
+ *   wands, staffs and     to activate it), or a wand's and a staff's 50 charges, and the spells it holds, by its
+ *   tattoos               name ("Wand of Web") or, for a staff, its lines ("Fireball (DC 15); uses 1 charge."); how
+ *                         long a used one's effect lasts, where the book says
+ *   the rest              equipment: rings, wondrous items, vehicular items and artifacts
  *
  * Every item keeps its caster (or manifester) level, its kind (magic, psionic, vehicular) and category, and the
  * kind of FX item worn it is (rules/fx-items.mjs WORN: a ring, shoes, a tattoo).
@@ -31,7 +32,7 @@ export const FX_ITEM_PAGES = /^(Modern\/FX\/Items|Arcana\/FXItems)\//;
 /** The categories a Type row names, and the item type each is. */
 const CATEGORIES = {
   Weapon: "weapon", Armor: "armor", Potion: "consumable", Scroll: "consumable", Wand: "consumable", Staff: "consumable",
-  Ring: "equipment", Tattoo: "equipment", "Wondrous Item": "equipment", Artifact: "equipment",
+  Tattoo: "consumable", Ring: "equipment", "Wondrous Item": "equipment", Artifact: "equipment",
 };
 
 /**
@@ -77,8 +78,11 @@ const USES = {
   "Doppler Staff": [{ name: "Control Weather", charges: 1, note: "an incantation, cast without secondary casters; +4 on its Knowledge (arcane lore) checks" }],
 };
 
-/** A wand's and a staff's charges when new (Modern/FX/Items/Wands, Staffs); a potion or scroll is one use. */
-const CHARGES = { wand: 50, staff: 50, potion: 1, scroll: 1 };
+/** How long a used one's effect lasts where its text says it otherwise: the Bullseye Tattoo's "next single attack", a round. */
+const LASTS = { "Bullseye Tattoo": { value: 1, units: "rounds" } };
+
+/** A wand's and a staff's charges when new (Modern/FX/Items/Wands, Staffs); a potion, scroll or tattoo is one use. */
+const CHARGES = { wand: 50, staff: 50, potion: 1, scroll: 1, tattoo: 1 };
 
 const ICONS = {
   weapon: "systems/modern20/assets/icons/lorc/energy-sword.svg",
@@ -88,7 +92,7 @@ const ICONS = {
   wand: "systems/modern20/assets/icons/lorc/crystal-wand.svg",
   staff: "systems/modern20/assets/icons/lorc/fairy-wand.svg",
   Ring: "systems/modern20/assets/icons/delapouite/diamond-ring.svg",
-  Tattoo: "systems/modern20/assets/icons/lorc/pierced-body.svg",
+  tattoo: "systems/modern20/assets/icons/lorc/pierced-body.svg",
   Artifact: "systems/modern20/assets/icons/delapouite/glowing-artifact.svg",
   vehicular: "systems/modern20/assets/icons/delapouite/city-car.svg",
   "Wondrous Item": "systems/modern20/assets/icons/lorc/magic-swirl.svg",
@@ -254,13 +258,15 @@ export const buildFxItems = once(function buildFxItems() {
         });
         if (!spells.length) fail("a staff whose uses (\"<spell> (...); uses 1 charge.\") are not found");
       } else {
-        // "Wand of Web", "Vaporex (Potion of Gaseous Form)": the spell its name gives, if there is one.
-        const named = item.name.match(/(?:Potion|Scroll|Wand) of (.+?)\)?$/)?.[1];
+        // "Wand of Web", "Vaporex (Potion of Gaseous Form)", "Tattoo of Spider Climb": the spell its name gives, if any.
+        const named = item.name.match(/(?:Potion|Scroll|Wand|Tattoo) of (.+?)\)?$/)?.[1];
         const found = named ? find(named) : null;
         if (found) spells = [{ name: found.name, uuid: found.uuid, charges: 1, note: "" }];
-        else if (kind !== "potion") fail(`no spell named "${named}"`);
+        else if (!["potion", "tattoo"].includes(kind)) fail(`no spell named "${named}"`);
       }
-      system = { ...system, kind, charges: { value: CHARGES[kind], max: CHARGES[kind] }, spells };
+      // How long a used one's effect lasts, where the book says ("The effect lasts 7 minutes", "SR 21 for 9 minutes").
+      const lasts = LASTS[item.name] ?? (([, v, u] = []) => (v ? { value: Number(v), units: `${u.toLowerCase()}s` } : { value: null, units: "" }))(item.paragraphs.join(" ").match(/\b(?:lasts|for) (\d+) (round|minute|hour|day)s?\b/i) ?? []);
+      system = { ...system, kind, charges: { value: CHARGES[kind], max: CHARGES[kind] }, spells, lasts };
       img = ICONS[kind];
     }
     // The kind of FX item worn it is, of which only so many count at once.

@@ -314,14 +314,16 @@ const ITEM_FIELDS = {
   },
 
   /**
-   * A potion, scroll, wand or staff: its charges (a potion or scroll one use; a wand or staff 50 when new), and the
+   * A potion, scroll, wand, staff or tattoo: its charges (a potion, scroll or tattoo one use; a wand or staff 50 when new), and the
    * spells or powers it holds, each with the charges a use takes (a staff's) and what the book says of it.
    */
   consumable: {
     ...physical,
-    kind: str({ choices: ["potion", "scroll", "wand", "staff"] }),
+    kind: str({ choices: ["potion", "scroll", "wand", "staff", "tattoo"] }),
     charges: obj({ value: int({ nullable: true }), max: int({ nullable: true }) }),
     spells: list(obj({ name: str(), uuid: str(), charges: int(), note: str() })),
+    /** How long a used one's effect lasts (a Tattoo of Natural Armor's 7 minutes): its effects go to its user for that long. */
+    lasts: obj({ value: int({ nullable: true }), units: str() }),
     description: html(),
     source,
   },
@@ -390,7 +392,11 @@ export const ACTOR_MODELS = {
     naturalArmor: int(),
     /** Base speed in feet, for a character with no species to give one (a creature built from parts); empty for the species' (or 30). */
     baseSpeed: int({ nullable: true }),
-    abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }) })]))),
+    /**
+     * Each base score, and what it has lost (Modern/SpecialAbilities/AbilityScoreReduction): `damage` returns a
+     * point a night's rest, `drain` is permanent. Both come off the score (rules/character.mjs).
+     */
+    abilities: obj(Object.fromEntries(ABILITIES.map((a) => [a, obj({ value: int({ nullable: true, initial: 10 }), damage: int(), drain: int() })]))),
     /**
      * Current and temporary hit points; `recovering` once a character below 0 has started to heal naturally;
      * `lastMax` the maximum when last seen, so current hit points can follow it while at full (rules/damage.mjs).
@@ -474,6 +480,8 @@ export const ACTOR_MODELS = {
       energyResistance: obj({ acid: int(), cold: int(), electricity: int(), fire: int(), sonic: int() }),
       /** A natural armor bonus to Defense (a Tattoo of Natural Armor): not to touch Defense. */
       naturalArmor: int(),
+      /** Spell resistance: the highest of those given counts, as it does not stack (rules/character.mjs). */
+      spellResistance: int(),
       /** Above 0, the character loses its Dexterity bonus to Defense (flat-footed, stunned, pinned). */
       loseDexBonus: int(),
     }),

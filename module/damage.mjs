@@ -73,6 +73,14 @@ const before = new Map();
  * followed): the conditions follow them, by the client that made the change. Called once, at init.
  */
 export function registerHitPointConditionHooks() {
+  // Ability damage and drain: their conditions follow them, and a Constitution of 0 is death (rules/damage.mjs).
+  Hooks.on("updateActor", async (actor, changes, options, userId) => {
+    if (userId !== game.user.id || actor.type !== "character" || !foundry.utils.hasProperty(changes, "system.abilities") || !exists(actor)) return;
+    const c = D.abilityConditions(actor.system.abilities, actor.system.derived?.scores?.con);
+    for (const id of ["abilityDamaged", "abilityDrained"]) if (actor.statuses.has(id) !== c[id]) await actor.toggleStatusEffect(id, { active: c[id] });
+    // Death is not undone by the score coming back: that is the GM's to say.
+    if (c.dead && !actor.statuses.has("dead")) await actor.toggleStatusEffect("dead", { active: true, overlay: true });
+  });
   const changesHp = (changes) => foundry.utils.hasProperty(changes, "system.hp.value");
   Hooks.on("preUpdateActor", (actor, changes, options, userId) => {
     if (userId !== game.user.id || options[OWN_CHANGE] || !changesHp(changes)) return;

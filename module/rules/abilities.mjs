@@ -9,8 +9,8 @@
  *              range; distance doubles the range increment; the rest (brilliant, dancing, defending, ghost touch,
  *              mighty cleaving, returning, speed, wounding) are the table's, said on the card
  *   armor      acid, cold, electricity, fire, sonic resistance: 10 against the energy; damage reduction 5/+1 or
- *              10/+1; shadow +5 Hide; silent moves +10 Move Silently; slick +5 Escape Artist; the rest
- *              (fortification, spell resistance, animated, bashing, blinding, catching, ghost touch, glamered)
+ *              10/+1; spell resistance 15, 19 or 23; shadow +5 Hide; silent moves +10 Move Silently; slick +5
+ *              Escape Artist; the rest (fortification, animated, bashing, blinding, catching, ghost touch, glamered)
  *              said where they apply
  *   price      each adds its purchase DC modifier (sponsorship takes 2 off)
  *
@@ -64,9 +64,9 @@ export const ARMOR_ABILITIES = {
   lightFortification: note("Light Fortification", 1, "Light Fortification: a 25% chance a critical hit or sneak attack on you is rolled as normal damage"),
   moderateFortification: note("Moderate Fortification", 2, "Moderate Fortification: a 75% chance a critical hit or sneak attack on you is rolled as normal damage"),
   heavyFortification: note("Heavy Fortification", 3, "Heavy Fortification: critical hits and sneak attacks on you are rolled as normal damage"),
-  spellResistance15: note("Spell Resistance 15", 1, "Spell resistance 15"),
-  spellResistance19: note("Spell Resistance 19", 2, "Spell resistance 19"),
-  spellResistance23: note("Spell Resistance 23", 3, "Spell resistance 23"),
+  spellResistance15: { label: "Spell Resistance 15", dc: 1, changes: [["spellResistance", 15]] },
+  spellResistance19: { label: "Spell Resistance 19", dc: 2, changes: [["spellResistance", 19]] },
+  spellResistance23: { label: "Spell Resistance 23", dc: 3, changes: [["spellResistance", 23]] },
   animated: note("Animated", 2, "Animated: on command it floats and protects you, leaving both hands free"),
   bashing: note("Bashing", 1, "Bashing: a shield bash deals 1d8 (large or riot shield) or 1d6 (small shield), as a +1 weapon"),
   blinding: note("Blinding", 1, "Blinding: twice a day, all within 20 feet but you make a Reflex save (DC 14) or are blinded for 1d4 rounds"),

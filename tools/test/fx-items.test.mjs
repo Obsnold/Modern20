@@ -14,7 +14,8 @@ test("the FX items build with every check passing: each a weapon, armor, charged
   const by = {};
   for (const d of items) by[d.type] = (by[d.type] ?? 0) + 1;
   // Four wondrous items and artifacts are a weapon or armor: Caesar's Shield, a +3 large shield.
-  assert.deepEqual(by, { weapon: 14, armor: 7, consumable: 30, equipment: 96 });
+  // Tattoos are charged too: one use.
+  assert.deepEqual(by, { weapon: 14, armor: 7, consumable: 37, equipment: 89 });
   const names = items.map((d) => d.name);
   assert.deepEqual(names.filter((n, i) => names.indexOf(n) !== i), []);
 });
@@ -75,4 +76,17 @@ test("the rest are equipment, with their category, kind and caster level; an inc
   assert.doesNotMatch(ring.system.description, /sidebar/);
   assert.equal(find("Zephyr Tires").system.fx.power, "vehicular");
   assert.deepEqual([find("Caesar’s Shield").type, find("Caesar’s Shield").system.fx.category, find("Caesar’s Shield").system.enhancement], ["armor", "Artifact", 3]);
+});
+
+test("tattoos: one use, kept until touched; a spell named where it is one; how long a used one's effect lasts", () => {
+  const tattoos = items.filter((d) => d.system.kind === "tattoo");
+  assert.equal(tattoos.length, 7);
+  for (const t of tattoos) assert.deepEqual([t.type, t.system.charges, t.system.fx.slot], ["consumable", { value: 1, max: 1 }, "tattoo"], t.name);
+  assert.deepEqual(find("Tattoo of Spider Climb").system.spells.map((s) => s.name), ["Spider Climb"]);
+  const armor = find("Tattoo of Natural Armor");
+  assert.deepEqual(armor.system.lasts, { value: 7, units: "minutes" });
+  // Its effect waits on it, switched off, for its user to get when it is used.
+  assert.deepEqual(armor.effects.map((e) => [e.disabled, e.system.changes.map((c) => [c.key, c.value])]), [[true, [["system.bonuses.naturalArmor", 4]]]]);
+  assert.deepEqual(find("Tattoo of Spell Resistance").system.lasts, { value: 9, units: "minutes" });
+  assert.deepEqual(find("Bullseye Tattoo").system.lasts, { value: 1, units: "rounds" });
 });

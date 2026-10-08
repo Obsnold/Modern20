@@ -51,9 +51,19 @@ export const ACTIONS = {
   totalDefense: { name: "Total Defense", img: "icons/svg/castle.svg", changes: [add("defense", 4)], text: "No attacks; +4 dodge bonus to Defense, until the start of its next turn." },
 };
 
-/** The conditions, and the round-long combat actions, as Foundry's CONFIG.statusEffects entries. */
+/**
+ * Recognized by reputation (Modern/reputation): a GM character who recognizes the hero gives it +4 (famous to them)
+ * or −4 (infamous) on Bluff, Diplomacy, Gather Information, Intimidate and Perform checks with them, for the encounter.
+ */
+const REPUTATION_SKILLS = ["bluff", "diplomacy", "gatherInformation", "intimidate", "perform"];
+export const RECOGNIZED = {
+  famous: { name: "Recognized: Famous", img: "icons/svg/sun.svg", changes: REPUTATION_SKILLS.map((k) => add(`skills.${k}`, 4)), text: "Recognized, and thought well of: +4 on Bluff, Diplomacy, Gather Information, Intimidate and Perform checks involving the one who recognized you, for the encounter." },
+  infamous: { name: "Recognized: Infamous", img: "icons/svg/hazard.svg", changes: REPUTATION_SKILLS.map((k) => add(`skills.${k}`, -4)), text: "Recognized, and thought ill of: −4 on Bluff, Diplomacy, Gather Information, Intimidate and Perform checks involving the one who recognized you, for the encounter." },
+};
+
+/** The conditions, the round-long combat actions and recognition, as Foundry's CONFIG.statusEffects entries. */
 export function statusEffects() {
-  return Object.entries({ ...CONDITIONS, ...ACTIONS }).map(([id, c]) => ({
+  return Object.entries({ ...CONDITIONS, ...ACTIONS, ...RECOGNIZED }).map(([id, c]) => ({
     id, name: c.name, img: c.img, description: `<p>${c.text}</p>`, system: { changes: c.changes ?? [] },
   }));
 }

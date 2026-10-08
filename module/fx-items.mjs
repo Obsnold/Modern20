@@ -1,6 +1,7 @@
 /**
- * Using a potion, scroll, wand or staff from a character's sheet (rules/fx-items.mjs): the use chosen (a staff's
- * spells, each with the charges it takes), its charges spent or the item used up, and a card with the spell's
+ * Using a potion, scroll, wand, staff or tattoo from a character's sheet (rules/fx-items.mjs): the use chosen (a staff's
+ * spells, each with the charges it takes), its charges spent or the item used up, what it gives its user for as long
+ * as it lasts (a tattoo's effect), and a card with the spell's
  * saving throw DC, range and duration, and a caster level check (against spell resistance) at the item's level.
  */
 import * as F from "./rules/fx-items.mjs";
@@ -34,6 +35,13 @@ export async function useItem(actor, item) {
   const level = spell?.system.levels?.length ? F.spellLevelFor(spell.system.levels, s.fx?.casterLevel?.value) : null;
   const saves = !!spell?.system.savingThrow && !/^none/i.test(spell.system.savingThrow);
   const dc = F.printedDC(use?.note) ?? (saves && level !== null ? F.itemSaveDC(level) : null);
+  // What it gives its user while it lasts (a Tattoo of Natural Armor's +4 for 7 minutes): its effect, theirs now.
+  const given = item.effects.filter((e) => e.getFlag(SYSTEM_ID, "mechanics") && e.disabled).map((e) => {
+    const data = e.toObject();
+    delete data._id;
+    return { ...data, disabled: false, transfer: false, origin: item.uuid, flags: {}, ...(s.lasts?.value ? { duration: { value: s.lasts.value, units: s.lasts.units } } : {}) };
+  });
+  if (given.length) await actor.createEmbeddedDocuments("ActiveEffect", given);
   if (r.consumed) await item.delete();
   else await item.update({ "system.charges.value": r.charges });
 
@@ -47,7 +55,8 @@ export async function useItem(actor, item) {
     [s.fx?.casterLevel?.label || "Caster level", cl ?? "—"],
     !r.consumed && s.charges.max > 1 && ["Charges", `${r.charges} of ${s.charges.max} left${r.used ? ` (used ${r.used})` : ""}`],
   ].filter(Boolean);
-  const how = { potion: "Drinks", scroll: "Reads", wand: "Uses", staff: "Uses" }[s.kind] ?? "Uses";
+  const how = { potion: "Drinks", scroll: "Reads", wand: "Uses", staff: "Uses", tattoo: "Touches and activates" }[s.kind] ?? "Uses";
+  if (given.length) rows.push(["Gives", `${given.map((e) => e.name).join(", ")}${s.lasts?.value ? `, for ${s.lasts.value} ${s.lasts.value === 1 ? s.lasts.units.replace(/s$/, "") : s.lasts.units}` : ""} (on the Effects tab)`]);
   const hint = s.kind === "scroll" ? `<p class="m20-hint">Reading it takes a Spellcraft check (DC ${15 + (level ?? 0)}) or read magic; one who cannot yet cast the spell makes a caster level check (DC ${(cl ?? 0) + 1}) or the scroll is wasted.</p>` : "";
   const text = await foundry.applications.ux.TextEditor.implementation.enrichHTML(spell?.system.description ?? s.description, { relativeTo: spell ?? item });
   await ChatMessage.create({

@@ -1905,7 +1905,7 @@ export const CHECKS = {
     return errors;
   },
 
-  async "FX items in use: a wand's charge and its card's DC, a staff's use chosen, a potion drunk, a watch fob's bonus while worn, a third ring that does not work"() {
+  async "FX items in use: a wand's charge and its card's DC, a staff's use chosen, a potion drunk, a tattoo touched for its effect, a watch fob's bonus while worn, a third ring that does not work"() {
     const errors = [];
     const { take, wait, dialog } = window.m20test;
     const { notesOf } = await import("/systems/modern20/module/roll.mjs");
@@ -1923,7 +1923,7 @@ export const CHECKS = {
       actor.sheet.changeTab("gear", "primary");
       const use = async (name) => {
         const n = game.messages.size;
-        actor.sheet.element.querySelector(`section.tab[data-tab=gear] [data-item-id="${get(name).id}"] [data-action=useItem]`).click();
+        (await wait(() => actor.sheet.element.querySelector(`section.tab[data-tab=gear] [data-item-id="${get(name).id}"] [data-action=useItem]`), `${name}'s Use button`)).click();
         return () => wait(() => game.messages.contents.slice(n).find((m) => /m20-cast/.test(m.content)), `${name}'s card`);
       };
       // The wand: a charge, and a card with Web's DC (10 + 1.5 × 2) and a caster level check at its level 3.
@@ -1940,6 +1940,14 @@ export const CHECKS = {
       // The potion: drunk, and gone.
       await (await use("Potion of Cure Light Wounds"))();
       await wait(() => !get("Potion of Cure Light Wounds"), "the potion to be used up");
+      // A tattoo touched: used up, and its +4 natural armor its user's for 7 minutes.
+      await actor.createEmbeddedDocuments("Item", [await take("fx-items", "Tattoo of Natural Armor")]);
+      const defense = actor.system.derived.defense.value;
+      await (await use("Tattoo of Natural Armor"))();
+      await wait(() => !get("Tattoo of Natural Armor"), "the tattoo to be used up");
+      const given = actor.effects.find((e) => e.name === "Tattoo of Natural Armor");
+      if (!given || given.disabled || given.duration.value !== 7 || given.duration.units !== "minutes") errors.push(`the tattoo's effect on its user: ${JSON.stringify(given?.duration)}, ${given?.disabled ? "off" : "on"}`);
+      if (actor.system.derived.defense.value !== defense + 4) errors.push(`Defense ${actor.system.derived.defense.value} with the tattoo used, not ${defense + 4}`);
       // The watch fob while worn: +3 Reflex; taken off, none.
       const ref = actor.system.derived.saves.ref;
       await get("Houdini’s Watch Fob").update({ "system.equipped": false });
@@ -2024,6 +2032,135 @@ export const CHECKS = {
     }
     await game.settings.set("modern20", "askBeforeRolling", false);
     for (const i of actor.items) if (i.sheet?.rendered) await i.sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "ability damage, drain and Constitution 0; spell resistance against a caster level check; a Reputation check; Treat Injury's surgery"() {
+    const errors = [];
+    const { take, wait, type, dialog } = window.m20test;
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: a === "con" ? 14 : 12 }]));
+    const hero = await Actor.implementation.create({ name: "Injured (test)", type: "character", system: { abilities, wealth: { value: 5 } } });
+    await hero.createEmbeddedDocuments("Item", [await take("classes", "Tough Hero", { level: 3, hitPoints: [10, 6, 6] }), await take("species", "Drow (Dark Elf)")]);
+    let creature = null, token = null;
+    try {
+      await wait(() => hero.system.hp.value === hero.system.hp.max && hero.system.hp.max > 0, "the hero at full");
+      const max = hero.system.hp.max;
+      // Constitution damage typed on the Main tab: its hit points and the condition follow.
+      await hero.sheet.render({ force: true });
+      await wait(() => hero.sheet.rendered, "the sheet");
+      type(hero.sheet.element, "input[name='system.abilities.con.damage']", 4);
+      await wait(() => hero.system.abilities.con.damage === 4, "the damage to save");
+      if (hero.system.hp.max !== max - 6) errors.push(`max HP ${hero.system.hp.max} with 4 Con damage, not ${max - 6}`);
+      await wait(() => hero.statuses.has("abilityDamaged"), "Ability Damaged to be put on");
+      // A night's rest: a point back.
+      const rest = new Promise((r) => setTimeout(r, 0)).then(() => hero.sheet.element.querySelector("[data-action=rest]").click());
+      await rest;
+      await dialog({}, "night");
+      await wait(() => hero.system.abilities.con.damage === 3, `a night's rest to heal a point of Con damage (now ${hero.system.abilities.con.damage})`);
+      // Drain to 0 Constitution: dead.
+      await hero.update({ "system.abilities.con.drain": 11 });
+      await wait(() => hero.statuses.has("abilityDrained") && hero.statuses.has("dead"), "Constitution 0 to be death");
+      await hero.update({ "system.abilities.con.drain": 0, "system.abilities.con.damage": 0 });
+      await hero.toggleStatusEffect("dead", { active: false });
+      await wait(() => !hero.statuses.has("abilityDamaged") && !hero.statuses.has("abilityDrained"), "the ability conditions to come off");
+      // A drow's spell resistance: 11 + level.
+      if (hero.system.derived.spellResistance !== 14) errors.push(`a 3rd-level drow's spell resistance is ${hero.system.derived.spellResistance}, not 14`);
+      if (!/SR 14/.test(hero.sheet.element.querySelector("section.tab[data-tab=main]").innerText)) errors.push("the Main tab does not show SR 14");
+      await hero.sheet.close();
+      // A caster level check against a creature's printed SR 50: fails, and the card says so.
+      await wait(() => !canvas.loading, "the canvas", 15000);
+      const scene = game.scenes.find((x) => x.name === "Test scene") ?? await Scene.implementation.create({ name: "Test scene", width: 2000, height: 2000, grid: { size: 100 } });
+      if (canvas.scene?.id !== scene.id) { await scene.view(); await wait(() => canvas.ready && !canvas.loading && canvas.scene?.id === scene.id, "the scene", 15000); }
+      creature = await Actor.implementation.create({ name: "Warded (test)", type: "creature", system: { hp: { value: 10, max: 10 }, abilities: { int: 16 }, specialQualities: ["SR 50"] } });
+      [token] = await scene.createEmbeddedDocuments("Token", [(await creature.getTokenDocument({ x: 700, y: 700 })).toObject()]);
+      // Drawn first: Foundry draws a target's arrows on the token's own graphics.
+      const placed = await wait(() => canvas.tokens.get(token.id)?.targetArrows && canvas.tokens.get(token.id), "the creature's token, drawn");
+      placed.setTarget(true, { releaseOthers: true });
+      await hero.createEmbeddedDocuments("Item", [await take("fx-items", "Wand of Web")]);
+      const { useItem } = await import("/systems/modern20/module/fx-items.mjs");
+      let n = game.messages.size;
+      await useItem(hero, hero.items.find((i) => i.name === "Wand of Web"));
+      const cast = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "levelCheck")), "the wand's card");
+      n = game.messages.size;
+      const check = await wait(() => ui.chat.element?.querySelector(`li[data-message-id="${cast.id}"] .m20-card-buttons button`), "its level check button");
+      check.click();
+      const result = await wait(() => game.messages.contents.slice(n).find((m) => m.rolls?.length), "the level check");
+      if (!/spell resistance 50/.test(result.flavor)) errors.push("the caster level check does not judge the target's SR 50");
+      // A Reputation check for the targeted creature (Int 16: +3).
+      n = game.messages.size;
+      await characterRolls(hero).reputation();
+      const rep = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "reputation")), "the Reputation card");
+      if (!rep.rolls[0].formula.includes("+ 3")) errors.push(`the Reputation check is "${rep.rolls[0].formula}", without the creature's Int +3`);
+      if (rep.getFlag("modern20", "reputation").recognized !== rep.rolls[0].total >= 25) errors.push("the Reputation card's verdict does not follow DC 25");
+      // Treat Injury's surgery on the targeted creature, the result on its card.
+      const { treatInjury } = await import("/systems/modern20/module/treat.mjs");
+      n = game.messages.size;
+      const treated = treatInjury(hero);
+      await dialog({ task: "surgery" }, "ok");
+      await treated;
+      const card = await wait(() => game.messages.contents.slice(n).find((m) => m.getFlag("modern20", "treatment")), "the surgery card");
+      const t = card.getFlag("modern20", "treatment");
+      if (t.task !== "surgery" || t.patient !== placed.actor.uuid || t.success !== (t.total >= 20)) errors.push(`the surgery card: ${JSON.stringify(t)}`);
+      // No Surgery feat: −4.
+      if (!/Surgery \(no Surgery feat\)/.test(card.flavor)) errors.push("surgery without the feat shows no −4");
+      placed.setTarget(false);
+    } catch (e) {
+      errors.push(e.message);
+    }
+    if (hero.sheet.rendered) await hero.sheet.close();
+    await token?.delete();
+    await creature?.delete();
+    await hero.delete();
+    return errors;
+  },
+
+  async "potions, scrolls, wands and tattoos from a spell: one bought, one made with Scribe Scroll (Wealth, then Craft), a tattoo, and an Artificer's magic mastercraft"() {
+    const errors = [];
+    const { take, wait, dialog } = window.m20test;
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 14 }]));
+    // Ranks enough that every Craft check succeeds, and Wealth enough that everything is within means.
+    const skill = (specialty) => ({ skill: "craft", specialty, ranks: 30, misc: 0, classSkill: true, points: null });
+    const actor = await Actor.implementation.create({ name: "Maker (test)", type: "character", system: { abilities, wealth: { value: 40 }, specialtySkills: ["writing", "mechanical", "chemical"].map(skill) } });
+    await actor.createEmbeddedDocuments("Item", [await take("classes", "Mage", { level: 3 }), await take("classes", "Artificer", { level: 1 }), await take("spells", "Web"), await take("equipment", "Knife")]);
+    try {
+      // The Mage's features (Scribe Scroll at 2nd) and the Artificer's Craft Artifice, given by their levels.
+      await wait(() => ["Scribe Scroll", "Craft Artifice"].every((n) => actor.items.some((i) => i.type === "feature" && i.name === n)), "Scribe Scroll and Craft Artifice");
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("magic", "primary");
+      const web = actor.items.find((i) => i.name === "Web");
+      const open = () => actor.sheet.element.querySelector(`section.tab[data-tab=magic] [data-item-id="${web.id}"] [data-action=fxItemFromSpell]`).click();
+      // Bought: a wand of web, at caster level 3, its price by the formula.
+      open();
+      await dialog({ kind: "wand", cl: 3, how: "add" }, "ok");
+      const wand = await wait(() => actor.items.find((i) => i.name === "Wand of Web"), "the wand");
+      if (wand.system.charges.value !== 50 || wand.system.purchaseDC.dc !== 29 || !wand.system.spells[0]?.uuid) errors.push(`the wand: ${wand.system.charges.value} charges, DC ${wand.system.purchaseDC.dc}, spell ${JSON.stringify(wand.system.spells[0])}`);
+      // Made with Scribe Scroll: within means (Wealth 40 > the materials' 18), then Craft (writing) DC 15.
+      const n = game.messages.size;
+      open();
+      await dialog({ kind: "scroll", cl: 3, how: "Scribe Scroll" }, "ok");
+      const scroll = await wait(() => actor.items.find((i) => i.name === "Scroll of Web"), "the scroll to be made");
+      if (scroll.system.fx.casterLevel.level !== 3) errors.push(`the scroll's caster level is ${scroll.system.fx.casterLevel.level}`);
+      await wait(() => game.messages.contents.slice(n).some((m) => /Craft \(writing\)/.test(m.flavor ?? "")), "its Craft (writing) check");
+      await wait(() => game.messages.contents.slice(n).some((m) => /costs 108 XP/.test(m.content ?? "")), "the XP it costs (2 × 3 × the materials DC 18)");
+      if (actor.system.wealth.value >= 40) errors.push("the materials cost no Wealth");
+      // A tattoo of web, bought: one use.
+      open();
+      await dialog({ kind: "tattoo", cl: 3, how: "add" }, "ok");
+      const tattoo = await wait(() => actor.items.find((i) => i.name === "Tattoo of Web"), "the tattoo");
+      if (tattoo.system.kind !== "tattoo" || tattoo.system.charges.max !== 1 || tattoo.system.purchaseDC.dc !== 20) errors.push(`the tattoo: ${tattoo.system.kind}, ${tattoo.system.charges.max} use, DC ${tattoo.system.purchaseDC.dc}`);
+      // Magic mastercraft on the knife: +1, both Craft checks.
+      actor.sheet.changeTab("gear", "primary");
+      const knife = actor.items.find((i) => i.name === "Knife");
+      await wait(() => actor.sheet.element.querySelector(`[data-item-id="${knife.id}"] [data-action=magicMastercraft]`), "the knife's magic mastercraft").then((b) => b.click());
+      await dialog({ bonus: 1, components: 5 }, "ok");
+      await wait(() => knife.system.enhancement === 1, "the knife to be +1");
+    } catch (e) {
+      errors.push(e.message);
+    }
+    if (actor.sheet.rendered) await actor.sheet.close();
     await actor.delete();
     return errors;
   },
