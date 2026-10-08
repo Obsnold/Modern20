@@ -12,6 +12,7 @@ import { buildSpells, buildPowers, buildIncantations } from "./fx.mjs";
 import { buildOccupations } from "./occupations.mjs";
 import { buildSpecies } from "./species.mjs";
 import { buildEquipment } from "./equipment.mjs";
+import { buildFxItems } from "./fx-items.mjs";
 import { buildClasses, buildTalents, buildFeatures } from "./classes.mjs";
 import { buildCreatures } from "./creatures.mjs";
 import { buildCreatureTypes, buildTemplates } from "./creature-rules.mjs";
@@ -28,6 +29,7 @@ const BUILDERS = {
   occupations: buildOccupations,
   species: buildSpecies,
   equipment: buildEquipment,
+  "fx-items": buildFxItems,
   creatures: buildCreatures,
   "creature-types": buildCreatureTypes,
   templates: buildTemplates,

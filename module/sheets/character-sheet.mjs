@@ -49,7 +49,7 @@ const partsTip = (parts) => (parts ?? []).map((p) => `${p.label} ${signed(p.valu
 /** The lists on the Feats and Gear tabs: which item types go in each, in order. */
 const LISTS = {
   feats: [["feature", "Class Features"], ["talent", "Talents"], ["feat", "Feats"], ["occupation", "Occupation"], ["species", "Species"], ["template", "Templates"]],
-  gear: [["weapon", "Weapons"], ["armor", "Armor"], ["equipment", "Equipment"], ["ammunition", "Ammunition"]],
+  gear: [["weapon", "Weapons"], ["armor", "Armor"], ["equipment", "Equipment"], ["consumable", "Potions, Scrolls, Wands and Staffs"], ["ammunition", "Ammunition"]],
 };
 
 export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
@@ -1029,6 +1029,13 @@ function bonusKeys() {
   return out;
 }
 
+/** An FX item's kind and caster level, for its row: "Ring (magic), caster level 5". */
+function fxText(s) {
+  const fx = s.fx;
+  if (!fx?.category) return "";
+  return `${fx.category}${fx.power ? ` (${fx.power})` : ""}${fx.casterLevel?.level ? `, ${(fx.casterLevel.label || "Caster Level").toLowerCase()} ${fx.casterLevel.level}` : ""}`;
+}
+
 /** A line of detail for an item in a list: what a player would want to see without opening it. */
 function detail(item) {
   const s = item.system;
@@ -1041,6 +1048,8 @@ function detail(item) {
     case "species": return `${s.size}, speed ${s.speed} ft.`;
     case "feature": return `${s.className}${s.levels?.length ? `, level ${s.levels.join(", ")}` : ""}${s.rank > 1 ? ` (×${s.rank})` : ""}`;
     case "template": return [s.kind, s.type && `becomes ${s.type}`].filter(Boolean).join(", ");
-    default: return s.weight?.value ? `${s.weight.value}` : "";
+    // A charged item: its charges (a potion's or scroll's one use) and the spells it holds.
+    case "consumable": return [s.charges?.max > 1 && `${s.charges.value ?? 0} of ${s.charges.max} charges`, (s.spells ?? []).map((x) => x.name).join(", "), fxText(s)].filter(Boolean).join("; ");
+    default: return [fxText(s), s.weight?.value && s.weight.value !== "—" ? `${s.weight.value}` : ""].filter(Boolean).join(", ");
   }
 }

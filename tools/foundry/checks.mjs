@@ -138,7 +138,7 @@ export const CHECKS = {
   async "the compendiums load, and every document in them is valid"() {
     const errors = [];
     const packs = game.packs.filter((p) => p.metadata.packageName === "modern20");
-    if (packs.length !== 14) errors.push(`${packs.length} compendiums, not 14`);
+    if (packs.length !== 15) errors.push(`${packs.length} compendiums, not 15`);
     for (const pack of packs) {
       const docs = await pack.getDocuments();
       if (!docs.length) errors.push(`${pack.collection} is empty`);
@@ -1124,8 +1124,8 @@ export const CHECKS = {
     return window.m20test.everything(["classes", "talents", "features", "feats", "spells", "powers"]);
   },
 
-  async "everything in the compendiums, part 2: every incantation, occupation, species, piece of equipment, creature type and template"() {
-    return window.m20test.everything(["incantations", "occupations", "species", "equipment", "creature-types", "templates"]);
+  async "everything in the compendiums, part 2: every incantation, occupation, species, piece of equipment, FX item, creature type and template"() {
+    return window.m20test.everything(["incantations", "occupations", "species", "equipment", "fx-items", "creature-types", "templates"]);
   },
 
   async "the Skills tab ticks the class skills of the class ranks are being bought as, and follows the choice"() {
@@ -1853,6 +1853,48 @@ export const CHECKS = {
       errors.push(e.message);
     }
     for (const sheet of [glock?.sheet, actor.sheet]) if (sheet?.rendered) await sheet.close();
+    await actor.delete();
+    return errors;
+  },
+
+  async "FX items on a character: a Flaming Machete's +1 on its rolls and its price by bonus, a wand's charges and spell, a ring's kind on the Gear tab"() {
+    const errors = [];
+    const { take, wait } = window.m20test;
+    const { characterRolls } = await import("/systems/modern20/module/roll.mjs");
+    const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: 10 }]));
+    const actor = await Actor.implementation.create({ name: "FX items (test)", type: "character", system: { abilities } });
+    await actor.createEmbeddedDocuments("Item", [
+      await take("feats", "Archaic Weapons Proficiency"), await take("fx-items", "Flaming Machete"),
+      await take("fx-items", "Wand of Web"), await take("fx-items", "Ring of Jumping"), await take("fx-items", "Bulletproof Shirt", { equipped: true }),
+    ]);
+    const machete = actor.items.find((i) => i.name === "Flaming Machete"), wand = actor.items.find((i) => i.name === "Wand of Web");
+    const ring = actor.items.find((i) => i.name === "Ring of Jumping");
+    try {
+      const n = game.messages.size;
+      await characterRolls(actor).attack(machete);
+      const card = await wait(() => game.messages.contents.slice(n).find((m) => m.rolls?.length), "the attack card");
+      if (!/Enhancement <strong>\+1<\/strong>/.test(card.flavor)) errors.push("the Flaming Machete's attack shows no Enhancement +1");
+      if (wand.type !== "consumable" || wand.system.charges.value !== 50 || !wand.system.spells[0]?.uuid) errors.push(`the Wand of Web: a ${wand.type}, ${wand.system.charges.value} charges, spell ${JSON.stringify(wand.system.spells[0])}`);
+      const web = wand.system.spells[0] && await fromUuid(wand.system.spells[0].uuid);
+      if (web?.name !== "Web") errors.push(`the wand's spell link opens ${web?.name}`);
+      // The Bulletproof Shirt: a +1 leather jacket's Defense.
+      if (!actor.system.derived.parts.defense.some((p) => p.label === "Bulletproof Shirt (enhancement)" && p.value === 1)) errors.push("the Bulletproof Shirt gives no +1 enhancement to Defense");
+      await actor.sheet.render({ force: true });
+      await wait(() => actor.sheet.rendered, "the sheet");
+      actor.sheet.changeTab("gear", "primary");
+      const row = (item) => actor.sheet.element.querySelector(`section.tab[data-tab=gear] [data-item-id="${item.id}"]`);
+      const detail = (item) => row(item)?.querySelector(".m20-item-detail")?.innerText ?? "";
+      if (!/50 of 50 charges; Web/.test(detail(wand))) errors.push(`the wand's row says "${detail(wand)}"`);
+      if (!/Ring \(magic\), caster level 1/.test(detail(ring))) errors.push(`the ring's row says "${detail(ring)}"`);
+      const buy = (item) => row(item)?.querySelector("[data-action=buyItem]")?.dataset.tooltip ?? "";
+      if (!buy(machete).includes("purchase DC 25")) errors.push(`the +1 machete's Buy: "${buy(machete)}"`);
+      await machete.update({ "system.enhancement": 2 });
+      await wait(() => buy(machete).includes("purchase DC 30"), `the +2 machete to cost DC 30 (${buy(machete)})`);
+      await actor.sheet.close();
+    } catch (e) {
+      errors.push(e.message);
+    }
+    if (actor.sheet.rendered) await actor.sheet.close();
     await actor.delete();
     return errors;
   },

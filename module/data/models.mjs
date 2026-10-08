@@ -49,12 +49,21 @@ const physical = {
   notes: list(str()),
   size: str({ choices: SIZES }),
   weight: printed({ lb: num({ nullable: true }) }),
-  purchaseDC: printed({ dc: int({ nullable: true }) }),
+  /** Its purchase DC; `byBonus` an FX weapon's or armor's, printed for each enhancement bonus ("25 (+1), 30 (+2)"). */
+  purchaseDC: printed({ dc: int({ nullable: true }), byBonus: list(int()) }),
   restriction: obj({ value: str(), level: str({ choices: ["lic", "res", "mil", "illegal"] }), modifier: int() }),
   /** Worn or wielded, on a character: equipped armor counts toward Defense. */
   equipped: bool(),
   /** On a character's copy: kept elsewhere (at home, in the car), so not carried: its weight is not in the load. */
   stored: bool(),
+  /**
+   * An FX item's (tools/build/fx-items.mjs): its category as printed ("Wondrous Item"), magic, psionic or
+   * vehicular, its caster or manifester level, and whether it is made with an incantation; empty for gear.
+   */
+  fx: obj({
+    category: str(), power: str({ choices: ["magic", "psionic", "vehicular"] }), incantation: bool(),
+    casterLevel: printed({ level: int({ nullable: true }), label: str() }),
+  }),
 };
 
 const spellLike = {
@@ -287,6 +296,19 @@ const ITEM_FIELDS = {
 
   equipment: {
     ...physical,
+    description: html(),
+    source,
+  },
+
+  /**
+   * A potion, scroll, wand or staff: its charges (a potion or scroll one use; a wand or staff 50 when new), and the
+   * spells or powers it holds, each with the charges a use takes (a staff's) and what the book says of it.
+   */
+  consumable: {
+    ...physical,
+    kind: str({ choices: ["potion", "scroll", "wand", "staff"] }),
+    charges: obj({ value: int({ nullable: true }), max: int({ nullable: true }) }),
+    spells: list(obj({ name: str(), uuid: str(), charges: int(), note: str() })),
     description: html(),
     source,
   },

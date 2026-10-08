@@ -9,7 +9,8 @@
  *   armor enhancement    +1 to +5 to Defense, stacking with the equipment bonus; its armor penalty 1 less
  *   purchase DC          custom mastercraft +3, +6, +9 (none for a weapon the book makes mastercraft
  *                        already: the Glock 17's +1 is in its price); a weapon's enhancement +10, +15, +20,
- *                        armor's +8, +13, +18. The book prices neither past +3.
+ *                        armor's +8, +13, +18. The book prices neither past +3. An FX weapon or armor
+ *                        has its own price (tools/build/fx-items.mjs), for each bonus where it prints one.
  */
 
 /** The mastercraft bonus a weapon's own entry gives it ("This mastercraft weapon grants a +1 bonus on attack rolls"), 0 for none. */
@@ -57,6 +58,10 @@ export function purchaseDC(item) {
   const base = s.purchaseDC?.dc;
   if (base === null || base === undefined || !["weapon", "armor"].includes(item.type)) return { dc: base ?? null, unpriced: false };
   const enhancement = n(s.enhancement);
+  // An FX item's own price, printed for each bonus ("25 (+1), 30 (+2), 35 (+3)") or for the one it has.
+  const byBonus = s.purchaseDC?.byBonus ?? [];
+  if (byBonus.length) return { dc: byBonus[Math.min(Math.max(enhancement, 1), byBonus.length) - 1], unpriced: enhancement > byBonus.length };
+  if (s.fx?.category) return { dc: base, unpriced: false };
   const custom = Math.max(0, n(s.mastercraft) - (item.type === "weapon" ? printedMastercraft(s) : 0));
   const table = ENHANCEMENT_DC[item.type];
   const unpriced = enhancement > 3 || custom > 3;
