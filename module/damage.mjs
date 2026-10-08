@@ -57,6 +57,8 @@ async function setConditions(actor, value, { lost = false, stable: nowStable, aw
   const was = new Set(actor.statuses);
   const stable = nowStable ?? (!lost && was.has("stable"));
   const c = D.hpConditions(value, { stable, awake: awake ?? (stable && !was.has("unconscious")), destroyedAtZero: destroyedAtZero(actor) });
+  // Dead of Constitution 0 (rules/character.mjs): hit points coming back do not bring it back.
+  if (actor.type === "character" && actor.system.derived?.deadByConstitution) c.dead = true;
   const fromHitPoints = was.has("dying") || was.has("stable");
   for (const id of HP_CONDITIONS) {
     if (id === "unconscious" && !c.unconscious && !fromHitPoints) continue;

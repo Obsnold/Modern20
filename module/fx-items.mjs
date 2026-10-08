@@ -24,6 +24,9 @@ async function chooseUse(item) {
 /** Use a charged item: its charges spent (or it is used up), and its card posted. */
 export async function useItem(actor, item) {
   const s = item.system;
+  // A seventh tattoo does not work (rules/fx-items.mjs WORN): only so many of a kind at once.
+  const over = F.wornOverLimit(actor.items.contents).find((w) => w.over.includes(item.id));
+  if (over) return ui.notifications.warn(`${item.name} does not work: only ${over.limit} ${over.label} can at once.`);
   const index = await chooseUse(item);
   if (index === null) return;
   const r = F.useCharges(s, index);

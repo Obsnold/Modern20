@@ -2062,6 +2062,10 @@ export const CHECKS = {
       // Drain to 0 Constitution: dead.
       await hero.update({ "system.abilities.con.drain": 11 });
       await wait(() => hero.statuses.has("abilityDrained") && hero.statuses.has("dead"), "Constitution 0 to be death");
+      // Hit points changed after: still dead, of its Constitution.
+      await hero.update({ "system.hp.value": 3 });
+      await new Promise((r) => setTimeout(r, 1000));
+      if (!hero.statuses.has("dead")) errors.push("a character dead of Constitution 0 came back when its hit points changed");
       await hero.update({ "system.abilities.con.drain": 0, "system.abilities.con.damage": 0 });
       await hero.toggleStatusEffect("dead", { active: false });
       await wait(() => !hero.statuses.has("abilityDamaged") && !hero.statuses.has("abilityDrained"), "the ability conditions to come off");
@@ -2137,6 +2141,11 @@ export const CHECKS = {
       await dialog({ kind: "wand", cl: 3, how: "add" }, "ok");
       const wand = await wait(() => actor.items.find((i) => i.name === "Wand of Web"), "the wand");
       if (wand.system.charges.value !== 50 || wand.system.purchaseDC.dc !== 29 || !wand.system.spells[0]?.uuid) errors.push(`the wand: ${wand.system.charges.value} charges, DC ${wand.system.purchaseDC.dc}, spell ${JSON.stringify(wand.system.spells[0])}`);
+      // Not above the maker's own level: a 3rd-level Mage cannot scribe at caster level 5.
+      open();
+      await dialog({ kind: "scroll", cl: 5, how: "Scribe Scroll" }, "ok");
+      await new Promise((r) => setTimeout(r, 1000));
+      if (actor.items.some((i) => i.name === "Scroll of Web")) errors.push("a 3rd-level Mage scribed a scroll at caster level 5");
       // Made with Scribe Scroll: within means (Wealth 40 > the materials' 18), then Craft (writing) DC 15.
       const n = game.messages.size;
       open();

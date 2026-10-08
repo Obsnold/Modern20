@@ -35,6 +35,10 @@ test("only so many of a kind work at once: a third ring, in the Gear tab's order
   delete rings[2].sort;
   assert.deepEqual(wornOverLimit([...rings.slice(0, 2), { ...rings[2], system: { ...rings[2].system, equipped: false } }]), []);
   assert.deepEqual(wornOverLimit([own("Haz-Mat Gloves"), own("Driving Ace Gloves", { stored: true })]), []);
+  // Tattoos are worn by being on the body, never equipped: a seventh is past the six.
+  const tattoos = Array.from({ length: 7 }, (_, i) => ({ ...own("Bullseye Tattoo", { equipped: false }), name: `Tattoo ${i + 1}` }));
+  assert.deepEqual(wornOverLimit(tattoos).map((w) => [w.slot, w.over]), [["tattoo", [tattoos[6].id]]]);
+  assert.deepEqual(wornOverLimit(tattoos.slice(0, 6)), []);
 });
 
 test("an FX item's effects work while it is in use: equipped, not kept elsewhere, and within the limit of its kind", () => {

@@ -55,7 +55,9 @@ export function wornOverLimit(items) {
   const ordered = [...items].sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0) || String(a.name).localeCompare(String(b.name)));
   for (const i of ordered) {
     const slot = i.system?.fx?.slot;
-    if (!slot || !WORN[slot] || !i.system.equipped || i.system.stored) continue;
+    // A tattoo is worn by being on the body: never equipped, but always counted (unless it is not yet on it, kept elsewhere).
+    const worn = slot === "tattoo" ? !i.system?.stored : i.system?.equipped && !i.system.stored;
+    if (!slot || !WORN[slot] || !worn) continue;
     (by[slot] ??= []).push(i);
   }
   return Object.entries(by).filter(([slot, list]) => list.length > WORN[slot].limit)

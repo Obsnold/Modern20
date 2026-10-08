@@ -21,6 +21,18 @@ const ICONS = {
 /** The features the character has that make each kind, by identifier. */
 const featuresOf = (actor) => new Set(actor.items.filter((i) => i.type === "feature").map((i) => identify(i)));
 
+/**
+ * The highest caster level a maker can give what it makes: "no higher than the Mage's class level" (the Mystic's, for
+ * hers); the Artificer's "total class levels in all arcane spellcasting classes (Artificer, Mage, Techno Mage)".
+ */
+function makerLevel(actor, maker) {
+  const levels = (names) => actor.items.filter((i) => i.type === "class" && names.includes(i.name.toLowerCase())).reduce((n, c) => n + c.system.level, 0);
+  if (maker.feature === "craft-artifice") return levels(["artificer", "mage", "techno mage"]);
+  // The class whose feature it is (Brew Potion is the Mage's and the Mystic's: the one the character has it from).
+  const feature = actor.items.find((i) => i.type === "feature" && identify(i) === maker.feature);
+  return levels([(feature?.system.className ?? "").toLowerCase()]);
+}
+
 /** A Craft check in one of its specialties: the row's, or (none bought) its Intelligence alone. */
 async function craftCheck(actor, specialty, dc, title) {
   const d = actor.system.derived;
@@ -64,10 +76,13 @@ export async function fxItemFromSpell(actor, spell) {
   }
   const maker = (makers[chosen.kind] ?? []).find((m) => m.label === chosen.how);
   if (!maker) return ui.notifications.warn(`${chosen.how} does not make a ${chosen.kind}.`);
+  const most = makerLevel(actor, maker);
+  if (chosen.cl > most) return ui.notifications.warn(`${maker.label}: a caster level no higher than your ${maker.feature === "craft-artifice" ? "arcane spellcasting class levels" : "class level"} (${most}).`);
   const m = C.making(chosen.kind, maker, level, chosen.cl);
   // The raw materials first: a Wealth check, or bought within means.
   if (!(await buy(actor, m.materials, `raw materials for a ${data.name}`))) return null;
   const made = await craftCheck(actor, m.craft, m.craftDC, `Making a ${data.name}`);
+  if (made === null) ui.notifications.info(`The Craft check for the ${data.name} was not made: the materials are bought, for when it is.`);
   if (!made) return null;
   const [item] = await actor.createEmbeddedDocuments("Item", [data]);
   await say(actor, `<h3>${escape(actor.name)} makes a ${escape(item.name)}</h3><p>Caster level ${chosen.cl}. It costs ${m.xp} XP (spell level ${level} × caster level ${chosen.cl} × materials DC ${m.materials}): take them off.</p>`);

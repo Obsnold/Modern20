@@ -23,8 +23,9 @@ Foundry then offers each new release as an update.
 ## TODO
 
 - Lots of testing.....
-- Vehicles, mecha and starships
-- FX items, cybernetics and the rest of d20 Future's equipment
+- Vehicles, mecha and starships, and the vehicular FX items with them
+- Cybernetics, mutations and the rest of d20 Future's equipment
+- Ability damage on creatures (characters have it)
 - Mechanics for most talents and class features, and for feats beyond the
   common ones. Their text is on the sheet, and an active effect can add a
   bonus by hand.
