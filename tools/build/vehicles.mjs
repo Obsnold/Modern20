@@ -79,7 +79,7 @@ function art(name, path) {
       : /cruiser|runabout|watercraft|water/.test(kind) ? ["delapouite", "speed-boat"] : /truck|pickup|minivan/.test(kind) ? ["delapouite", "truck"]
         : /suv|atv|hummer/.test(kind) ? ["delapouite", "jeep"] : /sports coupe/.test(kind) ? ["skoll", "race-car"]
           : /bike|motorcycle/.test(kind) ? ["delapouite", "cycling"] : ["delapouite", "city-car"];
-  return { img: `systems/modern20/assets/icons/${pick[0]}/${pick[1]}.svg`, token: `systems/modern20/assets/tokens/${pick[0]}/${pick[1]}.svg` };
+  return { img: `systems/modern20/assets/icons/${pick[0]}/${pick[1]}.svg` };
 }
 
 /** Table: Vehicle Weapons's cannons, as weapon items' data (they are part of the vehicles they are on: no weight or price). */
@@ -199,7 +199,7 @@ export const buildVehicles = once(function buildVehicles() {
     if (!crew) problems.push({ path: v.path, line: v.line, message: `${v.name}: not in Table: Crewed Vehicles` });
     v.system.crewQuality = crew ?? "normal";
     v.system.operation = operationOf(v.name, v.path);
-    const { img, token } = art(v.name, v.path);
+    const { img } = art(v.name, v.path);
     // Its mounted weapons, items of its own.
     const items = (WEAPONS[v.name] ?? []).map((w) => {
       const base = cannons[w] ? { name: w, type: "weapon", img: "systems/modern20/assets/icons/john-colburn/pistol-gun.svg", system: cannons[w] } : equipment.find((d) => d.name === w);
@@ -216,8 +216,9 @@ export const buildVehicles = once(function buildVehicles() {
       _id: id, _key: `!actors!${id}`, name: v.name, type: "vehicle", img, folder: folder(v.category), sort: 0,
       system: { ...v.system, source: { book: BOOKS[v.book] ?? v.book, page: pageUuid(v.path) } },
       prototypeToken: {
+        // Its icon fitted inside its squares and upright (a side view): its squares turn as it does (module/vehicles.mjs).
         name: v.name, width: v.system.squares.wide, height: v.system.squares.long, actorLink: false, disposition: 0,
-        displayName: 20, displayBars: 20, bar1: { attribute: "hp" }, texture: { src: token }, lockRotation: false,
+        displayName: 20, displayBars: 20, bar1: { attribute: "hp" }, texture: { src: img, fit: "contain", scaleX: 1, scaleY: 1 }, lockRotation: true,
       },
       items, effects: [], ownership: { default: 0 }, flags: { modern20: { srd: v.path } },
     });

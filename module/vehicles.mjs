@@ -317,3 +317,29 @@ export async function repair(vehicle, event) {
   await applyToActor(vehicle, back.total, { healing: true });
   return roll;
 }
+
+/**
+ * A vehicle's token: its picture upright and inside its squares (the icon, fitted: not the round token picture, which
+ * spills past a long vehicle's width), and its squares turned as it turns. Called once, at init.
+ */
+export function registerVehicleHooks() {
+  const isVehicle = (token) => token.actor?.type === "vehicle" && token.actor.system.squares;
+  // The system's own round picture (0.8.0's) is the vehicle's icon instead; fitted inside its squares, upright.
+  const art = (token) => {
+    const src = token.texture?.src ?? "";
+    return { "texture.src": src.replace("systems/modern20/assets/tokens/", "systems/modern20/assets/icons/"), "texture.fit": "contain", lockRotation: true };
+  };
+  Hooks.on("preCreateToken", (token, data) => {
+    if (!isVehicle(token)) return;
+    token.updateSource({ ...art(token), ...V.footprintFacing(token.actor.system.squares, data.rotation ?? token.rotation) });
+  });
+  // Turned: its squares turned with it, by the client that turned it. Foundry moves a token's size as movement, so it is
+  // resized after the turn (TokenDocument#resize keeps its centre), not in the same update.
+  Hooks.on("updateToken", async (token, changes, options, userId) => {
+    if (userId !== game.user.id || !isVehicle(token) || !("rotation" in changes)) return;
+    const to = V.footprintFacing(token.actor.system.squares, token.rotation);
+    const fix = token.texture.fit !== "contain" || !token.lockRotation ? art(token) : {};
+    if (Object.keys(fix).length) await token.update(fix);
+    if (token.width !== to.width || token.height !== to.height) await token.resize(to);
+  });
+}

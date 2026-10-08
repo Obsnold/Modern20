@@ -250,3 +250,13 @@ export function vehicleFx(items, hardness = 0) {
   }
   return out;
 }
+
+/**
+ * A vehicle's footprint as it faces (`rotation`): its squares wide and long (Modern/VehicleCombat/Scale), turned with
+ * it; one facing east or west lies across, so its width and length swap. A grid has no diagonal footprint: at 45
+ * degrees it keeps the nearer.
+ */
+export function footprintFacing(squares, rotation) {
+  const across = Math.round((((rotation ?? 0) % 360) + 360) % 360 / 90) % 2 === 1;
+  return across ? { width: squares.long, height: squares.wide } : { width: squares.wide, height: squares.long };
+}

@@ -129,3 +129,13 @@ test("vehicular FX items: each a kind, so many at once; the paint job's hardness
   assert.equal(vehicleFx([item("Dashboard Figurine", { choice: "humorous" })]).driverSaves, 1);
   assert.deepEqual([vehicleFx([item("Seats of Safety")]).seatsOfSafety, vehicleFx([item("Seats of Safety")]).reflex], [true, 3]);
 });
+
+test("a vehicle's token: its squares turn as it does, its picture fitted inside them and upright", async () => {
+  const { footprintFacing } = await import("../../module/rules/vehicles.mjs");
+  const car = { wide: 2, long: 4 };
+  assert.deepEqual([0, 90, 180, 270].map((r) => footprintFacing(car, r)), [{ width: 2, height: 4 }, { width: 4, height: 2 }, { width: 2, height: 4 }, { width: 4, height: 2 }]);
+  // At 45 degrees the nearer: 45 rounds up to across, 30 stays along.
+  assert.deepEqual([footprintFacing(car, 30), footprintFacing(car, -90)], [{ width: 2, height: 4 }, { width: 4, height: 2 }]);
+  const token = find("Acura 3.2 TL (mid-size sedan)").prototypeToken;
+  assert.deepEqual([token.texture.fit, token.lockRotation, token.texture.src.includes("/assets/icons/")], ["contain", true, true]);
+});

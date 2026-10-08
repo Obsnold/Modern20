@@ -2230,7 +2230,7 @@ export const CHECKS = {
     return errors;
   },
 
-  async "vehicles: one from the compendium with its weapons, its sheet, someone aboard as the driver, its speed's Defense, and damage through hardness to disabled and destroyed"() {
+  async "vehicles: one from the compendium with its weapons, its sheet, someone aboard as the driver, its speed's Defense, its token turning, and damage through hardness to disabled and destroyed"() {
     const errors = [];
     const { doc, wait, readable } = window.m20test;
     const { applyToActor } = await import("/systems/modern20/module/damage.mjs");
@@ -2273,6 +2273,19 @@ export const CHECKS = {
       await wait(() => car.statuses.has("disabled"), `the car disabled at ${car.system.hp.value}`);
       await applyToActor(car, 40, { parts: [{ type: "", amount: 40 }] });
       await wait(() => car.statuses.has("destroyed"), `the car destroyed at ${car.system.hp.value}`);
+      // Its token: its picture fitted inside its squares and upright, and its squares turned as it turns (90 degrees: 4 × 2).
+      await wait(() => !canvas.loading, "the canvas", 15000);
+      const scene = game.scenes.find((x) => x.name === "Test scene") ?? await Scene.implementation.create({ name: "Test scene", width: 2000, height: 2000, grid: { size: 100 } });
+      if (canvas.scene?.id !== scene.id) { await scene.view(); await wait(() => canvas.ready && !canvas.loading && canvas.scene?.id === scene.id, "the scene", 15000); }
+      const [token] = await scene.createEmbeddedDocuments("Token", [(await car.getTokenDocument({ x: 1000, y: 1000 })).toObject()]);
+      if (token.texture.fit !== "contain" || !token.lockRotation) errors.push(`the car's token: fit ${token.texture.fit}, rotation locked ${token.lockRotation}`);
+      const centre = [token.x + token.width * 50, token.y + token.height * 50];
+      await token.update({ rotation: 90 });
+      await wait(() => token.width === 4 && token.height === 2, `the car's token turned to 4 × 2 (${token.width} × ${token.height})`);
+      if (Math.abs(token.x + token.width * 50 - centre[0]) > 50 || Math.abs(token.y + token.height * 50 - centre[1]) > 50) errors.push("the turned car's token moved off its centre");
+      await token.update({ rotation: 180 });
+      await wait(() => token.width === 2 && token.height === 4, "the car's token back to 2 × 4 facing south");
+      await token.delete();
       // The Abrams shrugs off what its hardness 20 stops.
       await applyToActor(abrams, 18, { parts: [{ type: "Ballistic", amount: 18 }] });
       if ((abrams.system.hp.value ?? abrams.system.hp.max) !== 64) errors.push(`18 damage got through the Abrams's hardness 20 (${abrams.system.hp.value})`);
