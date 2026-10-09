@@ -36,8 +36,8 @@ async function main() {
   let failed = 0, ran = 0;
   try {
     // What checks provoke on purpose is expected: the write one refuses ("refused (test)") and the error the system
-    // then reports, and a caster level above the maker's own refused.
-    const page = await join(browser, "Gamemaster", problems, { expected: /refused \(test\)|a caster level no higher than/ });
+    // then reports, and a caster level above the maker's own refused, and a feat's spell cast past its uses for the day.
+    const page = await join(browser, "Gamemaster", problems, { expected: /refused \(test\)|a caster level no higher than|a day are used\. A new day brings them back/ });
     // Rolls go straight to chat, without asking for a modifier.
     await page.evaluate(() => game.settings.set("modern20", "askBeforeRolling", false));
     await page.evaluate(`(${PRELUDE.toString()})()`);

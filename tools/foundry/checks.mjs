@@ -1579,6 +1579,79 @@ export const CHECKS = {
     return errors;
   },
 
+  async "feats that cast: Wild Talent's power chosen when dropped on, three a day, back with a new day, gone with the feat; Magical Heritage's cantrips from the level window, once a day, by Intelligence"() {
+    const errors = [];
+    const { wait, doc, dialog } = window.m20test;
+    const { LevelUp } = await import("/systems/modern20/module/levelup.mjs");
+    const { castSpell, manifest, newDay } = await import("/systems/modern20/module/casting.mjs");
+    const made = [];
+    const character = async (name, scores) => {
+      const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: scores[a] ?? 10 }]));
+      const a = await Actor.implementation.create({ name, type: "character", system: { abilities } });
+      made.push(a);
+      return a;
+    };
+    const cards = (n) => game.messages.contents.slice(n).filter((m) => m.getFlag("modern20", "levelCheck"));
+    try {
+      // Wild Talent (Modern) dropped on: its power asked for; Daze, manifested free three times, the fourth refused.
+      const psion = await character("Wild talent (test)", { cha: 14 });
+      const daze = await doc("powers", "Daze");
+      psion.sheet.render(true);
+      await wait(() => psion.sheet.rendered, "the sheet");
+      const dropped = psion.sheet._onDropItem(new DragEvent("drop"), await doc("feats", "Wild Talent (Modern)"));
+      await dialog({ pick0: daze.uuid }, "ok");
+      const feat = await dropped;
+      await psion.sheet.close();
+      const power = await wait(() => psion.items.find((i) => i.type === "power" && i.name === "Daze"), "Daze added for Wild Talent");
+      if (power.getFlag("modern20", "fromFeat") !== feat.id) errors.push("Daze is not marked as Wild Talent's");
+      let n = game.messages.size;
+      for (let k = 0; k < 4; k++) await manifest(psion, power);
+      await wait(() => cards(n).length >= 3, "three manifestations");
+      await new Promise((r) => setTimeout(r, 300));
+      if (cards(n).length !== 3) errors.push(`Wild Talent's Daze manifested ${cards(n).length} times, not 3`);
+      if (!/0 of 3 left today/.test(cards(n).at(-1)?.content ?? "")) errors.push("the third manifestation does not say none are left");
+      if (psion.system.powerPoints.value !== 0 || psion.system.powerPoints.freeUsed !== 0) errors.push("Wild Talent's manifestations spent power points or free manifestations");
+      // On the Magic tab, with its uses; a new day brings them back.
+      psion.sheet.render(true);
+      await wait(() => psion.sheet.rendered, "the sheet");
+      psion.sheet.changeTab("magic", "primary");
+      await wait(() => /0 \/ 3 today/.test(psion.sheet.element.querySelector(`[data-item-id="${power.id}"]`)?.innerText ?? ""), "the Magic tab's 0 / 3 today");
+      if (!psion.sheet.element.querySelector("[data-action=newDay]")) errors.push("no New day button for a character whose only casting is a feat");
+      await psion.sheet.close();
+      await newDay(psion);
+      if ((power.getFlag("modern20", "featUses") ?? 0) !== 0) errors.push("a new day does not bring back Wild Talent's uses");
+      // The feat removed: its power goes with it.
+      await feat.delete();
+      await wait(() => !psion.items.has(power.id), "Daze gone with Wild Talent");
+      // Magical Heritage at 1st level, in the level window: three cantrips chosen with it, once a day each, DC by Intelligence.
+      const heir = await character("Magical heritage (test)", { int: 16 });
+      const app = new LevelUp(heir);
+      app.choices.cls = (await doc("classes", "Smart Hero")).uuid;
+      app.choices.feats = ["Magical Heritage"];
+      await app.render(true);
+      await wait(() => app.rendered && app.element.querySelector("select[name='feats.0.picks.2']"), "Magical Heritage's choices");
+      const picks = [...app.element.querySelectorAll("select[name='feats.0.picks.0'] option")].filter((o) => o.value).slice(0, 3).map((o) => o.value);
+      app.choices.featPicks = [picks];
+      await app.render();
+      await wait(() => !app.element.querySelector("[data-action=finish]").disabled, "the level to be ready");
+      app.element.querySelector("[data-action=finish]").click();
+      await wait(() => heir.items.filter((i) => i.getFlag("modern20", "fromFeat")).length === 3, "Magical Heritage's three cantrips", 20000);
+      const cantrip = heir.items.find((i) => i.getFlag("modern20", "fromFeat"));
+      n = game.messages.size;
+      await castSpell(heir, cantrip);
+      await castSpell(heir, cantrip);
+      await wait(() => cards(n).length >= 1, "the cantrip cast");
+      await new Promise((r) => setTimeout(r, 300));
+      if (cards(n).length !== 1) errors.push(`a Magical Heritage cantrip with no arcane caster levels was cast ${cards(n).length} times today, not once`);
+      if (cantrip.system.savingThrow && !/none/i.test(cantrip.system.savingThrow) && !/DC 13/.test(cards(n)[0].content)) errors.push("the cantrip's DC is not 10 + 0 + Int 16's +3");
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of foundry.applications.instances.values()) if (a.constructor.name === "LevelUp") await a.close();
+    for (const a of made) await a.delete();
+    return errors;
+  },
+
   async "the level window's other cases: a creature's first class level, an ordinary's, 3rd and 4th levels, a new advanced class, a class's last level, a double click, the Wealth check"() {
     const errors = [];
     const { take, wait, doc } = window.m20test;

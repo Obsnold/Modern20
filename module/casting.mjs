@@ -10,12 +10,14 @@ import { characterRolls, post, notesOf, resolverFor, spellResistanceOf } from ".
 import { notesFor, rollTargets } from "./rules/rolls.mjs";
 import { SYSTEM_ID } from "./config.mjs";
 import { skillKey } from "./data/skills.mjs";
+import { featCasterFor, useFromFeat } from "./feat-casting.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s ?? ""));
 const ABILITY_NAMES = { str: "Str", dex: "Dex", con: "Con", int: "Int", wis: "Wis", cha: "Cha" };
 
 /** The caster a spell or power is cast as, and its level for that caster; warns and returns null if none. */
 function caster(actor, item) {
-  const found = C.casterFor(item, actor.system.derived?.casters ?? []);
+  // One a feat gave (Wild Talent's power, Magical Heritage's cantrips) is cast as the feat.
+  const found = featCasterFor(actor, item) ?? C.casterFor(item, actor.system.derived?.casters ?? []);
   if (!found) ui.notifications.warn(`${item.name} is not on the spell or power list of any of ${actor.name}'s classes.`);
   return found;
 }
@@ -47,6 +49,7 @@ export async function castSpell(actor, item) {
   const found = caster(actor, item);
   if (!found) return;
   const c = found.caster;
+  if (c.feat) return useFromFeat(actor, item, found, card);
   if (c.prepared) {
     if ((item.system.cast ?? 0) >= (item.system.prepared ?? 0)) return ui.notifications.warn(`${item.name} is not prepared${item.system.prepared ? " any more today" : ""}. Prepare it on the Magic tab.`);
     await item.update({ "system.cast": (item.system.cast ?? 0) + 1 });
@@ -63,6 +66,7 @@ export async function castSpell(actor, item) {
 export async function manifest(actor, item) {
   const found = caster(actor, item);
   if (!found) return;
+  if (found.caster.feat) return useFromFeat(actor, item, found, card);
   const pp = actor.system.powerPoints;
   const c = C.castingOf(item, found.caster, found.level, actor.system.derived.scores);
   const free = (actor.system.derived?.casters ?? []).reduce((n, x) => Math.max(n, x.freeManifestations), 0);
@@ -97,7 +101,8 @@ export async function adjustSlot(actor, className, level, delta) {
 export async function newDay(actor) {
   const max = (actor.system.derived?.casters ?? []).reduce((n, c) => n + c.powerPoints, 0);
   await actor.update({ "system.slotsUsed": [], "system.powerPoints.value": max, "system.powerPoints.freeUsed": 0 });
-  const spells = actor.items.filter((i) => i.type === "spell" && i.system.cast).map((i) => ({ _id: i.id, "system.cast": 0 }));
+  const spells = actor.items.filter((i) => (i.type === "spell" && i.system.cast) || i.flags?.[SYSTEM_ID]?.featUses)
+    .map((i) => ({ _id: i.id, ...(i.type === "spell" ? { "system.cast": 0 } : {}), ...(i.flags?.[SYSTEM_ID]?.featUses ? { [`flags.${SYSTEM_ID}.featUses`]: 0 } : {}) }));
   if (spells.length) await actor.updateEmbeddedDocuments("Item", spells);
   await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: `<div class="m20-roll"><p>${escape(actor.name)} regains spells${max ? ` and ${max} power points` : ""} for a new day.</p></div>` });
 }

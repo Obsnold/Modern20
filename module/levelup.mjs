@@ -19,6 +19,8 @@ import { SYSTEM_ID } from "./config.mjs";
 import { regainWealth } from "./wealth.mjs";
 import { levelFor } from "./rules/casting.mjs";
 import { newSpells, SPELLBOOK, TRIGGER_LEVELS, triggerAt } from "./rules/learning.mjs";
+import { featCasting } from "./rules/feat-casting.mjs";
+import { eligibleFor } from "./feat-casting.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
@@ -88,7 +90,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const own = actor.items.filter((i) => i.type === "class");
     this.choices = {
       cls: (own.find((c) => c.name === last) ?? own.at(-1))?.name ?? "",
-      hitPoints: null, bought: {}, specialties: [], feats: [], featChoices: [], bonusFeat: "", bonusChoice: "", talent: "", increase: "", grants: [], wealth: true, spells: [], trigger: "",
+      hitPoints: null, bought: {}, specialties: [], feats: [], featChoices: [], bonusFeat: "", bonusChoice: "", talent: "", increase: "", grants: [], wealth: true, spells: [], trigger: "", featPicks: [],
     };
   }
 
@@ -115,7 +117,8 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const caster = { lists: k.lists ?? [], excluded: k.excluded ?? "" };
     const type = k.kind === "psionic" ? "power" : "spell";
     const what = type === "power" ? "power" : "spell";
-    const owned = this.actor.items.filter((i) => i.type === type);
+    // Not those a feat gave (Wild Talent's power): those are the feat's.
+    const owned = this.actor.items.filter((i) => i.type === type && !i.flags?.[SYSTEM_ID]?.fromFeat);
     const had = new Set(owned.map((i) => identify(i)));
     const have = {};
     for (const i of owned) { const l = levelFor(i, caster); if (l !== null) have[l] = (have[l] ?? 0) + 1; }
@@ -237,7 +240,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     // the ranks and increase chosen here, and the other feats this level brings (two at 1st level, a bonus feat,
     // those given).
     // Each with its text's start and its entry, to read before choosing.
-    const feats = (await index("feats", ["system.prerequisites", "system.benefit"])).map((e) => ({ name: e.name, prerequisites: e.system?.prerequisites ?? "", uuid: e.uuid, summary: textStart(e.system?.benefit) }));
+    const feats = (await index("feats", ["system.prerequisites", "system.benefit", "system.identifier", "system.source.book"])).map((e) => ({ name: e.name, prerequisites: e.system?.prerequisites ?? "", uuid: e.uuid, summary: textStart(e.system?.benefit), identifier: e.system?.identifier || slug(e.name), book: e.system?.source?.book ?? "" }));
     const featNamed = (name) => feats.find((f) => f.name === name);
     const chosen = [...this.choices.feats.filter(Boolean), bonusPick?.name, ...grantList.flatMap((g) => g.options.filter((o, i) => granted(g, i)).map((o) => o.name))].filter(Boolean);
     const pre = { d: after, feats: [...have.feats.map((f) => f.name), ...chosen], known: new Set(feats.map((f) => slug(f.name))) };
@@ -247,10 +250,23 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       const r = featPrerequisites(text, pre);
       return { text, met: r.met, missing: r.missing.join(", "), check: r.check.join(", ") };
     };
-    const featSlots = Array.from({ length: plan.feats }, (_, i) => {
+    // A feat that gives spells or powers (Wild Talent, Magical Heritage): a choice for each, under it.
+    const featSlots = await Promise.all(Array.from({ length: plan.feats }, async (_, i) => {
       const name = this.choices.feats[i] ?? "";
-      return { index: i, name, choice: this.choices.featChoices[i] ?? "", choiceKind: CHOICES[slug(name)] ?? "", prerequisites: status(name), uuid: featNamed(name)?.uuid ?? "", summary: featNamed(name)?.summary ?? "" };
-    });
+      const entry = featNamed(name);
+      const rule = entry ? featCasting({ system: { source: { book: entry.book } } }, entry.identifier) : null;
+      let picks = null;
+      if (rule) {
+        const options = await eligibleFor(rule);
+        const chosen = (this.choices.featPicks[i] ?? []).filter((u) => options.some((o) => o.uuid === u));
+        this.choices.featPicks[i] = chosen;
+        picks = {
+          what: rule.type === "power" ? "0-level psionic power" : "0-level arcane spell", missing: rule.count - chosen.filter(Boolean).length,
+          selects: Array.from({ length: rule.count }, (_, n) => ({ n, options: options.map((o) => ({ value: o.uuid, label: o.name, selected: chosen[n] === o.uuid, disabled: chosen.includes(o.uuid) && chosen[n] !== o.uuid })) })),
+        };
+      }
+      return { index: i, name, choice: this.choices.featChoices[i] ?? "", choiceKind: CHOICES[slug(name)] ?? "", prerequisites: status(name), uuid: entry?.uuid ?? "", summary: entry?.summary ?? "", picks };
+    }));
     // The class's bonus feat list and talent trees, each talent with its prerequisites.
     const bonusOptions = plan.bonusFeat ? (cls.system.bonusFeats ?? []).map((o, i) => {
       const unmet = status(o.name).met === false;
@@ -281,6 +297,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const unknown = featSlots.filter((f) => f.name && !feats.some((x) => x.name === f.name)).map((f) => f.name);
     const warnings = [
       ...featSlots.filter((f) => !f.name).map(() => "A feat is not chosen."),
+      ...featSlots.filter((f) => f.picks?.missing > 0).map((f) => `${f.name}: ${f.picks.missing} ${f.picks.what}${f.picks.missing === 1 ? "" : "s"} not chosen (asked for after the level).`),
       ...featSlots.filter((f) => f.name && f.prerequisites.met === false).map((f) => `${f.name}: prerequisites not met (${f.prerequisites.missing}).`),
       plan.bonusFeat && bonusPick && status(bonusPick.name).met === false && `${bonusPick.name}: prerequisites not met (${status(bonusPick.name).missing}).`,
       plan.bonusFeat && !this.choices.bonusFeat && "The bonus feat is not chosen.",
@@ -330,7 +347,11 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     if (f.spells) for (const [i, v] of Object.entries(f.spells)) s.spells[i] = v ?? "";
     if (f.trigger !== undefined) s.trigger = f.trigger;
     if (f.hitPoints !== undefined) s.hitPoints = f.hitPoints === "" || f.hitPoints === null ? null : Math.max(1, Math.min(this.plan?.hitDie || 99, Math.round(Number(f.hitPoints)) || 1));
-    if (f.feats) for (const [i, v] of Object.entries(f.feats)) { s.feats[i] = v.name ?? ""; s.featChoices[i] = v.choice ?? ""; }
+    if (f.feats) for (const [i, v] of Object.entries(f.feats)) {
+      if (s.feats[i] !== (v.name ?? "")) s.featPicks[i] = [];
+      else if (v.picks) s.featPicks[i] = Object.values(v.picks);
+      s.feats[i] = v.name ?? ""; s.featChoices[i] = v.choice ?? "";
+    }
     if (f.bonusFeat !== undefined) s.bonusFeat = f.bonusFeat;
     if (f.bonusChoice !== undefined) s.bonusChoice = f.bonusChoice;
     if (f.talent !== undefined) s.talent = f.talent;
@@ -426,7 +447,8 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const featIndex = await index("feats");
     for (const [i, name] of s.feats.entries()) {
       const entry = featIndex.find((e) => e.name === name);
-      if (entry) await add(entry.uuid, s.featChoices[i] ? { choice: s.featChoices[i] } : {});
+      const picks = (s.featPicks[i] ?? []).filter(Boolean);
+      if (entry) await add(entry.uuid, s.featChoices[i] ? { choice: s.featChoices[i] } : {}, picks.length ? { featPicks: picks } : {});
     }
     const bonus = plan.bonusFeat && s.bonusFeat !== "" ? (cls.system.bonusFeats ?? [])[Number(s.bonusFeat)] : null;
     if (bonus) await add(bonus.uuid, { choice: bonus.specialty || s.bonusChoice || "" }, { bonusFor: classItem.id, bonusAdded: true });

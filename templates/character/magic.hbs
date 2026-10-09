@@ -25,6 +25,12 @@
           </table>
         </div>
       {{/each}}
+      {{#each magic.feats}}
+        <div class="m20-caster" data-feat-id="{{id}}">
+          <p><strong>{{name}}</strong> <span class="m20-hint">caster level {{casterLevel}}; each {{uses}} times a day{{#if gave}}: {{gave}}{{/if}}</span>
+            {{#if missing}}<a class="m20-roll-button" data-action="chooseFeatPicks" data-tooltip="Choose what the feat gives"><i class="fa-solid fa-plus"></i> Choose {{missing}} {{what}}{{#unless (eq missing 1)}}s{{/unless}}</a>{{/if}}</p>
+        </div>
+      {{/each}}
       {{#if magic.powerPoints}}
         <div class="m20-power-points">
           <label>Power points <input type="number" name="system.powerPoints.value" value="{{magic.powerPoints.value}}"> / {{magic.powerPoints.max}}</label>
@@ -42,6 +48,7 @@
         <div class="m20-item" data-item-id="{{id}}">
           <img src="{{img}}" alt="" width="28" height="28">
           <a class="m20-item-name" data-action="editItem">{{name}}</a>
+          {{#if uses}}<span class="m20-tag" data-tooltip="From {{uses.from}}: cast {{uses.max}} times a day">{{uses.left}} / {{uses.max}} today</span>{{/if}}
           {{#if preparedCaster}}<label class="m20-prepared" data-tooltip="Times prepared today; {{cast}} cast">Prepared <input type="number" min="0" value="{{prepared}}" data-item-field="prepared"></label>{{/if}}
           <span class="m20-item-detail">{{#if dc}}DC {{dc}}; {{/if}}{{detail}}</span>
           {{#unless meets}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="Needs {{needs}} to cast"></i>{{/unless}}
@@ -63,7 +70,8 @@
         <div class="m20-item" data-item-id="{{id}}">
           <img src="{{img}}" alt="" width="28" height="28">
           <a class="m20-item-name" data-action="editItem">{{name}}</a>
-          <span class="m20-item-detail">{{#if found}}{{#if level}}{{cost}} pp{{else}}free / 1 pp{{/if}}; {{/if}}{{#if dc}}DC {{dc}}; {{/if}}{{detail}}</span>
+          <span class="m20-item-detail">{{#if found}}{{#unless uses}}{{#if level}}{{cost}} pp{{else}}free / 1 pp{{/if}}; {{/unless}}{{/if}}{{#if dc}}DC {{dc}}; {{/if}}{{detail}}</span>
+          {{#if uses}}<span class="m20-tag" data-tooltip="From {{uses.from}}: manifested {{uses.max}} times a day, no power points">{{uses.left}} / {{uses.max}} today</span>{{/if}}
           {{#if trigger}}<span class="m20-tag" data-tooltip="Trigger power: with enough power points for it, an ability check appropriate to it manifests it for none; failing, its cost is paid">Trigger</span>{{/if}}
           {{#unless meets}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="Needs {{needs}} to manifest"></i>{{/unless}}
           {{#if found}}<a data-action="manifestPower" data-tooltip="Manifest"><i class="fa-solid fa-brain"></i></a>{{/if}}

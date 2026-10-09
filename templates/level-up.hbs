@@ -66,6 +66,7 @@
             <input type="text" name="feats.{{index}}.name" value="{{name}}" list="m20-levelup-feats" placeholder="A feat">
             {{#if uuid}}<a class="m20-read" data-action="view" data-uuid="{{uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}
             {{#if choiceKind}}<input type="text" name="feats.{{index}}.choice" value="{{choice}}" placeholder="Choose a {{choiceKind}}">{{/if}}
+            {{#if picks}}{{#each picks.selects}}<br><select name="feats.{{../index}}.picks.{{n}}"><option value="">— a {{../picks.what}} —</option>{{#each options}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if disabled}}disabled{{/if}}>{{label}}</option>{{/each}}</select>{{/each}}{{/if}}
             {{#if summary}}<br><span class="m20-hint m20-summary">{{summary}}</span>{{/if}}
             {{#if prerequisites.text}}<br><span class="{{#if (eq prerequisites.met false)}}m20-warning{{else}}m20-hint{{/if}}">Prerequisites: {{prerequisites.text}}{{#if (eq prerequisites.met false)}} (not met: {{prerequisites.missing}}){{else if prerequisites.check}} (check by hand: {{prerequisites.check}}){{else}} <i class="fa-solid fa-check"></i>{{/if}}</span>{{/if}}
           </p>

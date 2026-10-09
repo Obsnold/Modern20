@@ -21,6 +21,8 @@ import { applyToActor, rollSave, stabiliseWithHelp } from "../damage.mjs";
 import { buy, sell, rollStartingWealth, regainWealth } from "../wealth.mjs";
 import { speciesLanguages, rankedLanguages, SOURCES } from "../rules/languages.mjs";
 import { castSpell, manifest, newDay, adjustSlot, incantationCheck } from "../casting.mjs";
+import { featRule, fromFeat, featCasterFor, chooseFor } from "../feat-casting.mjs";
+import { featCaster } from "../rules/feat-casting.mjs";
 import { ammoFor, reloadWeapon, specialLoad } from "../ammo.mjs";
 import { magazineOf, fits, specialAmmo, caliberIn } from "../rules/ammo.mjs";
 import { unarmedRules } from "../rules/unarmed.mjs";
@@ -106,6 +108,7 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       fxItemFromSpell: Modern20CharacterSheet.#onFxItemFromSpell,
       magicMastercraft: Modern20CharacterSheet.#onMagicMastercraft,
       castSpell: Modern20CharacterSheet.#onCastSpell,
+      chooseFeatPicks: Modern20CharacterSheet.#onChooseFeatPicks,
       manifestPower: Modern20CharacterSheet.#onManifestPower,
       newDay: Modern20CharacterSheet.#onNewDay,
       adjustSlot: Modern20CharacterSheet.#onAdjustSlot,
@@ -162,6 +165,13 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
     context.grants = partId === "feats" ? context.featGrants : [];
     context.classChoices = partId === "feats" ? context.classChoiceList : [];
     return context;
+  }
+
+  /** A feat that gives spells or powers (Wild Talent, Magical Heritage), dropped on: what it gives asked for. */
+  async _onDropItem(event, item) {
+    const created = await super._onDropItem(event, item);
+    if (created && created.parent === this.document && featRule(created) && !created.flags?.modern20?.featPicks?.length && !fromFeat(this.document, created).length) await chooseFor(this.document, created);
+    return created;
   }
 
   async _prepareContext(options) {
@@ -555,6 +565,11 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
 
   static async #onUseItem(event, target) { const i = this.#item(target); if (i) await useItem(this.document, i); }
   static async #onReload(event, target) { const i = this.#item(target); if (i) await reloadWeapon(this.document, i); }
+  static async #onChooseFeatPicks(event, target) {
+    const feat = this.document.items.get(target.closest("[data-feat-id]")?.dataset.featId);
+    if (feat) await chooseFor(this.document, feat);
+  }
+
   static async #onCastSpell(event, target) { const i = this.#item(target); if (i) await castSpell(this.document, i); }
   static async #onManifestPower(event, target) { const i = this.#item(target); if (i) await manifest(this.document, i); }
   static async #onNewDay() { await newDay(this.document); }
@@ -930,13 +945,14 @@ function magicContext(actor, ofType) {
   const scores = d.scores ?? {};
   const spells = ofType("spell"), powers = ofType("power");
   const row = (i) => {
-    const found = casterFor(i, list);
+    const found = featCasterFor(actor, i) ?? casterFor(i, list);
+    const uses = found?.caster.feat ? { left: found.caster.uses - (i.flags?.modern20?.featUses ?? 0), max: found.caster.uses, from: found.caster.name } : null;
     const c = found ? castingOf(i, found.caster, found.level, scores) : null;
     return {
       id: i.id, name: i.name, img: i.img, found: !!found, level: found?.level ?? null, className: found?.caster.name ?? "",
       prepared: i.system.prepared ?? 0, cast: i.system.cast ?? 0, left: (i.system.prepared ?? 0) - (i.system.cast ?? 0),
       preparedCaster: found?.caster.prepared, dc: c?.hasSave ? c.dc : null, cost: c?.cost ?? 0, meets: c?.meets ?? true,
-      needs: c ? `${ABBR[c.ability] ?? c.ability} ${c.needs}` : "", trigger: !!i.flags?.modern20?.trigger, detail: [i.system.range, i.system.duration].filter(Boolean).join("; "),
+      needs: c ? `${ABBR[c.ability] ?? c.ability} ${c.needs}` : "", uses, trigger: !!i.flags?.modern20?.trigger, detail: [i.system.range, i.system.duration].filter(Boolean).join("; "),
     };
   };
   const group = (items) => {
@@ -950,7 +966,8 @@ function magicContext(actor, ofType) {
   const used = (name) => Object.fromEntries(actor.system.slotsUsed.filter((s) => s.class === name).map((s) => [s.level, s.used]));
   const casters = list.map((c) => {
     const u = used(c.name);
-    const mine = [...spells, ...powers].filter((i) => casterFor(i, [c]));
+    // Those a feat gave are the feat's, not counted among the class's.
+    const mine = [...spells, ...powers].filter((i) => !i.flags?.modern20?.fromFeat && casterFor(i, [c]));
     const atLevel = (l) => mine.filter((i) => casterFor(i, [c]).level === l);
     const levels = [...new Set([...Object.keys(c.perDay), ...Object.keys(c.known)].map(Number))].sort((a, b) => a - b);
     return {
@@ -969,8 +986,14 @@ function magicContext(actor, ofType) {
   });
   const powerMax = list.reduce((n, c) => n + c.powerPoints, 0);
   const free = list.reduce((n, c) => Math.max(n, c.freeManifestations), 0);
+  // Feats that give spells or powers: what each gave, and a choice for what it still lacks.
+  const feats = actor.items.filter((i) => featRule(i)).map((f) => {
+    const rule = featRule(f), have = fromFeat(actor, f);
+    const c = featCaster(rule, f.name, list);
+    return { id: f.id, name: f.name, gave: have.map((i) => i.name).join(", "), missing: Math.max(0, rule.count - have.length), what: rule.type === "power" ? "power" : "cantrip", uses: c.uses, casterLevel: c.casterLevel };
+  });
   return {
-    casters, any: list.length > 0,
+    casters, feats, any: list.length > 0 || feats.length > 0,
     powerPoints: powerMax || powers.length ? { value: actor.system.powerPoints.value, max: powerMax, freeUsed: actor.system.powerPoints.freeUsed, free } : null,
     spells: group(spells), powers: group(powers),
     incantations: ofType("incantation").map((i) => {
