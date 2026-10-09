@@ -1490,6 +1490,95 @@ export const CHECKS = {
     return errors;
   },
 
+  async "spells and powers in the level window: a Mage's spellbook at 1st, a Telepath's new powers and trigger power at 2nd, undone"() {
+    const errors = [];
+    const { take, wait, doc } = window.m20test;
+    const { LevelUp, undoLastLevel } = await import("/systems/modern20/module/levelup.mjs");
+    const made = [];
+    const character = async (name, scores, items) => {
+      const abilities = Object.fromEntries(["str", "dex", "con", "int", "wis", "cha"].map((a) => [a, { value: scores[a] ?? 10 }]));
+      const a = await Actor.implementation.create({ name, type: "character", system: { abilities } });
+      made.push(a);
+      if (items.length) await a.createEmbeddedDocuments("Item", await Promise.all(items));
+      await new Promise((r) => setTimeout(r, 300));
+      return a;
+    };
+    const open = async (actor, cls) => {
+      const app = new LevelUp(actor);
+      if (cls) app.choices.cls = cls;
+      await app.render(true);
+      await wait(() => app.rendered && app.plan, "the level window");
+      return app;
+    };
+    // Each choice its first option not chosen in another.
+    const chooseAll = async (app) => {
+      const picked = [];
+      for (const select of app.element.querySelectorAll("select[name^='spells.']")) {
+        const option = [...select.querySelectorAll("option")].find((o) => o.value && !picked.includes(o.value));
+        picked.push(option?.value ?? "");
+      }
+      app.choices.spells = picked;
+      await app.render();
+      await wait(() => app.learn?.chosen.length === picked.filter(Boolean).length, "the choices taken");
+      return picked;
+    };
+    const finish = async (app, actor, n) => {
+      await wait(() => app.element.querySelector("[data-action=finish]") && !app.element.querySelector("[data-action=finish]").disabled, "the level to be ready");
+      app.element.querySelector("[data-action=finish]").click();
+      await wait(() => actor.system.history.length === n || !app.finishing, "the level taken", 20000);
+      if (actor.system.history.length !== n) throw new Error(`the level was not taken: ${[...document.querySelectorAll("#notifications li")].map((l) => l.textContent).join(" | ")}`);
+    };
+    const undo = async (actor) => {
+      const undone = undoLastLevel(actor);
+      const confirm = await wait(() => [...foundry.applications.instances.values()].find((a) => a instanceof foundry.applications.api.DialogV2 && a.rendered), "the undo question");
+      confirm.element.querySelector("button[data-action=yes]").click();
+      await undone;
+    };
+    const levelOf = (i, list) => i.system.levels.find((l) => list.includes(l.class))?.level;
+    try {
+      // A Mage at 1st with Int 14: every 0-level arcane spell, and 3 + 2 1st-level ones chosen.
+      const mage = await character("Mage spellbook (test)", { int: 14 }, []);
+      let app = await open(mage, (await doc("classes", "Mage")).uuid);
+      const slots = app.element.querySelectorAll("select[name^='spells.']").length;
+      if (slots !== 5) errors.push(`a Mage at 1st with Int 14 chooses ${slots} 1st-level spells, not 5`);
+      const zero = app.learn.all.length;
+      if (zero < 10) errors.push(`a Mage's spellbook starts with ${zero} 0-level spells`);
+      await chooseAll(app);
+      await finish(app, mage, 1);
+      const spells = mage.items.filter((i) => i.type === "spell");
+      const ones = spells.filter((i) => levelOf(i, ["Mage", "Arcane"]) === 1).length;
+      if (spells.length !== zero + 5 || ones !== 5) errors.push(`the Mage has ${spells.length} spells (${ones} 1st-level), not ${zero} + 5`);
+      // A Telepath at 2nd, with none yet: 3 0-level and 2 1st-level powers by the table, and a trigger power among them.
+      const telepath = await character("Telepath powers (test)", { cha: 14 }, [take("classes", "Telepath", { level: 1 })]);
+      app = await open(telepath);
+      app.choices.hitPoints = 3;
+      const picks = await chooseAll(app);
+      if (picks.length !== 5) errors.push(`a Telepath at 2nd with no powers chooses ${picks.length}, not 5`);
+      const trigger = await wait(() => app.element.querySelector("select[name=trigger]"), "the trigger power choice");
+      const option = [...trigger.querySelectorAll("option")].find((o) => o.value.startsWith("new:"));
+      app.choices.trigger = option?.value ?? "";
+      await app.render();
+      await wait(() => app.learn.trigger === option?.value, "the trigger power chosen");
+      await finish(app, telepath, 1);
+      const powers = telepath.items.filter((i) => i.type === "power");
+      const marked = powers.filter((i) => i.getFlag("modern20", "trigger") === telepath.system.history.at(-1).id);
+      if (powers.length !== 5 || marked.length !== 1) errors.push(`the Telepath has ${powers.length} powers, ${marked.length} its trigger power`);
+      telepath.sheet.render(true);
+      await wait(() => telepath.sheet.rendered, "the Telepath's sheet");
+      telepath.sheet.changeTab("magic", "primary");
+      if (!telepath.sheet.element.querySelector(`[data-item-id="${marked[0]?.id}"] .m20-tag`)) errors.push("the Magic tab does not mark the trigger power");
+      await telepath.sheet.close();
+      await undo(telepath);
+      await wait(() => telepath.system.history.length === 0, "the level taken back", 20000);
+      if (telepath.items.some((i) => i.type === "power")) errors.push("undoing the level leaves its powers");
+    } catch (e) {
+      errors.push(e.message);
+    }
+    for (const a of foundry.applications.instances.values()) if (a.constructor.name === "LevelUp") await a.close();
+    for (const a of made) await a.delete();
+    return errors;
+  },
+
   async "the level window's other cases: a creature's first class level, an ordinary's, 3rd and 4th levels, a new advanced class, a class's last level, a double click, the Wealth check"() {
     const errors = [];
     const { take, wait, doc } = window.m20test;

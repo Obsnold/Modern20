@@ -15,7 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright-core";
 import { PRELUDE } from "./checks.mjs";
-import { REPO, DATA, BROWSER, prepare, freshWorld, startServer, stopServer, join, elapsed, fail } from "./harness.mjs";
+import { REPO, DATA, BROWSER, BROWSER_ARGS, prepare, freshWorld, startServer, stopServer, join, elapsed, fail } from "./harness.mjs";
 
 const WORLD = "modern20-upgrade";
 const git = (...args) => execFileSync("git", args, { cwd: REPO, encoding: "utf8" }).trim();
@@ -139,7 +139,7 @@ async function main() {
   const release = checkout(tag);
   const problems = [];
   let errors = [];
-  const browser = await chromium.launch({ executablePath: BROWSER, headless: true });
+  const browser = await chromium.launch({ executablePath: BROWSER, headless: true, args: BROWSER_ARGS });
   try {
     // The world on the release.
     prepare(release);

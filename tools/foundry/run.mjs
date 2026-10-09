@@ -18,7 +18,7 @@ import { chromium } from "playwright-core";
 import { CHECKS, PRELUDE } from "./checks.mjs";
 import { SETUP, SHOW } from "./screenshots.mjs";
 import * as PLAYERS from "./players.mjs";
-import { FOUNDRY, DATA, BROWSER, PORT, prepare, freshWorld, startServer, stopServer, join, elapsed, fail } from "./harness.mjs";
+import { FOUNDRY, DATA, BROWSER, BROWSER_ARGS, PORT, prepare, freshWorld, startServer, stopServer, join, elapsed, fail } from "./harness.mjs";
 
 const WORLD = "modern20-test";
 
@@ -31,7 +31,7 @@ async function main() {
   console.log(`starting Foundry (${FOUNDRY}) on port ${PORT}...`);
   const server = await startServer(WORLD);
   console.log(`[${elapsed()}] joining the test world as the Gamemaster...`);
-  const browser = await chromium.launch({ executablePath: BROWSER, headless: true });
+  const browser = await chromium.launch({ executablePath: BROWSER, headless: true, args: BROWSER_ARGS });
   const problems = [];
   let failed = 0, ran = 0;
   try {

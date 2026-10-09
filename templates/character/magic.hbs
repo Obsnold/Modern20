@@ -64,6 +64,7 @@
           <img src="{{img}}" alt="" width="28" height="28">
           <a class="m20-item-name" data-action="editItem">{{name}}</a>
           <span class="m20-item-detail">{{#if found}}{{#if level}}{{cost}} pp{{else}}free / 1 pp{{/if}}; {{/if}}{{#if dc}}DC {{dc}}; {{/if}}{{detail}}</span>
+          {{#if trigger}}<span class="m20-tag" data-tooltip="Trigger power: with enough power points for it, an ability check appropriate to it manifests it for none; failing, its cost is paid">Trigger</span>{{/if}}
           {{#unless meets}}<i class="fa-solid fa-triangle-exclamation m20-warning" data-tooltip="Needs {{needs}} to manifest"></i>{{/unless}}
           {{#if found}}<a data-action="manifestPower" data-tooltip="Manifest"><i class="fa-solid fa-brain"></i></a>{{/if}}
           <a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>

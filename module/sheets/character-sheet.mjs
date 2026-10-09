@@ -936,7 +936,7 @@ function magicContext(actor, ofType) {
       id: i.id, name: i.name, img: i.img, found: !!found, level: found?.level ?? null, className: found?.caster.name ?? "",
       prepared: i.system.prepared ?? 0, cast: i.system.cast ?? 0, left: (i.system.prepared ?? 0) - (i.system.cast ?? 0),
       preparedCaster: found?.caster.prepared, dc: c?.hasSave ? c.dc : null, cost: c?.cost ?? 0, meets: c?.meets ?? true,
-      needs: c ? `${ABBR[c.ability] ?? c.ability} ${c.needs}` : "", detail: [i.system.range, i.system.duration].filter(Boolean).join("; "),
+      needs: c ? `${ABBR[c.ability] ?? c.ability} ${c.needs}` : "", trigger: !!i.flags?.modern20?.trigger, detail: [i.system.range, i.system.duration].filter(Boolean).join("; "),
     };
   };
   const group = (items) => {

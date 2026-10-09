@@ -17,10 +17,13 @@ import { SKILLS } from "./data/skills.mjs";
 import { ABILITIES } from "./data/models.mjs";
 import { SYSTEM_ID } from "./config.mjs";
 import { regainWealth } from "./wealth.mjs";
+import { levelFor } from "./rules/casting.mjs";
+import { newSpells, SPELLBOOK, TRIGGER_LEVELS, triggerAt } from "./rules/learning.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 const ABILITY_NAMES = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
 const signed = (n) => (n >= 0 ? `+${n}` : `${n}`);
+const ORDINALS = ["0-level", "1st-level", "2nd-level", "3rd-level", "4th-level", "5th-level", "6th-level", "7th-level", "8th-level", "9th-level"];
 
 /** A character's items as the rules take them, with their effects (as data/foundry.mjs prepares them). */
 function plainItems(actor) {
@@ -85,7 +88,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const own = actor.items.filter((i) => i.type === "class");
     this.choices = {
       cls: (own.find((c) => c.name === last) ?? own.at(-1))?.name ?? "",
-      hitPoints: null, bought: {}, specialties: [], feats: [], featChoices: [], bonusFeat: "", bonusChoice: "", talent: "", increase: "", grants: [], wealth: true,
+      hitPoints: null, bought: {}, specialties: [], feats: [], featChoices: [], bonusFeat: "", bonusChoice: "", talent: "", increase: "", grants: [], wealth: true, spells: [], trigger: "",
     };
   }
 
@@ -98,6 +101,67 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     this.loaded[this.choices.cls] ??= await fromUuid(this.choices.cls);
     const doc = this.loaded[this.choices.cls];
     return doc ? { name: doc.name, system: doc.system, uuid: doc.uuid, own: null } : null;
+  }
+
+  /**
+   * The spells or powers the level brings (rules/learning.mjs): those added whole (a Mage's 0-level spells at
+   * 1st), a choice for each new one from the compendium on the class's lists but those had, and a Telepath's
+   * trigger power. Kept in `this.learn` for taking the level. `after` is the character at the new level.
+   */
+  async #learning(cls, plan, after) {
+    this.learn = { all: [], chosen: [], trigger: "" };
+    const k = cls.system.casting;
+    if (!k?.kind || k.boosts) return null;
+    const caster = { lists: k.lists ?? [], excluded: k.excluded ?? "" };
+    const type = k.kind === "psionic" ? "power" : "spell";
+    const what = type === "power" ? "power" : "spell";
+    const owned = this.actor.items.filter((i) => i.type === type);
+    const had = new Set(owned.map((i) => identify(i)));
+    const have = {};
+    for (const i of owned) { const l = levelFor(i, caster); if (l !== null) have[l] = (have[l] ?? 0) + 1; }
+    const book = SPELLBOOK[cls.name];
+    const n = newSpells(cls, plan.classLevel, { modifier: book ? after.modifiers?.[book.ability] ?? 0 : 0, have });
+    const pack = type === "power" ? "powers" : "spells";
+    const entries = (await index(pack, ["system.levels", "system.identifier", "system.description"]))
+      .map((e) => ({ name: e.name, uuid: e.uuid, level: levelFor({ name: e.name, system: e.system ?? {} }, caster), id: e.system?.identifier || slug(e.name), summary: textStart(e.system?.description) }))
+      .filter((e) => e.level !== null && !had.has(e.id))
+      .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
+    const byUuid = new Map(entries.map((e) => [e.uuid, e]));
+    const all = entries.filter((e) => n.all.includes(e.level));
+    // A choice for each new spell, of the levels it may be; one chosen in another is not offered again.
+    const choices = this.choices.spells;
+    let at = 0;
+    const slots = n.picks.flatMap((p) => Array.from({ length: p.count }, () => {
+      const index = at++;
+      const value = byUuid.has(choices[index]) && p.levels.includes(byUuid.get(choices[index]).level) ? choices[index] : "";
+      const taken = new Set(choices.filter((c, i) => i !== index && c));
+      const groups = p.levels.map((l) => ({ label: ORDINALS[l] ?? `${l}th-level`, options: entries.filter((e) => e.level === l).map((e) => ({ value: e.uuid, label: e.name, selected: e.uuid === value, disabled: taken.has(e.uuid) })) })).filter((g) => g.options.length);
+      return { index, value, levels: p.levels.map((l) => ORDINALS[l] ?? l).join(" or "), groups, summary: byUuid.get(value)?.summary ?? "" };
+    }));
+    this.learn.all = all.map((e) => e.uuid);
+    this.learn.chosen = slots.map((sl) => sl.value).filter(Boolean);
+    // Trigger Power: one of the powers it has, or chooses now, of 0 to 3rd level, not already a trigger.
+    let trigger = null;
+    if (type === "power" && triggerAt(plan.features)) {
+      const options = [
+        ...owned.filter((i) => TRIGGER_LEVELS.includes(levelFor(i, caster)) && !i.flags?.[SYSTEM_ID]?.trigger).map((i) => ({ value: `item:${i.id}`, label: i.name })),
+        ...this.learn.chosen.map((u) => byUuid.get(u)).filter((e) => TRIGGER_LEVELS.includes(e.level)).map((e) => ({ value: `new:${e.uuid}`, label: `${e.name} (chosen now)` })),
+      ];
+      const value = options.some((o) => o.value === this.choices.trigger) ? this.choices.trigger : "";
+      this.learn.trigger = value;
+      trigger = { options: options.map((o) => ({ ...o, selected: o.value === value })), value };
+    }
+    const unchosen = slots.filter((sl) => !sl.value).length;
+    const plural = (x, word) => `${x} ${word}${x === 1 ? "" : "s"}`;
+    return {
+      title: type === "power" ? "Psionic powers" : "Spells", pack,
+      intro: n.kind === "spellbook"
+        ? (plan.classLevel === 1 ? `Your spellbook: every 0-level spell (${all.length} added), and ${plural(n.picks[0]?.count ?? 0, "1st-level spell")} of your choice (3 and your Intelligence bonus).` : `Two new spells for your spellbook, of levels you can cast at ${cls.name} ${plan.classLevel}.`)
+        : n.kind === "known" ? (slots.length ? `${plural(slots.length, `new ${what}`)} known at ${cls.name} ${plan.classLevel}, by its table.` : `No new ${what}s known at ${cls.name} ${plan.classLevel}.`)
+        : n.note,
+      all: all.map((e) => ({ name: e.name, uuid: e.uuid })), slots, trigger,
+      warnings: [unchosen && `${plural(unchosen, what)} not chosen.`, trigger && !trigger.value && "The trigger power is not chosen."].filter(Boolean),
+    };
   }
 
   async _prepareContext(options) {
@@ -211,6 +275,8 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       }),
     }));
 
+    const learning = await this.#learning(cls, plan, after);
+
     // What is left undone (a warning: the level can still be taken), and a feat that is not one (it would be lost).
     const unknown = featSlots.filter((f) => f.name && !feats.some((x) => x.name === f.name)).map((f) => f.name);
     const warnings = [
@@ -221,6 +287,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       plan.talent && !this.choices.talent && "The talent is not chosen.",
       plan.increase && !this.choices.increase && "The ability increase is not chosen.",
       left > 0 && `${left} skill point${left === 1 ? "" : "s"} not spent.`,
+      ...(learning?.warnings ?? []),
     ].filter(Boolean);
     const errors = [
       ...unknown.map((n) => `“${n}” is not a feat in the compendium.`),
@@ -249,7 +316,7 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       classUuid: cls.own?.uuid ?? cls.uuid ?? "",
       features: plan.features.map((name) => ({ name, uuid: (cls.system.features ?? []).find((f) => f.name === name)?.uuid ?? "" })),
       increase: plan.increase ? ABILITIES.map((a) => ({ value: a, label: ABILITY_NAMES[a], selected: this.choices.increase === a })) : null,
-      grants,
+      grants, learning,
       wealth: !plan.firstClass ? { checked: this.choices.wealth } : null,
       ready: !errors.length,
     });
@@ -259,7 +326,9 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
   static async #onChange(event, form, formData) {
     const f = foundry.utils.expandObject(formData.object);
     const s = this.choices;
-    if (f.cls !== undefined && f.cls !== s.cls) Object.assign(s, { cls: f.cls, bought: {}, bonusFeat: "", talent: "" });
+    if (f.cls !== undefined && f.cls !== s.cls) Object.assign(s, { cls: f.cls, bought: {}, bonusFeat: "", talent: "", spells: [], trigger: "" });
+    if (f.spells) for (const [i, v] of Object.entries(f.spells)) s.spells[i] = v ?? "";
+    if (f.trigger !== undefined) s.trigger = f.trigger;
     if (f.hitPoints !== undefined) s.hitPoints = f.hitPoints === "" || f.hitPoints === null ? null : Math.max(1, Math.min(this.plan?.hitDie || 99, Math.round(Number(f.hitPoints)) || 1));
     if (f.feats) for (const [i, v] of Object.entries(f.feats)) { s.feats[i] = v.name ?? ""; s.featChoices[i] = v.choice ?? ""; }
     if (f.bonusFeat !== undefined) s.bonusFeat = f.bonusFeat;
@@ -362,6 +431,21 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
     const bonus = plan.bonusFeat && s.bonusFeat !== "" ? (cls.system.bonusFeats ?? [])[Number(s.bonusFeat)] : null;
     if (bonus) await add(bonus.uuid, { choice: bonus.specialty || s.bonusChoice || "" }, { bonusFor: classItem.id, bonusAdded: true });
     if (plan.talent && s.talent) await add(s.talent);
+    // The spells or powers: those added whole, those chosen, the trigger power marked with this level.
+    const learn = this.learn ?? { all: [], chosen: [], trigger: "" };
+    // Fetched at once: a Mage's 0-level spells are a score of them.
+    const wanted = [...learn.all, ...learn.chosen];
+    if (wanted.length) {
+      const pack = game.packs.get(foundry.utils.parseUuid(wanted[0]).collection?.collection ?? "");
+      const docs = pack ? await pack.getDocuments({ _id__in: wanted.map((u) => foundry.utils.parseUuid(u).id) }) : [];
+      for (const doc of docs) {
+        const o = doc.toObject();
+        delete o._id;
+        foundry.utils.mergeObject(o, { flags: { [SYSTEM_ID]: learn.trigger === `new:${doc.uuid}` ? { trigger: history.id } : {} }, _stats: { compendiumSource: doc.uuid } });
+        created.push(o);
+      }
+    }
+    if (learn.trigger.startsWith("item:")) await actor.items.get(learn.trigger.slice(5))?.setFlag(SYSTEM_ID, "trigger", history.id);
     if (plan.firstClass) {
       const grantItems = plainItems(actor).filter((i) => i.type !== "actor");
       for (const g of featGrants(grantItems, actor.system.startingClass)) {
@@ -554,11 +638,13 @@ export async function undoLastLevel(actor) {
   const ok = await foundry.applications.api.DialogV2.confirm({
     window: { title: grant ? `${actor.name}: undo what was granted` : `${actor.name}: undo level ${last.level}` },
     content: grant ? `<p>Take back what was granted (${foundry.utils.escapeHTML(last.note)}): its items, ranks and ability bonus?</p>`
-      : `<p>Take back level ${last.level} (${foundry.utils.escapeHTML(last.className)}): its hit points, skill ranks, feats and talents, ability increase and action points?</p>`,
+      : `<p>Take back level ${last.level} (${foundry.utils.escapeHTML(last.className)}): its hit points, skill ranks, feats and talents, spells and powers, ability increase and action points?</p>`,
   });
   if (!ok) return;
   const items = last.items.filter((id) => actor.items.has(id));
   if (items.length) await actor.deleteEmbeddedDocuments("Item", items);
+  // A trigger power chosen with it, among those kept.
+  for (const i of actor.items.filter((x) => x.flags?.[SYSTEM_ID]?.trigger === last.id)) await i.unsetFlag(SYSTEM_ID, "trigger");
   const effects = (last.effects ?? []).filter((id) => actor.effects.has(id));
   if (effects.length) await actor.deleteEmbeddedDocuments("ActiveEffect", effects);
   const { skills, specialtySkills } = L.unbuyRanks(actor.system.toObject(), last.ranks);

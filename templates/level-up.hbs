@@ -93,6 +93,26 @@
       </section>
     {{/if}}
 
+    {{#if learning}}
+      <section class="m20-panel">
+        <h3>{{learning.title}} <a class="m20-read" data-action="browse" data-pack="{{learning.pack}}" data-tooltip="Browse the compendium to read any of them"><i class="fa-solid fa-book"></i></a></h3>
+        <p class="m20-hint">{{learning.intro}}</p>
+        {{#if learning.all.length}}<p class="m20-hint">Added: {{#each learning.all}}{{name}} <a class="m20-read" data-action="view" data-uuid="{{uuid}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{#unless @last}}, {{/unless}}{{/each}}.</p>{{/if}}
+        {{#each learning.slots}}
+          <p>
+            <select name="spells.{{index}}"><option value="">— a {{levels}} one —</option>{{#each groups}}<optgroup label="{{label}}">{{#each options}}<option value="{{value}}" {{#if selected}}selected{{/if}} {{#if disabled}}disabled{{/if}}>{{label}}</option>{{/each}}</optgroup>{{/each}}</select>
+            {{#if value}}<a class="m20-read" data-action="view" data-uuid="{{value}}" data-tooltip="Read it"><i class="fa-solid fa-book-open"></i></a>{{/if}}
+            {{#if summary}}<br><span class="m20-hint m20-summary">{{summary}}</span>{{/if}}
+          </p>
+        {{/each}}
+        {{#if learning.trigger}}
+          <h4>Trigger power</h4>
+          <p class="m20-hint">One 0- to 3rd-level power you know, to try to manifest for no power points: an ability check appropriate to it, paying its cost if that fails.</p>
+          <select name="trigger"><option value="">—</option>{{#each learning.trigger.options}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+        {{/if}}
+      </section>
+    {{/if}}
+
     {{#if increase}}
       <section class="m20-panel">
         <h3>+1 to an ability score</h3>

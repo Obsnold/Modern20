@@ -24,6 +24,11 @@ export const FOUNDRY = process.env.FOUNDRY_DIR ?? path.resolve(REPO, "../Foundry
 export const DATA = process.env.FOUNDRY_TEST_DATA ?? path.resolve(REPO, "../foundry-test-data");
 const LICENSE = process.env.FOUNDRY_LICENSE ?? path.join(os.homedir(), ".local/share/FoundryVTT/Config/license.json");
 export const BROWSER = process.env.CHROMIUM ?? "/usr/bin/chromium";
+/**
+ * The browser's flags: the machine's GPU through Vulkan. Headless, Chromium otherwise draws Foundry's canvas in
+ * software (SwiftShader), which keeps the page so busy that every reply from the server waits about a second.
+ */
+export const BROWSER_ARGS = ["--enable-gpu", "--ignore-gpu-blocklist", "--use-angle=vulkan", "--enable-features=Vulkan"];
 export const PORT = Number(process.env.FOUNDRY_TEST_PORT ?? 30123);
 export const URL = `http://localhost:${PORT}`;
 
