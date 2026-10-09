@@ -45,6 +45,12 @@ function textStart(html, length = 240) {
   return text.length > length ? `${text.slice(0, length).replace(/\s+\S*$/, "")}…` : text;
 }
 
+/** A skill's specialties as the book lists them (Craft's, Knowledge's, the languages), but those in `rows` already. */
+function specialtiesToAdd(skill, rows) {
+  const had = new Set(rows.filter((r) => r.key === skill).map((r) => String(r.specialty ?? "").toLowerCase()));
+  return (SKILLS[skill]?.specialties ?? []).filter((x) => !had.has(x.toLowerCase()));
+}
+
 /** Open a compendium (the Feats, the Classes) to browse and read before choosing. */
 function browse(event, target) {
   game.packs.get(`${SYSTEM_ID}.${target.dataset.pack}`)?.render(true);
@@ -229,6 +235,8 @@ export class LevelUp extends HandlebarsApplicationMixin(ApplicationV2) {
       hitPoints: this.choices.hitPoints, maxHitPoints: plan.maxHitPoints,
       skills, specialtySkills: Object.entries(SKILLS).filter(([, s]) => s.specialties).map(([key, s]) => ({ key, name: s.name, selected: key === this.choices.newSpecialtySkill })),
       newSpecialty: this.choices.newSpecialty ?? "",
+      // The book's specialties of the skill chosen (Craft's, Knowledge's, the languages), to pick from as one types: not those had or added.
+      specialtyList: specialtiesToAdd(this.choices.newSpecialtySkill ?? Object.keys(SKILLS).find((k) => SKILLS[k].specialties), [...d.skills, ...this.choices.specialties.map((x) => ({ key: x.skill, specialty: x.specialty }))]),
       points: { total: plan.skillPoints, left, over: left < 0 },
       featList: feats, featSlots,
       bonus: plan.bonusFeat ? {

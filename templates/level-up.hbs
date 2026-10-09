@@ -52,7 +52,8 @@
       </table>
       <p>
         <select name="newSpecialtySkill">{{#each specialtySkills}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}</select>
-        <input type="text" name="newSpecialty" value="{{newSpecialty}}" placeholder="A specialty or language">
+        <input type="text" name="newSpecialty" value="{{newSpecialty}}" list="m20-levelup-specialties" placeholder="A specialty or language: type, or pick from the list">
+        <datalist id="m20-levelup-specialties">{{#each specialtyList}}<option value="{{this}}"></option>{{/each}}</datalist>
         <a data-action="addSpecialty" data-tooltip="Add it, to buy ranks in"><i class="fa-solid fa-plus"></i></a>
       </p>
     </section>

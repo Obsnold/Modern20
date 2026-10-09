@@ -2186,7 +2186,7 @@ export const CHECKS = {
     return errors;
   },
 
-  async "the level window: each choice's text to read before taking it, and a feat's prerequisites whichever window opened first"() {
+  async "the level window: each choice's text to read before taking it, a specialty picked from the book's, and a feat's prerequisites whichever window opened first"() {
     const errors = [];
     const { take, wait, doc } = window.m20test;
     const { LevelUp, Grant } = await import("/systems/modern20/module/levelup.mjs");
@@ -2220,6 +2220,16 @@ export const CHECKS = {
       // The occupation's feats, each with its own link.
       const given = [...app.element.querySelectorAll("label")].filter((l) => l.querySelector("input[name^='grant~']"));
       if (!given.length || !given.every((l) => l.nextElementSibling?.dataset?.action === "view")) errors.push("the occupation's feats have no read links");
+      // A specialty to add: the book's for the skill chosen, to pick from, but not one the character has.
+      const options = () => [...app.element.querySelectorAll("#m20-levelup-specialties option")].map((o) => o.value);
+      if (!options().includes("writing") || options().includes("chemical") === false) errors.push(`Craft's specialties offered: ${options().join(", ")}`);
+      const skill = app.element.querySelector("[name=newSpecialtySkill]");
+      skill.value = "knowledge";
+      skill.dispatchEvent(new Event("change", { bubbles: true }));
+      await wait(() => options().includes("history"), "Knowledge's specialties offered");
+      await actor.update({ "system.specialtySkills": [{ skill: "knowledge", specialty: "history", ranks: 1, misc: 0, classSkill: false, points: null }] });
+      await app.render();
+      await wait(() => options().includes("tactics") && !options().includes("history"), "Knowledge (history), had, not offered again");
       await app.close();
     } catch (e) {
       errors.push(e.message);

@@ -309,7 +309,8 @@ export class Modern20CharacterSheet extends HandlebarsApplicationMixin(ActorShee
       creatureType: d.creatureType ? d.creatureType[0].toUpperCase() + d.creatureType.slice(1) : "",
       sizes: SIZES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1), selected: v === system.size })),
       skills,
-      specialtyChoices: Object.entries(SKILLS).filter(([, s]) => s.specialties).map(([key, s]) => ({ key, name: s.name, specialties: s.specialties })),
+      // The book's specialties of each, to pick from as one types: not those the character has.
+      specialtyChoices: Object.entries(SKILLS).filter(([, s]) => s.specialties).map(([key, s]) => ({ key, name: s.name, specialties: s.specialties.filter((x) => !system.specialtySkills.some((o) => o.skill === key && o.specialty.toLowerCase() === x.toLowerCase())) })),
       itemLists,
       // The calibers of the character's guns, offered for a special load's caliber.
     calibers: [...new Set(ofType("weapon").map((w) => caliberIn(w)).filter(Boolean))],
