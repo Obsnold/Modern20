@@ -8,6 +8,8 @@ import { logContext } from "../log.mjs";
 import { conditionStatus } from "./creature-sheet.mjs";
 import { SPEEDS, DRIVING, CREW, VEHICLE_SLOTS, reachable, atSpeed, vehicleState, vehicleOverLimit } from "../rules/vehicles.mjs";
 import { driveCheck, fireWeapon, driverOf, collide, repair } from "../vehicles.mjs";
+import { reloadWeapon } from "../ammo.mjs";
+import { magazineOf } from "../rules/ammo.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -34,6 +36,7 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
       collide: Modern20VehicleSheet.#onCollide,
       repair: Modern20VehicleSheet.#onRepair,
       fireWeapon: Modern20VehicleSheet.#onFireWeapon,
+      reloadWeapon: Modern20VehicleSheet.#onReloadWeapon,
     },
   };
 
@@ -70,7 +73,12 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
         const who = fromUuidSync(o.uuid);
         return { index, name: who?.name ?? o.name, img: who?.img ?? "", roles: ROLES.map(([value, label]) => ({ value, label, selected: value === o.role })) };
       }),
-      weapons: actor.items.filter((i) => i.type === "weapon").map((i) => ({ id: i.id, name: i.name, img: i.img, detail: [i.system.damage?.value, i.system.critical && `crit ${i.system.critical}`, i.system.damageType, i.system.rangeIncrement?.value].filter(Boolean).join(", ") })),
+      // Each with its rounds, where it holds a magazine (the tank cannon's one): reloaded here, a vehicle having no Gear tab.
+      weapons: actor.items.filter((i) => i.type === "weapon").map((i) => {
+        const mag = magazineOf(i.system.magazine);
+        const counted = !!mag && mag.capacity !== Infinity;
+        return { id: i.id, name: i.name, img: i.img, magazine: counted, loaded: counted ? `${i.system.loaded ?? 0}/${mag.capacity}` : "", detail: [i.system.damage?.value, i.system.critical && `crit ${i.system.critical}`, i.system.damageType, i.system.rangeIncrement?.value, counted && `${i.system.loaded ?? 0}/${mag.capacity} loaded`].filter(Boolean).join(", ") };
+      }),
       purchase: s.purchaseDC.value || (s.purchaseDC.dc ?? ""), restriction: s.restriction.value,
       skillName,
       driverText: driver ? `${driver.name} at the wheel, with its maneuver ${signed(s.maneuver)}` : `No one at the wheel: the crew (${CREW[s.crewQuality]?.label.toLowerCase() ?? "normal"}, ${signed(CREW[s.crewQuality]?.check ?? 2)}), with its maneuver ${signed(s.maneuver)}`,
@@ -156,6 +164,11 @@ export class Modern20VehicleSheet extends Editable(HandlebarsApplicationMixin(Ac
   static #onFireWeapon(event, target) {
     const weapon = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     if (weapon) return fireWeapon(this.document, weapon, event);
+  }
+
+  static async #onReloadWeapon(event, target) {
+    const weapon = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+    if (weapon) await reloadWeapon(this.document, weapon);
   }
 
   static #onEditItem(event, target) { this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId)?.sheet.render(true); }

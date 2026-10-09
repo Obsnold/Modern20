@@ -20,7 +20,7 @@ export async function spendAmmo(actor, weapon, mode = "single") {
   const supply = ammo && ammo.system.quantity !== null ? ammo.system.quantity : null;
   const r = A.fire(weapon, mode, { loaded: weapon.system.loaded ?? 0, supply });
   if (!r.ok) {
-    ui.notifications.warn(`${weapon.name}: ${r.reason}.${A.magazineOf(weapon.system.magazine) ? " Reload it on the Gear tab." : ""}`);
+    ui.notifications.warn(`${weapon.name}: ${r.reason}.${A.magazineOf(weapon.system.magazine) ? ` Reload it on ${weapon.actor?.type === "vehicle" ? "the vehicle's sheet" : "the Gear tab"}.` : ""}`);
     return false;
   }
   if (r.loaded !== (weapon.system.loaded ?? 0)) await weapon.update({ "system.loaded": r.loaded });
@@ -33,7 +33,8 @@ export async function reloadWeapon(actor, weapon) {
   const mag = A.magazineOf(weapon.system.magazine);
   if (!mag || mag.capacity === Infinity) return ui.notifications.info(`${weapon.name} is not reloaded by magazine${mag ? "; a belt feeds it" : ""}.`);
   const ammo = ammoFor(actor, weapon);
-  if (!ammo && weapon.system.noAmmunition) return refill(actor, weapon, mag);
+  // A vehicle carries no ammunition items: its mounted weapons refill (the tank's cannon, the Bradley's).
+  if (!ammo && (weapon.system.noAmmunition || actor.type === "vehicle")) return refill(actor, weapon, mag);
   if (!ammo) return ui.notifications.warn(`${actor.name} has no ammunition for ${weapon.name}. Add some, and choose it on the weapon's row.`);
   // A different load (beanbag in place of buckshot): the rounds in it come out first, back to their box.
   const load = A.specialAmmo(identify(ammo)) ? identify(ammo) : "";

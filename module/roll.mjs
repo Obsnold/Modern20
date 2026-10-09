@@ -211,7 +211,7 @@ export function characterRolls(actor) {
         },
         // A firearm spends its rounds as it fires: none left, no attack. Fighting defensively starts with the attack.
         before: async (ticked) => {
-          if (!item.system.melee && !(await spendAmmo(actor, item, ticked.mode ?? modes[0]?.[0] ?? "single"))) return false;
+          if (!item.system.melee && !(await spendAmmo(vehicle ?? actor, item, ticked.mode ?? modes[0]?.[0] ?? "single"))) return false;
           await startDefensively(actor, ticked);
         },
       });
@@ -357,7 +357,8 @@ export function creatureRolls(actor) {
     save: (key, event) => rollD20(actor, R.printed(`${{ fort: "Fortitude", ref: "Reflex", will: "Will" }[key]} save`, s.saves[key], c.save(key)), event),
     skill: (index, event) => {
       const k = s.skills[index];
-      return rollD20(actor, R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus, c.skill(k.name)), event);
+      // Aboard a moving vehicle: its speed's penalty, as on a character's (module/vehicles.mjs).
+      return rollD20(actor, withTerms(R.printed(`${k.name}${k.specialty ? ` (${k.specialty})` : ""} check`, k.bonus, c.skill(k.name)), aboardTerms(actor, "check")), event);
     },
     grapple: (event) => rollD20(actor, R.printed("Grapple check (opposed)", s.grapple, c.grapple()), event),
     // An attack from the printed Attack or Full Attack line (rules/attacks.mjs): its choice, its place in that
@@ -365,7 +366,7 @@ export function creatureRolls(actor) {
     attack: (line, choice, index, bonus, event) => {
       const a = readAttacks(s[line])[choice]?.[index];
       if (!a) return null;
-      const build = (ticked = {}) => withTerms(attackRoll(a, bonus), [{ label: "Conditions", value: c.attack(a.kind) }, { label: "Fighting defensively", value: ticked.defensively ? -4 : 0 }]);
+      const build = (ticked = {}) => withTerms(attackRoll(a, bonus), [{ label: "Conditions", value: c.attack(a.kind) }, { label: "Fighting defensively", value: ticked.defensively ? -4 : 0 }, ...aboardTerms(actor, "attack")]);
       return rollD20(actor, build(), event, { attack: { actor: actor.uuid, line, choice, index, touch: a.touch } }, { options: defensiveOption(actor), rebuild: build, before: (ticked) => startDefensively(actor, ticked) });
     },
     damage: (line, choice, index, multiplier = 1) => {

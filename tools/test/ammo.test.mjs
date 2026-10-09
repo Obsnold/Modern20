@@ -15,6 +15,7 @@ test("magazines as printed", () => {
   assert.deepEqual(magazineOf("15 box"), { capacity: 15, type: "box" });
   assert.deepEqual(magazineOf("6 cyl."), { capacity: 6, type: "cylinder" });
   assert.deepEqual(magazineOf("7 int."), { capacity: 7, type: "internal" });
+  assert.deepEqual(magazineOf("1"), { capacity: 1, type: "internal" });
   assert.deepEqual(magazineOf("Linked"), { capacity: Infinity, type: "linked" });
   assert.equal(magazineOf("—"), null);
 });

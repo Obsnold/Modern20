@@ -9,6 +9,7 @@ import { rollCheck } from "./roll.mjs";
 import { skillCheck, d20 } from "./rules/rolls.mjs";
 import { applyToActor, stabiliseWithHelp } from "./damage.mjs";
 import { identify } from "./rules/identify.mjs";
+import { aboardTerms } from "./vehicles.mjs";
 import { SYSTEM_ID } from "./config.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s ?? ""));
 
@@ -33,7 +34,7 @@ export async function treatInjury(actor, event) {
   const surgeryFeat = actor.items.some((i) => i.type === "feat" && identify(i) === "surgery");
   const extra = T.treatmentTerms(chosen.task, { kit: chosen.kit, self, surgeryFeat }) ?? [];
   const base = skillCheck(d, row);
-  const spec = d20(`Treat Injury: ${task.label} (DC ${task.dc})`, [...base.terms, ...extra]);
+  const spec = d20(`Treat Injury: ${task.label} (DC ${task.dc})`, [...base.terms, ...extra, ...aboardTerms(actor, "check")]);
   const judge = (roll) => ({
     treatment: { healer: actor.uuid, patient: patient.uuid, patientName: patient.name, task: chosen.task, total: roll.total, success: roll.total >= task.dc, ranks: Math.floor(row?.ranks ?? 0) },
   });

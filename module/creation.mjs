@@ -9,6 +9,7 @@ import { buy } from "./wealth.mjs";
 import { rollCheck } from "./roll.mjs";
 import { skillCheck, d20 } from "./rules/rolls.mjs";
 import { identify } from "./rules/identify.mjs";
+import { aboardTerms } from "./vehicles.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s ?? ""));
 
 const ICONS = {
@@ -38,7 +39,7 @@ async function craftCheck(actor, specialty, dc, title) {
   const d = actor.system.derived;
   const row = d.skills.find((r) => r.key === "craft" && r.specialty.toLowerCase() === specialty);
   const base = row ? skillCheck(d, row) : d20(`Craft (${specialty}) check`, [{ label: "Intelligence", value: d.modifiers.int ?? 0 }]);
-  const spec = d20(`${title}: Craft (${specialty}) (DC ${dc})`, base.terms);
+  const spec = d20(`${title}: Craft (${specialty}) (DC ${dc})`, [...base.terms, ...aboardTerms(actor, "check")]);
   const roll = await rollCheck(actor, spec, undefined, { judge: (r) => ({ verdict: r.total >= dc ? { good: true, text: "Succeeds." } : { good: false, text: "Fails: the materials are used up." } }) });
   return roll ? roll.total >= dc : null;
 }

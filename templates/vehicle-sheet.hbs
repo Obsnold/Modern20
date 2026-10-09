@@ -43,7 +43,7 @@
             {{#if @root.canEdit}}<a data-action="removeOccupant" data-tooltip="Off the vehicle"><i class="fa-solid fa-xmark"></i></a>{{/if}}
           </div>
         {{else}}
-          <p class="m20-hint">No one. Drag a character or creature onto this sheet to put them aboard.</p>
+          <p class="m20-hint">No one. Drag a character or creature onto this sheet to put them aboard{{#unless @root.canEdit}}: its owner or the GM can{{/unless}}.</p>
         {{/each}}
       </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="m20-panel">
       <h3>Driving</h3>
       <p>
-        <a class="m20-roll-button" data-action="driveCheck" data-tooltip="A stunt (dash, hard brake, hard turn, bootleg turn, jump, sideswipe, avoid a hazard), keeping control, or a check of another DC"><i class="fa-solid fa-car"></i> {{v.skillName}} check</a>
+        {{#if canEdit}}<a class="m20-roll-button" data-action="driveCheck" data-tooltip="A stunt (dash, hard brake, hard turn, bootleg turn, jump, sideswipe, avoid a hazard), keeping control, or a check of another DC"><i class="fa-solid fa-car"></i> {{v.skillName}} check</a>{{/if}}
         <span class="m20-hint">{{v.driverText}}</span>
       </p>
       <dl class="m20-stats">
@@ -63,10 +63,10 @@
 
     <div class="m20-panel">
       <h3>Trouble</h3>
-      <p>
+      {{#if canEdit}}<p>
         <a class="m20-roll-button" data-action="collide" data-tooltip="It hit something: another vehicle, a creature (target it), or an object. Damage to both, those aboard by its cover, both slower, and the drivers' checks to keep control"><i class="fa-solid fa-car-burst"></i> Collision</a>
         <a class="m20-roll-button" data-action="repair" data-tooltip="An hour's work: a Repair check (DC 20), 2d6 hit points back"><i class="fa-solid fa-wrench"></i> Repair</a>
-      </p>
+      </p>{{else}}<p class="m20-hint">The vehicle's owner (or the GM) drives it, fires it and deals with its trouble.</p>{{/if}}
     </div>
 
     <div class="m20-panel">
@@ -91,7 +91,8 @@
           <img src="{{img}}" alt="" width="28" height="28">
           <a class="m20-item-name" data-action="editItem">{{name}}</a>
           <span class="m20-item-detail">{{detail}}</span>
-          <a data-action="fireWeapon" data-tooltip="Fire it: a gunner or the driver aboard, or the crew"><i class="fa-solid fa-crosshairs"></i></a>
+          {{#if @root.canEdit}}<a data-action="fireWeapon" data-tooltip="Fire it: a gunner or the driver aboard, or the crew"><i class="fa-solid fa-crosshairs"></i></a>
+          {{#if magazine}}<a data-action="reloadWeapon" data-tooltip="Reload it ({{loaded}} loaded)"><i class="fa-solid fa-rotate"></i></a>{{/if}}{{/if}}
           {{#if @root.canEdit}}<a data-action="deleteItem" data-tooltip="Remove"><i class="fa-solid fa-trash"></i></a>{{/if}}
         </div>
       {{else}}

@@ -2352,19 +2352,27 @@ export const CHECKS = {
       const abrams = await Actor.implementation.create((await doc("vehicles", "M1A2 Abrams (tracked tank)")).toObject());
       made.push(abrams);
       const cannon = abrams.items.find((i) => i.name === "M1A2 Abrams tank cannon");
+      // The crew fires its one round; the cannon is reloaded from the sheet's button, the vehicle carrying no ammunition items.
+      await cannon.update({ "system.loaded": 1 });
       n = game.messages.size;
       await fireWeapon(abrams, cannon);
       const crewCard = await card(n, (m) => m.getFlag("modern20", "attack")?.crew, "the crew's attack");
       if (!/Crew \(skilled\)/.test(crewCard.flavor)) errors.push("the crew's attack has no crew term");
+      if (cannon.system.loaded !== 0) errors.push(`the crew's shot leaves ${cannon.system.loaded} loaded, not 0`);
+      abrams.sheet.render(true);
+      const reload = await wait(() => abrams.sheet.element?.querySelector(`[data-item-id="${cannon.id}"] [data-action="reloadWeapon"]`), "the cannon's Reload button");
+      reload.click();
+      await wait(() => cannon.system.loaded === 1, `the cannon reloaded (${cannon.system.loaded})`);
+      await abrams.sheet.close();
       const gunner = await Actor.implementation.create({ name: "Gunner (test)", type: "character", system: { abilities } });
       made.push(gunner);
       await gunner.createEmbeddedDocuments("Item", [await take("feats", "Exotic Firearms Proficiency", { choice: "cannons" })]);
       await abrams.update({ "system.occupants": [{ uuid: gunner.uuid, name: gunner.name, role: "gunner" }] });
-      await cannon.update({ "system.loaded": 1 });
       n = game.messages.size;
       await fireWeapon(abrams, cannon);
       const shot = await card(n, (m) => m.getFlag("modern20", "attack")?.vehicle === abrams.uuid, "the gunner's attack");
       if (!/No Surface Vehicle Operation \(tracked\)/.test(shot.flavor)) errors.push("the gunner's attack with a tank's cannon has no −4 for Surface Vehicle Operation");
+      if (cannon.system.loaded !== 0) errors.push(`the gunner's shot leaves ${cannon.system.loaded} in the cannon, not 0`);
       // Its damage, from the card's button: the cannon's 10d12.
       const k = game.messages.size;
       let next = shot;
@@ -2423,6 +2431,19 @@ export const CHECKS = {
       await dialog({ who: mechanic.uuid }, "ok");
       await fixed;
       await wait(() => tank.system.hp.value > 30, `the Abrams repaired (${tank.system.hp.value})`);
+      // Disabled at highway speed: a category slower each of its turns.
+      await tank.update({ "system.hp.value": 0, "system.speed": "highway" });
+      const combat = await Combat.implementation.create({ scene: null });
+      try {
+        await combat.createEmbeddedDocuments("Combatant", [{ actorId: tank.id }]);
+        await combat.startCombat();
+        await wait(() => tank.system.speed === "street", `the disabled Abrams a category slower on its turn (${tank.system.speed})`);
+        await combat.nextRound();
+        await wait(() => tank.system.speed === "alley", `the disabled Abrams slower again on its next turn (${tank.system.speed})`);
+      } finally {
+        await combat.delete();
+      }
+      await tank.update({ "system.hp.value": tank.system.hp.max });
       // FX items on the bike: an Ablative Paint Job (+5 hardness) and a religious Dashboard Figurine (+2 Defense).
       await bike.createEmbeddedDocuments("Item", [await take("fx-items", "Ablative Paint Job"), await take("fx-items", "Dashboard Figurine", { fx: { choice: "religious" } })]);
       if (bike.system.derived.hardness !== 10) errors.push(`the bike's hardness with an Ablative Paint Job is ${bike.system.derived.hardness}, not 5 + 5`);
@@ -2431,6 +2452,14 @@ export const CHECKS = {
       await bike.update({ "system.speed": "street", "system.occupants": [{ uuid: rider.uuid, name: rider.name, role: "driver" }] });
       const c = occupantCover(rider);
       if (c?.defense !== 1 || c?.full) errors.push(`a rider at street speed on a bike (no cover) gets ${JSON.stringify(c)}`);
+      // Treating an injury aboard at street speed: its −1.
+      const { treatInjury } = await import("/systems/modern20/module/treat.mjs");
+      n = game.messages.size;
+      const treated = treatInjury(rider);
+      await dialog({ task: "restore" }, "ok");
+      await treated;
+      const aid = await card(n, (m) => /Treat Injury/.test(m.flavor ?? ""), "the rider's Treat Injury card");
+      if (!/Aboard Ducati/.test(aid.flavor)) errors.push("Treat Injury aboard a moving bike has no aboard penalty");
     } catch (e) {
       errors.push(e.message);
     }

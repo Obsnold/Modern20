@@ -6,6 +6,7 @@ import * as V from "./rules/vehicles.mjs";
 import * as R from "./rules/rolls.mjs";
 import { rollCheck, characterRolls, post } from "./roll.mjs";
 import { SYSTEM_ID } from "./config.mjs";
+import { spendAmmo } from "./ammo.mjs";
 const escape = (s) => foundry.utils.escapeHTML(String(s ?? ""));
 
 /** Every vehicle in the world and on the scene: world actors, and unlinked tokens' own. */
@@ -188,6 +189,7 @@ export async function fireWeapon(vehicle, weapon, event) {
     return characterRolls(firer).attack(weapon, event, { vehicle, extra });
   }
   // No one at it: the GM's crew, at its quality's attack bonus, the vehicle's speed and how it is driven.
+  if (!weapon.system.melee && !(await spendAmmo(vehicle, weapon))) return null;
   const a = V.aboard(s, "gunner");
   const q = V.CREW[s.crewQuality] ?? V.CREW.normal;
   const spec = R.d20(`${vehicle.name}: ${weapon.name} (crew)`, [{ label: `Crew (${q.label.toLowerCase()})`, value: q.attack }, { label: `Aboard (${a.speedLabel.toLowerCase()})`, value: a.attack }], { critical: R.critical(weapon.system.critical) });

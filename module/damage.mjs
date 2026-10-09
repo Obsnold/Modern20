@@ -9,6 +9,7 @@
  */
 import * as D from "./rules/damage.mjs";
 import * as V from "./rules/vehicles.mjs";
+import { aboardOf } from "./vehicles.mjs";
 import { readDefenses, damageParts, reduceDamage } from "./rules/resistance.mjs";
 import { characterRolls, creatureRolls } from "./roll.mjs";
 import { SYSTEM_ID } from "./config.mjs";
@@ -305,6 +306,13 @@ export function registerTurnHooks() {
     if (!game.user.isActiveGM || !("turn" in changes || "round" in changes)) return;
     const actor = combat.combatant?.actor;
     for (const id of ["fightingDefensively", "totalDefense"]) if (actor?.statuses.has(id)) await actor.toggleStatusEffect(id, { active: false });
+    // A disabled vehicle, its turn (or its driver's): one speed category slower, until it stops (DamagingVehicles).
+    const vehicle = actor?.type === "vehicle" ? actor : aboardOf(actor)?.role === "driver" ? aboardOf(actor).vehicle : null;
+    if (vehicle?.system.derived?.state && vehicle.system.speed !== "stationary") {
+      const slower = V.slowerBy(vehicle.system.speed, 1);
+      await vehicle.update({ "system.speed": slower });
+      await ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor: vehicle }), content: `<div class="m20-roll"><p>${escape(vehicle.name)} is disabled: down to ${escape(V.SPEEDS[slower].label.toLowerCase())}.</p></div>` });
+    }
   });
 }
 

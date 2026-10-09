@@ -22,6 +22,8 @@ export const AUTOFIRE_REFLEX_DC = 15;
 export function magazineOf(text) {
   const t = (text ?? "").trim();
   if (/^linked$/i.test(t)) return { capacity: Infinity, type: "linked" };
+  // A count with no type (the Abrams' cannon, "1" in Table: Vehicle Weapons): loaded a round at a time, as an internal one.
+  if (/^\d+$/.test(t)) return { capacity: Number(t), type: "internal" };
   const m = t.match(/^(\d+)\s*(box|cyl|int)/i);
   if (!m) return null;
   return { capacity: Number(m[1]), type: { box: "box", cyl: "cylinder", int: "internal" }[m[2].toLowerCase()] };
